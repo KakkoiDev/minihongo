@@ -1,0 +1,1 @@
+/home/kakkoidev/.aidb/minihongo/main/minimal_japanese_grammar_v4_pure.md
