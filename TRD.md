@@ -2,7 +2,7 @@
 
 **Status**: Authoritative spec — single source of truth for the project.
 
-Minihongo ミニ本語 is a minimal Japanese fluency system. 354 core words + grammar + loanwords = ability to express any idea. The curriculum is self-bootstrapping: the language explains itself.
+Minihongo ミニ本語 is a minimal Japanese fluency system. 360 core words + grammar + loanwords = ability to express any idea. The curriculum is self-bootstrapping: the language explains itself.
 
 ---
 
@@ -11,7 +11,7 @@ Minihongo ミニ本語 is a minimal Japanese fluency system. 354 core words + gr
 | # | Lesson | Content | Cards |
 |---|--------|---------|-------|
 | 1 | Hiragana | 46 base + 25 dakuten/handakuten + 33 combinations = 104 chars | ~208 (2 templates) |
-| 2 | Vocabulary | All 354 base words grouped by category | ~1,062 (3 templates) |
+| 2 | Vocabulary | All 360 base words grouped by category | ~1,080 (3 templates) |
 | 3 | Grammar | 16 particles, verb conjugation, sentence patterns, complex sentences | ~150 (3 templates) |
 | 4 | Katakana | 46 base + 25 dakuten/handakuten + 33 combinations + special rules (ー, ッ, ファ etc) | ~208 (2 templates) |
 | 5 | Word Building | Real compounds (~310) + creative circumlocution (~200) + loanwords (246) + false friends | ~2,268 (3 templates) |
@@ -34,7 +34,7 @@ Content:
 
 ### Lesson 2: Vocabulary
 
-**Objective**: Learn all 354 base words.
+**Objective**: Learn all 360 base words.
 
 Words are grouped by category:
 - Pronouns & People
@@ -42,13 +42,13 @@ Words are grouped by category:
 - Nature & Elements
 - Living Things
 - Body Parts
-- Verbs (67 words)
+- Verbs (77 words)
 - Adjectives & Qualities
 - Colors & Senses
 - Time & Space
 - Logic & Connectors & Essentials
 
-All words presented in kana/kanji with furigana. Every word appears inside a sentence that uses only the 354-word vocabulary.
+All words presented in kana/kanji with furigana. Every word appears inside a sentence that uses only the 360-word vocabulary.
 
 ### Lesson 3: Grammar
 
@@ -86,7 +86,7 @@ Sub-sections:
 **Objective**: Read and produce connected text in minihongo.
 
 Content:
-- Short stories using only the 354-word vocabulary
+- Short stories using only the 360-word vocabulary
 - Conversations: daily life, shopping, directions, introductions
 - Practical scenarios demonstrating circumlocution in action
 
@@ -99,7 +99,7 @@ Content:
 | Romaji | **None** | All content in kana/kanji with furigana. Romaji is a crutch. |
 | Bilingual | **English / Minihongo toggle** | Site explains itself in its own language. |
 | TTS engine | **Edge TTS** | Free, high quality. `ja-JP-NanamiNeural` / `ja-JP-KeitaNeural`. |
-| Card style | **Sentence-based** | Every word in context. Only 354-word vocabulary in sentences. |
+| Card style | **Sentence-based** | Every word in context. Only 360-word vocabulary in sentences. |
 | Furigana | **Tappable reveal** | Question side shows kanji; tap to reveal reading. |
 | Katakana words | **246 words, 2 tiers** | Tier 3 cut, duplicates trimmed. Reviewed. |
 
@@ -138,7 +138,7 @@ minihongo.com/
 ├── reference/
 │   ├── hiragana.html           # Hiragana chart
 │   ├── katakana.html           # Katakana chart
-│   ├── vocabulary.html         # Full 354-word list
+│   ├── vocabulary.html         # Full 360-word list
 │   └── grammar.html            # Grammar cheat sheet
 ├── anki.html                   # Anki deck download
 └── minihongo.apkg              # Anki deck file
@@ -149,7 +149,7 @@ minihongo.com/
 - `<div class="en">` and `<div class="mh">` blocks in same page
 - JS toggle: swap visibility via CSS class on `<body>`
 - Persists via localStorage
-- Minihongo content uses the self-bootstrapped grammar (written in 354 words)
+- Minihongo content uses the self-bootstrapped grammar (written in 360 words)
 
 ### Furigana Toggle
 
@@ -213,7 +213,7 @@ Every word is presented inside a sentence. Every sentence uses only the 354 base
 ```
 Minihongo/
 ├── 0. Hiragana/             # 104 chars, 2 templates
-├── 1. Vocabulary/           # 354 words, 3 templates each
+├── 1. Vocabulary/           # 360 words, 3 templates each
 ├── 2. Grammar/              # ~50 pattern sentences, 3 templates
 ├── 3. Katakana/             # 104 chars, 2 templates
 ├── 4. Word Building/        # Compounds + loanwords + false friends, 3 templates
@@ -232,7 +232,7 @@ Minihongo/
 ### Sentence Validation
 
 ```
-Parse sentence -> strip furigana -> tokenize (fugashi/mecab) -> check against 354-word list -> flag violations
+Parse sentence -> strip furigana -> tokenize (fugashi/mecab) -> check against 360-word list -> flag violations
 ```
 
 ### Tagging
@@ -251,18 +251,18 @@ Tags:
 | Deck | Notes | Cards |
 |------|-------|-------|
 | 0. Hiragana | 104 | 208 (x2) |
-| 1. Vocabulary | 354 | 1,062 (x3) |
+| 1. Vocabulary | 360 | 1,080 (x3) |
 | 2. Grammar | ~50 | ~150 (x3) |
 | 3. Katakana | 104 | 208 (x2) |
 | 4. Word Building | ~756 | ~2,268 (x3) |
 | 5. Dialogs | ~50 | ~150 (x3) |
-| **Total** | **~1,418** | **~4,046** |
+| **Total** | **~1,424** | **~4,064** |
 
 ### Generation Pipeline
 
 ```bash
 # 1. Prepare sentence data (CSV per deck)
-python scripts/validate_sentences.py       # Check against 354-word list
+python scripts/validate_sentences.py       # Check against 360-word list
 
 # 2. Generate audio
 python scripts/generate_audio.py --all     # Edge TTS, cached by hash
@@ -301,7 +301,8 @@ python scripts/generate_deck.py -o minihongo.apkg
 - [ ] Split vocabulary into lesson groups
 - [ ] Write English lesson text for each of 6 lessons
 - [ ] Write minihongo lesson text for bilingual toggle
-- [ ] Validate: every example uses only 354-word set
+- [x] Review and clean up core vocabulary (360 words, recategorized, furigana format)
+- [ ] Validate: every example uses only 360-word set
 - [x] Review and finalize katakana loanword selection (246 words, 2 tiers)
 
 ### Phase 2: Anki Deck
