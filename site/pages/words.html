@@ -1,0 +1,33 @@
+<page-layout>
+  <span slot="title">Words — Minihongo</span>
+
+  <h1>Words</h1>
+
+  <!-- Pure CSS furigana toggle — no JS needed -->
+  <label class="toggle">
+    <input type="checkbox" id="furigana-toggle" checked>
+    Show readings
+  </label>
+
+  <vocab-card>
+    <span slot="word"><ruby>人<rt>ひと</rt></ruby></span>
+    <span slot="meaning">person, people</span>
+    <div class="sentence">
+      <p lang="ja">あの <ruby>人<rt>ひと</rt></ruby> は <ruby>誰<rt>だれ</rt></ruby>？</p>
+      <p>Who is that person?</p>
+    </div>
+    <div class="sentence">
+      <p lang="ja"><ruby>人<rt>ひと</rt></ruby> が いる。</p>
+      <p>There is a person.</p>
+    </div>
+  </vocab-card>
+
+  <vocab-card>
+    <span slot="word"><ruby>私<rt>わたし</rt></ruby></span>
+    <span slot="meaning">I, me</span>
+    <div class="sentence">
+      <p lang="ja"><ruby>私<rt>わたし</rt></ruby> は <ruby>人<rt>ひと</rt></ruby> です。</p>
+      <p>I am a person.</p>
+    </div>
+  </vocab-card>
+</page-layout>

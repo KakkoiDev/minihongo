@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title><slot name="title">Minihongo</slot></title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <nav>
+    <a href="/" class="logo" lang="ja">ミニ本語</a>
+    <a href="/words.html">Words</a>
+  </nav>
+
+  <main id="content">
+    <slot></slot>
+  </main>
+
+  <!-- htmz: partial page loads via hidden iframe -->
+  <!-- Links with target="htmz" load into this iframe. -->
+  <!-- The hash (#content) tells htmz which element to replace. -->
+  <!-- View Transitions API smooths the swap when available. -->
+  <iframe hidden name="htmz" onload="htmzSwap(this)"></iframe>
+  <script>
+    // Rewrite nav links for htmz (progressive enhancement: plain links still work)
+    document.querySelectorAll('nav a:not(.logo)').forEach(a => {
+      a.target = 'htmz'
+      a.href = '/_f' + new URL(a.href).pathname + '#content'
+    })
+    function htmzSwap(frame) {
+      setTimeout(() => {
+        const hash = frame.contentWindow.location.hash
+        const nodes = [...frame.contentWindow.document.body.childNodes]
+        const swap = () => document.querySelector(hash || null)?.replaceWith(...nodes)
+        document.startViewTransition ? document.startViewTransition(swap) : swap()
+      })
+    }
+  </script>
+</body>
+</html>
