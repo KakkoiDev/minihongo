@@ -14,7 +14,7 @@ Minihongo ミニ本語 is a minimal Japanese fluency system. 354 core words + gr
 | 2 | Vocabulary | All 354 base words grouped by category | ~1,062 (3 templates) |
 | 3 | Grammar | 16 particles, verb conjugation, sentence patterns, complex sentences | ~150 (3 templates) |
 | 4 | Katakana | 46 base + 25 dakuten/handakuten + 33 combinations + special rules (ー, ッ, ファ etc) | ~208 (2 templates) |
-| 5 | Word Building | Real compounds (~310) + creative circumlocution (~200) + loanwords (250) + false friends | ~2,580 (3 templates) |
+| 5 | Word Building | Real compounds (~310) + creative circumlocution (~200) + loanwords (246) + false friends | ~2,268 (3 templates) |
 | 6 | Texts & Dialogs | Short stories, conversations, practical scenarios in minihongo | ~150 (3 templates) |
 
 **Reference pages**: Hiragana chart, Katakana chart, vocabulary lookup, grammar cheat sheet.
@@ -78,10 +78,8 @@ Content:
 Sub-sections:
 1. **Real compounds** (~310): Productive patterns (~方, ~物, ~手, ~中), nature/body/abstract compounds
 2. **Creative circumlocution** (~200): Describe anything by combining base words (e.g., 空へ行く機械 = airplane)
-3. **Loanwords** (250): Essential katakana loanwords across all categories
-4. **False friends**: Wasei-eigo traps with correct meanings
-
-> **PENDING**: User wants to review the 300-word katakana loanword selection before finalizing. Current target is 250 after review.
+3. **Loanwords** (246): 2-tier katakana loanwords (117 essential + 129 common)
+4. **False friends**: 35+ wasei-eigo traps with correct meanings
 
 ### Lesson 6: Texts & Dialogs
 
@@ -103,7 +101,7 @@ Content:
 | TTS engine | **Edge TTS** | Free, high quality. `ja-JP-NanamiNeural` / `ja-JP-KeitaNeural`. |
 | Card style | **Sentence-based** | Every word in context. Only 354-word vocabulary in sentences. |
 | Furigana | **Tappable reveal** | Question side shows kanji; tap to reveal reading. |
-| Katakana words | **Review pending** | User will review the 300-word selection before finalizing. |
+| Katakana words | **246 words, 2 tiers** | Tier 3 cut, duplicates trimmed. Reviewed. |
 
 ---
 
@@ -256,9 +254,9 @@ Tags:
 | 1. Vocabulary | 354 | 1,062 (x3) |
 | 2. Grammar | ~50 | ~150 (x3) |
 | 3. Katakana | 104 | 208 (x2) |
-| 4. Word Building | ~860 | ~2,580 (x3) |
+| 4. Word Building | ~756 | ~2,268 (x3) |
 | 5. Dialogs | ~50 | ~150 (x3) |
-| **Total** | **~1,522** | **~4,358** |
+| **Total** | **~1,418** | **~4,046** |
 
 ### Generation Pipeline
 
@@ -304,7 +302,7 @@ python scripts/generate_deck.py -o minihongo.apkg
 - [ ] Write English lesson text for each of 6 lessons
 - [ ] Write minihongo lesson text for bilingual toggle
 - [ ] Validate: every example uses only 354-word set
-- [ ] Review and finalize katakana loanword selection (250 words)
+- [x] Review and finalize katakana loanword selection (246 words, 2 tiers)
 
 ### Phase 2: Anki Deck
 - [ ] Write sentence data (CSV per deck)
