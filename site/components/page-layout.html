@@ -24,6 +24,8 @@
       a.target = 'htmz'
       a.href = '/_f' + new URL(a.href).pathname + '#content'
     })
+    // Service worker registration
+    navigator.serviceWorker?.register('/static/sw.js')
   </script>
 </body>
 </html>
