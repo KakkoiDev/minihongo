@@ -109,6 +109,10 @@ def build():
     if STATIC.exists():
         shutil.copytree(STATIC, OUT / "static")
 
+    # Copy root-level files (sw.js etc.)
+    for f in ROOT.glob("*.js"):
+        shutil.copy2(f, OUT / f.name)
+
     components = load_components()
     print(f"components: {', '.join(components)}")
 
