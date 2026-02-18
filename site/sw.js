@@ -1,5 +1,6 @@
 const CACHE = 'minihongo-v1'
 const MAX_AGE = 60_000 // 1 minute in ms
+const NET_TIMEOUT = 2_000 // network-first timeout in ms
 
 self.addEventListener('install', () => {
   self.skipWaiting()
@@ -16,35 +17,58 @@ self.addEventListener('activate', e => {
 self.addEventListener('fetch', e => {
   if (e.request.method !== 'GET') return
 
-  e.respondWith(
-    caches.open(CACHE).then(async cache => {
-      const cached = await cache.match(e.request)
+  const url = new URL(e.request.url)
 
-      // Background refresh if stale or missing
-      const age = cached?.headers.get('x-cached-at')
-      const stale = !age || (Date.now() - Number(age)) > MAX_AGE
-
-      if (stale) {
-        const refresh = fetch(e.request).then(res => {
-          if (res.ok) {
-            // Clone and stamp with cache time
-            const headers = new Headers(res.headers)
-            headers.set('x-cached-at', String(Date.now()))
-            const stamped = new Response(res.clone().body, {
-              status: res.status,
-              statusText: res.statusText,
-              headers,
-            })
-            cache.put(e.request, stamped)
-          }
-          return res
-        }).catch(() => cached) // network fail -> use cache
-
-        // If we have a cached version, serve it now. Otherwise wait for network.
-        return cached || refresh
-      }
-
-      return cached
-    })
-  )
+  // Fragments: network-first (small, want fresh content)
+  // Everything else: stale-while-revalidate (instant loads)
+  if (url.pathname.startsWith('/_f/')) {
+    e.respondWith(networkFirst(e.request))
+  } else {
+    e.respondWith(staleWhileRevalidate(e.request))
+  }
 })
+
+async function networkFirst(request) {
+  const cache = await caches.open(CACHE)
+  try {
+    const res = await timeout(fetch(request), NET_TIMEOUT)
+    if (res.ok) cache.put(request, res.clone())
+    return res
+  } catch {
+    return await cache.match(request) || new Response('Offline', { status: 503 })
+  }
+}
+
+async function staleWhileRevalidate(request) {
+  const cache = await caches.open(CACHE)
+  const cached = await cache.match(request)
+
+  const age = cached?.headers.get('x-cached-at')
+  const stale = !age || (Date.now() - Number(age)) > MAX_AGE
+
+  if (stale) {
+    const refresh = fetch(request).then(res => {
+      if (res.ok) {
+        const headers = new Headers(res.headers)
+        headers.set('x-cached-at', String(Date.now()))
+        cache.put(request, new Response(res.clone().body, {
+          status: res.status,
+          statusText: res.statusText,
+          headers,
+        }))
+      }
+      return res
+    }).catch(() => cached)
+
+    return cached || refresh
+  }
+
+  return cached
+}
+
+function timeout(promise, ms) {
+  return Promise.race([
+    promise,
+    new Promise((_, reject) => setTimeout(() => reject(new Error('timeout')), ms)),
+  ])
+}
