@@ -17,24 +17,13 @@
   </main>
 
   <!-- htmz: partial page loads via hidden iframe -->
-  <!-- Links with target="htmz" load into this iframe. -->
-  <!-- The hash (#content) tells htmz which element to replace. -->
-  <!-- View Transitions API smooths the swap when available. -->
-  <iframe hidden name="htmz" onload="htmzSwap(this)"></iframe>
+  <iframe hidden name="htmz" onload="setTimeout(()=>document.querySelector(this.contentWindow.location.hash||null)?.replaceWith(...this.contentWindow.document.body.childNodes))"></iframe>
   <script>
     // Rewrite nav links for htmz (progressive enhancement: plain links still work)
     document.querySelectorAll('nav a:not(.logo)').forEach(a => {
       a.target = 'htmz'
       a.href = '/_f' + new URL(a.href).pathname + '#content'
     })
-    function htmzSwap(frame) {
-      setTimeout(() => {
-        const hash = frame.contentWindow.location.hash
-        const nodes = [...frame.contentWindow.document.body.childNodes]
-        const swap = () => document.querySelector(hash || null)?.replaceWith(...nodes)
-        document.startViewTransition ? document.startViewTransition(swap) : swap()
-      })
-    }
   </script>
 </body>
 </html>

@@ -127,17 +127,3 @@ body:has(#furigana-toggle:not(:checked)) rt {
   }
 }
 
-/* === View transitions (htmz swaps) === */
-main {
-  view-transition-name: content;
-}
-
-::view-transition-old(content) {
-  animation: fade-out 0.15s ease;
-}
-::view-transition-new(content) {
-  animation: fade-in 0.15s ease;
-}
-
-@keyframes fade-out { to { opacity: 0; } }
-@keyframes fade-in { from { opacity: 0; } }
