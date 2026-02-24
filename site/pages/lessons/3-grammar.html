@@ -9,14 +9,23 @@
     Show readings
   </label>
 
-  <h2 class="section-heading">第1: 文を作る (Building Sentences)</h2>
+  <h2 class="section-heading">第1: 文の作り方 (Sentence Basics)</h2>
 
   <grammar-point>
     <span slot="pattern">語順 (Word Order)</span>
     <span slot="explanation">The verb always comes last. Subject - Object - Verb.</span>
     <div class="sentence">
-      <p lang="ja"><ruby>私<rt>わたし</rt></ruby>は <ruby>食<rt>た</rt></ruby>べ<ruby>物<rt>もの</rt></ruby>を <ruby>食<rt>た</rt></ruby>べます</p>
-      <p>I eat food. (I + food + eat)</p>
+      <p lang="ja"><ruby>私<rt>わたし</rt></ruby>は <ruby>本<rt>ほん</rt></ruby>を <ruby>読<rt>よ</rt></ruby>みます</p>
+      <p>I read a book. (I + book + read)</p>
+    </div>
+  </grammar-point>
+
+  <grammar-point>
+    <span slot="pattern">です (polite) / だ (casual)</span>
+    <span slot="explanation">Equates two things. です is polite, だ is casual.</span>
+    <div class="sentence">
+      <p lang="ja"><ruby>私<rt>わたし</rt></ruby>は<ruby>先生<rt>せんせい</rt></ruby>です。→ <ruby>先生<rt>せんせい</rt></ruby>じゃありません → <ruby>先生<rt>せんせい</rt></ruby>でした</p>
+      <p>I am a teacher. → Not a teacher. → Was a teacher.</p>
     </div>
   </grammar-point>
 
@@ -26,8 +35,8 @@
     <span slot="pattern">は (wa)</span>
     <span slot="explanation">Topic marker — marks what you are talking about.</span>
     <div class="sentence">
-      <p lang="ja"><ruby>私<rt>わたし</rt></ruby>は<ruby>学生<rt>がくせい</rt></ruby>です。</p>
-      <p>I am a student. (As for me, student.)</p>
+      <p lang="ja"><ruby>私<rt>わたし</rt></ruby>は<ruby>先生<rt>せんせい</rt></ruby>です。</p>
+      <p>I am a teacher. (As for me, teacher.)</p>
     </div>
   </grammar-point>
 
@@ -44,8 +53,8 @@
     <span slot="pattern">を (o)</span>
     <span slot="explanation">Object marker — marks what the action is done to.</span>
     <div class="sentence">
-      <p lang="ja"><ruby>食<rt>た</rt></ruby>べ<ruby>物<rt>もの</rt></ruby>を<ruby>食<rt>た</rt></ruby>べます。</p>
-      <p>I eat food.</p>
+      <p lang="ja"><ruby>水<rt>みず</rt></ruby>を<ruby>飲<rt>の</rt></ruby>みます。</p>
+      <p>I drink water.</p>
     </div>
   </grammar-point>
 
@@ -86,36 +95,23 @@
       <p lang="ja"><ruby>私<rt>わたし</rt></ruby>の<ruby>本<rt>ほん</rt></ruby></p>
       <p>My book</p>
     </div>
-    <div class="sentence">
-      <p lang="ja"><ruby>国<rt>くに</rt></ruby>の<ruby>食<rt>た</rt></ruby>べ<ruby>物<rt>もの</rt></ruby></p>
-      <p>The country's food</p>
-    </div>
   </grammar-point>
 
   <grammar-point>
     <span slot="pattern">も (mo)</span>
     <span slot="explanation">Also, too — replaces は, が, or を.</span>
     <div class="sentence">
-      <p lang="ja"><ruby>友達<rt>ともだち</rt></ruby>は<ruby>学生<rt>がくせい</rt></ruby>です。<ruby>私<rt>わたし</rt></ruby>も<ruby>学生<rt>がくせい</rt></ruby>です。</p>
-      <p>My friend is a student. I am also a student.</p>
+      <p lang="ja"><ruby>友達<rt>ともだち</rt></ruby>は<ruby>先生<rt>せんせい</rt></ruby>です。<ruby>私<rt>わたし</rt></ruby>も<ruby>先生<rt>せんせい</rt></ruby>です。</p>
+      <p>My friend is a teacher. I am also a teacher.</p>
     </div>
   </grammar-point>
 
   <grammar-point>
     <span slot="pattern">と (to)</span>
-    <span slot="explanation">And (exhaustive list — only these items).</span>
+    <span slot="explanation">And (listing items).</span>
     <div class="sentence">
-      <p lang="ja"><ruby>水<rt>みず</rt></ruby>と<ruby>食<rt>た</rt></ruby>べ<ruby>物<rt>もの</rt></ruby>を<ruby>買<rt>か</rt></ruby>いました。</p>
-      <p>I bought water and food. (Only those two.)</p>
-    </div>
-  </grammar-point>
-
-  <grammar-point>
-    <span slot="pattern">や (ya)</span>
-    <span slot="explanation">And (partial list — these and more).</span>
-    <div class="sentence">
-      <p lang="ja"><ruby>水<rt>みず</rt></ruby>や<ruby>食<rt>た</rt></ruby>べ<ruby>物<rt>もの</rt></ruby>を<ruby>買<rt>か</rt></ruby>いました。</p>
-      <p>I bought water, food, etc.</p>
+      <p lang="ja"><ruby>水<rt>みず</rt></ruby>と<ruby>本<rt>ほん</rt></ruby>を<ruby>買<rt>か</rt></ruby>いました。</p>
+      <p>I bought water and a book.</p>
     </div>
   </grammar-point>
 
@@ -127,8 +123,8 @@
       <p>I walk from home to school.</p>
     </div>
     <div class="sentence">
-      <p lang="ja"><ruby>仕事<rt>しごと</rt></ruby>があるから、<ruby>行<rt>い</rt></ruby>けません。</p>
-      <p>I can't go because I have work.</p>
+      <p lang="ja"><ruby>寒<rt>さむ</rt></ruby>いから、<ruby>家<rt>いえ</rt></ruby>にいます。</p>
+      <p>Because it's cold, I stay home.</p>
     </div>
   </grammar-point>
 
@@ -142,33 +138,15 @@
   </grammar-point>
 
   <grammar-point>
-    <span slot="pattern">か (ka)</span>
-    <span slot="explanation">Question marker — placed at end of sentence.</span>
+    <span slot="pattern">か (ka) / ね (ne) / よ (yo)</span>
+    <span slot="explanation">か = question. ね = seeking agreement ("right?"). よ = asserting ("you know!").</span>
     <div class="sentence">
-      <p lang="ja"><ruby>学生<rt>がくせい</rt></ruby>ですか？</p>
-      <p>Are you a student?</p>
+      <p lang="ja"><ruby>先生<rt>せんせい</rt></ruby>ですか？</p>
+      <p>Are you a teacher?</p>
     </div>
-  </grammar-point>
-
-  <grammar-point>
-    <span slot="pattern">ね (ne) / よ (yo)</span>
-    <span slot="explanation">ね = seeking agreement ("right?"). よ = asserting information ("you know!").</span>
     <div class="sentence">
       <p lang="ja"><ruby>良<rt>よ</rt></ruby>い<ruby>日<rt>ひ</rt></ruby>ですね。</p>
       <p>Nice day, isn't it?</p>
-    </div>
-    <div class="sentence">
-      <p lang="ja"><ruby>今<rt>いま</rt></ruby>は<ruby>朝<rt>あさ</rt></ruby>ですよ。</p>
-      <p>It's morning, you know!</p>
-    </div>
-  </grammar-point>
-
-  <grammar-point>
-    <span slot="pattern">しか (shika)</span>
-    <span slot="explanation">Only — always used with negative verb.</span>
-    <div class="sentence">
-      <p lang="ja">お<ruby>金<rt>かね</rt></ruby>が<ruby>少<rt>すこ</rt></ruby>ししかありません。</p>
-      <p>I only have a little money.</p>
     </div>
   </grammar-point>
 
@@ -195,8 +173,8 @@
     <span slot="pattern">ます / ません / ました / ませんでした</span>
     <span slot="explanation">Polite present/negative/past/past-negative. Ru-verbs: drop る, add ます. U-verbs: change last sound to い-row, add ます.</span>
     <div class="sentence">
-      <p lang="ja"><ruby>食<rt>た</rt></ruby>べる → <ruby>食<rt>た</rt></ruby>べます / <ruby>食<rt>た</rt></ruby>べません / <ruby>食<rt>た</rt></ruby>べました / <ruby>食<rt>た</rt></ruby>べませんでした</p>
-      <p>eat → eat (polite) / don't eat / ate / didn't eat</p>
+      <p lang="ja"><ruby>食<rt>た</rt></ruby>べる → <ruby>食<rt>た</rt></ruby>べます / <ruby>食<rt>た</rt></ruby>べません / <ruby>食<rt>た</rt></ruby>べました</p>
+      <p>eat → eat (polite) / don't eat / ate</p>
     </div>
     <div class="sentence">
       <p lang="ja"><ruby>買<rt>か</rt></ruby>う → <ruby>買<rt>か</rt></ruby>います / <ruby>書<rt>か</rt></ruby>く → <ruby>書<rt>か</rt></ruby>きます / する → します</p>
@@ -215,11 +193,11 @@
     </div>
     <div class="sentence">
       <p lang="ja">う/つ/る → って: <ruby>買<rt>か</rt></ruby>う → <ruby>買<rt>か</rt></ruby>って</p>
-      <p>U-verbs ending う/つ/る → って: buy → buying</p>
+      <p>U-verbs ending う/つ/る → って</p>
     </div>
     <div class="sentence">
       <p lang="ja">む/ぶ/ぬ → んで: <ruby>飲<rt>の</rt></ruby>む → <ruby>飲<rt>の</rt></ruby>んで</p>
-      <p>U-verbs ending む/ぶ/ぬ → んで: drink → drinking</p>
+      <p>U-verbs ending む/ぶ/ぬ → んで</p>
     </div>
     <div class="sentence">
       <p lang="ja">く → いて: <ruby>書<rt>か</rt></ruby>く → <ruby>書<rt>か</rt></ruby>いて / す → して: <ruby>話<rt>はな</rt></ruby>す → <ruby>話<rt>はな</rt></ruby>して</p>
@@ -227,11 +205,9 @@
     </div>
   </grammar-point>
 
-  <h3>て形の使い方 (Te-Form Uses)</h3>
-
   <grammar-point>
     <span slot="pattern">て + ください</span>
-    <span slot="explanation">Please do ~. Polite request.</span>
+    <span slot="explanation">Please do ~.</span>
     <div class="sentence">
       <p lang="ja"><ruby>少<rt>すこ</rt></ruby>し<ruby>待<rt>ま</rt></ruby>ってください。</p>
       <p>Please wait a moment.</p>
@@ -248,29 +224,15 @@
   </grammar-point>
 
   <grammar-point>
-    <span slot="pattern">て + もいいですか</span>
-    <span slot="explanation">May I ~? Asking permission.</span>
+    <span slot="pattern">て + もいい / はいけない</span>
+    <span slot="explanation">もいい = may I? はいけない = must not.</span>
     <div class="sentence">
       <p lang="ja"><ruby>食<rt>た</rt></ruby>べてもいいですか？</p>
       <p>May I eat?</p>
     </div>
-  </grammar-point>
-
-  <grammar-point>
-    <span slot="pattern">て + はいけない</span>
-    <span slot="explanation">Must not ~. Prohibition.</span>
     <div class="sentence">
-      <p lang="ja">ここで<ruby>写真<rt>しゃしん</rt></ruby>を<ruby>取<rt>と</rt></ruby>ってはいけません。</p>
-      <p>You must not take photos here.</p>
-    </div>
-  </grammar-point>
-
-  <grammar-point>
-    <span slot="pattern">て + みる</span>
-    <span slot="explanation">Try doing ~.</span>
-    <div class="sentence">
-      <p lang="ja">この<ruby>食<rt>た</rt></ruby>べ<ruby>物<rt>もの</rt></ruby>を<ruby>食<rt>た</rt></ruby>べてみます。</p>
-      <p>I'll try eating this food.</p>
+      <p lang="ja">ここで<ruby>走<rt>はし</rt></ruby>ってはいけません。</p>
+      <p>You must not run here.</p>
     </div>
   </grammar-point>
 
@@ -298,7 +260,7 @@
     <span slot="pattern">できる形 (Potential)</span>
     <span slot="explanation">Can do ~. Ru-verbs: drop る, add られる. U-verbs: change to え-row, add る. する → できる.</span>
     <div class="sentence">
-      <p lang="ja"><ruby>言語<rt>げんご</rt></ruby>が<ruby>話<rt>はな</rt></ruby>せます。</p>
+      <p lang="ja"><ruby>言葉<rt>ことば</rt></ruby>が<ruby>話<rt>はな</rt></ruby>せます。</p>
       <p>I can speak the language.</p>
     </div>
   </grammar-point>
@@ -318,35 +280,20 @@
     <span slot="pattern">な形容詞 (na-Adjectives)</span>
     <span slot="explanation">Add な before nouns. Use じゃない (neg), だった (past), で (and).</span>
     <div class="sentence">
-      <p lang="ja"><ruby>便利<rt>べんり</rt></ruby>な コンピューター</p>
-      <p>A convenient computer</p>
+      <p lang="ja"><ruby>大切<rt>たいせつ</rt></ruby>な<ruby>物<rt>もの</rt></ruby></p>
+      <p>An important thing</p>
     </div>
     <div class="sentence">
-      <p lang="ja"><ruby>便利<rt>べんり</rt></ruby> → <ruby>便利<rt>べんり</rt></ruby>じゃない → <ruby>便利<rt>べんり</rt></ruby>だった → <ruby>便利<rt>べんり</rt></ruby>で</p>
-      <p>convenient → not convenient → was convenient → convenient and...</p>
+      <p lang="ja"><ruby>大切<rt>たいせつ</rt></ruby> → <ruby>大切<rt>たいせつ</rt></ruby>じゃない → <ruby>大切<rt>たいせつ</rt></ruby>だった → <ruby>大切<rt>たいせつ</rt></ruby>で</p>
+      <p>important → not important → was important → important and...</p>
     </div>
   </grammar-point>
 
-  <h2 class="section-heading">第5: です と だ (Copula)</h2>
+  <h2 class="section-heading">第5: 大切な使い方 (Key Patterns)</h2>
 
   <grammar-point>
-    <span slot="pattern">です (polite) / だ (casual)</span>
-    <span slot="explanation">Equates nouns. です is polite, だ is casual.</span>
-    <div class="sentence">
-      <p lang="ja"><ruby>私<rt>わたし</rt></ruby>は<ruby>学生<rt>がくせい</rt></ruby>です。→ <ruby>学生<rt>がくせい</rt></ruby>じゃありません → <ruby>学生<rt>がくせい</rt></ruby>でした</p>
-      <p>I am a student. → Not a student. → Was a student.</p>
-    </div>
-    <div class="sentence">
-      <p lang="ja"><ruby>学生<rt>がくせい</rt></ruby>だ。→ <ruby>学生<rt>がくせい</rt></ruby>じゃない。→ <ruby>学生<rt>がくせい</rt></ruby>だった。</p>
-      <p>Am a student. → Not a student. → Was a student. (casual)</p>
-    </div>
-  </grammar-point>
-
-  <h2 class="section-heading">第6: 大切な使い方 (Important Patterns)</h2>
-
-  <grammar-point>
-    <span slot="pattern">〜たい (Want to do)</span>
-    <span slot="explanation">Verb stem + たい. For wanting things, use 欲しい.</span>
+    <span slot="pattern">〜たい / 欲しい (Wanting)</span>
+    <span slot="explanation">Verb stem + たい = want to do. 欲しい = want a thing.</span>
     <div class="sentence">
       <p lang="ja"><ruby>国<rt>くに</rt></ruby>に<ruby>行<rt>い</rt></ruby>きたいです。</p>
       <p>I want to go to the country.</p>
@@ -358,7 +305,7 @@
   </grammar-point>
 
   <grammar-point>
-    <span slot="pattern">〜なければならない (Must do)</span>
+    <span slot="pattern">〜なければならない (Must)</span>
     <span slot="explanation">ない-form stem + なければならない. Short form: なきゃ.</span>
     <div class="sentence">
       <p lang="ja"><ruby>行<rt>い</rt></ruby>かなければなりません。</p>
@@ -367,15 +314,11 @@
   </grammar-point>
 
   <grammar-point>
-    <span slot="pattern">あげる / くれる / もらう (Giving & Receiving)</span>
-    <span slot="explanation">あげる = give (to others). くれる = give (to me). もらう = receive.</span>
+    <span slot="pattern">与える / もらう (Giving & Receiving)</span>
+    <span slot="explanation">与える = give. もらう = receive.</span>
     <div class="sentence">
-      <p lang="ja"><ruby>友達<rt>ともだち</rt></ruby>に<ruby>本<rt>ほん</rt></ruby>をあげました。</p>
+      <p lang="ja"><ruby>友達<rt>ともだち</rt></ruby>に<ruby>本<rt>ほん</rt></ruby>を<ruby>与<rt>あた</rt></ruby>えました。</p>
       <p>I gave a book to my friend.</p>
-    </div>
-    <div class="sentence">
-      <p lang="ja"><ruby>友達<rt>ともだち</rt></ruby>が<ruby>本<rt>ほん</rt></ruby>をくれました。</p>
-      <p>My friend gave me a book.</p>
     </div>
     <div class="sentence">
       <p lang="ja"><ruby>友達<rt>ともだち</rt></ruby>から<ruby>本<rt>ほん</rt></ruby>をもらいました。</p>
@@ -384,8 +327,8 @@
   </grammar-point>
 
   <grammar-point>
-    <span slot="pattern">比べる (Comparison)</span>
-    <span slot="explanation">Use もっと for "more". Use 同じ for "same".</span>
+    <span slot="pattern">もっと / 同じ (Comparison)</span>
+    <span slot="explanation">もっと = more. 同じ = same.</span>
     <div class="sentence">
       <p lang="ja">これはもっと<ruby>大<rt>おお</rt></ruby>きいです。</p>
       <p>This is bigger.</p>
@@ -400,37 +343,28 @@
     <span slot="pattern">〜ましょう (Let's ~)</span>
     <span slot="explanation">Polite suggestion to do something together.</span>
     <div class="sentence">
-      <p lang="ja"><ruby>一緒<rt>いっしょ</rt></ruby>に<ruby>食<rt>た</rt></ruby>べましょう。</p>
-      <p>Let's eat together.</p>
+      <p lang="ja"><ruby>食<rt>た</rt></ruby>べましょう。</p>
+      <p>Let's eat.</p>
     </div>
   </grammar-point>
 
   <grammar-point>
-    <span slot="pattern">から / ので (Because)</span>
-    <span slot="explanation">から = because (casual/assertive). ので = because (softer).</span>
+    <span slot="pattern">なら (If)</span>
+    <span slot="explanation">Conditional — if something is true.</span>
     <div class="sentence">
-      <p lang="ja"><ruby>仕事<rt>しごと</rt></ruby>があるから、<ruby>行<rt>い</rt></ruby>けません。</p>
-      <p>I can't go because I have work.</p>
-    </div>
-  </grammar-point>
-
-  <grammar-point>
-    <span slot="pattern">もし〜なら (If)</span>
-    <span slot="explanation">Conditional. もし adds emphasis.</span>
-    <div class="sentence">
-      <p lang="ja">もし<ruby>時間<rt>じかん</rt></ruby>があるなら、<ruby>来<rt>き</rt></ruby>てください。</p>
+      <p lang="ja"><ruby>時<rt>とき</rt></ruby>があるなら、<ruby>来<rt>き</rt></ruby>てください。</p>
       <p>If you have time, please come.</p>
     </div>
   </grammar-point>
 
-  <h2 class="section-heading">第7: 聞く (Questions)</h2>
+  <h2 class="section-heading">第6: 聞く (Questions)</h2>
 
   <grammar-point>
-    <span slot="pattern">はい/いいえ Questions</span>
+    <span slot="pattern">はい / か Questions</span>
     <span slot="explanation">Add か to the end of a statement.</span>
     <div class="sentence">
-      <p lang="ja"><ruby>学生<rt>がくせい</rt></ruby>ですか？ — はい、<ruby>学生<rt>がくせい</rt></ruby>です。</p>
-      <p>Are you a student? — Yes, I am a student.</p>
+      <p lang="ja"><ruby>先生<rt>せんせい</rt></ruby>ですか？ — はい、<ruby>先生<rt>せんせい</rt></ruby>です。</p>
+      <p>Are you a teacher? — Yes, I am a teacher.</p>
     </div>
   </grammar-point>
 
@@ -442,80 +376,8 @@
       <p>What will you eat?</p>
     </div>
     <div class="sentence">
-      <p lang="ja"><ruby>誰<rt>だれ</rt></ruby>が<ruby>来<rt>き</rt></ruby>ますか？</p>
-      <p>Who is coming?</p>
-    </div>
-    <div class="sentence">
       <p lang="ja"><ruby>学校<rt>がっこう</rt></ruby>はどこですか？</p>
       <p>Where is the school?</p>
-    </div>
-  </grammar-point>
-
-  <h2 class="section-heading">第8: 時を言う (Expressing Time)</h2>
-
-  <grammar-point>
-    <span slot="pattern">時の言葉 (Time Words)</span>
-    <span slot="explanation">今日, 昨日, 明日 don't need に. Other time words use に.</span>
-    <div class="sentence">
-      <p lang="ja"><ruby>今日<rt>きょう</rt></ruby>、<ruby>学校<rt>がっこう</rt></ruby>に<ruby>行<rt>い</rt></ruby>きます。</p>
-      <p>I go to school today.</p>
-    </div>
-    <div class="sentence">
-      <p lang="ja"><ruby>朝<rt>あさ</rt></ruby>に<ruby>食<rt>た</rt></ruby>べます。</p>
-      <p>I eat in the morning.</p>
-    </div>
-  </grammar-point>
-
-  <h2 class="section-heading">第9: よく使う文 (Common Patterns)</h2>
-
-  <grammar-point>
-    <span slot="pattern">AはBです</span>
-    <span slot="explanation">A is B.</span>
-    <div class="sentence">
-      <p lang="ja"><ruby>私<rt>わたし</rt></ruby>は<ruby>学生<rt>がくせい</rt></ruby>です。</p>
-      <p>I am a student.</p>
-    </div>
-  </grammar-point>
-
-  <grammar-point>
-    <span slot="pattern">AはBが[形容詞]です</span>
-    <span slot="explanation">A's B is [adjective].</span>
-    <div class="sentence">
-      <p lang="ja">この<ruby>部屋<rt>へや</rt></ruby>は<ruby>大<rt>おお</rt></ruby>きいです。</p>
-      <p>This room is big.</p>
-    </div>
-  </grammar-point>
-
-  <grammar-point>
-    <span slot="pattern">AはBをVます</span>
-    <span slot="explanation">A does V to B.</span>
-    <div class="sentence">
-      <p lang="ja"><ruby>私<rt>わたし</rt></ruby>は<ruby>本<rt>ほん</rt></ruby>を<ruby>読<rt>よ</rt></ruby>みます。</p>
-      <p>I read a book.</p>
-    </div>
-  </grammar-point>
-
-  <grammar-point>
-    <span slot="pattern">場所にNがある/いる</span>
-    <span slot="explanation">There is N at [place]. ある for things, いる for living things.</span>
-    <div class="sentence">
-      <p lang="ja"><ruby>部屋<rt>へや</rt></ruby>に<ruby>本<rt>ほん</rt></ruby>があります。</p>
-      <p>There is a book in the room.</p>
-    </div>
-    <div class="sentence">
-      <p lang="ja"><ruby>家<rt>いえ</rt></ruby>に<ruby>人<rt>ひと</rt></ruby>がいます。</p>
-      <p>There is a person in the house.</p>
-    </div>
-  </grammar-point>
-
-  <h2 class="section-heading">第10: 二つの話し方 (Formal vs Casual)</h2>
-
-  <grammar-point>
-    <span slot="pattern">ます形 と 基本形</span>
-    <span slot="explanation">ます is polite (strangers, work). Basic form is casual (friends, family).</span>
-    <div class="sentence">
-      <p lang="ja"><ruby>食<rt>た</rt></ruby>べます → <ruby>食<rt>た</rt></ruby>べる / <ruby>行<rt>い</rt></ruby>きます → <ruby>行<rt>い</rt></ruby>く / です → だ</p>
-      <p>Polite → Casual: eat / go / is</p>
     </div>
   </grammar-point>
 
