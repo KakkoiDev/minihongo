@@ -27,6 +27,8 @@ jobs:
           python-version: "3.12"
 
       - run: python site/build.py
+        env:
+          BASE_URL: /minihongo/
 
       - uses: actions/configure-pages@v5
 

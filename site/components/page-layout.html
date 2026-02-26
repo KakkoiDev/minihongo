@@ -3,18 +3,19 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <base href="{{BASE_URL}}">
   <title><slot name="title">Minihongo</slot></title>
-  <link rel="stylesheet" href="/static/style.css">
+  <link rel="stylesheet" href="static/style.css">
 </head>
 <body>
   <nav>
-    <a href="/" class="logo" lang="ja">ミニ本語</a>
-    <a href="/lessons/1-hiragana.html">ひらがな</a>
-    <a href="/lessons/2-vocabulary.html">言葉</a>
-    <a href="/lessons/3-grammar.html">文法</a>
-    <a href="/lessons/4-katakana.html">カタカナ</a>
-    <a href="/lessons/5-word-building.html">言葉作り</a>
-    <a href="/lessons/6-texts-dialogs.html">読み物</a>
+    <a href="./" class="logo" lang="ja">ミニ本語</a>
+    <a href="lessons/1-hiragana.html">ひらがな</a>
+    <a href="lessons/2-vocabulary.html">言葉</a>
+    <a href="lessons/3-grammar.html">文法</a>
+    <a href="lessons/4-katakana.html">カタカナ</a>
+    <a href="lessons/5-word-building.html">言葉作り</a>
+    <a href="lessons/6-texts-dialogs.html">読み物</a>
   </nav>
 
   <main id="content">
@@ -27,10 +28,12 @@
     // Rewrite nav links for htmz (progressive enhancement: plain links still work)
     document.querySelectorAll('nav a:not(.logo)').forEach(a => {
       a.target = 'htmz'
-      a.href = '/_f' + new URL(a.href).pathname + '#content'
+      const base = document.querySelector('base').href
+      const path = new URL(a.href).pathname.replace(new URL(base).pathname, '')
+      a.href = base + '_f/' + path + '#content'
     })
     // Service worker registration
-    navigator.serviceWorker?.register('/sw.js')
+    navigator.serviceWorker?.register('sw.js')
   </script>
 </body>
 </html>

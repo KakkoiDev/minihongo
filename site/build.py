@@ -9,6 +9,7 @@ Minihongo static site builder.
 Usage: python site/build.py
 """
 
+import os
 import re
 import shutil
 from pathlib import Path
@@ -102,6 +103,10 @@ def extract_fragment(html):
 
 
 def build():
+    base_url = os.environ.get("BASE_URL", "/")
+    if not base_url.endswith("/"):
+        base_url += "/"
+
     if OUT.exists():
         shutil.rmtree(OUT)
     OUT.mkdir(parents=True)
@@ -122,6 +127,7 @@ def build():
     for src in sorted(PAGES.rglob("*.html")):
         rel = src.relative_to(PAGES)
         html = expand(src.read_text(), components)
+        html = html.replace("{{BASE_URL}}", base_url)
 
         # Full page
         dest = OUT / rel
