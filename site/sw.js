@@ -1,8 +1,29 @@
-const CACHE = 'minihongo-v1'
+const CACHE = 'minihongo-v2'
 const MAX_AGE = 60_000 // 1 minute in ms
 const NET_TIMEOUT = 2_000 // network-first timeout in ms
 
-self.addEventListener('install', () => {
+const PRECACHE = [
+  './',
+  'static/style.css',
+  'lessons/1-hiragana.html',
+  'lessons/2-vocabulary.html',
+  'lessons/3-grammar.html',
+  'lessons/4-katakana.html',
+  'lessons/5-word-building.html',
+  'lessons/6-texts-dialogs.html',
+  '_f/index.html',
+  '_f/lessons/1-hiragana.html',
+  '_f/lessons/2-vocabulary.html',
+  '_f/lessons/3-grammar.html',
+  '_f/lessons/4-katakana.html',
+  '_f/lessons/5-word-building.html',
+  '_f/lessons/6-texts-dialogs.html',
+]
+
+self.addEventListener('install', e => {
+  e.waitUntil(
+    caches.open(CACHE).then(c => c.addAll(PRECACHE))
+  )
   self.skipWaiting()
 })
 
