@@ -38,9 +38,12 @@
         // Extract page URL from fragment URL (_f/lessons/x.html -> lessons/x.html)
         const fragPath = loc.pathname.replace(basePath, '')
         const pagePath = fragPath.replace(/^_f\//, '')
-        const title = frame.contentDocument.querySelector('h1')?.textContent || 'Minihongo'
 
-        target.replaceWith(...frame.contentDocument.body.childNodes)
+        // Get inner content of the fragment's <main>, not the <main> itself
+        const frag = frame.contentDocument.querySelector('main') || frame.contentDocument.body
+        const title = frag.querySelector('h1')?.textContent || 'Minihongo'
+
+        target.replaceChildren(...frag.childNodes)
         document.title = title + ' — Minihongo'
 
         // Push URL (skip if already there or on initial load)
