@@ -9,6 +9,7 @@ Minihongo static site builder.
 Usage: python site/build.py
 """
 
+import hashlib
 import os
 import re
 import shutil
@@ -140,6 +141,18 @@ def build():
         frag.write_text(extract_fragment(html))
 
         print(f"  {rel}")
+
+    # Hash all output files for cache busting
+    h = hashlib.sha256()
+    for f in sorted(OUT.rglob("*")):
+        if f.is_file() and f.name != "sw.js":
+            h.update(f.read_bytes())
+    cache_hash = h.hexdigest()[:8]
+
+    # Inject hash into sw.js
+    sw = OUT / "sw.js"
+    sw.write_text(sw.read_text().replace("{{CACHE_HASH}}", cache_hash))
+    print(f"  cache: {cache_hash}")
 
     print(f"-> {OUT}/")
 

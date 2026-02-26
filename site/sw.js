@@ -1,4 +1,4 @@
-const CACHE = 'minihongo-v2'
+const CACHE = 'minihongo-{{CACHE_HASH}}'
 const MAX_AGE = 60_000 // 1 minute in ms
 const NET_TIMEOUT = 2_000 // network-first timeout in ms
 
@@ -20,10 +20,7 @@ const PRECACHE = [
   '_f/lessons/6-texts-dialogs.html',
 ]
 
-self.addEventListener('install', e => {
-  e.waitUntil(
-    caches.open(CACHE).then(c => c.addAll(PRECACHE))
-  )
+self.addEventListener('install', () => {
   self.skipWaiting()
 })
 
@@ -32,6 +29,10 @@ self.addEventListener('activate', e => {
     caches.keys().then(keys =>
       Promise.all(keys.filter(k => k !== CACHE).map(k => caches.delete(k)))
     ).then(() => self.clients.claim())
+      .then(() => {
+        // Background precache — does not block activation or navigation
+        caches.open(CACHE).then(c => c.addAll(PRECACHE)).catch(() => {})
+      })
   )
 })
 
