@@ -23,17 +23,53 @@
   </main>
 
   <!-- htmz: partial page loads via hidden iframe -->
-  <iframe hidden name="htmz" onload="setTimeout(()=>document.querySelector(this.contentWindow.location.hash||null)?.replaceWith(...this.contentWindow.document.body.childNodes))"></iframe>
   <script>
-    // Rewrite nav links for htmz (progressive enhancement: plain links still work)
+    const base = document.querySelector('base').href
+    const basePath = new URL(base).pathname
+
+    function onHtmzLoad(frame) {
+      const loc = frame.contentWindow.location
+      if (loc.href === 'about:blank') return
+      setTimeout(() => {
+        const target = document.querySelector(loc.hash || null)
+        if (!target) return
+        // Original htmz swap
+        target.replaceWith(...frame.contentDocument.body.childNodes)
+        // URL history
+        const pagePath = loc.pathname.replace(basePath, '').replace(/^_f\//, '')
+        const pageUrl = base + pagePath
+        const h1 = document.querySelector('#content h1')
+        document.title = (h1?.textContent || 'Minihongo') + ' — Minihongo'
+        if (location.href !== pageUrl) history.pushState({ path: pagePath }, '', pageUrl)
+        // Clear iframe for repeat requests
+        frame.contentWindow.location.replace('about:blank')
+      })
+    }
+
+    // Back/forward
+    addEventListener('popstate', e => {
+      if (!e.state?.path) return location.reload()
+      document.querySelector('iframe[name=htmz]').src = base + '_f/' + e.state.path + '#content'
+    })
+
+    // Rewrite nav links for htmz
     document.querySelectorAll('nav a:not(.logo)').forEach(a => {
       a.target = 'htmz'
-      const base = document.querySelector('base').href
-      const path = new URL(a.href).pathname.replace(new URL(base).pathname, '')
+      const path = new URL(a.href).pathname.replace(basePath, '')
       a.href = base + '_f/' + path + '#content'
     })
-    // Service worker registration
+
+    // Intercept lesson-nav links via event delegation
+    document.addEventListener('click', e => {
+      const a = e.target.closest('.lesson-nav a')
+      if (!a) return
+      e.preventDefault()
+      const path = new URL(a.href, base).pathname.replace(basePath, '')
+      document.querySelector('iframe[name=htmz]').src = base + '_f/' + path + '#content'
+    })
+
     navigator.serviceWorker?.register('sw.js')
   </script>
+  <iframe hidden name="htmz" onload="onHtmzLoad(this)"></iframe>
 </body>
 </html>
