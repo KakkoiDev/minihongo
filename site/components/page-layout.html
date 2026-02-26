@@ -41,8 +41,6 @@
         const h1 = document.querySelector('#content h1')
         document.title = (h1?.textContent || 'Minihongo') + ' — Minihongo'
         if (location.href !== pageUrl) history.pushState({ path: pagePath }, '', pageUrl)
-        // Clear iframe for repeat requests
-        frame.contentWindow.location.replace('about:blank')
       })
     }
 
