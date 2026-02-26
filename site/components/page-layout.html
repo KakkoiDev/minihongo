@@ -22,65 +22,16 @@
     <slot></slot>
   </main>
 
-  <!-- htmz with URL history -->
-  <iframe hidden name="htmz" onload="htmz(this)"></iframe>
+  <!-- htmz: partial page loads via hidden iframe -->
+  <iframe hidden name="htmz" onload="setTimeout(()=>document.querySelector(this.contentWindow.location.hash||null)?.replaceWith(...this.contentWindow.document.body.childNodes))"></iframe>
   <script>
-    const base = document.querySelector('base').href
-    const basePath = new URL(base).pathname
-    const frame = document.querySelector('iframe[name=htmz]')
-
-    function toFragUrl(pagePath) {
-      return base + '_f/' + pagePath + '#content'
-    }
-
-    function pagePathFrom(url) {
-      return new URL(url).pathname.replace(basePath, '')
-    }
-
-    function htmz(f) {
-      const loc = f.contentWindow.location
-      if (loc.href === 'about:blank') return
-      setTimeout(() => {
-        const target = document.getElementById('content')
-        if (!target) return
-
-        const frag = f.contentDocument.querySelector('main') || f.contentDocument.body
-        const title = frag.querySelector('h1')?.textContent || 'Minihongo'
-        const pagePath = pagePathFrom(loc.href).replace(/^_f\//, '')
-
-        target.replaceChildren(...frag.childNodes)
-        document.title = title + ' — Minihongo'
-
-        const pageUrl = base + pagePath
-        if (location.href !== pageUrl) {
-          history.pushState({ path: pagePath }, '', pageUrl)
-        }
-
-        f.contentWindow.location.replace('about:blank')
-      })
-    }
-
-    // Event delegation — intercept all internal link clicks
-    document.addEventListener('click', e => {
-      const a = e.target.closest('a')
-      if (!a || a.classList.contains('logo')) return
-      const href = a.href
-      if (!href.startsWith(base)) return
-
-      const pagePath = pagePathFrom(href)
-      if (!pagePath || pagePath.startsWith('_f/')) return
-
-      e.preventDefault()
-      frame.src = toFragUrl(pagePath)
+    // Rewrite nav links for htmz (progressive enhancement: plain links still work)
+    document.querySelectorAll('nav a:not(.logo)').forEach(a => {
+      a.target = 'htmz'
+      const base = document.querySelector('base').href
+      const path = new URL(a.href).pathname.replace(new URL(base).pathname, '')
+      a.href = base + '_f/' + path + '#content'
     })
-
-    // Handle back/forward
-    window.addEventListener('popstate', e => {
-      const path = e.state?.path
-      if (!path) return location.reload()
-      frame.src = toFragUrl(path)
-    })
-
     // Service worker registration
     navigator.serviceWorker?.register('sw.js')
   </script>

@@ -21,7 +21,7 @@ self.addEventListener('fetch', e => {
 
   // Fragments: network-first (small, want fresh content)
   // Everything else: stale-while-revalidate (instant loads)
-  if (url.pathname.includes('/_f/')) {
+  if (url.pathname.startsWith('/_f/')) {
     e.respondWith(networkFirst(e.request))
   } else {
     e.respondWith(staleWhileRevalidate(e.request))
