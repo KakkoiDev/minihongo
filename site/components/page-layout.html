@@ -27,56 +27,59 @@
   <script>
     const base = document.querySelector('base').href
     const basePath = new URL(base).pathname
+    const frame = document.querySelector('iframe[name=htmz]')
 
-    function htmz(frame) {
-      const loc = frame.contentWindow.location
+    function toFragUrl(pagePath) {
+      return base + '_f/' + pagePath + '#content'
+    }
+
+    function pagePathFrom(url) {
+      return new URL(url).pathname.replace(basePath, '')
+    }
+
+    function htmz(f) {
+      const loc = f.contentWindow.location
       if (loc.href === 'about:blank') return
       setTimeout(() => {
-        const target = document.querySelector(loc.hash || null)
+        const target = document.getElementById('content')
         if (!target) return
 
-        // Extract page URL from fragment URL (_f/lessons/x.html -> lessons/x.html)
-        const fragPath = loc.pathname.replace(basePath, '')
-        const pagePath = fragPath.replace(/^_f\//, '')
-
-        // Get inner content of the fragment's <main>, not the <main> itself
-        const frag = frame.contentDocument.querySelector('main') || frame.contentDocument.body
+        const frag = f.contentDocument.querySelector('main') || f.contentDocument.body
         const title = frag.querySelector('h1')?.textContent || 'Minihongo'
+        const pagePath = pagePathFrom(loc.href).replace(/^_f\//, '')
 
         target.replaceChildren(...frag.childNodes)
         document.title = title + ' — Minihongo'
 
-        // Push URL (skip if already there or on initial load)
         const pageUrl = base + pagePath
         if (location.href !== pageUrl) {
           history.pushState({ path: pagePath }, '', pageUrl)
         }
 
-        frame.contentWindow.location.replace('about:blank')
+        f.contentWindow.location.replace('about:blank')
       })
     }
+
+    // Event delegation — intercept all internal link clicks
+    document.addEventListener('click', e => {
+      const a = e.target.closest('a')
+      if (!a || a.classList.contains('logo')) return
+      const href = a.href
+      if (!href.startsWith(base)) return
+
+      const pagePath = pagePathFrom(href)
+      if (!pagePath || pagePath.startsWith('_f/')) return
+
+      e.preventDefault()
+      frame.src = toFragUrl(pagePath)
+    })
 
     // Handle back/forward
     window.addEventListener('popstate', e => {
       const path = e.state?.path
       if (!path) return location.reload()
-      const frame = document.querySelector('iframe[name=htmz]')
-      frame.src = base + '_f/' + path + '#content'
+      frame.src = toFragUrl(path)
     })
-
-    // Rewrite nav + lesson-nav links for htmz
-    function wireLinks(root) {
-      root.querySelectorAll('nav a:not(.logo), .lesson-nav a').forEach(a => {
-        a.target = 'htmz'
-        const path = new URL(a.href).pathname.replace(basePath, '')
-        a.href = base + '_f/' + path + '#content'
-      })
-    }
-    wireLinks(document)
-
-    // Re-wire lesson-nav links after htmz swaps content
-    new MutationObserver(() => wireLinks(document.getElementById('content') || document))
-      .observe(document.body, { childList: true, subtree: true })
 
     // Service worker registration
     navigator.serviceWorker?.register('sw.js')
