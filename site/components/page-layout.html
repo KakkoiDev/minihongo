@@ -22,16 +22,59 @@
     <slot></slot>
   </main>
 
-  <!-- htmz: partial page loads via hidden iframe -->
-  <iframe hidden name="htmz" onload="setTimeout(()=>document.querySelector(this.contentWindow.location.hash||null)?.replaceWith(...this.contentWindow.document.body.childNodes))"></iframe>
+  <!-- htmz with URL history -->
+  <iframe hidden name="htmz" onload="htmz(this)"></iframe>
   <script>
-    // Rewrite nav links for htmz (progressive enhancement: plain links still work)
-    document.querySelectorAll('nav a:not(.logo)').forEach(a => {
-      a.target = 'htmz'
-      const base = document.querySelector('base').href
-      const path = new URL(a.href).pathname.replace(new URL(base).pathname, '')
-      a.href = base + '_f/' + path + '#content'
+    const base = document.querySelector('base').href
+    const basePath = new URL(base).pathname
+
+    function htmz(frame) {
+      const loc = frame.contentWindow.location
+      if (loc.href === 'about:blank') return
+      setTimeout(() => {
+        const target = document.querySelector(loc.hash || null)
+        if (!target) return
+
+        // Extract page URL from fragment URL (_f/lessons/x.html -> lessons/x.html)
+        const fragPath = loc.pathname.replace(basePath, '')
+        const pagePath = fragPath.replace(/^_f\//, '')
+        const title = frame.contentDocument.querySelector('h1')?.textContent || 'Minihongo'
+
+        target.replaceWith(...frame.contentDocument.body.childNodes)
+        document.title = title + ' — Minihongo'
+
+        // Push URL (skip if already there or on initial load)
+        const pageUrl = base + pagePath
+        if (location.href !== pageUrl) {
+          history.pushState({ path: pagePath }, '', pageUrl)
+        }
+
+        frame.contentWindow.location.replace('about:blank')
+      })
+    }
+
+    // Handle back/forward
+    window.addEventListener('popstate', e => {
+      const path = e.state?.path
+      if (!path) return location.reload()
+      const frame = document.querySelector('iframe[name=htmz]')
+      frame.src = base + '_f/' + path + '#content'
     })
+
+    // Rewrite nav + lesson-nav links for htmz
+    function wireLinks(root) {
+      root.querySelectorAll('nav a:not(.logo), .lesson-nav a').forEach(a => {
+        a.target = 'htmz'
+        const path = new URL(a.href).pathname.replace(basePath, '')
+        a.href = base + '_f/' + path + '#content'
+      })
+    }
+    wireLinks(document)
+
+    // Re-wire lesson-nav links after htmz swaps content
+    new MutationObserver(() => wireLinks(document.getElementById('content') || document))
+      .observe(document.body, { childList: true, subtree: true })
+
     // Service worker registration
     navigator.serviceWorker?.register('sw.js')
   </script>
