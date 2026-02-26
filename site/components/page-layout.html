@@ -35,6 +35,9 @@
         if (!target) return
         // Original htmz swap
         target.replaceWith(...frame.contentDocument.body.childNodes)
+        // Clear iframe history entry
+        frame.remove()
+        document.body.appendChild(frame)
         // URL history
         const pagePath = loc.pathname.replace(basePath, '').replace(/^_f\//, '')
         const pageUrl = base + pagePath
@@ -47,7 +50,14 @@
     // Back/forward
     addEventListener('popstate', e => {
       if (!e.state?.path) return location.reload()
-      document.querySelector('iframe[name=htmz]').src = base + '_f/' + e.state.path + '#content'
+      fetch(base + '_f/' + e.state.path + '#content')
+        .then(r => r.text())
+        .then(html => {
+          const doc = new DOMParser().parseFromString(html, 'text/html')
+          document.querySelector('#content')?.replaceWith(...doc.body.childNodes)
+          const h1 = document.querySelector('#content h1')
+          document.title = (h1?.textContent || 'Minihongo') + ' — Minihongo'
+        })
     })
 
     // Rewrite nav links for htmz
