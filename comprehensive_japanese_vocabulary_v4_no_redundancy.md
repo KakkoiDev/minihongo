@@ -1,1 +1,0 @@
-/home/kakkoidev/.aidb/minihongo/main/comprehensive_japanese_vocabulary_v4_no_redundancy.md

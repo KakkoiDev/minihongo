@@ -1,1 +1,0 @@
-/home/kakkoidev/.aidb/minihongo/main/grammar_guide_pure_354_validated.md

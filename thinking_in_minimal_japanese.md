@@ -1,1 +1,0 @@
-/home/kakkoidev/.aidb/minihongo/main/thinking_in_minimal_japanese.md

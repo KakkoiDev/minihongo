@@ -1,2 +1,7 @@
 docs/
 __pycache__/
+
+# Knowledge / source docs
+*.md
+!README.md
+conversation-about-minihongo.html

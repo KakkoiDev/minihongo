@@ -1,1 +1,0 @@
-/home/kakkoidev/.aidb/minihongo/main/PLAN.md

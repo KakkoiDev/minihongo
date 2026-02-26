@@ -1,1 +1,0 @@
-/home/kakkoidev/.aidb/minihongo/main/grammar_examples_v4_vocabulary_test.md

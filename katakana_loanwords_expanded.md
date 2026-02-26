@@ -1,1 +1,0 @@
-/home/kakkoidev/.aidb/minihongo/main/katakana_loanwords_expanded.md
