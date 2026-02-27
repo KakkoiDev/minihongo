@@ -28,7 +28,7 @@ jobs:
 
       - run: python site/build.py
         env:
-          BASE_URL: /minihongo/
+          BASE_URL: /
 
       - uses: actions/configure-pages@v5
 
