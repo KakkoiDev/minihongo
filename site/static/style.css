@@ -296,6 +296,29 @@ nav {
   margin: 0.5rem 0 0;
 }
 
+/* === Story === */
+.story {
+  padding: var(--s);
+  border-inline-start: 3px solid var(--border);
+  margin-block-end: 0.5rem;
+
+  & p {
+    font-family: var(--jp);
+    font-size: 1.1rem;
+    line-height: 1.9;
+    margin: 0.5rem 0;
+  }
+}
+
+.story-translation {
+  padding-inline-start: var(--s);
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-block-end: var(--s);
+
+  & p { margin: 0.25rem 0; }
+}
+
 /* === False friends === */
 .false-friend {
   padding: var(--s);
