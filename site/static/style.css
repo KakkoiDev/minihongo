@@ -275,6 +275,27 @@ nav {
   & p { margin: 0.25rem 0; }
 }
 
+/* === Haiku === */
+.haiku {
+  text-align: center;
+  padding: var(--s);
+  margin-block-end: var(--s);
+}
+
+.haiku p:first-child {
+  font-family: var(--jp);
+  font-size: 1.35rem;
+  line-height: 2;
+  margin: 0;
+}
+
+.haiku p:last-child {
+  font-size: 0.9rem;
+  color: var(--muted);
+  font-style: italic;
+  margin: 0.5rem 0 0;
+}
+
 /* === False friends === */
 .false-friend {
   padding: var(--s);
