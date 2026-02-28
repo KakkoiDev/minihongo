@@ -182,8 +182,7 @@ def build():
     nav_labels = load_nav_labels()
     print(f"components: {', '.join(components)}")
 
-    frag_dir = OUT / "_f"
-    frag_dir.mkdir()
+    (OUT / "_f").mkdir()
 
     for src in sorted(PAGES.rglob("*.html")):
         rel = src.relative_to(PAGES)
@@ -210,8 +209,12 @@ def build():
         dest.parent.mkdir(parents=True, exist_ok=True)
         dest.write_text(html)
 
-        # htmz fragment
-        frag = frag_dir / rel
+        # htmz fragment: place under {lang}/_f/ so base + '_f/' works
+        if lang == 'en':
+            frag = OUT / '_f' / rel
+        else:
+            page_rel = Path(*rel.parts[1:])  # strip lang prefix
+            frag = OUT / lang / '_f' / page_rel
         frag.parent.mkdir(parents=True, exist_ok=True)
         frag.write_text(extract_fragment(html))
 
