@@ -80,7 +80,7 @@
     })
 
     // Rewrite nav links for htmz
-    document.querySelectorAll('nav a:not(.logo)').forEach(a => {
+    document.querySelectorAll('nav:not(.lesson-nav) a:not(.logo)').forEach(a => {
       if (a.classList.contains('lang-link')) return
       a.target = 'htmz'
       const path = new URL(a.href).pathname.replace(basePath, '')
