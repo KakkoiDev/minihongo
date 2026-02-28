@@ -15,6 +15,7 @@ import hashlib
 import os
 import re
 import shutil
+import tempfile
 from datetime import datetime
 from pathlib import Path
 
@@ -189,9 +190,19 @@ def build():
     if not base_url.endswith("/"):
         base_url += "/"
 
-    if OUT.exists():
-        shutil.rmtree(OUT)
-    OUT.mkdir(parents=True)
+    # Build to temp dir, then swap atomically to avoid serving partial state
+    tmp_dir = Path(tempfile.mkdtemp(dir=OUT.parent, prefix='.docs_build_'))
+    _build_to(tmp_dir, base_url)
+    old = OUT.with_name('.docs_old') if OUT.exists() else None
+    if old:
+        OUT.rename(old)
+    tmp_dir.rename(OUT)
+    if old:
+        shutil.rmtree(old)
+
+
+def _build_to(OUT, base_url):
+    OUT.mkdir(parents=True, exist_ok=True)
 
     if STATIC.exists():
         shutil.copytree(STATIC, OUT / "static")
