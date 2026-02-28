@@ -3,7 +3,7 @@ gex-1,gram-1,私【わたし】は 本【ほん】を 読【よ】む,I read a b
 gex-2,gram-2,「何【なに】を 食【た】べる？」「魚【さかな】。」,What will you eat? - Fish.,,,2
 gex-3,gram-3,猫【ねこ】がいる。本【ほん】がある。,A cat is here. A book is here.,,,3
 gex-4,gram-3,私【わたし】は 本【ほん】がある。,"I have a book. (as for me, a book exists)",,,4
-gex-5,gram-4,この 本【ほん】は 良【よ】い。,"As for this book, it is good.",,,5
+gex-5,gram-4,この 本【ほん】は 良【よ】い。/ 私【わたし】は 目【め】が 良【よ】い。,"This book is good. / As for me, my eyes are good. (は = topic, が = subject within)",,,5
 gex-6,gram-5,誰【だれ】が 来【く】る？,Who is coming?,,,6
 gex-7,gram-6,水【みず】を 飲【の】む。,I drink water.,,,7
 gex-8,gram-7,山【やま】に 行【い】く。/ 夜【よる】に 食【た】べる。/ 家【いえ】に 猫【ねこ】がいる。,I go to the mountain. / I eat at night. / A cat is in the house.,,,8
@@ -15,6 +15,8 @@ gex-13,gram-12,家【いえ】から 山【やま】まで 歩【ある】く。
 gex-14,gram-13,山【やま】より 大【おお】きい。/ 魚【さかな】より 肉【にく】が 好【す】きだ。,"Bigger than a mountain. / I like meat more than fish.",,,14
 gex-15,gram-14,食【た】べる → 食【た】べた → 食【た】べない → 食【た】べなかった,eat / ate / don't eat / didn't eat,,,15
 gex-16,gram-14,行【い】く → 行【い】った → 行【い】かない → 行【い】かなかった,go / went / don't go / didn't go,,,16
+gex-35,gram-14,する → した → しない → しなかった,do / did / don't do / didn't do,,,35
+gex-36,gram-14,来【く】る → 来【き】た → 来【こ】ない → 来【こ】なかった,"come / came / don't come / didn't come",,,36
 gex-17,gram-15,食【た】べて 飲【の】んで 寝【ね】た。,"Ate, drank, slept. (one tense at the end)",,,17
 gex-18,gram-15,待【ま】ってください。/ 今【いま】 読【よ】んでいる。,Please wait. / I am reading now.,,,18
 gex-19,gram-15,座【すわ】ってもいい？ / 入【はい】ってはいけない。,May I sit? / Must not enter.,,,19

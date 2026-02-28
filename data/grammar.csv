@@ -12,7 +12,7 @@ gram-10,cat-17,と (to) — and / quoting,,,,"And, with, quotation. Quotes anyth
 gram-11,cat-17,も (mo) — also,,,,"Also. Replaces は, が, or を.",,11
 gram-12,cat-17,から / まで — from / until,,,,Start and end points in time or place.,,12
 gram-13,cat-17,より — comparison,,,,"Xより = ""more than X."" One particle, all comparisons.",,13
-gram-14,cat-18,四つの形 (Four Forms),,,,"る/た/ない/なかった. Present, past, negative, past-negative. Everything else layers on top.",,14
+gram-14,cat-18,四つの形 (Four Forms),,,,"Plain form only. Polite form (ます) is a social layer, not grammar. る/た/ない/なかった. Everything layers on top.",,14
 gram-15,cat-18,て形 (Te-Form),,,,"Universal connector. Chain actions, request (+ください), ongoing (+いる), permission (+もいい), prohibition (+はいけない). One tense at the end.",,15
 gram-16,cat-18,られる / える (Potential),,,,Ability. する → できる.,,16
 gram-17,cat-19,い形容詞,,,,"ARE verbs. 寒い is a complete sentence. Conjugate: くない, かった, くて. No copula needed.",,17
