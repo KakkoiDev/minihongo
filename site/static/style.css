@@ -422,6 +422,18 @@ main > ol > li::marker {
   color: var(--accent);
 }
 
+/* === Footer === */
+footer {
+  display: flex;
+  justify-content: center;
+  gap: var(--s);
+  padding-block: calc(var(--s) * 2) var(--s);
+  margin-block-start: calc(var(--s) * 2);
+  border-block-start: 1px solid var(--border);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
 /* === Lang switch === */
 .lang-switch {
   font: inherit;

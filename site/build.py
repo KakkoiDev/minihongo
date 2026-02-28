@@ -15,6 +15,7 @@ import hashlib
 import os
 import re
 import shutil
+from datetime import datetime
 from pathlib import Path
 
 ROOT = Path(__file__).parent
@@ -231,6 +232,9 @@ def build():
         # Language switcher
         switcher = lang_switcher_html(rel, lang)
         html = html.replace("{{LANG_SWITCHER}}", switcher)
+
+        # Copyright year
+        html = html.replace("{{COPYRIGHT_YEAR}}", str(datetime.now().year))
 
         # Full page
         dest = OUT / rel
