@@ -231,6 +231,13 @@ ruby rt {
   border-inline-start: 4px solid var(--accent);
 }
 
+#content h3 {
+  font-size: 1.15rem;
+  margin-block: calc(var(--s) * 1.5) var(--s);
+  padding-inline-start: 0.75rem;
+  border-inline-start: 3px solid var(--accent);
+}
+
 /* === Compact table === */
 .compact-table {
   width: 100%;
@@ -314,6 +321,8 @@ ruby rt {
 /* === Dialog === */
 .dialog {
   padding: 1.25rem;
+  padding-inline-start: calc(1.25rem - 3px);
+  border-inline-start: 3px solid var(--accent);
   background: var(--bg-raised);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
