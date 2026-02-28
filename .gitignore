@@ -4,4 +4,5 @@ __pycache__/
 # Knowledge / source docs
 *.md
 !README.md
+!SCHEMA.md
 conversation-about-minihongo.html
