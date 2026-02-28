@@ -381,30 +381,56 @@ def _render_compound_table(parts, rows, lang):
 
 
 def _render_common_table(parts, rows, lang):
-    """4-col table: Word / Reading / English / Minihongo."""
+    """4-col table: Word / Reading / English / Minihongo.
+    For mh: 3-col, drop English column."""
     th_word = ui('th_word', lang)
     th_reading = ui('th_reading', lang)
-    th_english = ui('th_english', lang)
     th_minihongo = ui('th_minihongo', lang)
     parts.append('<table class="compound-table">\n')
-    parts.append(f'  <thead><tr><th>{th_word}</th><th>{th_reading}</th><th>{th_english}</th><th>{th_minihongo}</th></tr></thead>\n')
+    if lang == 'mh':
+        parts.append(f'  <thead><tr><th>{th_word}</th><th>{th_reading}</th><th>{th_minihongo}</th></tr></thead>\n')
+    else:
+        th_english = ui('th_english', lang)
+        parts.append(f'  <thead><tr><th>{th_word}</th><th>{th_reading}</th><th>{th_english}</th><th>{th_minihongo}</th></tr></thead>\n')
     parts.append('  <tbody>\n')
     for r in rows:
         mh = to_ruby_html(r['minihongo'])
-        parts.append(
-            f'    <tr>'
-            f'<td lang="ja">{r["japanese"]}</td>'
-            f'<td lang="ja">{r["reading"]}</td>'
-            f'<td>{esc(r["english"])}</td>'
-            f'<td lang="ja">{mh}</td>'
-            f'</tr>\n'
-        )
+        if lang == 'mh':
+            parts.append(
+                f'    <tr>'
+                f'<td lang="ja">{r["japanese"]}</td>'
+                f'<td lang="ja">{r["reading"]}</td>'
+                f'<td lang="ja">{mh}</td>'
+                f'</tr>\n'
+            )
+        else:
+            parts.append(
+                f'    <tr>'
+                f'<td lang="ja">{r["japanese"]}</td>'
+                f'<td lang="ja">{r["reading"]}</td>'
+                f'<td>{esc(r["english"])}</td>'
+                f'<td lang="ja">{mh}</td>'
+                f'</tr>\n'
+            )
     parts.append('  </tbody>\n')
     parts.append('</table>\n')
 
 
 def _render_concept_table(parts, rows, lang):
-    """3-col table: Concept / Expression / Literally."""
+    """3-col table: Concept / Expression / Literally.
+    For mh: 1-col, just the minihongo expression."""
+    if lang == 'mh':
+        th_word = ui('th_word', lang)
+        parts.append('  <table class="compound-table">\n')
+        parts.append(f'    <thead><tr><th lang="ja">{th_word}</th></tr></thead>\n')
+        parts.append('    <tbody>\n')
+        for r in rows:
+            mh = to_ruby_html(r['minihongo'])
+            parts.append(f'      <tr><td lang="ja">{mh}</td></tr>\n')
+        parts.append('    </tbody>\n')
+        parts.append('  </table>\n')
+        return
+
     th_concept = ui('th_concept', lang)
     th_literally = ui('th_literally', lang)
     parts.append('  <table class="compound-table">\n')
