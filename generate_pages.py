@@ -202,8 +202,10 @@ def gen_index(lang):
 
     if lang == 'en':
         h1 = '  <h1>Minihongo</h1>\n'
+    elif lang == 'mh':
+        h1 = '  <h1 lang="ja">ミニ<ruby>本<rt>ほん</rt></ruby><ruby>語<rt>ご</rt></ruby></h1>\n'
     else:
-        h1 = '  <h1 lang="ja">\u30df\u30cb\u672c\u8a9e</h1>\n'
+        h1 = '  <h1 lang="ja">ミニ本語</h1>\n'
 
     first_page = PAGE_DATA[0]
     next_label = to_ruby_html(t(first_page, 'name', lang))
