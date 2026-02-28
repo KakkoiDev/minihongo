@@ -1,46 +1,46 @@
 id,grammar_id,minihongo,english,japanese,english_litteral,sort_order
-gex-1,gram-1,私【わたし】は 本【ほん】を 読【よ】む,I read a book. (I + book + read),,,1
-gex-2,gram-2,「何【なに】を 食【た】べる？」「魚【さかな】。」,What will you eat? - Fish.,,,2
-gex-3,gram-3,猫【ねこ】がいる。本【ほん】がある。,A cat is here. A book is here.,,,3
-gex-4,gram-3,私【わたし】は 本【ほん】がある。,"I have a book. (as for me, a book exists)",,,4
-gex-5,gram-4,この 本【ほん】は 良【よ】い。/ 私【わたし】は 目【め】が 良【よ】い。,"This book is good. / As for me, my eyes are good. (は = topic, が = subject within)",,,5
-gex-6,gram-5,誰【だれ】が 来【く】る？,Who is coming?,,,6
-gex-7,gram-6,水【みず】を 飲【の】む。,I drink water.,,,7
-gex-8,gram-7,山【やま】に 行【い】く。/ 夜【よる】に 寝【ね】る。/ 家【いえ】に 猫【ねこ】がいる。,I go to the mountain. / I sleep at night. / A cat is in the house.,,,8
-gex-9,gram-8,家【いえ】で 読【よ】む。/ 手【て】で 書【か】く。,I read at home. / I write by hand.,,,9
-gex-10,gram-9,私【わたし】の 本【ほん】 / 山【やま】の 上【うえ】,My book / top of the mountain,,,10
-gex-11,gram-10,水【みず】と 魚【さかな】を 買【か】った。/ 「行【い】く」と 言【い】った。,"I bought water and fish. / Said ""I'll go.""",,,11
-gex-12,gram-11,父【ちち】は 本【ほん】を 読【よ】む。母【はは】も 読【よ】む。,Father reads books. Mother also reads.,,,12
-gex-13,gram-12,家【いえ】から 山【やま】まで 歩【ある】く。/ 夜【よる】まで 待【ま】つ。,I walk from home to the mountain. / I wait until night.,,,13
-gex-14,gram-13,山【やま】より 大【おお】きい。/ 魚【さかな】より 肉【にく】が 好【す】きだ。,"Bigger than a mountain. / I like meat more than fish.",,,14
-gex-15,gram-14,食【た】べる → 食【た】べた → 食【た】べない → 食【た】べなかった,eat / ate / don't eat / didn't eat,,,15
-gex-16,gram-14,行【い】く → 行【い】った → 行【い】かない → 行【い】かなかった,go / went / don't go / didn't go,,,16
-gex-35,gram-14,する → した → しない → しなかった,do / did / don't do / didn't do,,,35
-gex-36,gram-14,来【く】る → 来【き】た → 来【こ】ない → 来【こ】なかった,"come / came / don't come / didn't come",,,36
-gex-17,gram-15,書【か】いて 読【よ】んで 寝【ね】た。,"Wrote, read, slept. (one tense at the end)",,,17
-gex-18,gram-15,待【ま】ってください。/ 今【いま】 読【よ】んでいる。,Please wait. / I am reading now.,,,18
-gex-19,gram-15,座【すわ】ってもいい？ / 入【はい】ってはいけない。,May I sit? / Must not enter.,,,19
-gex-20,gram-16,書【か】ける / 見【み】られる / する → できる,can write / can see / do → can do,,,20
-gex-21,gram-17,寒【さむ】い。寒【さむ】くない。寒【さむ】かった。寒【さむ】くて 暗【くら】い。,"Cold. Not cold. Was cold. Cold and dark.",,,21
-gex-22,gram-18,必要【ひつよう】な 物【もの】 / 必要【ひつよう】じゃない / 必要【ひつよう】だった,necessary thing / not necessary / was necessary,,,22
-gex-23,gram-19,暑【あつ】くなる。/ 必要【ひつよう】になる。,It becomes hot. / It becomes necessary.,,,23
-gex-24,gram-20,山【やま】で 遊【あそ】ぶ 子供【こども】 / 私【わたし】が 買【か】った 物【もの】,child who plays on the mountain / thing I bought,,,24
-gex-25,gram-21,食【た】べるのが 好【す】きだ。/ 何【なに】しているの？,"I like eating. / What are you doing?",,,25
-gex-26,gram-22,走【はし】ることは良【よ】い。,Running is good (the idea of running).,,,26
-gex-40,gram-22,行【い】くことができる。,It is possible to go.,,,40
-gex-41,gram-22,大切【たいせつ】なことを言【い】います。,I will say something important (abstract).,,,41
-gex-27,gram-23,飲【の】むもの / 読【よ】むもの,something to drink / something to read,,,27
-gex-42,gram-23,大切【たいせつ】なものを持【も】っています。,I have something important (physical).,,,42
-gex-43,gram-30,食【た】べ方【かた】を教【おし】えてください。,Please teach me how to eat (this).,,,43
-gex-44,gram-30,この言【こと】葉【ば】の使【つか】い方【かた】が分【わ】かりません。,I don't understand how to use this word.,,,44
-gex-45,gram-30,聞【き】き方【かた】が大切【たいせつ】です。,The way you ask is important.,,,45
-gex-28,gram-24,行【い】きたい。/ 新【あたら】しい 家【いえ】が 欲【ほ】しい。,I want to go. / I want a new house.,,,28
-gex-29,gram-25,"雨【あめ】が 降【ふ】ったら、行【い】かない。/ 時間【じかん】があるなら、来【き】てください。","If it rains, I won't go. / If you have time, please come.",,,29
-gex-30,gram-26,良【よ】いと 思【おも】う。/ 「行【い】く」と 言【い】った。/ 富士山【ふじさん】という 山【やま】,"I think it's good. / Said ""I'll go."" / A mountain called Fujisan.",,,30
-gex-31,gram-27,学【まな】ぶために 読【よ】む。/ 子供【こども】のために。,I read in order to learn. / For the children.,,,31
-gex-32,gram-28,これは 水【みず】か？ / 良【よ】い 日【ひ】だね。/ 行【い】くよ。,"Is this water? / Nice day, right? / I'm going!",,,32
-gex-33,gram-29,何【なに】を 食【た】べる？→ 何【なに】も 食【た】べない。,What will you eat? → I eat nothing.,,,33
-gex-34,gram-29,何【なに】でも 作【つく】れる。/ 誰【だれ】もいない。/ 誰【だれ】でもできる。,I can make anything. / Nobody is here. / Anyone can do it.,,,34
-gex-37,gram-1,私【わたし】は 人【ひと】だ。,I am a person.,,,37
-gex-38,gram-12,"寒【さむ】いから、家【いえ】にいる。","It's cold, so I stay home.",,,38
-gex-39,gram-15,書【か】く→書【か】いて / 飲【の】む→飲【の】んで / 待【ま】つ→待【ま】って / 食【た】べる→食【た】べて,く→いて / む→んで / つ→って / る→て,,,39
+gex-1,gram-1,私【わたし】は 本【ほん】を 読【よ】む,I read a book. (I + book + read),私は本を読む。,,1
+gex-2,gram-2,「何【なに】を 食【た】べる？」「魚【さかな】。」,What will you eat? - Fish.,「何を食べる？」「魚。」,,2
+gex-3,gram-3,猫【ねこ】がいる。本【ほん】がある。,A cat is here. A book is here.,猫がいる。本がある。,,3
+gex-4,gram-3,私【わたし】は 本【ほん】がある。,"I have a book. (as for me, a book exists)",私は本がある。,,4
+gex-5,gram-4,この 本【ほん】は 良【よ】い。/ 私【わたし】は 目【め】が 良【よ】い。,"This book is good. / As for me, my eyes are good. (は = topic, が = subject within)",この本は良い。/ 私は目が良い。,,5
+gex-6,gram-5,誰【だれ】が 来【く】る？,Who is coming?,誰が来る？,,6
+gex-7,gram-6,水【みず】を 飲【の】む。,I drink water.,水を飲む。,,7
+gex-8,gram-7,山【やま】に 行【い】く。/ 夜【よる】に 寝【ね】る。/ 家【いえ】に 猫【ねこ】がいる。,I go to the mountain. / I sleep at night. / A cat is in the house.,山に行く。/ 夜に寝る。/ 家に猫がいる。,,8
+gex-9,gram-8,家【いえ】で 読【よ】む。/ 手【て】で 書【か】く。,I read at home. / I write by hand.,家で読む。/ 手で書く。,,9
+gex-10,gram-9,私【わたし】の 本【ほん】 / 山【やま】の 上【うえ】,My book / top of the mountain,私の本 / 山の上,,10
+gex-11,gram-10,水【みず】と 魚【さかな】を 買【か】った。/ 「行【い】く」と 言【い】った。,"I bought water and fish. / Said ""I'll go.""",水と魚を買った。/ 「行く」と言った。,,11
+gex-12,gram-11,父【ちち】は 本【ほん】を 読【よ】む。母【はは】も 読【よ】む。,Father reads books. Mother also reads.,父は本を読む。母も読む。,,12
+gex-13,gram-12,家【いえ】から 山【やま】まで 歩【ある】く。/ 夜【よる】まで 待【ま】つ。,I walk from home to the mountain. / I wait until night.,家から山まで歩く。/ 夜まで待つ。,,13
+gex-14,gram-13,山【やま】より 大【おお】きい。/ 魚【さかな】より 肉【にく】が 好【す】きだ。,"Bigger than a mountain. / I like meat more than fish.",山より大きい。/ 魚より肉が好きだ。,,14
+gex-15,gram-14,食【た】べる → 食【た】べた → 食【た】べない → 食【た】べなかった,eat / ate / don't eat / didn't eat,食べる → 食べた → 食べない → 食べなかった,,15
+gex-16,gram-14,行【い】く → 行【い】った → 行【い】かない → 行【い】かなかった,go / went / don't go / didn't go,行く → 行った → 行かない → 行かなかった,,16
+gex-35,gram-14,する → した → しない → しなかった,do / did / don't do / didn't do,する → した → しない → しなかった,,35
+gex-36,gram-14,来【く】る → 来【き】た → 来【こ】ない → 来【こ】なかった,"come / came / don't come / didn't come",来る → 来た → 来ない → 来なかった,,36
+gex-17,gram-15,書【か】いて 読【よ】んで 寝【ね】た。,"Wrote, read, slept. (one tense at the end)",書いて読んで寝た。,,17
+gex-18,gram-15,待【ま】ってください。/ 今【いま】 読【よ】んでいる。,Please wait. / I am reading now.,待ってください。/ 今読んでいる。,,18
+gex-19,gram-15,座【すわ】ってもいい？ / 入【はい】ってはいけない。,May I sit? / Must not enter.,座ってもいい？ / 入ってはいけない。,,19
+gex-20,gram-16,書【か】ける / 見【み】られる / する → できる,can write / can see / do → can do,書ける / 見られる / する → できる,,20
+gex-21,gram-17,寒【さむ】い。寒【さむ】くない。寒【さむ】かった。寒【さむ】くて 暗【くら】い。,"Cold. Not cold. Was cold. Cold and dark.",寒い。寒くない。寒かった。寒くて暗い。,,21
+gex-22,gram-18,必要【ひつよう】な 物【もの】 / 必要【ひつよう】じゃない / 必要【ひつよう】だった,necessary thing / not necessary / was necessary,必要な物 / 必要じゃない / 必要だった,,22
+gex-23,gram-19,暑【あつ】くなる。/ 必要【ひつよう】になる。,It becomes hot. / It becomes necessary.,暑くなる。/ 必要になる。,,23
+gex-24,gram-20,山【やま】で 遊【あそ】ぶ 子供【こども】 / 私【わたし】が 買【か】った 物【もの】,child who plays on the mountain / thing I bought,山で遊ぶ子供 / 私が買った物,,24
+gex-25,gram-21,食【た】べるのが 好【す】きだ。/ 何【なに】しているの？,"I like eating. / What are you doing?",食べるのが好きだ。/ 何しているの？,,25
+gex-26,gram-22,走【はし】ることは良【よ】い。,Running is good (the idea of running).,走ることは良い。,,26
+gex-40,gram-22,行【い】くことができる。,It is possible to go.,行くことができる。,,40
+gex-41,gram-22,大切【たいせつ】なことを言【い】います。,I will say something important (abstract).,大切なことを言います。,,41
+gex-27,gram-23,飲【の】むもの / 読【よ】むもの,something to drink / something to read,飲むもの / 読むもの,,27
+gex-42,gram-23,大切【たいせつ】なものを持【も】っています。,I have something important (physical).,大切なものを持っています。,,42
+gex-43,gram-30,食【た】べ方【かた】を教【おし】えてください。,Please teach me how to eat (this).,食べ方を教えてください。,,43
+gex-44,gram-30,この言【こと】葉【ば】の使【つか】い方【かた】が分【わ】かりません。,I don't understand how to use this word.,この言葉の使い方が分かりません。,,44
+gex-45,gram-30,聞【き】き方【かた】が大切【たいせつ】です。,The way you ask is important.,聞き方が大切です。,,45
+gex-28,gram-24,行【い】きたい。/ 新【あたら】しい 家【いえ】が 欲【ほ】しい。,I want to go. / I want a new house.,行きたい。/ 新しい家が欲しい。,,28
+gex-29,gram-25,"雨【あめ】が 降【ふ】ったら、行【い】かない。/ 時間【じかん】があるなら、来【き】てください。","If it rains, I won't go. / If you have time, please come.","雨が降ったら、行かない。/ 時間があるなら、来てください。",,29
+gex-30,gram-26,良【よ】いと 思【おも】う。/ 「行【い】く」と 言【い】った。/ 富士山【ふじさん】という 山【やま】,"I think it's good. / Said ""I'll go."" / A mountain called Fujisan.",良いと思う。/ 「行く」と言った。/ 富士山という山,,30
+gex-31,gram-27,学【まな】ぶために 読【よ】む。/ 子供【こども】のために。,I read in order to learn. / For the children.,学ぶために読む。/ 子供のために。,,31
+gex-32,gram-28,これは 水【みず】か？ / 良【よ】い 日【ひ】だね。/ 行【い】くよ。,"Is this water? / Nice day, right? / I'm going!",これは水か？ / 良い日だね。/ 行くよ。,,32
+gex-33,gram-29,何【なに】を 食【た】べる？→ 何【なに】も 食【た】べない。,What will you eat? → I eat nothing.,何を食べる？→ 何も食べない。,,33
+gex-34,gram-29,何【なに】でも 作【つく】れる。/ 誰【だれ】もいない。/ 誰【だれ】でもできる。,I can make anything. / Nobody is here. / Anyone can do it.,何でも作れる。/ 誰もいない。/ 誰でもできる。,,34
+gex-37,gram-1,私【わたし】は 人【ひと】だ。,I am a person.,私は人だ。,,37
+gex-38,gram-12,"寒【さむ】いから、家【いえ】にいる。","It's cold, so I stay home.","寒いから、家にいる。",,38
+gex-39,gram-15,書【か】く→書【か】いて / 飲【の】む→飲【の】んで / 待【ま】つ→待【ま】って / 食【た】べる→食【た】べて,く→いて / む→んで / つ→って / る→て,書く→書いて / 飲む→飲んで / 待つ→待って / 食べる→食べて,,39
