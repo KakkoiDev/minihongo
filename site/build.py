@@ -238,6 +238,12 @@ def build():
         # Copyright year
         html = html.replace("{{COPYRIGHT_YEAR}}", str(datetime.now().year))
 
+        # Toast strings
+        for toast_key in ['toast_offline', 'toast_online', 'toast_install',
+                          'toast_install_btn', 'toast_updated']:
+            placeholder = '{{' + toast_key.upper() + '}}'
+            html = html.replace(placeholder, ui_str(ui_strings, toast_key, lang))
+
         # Full page
         dest = OUT / rel
         dest.parent.mkdir(parents=True, exist_ok=True)
