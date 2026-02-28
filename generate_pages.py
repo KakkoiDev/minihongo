@@ -205,6 +205,10 @@ def gen_index(lang):
     else:
         h1 = '  <h1 lang="ja">\u30df\u30cb\u672c\u8a9e</h1>\n'
 
+    first_page = PAGE_DATA[0]
+    next_label = to_ruby_html(t(first_page, 'name', lang))
+    next_href = f'lessons/{PAGE_FILES[first_page["id"]]}'
+
     return (
         f'<page-layout>\n'
         f'  <span slot="title">{site_name}</span>\n'
@@ -214,6 +218,10 @@ def gen_index(lang):
         f'  <ul>\n'
         f'{items}\n'
         f'  </ul>\n'
+        f'  <nav class="lesson-nav">\n'
+        f'    <span></span>\n'
+        f'    <a href="{next_href}">{next_label} \u2192</a>\n'
+        f'  </nav>\n'
         f'</page-layout>\n'
     )
 
