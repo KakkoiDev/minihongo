@@ -457,17 +457,17 @@ footer {
 .toast-btn {
   font: inherit;
   font-size: 0.8rem;
-  font-weight: 600;
-  color: #2B2B2B;
-  background: var(--accent);
+  font-weight: 700;
+  color: #FFFFFF;
+  background: #BC002D;
   border: none;
   border-radius: 1rem;
-  padding: 0.3rem 0.75rem;
+  padding: 0.35rem 0.85rem;
   cursor: pointer;
   white-space: nowrap;
 }
 
-.toast-btn:hover { background: var(--accent-hover); }
+.toast-btn:hover { background: #A00025; }
 
 @keyframes toast-in {
   from { opacity: 0; translate: 0 -0.5rem; }
