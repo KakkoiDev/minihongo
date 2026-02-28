@@ -26,8 +26,14 @@ gex-22,gram-18,必要【ひつよう】な 物【もの】 / 必要【ひつよ�
 gex-23,gram-19,暑【あつ】くなる。/ 必要【ひつよう】になる。,It becomes hot. / It becomes necessary.,,,23
 gex-24,gram-20,山【やま】で 遊【あそ】ぶ 子供【こども】 / 私【わたし】が 買【か】った 物【もの】,child who plays on the mountain / thing I bought,,,24
 gex-25,gram-21,食【た】べるのが 好【す】きだ。/ 何【なに】しているの？,"I like eating. / What are you doing?",,,25
-gex-26,gram-22,走【はし】ることは 良【よ】い。/ 行【い】くことができる。,Running is good. / It is possible to go.,,,26
+gex-26,gram-22,走【はし】ることは良【よ】い。,Running is good (the idea of running).,,,26
+gex-40,gram-22,行【い】くことができる。,It is possible to go.,,,40
+gex-41,gram-22,大切【たいせつ】なことを言【い】います。,I will say something important (abstract).,,,41
 gex-27,gram-23,飲【の】むもの / 読【よ】むもの,something to drink / something to read,,,27
+gex-42,gram-23,大切【たいせつ】なものを持【も】っています。,I have something important (physical).,,,42
+gex-43,gram-30,食【た】べ方【かた】を教【おし】えてください。,Please teach me how to eat (this).,,,43
+gex-44,gram-30,この言【こと】葉【ば】の使【つか】い方【かた】が分【わ】かりません。,I don't understand how to use this word.,,,44
+gex-45,gram-30,聞【き】き方【かた】が大切【たいせつ】です。,The way you ask is important.,,,45
 gex-28,gram-24,行【い】きたい。/ 新【あたら】しい 家【いえ】が 欲【ほ】しい。,I want to go. / I want a new house.,,,28
 gex-29,gram-25,"雨【あめ】が 降【ふ】ったら、行【い】かない。/ 時間【じかん】があるなら、来【き】てください。","If it rains, I won't go. / If you have time, please come.",,,29
 gex-30,gram-26,良【よ】いと 思【おも】う。/ 「行【い】く」と 言【い】った。/ 富士山【ふじさん】という 山【やま】,"I think it's good. / Said ""I'll go."" / A mountain called Fujisan.",,,30

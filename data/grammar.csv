@@ -20,8 +20,9 @@ gram-18,cat-19,な のどんな,,,物【もの】の前【まえ】に な を�
 gram-19,cat-19,〜くなる / 〜になる,,,変【か】わる事【こと】。全部【ぜんぶ】の変【か】わり方【かた】がこれ一【ひと】つ。,Change of state. One pattern for all changes.,,19
 gram-20,cat-19,する事【こと】 + 物【もの】,,,する事【こと】や言【こと】葉【ば】を物【もの】の前【まえ】に置【お】いて、それを見【み】せる。言【こと】葉【ば】作【づく】りの力【ちから】。,Put a verb or sentence before a noun to describe it. Engine of word-building.,,20
 gram-21,cat-20,の,,,普通【ふつう】の形【かたち】。食【た】べるのが好【す】き。聞【き】く時【とき】にも: 何【なに】しているの？,"Casual. 食べるのが好き. Also in questions: 何しているの？",,21
-gram-22,cat-20,こと,,,考【かんが】えの物【もの】。走【はし】ることは良【よ】い。行【い】くことができる。,Abstract concept. 走ることは良い. 行くことができる.,,22
-gram-23,cat-20,もの,,,手【て】で持【も】てるものや本当【ほんとう】のもの。飲【の】むもの = 飲【の】む何【なに】か。,Physical thing or tangible reason. 飲むもの = something to drink.,,23
+gram-22,cat-20,こと,,,する事【こと】を考【かんが】えにする。目【め】で見【み】えない事【こと】。「走【はし】る事【こと】」は考【かんが】え。「飲【の】む物【もの】」は手【て】で持【も】てる。この違【ちが】いが大切【たいせつ】。,"Turns actions into abstract ideas. Invisible things. 走ること = the idea of running. Compare: 飲むもの = a drinkable thing (physical). こと = idea, もの = thing.",,22
+gram-23,cat-20,もの,,,手【て】で持【も】てるもの。本当【ほんとう】にある何【なに】か。「飲【の】むもの」= 飲【の】める何【なに】か。「こと」は考【かんが】え、「もの」は物【もの】。,"Physical things you can touch or point to. 飲むもの = something to drink. こと = abstract idea, もの = concrete thing.",,23
+gram-30,cat-20,方【かた】,,,どうするかの形【かたち】。する事【こと】の始【はじ】めに付【つ】ける。食【た】べ方【かた】= どう食【た】べるか。使【つか】い方【かた】= どう使【つか】うか。こと・もの・方【かた】の三【みっ】つで全部【ぜんぶ】言【い】える。,"The way of doing. Attach to verb stem. 食べ方 = how to eat. 使い方 = how to use. こと (idea) + もの (thing) + 方 (method) = express everything.",,30
 gram-24,cat-21,たい / 欲【ほ】しい,,,する事【こと】がしたい (する事【こと】の始【はじ】め + たい)。物【もの】が欲【ほ】しい (欲【ほ】しい)。,Want to do (verb stem + たい). Want a thing (欲しい).,,24
 gram-25,cat-21,たら / なら,,,たら = もしそれが起【お】こったら (した + ら)。なら = もしそうなら。,たら = when/if something happens (verb た + ら). なら = if it's the case.,,25
 gram-26,cat-21,と思【おも】う / と言【い】う,,,と で何【なに】でも言【い】える。思【おも】う事【こと】、言【い】う事【こと】、音【おと】。という = 「その名前【なまえ】の」。,"Quote anything with と. Thoughts, speech, sounds. という = ""called.""",,26
