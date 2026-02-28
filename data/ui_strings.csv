@@ -1,9 +1,9 @@
 key,en,ja,mh
 show_readings,Show readings,読みを表示する,読【よ】みを見【み】せる
 site_name,Minihongo,ミニ本語,ミニ本【ほん】語【ご】
-home_tagline,"182 words. Say anything.",182語で何でも言える。,"182の言【こと】葉【ば】。何【なに】でも言【い】える。"
+home_tagline,"182 words. Say anything.",182語で何でも言える。,"182の言【こと】葉【ば】。何【なん】でも言【い】える。"
 home_1,"Think in Japanese from day one. Not translation - a Japanese brain.",初日から日本語で考える。翻訳ではなく日本語の頭を作る。,"一【いち】日【にち】目【め】から日本語【にほんご】で考【かんが】える。他【ほか】の言【こと】葉【ば】から変【か】えるのではない。"
-home_2,"182 base words + full grammar. Combine them to express any idea.",182の基本語と文法で何でも表現できる。,"182の言【こと】葉【ば】と全部【ぜんぶ】の言【こと】葉【ば】の道【みち】。一【ひと】つにして何【なに】でも言【い】える。"
+home_2,"182 base words + full grammar. Combine them to express any idea.",182の基本語と文法で何でも表現できる。,"182の言【こと】葉【ば】と全部【ぜんぶ】の言【こと】葉【ば】の道【みち】。一【ひと】つにして何【なん】でも言【い】える。"
 home_3,"Grow naturally. Add real vocabulary as you learn - the 182 are always your fallback.",自然に語彙を増やす。182語はいつでも使える。,"自然【しぜん】に大【おお】きくなる。新【あたら】しい言【こと】葉【ば】を足【た】していく。182はいつでも使【つか】える。"
 th_reading,Reading,読み,読【よ】み
 th_meaning,Meaning,意味,何【なに】の事【こと】
@@ -12,13 +12,13 @@ th_word,Word,言葉,言【こと】葉【ば】
 th_concept,Concept,概念,考【かんが】え
 th_literally,Literally,直訳,言【こと】葉【ば】のまま
 wb_desc_compounds,"Real Japanese words built entirely from kanji in the 182-word vocabulary.",182語の漢字だけで構成された実在の日本語。,"182の言【こと】葉【ば】の中【なか】の字【じ】で作【つく】った本当【ほんとう】の言【こと】葉【ば】。"
-wb_desc_byov,"Like Toki Pona, combine primitives to express any concept.",基本語を組み合わせてあらゆる概念を表現する。,"少【すこ】しの言【こと】葉【ば】を使【つか】って何【なに】でも言【い】える。"
+wb_desc_byov,"Like Toki Pona, combine primitives to express any concept.",基本語を組み合わせてあらゆる概念を表現する。,"少【すこ】しの言【こと】葉【ば】を使【つか】って何【なん】でも言【い】える。"
 wb_desc_common,"Real Japanese words from the top 1000 most common, expressed using only the 182 base words.",よく使う日本語を182の基本語だけで表現する。,"よく使【つか】う言【こと】葉【ば】を182の言【こと】葉【ば】だけで言【い】う。"
 th_example,Example,例文,使【つか】い方【かた】
 th_english,English,英語,英語【えいご】
 th_minihongo,Minihongo,ミニ本語,ミニ本【ほん】語【ご】
 wb_reading_warning,"Kanji have multiple readings. The same character can sound different in different words. Learn each compound as a whole word, not by combining individual readings.",漢字には複数の読み方がある。同じ字でも言葉によって読みが変わる。熟語を丸ごと覚えること。,"字【じ】には読【よ】み方【かた】が色々【いろいろ】ある。同【おな】じ字【じ】でも言【こと】葉【ば】によって音【おと】が変【か】わる。一【ひと】つ一【ひと】つの言【こと】葉【ば】を全部【ぜんぶ】で覚【おぼ】える。"
-dark_mode,Dark mode,ダークモード,暗【くら】いモード
+dark_mode,Dark mode,ダークモード,夜【よる】の色【いろ】
 toast_offline,You are offline. Content is cached.,オフラインです。,オフラインです。
 toast_online,Back online.,オンラインに戻りました。,オンラインに戻【もど】りました。
 toast_install,Install Minihongo as an app,アプリとしてインストール,アプリとしてインストール

@@ -21,7 +21,7 @@ gex-17,gram-15,書【か】いて 読【よ】んで 寝【ね】た。,"Wrote, 
 gex-18,gram-15,待【ま】ってください。/ 今【いま】 読【よ】んでいる。,Please wait. / I am reading now.,待ってください。/ 今読んでいる。,,18
 gex-19,gram-15,座【すわ】ってもいい？ / 入【はい】ってはいけない。,May I sit? / Must not enter.,座ってもいい？ / 入ってはいけない。,,19
 gex-20,gram-16,書【か】ける / 見【み】られる / する → できる,can write / can see / do → can do,書ける / 見られる / する → できる,,20
-gex-21,gram-17,寒【さむ】い。寒【さむ】くない。寒【さむ】かった。寒【さむ】くて 暗【くら】い。,"Cold. Not cold. Was cold. Cold and dark.",寒い。寒くない。寒かった。寒くて暗い。,,21
+gex-21,gram-17,寒【さむ】い。寒【さむ】くない。寒【さむ】かった。寒【さむ】くて 悲【かな】しい。,"Cold. Not cold. Was cold. Cold and sad.",寒い。寒くない。寒かった。寒くて悲しい。,,21
 gex-22,gram-18,必要【ひつよう】な 物【もの】 / 必要【ひつよう】じゃない / 必要【ひつよう】だった,necessary thing / not necessary / was necessary,必要な物 / 必要じゃない / 必要だった,,22
 gex-23,gram-19,暑【あつ】くなる。/ 必要【ひつよう】になる。,It becomes hot. / It becomes necessary.,暑くなる。/ 必要になる。,,23
 gex-24,gram-20,山【やま】で 遊【あそ】ぶ 子供【こども】 / 私【わたし】が 買【か】った 物【もの】,child who plays on the mountain / thing I bought,山で遊ぶ子供 / 私が買った物,,24
@@ -40,7 +40,7 @@ gex-30,gram-26,良【よ】いと 思【おも】う。/ 「行【い】く」�
 gex-31,gram-27,学【まな】ぶために 読【よ】む。/ 子供【こども】のために。,I read in order to learn. / For the children.,学ぶために読む。/ 子供のために。,,31
 gex-32,gram-28,これは 水【みず】か？ / 良【よ】い 日【ひ】だね。/ 行【い】くよ。,"Is this water? / Nice day, right? / I'm going!",これは水か？ / 良い日だね。/ 行くよ。,,32
 gex-33,gram-29,何【なに】を 食【た】べる？→ 何【なに】も 食【た】べない。,What will you eat? → I eat nothing.,何を食べる？→ 何も食べない。,,33
-gex-34,gram-29,何【なに】でも 作【つく】れる。/ 誰【だれ】もいない。/ 誰【だれ】でもできる。,I can make anything. / Nobody is here. / Anyone can do it.,何でも作れる。/ 誰もいない。/ 誰でもできる。,,34
+gex-34,gram-29,何【なん】でも 作【つく】れる。/ 誰【だれ】もいない。/ 誰【だれ】でもできる。,I can make anything. / Nobody is here. / Anyone can do it.,何でも作れる。/ 誰もいない。/ 誰でもできる。,,34
 gex-37,gram-1,私【わたし】は 人【ひと】だ。,I am a person.,私は人だ。,,37
 gex-38,gram-12,"寒【さむ】いから、家【いえ】にいる。","It's cold, so I stay home.","寒いから、家にいる。",,38
 gex-39,gram-15,書【か】く→書【か】いて / 飲【の】む→飲【の】んで / 待【ま】つ→待【ま】って / 食【た】べる→食【た】べて,く→いて / む→んで / つ→って / る→て,書く→書いて / 飲む→飲んで / 待つ→待って / 食べる→食べて,,39

@@ -92,26 +92,15 @@ def detect_lang(rel_path):
 
 
 def lang_switcher_html(rel_path, lang):
-    """Generate language switcher links for a page."""
-    # Get the page-relative path (strip lang prefix)
-    s = str(rel_path)
-    if lang != 'en':
-        page_path = s[len(lang) + 1:]  # strip 'ja/' or 'mh/'
-    else:
-        page_path = s
-
+    """Generate language switcher select with lang codes as values."""
     options = []
     for l in LANGS:
         label = LANG_LABELS[l]
-        if l == 'en':
-            href = f'/{page_path}'
-        else:
-            href = f'/{l}/{page_path}'
         selected = ' selected' if l == lang else ''
-        options.append(f'<option value="{href}"{selected}>{label}</option>')
+        options.append(f'<option value="{l}"{selected}>{label}</option>')
 
     return (
-        f'<select class="lang-switch" onchange="location.href=this.value">'
+        f'<select class="lang-switch" onchange="switchLang(this.value)">'
         f'{"".join(options)}'
         f'</select>'
     )
