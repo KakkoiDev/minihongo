@@ -5,17 +5,13 @@ const NET_TIMEOUT = 2_000 // network-first timeout in ms
 const PRECACHE = [
   './',
   'static/style.css',
-  'lessons/1-hiragana.html',
   'lessons/2-vocabulary.html',
   'lessons/3-grammar.html',
-  'lessons/4-katakana.html',
   'lessons/5-word-building.html',
   'lessons/6-texts-dialogs.html',
   '_f/index.html',
-  '_f/lessons/1-hiragana.html',
   '_f/lessons/2-vocabulary.html',
   '_f/lessons/3-grammar.html',
-  '_f/lessons/4-katakana.html',
   '_f/lessons/5-word-building.html',
   '_f/lessons/6-texts-dialogs.html',
 ]
