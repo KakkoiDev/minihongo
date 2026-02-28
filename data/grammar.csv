@@ -1,6 +1,6 @@
 id,category_id,minihongo,english,japanese,explanation_minihongo,explanation_english,explanation_japanese,sort_order
-gram-1,cat-16,言【こと】葉【ば】の並【なら】び (語順【ごじゅん】),Word Order,語順,言【こと】葉【ば】の最【さい】後【ご】にする事【こと】が来【く】る。つなぐ言【こと】葉【ば】が何【なに】をするか見【み】せる。する事【こと】か、どんなか、物【もの】+だ で終【お】わる。,"Verb last. Particles mark roles. Sentences end with verb, adjective, or noun+だ.",述語が文末に来る。助詞が語の役割を示す。文は動詞・形容詞・名詞+だ で終わる。,1
-gram-2,cat-16,言【い】わない事【こと】 (省略【しょうりゃく】),Omission,省略,知【し】っている事【こと】は言【い】わない。誰【だれ】が、何【なに】を - 分【わ】かるなら言【い】わなくていい。これが普通【ふつう】。,"Drop what's known. Subjects, objects - anything established vanishes. This is the default.",既知の情報は省略する。主語・目的語など、文脈から分かるものは言わなくてよい。これが日本語の基本。,2
+gram-1,cat-16,言【こと】葉【ば】の並【なら】び,Word Order,語順,言【こと】葉【ば】の最【さい】後【ご】にする事【こと】が来【く】る。つなぐ言【こと】葉【ば】が何【なに】をするか見【み】せる。する事【こと】か、どんなか、物【もの】+だ で終【お】わる。,"Verb last. Particles mark roles. Sentences end with verb, adjective, or noun+だ.",述語が文末に来る。助詞が語の役割を示す。文は動詞・形容詞・名詞+だ で終わる。,1
+gram-2,cat-16,言【い】わない事【こと】,Omission,省略,知【し】っている事【こと】は言【い】わない。誰【だれ】が、何【なに】を - 分【わ】かるなら言【い】わなくていい。これが普通【ふつう】。,"Drop what's known. Subjects, objects - anything established vanishes. This is the default.",既知の情報は省略する。主語・目的語など、文脈から分かるものは言わなくてよい。これが日本語の基本。,2
 gram-3,cat-16,ある / いる,Existence / Possession,ある / いる,ある事【こと】は持【も】つ事【こと】と同【おな】じ。「持【も】つ」のする事【こと】はない。生【い】き物【もの】はいる、他【ほか】は全部【ぜんぶ】ある。,"Existence IS possession. No separate ""have"" verb. いる for living, ある for everything else.",存在がそのまま所有を表す。「have」に当たる動詞は不要。生き物には「いる」、それ以外は「ある」を使う。,3
 gram-4,cat-17,は (wa),Topic Marker,は（主題）,何【なに】の話【はなし】かを見【み】せる。「これの事【こと】は...」,"Topic marker. ""As for X...""",文の主題を示す。「〜については...」という意味。,4
 gram-5,cat-17,が (ga),Subject Marker,が（主格）,する人【ひと】。誰【だれ】がそれをするか。新【あたら】しい事【こと】。,Subject. Who does it. New information.,動作の主体を示す。誰がそれをするか。新しい情報を表す。,5
