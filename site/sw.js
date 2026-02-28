@@ -54,8 +54,25 @@ self.addEventListener('activate', e => {
 
 self.addEventListener('fetch', e => {
   if (e.request.method !== 'GET') return
-  e.respondWith(cacheFirst(e.request))
+  const url = new URL(e.request.url)
+  // Fragments: network-first to avoid stale cache issues
+  if (url.pathname.includes('/_f/')) {
+    e.respondWith(networkFirst(e.request))
+  } else {
+    e.respondWith(cacheFirst(e.request))
+  }
 })
+
+async function networkFirst(request) {
+  const cache = await caches.open(CACHE)
+  try {
+    const res = await fetch(request)
+    if (res.ok) cache.put(request, res.clone())
+    return res
+  } catch {
+    return await cache.match(request) || new Response('Offline', { status: 503 })
+  }
+}
 
 async function cacheFirst(request) {
   const cache = await caches.open(CACHE)
