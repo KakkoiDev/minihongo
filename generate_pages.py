@@ -339,8 +339,6 @@ def _render_concept_table(parts, rows):
 # -- Reading ------------------------------------------------------------------
 
 def gen_reading(categories, haiku, dialog_groups, dialogs, stories):
-    cats = by_sort([c for c in categories if c['page_id'] == 'reading'])
-
     haiku_by_cat = defaultdict(list)
     for h in haiku:
         haiku_by_cat[h['category_id']].append(h)
@@ -357,71 +355,82 @@ def gen_reading(categories, haiku, dialog_groups, dialogs, stories):
     for s in stories:
         stories_by_cat[s['category_id']].append(s)
 
-    # Reorder: dialogs and stories first, haiku last
-    haiku_cats = [c for c in cats if haiku_by_cat.get(c['id'])]
-    other_cats = [c for c in cats if not haiku_by_cat.get(c['id'])]
-    cats = other_cats + haiku_cats
+    # Separate h2 (no parent) and h3 (with parent) categories
+    h2_cats = by_sort([c for c in categories
+                       if c['page_id'] == 'reading' and not c['parent_id']])
+    children = defaultdict(list)
+    for c in categories:
+        if c['page_id'] == 'reading' and c['parent_id']:
+            children[c['parent_id']].append(c)
+    for k in children:
+        children[k] = by_sort(children[k])
 
     toc = []
     parts = []
-    for cat in cats:
-        slug = slugify(cat['name_english'])
-        h = bilingual(cat['name_minihongo'], cat['name_english'])
-        toc.append((slug, esc(cat['name_english'])))
+    for h2 in h2_cats:
+        slug = slugify(h2['name_english'])
+        h = bilingual(h2['name_minihongo'], h2['name_english'])
+        toc.append((slug, esc(h2['name_english'])))
         parts.append(f'  <h2 id="{slug}" class="section-heading">{h}</h2>\n')
         parts.append('\n')
 
-        # Haiku
-        for hk in by_sort(haiku_by_cat.get(cat['id'], [])):
-            mh = to_ruby_html(hk['minihongo']).replace(' / ', '<br>')
-            en = hk['english']
-            parts.append('  <div class="haiku">\n')
-            parts.append(f'    <p lang="ja">{mh}</p>\n')
-            parts.append(f'    <p>{en}</p>\n')
-            parts.append('  </div>\n')
-            parts.append('\n')
+        for cat in children.get(h2['id'], [h2]):
+            # Subcategory heading (only if there are children)
+            if children.get(h2['id']):
+                sub_h = bilingual(cat['name_minihongo'], cat['name_english'])
+                parts.append(f'<h3>{sub_h}</h3>\n')
 
-        # Dialog groups
-        for dg in by_sort(dgrp_by_cat.get(cat['id'], [])):
-            title = to_ruby_html(bilingual(dg['title_minihongo'], dg['title_english']))
-            lines = sorted(dlg_by_grp.get(dg['id'], []),
-                          key=lambda d: int(d['line_number']))
+            # Haiku
+            for hk in by_sort(haiku_by_cat.get(cat['id'], [])):
+                mh = to_ruby_html(hk['minihongo']).replace(' / ', '<br>')
+                en = hk['english']
+                parts.append('  <div class="haiku">\n')
+                parts.append(f'    <p lang="ja">{mh}</p>\n')
+                parts.append(f'    <p>{en}</p>\n')
+                parts.append('  </div>\n')
+                parts.append('\n')
 
-            parts.append(f'<h3>{title}</h3>\n')
-            parts.append('<div class="dialog">\n')
-            for ln in lines:
-                speaker = to_ruby_html(ln['speaker_minihongo'])
-                body = to_ruby_html(ln['minihongo'])
-                parts.append(f'  <p lang="ja"><strong>{speaker}:</strong> {body}</p>\n')
-            parts.append('</div>\n')
-            parts.append('<div class="dialog-translation">\n')
-            for ln in lines:
-                speaker = ln['speaker_english']
-                body = ln['english']
-                parts.append(f'  <p><strong>{speaker}:</strong> {body}</p>\n')
-            parts.append('</div>\n')
-            parts.append('\n')
+            # Dialog groups
+            for dg in by_sort(dgrp_by_cat.get(cat['id'], [])):
+                title = to_ruby_html(bilingual(dg['title_minihongo'], dg['title_english']))
+                lines = sorted(dlg_by_grp.get(dg['id'], []),
+                              key=lambda d: int(d['line_number']))
 
-        # Stories
-        for st in by_sort(stories_by_cat.get(cat['id'], [])):
-            title = to_ruby_html(bilingual(st['title_minihongo'], st['title_english']))
+                parts.append(f'<h4>{title}</h4>\n')
+                parts.append('<div class="dialog">\n')
+                for ln in lines:
+                    speaker = to_ruby_html(ln['speaker_minihongo'])
+                    body = to_ruby_html(ln['minihongo'])
+                    parts.append(f'  <p lang="ja"><strong>{speaker}:</strong> {body}</p>\n')
+                parts.append('</div>\n')
+                parts.append('<div class="dialog-translation">\n')
+                for ln in lines:
+                    speaker = ln['speaker_english']
+                    body = ln['english']
+                    parts.append(f'  <p><strong>{speaker}:</strong> {body}</p>\n')
+                parts.append('</div>\n')
+                parts.append('\n')
 
-            # Split Japanese text into paragraphs on space after 。or 」
-            mh_text = st['minihongo']
-            mh_paras = re.split(r'(?<=[\u3002\u300d]) ', mh_text)
-            mh_paras = [p for p in mh_paras if p.strip()]
+            # Stories
+            for st in by_sort(stories_by_cat.get(cat['id'], [])):
+                title = to_ruby_html(bilingual(st['title_minihongo'], st['title_english']))
 
-            parts.append(f'<h3>{title}</h3>\n')
-            parts.append('<div class="story">\n')
-            for para in mh_paras:
-                parts.append(f'  <p lang="ja">{to_ruby_html(para)}</p>\n')
-            parts.append('</div>\n')
+                # Split Japanese text into paragraphs on space after 。or 」
+                mh_text = st['minihongo']
+                mh_paras = re.split(r'(?<=[\u3002\u300d]) ', mh_text)
+                mh_paras = [p for p in mh_paras if p.strip()]
 
-            # English as single paragraph
-            parts.append('<div class="story-translation">\n')
-            parts.append(f'  <p>{st["english"]}</p>\n')
-            parts.append('</div>\n')
-            parts.append('\n')
+                parts.append(f'<h4>{title}</h4>\n')
+                parts.append('<div class="story">\n')
+                for para in mh_paras:
+                    parts.append(f'  <p lang="ja">{to_ruby_html(para)}</p>\n')
+                parts.append('</div>\n')
+
+                # English as single paragraph
+                parts.append('<div class="story-translation">\n')
+                parts.append(f'  <p>{st["english"]}</p>\n')
+                parts.append('</div>\n')
+                parts.append('\n')
 
     return wrap_page('reading', ''.join(parts), toc)
 

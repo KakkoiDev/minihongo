@@ -63,14 +63,16 @@ cat-61,cat-49,word-building,時の表現,Time Expressions,,12
 cat-62,cat-49,word-building,動詞,Verbs not in base,,13
 cat-63,cat-49,word-building,形容詞,Adjectives not in base,,14
 cat-64,cat-49,word-building,抽象的な概念,Abstract Concepts,,15
-cat-65,,reading,自然,Nature,,1
-cat-66,,reading,日々,Daily Life,,2
-cat-67,,reading,心,Heart & Mind,,3
-cat-68,,reading,季節,Seasons,,4
-cat-69,,reading,人と人,Between People,,5
-cat-70,,reading,生と死,Life & Death,,6
-cat-71,,reading,光と闇,Light & Dark,,7
-cat-72,,reading,言葉,Words,,8
-cat-73,,reading,日常の対話,Daily Life Dialogs,,9
-cat-74,,reading,考える対話,Thinking Dialogs,,10
-cat-75,,reading,短い話,Short Stories,,11
+cat-76,,reading,対話,Dialogs,,1
+cat-73,cat-76,reading,日常の対話,Daily Life Dialogs,,1
+cat-74,cat-76,reading,考える対話,Thinking Dialogs,,2
+cat-75,,reading,短い話,Short Stories,,2
+cat-78,,reading,俳句,Haiku,,3
+cat-65,cat-78,reading,自然,Nature,,1
+cat-66,cat-78,reading,日々,Daily Life,,2
+cat-67,cat-78,reading,心,Heart & Mind,,3
+cat-68,cat-78,reading,季節,Seasons,,4
+cat-69,cat-78,reading,人と人,Between People,,5
+cat-70,cat-78,reading,生と死,Life & Death,,6
+cat-71,cat-78,reading,光と闇,Light & Dark,,7
+cat-72,cat-78,reading,言葉,Words,,8
