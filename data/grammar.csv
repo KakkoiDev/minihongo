@@ -6,15 +6,15 @@ gram-4,cat-17,は (wa) — topic,,,,"Topic marker. ""As for X...""",,4
 gram-5,cat-17,が (ga) — subject,,,,Subject. Who does it. New information.,,5
 gram-6,cat-17,を (o) — object,,,,Object. What the action is done to.,,6
 gram-7,cat-17,に (ni) — direction / time / location,,,,"Direction, time, location of existence.",,7
-gram-8,cat-17,で (de) — location of action / means,,,,"Location of action, means/tool.",,8
+gram-8,cat-17,で (de) — location of action / means,,,,"Location of action, means/tool. Compare に: に = where things exist, で = where things happen.",,8
 gram-9,cat-17,の (no) — connecting,,,,Connects nouns. Also turns verbs into nouns (see section 5).,,9
 gram-10,cat-17,と (to) — and / quoting,,,,"And, with, quotation. Quotes anything: speech, thoughts, sounds, names.",,10
 gram-11,cat-17,も (mo) — also,,,,"Also. Replaces は, が, or を.",,11
-gram-12,cat-17,から / まで — from / until,,,,Start and end points in time or place.,,12
+gram-12,cat-17,から / まで — from / until,,,,"Start points (from), end points (until). から also gives reasons (because).",,12
 gram-13,cat-17,より — comparison,,,,"Xより = ""more than X."" One particle, all comparisons.",,13
 gram-14,cat-18,四つの形 (Four Forms),,,,"Plain form only. Polite form (ます) is a social layer, not grammar. る/た/ない/なかった. Everything layers on top.",,14
-gram-15,cat-18,て形 (Te-Form),,,,"Universal connector. Chain actions, request (+ください), ongoing (+いる), permission (+もいい), prohibition (+はいけない). One tense at the end.",,15
-gram-16,cat-18,られる / える (Potential),,,,Ability. する → できる.,,16
+gram-15,cat-18,て形 (Te-Form),,,,"Universal connector. Chain actions, request (+ください), ongoing (+いる), permission (+もいい), prohibition (+はいけない). One tense at the end. Formation varies by verb ending: く→いて, む→んで, つ→って, る→て.",,15
+gram-16,cat-18,られる / える (Potential),,,,"Ability. る-verbs: drop る, add られる. Other verbs: え-row + る. する → できる.",,16
 gram-17,cat-19,い形容詞,,,,"ARE verbs. 寒い is a complete sentence. Conjugate: くない, かった, くて. No copula needed.",,17
 gram-18,cat-19,な形容詞,,,,"Add な before nouns. じゃない (neg), だった (past).",,18
 gram-19,cat-19,〜くなる / 〜になる,,,,Change of state. One pattern for all changes.,,19
