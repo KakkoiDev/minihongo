@@ -66,7 +66,7 @@ PAGE_META = {
     'grammar': {
         'title': 'Grammar',
         'file': '3-grammar.html',
-        'desc': 'Minimum grammar for maximum expression.',
+        'desc': 'The structural insights that unlock the language.',
         'prev': ('lessons/2-vocabulary.html', 'Vocabulary'),
         'next': ('lessons/5-word-building.html', 'Word Building'),
     },

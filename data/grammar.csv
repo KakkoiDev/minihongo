@@ -1,29 +1,30 @@
 id,category_id,minihongo,english,japanese,explanation_minihongo,explanation_english,explanation_japanese,sort_order
-gram-1,cat-16,語順 (Word Order),,,,The verb always comes last. Subject - Object - Verb.,,1
-gram-2,cat-16,です / だ,,,,"Equates two things. です = polite, だ = casual. じゃない = negative. でした = past.",,2
-gram-3,cat-17,は (wa) — topic,,,,Marks what you are talking about.,,3
-gram-4,cat-17,が (ga) — subject,,,,Marks who/what does the action.,,4
-gram-5,cat-17,を (o) — object,,,,Marks what the action is done to.,,5
-gram-6,cat-17,に (ni) — direction / time / location,,,,"Where you go, when something happens, where something exists.",,6
-gram-7,cat-17,で (de) — location of action / means,,,,"Where you do something, or what you use to do it.",,7
-gram-8,cat-17,の (no) — possession,,,,Connects nouns. Like 's in English.,,8
-gram-9,cat-17,も (mo) — also,,,,"Replaces は, が, or を to mean ""also.""",,9
-gram-10,cat-17,と (to) — and,,,,Lists items together.,,10
-gram-11,cat-17,から (kara) — from / because,,,,"Starting point (place/time), or reason.",,11
-gram-12,cat-17,まで (made) — until / to,,,,End point in time or place. Pairs with から.,,12
-gram-13,cat-18,三つの種類 (Three Types),,,,"U-verbs: end in う-row. Ru-verbs: end in える/いる. Irregular: する, 来る.",,13
-gram-14,cat-18,ます形 (Polite),,,,"ます / ません / ました. ましょう = let's. Ru: drop る, add ます. U: い-row + ます.",,14
-gram-15,cat-18,て形 (Te-Form),,,,"Connects actions, makes requests (て+ください), shows ongoing state (て+いる). Change て→た for past tense.",,15
-gram-16,cat-18,ない形 (Negative),,,,"Ru: drop る, add ない. U: あ-row + ない. ある → ない.",,16
-gram-17,cat-18,られる形 (Potential),,,,"Ru: drop る, add られる. U: え-row + る. する → できる. Expresses ability.",,17
-gram-18,cat-19,い形容詞,,,,"End in い. Change い → くない (neg), かった (past), くて (and).",,18
-gram-19,cat-19,な形容詞,,,,"Add な before nouns. じゃない (neg), だった (past).",,19
-gram-20,cat-19,〜くなる / 〜になる,,,,い-adj: い → くなる. な-adj/noun: + になる. Change of state.,,20
-gram-21,cat-19,〜すぎる,,,,Verb stem + すぎる. い-adj: drop い + すぎる. Too much of something.,,21
-gram-22,cat-20,〜たい / 欲しい,,,,Verb stem + たい = want to do. 欲しい = want a thing.,,22
-gram-23,cat-20,たら / なら,,,,たら = when/if something happens (verb た + ら). なら = if it's the case.,,23
-gram-24,cat-20,と思【おも】う / と言【い】う,,,,sentence + と + 思う (think) or 言う (say). Reports thoughts and speech.,,24
-gram-25,cat-20,てもいい / てはいけない,,,,て + も + いい = may do. て + は + いけない = must not do.,,25
-gram-26,cat-21,か / ね / よ,,,,か = question. ね = right? よ = you know!,,26
-gram-27,cat-21,何・誰・どこ・いつ・なぜ,,,,Place the question word where the answer would go.,,27
-gram-28,cat-22,verb + noun (Relative Clauses),,,,Put a verb or sentence before a noun to describe it. The core of word-building.,,28
+gram-1,cat-16,語順 (Word Order),,,,"Verb last. Particles mark roles. Sentences end with verb, adjective, or noun+だ.",,1
+gram-2,cat-16,省略 (Dropping),,,,"Drop what's known. Subjects, objects - anything established vanishes. This is the default.",,2
+gram-3,cat-16,ある / いる (Existence),,,,"Existence IS possession. No separate ""have"" verb. いる for living, ある for everything else.",,3
+gram-4,cat-17,は (wa) — topic,,,,"Topic marker. ""As for X...""",,4
+gram-5,cat-17,が (ga) — subject,,,,Subject. Who does it. New information.,,5
+gram-6,cat-17,を (o) — object,,,,Object. What the action is done to.,,6
+gram-7,cat-17,に (ni) — direction / time / location,,,,"Direction, time, location of existence.",,7
+gram-8,cat-17,で (de) — location of action / means,,,,"Location of action, means/tool.",,8
+gram-9,cat-17,の (no) — connecting,,,,Connects nouns. Also turns verbs into nouns (see section 5).,,9
+gram-10,cat-17,と (to) — and / quoting,,,,"And, with, quotation. Quotes anything: speech, thoughts, sounds, names.",,10
+gram-11,cat-17,も (mo) — also,,,,"Also. Replaces は, が, or を.",,11
+gram-12,cat-17,から / まで — from / until,,,,Start and end points in time or place.,,12
+gram-13,cat-17,より — comparison,,,,"Xより = ""more than X."" One particle, all comparisons.",,13
+gram-14,cat-18,四つの形 (Four Forms),,,,"る/た/ない/なかった. Present, past, negative, past-negative. Everything else layers on top.",,14
+gram-15,cat-18,て形 (Te-Form),,,,"Universal connector. Chain actions, request (+ください), ongoing (+いる), permission (+もいい), prohibition (+はいけない). One tense at the end.",,15
+gram-16,cat-18,られる / える (Potential),,,,Ability. する → できる.,,16
+gram-17,cat-19,い形容詞,,,,"ARE verbs. 寒い is a complete sentence. Conjugate: くない, かった, くて. No copula needed.",,17
+gram-18,cat-19,な形容詞,,,,"Add な before nouns. じゃない (neg), だった (past).",,18
+gram-19,cat-19,〜くなる / 〜になる,,,,Change of state. One pattern for all changes.,,19
+gram-20,cat-19,Clause + noun (Relative Clauses),,,,Put a verb or sentence before a noun to describe it. Engine of word-building.,,20
+gram-21,cat-20,の (Nominalization),,,,"Casual. 食べるのが好き. Also in questions: 何しているの？",,21
+gram-22,cat-20,こと,,,,Abstract concept. 走ることは良い. 行くことができる.,,22
+gram-23,cat-20,もの,,,,Physical thing or tangible reason. 飲むもの = something to drink.,,23
+gram-24,cat-21,たい / 欲しい,,,,Want to do (verb stem + たい). Want a thing (欲しい).,,24
+gram-25,cat-21,たら / なら,,,,たら = when/if something happens (verb た + ら). なら = if it's the case.,,25
+gram-26,cat-21,と思【おも】う / と言【い】う,,,,"Quote anything with と. Thoughts, speech, sounds. という = ""called.""",,26
+gram-27,cat-21,ために,,,,Purpose and beneficiary. Verb+ために or noun+のために.,,27
+gram-28,cat-22,か / ね / よ,,,,Question / right? / emphasis. か often dropped in casual - just rising tone.,,28
+gram-29,cat-22,何・誰・どこ・いつ・なぜ + も/でも,,,,Question words go where the answer goes. +も (neg verb) = nothing/nobody. +でも = anything/anyone. 5 words + 2 particles = 20 pronouns free.,,29
