@@ -159,6 +159,7 @@
 
     addEventListener('offline', () => showToast(TOAST.offline))
     addEventListener('online', () => showToast(TOAST.online, { duration: 3000 }))
+    if (!navigator.onLine) showToast(TOAST.offline)
 
     let deferredInstall = null
     addEventListener('beforeinstallprompt', e => {
