@@ -65,12 +65,20 @@
       a.href = base + '_f/' + path + '#content'
     })
 
-    // Intercept lesson-nav links via event delegation
+    // Intercept in-page anchor links (TOC etc.) broken by <base href>
     document.addEventListener('click', e => {
-      const a = e.target.closest('.lesson-nav a')
-      if (!a) return
+      const a = e.target.closest('#content a[href^="#"]')
+      if (a) {
+        e.preventDefault()
+        const el = document.getElementById(a.getAttribute('href').slice(1))
+        if (el) el.scrollIntoView()
+        return
+      }
+      // Intercept lesson-nav links via event delegation
+      const nav = e.target.closest('.lesson-nav a')
+      if (!nav) return
       e.preventDefault()
-      const path = new URL(a.href, base).pathname.replace(basePath, '')
+      const path = new URL(nav.href, base).pathname.replace(basePath, '')
       document.querySelector('iframe[name=htmz]').src = base + '_f/' + path + '#content'
     })
 
