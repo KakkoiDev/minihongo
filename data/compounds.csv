@@ -1,168 +1,168 @@
-id,category_id,minihongo,english,japanese,english_litteral,sort_order
-comp-1,cat-24,大人,adult,大人,大 + 人,1
-comp-2,cat-24,一人,"one person, alone",一人,一 + 人,2
-comp-3,cat-24,二人,two people,二人,二 + 人,3
-comp-4,cat-24,男女,men and women,男女,男 + 女,4
-comp-5,cat-24,男子,"boy, male",男子,男 + 子,5
-comp-6,cat-24,女子,"girl, female",女子,女 + 子,6
-comp-7,cat-24,父母,parents,父母,父 + 母,7
-comp-8,cat-24,父子,father and child,父子,父 + 子,8
-comp-9,cat-24,母子,mother and child,母子,母 + 子,9
-comp-10,cat-24,長男,eldest son,長男,長 + 男,10
-comp-11,cat-24,長女,eldest daughter,長女,長 + 女,11
-comp-12,cat-24,新人,newcomer,新人,新 + 人,12
-comp-13,cat-24,本人,the person in question,本人,本 + 人,13
-comp-14,cat-24,他人,"stranger, others",他人,他 + 人,14
-comp-15,cat-24,知人,acquaintance,知人,知 + 人,15
-comp-16,cat-24,名人,"master, expert",名人,名 + 人,16
-comp-17,cat-24,悪人,villain,悪人,悪 + 人,17
-comp-18,cat-24,変人,eccentric,変人,変 + 人,18
-comp-19,cat-24,青年,young man,青年,青 + 年,19
-comp-20,cat-24,人生,human life,人生,人 + 生,20
-comp-21,cat-24,人物,"person, character",人物,人 + 物,21
-comp-22,cat-24,人口,population,人口,人 + 口,22
-comp-23,cat-24,人手,"workforce, help",人手,人 + 手,23
-comp-24,cat-24,人目,public gaze,人目,人 + 目,24
-comp-25,cat-24,日本人,Japanese person,日本人,日 + 本 + 人,25
-comp-26,cat-24,外国人,foreigner,外国人,外 + 国 + 人,26
-comp-27,cat-25,大空,vast sky,大空,大 + 空,27
-comp-28,cat-25,青空,blue sky,青空,青 + 空,28
-comp-29,cat-25,大木,large tree,大木,大 + 木,29
-comp-30,cat-25,木立,grove of trees,木立,木 + 立,30
-comp-31,cat-25,火山,volcano,火山,火 + 山,31
-comp-32,cat-25,高山,high mountain,高山,高 + 山,32
-comp-33,cat-25,山道,mountain path,山道,山 + 道,33
-comp-34,cat-25,山中,in the mountains,山中,山 + 中,34
-comp-35,cat-25,山口,mountain entrance,山口,山 + 口,35
-comp-36,cat-25,近道,shortcut,近道,近 + 道,36
-comp-37,cat-25,国道,national highway,国道,国 + 道,37
-comp-38,cat-25,水道,water supply,水道,水 + 道,38
-comp-39,cat-25,水中,underwater,水中,水 + 中,39
-comp-40,cat-25,海水,seawater,海水,海 + 水,40
-comp-41,cat-25,海上,on the sea,海上,海 + 上,41
-comp-42,cat-25,大海,great ocean,大海,大 + 海,42
-comp-43,cat-25,大雨,heavy rain,大雨,大 + 雨,43
-comp-44,cat-25,大水,flood,大水,大 + 水,44
-comp-45,cat-25,大火,great fire,大火,大 + 火,45
-comp-46,cat-25,火口,volcanic crater,火口,火 + 口,46
-comp-47,cat-25,強風,strong wind,強風,強 + 風,47
-comp-48,cat-25,金山,gold mine,金山,金 + 山,48
-comp-49,cat-26,日光,sunlight,日光,日 + 光,49
-comp-50,cat-26,月光,moonlight,月光,月 + 光,50
-comp-51,cat-26,月夜,moonlit night,月夜,月 + 夜,51
-comp-52,cat-26,新月,new moon,新月,新 + 月,52
-comp-53,cat-26,月日,"time, the days",月日,月 + 日,53
-comp-54,cat-26,今日,today,今日,今 + 日,54
-comp-55,cat-26,明日,tomorrow,明日,明 + 日,55
-comp-56,cat-26,前日,the day before,前日,前 + 日,56
-comp-57,cat-26,後日,"another day, later",後日,後 + 日,57
-comp-58,cat-26,毎日,every day,毎日,毎 + 日,58
-comp-59,cat-26,毎月,every month,毎月,毎 + 月,59
-comp-60,cat-26,毎年,every year,毎年,毎 + 年,60
-comp-61,cat-26,新年,new year,新年,新 + 年,61
-comp-62,cat-26,長年,long years,長年,長 + 年,62
-comp-63,cat-26,年中,all year round,年中,年 + 中,63
-comp-64,cat-26,年上,older (in age),年上,年 + 上,64
-comp-65,cat-26,年下,younger (in age),年下,年 + 下,65
-comp-66,cat-26,年金,pension,年金,年 + 金,66
-comp-67,cat-26,日中,daytime,日中,日 + 中,67
-comp-68,cat-26,一日,one day,一日,一 + 日,68
-comp-69,cat-27,手足,hands and feet,手足,手 + 足,69
-comp-70,cat-27,右手,right hand,右手,右 + 手,70
-comp-71,cat-27,左手,left hand,左手,左 + 手,71
-comp-72,cat-27,右足,right foot,右足,右 + 足,72
-comp-73,cat-27,左足,left foot,左足,左 + 足,73
-comp-74,cat-27,耳目,"attention, eyes and ears",耳目,耳 + 目,74
-comp-75,cat-27,目上,"superior, elder",目上,目 + 上,75
-comp-76,cat-27,目下,subordinate,目下,目 + 下,76
-comp-77,cat-27,目前,before one's eyes,目前,目 + 前,77
-comp-78,cat-27,足音,footsteps,足音,足 + 音,78
-comp-79,cat-27,全体,the whole,全体,全 + 体,79
-comp-80,cat-27,大体,"roughly, mostly",大体,大 + 体,80
-comp-81,cat-27,一体,what on earth,一体,一 + 体,81
-comp-82,cat-28,本物,genuine article,本物,本 + 物,82
-comp-83,cat-28,好物,favorite food,好物,好 + 物,83
-comp-84,cat-28,名物,local specialty,名物,名 + 物,84
-comp-85,cat-28,書物,"book, writings",書物,書 + 物,85
-comp-86,cat-28,食物,food,食物,食 + 物,86
-comp-87,cat-28,作物,crops,作物,作 + 物,87
-comp-88,cat-28,生物,living thing,生物,生 + 物,88
-comp-89,cat-28,風物,"scenery, seasonal sights",風物,風 + 物,89
-comp-90,cat-28,金物,"hardware, metalware",金物,金 + 物,90
-comp-91,cat-28,着物,kimono,着物,着 + 物,91
-comp-92,cat-28,飲み物,"drink, beverage",飲み物,飲 + 物,92
-comp-93,cat-28,買い物,shopping,買い物,買 + 物,93
-comp-94,cat-28,読み物,reading material,読み物,読 + 物,94
-comp-95,cat-28,持ち物,belongings,持ち物,持 + 物,95
-comp-96,cat-28,物音,sound (of something),物音,物 + 音,96
-comp-97,cat-28,見物,sightseeing,見物,見 + 物,97
-comp-98,cat-29,手本,"model, example",手本,手 + 本,98
-comp-99,cat-29,手前,"this side of, before",手前,手 + 前,99
-comp-100,cat-29,上手,"skilled, good at",上手,上 + 手,100
-comp-101,cat-29,下手,"clumsy, bad at",下手,下 + 手,101
-comp-102,cat-29,切手,postage stamp,切手,切 + 手,102
-comp-103,cat-29,入手,obtaining,入手,入 + 手,103
-comp-104,cat-29,選手,"player, athlete",選手,選 + 手,104
-comp-105,cat-29,助手,assistant,助手,助 + 手,105
-comp-106,cat-29,着手,"start, embark on",着手,着 + 手,106
-comp-107,cat-30,入口,entrance,入口,入 + 口,107
-comp-108,cat-30,出口,exit,出口,出 + 口,108
-comp-109,cat-30,出入,going in and out,出入,出 + 入,109
-comp-110,cat-30,入金,"payment, deposit",入金,入 + 金,110
-comp-111,cat-30,出金,withdrawal,出金,出 + 金,111
-comp-112,cat-30,外出,going out,外出,外 + 出,112
-comp-113,cat-30,新入,newly entered,新入,新 + 入,113
-comp-114,cat-30,立入,entering (as in 立入禁止),立入,立 + 入,114
-comp-115,cat-31,日本,Japan,日本,日 + 本,115
-comp-116,cat-31,本名,real name,本名,本 + 名,116
-comp-117,cat-31,本心,true feelings,本心,本 + 心,117
-comp-118,cat-31,見本,sample,見本,見 + 本,118
-comp-119,cat-31,教本,textbook,教本,教 + 本,119
-comp-120,cat-31,読本,"reader, study book",読本,読 + 本,120
-comp-121,cat-31,読書,reading,読書,読 + 書,121
-comp-122,cat-31,音読,reading aloud,音読,音 + 読,122
-comp-123,cat-31,新聞,newspaper,新聞,新 + 聞,123
-comp-124,cat-32,外国,foreign country,外国,外 + 国,124
-comp-125,cat-32,大国,great power,大国,大 + 国,125
-comp-126,cat-32,全国,nationwide,全国,全 + 国,126
-comp-127,cat-32,国立,national (institution),国立,国 + 立,127
-comp-128,cat-32,国外,outside the country,国外,国 + 外,128
-comp-129,cat-32,国名,country name,国名,国 + 名,129
-comp-130,cat-32,海外,overseas,海外,海 + 外,130
-comp-131,cat-33,中心,"center, core",中心,中 + 心,131
-comp-132,cat-33,感心,admiration,感心,感 + 心,132
-comp-133,cat-33,感動,being moved/impressed,感動,感 + 動,133
-comp-134,cat-33,気持ち,feeling,気持ち,気 + 持,134
-comp-135,cat-33,思い出,memory,思い出,思 + 出,135
-comp-136,cat-34,動作,"movement, action",動作,動 + 作,136
-comp-137,cat-34,変動,fluctuation,変動,変 + 動,137
-comp-138,cat-34,開始,"start, commencement",開始,開 + 始,138
-comp-139,cat-34,開閉,opening and closing,開閉,開 + 閉,139
-comp-140,cat-34,始終,from start to finish,始終,始 + 終,140
-comp-141,cat-34,生死,life and death,生死,生 + 死,141
-comp-142,cat-34,出来事,"event, occurrence",出来事,出 + 来 + 事,142
-comp-143,cat-35,大事,"important, precious",大事,大 + 事,143
-comp-144,cat-35,大切,"important, dear",大切,大 + 切,144
-comp-145,cat-35,大変,terrible / very,大変,大 + 変,145
-comp-146,cat-35,大金,large sum of money,大金,大 + 金,146
-comp-147,cat-35,大家,landlord,大家,大 + 家,147
-comp-148,cat-35,大使,ambassador,大使,大 + 使,148
-comp-149,cat-36,食事,meal,食事,食 + 事,149
-comp-150,cat-36,火事,fire (disaster),火事,火 + 事,150
-comp-151,cat-36,知事,governor,知事,知 + 事,151
-comp-152,cat-36,金色,gold color,金色,金 + 色,152
-comp-153,cat-36,水色,light blue,水色,水 + 色,153
-comp-154,cat-36,音色,"tone, timbre",音色,音 + 色,154
-comp-155,cat-36,木目,wood grain,木目,木 + 目,155
-comp-156,cat-36,名目,"nominal, in name only",名目,名 + 目,156
-comp-157,cat-36,明白,"obvious, clear",明白,明 + 白,157
-comp-158,cat-36,多少,more or less,多少,多 + 少,158
-comp-159,cat-36,外見,appearance,外見,外 + 見,159
-comp-160,cat-36,上着,"jacket, outer wear",上着,上 + 着,160
-comp-161,cat-36,下着,underwear,下着,下 + 着,161
-comp-162,cat-36,雨音,sound of rain,雨音,雨 + 音,162
-comp-163,cat-36,一生,lifetime,一生,一 + 生,163
-comp-164,cat-36,生前,while alive,生前,生 + 前,164
-comp-165,cat-36,一目,a glance,一目,一 + 目,165
-comp-166,cat-36,一言,one word,一言,一 + 言,166
-comp-167,cat-36,頭金,down payment,頭金,頭 + 金,167
+id,category_id,minihongo,reading,english,japanese,english_litteral,sort_order
+comp-1,cat-24,大人,おとな,adult,大人,大 + 人,1
+comp-2,cat-24,一人,ひとり,"one person, alone",一人,一 + 人,2
+comp-3,cat-24,二人,ふたり,two people,二人,二 + 人,3
+comp-4,cat-24,男女,だんじょ,men and women,男女,男 + 女,4
+comp-5,cat-24,男子,だんし,"boy, male",男子,男 + 子,5
+comp-6,cat-24,女子,じょし,"girl, female",女子,女 + 子,6
+comp-7,cat-24,父母,ふぼ,parents,父母,父 + 母,7
+comp-8,cat-24,父子,ふし,father and child,父子,父 + 子,8
+comp-9,cat-24,母子,ぼし,mother and child,母子,母 + 子,9
+comp-10,cat-24,長男,ちょうなん,eldest son,長男,長 + 男,10
+comp-11,cat-24,長女,ちょうじょ,eldest daughter,長女,長 + 女,11
+comp-12,cat-24,新人,しんじん,newcomer,新人,新 + 人,12
+comp-13,cat-24,本人,ほんにん,the person in question,本人,本 + 人,13
+comp-14,cat-24,他人,たにん,"stranger, others",他人,他 + 人,14
+comp-15,cat-24,知人,ちじん,acquaintance,知人,知 + 人,15
+comp-16,cat-24,名人,めいじん,"master, expert",名人,名 + 人,16
+comp-17,cat-24,悪人,あくにん,villain,悪人,悪 + 人,17
+comp-18,cat-24,変人,へんじん,eccentric,変人,変 + 人,18
+comp-19,cat-24,青年,せいねん,young man,青年,青 + 年,19
+comp-20,cat-24,人生,じんせい,human life,人生,人 + 生,20
+comp-21,cat-24,人物,じんぶつ,"person, character",人物,人 + 物,21
+comp-22,cat-24,人口,じんこう,population,人口,人 + 口,22
+comp-23,cat-24,人手,ひとで,"workforce, help",人手,人 + 手,23
+comp-24,cat-24,人目,ひとめ,public gaze,人目,人 + 目,24
+comp-25,cat-24,日本人,にほんじん,Japanese person,日本人,日 + 本 + 人,25
+comp-26,cat-24,外国人,がいこくじん,foreigner,外国人,外 + 国 + 人,26
+comp-27,cat-25,大空,おおぞら,vast sky,大空,大 + 空,27
+comp-28,cat-25,青空,あおぞら,blue sky,青空,青 + 空,28
+comp-29,cat-25,大木,たいぼく,large tree,大木,大 + 木,29
+comp-30,cat-25,木立,こだち,grove of trees,木立,木 + 立,30
+comp-31,cat-25,火山,かざん,volcano,火山,火 + 山,31
+comp-32,cat-25,高山,こうざん,high mountain,高山,高 + 山,32
+comp-33,cat-25,山道,やまみち,mountain path,山道,山 + 道,33
+comp-34,cat-25,山中,さんちゅう,in the mountains,山中,山 + 中,34
+comp-35,cat-25,山口,やまぐち,mountain entrance,山口,山 + 口,35
+comp-36,cat-25,近道,ちかみち,shortcut,近道,近 + 道,36
+comp-37,cat-25,国道,こくどう,national highway,国道,国 + 道,37
+comp-38,cat-25,水道,すいどう,water supply,水道,水 + 道,38
+comp-39,cat-25,水中,すいちゅう,underwater,水中,水 + 中,39
+comp-40,cat-25,海水,かいすい,seawater,海水,海 + 水,40
+comp-41,cat-25,海上,かいじょう,on the sea,海上,海 + 上,41
+comp-42,cat-25,大海,たいかい,great ocean,大海,大 + 海,42
+comp-43,cat-25,大雨,おおあめ,heavy rain,大雨,大 + 雨,43
+comp-44,cat-25,大水,おおみず,flood,大水,大 + 水,44
+comp-45,cat-25,大火,たいか,great fire,大火,大 + 火,45
+comp-46,cat-25,火口,かこう,volcanic crater,火口,火 + 口,46
+comp-47,cat-25,強風,きょうふう,strong wind,強風,強 + 風,47
+comp-48,cat-25,金山,きんざん,gold mine,金山,金 + 山,48
+comp-49,cat-26,日光,にっこう,sunlight,日光,日 + 光,49
+comp-50,cat-26,月光,げっこう,moonlight,月光,月 + 光,50
+comp-51,cat-26,月夜,つきよ,moonlit night,月夜,月 + 夜,51
+comp-52,cat-26,新月,しんげつ,new moon,新月,新 + 月,52
+comp-53,cat-26,月日,つきひ,"time, the days",月日,月 + 日,53
+comp-54,cat-26,今日,きょう,today,今日,今 + 日,54
+comp-55,cat-26,明日,あした,tomorrow,明日,明 + 日,55
+comp-56,cat-26,前日,ぜんじつ,the day before,前日,前 + 日,56
+comp-57,cat-26,後日,ごじつ,"another day, later",後日,後 + 日,57
+comp-58,cat-26,毎日,まいにち,every day,毎日,毎 + 日,58
+comp-59,cat-26,毎月,まいつき,every month,毎月,毎 + 月,59
+comp-60,cat-26,毎年,まいとし,every year,毎年,毎 + 年,60
+comp-61,cat-26,新年,しんねん,new year,新年,新 + 年,61
+comp-62,cat-26,長年,ながねん,long years,長年,長 + 年,62
+comp-63,cat-26,年中,ねんじゅう,all year round,年中,年 + 中,63
+comp-64,cat-26,年上,としうえ,older (in age),年上,年 + 上,64
+comp-65,cat-26,年下,としした,younger (in age),年下,年 + 下,65
+comp-66,cat-26,年金,ねんきん,pension,年金,年 + 金,66
+comp-67,cat-26,日中,にっちゅう,daytime,日中,日 + 中,67
+comp-68,cat-26,一日,いちにち,one day,一日,一 + 日,68
+comp-69,cat-27,手足,てあし,hands and feet,手足,手 + 足,69
+comp-70,cat-27,右手,みぎて,right hand,右手,右 + 手,70
+comp-71,cat-27,左手,ひだりて,left hand,左手,左 + 手,71
+comp-72,cat-27,右足,みぎあし,right foot,右足,右 + 足,72
+comp-73,cat-27,左足,ひだりあし,left foot,左足,左 + 足,73
+comp-74,cat-27,耳目,じもく,"attention, eyes and ears",耳目,耳 + 目,74
+comp-75,cat-27,目上,めうえ,"superior, elder",目上,目 + 上,75
+comp-76,cat-27,目下,めした,subordinate,目下,目 + 下,76
+comp-77,cat-27,目前,もくぜん,before one's eyes,目前,目 + 前,77
+comp-78,cat-27,足音,あしおと,footsteps,足音,足 + 音,78
+comp-79,cat-27,全体,ぜんたい,the whole,全体,全 + 体,79
+comp-80,cat-27,大体,だいたい,"roughly, mostly",大体,大 + 体,80
+comp-81,cat-27,一体,いったい,what on earth,一体,一 + 体,81
+comp-82,cat-28,本物,ほんもの,genuine article,本物,本 + 物,82
+comp-83,cat-28,好物,こうぶつ,favorite food,好物,好 + 物,83
+comp-84,cat-28,名物,めいぶつ,local specialty,名物,名 + 物,84
+comp-85,cat-28,書物,しょもつ,"book, writings",書物,書 + 物,85
+comp-86,cat-28,食物,しょくもつ,food,食物,食 + 物,86
+comp-87,cat-28,作物,さくもつ,crops,作物,作 + 物,87
+comp-88,cat-28,生物,せいぶつ,living thing,生物,生 + 物,88
+comp-89,cat-28,風物,ふうぶつ,"scenery, seasonal sights",風物,風 + 物,89
+comp-90,cat-28,金物,かなもの,"hardware, metalware",金物,金 + 物,90
+comp-91,cat-28,着物,きもの,kimono,着物,着 + 物,91
+comp-92,cat-28,飲み物,のみもの,"drink, beverage",飲み物,飲 + 物,92
+comp-93,cat-28,買い物,かいもの,shopping,買い物,買 + 物,93
+comp-94,cat-28,読み物,よみもの,reading material,読み物,読 + 物,94
+comp-95,cat-28,持ち物,もちもの,belongings,持ち物,持 + 物,95
+comp-96,cat-28,物音,ものおと,sound (of something),物音,物 + 音,96
+comp-97,cat-28,見物,けんぶつ,sightseeing,見物,見 + 物,97
+comp-98,cat-29,手本,てほん,"model, example",手本,手 + 本,98
+comp-99,cat-29,手前,てまえ,"this side of, before",手前,手 + 前,99
+comp-100,cat-29,上手,じょうず,"skilled, good at",上手,上 + 手,100
+comp-101,cat-29,下手,へた,"clumsy, bad at",下手,下 + 手,101
+comp-102,cat-29,切手,きって,postage stamp,切手,切 + 手,102
+comp-103,cat-29,入手,にゅうしゅ,obtaining,入手,入 + 手,103
+comp-104,cat-29,選手,せんしゅ,"player, athlete",選手,選 + 手,104
+comp-105,cat-29,助手,じょしゅ,assistant,助手,助 + 手,105
+comp-106,cat-29,着手,ちゃくしゅ,"start, embark on",着手,着 + 手,106
+comp-107,cat-30,入口,いりぐち,entrance,入口,入 + 口,107
+comp-108,cat-30,出口,でぐち,exit,出口,出 + 口,108
+comp-109,cat-30,出入,でいり,going in and out,出入,出 + 入,109
+comp-110,cat-30,入金,にゅうきん,"payment, deposit",入金,入 + 金,110
+comp-111,cat-30,出金,しゅっきん,withdrawal,出金,出 + 金,111
+comp-112,cat-30,外出,がいしゅつ,going out,外出,外 + 出,112
+comp-113,cat-30,新入,しんにゅう,newly entered,新入,新 + 入,113
+comp-114,cat-30,立入,たちいり,entering (as in 立入禁止),立入,立 + 入,114
+comp-115,cat-31,日本,にほん,Japan,日本,日 + 本,115
+comp-116,cat-31,本名,ほんみょう,real name,本名,本 + 名,116
+comp-117,cat-31,本心,ほんしん,true feelings,本心,本 + 心,117
+comp-118,cat-31,見本,みほん,sample,見本,見 + 本,118
+comp-119,cat-31,教本,きょうほん,textbook,教本,教 + 本,119
+comp-120,cat-31,読本,とくほん,"reader, study book",読本,読 + 本,120
+comp-121,cat-31,読書,どくしょ,reading,読書,読 + 書,121
+comp-122,cat-31,音読,おんどく,reading aloud,音読,音 + 読,122
+comp-123,cat-31,新聞,しんぶん,newspaper,新聞,新 + 聞,123
+comp-124,cat-32,外国,がいこく,foreign country,外国,外 + 国,124
+comp-125,cat-32,大国,たいこく,great power,大国,大 + 国,125
+comp-126,cat-32,全国,ぜんこく,nationwide,全国,全 + 国,126
+comp-127,cat-32,国立,こくりつ,national (institution),国立,国 + 立,127
+comp-128,cat-32,国外,こくがい,outside the country,国外,国 + 外,128
+comp-129,cat-32,国名,こくめい,country name,国名,国 + 名,129
+comp-130,cat-32,海外,かいがい,overseas,海外,海 + 外,130
+comp-131,cat-33,中心,ちゅうしん,"center, core",中心,中 + 心,131
+comp-132,cat-33,感心,かんしん,admiration,感心,感 + 心,132
+comp-133,cat-33,感動,かんどう,being moved/impressed,感動,感 + 動,133
+comp-134,cat-33,気持ち,きもち,feeling,気持ち,気 + 持,134
+comp-135,cat-33,思い出,おもいで,memory,思い出,思 + 出,135
+comp-136,cat-34,動作,どうさ,"movement, action",動作,動 + 作,136
+comp-137,cat-34,変動,へんどう,fluctuation,変動,変 + 動,137
+comp-138,cat-34,開始,かいし,"start, commencement",開始,開 + 始,138
+comp-139,cat-34,開閉,かいへい,opening and closing,開閉,開 + 閉,139
+comp-140,cat-34,始終,しじゅう,from start to finish,始終,始 + 終,140
+comp-141,cat-34,生死,せいし,life and death,生死,生 + 死,141
+comp-142,cat-34,出来事,できごと,"event, occurrence",出来事,出 + 来 + 事,142
+comp-143,cat-35,大事,だいじ,"important, precious",大事,大 + 事,143
+comp-144,cat-35,大切,たいせつ,"important, dear",大切,大 + 切,144
+comp-145,cat-35,大変,たいへん,terrible / very,大変,大 + 変,145
+comp-146,cat-35,大金,たいきん,large sum of money,大金,大 + 金,146
+comp-147,cat-35,大家,おおや,landlord,大家,大 + 家,147
+comp-148,cat-35,大使,たいし,ambassador,大使,大 + 使,148
+comp-149,cat-36,食事,しょくじ,meal,食事,食 + 事,149
+comp-150,cat-36,火事,かじ,fire (disaster),火事,火 + 事,150
+comp-151,cat-36,知事,ちじ,governor,知事,知 + 事,151
+comp-152,cat-36,金色,きんいろ,gold color,金色,金 + 色,152
+comp-153,cat-36,水色,みずいろ,light blue,水色,水 + 色,153
+comp-154,cat-36,音色,ねいろ,"tone, timbre",音色,音 + 色,154
+comp-155,cat-36,木目,もくめ,wood grain,木目,木 + 目,155
+comp-156,cat-36,名目,めいもく,"nominal, in name only",名目,名 + 目,156
+comp-157,cat-36,明白,めいはく,"obvious, clear",明白,明 + 白,157
+comp-158,cat-36,多少,たしょう,more or less,多少,多 + 少,158
+comp-159,cat-36,外見,がいけん,appearance,外見,外 + 見,159
+comp-160,cat-36,上着,うわぎ,"jacket, outer wear",上着,上 + 着,160
+comp-161,cat-36,下着,したぎ,underwear,下着,下 + 着,161
+comp-162,cat-36,雨音,あまおと,sound of rain,雨音,雨 + 音,162
+comp-163,cat-36,一生,いっしょう,lifetime,一生,一 + 生,163
+comp-164,cat-36,生前,せいぜん,while alive,生前,生 + 前,164
+comp-165,cat-36,一目,ひとめ,a glance,一目,一 + 目,165
+comp-166,cat-36,一言,ひとこと,one word,一言,一 + 言,166
+comp-167,cat-36,頭金,あたまきん,down payment,頭金,頭 + 金,167

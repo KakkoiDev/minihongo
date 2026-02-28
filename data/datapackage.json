@@ -346,6 +346,10 @@
             }
           },
           {
+            "name": "reading",
+            "type": "string"
+          },
+          {
             "name": "english",
             "type": "string"
           },
@@ -406,6 +410,10 @@
             "constraints": {
               "required": true
             }
+          },
+          {
+            "name": "reading",
+            "type": "string"
           },
           {
             "name": "english",

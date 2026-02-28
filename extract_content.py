@@ -268,6 +268,7 @@ def parse_word_building():
                 'id': _comp.next(),
                 'category_id': cat,
                 'minihongo': clean(cells[0]),
+                'reading': clean(cells[1]),
                 'english': clean(cells[2]),
                 'japanese': clean(cells[0]),
                 'english_litteral': clean(cells[3]),
@@ -280,6 +281,7 @@ def parse_word_building():
                 'id': _expr.next(),
                 'category_id': cat,
                 'minihongo': clean(cells[3]),
+                'reading': clean(cells[1]),
                 'english': clean(cells[2]),
                 'japanese': clean(cells[0]),
                 'english_litteral': '',
@@ -292,6 +294,7 @@ def parse_word_building():
                 'id': _expr.next(),
                 'category_id': cat,
                 'minihongo': clean(cells[1]),
+                'reading': '',
                 'english': clean(cells[0]),
                 'japanese': '',
                 'english_litteral': clean(cells[2]),
@@ -456,13 +459,13 @@ TABLES = {
     },
     'compounds': {
         'rows': compounds,
-        'fields': ['id', 'category_id', 'minihongo', 'english', 'japanese',
-                    'english_litteral', 'sort_order'],
+        'fields': ['id', 'category_id', 'minihongo', 'reading', 'english',
+                    'japanese', 'english_litteral', 'sort_order'],
     },
     'expressions': {
         'rows': expressions,
-        'fields': ['id', 'category_id', 'minihongo', 'english', 'japanese',
-                    'english_litteral', 'sort_order'],
+        'fields': ['id', 'category_id', 'minihongo', 'reading', 'english',
+                    'japanese', 'english_litteral', 'sort_order'],
     },
     'haiku': {
         'rows': haiku_rows,
@@ -509,6 +512,7 @@ def field_descriptor(name, table_name):
         'english_litteral', 'example_english', 'example_japanese',
         'explanation_minihongo', 'explanation_japanese',
         'title_japanese', 'speaker_japanese',
+        'reading',
     }
     if name not in optional:
         f['constraints'] = {'required': True}
