@@ -458,7 +458,7 @@ footer {
   font: inherit;
   font-size: 0.8rem;
   font-weight: 600;
-  color: var(--text);
+  color: #2B2B2B;
   background: var(--accent);
   border: none;
   border-radius: 1rem;
