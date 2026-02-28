@@ -1,0 +1,5 @@
+id,name_minihongo,name_english,name_japanese,sort_order
+vocabulary,語彙,Vocabulary,,1
+grammar,文法,Grammar,,2
+word-building,言葉作り,Word Building,,3
+reading,読み物,Reading,,4

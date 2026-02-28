@@ -1,0 +1,29 @@
+id,category_id,minihongo,english,japanese,explanation_minihongo,explanation_english,explanation_japanese,sort_order
+gram-1,cat-16,語順 (Word Order),,,,The verb always comes last. Subject - Object - Verb.,,1
+gram-2,cat-16,です / だ,,,,"Equates two things. です = polite, だ = casual. じゃない = negative. でした = past.",,2
+gram-3,cat-17,は (wa) — topic,,,,Marks what you are talking about.,,3
+gram-4,cat-17,が (ga) — subject,,,,Marks who/what does the action.,,4
+gram-5,cat-17,を (o) — object,,,,Marks what the action is done to.,,5
+gram-6,cat-17,に (ni) — direction / time / location,,,,"Where you go, when something happens, where something exists.",,6
+gram-7,cat-17,で (de) — location of action / means,,,,"Where you do something, or what you use to do it.",,7
+gram-8,cat-17,の (no) — possession,,,,Connects nouns. Like 's in English.,,8
+gram-9,cat-17,も (mo) — also,,,,"Replaces は, が, or を to mean ""also.""",,9
+gram-10,cat-17,と (to) — and,,,,Lists items together.,,10
+gram-11,cat-17,から (kara) — from / because,,,,"Starting point (place/time), or reason.",,11
+gram-12,cat-17,まで (made) — until / to,,,,End point in time or place. Pairs with から.,,12
+gram-13,cat-18,三つの種類 (Three Types),,,,"U-verbs: end in う-row. Ru-verbs: end in える/いる. Irregular: する, 来る.",,13
+gram-14,cat-18,ます形 (Polite),,,,"ます / ません / ました. ましょう = let's. Ru: drop る, add ます. U: い-row + ます.",,14
+gram-15,cat-18,て形 (Te-Form),,,,"Connects actions, makes requests (て+ください), shows ongoing state (て+いる). Change て→た for past tense.",,15
+gram-16,cat-18,ない形 (Negative),,,,"Ru: drop る, add ない. U: あ-row + ない. ある → ない.",,16
+gram-17,cat-18,られる形 (Potential),,,,"Ru: drop る, add られる. U: え-row + る. する → できる. Expresses ability.",,17
+gram-18,cat-19,い形容詞,,,,"End in い. Change い → くない (neg), かった (past), くて (and).",,18
+gram-19,cat-19,な形容詞,,,,"Add な before nouns. じゃない (neg), だった (past).",,19
+gram-20,cat-19,〜くなる / 〜になる,,,,い-adj: い → くなる. な-adj/noun: + になる. Change of state.,,20
+gram-21,cat-19,〜すぎる,,,,Verb stem + すぎる. い-adj: drop い + すぎる. Too much of something.,,21
+gram-22,cat-20,〜たい / 欲しい,,,,Verb stem + たい = want to do. 欲しい = want a thing.,,22
+gram-23,cat-20,たら / なら,,,,たら = when/if something happens (verb た + ら). なら = if it's the case.,,23
+gram-24,cat-20,と思う / と言う,,,,sentence + と + 思う (think) or 言う (say). Reports thoughts and speech.,,24
+gram-25,cat-20,てもいい / てはいけない,,,,て + も + いい = may do. て + は + いけない = must not do.,,25
+gram-26,cat-21,か / ね / よ,,,,か = question. ね = right? よ = you know!,,26
+gram-27,cat-21,何・誰・どこ・いつ・なぜ,,,,Place the question word where the answer would go.,,27
+gram-28,cat-22,verb + noun (Relative Clauses),,,,Put a verb or sentence before a noun to describe it. The core of word-building.,,28

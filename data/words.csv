@@ -1,0 +1,182 @@
+id,category_id,minihongo,english,japanese,english_litteral,example_minihongo,example_english,example_japanese,sort_order
+word-1,cat-1,人,"person, people",,,あの人は誰ですか。,,,1
+word-2,cat-1,私,"I, me",,,私は学生です。,,,2
+word-3,cat-1,あなた,you,,,あなたは誰ですか？,,,3
+word-4,cat-1,誰,who,,,誰が来ますか。,,,4
+word-5,cat-1,男,"man, male",,,あの男は大人です。,,,5
+word-6,cat-1,女,"woman, female",,,あの女は母です。,,,6
+word-7,cat-1,子供,child,,,子供は外で遊びます。,,,7
+word-8,cat-1,母,mother,,,母は食べ物を作ります。,,,8
+word-9,cat-1,父,father,,,父は山に行きます。,,,9
+word-10,cat-2,物,thing (concrete),,,この物は何ですか。,,,10
+word-11,cat-2,事,"thing (abstract), matter",,,その事は必要です。,,,11
+word-12,cat-2,何,what,,,何を食べますか。,,,12
+word-13,cat-2,石,stone,,,道に石があります。,,,13
+word-14,cat-2,木,"tree, wood",,,山に木があります。,,,14
+word-15,cat-2,土,"soil, earth",,,土の中に植物があります。,,,15
+word-16,cat-2,服,clothes,,,新しい服を着ます。,,,16
+word-17,cat-2,本,book,,,本を読みます。,,,17
+word-18,cat-2,お金,money,,,お金で食べ物を買います。,,,18
+word-19,cat-3,水,water,,,水を飲みます。,,,19
+word-20,cat-3,火,fire,,,火は暑いです。,,,20
+word-21,cat-3,暑い,hot (weather),,,外は暑いです。,,,21
+word-22,cat-3,寒い,cold (weather),,,外は寒いです。,,,22
+word-23,cat-3,空気,air,,,外の空気はきれいです。,,,23
+word-24,cat-3,風,wind,,,外は風が強いです。,,,24
+word-25,cat-3,国,country,,,この国は大きいです。,,,25
+word-26,cat-3,場所,place,,,いい場所を探します。,,,26
+word-27,cat-3,外,outside,,,外に行きます。,,,27
+word-28,cat-3,太陽,sun,,,太陽は空にあります。,,,28
+word-29,cat-3,光,light,,,太陽の光が見えます。,,,29
+word-30,cat-3,月,moon,,,夜、月が見えます。,,,30
+word-31,cat-3,空,sky,,,空が青いです。,,,31
+word-32,cat-3,山,mountain,,,山に行きます。,,,32
+word-33,cat-3,海,sea,,,海はとても大きいです。,,,33
+word-34,cat-3,雨,rain,,,雨の日は外に行きません。,,,34
+word-35,cat-3,道,"road, way",,,道を行きます。,,,35
+word-36,cat-4,動物,animal,,,動物が好きです。,,,36
+word-37,cat-4,草,grass,,,草が緑です。,,,37
+word-38,cat-5,体,body,,,体が強いです。,,,38
+word-39,cat-5,頭,head,,,頭で考えます。,,,39
+word-40,cat-5,手,hand,,,手で物を持ちます。,,,40
+word-41,cat-5,足,"foot, leg",,,足で動きます。,,,41
+word-42,cat-5,目,eye,,,目で見ます。,,,42
+word-43,cat-5,口,mouth,,,口で食べます。,,,43
+word-44,cat-5,耳,ear,,,耳で聞きます。,,,44
+word-45,cat-5,鼻,nose,,,鼻で空気が入ります。,,,45
+word-46,cat-5,心,"heart, mind",,,心が温かい人です。,,,46
+word-47,cat-6,する,do,,,何をしますか？,,,47
+word-48,cat-6,いる,exist (animate),,,動物が山にいます。,,,48
+word-49,cat-6,ある,"exist (inanimate), have",,,本が家にあります。,,,49
+word-50,cat-6,なる,become,,,大きくなります。,,,50
+word-51,cat-6,起こる,happen,,,悪い事が起こります。,,,51
+word-52,cat-6,行く,go,,,山に行きます。,,,52
+word-53,cat-6,来る,come,,,人が家に来ます。,,,53
+word-54,cat-6,動く,move,,,動物が動きます。,,,54
+word-55,cat-6,入る,enter,,,家に入ります。,,,55
+word-56,cat-6,出る,exit,,,家から出ます。,,,56
+word-57,cat-6,止める,stop,,,動きを止めます。,,,57
+word-58,cat-6,作る,make,,,食べ物を作ります。,,,58
+word-59,cat-6,使う,use,,,物を使います。,,,59
+word-60,cat-6,切る,cut,,,木を切ります。,,,60
+word-61,cat-6,食べる,eat,,,夜に食べます。,,,61
+word-62,cat-6,飲む,drink,,,水を飲みます。,,,62
+word-63,cat-6,寝る,sleep,,,夜に寝ます。,,,63
+word-64,cat-6,着る,wear,,,服を着ます。,,,64
+word-65,cat-6,座る,sit,,,家で座ります。,,,65
+word-66,cat-6,立つ,stand,,,外で立ちます。,,,66
+word-67,cat-6,生きる,live,,,動物は水で生きます。,,,67
+word-68,cat-6,死ぬ,die,,,植物が死にます。,,,68
+word-69,cat-6,始まる,begin,,,日が始まります。,,,69
+word-70,cat-6,終わる,end,,,日が終わります。,,,70
+word-71,cat-6,開く,open,,,目が開きます。,,,71
+word-72,cat-6,閉める,close,,,目を閉めます。,,,72
+word-73,cat-6,壊れる,break (intransitive),,,機械が壊れます。,,,73
+word-74,cat-6,変わる,change (intransitive),,,空の色が変わります。,,,74
+word-75,cat-6,与える,give,,,動物に食べ物を与えます。,,,75
+word-76,cat-6,もらう,receive,,,人から本をもらいます。,,,76
+word-77,cat-6,持つ,"have, hold",,,本を持ちます。,,,77
+word-78,cat-6,会う,meet,,,人に会います。,,,78
+word-79,cat-6,待つ,wait,,,人を待ちます。,,,79
+word-80,cat-6,助ける,help,,,人を助けます。,,,80
+word-81,cat-6,守る,protect,,,子供を守ります。,,,81
+word-82,cat-6,戦う,fight,,,必要な物のために戦います。,,,82
+word-83,cat-6,選ぶ,choose,,,食べ物を選びます。,,,83
+word-84,cat-6,探す,search,,,道を探します。,,,84
+word-85,cat-6,買う,buy,,,食べ物を買います。,,,85
+word-86,cat-6,言う,say,,,名前を言います。,,,86
+word-87,cat-6,書く,write,,,本に書きます。,,,87
+word-88,cat-6,読む,read,,,本を読みます。,,,88
+word-89,cat-6,教える,teach,,,人に言葉を教えます。,,,89
+word-90,cat-6,考える,think,,,事を考えます。,,,90
+word-91,cat-6,笑う,laugh,,,人と笑います。,,,91
+word-92,cat-6,泣く,cry,,,子供が泣きます。,,,92
+word-93,cat-7,良い,good,,,この本は良いです。,,,93
+word-94,cat-7,悪い,bad,,,空が悪いです。,,,94
+word-95,cat-7,大きい,big,,,あの山は大きいです。,,,95
+word-96,cat-7,長い,long,,,この道は長いです。,,,96
+word-97,cat-7,高い,"high, tall, expensive",,,この建物は高いです。,,,97
+word-98,cat-7,重い,heavy,,,この石は重いです。,,,98
+word-99,cat-7,変,strange,,,この音は変です。,,,99
+word-100,cat-7,きれい,"clean, pretty",,,この山はきれいです。,,,100
+word-101,cat-7,強い,strong,,,あの人は強いです。,,,101
+word-102,cat-7,楽しい,fun,,,人と会うのは楽しいです。,,,102
+word-103,cat-7,違う,different,,,この色は違います。,,,103
+word-104,cat-7,他,other,,,他の人に聞きます。,,,104
+word-105,cat-7,新しい,new,,,新しい本を買います。,,,105
+word-106,cat-7,速い,fast,,,あの動物は速いです。,,,106
+word-107,cat-8,色,color,,,この空の色はきれいです。,,,107
+word-108,cat-8,白,white,,,この石は白いです。,,,108
+word-109,cat-8,黒,black,,,その空は黒いです。,,,109
+word-110,cat-8,赤,red,,,火は赤いです。,,,110
+word-111,cat-8,青,blue,,,空は青いです。,,,111
+word-112,cat-8,黄色,yellow,,,太陽は黄色いです。,,,112
+word-113,cat-8,緑,green,,,草は緑です。,,,113
+word-114,cat-8,明るい,bright,,,外は明るいです。,,,114
+word-115,cat-9,知る,know,,,その名前を知っています。,,,115
+word-116,cat-9,感じる,feel,,,風を感じます。,,,116
+word-117,cat-9,見る,see,,,空を見ます。,,,117
+word-118,cat-9,聞く,"hear, listen",,,音を聞きます。,,,118
+word-119,cat-9,思う,"think, feel (opinion)",,,それは良いと思います。,,,119
+word-120,cat-9,欲しい,want (thing),,,新しい本が欲しいです。,,,120
+word-121,cat-9,必要,necessary,,,水は必要です。,,,121
+word-122,cat-9,好き,like,,,動物が好きです。,,,122
+word-123,cat-9,怖い,scary,,,その話は怖いです。,,,123
+word-124,cat-9,悲しい,sad,,,その話は悲しいです。,,,124
+word-125,cat-9,怒る,get angry,,,父が怒ります。,,,125
+word-126,cat-10,言葉,word,,,この言葉が分かりません。,,,126
+word-127,cat-10,名前,name,,,あなたの名前を教えてください。,,,127
+word-128,cat-10,音,sound,,,変な音が聞こえます。,,,128
+word-129,cat-11,時,"time, when",,,食べる時、手を使います。,,,129
+word-130,cat-11,今,now,,,今、食べます。,,,130
+word-131,cat-11,前,before,,,食べる前に水を飲みます。,,,131
+word-132,cat-11,後,after,,,食べた後、家に行きます。,,,132
+word-133,cat-11,毎,every,,,毎日水を飲みます。,,,133
+word-134,cat-11,日,day,,,良い日です。,,,134
+word-135,cat-11,年,year,,,新しい年が始まります。,,,135
+word-136,cat-11,夜,night,,,夜、空に月が見えます。,,,136
+word-137,cat-12,家,"house, home",,,私の家は大きいです。,,,137
+word-138,cat-12,上,"above, up",,,山の上に人がいます。,,,138
+word-139,cat-12,下,"below, down",,,木の下に何かあります。,,,139
+word-140,cat-12,中,"inside, middle",,,家の中に物があります。,,,140
+word-141,cat-12,右,right,,,右に建物があります。,,,141
+word-142,cat-12,左,left,,,左に山があります。,,,142
+word-143,cat-12,近い,near,,,山は家から近いです。,,,143
+word-144,cat-12,ここ,here,,,ここに座ってください。,,,144
+word-145,cat-12,そこ,there,,,そこに何がありますか？,,,145
+word-146,cat-12,どこ,where,,,海はどこですか？,,,146
+word-147,cat-13,一,one,,,一つください。,,,147
+word-148,cat-13,二,two,,,人が二り来ます。,,,148
+word-149,cat-13,三,three,,,三つください。,,,149
+word-150,cat-13,五,five,,,人が五人います。,,,150
+word-151,cat-13,十,ten,,,十日待ちます。,,,151
+word-152,cat-13,多い,many,,,ここは人が多いです。,,,152
+word-153,cat-13,全部,all,,,全部食べました。,,,153
+word-154,cat-13,ない,"not, don't have",,,お金がないです。,,,154
+word-155,cat-13,できる,"can, be able",,,これは一りでできます。,,,155
+word-156,cat-14,と,and,,,水と食べ物をください。,,,156
+word-157,cat-14,または,or,,,水または飲み物をください。,,,157
+word-158,cat-14,でも,but,,,小さいです。でも強いです。,,,158
+word-159,cat-14,から,"from, because",,,寒いから、家にいます。,,,159
+word-160,cat-14,まで,"until, to",,,夜まで待ちます。,,,160
+word-161,cat-14,なら,if,,,時があるなら、外に行きます。,,,161
+word-162,cat-14,だけ,only,,,水だけ飲みます。,,,162
+word-163,cat-14,も,also,,,私も行きます。,,,163
+word-164,cat-14,もっと,more,,,もっと食べたいです。,,,164
+word-165,cat-14,もう,already,,,もう食べました。,,,165
+word-166,cat-14,まだ,"still, yet",,,まだ食べていません。,,,166
+word-167,cat-14,とても,very,,,この食べ物はとても良いです。,,,167
+word-168,cat-14,少し,a little,,,少し待ってください。,,,168
+word-169,cat-15,すみません,excuse me,,,すみません、道を教えてください。,,,169
+word-170,cat-15,ありがとう,thank you,,,ありがとう。助かりました。,,,170
+word-171,cat-15,ください,please (give me),,,水をください。,,,171
+word-172,cat-15,はい,yes,,,はい、分かりました。,,,172
+word-173,cat-15,どうぞ,please (go ahead),,,どうぞ、座ってください。,,,173
+word-174,cat-15,どう,how,,,これはどう使いますか？,,,174
+word-175,cat-15,いつ,when,,,いつ来ますか？,,,175
+word-176,cat-15,なぜ,why,,,なぜ行きませんか？,,,176
+word-177,cat-15,これ,this,,,これは何ですか？,,,177
+word-178,cat-15,それ,that,,,それをください。,,,178
+word-179,cat-15,この,this (+noun),,,この本は良いです。,,,179
+word-180,cat-15,その,that (+noun),,,その食べ物は何ですか？,,,180
+word-181,cat-15,本当,"true, real",,,本当ですか？,,,181

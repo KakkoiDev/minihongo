@@ -1,0 +1,718 @@
+{
+  "name": "minihongo-content",
+  "resources": [
+    {
+      "name": "pages",
+      "path": "pages.csv",
+      "schema": {
+        "fields": [
+          {
+            "name": "id",
+            "type": "string",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "name_minihongo",
+            "type": "string",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "name_english",
+            "type": "string",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "name_japanese",
+            "type": "string"
+          },
+          {
+            "name": "sort_order",
+            "type": "integer",
+            "constraints": {
+              "required": true
+            }
+          }
+        ],
+        "primaryKey": "id"
+      }
+    },
+    {
+      "name": "categories",
+      "path": "categories.csv",
+      "schema": {
+        "fields": [
+          {
+            "name": "id",
+            "type": "string",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "parent_id",
+            "type": "string"
+          },
+          {
+            "name": "page_id",
+            "type": "string",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "name_minihongo",
+            "type": "string",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "name_english",
+            "type": "string",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "name_japanese",
+            "type": "string"
+          },
+          {
+            "name": "sort_order",
+            "type": "integer",
+            "constraints": {
+              "required": true
+            }
+          }
+        ],
+        "primaryKey": "id",
+        "foreignKeys": [
+          {
+            "fields": [
+              "page_id"
+            ],
+            "reference": {
+              "resource": "pages",
+              "fields": [
+                "id"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "words",
+      "path": "words.csv",
+      "schema": {
+        "fields": [
+          {
+            "name": "id",
+            "type": "string",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "category_id",
+            "type": "string",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "minihongo",
+            "type": "string",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "english",
+            "type": "string"
+          },
+          {
+            "name": "japanese",
+            "type": "string"
+          },
+          {
+            "name": "english_litteral",
+            "type": "string"
+          },
+          {
+            "name": "example_minihongo",
+            "type": "string",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "example_english",
+            "type": "string"
+          },
+          {
+            "name": "example_japanese",
+            "type": "string"
+          },
+          {
+            "name": "sort_order",
+            "type": "integer",
+            "constraints": {
+              "required": true
+            }
+          }
+        ],
+        "primaryKey": "id",
+        "foreignKeys": [
+          {
+            "fields": [
+              "category_id"
+            ],
+            "reference": {
+              "resource": "categories",
+              "fields": [
+                "id"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "grammar",
+      "path": "grammar.csv",
+      "schema": {
+        "fields": [
+          {
+            "name": "id",
+            "type": "string",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "category_id",
+            "type": "string",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "minihongo",
+            "type": "string",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "english",
+            "type": "string"
+          },
+          {
+            "name": "japanese",
+            "type": "string"
+          },
+          {
+            "name": "explanation_minihongo",
+            "type": "string"
+          },
+          {
+            "name": "explanation_english",
+            "type": "string",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "explanation_japanese",
+            "type": "string"
+          },
+          {
+            "name": "sort_order",
+            "type": "integer",
+            "constraints": {
+              "required": true
+            }
+          }
+        ],
+        "primaryKey": "id",
+        "foreignKeys": [
+          {
+            "fields": [
+              "category_id"
+            ],
+            "reference": {
+              "resource": "categories",
+              "fields": [
+                "id"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "grammar_examples",
+      "path": "grammar_examples.csv",
+      "schema": {
+        "fields": [
+          {
+            "name": "id",
+            "type": "string",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "grammar_id",
+            "type": "string",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "minihongo",
+            "type": "string",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "english",
+            "type": "string"
+          },
+          {
+            "name": "japanese",
+            "type": "string"
+          },
+          {
+            "name": "english_litteral",
+            "type": "string"
+          },
+          {
+            "name": "sort_order",
+            "type": "integer",
+            "constraints": {
+              "required": true
+            }
+          }
+        ],
+        "primaryKey": "id",
+        "foreignKeys": [
+          {
+            "fields": [
+              "grammar_id"
+            ],
+            "reference": {
+              "resource": "grammar",
+              "fields": [
+                "id"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "compounds",
+      "path": "compounds.csv",
+      "schema": {
+        "fields": [
+          {
+            "name": "id",
+            "type": "string",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "category_id",
+            "type": "string",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "minihongo",
+            "type": "string",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "english",
+            "type": "string"
+          },
+          {
+            "name": "japanese",
+            "type": "string"
+          },
+          {
+            "name": "english_litteral",
+            "type": "string"
+          },
+          {
+            "name": "sort_order",
+            "type": "integer",
+            "constraints": {
+              "required": true
+            }
+          }
+        ],
+        "primaryKey": "id",
+        "foreignKeys": [
+          {
+            "fields": [
+              "category_id"
+            ],
+            "reference": {
+              "resource": "categories",
+              "fields": [
+                "id"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "expressions",
+      "path": "expressions.csv",
+      "schema": {
+        "fields": [
+          {
+            "name": "id",
+            "type": "string",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "category_id",
+            "type": "string",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "minihongo",
+            "type": "string",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "english",
+            "type": "string"
+          },
+          {
+            "name": "japanese",
+            "type": "string"
+          },
+          {
+            "name": "english_litteral",
+            "type": "string"
+          },
+          {
+            "name": "sort_order",
+            "type": "integer",
+            "constraints": {
+              "required": true
+            }
+          }
+        ],
+        "primaryKey": "id",
+        "foreignKeys": [
+          {
+            "fields": [
+              "category_id"
+            ],
+            "reference": {
+              "resource": "categories",
+              "fields": [
+                "id"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "haiku",
+      "path": "haiku.csv",
+      "schema": {
+        "fields": [
+          {
+            "name": "id",
+            "type": "string",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "category_id",
+            "type": "string",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "minihongo",
+            "type": "string",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "english",
+            "type": "string"
+          },
+          {
+            "name": "japanese",
+            "type": "string"
+          },
+          {
+            "name": "sort_order",
+            "type": "integer",
+            "constraints": {
+              "required": true
+            }
+          }
+        ],
+        "primaryKey": "id",
+        "foreignKeys": [
+          {
+            "fields": [
+              "category_id"
+            ],
+            "reference": {
+              "resource": "categories",
+              "fields": [
+                "id"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "dialog_groups",
+      "path": "dialog_groups.csv",
+      "schema": {
+        "fields": [
+          {
+            "name": "id",
+            "type": "string",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "category_id",
+            "type": "string",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "title_minihongo",
+            "type": "string",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "title_english",
+            "type": "string",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "title_japanese",
+            "type": "string"
+          },
+          {
+            "name": "sort_order",
+            "type": "integer",
+            "constraints": {
+              "required": true
+            }
+          }
+        ],
+        "primaryKey": "id",
+        "foreignKeys": [
+          {
+            "fields": [
+              "category_id"
+            ],
+            "reference": {
+              "resource": "categories",
+              "fields": [
+                "id"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "dialogs",
+      "path": "dialogs.csv",
+      "schema": {
+        "fields": [
+          {
+            "name": "id",
+            "type": "string",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "dialog_group_id",
+            "type": "string",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "line_number",
+            "type": "integer",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "speaker_minihongo",
+            "type": "string",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "speaker_english",
+            "type": "string",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "speaker_japanese",
+            "type": "string"
+          },
+          {
+            "name": "minihongo",
+            "type": "string",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "english",
+            "type": "string"
+          },
+          {
+            "name": "japanese",
+            "type": "string"
+          }
+        ],
+        "primaryKey": "id",
+        "foreignKeys": [
+          {
+            "fields": [
+              "dialog_group_id"
+            ],
+            "reference": {
+              "resource": "dialog_groups",
+              "fields": [
+                "id"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "stories",
+      "path": "stories.csv",
+      "schema": {
+        "fields": [
+          {
+            "name": "id",
+            "type": "string",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "category_id",
+            "type": "string",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "title_minihongo",
+            "type": "string",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "title_english",
+            "type": "string",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "title_japanese",
+            "type": "string"
+          },
+          {
+            "name": "minihongo",
+            "type": "string",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "english",
+            "type": "string"
+          },
+          {
+            "name": "japanese",
+            "type": "string"
+          },
+          {
+            "name": "sort_order",
+            "type": "integer",
+            "constraints": {
+              "required": true
+            }
+          }
+        ],
+        "primaryKey": "id",
+        "foreignKeys": [
+          {
+            "fields": [
+              "category_id"
+            ],
+            "reference": {
+              "resource": "categories",
+              "fields": [
+                "id"
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

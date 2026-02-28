@@ -170,11 +170,11 @@ Full story blocks. One row per story.
 
 ```
 pages ←── categories ←──┬── words (181)
-               │        ├── grammar (22) ←── grammar_examples (36)
+               │        ├── grammar (28) ←── grammar_examples (30)
                │        ├── compounds (167)
                │        ├── expressions (938)
                │        ├── haiku (32)
-               │        ├── dialog_groups ←── dialogs (117)
+               │        ├── dialog_groups (14) ←── dialogs (117)
                │        └── stories (4)
                │
                └── categories (self-ref via parent_id)
