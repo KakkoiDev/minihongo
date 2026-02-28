@@ -200,11 +200,16 @@ def gen_index(lang):
     bullets = [ui(f'home_{i}', lang) for i in range(1, 4)]
     items = '\n'.join(f'    <li>{b}</li>' for b in bullets)
 
+    if lang == 'en':
+        h1 = '  <h1>Minihongo</h1>\n'
+    else:
+        h1 = '  <h1 lang="ja">\u30df\u30cb\u672c\u8a9e</h1>\n'
+
     return (
         f'<page-layout>\n'
         f'  <span slot="title">{site_name}</span>\n'
         f'\n'
-        f'  <h1 lang="ja">\u30df\u30cb\u672c\u8a9e</h1>\n'
+        f'{h1}'
         f'  <p>{tagline}</p>\n'
         f'  <ul>\n'
         f'{items}\n'
