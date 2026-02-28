@@ -12,16 +12,19 @@ OUT = Path('data')
 
 # -- Helpers ------------------------------------------------------------------
 
-def strip_ruby(s):
-    """Remove furigana (<rt> content) from ruby tags."""
-    s = re.sub(r'<rt>.*?</rt>', '', s)
-    s = re.sub(r'</?ruby>', '', s)
-    return s
+def ruby_to_bracket(s):
+    """Convert HTML ruby tags to bracket notation: 人【ひと】"""
+    return re.sub(r'<ruby>(.*?)<rt>(.*?)</rt></ruby>', r'\1【\2】', s)
+
+
+def to_ruby_html(text):
+    """Convert bracket notation to HTML ruby tags."""
+    return re.sub(r'([\u4e00-\u9fff]+)【([^】]+)】', r'<ruby>\1<rt>\2</rt></ruby>', text)
 
 
 def clean(s):
-    """Strip furigana, then all HTML tags. Decode entities."""
-    s = strip_ruby(s)
+    """Convert ruby to bracket notation, then strip remaining HTML. Decode entities."""
+    s = ruby_to_bracket(s)
     s = re.sub(r'<br\s*/?>', '\n', s)
     s = re.sub(r'<[^>]+>', '', s)
     s = html_mod.unescape(s)

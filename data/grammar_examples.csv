@@ -1,31 +1,31 @@
 id,grammar_id,minihongo,english,japanese,english_litteral,sort_order
-gex-1,gram-1,私は 本を 読みます,I read a book. (I + book + read),,,1
-gex-2,gram-2,これは本です → 本じゃない → 本でした,This is a book → not a book → was a book,,,2
-gex-3,gram-3,この本は良いです。,This book is good.,,,3
-gex-4,gram-4,誰が来ますか？,Who is coming?,,,4
-gex-5,gram-5,水を飲みます。,I drink water.,,,5
-gex-6,gram-6,山に行きます。 / 夜に食べます。 / 家に人がいます。,I go to the mountain. / I eat at night. / There is a person in the house.,,,6
-gex-7,gram-7,家で読みます。 / 手で食べます。,I read at home. / I eat with my hands.,,,7
-gex-8,gram-8,私の本,My book,,,8
-gex-9,gram-9,父は本を読みます。母も読みます。,Father reads. Mother also reads.,,,9
-gex-10,gram-10,水と本を買いました。,I bought water and a book.,,,10
-gex-11,gram-11,家から行きます。 / 寒いから、家にいます。,"I go from home. / Because it's cold, I stay home.",,,11
-gex-12,gram-12,家から山まで行きます。 / 夜まで待ちます。,I go from home to the mountain. / I wait until night.,,,12
-gex-13,gram-13,う: 買う、書く、探す — る: 食べる、見る,"U-verbs: buy, write, search — Ru-verbs: eat, see",,,13
-gex-14,gram-14,食べます / 食べません / 食べました / 食べましょう,eat / don't eat / ate / let's eat,,,14
-gex-15,gram-15,る → て: 食べて / う・つ・る → って: 買って / む・ぶ → んで: 飲んで / く → いて: 書いて,eat → / buy → / drink → / write →,,,15
-gex-16,gram-15,待ってください。 / 今、読んでいます。 / 食べた。,Please wait. / I am reading now. / I ate. (て→た = past),,,16
-gex-17,gram-16,食べない / 買わない / 書かない,don't eat / don't buy / don't write,,,17
-gex-18,gram-17,食べられる / 行ける / 見える,can eat / can go / can see,,,18
-gex-19,gram-18,大きい → 大きくない → 大きかった,big → not big → was big,,,19
-gex-20,gram-19,必要な物 / 必要じゃない / 必要だった,necessary thing / not necessary / was necessary,,,20
-gex-21,gram-20,暑くなります。 / 必要になります。,It becomes hot. / It becomes necessary.,,,21
-gex-22,gram-21,食べすぎます。 / 高すぎます。,I eat too much. / It is too expensive.,,,22
-gex-23,gram-22,行きたい / 新しい本が欲しい,I want to go / I want a new book,,,23
-gex-24,gram-23,雨が降ったら、行きません。 / 時があるなら、来てください。,"If it rains, I won't go. / If you have time, please come.",,,24
-gex-25,gram-24,良いと思います。 / 「行く」と言いました。,"I think it is good. / They said ""I'll go.""",,,25
-gex-26,gram-25,座ってもいいですか？ / 入ってはいけません。,May I sit? / You must not enter.,,,26
-gex-27,gram-26,これは本ですか？ / 良い日ですね。,"Is this a book? / Nice day, isn't it?",,,27
-gex-28,gram-27,何を食べますか？ / 山はどこですか？,What will you eat? / Where is the mountain?,,,28
-gex-29,gram-28,教える人 = 先生 / 買う場所 = 店,person who teaches = teacher / place where you buy = shop,,,29
-gex-30,gram-28,本を読む人,person who reads books,,,30
+gex-1,gram-1,私【わたし】は 本【ほん】を 読【よ】みます,I read a book. (I + book + read),,,1
+gex-2,gram-2,これは本【ほん】です → 本【ほん】じゃない → 本【ほん】でした,This is a book → not a book → was a book,,,2
+gex-3,gram-3,この本【ほん】は良【よ】いです。,This book is good.,,,3
+gex-4,gram-4,誰【だれ】が来【き】ますか？,Who is coming?,,,4
+gex-5,gram-5,水【みず】を飲【の】みます。,I drink water.,,,5
+gex-6,gram-6,山【やま】に行【い】きます。 / 夜【よる】に食【た】べます。 / 家【いえ】に人【ひと】がいます。,I go to the mountain. / I eat at night. / There is a person in the house.,,,6
+gex-7,gram-7,家【いえ】で読【よ】みます。 / 手【て】で食【た】べます。,I read at home. / I eat with my hands.,,,7
+gex-8,gram-8,私【わたし】の本【ほん】,My book,,,8
+gex-9,gram-9,父【ちち】は本【ほん】を読【よ】みます。母【はは】も読【よ】みます。,Father reads. Mother also reads.,,,9
+gex-10,gram-10,水【みず】と本【ほん】を買【か】いました。,I bought water and a book.,,,10
+gex-11,gram-11,家【いえ】から行【い】きます。 / 寒【さむ】いから、家【いえ】にいます。,"I go from home. / Because it's cold, I stay home.",,,11
+gex-12,gram-12,家【いえ】から山【やま】まで行【い】きます。 / 夜【よる】まで待【ま】ちます。,I go from home to the mountain. / I wait until night.,,,12
+gex-13,gram-13,う: 買【か】う、書【か】く、探【さが】す — る: 食【た】べる、見【み】る,"U-verbs: buy, write, search — Ru-verbs: eat, see",,,13
+gex-14,gram-14,食【た】べます / 食【た】べません / 食【た】べました / 食【た】べましょう,eat / don't eat / ate / let's eat,,,14
+gex-15,gram-15,る → て: 食【た】べて / う・つ・る → って: 買【か】って / む・ぶ → んで: 飲【の】んで / く → いて: 書【か】いて,eat → / buy → / drink → / write →,,,15
+gex-16,gram-15,待【ま】ってください。 / 今【いま】、読【よ】んでいます。 / 食【た】べた。,Please wait. / I am reading now. / I ate. (て→た = past),,,16
+gex-17,gram-16,食【た】べない / 買【か】わない / 書【か】かない,don't eat / don't buy / don't write,,,17
+gex-18,gram-17,食【た】べられる / 行【い】ける / 見【み】える,can eat / can go / can see,,,18
+gex-19,gram-18,大【おお】きい → 大【おお】きくない → 大【おお】きかった,big → not big → was big,,,19
+gex-20,gram-19,必要【ひつよう】な物【もの】 / 必要【ひつよう】じゃない / 必要【ひつよう】だった,necessary thing / not necessary / was necessary,,,20
+gex-21,gram-20,暑【あつ】くなります。 / 必要【ひつよう】になります。,It becomes hot. / It becomes necessary.,,,21
+gex-22,gram-21,食【た】べすぎます。 / 高【たか】すぎます。,I eat too much. / It is too expensive.,,,22
+gex-23,gram-22,行【い】きたい / 新【あたら】しい本【ほん】が欲【ほ】しい,I want to go / I want a new book,,,23
+gex-24,gram-23,雨【あめ】が降【ふ】ったら、行【い】きません。 / 時【とき】があるなら、来【き】てください。,"If it rains, I won't go. / If you have time, please come.",,,24
+gex-25,gram-24,良【よ】いと思【おも】います。 / 「行【い】く」と言【い】いました。,"I think it is good. / They said ""I'll go.""",,,25
+gex-26,gram-25,座【すわ】ってもいいですか？ / 入【はい】ってはいけません。,May I sit? / You must not enter.,,,26
+gex-27,gram-26,これは本【ほん】ですか？ / 良【よ】い日【ひ】ですね。,"Is this a book? / Nice day, isn't it?",,,27
+gex-28,gram-27,何【なに】を食【た】べますか？ / 山【やま】はどこですか？,What will you eat? / Where is the mountain?,,,28
+gex-29,gram-28,教【おし】える人【ひと】 = 先生【せんせい】 / 買【か】う場所【ばしょ】 = 店【みせ】,person who teaches = teacher / place where you buy = shop,,,29
+gex-30,gram-28,本【ほん】を読【よ】む人【ひと】,person who reads books,,,30

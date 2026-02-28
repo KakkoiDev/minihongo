@@ -1,939 +1,939 @@
 id,category_id,minihongo,english,japanese,english_litteral,sort_order
-expr-1,cat-38,好きな人,friend,,liked person,1
-expr-2,cat-38,父と母と子供,family,,"father, mother, children",2
-expr-3,cat-38,教える人,teacher,,teaching person,3
-expr-4,cat-38,教えてもらう人,student,,taught person,4
-expr-5,cat-38,体を助ける人,doctor,,body-helping person,5
-expr-6,cat-38,心を助ける人,therapist,,heart-helping person,6
-expr-7,cat-38,守る人,police,,protecting person,7
-expr-8,cat-38,戦う人,soldier,,fighting person,8
-expr-9,cat-38,食べ物を作る人,farmer,,food-making person,9
-expr-10,cat-38,火で食べ物を作る人,cook,,fire food-making person,10
-expr-11,cat-38,本を書く人,writer,,book-writing person,11
-expr-12,cat-38,よく知る人,expert,,well-knowing person,12
-expr-13,cat-38,上の人,boss,,above person,13
-expr-14,cat-38,助ける人,helper,,helping person,14
-expr-15,cat-38,物を持って行く人,thief,,thing-taking person,15
-expr-16,cat-38,家が近い人,neighbor,,house-near person,16
-expr-17,cat-38,父の父,grandfather,,father's father,17
-expr-18,cat-38,母の母,grandmother,,mother's mother,18
-expr-19,cat-38,新しい子供,baby,,new child,19
-expr-20,cat-38,年が多い人,old person,,many-year person,20
-expr-21,cat-39,空の動物,bird,,sky animal,21
-expr-22,cat-39,水の動物,fish,,water animal,22
-expr-23,cat-39,とても大きくない動物,insect,,very not-big animal,23
-expr-24,cat-39,家の動物,dog,,house animal,24
-expr-25,cat-39,大きくない家の動物,cat,,not-big house animal,25
-expr-26,cat-39,速い大きい動物,horse,,fast big animal,26
-expr-27,cat-39,長い動物,snake,,long animal,27
-expr-28,cat-39,海のとても大きい動物,whale,,sea's very big animal,28
-expr-29,cat-39,山の強い動物,bear,,mountain strong animal,29
-expr-30,cat-39,木の動物,monkey,,tree animal,30
-expr-31,cat-39,水と土の動物,frog,,water-and-earth animal,31
-expr-32,cat-39,夜の動物,wolf,,night animal,32
-expr-33,cat-39,強い動物,lion,,strong animal,33
-expr-34,cat-39,とても大きい動物,elephant,,very big animal,34
-expr-35,cat-39,きれいな大きくない動物,butterfly,,pretty not-big animal,35
-expr-36,cat-40,空の事,weather,,sky matter,36
-expr-37,cat-40,空の白,cloud,,sky's white,37
-expr-38,cat-40,夜の光,star,,night light,38
-expr-39,cat-40,月の光,moonlight,,moon's light,39
-expr-40,cat-40,空の火,lightning,,sky fire,40
-expr-41,cat-40,白い雨,snow,,white rain,41
-expr-42,cat-40,寒い水,ice,,cold water,42
-expr-43,cat-40,白い空気,fog,,white air,43
-expr-44,cat-40,強い風と雨,storm,,strong wind and rain,44
-expr-45,cat-40,雨の後の色,rainbow,,color after rain,45
-expr-46,cat-40,土が動く事,earthquake,,earth moving,46
-expr-47,cat-40,水が多すぎる事,flood,,too-much water,47
-expr-48,cat-40,長い水,river,,long water,48
-expr-49,cat-40,大きい水,lake,,big water,49
-expr-50,cat-40,海の中の土,island,,earth in the sea,50
-expr-51,cat-40,木が多い場所,forest,,many-tree place,51
-expr-52,cat-40,水がない暑い場所,desert,,waterless hot place,52
-expr-53,cat-40,火の山,volcano,,fire mountain,53
-expr-54,cat-40,水が下に行く場所,waterfall,,water going-down place,54
-expr-55,cat-40,太陽が出る時,sunrise,,sun coming-out time,55
-expr-56,cat-40,太陽が入る時,sunset,,sun going-in time,56
-expr-57,cat-41,家の中,room,,inside house,57
-expr-58,cat-41,教える場所,school,,teaching place,58
-expr-59,cat-41,買う場所,shop,,buying place,59
-expr-60,cat-41,食べる場所,restaurant,,eating place,60
-expr-61,cat-41,体を助ける場所,hospital,,body-helping place,61
-expr-62,cat-41,本が多い場所,library,,many-book place,62
-expr-63,cat-41,食べ物を作る場所,kitchen,,food-making place,63
-expr-64,cat-41,草がある場所,garden,,grass place,64
-expr-65,cat-41,外の場所,park,,outside place,65
-expr-66,cat-41,人が多い場所,city,,many-people place,66
-expr-67,cat-41,水の上の道,bridge,,road above water,67
-expr-68,cat-41,高い場所,tower,,tall place,68
-expr-69,cat-41,出られない場所,prison,,can't-leave place,69
-expr-70,cat-41,空に行く場所,airport,,sky-going place,70
-expr-71,cat-42,使う物,tool,,using thing,71
-expr-72,cat-42,中に入れる物,box,,put-inside thing,72
-expr-73,cat-42,書く物,paper,,writing thing,73
-expr-74,cat-42,切る物,knife,,cutting thing,74
-expr-75,cat-42,開ける物,key,,opening thing,75
-expr-76,cat-42,物を持つ物,bag,,thing-holding thing,76
-expr-77,cat-42,雨の物,umbrella,,rain thing,77
-expr-78,cat-42,寝る場所,bed,,sleeping place,78
-expr-79,cat-42,座る物,chair,,sitting thing,79
-expr-80,cat-42,入る場所,door,,entering place,80
-expr-81,cat-42,外を見る場所,window,,outside-looking place,81
-expr-82,cat-42,時を見る物,clock,,time-seeing thing,82
-expr-83,cat-42,自分を見る物,mirror,,self-seeing thing,83
-expr-84,cat-42,火の光,candle,,fire light,84
-expr-85,cat-42,長い強い物,rope,,long strong thing,85
-expr-86,cat-42,考える物,computer,,thinking thing,86
-expr-87,cat-42,音で言う物,phone,,sound-saying thing,87
-expr-88,cat-42,速く行く物,car,,fast-going thing,88
-expr-89,cat-42,水の上の物,boat,,on-water thing,89
-expr-90,cat-42,空を行く物,airplane,,sky-going thing,90
-expr-91,cat-43,木の食べ物,fruit,,tree food,91
-expr-92,cat-43,草の食べ物,vegetable,,grass food,92
-expr-93,cat-43,動物の食べ物,meat,,animal food,93
-expr-94,cat-43,白い動物の水,milk,,white animal water,94
-expr-95,cat-43,体を良くする物,medicine,,body-improving thing,95
-expr-96,cat-43,体を悪くする物,poison,,body-worsening thing,96
-expr-97,cat-43,目と口がある場所,face,,place with eyes and mouth,97
-expr-98,cat-43,口の中の白い物,tooth,,white thing in mouth,98
-expr-99,cat-43,体の中の赤い水,blood,,red water in body,99
-expr-100,cat-43,体が悪い事,sickness,,body being bad,100
-expr-101,cat-43,体が暑い,fever,,body is hot,101
-expr-102,cat-43,悪い感じ,pain,,bad feeling,102
-expr-103,cat-43,寝る時に見る事,dream,,thing seen while sleeping,103
-expr-104,cat-43,食べ物が欲しい,hungry,,want food,104
-expr-105,cat-43,体が重い,tired,,body is heavy,105
-expr-106,cat-44,前の日,yesterday,,previous day,106
-expr-107,cat-44,後の日,tomorrow,,next day,107
-expr-108,cat-44,日の中,noon,,middle of day,108
-expr-109,cat-44,夜の中,midnight,,middle of night,109
-expr-110,cat-44,今の夜,tonight,,now's night,110
-expr-111,cat-44,暑くなる時,spring,,becoming-hot time,111
-expr-112,cat-44,暑い時,summer,,hot time,112
-expr-113,cat-44,寒くなる時,autumn,,becoming-cold time,113
-expr-114,cat-44,寒い時,winter,,cold time,114
-expr-115,cat-44,終わらない時,forever,,never-ending time,115
-expr-116,cat-44,とても前の時,ancient,,very before time,116
-expr-117,cat-44,後の時,future,,after time,117
-expr-118,cat-44,する事がない日,holiday,,nothing-to-do day,118
-expr-119,cat-45,大きくない,small,,not 大きい,119
-expr-120,cat-45,長くない,short,,not 長い,120
-expr-121,cat-45,高くない,"low, cheap",,not 高い,121
-expr-122,cat-45,重くない,light (weight),,not 重い,122
-expr-123,cat-45,強くない,weak,,not 強い,123
-expr-124,cat-45,速くない,slow,,not 速い,124
-expr-125,cat-45,新しくない,old (thing),,not 新しい,125
+expr-1,cat-38,好【す】きな人【ひと】,friend,,liked person,1
+expr-2,cat-38,父【ちち】と母【はは】と子供【こども】,family,,"father, mother, children",2
+expr-3,cat-38,教【おし】える人【ひと】,teacher,,teaching person,3
+expr-4,cat-38,教【おし】えてもらう人【ひと】,student,,taught person,4
+expr-5,cat-38,体【からだ】を助【たす】ける人【ひと】,doctor,,body-helping person,5
+expr-6,cat-38,心【こころ】を助【たす】ける人【ひと】,therapist,,heart-helping person,6
+expr-7,cat-38,守【まも】る人【ひと】,police,,protecting person,7
+expr-8,cat-38,戦【たたか】う人【ひと】,soldier,,fighting person,8
+expr-9,cat-38,食【た】べ物【もの】を作【つく】る人【ひと】,farmer,,food-making person,9
+expr-10,cat-38,火【ひ】で食【た】べ物【もの】を作【つく】る人【ひと】,cook,,fire food-making person,10
+expr-11,cat-38,本【ほん】を書【か】く人【ひと】,writer,,book-writing person,11
+expr-12,cat-38,よく知【し】る人【ひと】,expert,,well-knowing person,12
+expr-13,cat-38,上【うえ】の人【ひと】,boss,,above person,13
+expr-14,cat-38,助【たす】ける人【ひと】,helper,,helping person,14
+expr-15,cat-38,物【もの】を持【も】って行【い】く人【ひと】,thief,,thing-taking person,15
+expr-16,cat-38,家【いえ】が近【ちか】い人【ひと】,neighbor,,house-near person,16
+expr-17,cat-38,父【ちち】の父【ちち】,grandfather,,father's father,17
+expr-18,cat-38,母【はは】の母【はは】,grandmother,,mother's mother,18
+expr-19,cat-38,新【あたら】しい子供【こども】,baby,,new child,19
+expr-20,cat-38,年【とし】が多【おお】い人【ひと】,old person,,many-year person,20
+expr-21,cat-39,空【そら】の動物【どうぶつ】,bird,,sky animal,21
+expr-22,cat-39,水【みず】の動物【どうぶつ】,fish,,water animal,22
+expr-23,cat-39,とても大【おお】きくない動物【どうぶつ】,insect,,very not-big animal,23
+expr-24,cat-39,家【いえ】の動物【どうぶつ】,dog,,house animal,24
+expr-25,cat-39,大【おお】きくない家【いえ】の動物【どうぶつ】,cat,,not-big house animal,25
+expr-26,cat-39,速【はや】い大【おお】きい動物【どうぶつ】,horse,,fast big animal,26
+expr-27,cat-39,長【なが】い動物【どうぶつ】,snake,,long animal,27
+expr-28,cat-39,海【うみ】のとても大【おお】きい動物【どうぶつ】,whale,,sea's very big animal,28
+expr-29,cat-39,山【やま】の強【つよ】い動物【どうぶつ】,bear,,mountain strong animal,29
+expr-30,cat-39,木【き】の動物【どうぶつ】,monkey,,tree animal,30
+expr-31,cat-39,水【みず】と土【つち】の動物【どうぶつ】,frog,,water-and-earth animal,31
+expr-32,cat-39,夜【よる】の動物【どうぶつ】,wolf,,night animal,32
+expr-33,cat-39,強【つよ】い動物【どうぶつ】,lion,,strong animal,33
+expr-34,cat-39,とても大【おお】きい動物【どうぶつ】,elephant,,very big animal,34
+expr-35,cat-39,きれいな大【おお】きくない動物【どうぶつ】,butterfly,,pretty not-big animal,35
+expr-36,cat-40,空【そら】の事【こと】,weather,,sky matter,36
+expr-37,cat-40,空【そら】の白【しろ】,cloud,,sky's white,37
+expr-38,cat-40,夜【よる】の光【ひかり】,star,,night light,38
+expr-39,cat-40,月【つき】の光【ひかり】,moonlight,,moon's light,39
+expr-40,cat-40,空【そら】の火【ひ】,lightning,,sky fire,40
+expr-41,cat-40,白【しろ】い雨【あめ】,snow,,white rain,41
+expr-42,cat-40,寒【さむ】い水【みず】,ice,,cold water,42
+expr-43,cat-40,白【しろ】い空気【くうき】,fog,,white air,43
+expr-44,cat-40,強【つよ】い風【かぜ】と雨【あめ】,storm,,strong wind and rain,44
+expr-45,cat-40,雨【あめ】の後【あと】の色【いろ】,rainbow,,color after rain,45
+expr-46,cat-40,土【つち】が動【うご】く事【こと】,earthquake,,earth moving,46
+expr-47,cat-40,水【みず】が多【おお】すぎる事【こと】,flood,,too-much water,47
+expr-48,cat-40,長【なが】い水【みず】,river,,long water,48
+expr-49,cat-40,大【おお】きい水【みず】,lake,,big water,49
+expr-50,cat-40,海【うみ】の中【なか】の土【つち】,island,,earth in the sea,50
+expr-51,cat-40,木【き】が多【おお】い場所【ばしょ】,forest,,many-tree place,51
+expr-52,cat-40,水【みず】がない暑【あつ】い場所【ばしょ】,desert,,waterless hot place,52
+expr-53,cat-40,火【ひ】の山【やま】,volcano,,fire mountain,53
+expr-54,cat-40,水【みず】が下【した】に行【い】く場所【ばしょ】,waterfall,,water going-down place,54
+expr-55,cat-40,太陽【たいよう】が出【で】る時【とき】,sunrise,,sun coming-out time,55
+expr-56,cat-40,太陽【たいよう】が入【はい】る時【とき】,sunset,,sun going-in time,56
+expr-57,cat-41,家【いえ】の中【なか】,room,,inside house,57
+expr-58,cat-41,教【おし】える場所【ばしょ】,school,,teaching place,58
+expr-59,cat-41,買【か】う場所【ばしょ】,shop,,buying place,59
+expr-60,cat-41,食【た】べる場所【ばしょ】,restaurant,,eating place,60
+expr-61,cat-41,体【からだ】を助【たす】ける場所【ばしょ】,hospital,,body-helping place,61
+expr-62,cat-41,本【ほん】が多【おお】い場所【ばしょ】,library,,many-book place,62
+expr-63,cat-41,食【た】べ物【もの】を作【つく】る場所【ばしょ】,kitchen,,food-making place,63
+expr-64,cat-41,草【くさ】がある場所【ばしょ】,garden,,grass place,64
+expr-65,cat-41,外【そと】の場所【ばしょ】,park,,outside place,65
+expr-66,cat-41,人【ひと】が多【おお】い場所【ばしょ】,city,,many-people place,66
+expr-67,cat-41,水【みず】の上【うえ】の道【みち】,bridge,,road above water,67
+expr-68,cat-41,高【たか】い場所【ばしょ】,tower,,tall place,68
+expr-69,cat-41,出【で】られない場所【ばしょ】,prison,,can't-leave place,69
+expr-70,cat-41,空【そら】に行【い】く場所【ばしょ】,airport,,sky-going place,70
+expr-71,cat-42,使【つか】う物【もの】,tool,,using thing,71
+expr-72,cat-42,中【なか】に入【い】れる物【もの】,box,,put-inside thing,72
+expr-73,cat-42,書【か】く物【もの】,paper,,writing thing,73
+expr-74,cat-42,切【き】る物【もの】,knife,,cutting thing,74
+expr-75,cat-42,開【あ】ける物【もの】,key,,opening thing,75
+expr-76,cat-42,物【もの】を持【も】つ物【もの】,bag,,thing-holding thing,76
+expr-77,cat-42,雨【あめ】の物【もの】,umbrella,,rain thing,77
+expr-78,cat-42,寝【ね】る場所【ばしょ】,bed,,sleeping place,78
+expr-79,cat-42,座【すわ】る物【もの】,chair,,sitting thing,79
+expr-80,cat-42,入【はい】る場所【ばしょ】,door,,entering place,80
+expr-81,cat-42,外【そと】を見【み】る場所【ばしょ】,window,,outside-looking place,81
+expr-82,cat-42,時【とき】を見【み】る物【もの】,clock,,time-seeing thing,82
+expr-83,cat-42,自分【じぶん】を見【み】る物【もの】,mirror,,self-seeing thing,83
+expr-84,cat-42,火【ひ】の光【ひかり】,candle,,fire light,84
+expr-85,cat-42,長【なが】い強【つよ】い物【もの】,rope,,long strong thing,85
+expr-86,cat-42,考【かんが】える物【もの】,computer,,thinking thing,86
+expr-87,cat-42,音【おと】で言【い】う物【もの】,phone,,sound-saying thing,87
+expr-88,cat-42,速【はや】く行【い】く物【もの】,car,,fast-going thing,88
+expr-89,cat-42,水【みず】の上【うえ】の物【もの】,boat,,on-water thing,89
+expr-90,cat-42,空【そら】を行【い】く物【もの】,airplane,,sky-going thing,90
+expr-91,cat-43,木【き】の食【た】べ物【もの】,fruit,,tree food,91
+expr-92,cat-43,草【くさ】の食【た】べ物【もの】,vegetable,,grass food,92
+expr-93,cat-43,動物【どうぶつ】の食【た】べ物【もの】,meat,,animal food,93
+expr-94,cat-43,白【しろ】い動物【どうぶつ】の水【みず】,milk,,white animal water,94
+expr-95,cat-43,体【からだ】を良【よ】くする物【もの】,medicine,,body-improving thing,95
+expr-96,cat-43,体【からだ】を悪【わる】くする物【もの】,poison,,body-worsening thing,96
+expr-97,cat-43,目【め】と口【くち】がある場所【ばしょ】,face,,place with eyes and mouth,97
+expr-98,cat-43,口【くち】の中【なか】の白【しろ】い物【もの】,tooth,,white thing in mouth,98
+expr-99,cat-43,体【からだ】の中【なか】の赤【あか】い水【みず】,blood,,red water in body,99
+expr-100,cat-43,体【からだ】が悪【わる】い事【こと】,sickness,,body being bad,100
+expr-101,cat-43,体【からだ】が暑【あつ】い,fever,,body is hot,101
+expr-102,cat-43,悪【わる】い感【かん】じ,pain,,bad feeling,102
+expr-103,cat-43,寝【ね】る時【とき】に見【み】る事【こと】,dream,,thing seen while sleeping,103
+expr-104,cat-43,食【た】べ物【もの】が欲【ほ】しい,hungry,,want food,104
+expr-105,cat-43,体【からだ】が重【おも】い,tired,,body is heavy,105
+expr-106,cat-44,前【まえ】の日【ひ】,yesterday,,previous day,106
+expr-107,cat-44,後【あと】の日【ひ】,tomorrow,,next day,107
+expr-108,cat-44,日【ひ】の中【なか】,noon,,middle of day,108
+expr-109,cat-44,夜【よる】の中【なか】,midnight,,middle of night,109
+expr-110,cat-44,今【いま】の夜【よる】,tonight,,now's night,110
+expr-111,cat-44,暑【あつ】くなる時【とき】,spring,,becoming-hot time,111
+expr-112,cat-44,暑【あつ】い時【とき】,summer,,hot time,112
+expr-113,cat-44,寒【さむ】くなる時【とき】,autumn,,becoming-cold time,113
+expr-114,cat-44,寒【さむ】い時【とき】,winter,,cold time,114
+expr-115,cat-44,終【お】わらない時【とき】,forever,,never-ending time,115
+expr-116,cat-44,とても前【まえ】の時【とき】,ancient,,very before time,116
+expr-117,cat-44,後【あと】の時【とき】,future,,after time,117
+expr-118,cat-44,する事【こと】がない日【ひ】,holiday,,nothing-to-do day,118
+expr-119,cat-45,大【おお】きくない,small,,not 大きい,119
+expr-120,cat-45,長【なが】くない,short,,not 長い,120
+expr-121,cat-45,高【たか】くない,"low, cheap",,not 高い,121
+expr-122,cat-45,重【おも】くない,light (weight),,not 重い,122
+expr-123,cat-45,強【つよ】くない,weak,,not 強い,123
+expr-124,cat-45,速【はや】くない,slow,,not 速い,124
+expr-125,cat-45,新【あたら】しくない,old (thing),,not 新しい,125
 expr-126,cat-45,きれいじゃない,dirty,,not きれい,126
-expr-127,cat-45,明るくない,dark,,not 明るい,127
-expr-128,cat-45,音がない,quiet,,soundless,128
-expr-129,cat-45,違わない,same,,not different,129
-expr-130,cat-45,良くない,bad,,not good,130
-expr-131,cat-45,必要じゃない,unnecessary,,not necessary,131
+expr-127,cat-45,明【あか】るくない,dark,,not 明るい,127
+expr-128,cat-45,音【おと】がない,quiet,,soundless,128
+expr-129,cat-45,違【ちが】わない,same,,not different,129
+expr-130,cat-45,良【よ】くない,bad,,not good,130
+expr-131,cat-45,必要【ひつよう】じゃない,unnecessary,,not necessary,131
 expr-132,cat-45,できない,impossible,,cannot,132
-expr-133,cat-45,知らない,unknown,,not known,133
-expr-134,cat-45,見えない,invisible,,not visible,134
-expr-135,cat-45,中に何もない,empty,,nothing inside,135
-expr-136,cat-45,悪い事が起こらない,safe,,bad things don't happen,136
-expr-137,cat-45,楽しくない,boring,,not fun,137
-expr-138,cat-46,速く足で動く,run,,move fast with feet,138
-expr-139,cat-46,空を行く,fly,,go in sky,139
-expr-140,cat-46,水の中を動く,swim,,move in water,140
-expr-141,cat-46,上に行く,climb,,go up,141
-expr-142,cat-46,速く上に動く,jump,,quickly move up,142
-expr-143,cat-46,下に行く,fall,,go down,143
-expr-144,cat-46,家に行く,return,,go home,144
-expr-145,cat-46,何もしない,rest,,do nothing,145
-expr-146,cat-46,楽しい事をする,play,,do fun things,146
-expr-147,cat-46,新しく知る,learn,,newly know,147
-expr-148,cat-46,知らなくなる,forget,,become not-knowing,148
-expr-149,cat-46,見えない場所に行く,hide,,go to unseen place,149
-expr-150,cat-46,音を作る,sing,,make sound,150
-expr-151,cat-46,火で食べ物を作る,cook,,make food with fire,151
-expr-152,cat-46,人の物を持って行く,steal,,take person's thing,152
-expr-153,cat-46,水できれいにする,wash,,make clean with water,153
-expr-154,cat-46,壊れた物を良くする,repair,,make broken thing good,154
-expr-155,cat-46,草を土に入れる,plant,,put grass in earth,155
-expr-156,cat-46,色で物を作る,draw,,make things with color,156
-expr-157,cat-47,生きる事,life,,living matter,157
-expr-158,cat-47,死ぬ事,death,,dying matter,158
-expr-159,cat-47,心がとても好きな事,love,,heart very-liking,159
-expr-160,cat-47,怒る事,anger,,angry matter,160
-expr-161,cat-47,怖いと感じる事,fear,,feeling scared,161
-expr-162,cat-47,良い事を待つ事,hope,,waiting for good things,162
-expr-163,cat-47,戦わない事,peace,,not fighting,163
-expr-164,cat-47,国と国が戦う事,war,,countries fighting,164
-expr-165,cat-47,好きにできる事,freedom,,able to do as liked,165
-expr-166,cat-47,本当の事,truth,,true matter,166
-expr-167,cat-47,本当じゃない事,lie,,not-true matter,167
-expr-168,cat-47,新しい考え,idea,,new thought,168
-expr-169,cat-47,良い事が起こる事,luck,,good things happening,169
-expr-170,cat-47,他の人が知らない事,secret,,thing others don't know,170
-expr-171,cat-47,きれいな音,music,,pretty sound,171
-expr-172,cat-47,長い言葉,story,,long words,172
-expr-173,cat-47,音と言葉,song,,sound and words,173
-expr-174,cat-47,書いた言葉,letter (mail),,written words,174
-expr-175,cat-47,与える物,gift,,giving thing,175
-expr-176,cat-47,国の言葉,language,,country's words,176
-expr-177,cat-47,悪くした事,mistake,,badly-done thing,177
-expr-178,cat-47,心が良い事,happiness,,heart-good matter,178
-expr-179,cat-47,悪い事が起こる,danger,,bad things happen,179
-expr-180,cat-48,足で動く,walk,,move with feet,180
-expr-181,cat-48,太陽が出る時,morning,,sun coming-out time,181
-expr-182,cat-48,今の日,today,,now's day,182
-expr-183,cat-48,する事,work,,thing to do,183
-expr-184,cat-48,悪い事,problem,,bad thing,184
-expr-185,cat-48,言葉の事,meaning,,word's matter,185
-expr-186,cat-48,とても必要,important,,very necessary,186
-expr-187,cat-48,悪い事が起こる,dangerous,,bad things happen,187
-expr-188,cat-48,全部の場所,world,,all places,188
-expr-189,cat-48,手で感じる,touch,,feel with hand,189
-expr-190,cat-50,毎日する事,"daily life, living",生活,,190
-expr-191,cat-50,外にいる人と言葉を使う物,"telephone, phone call",電話,,191
-expr-192,cat-50,見た物を書いた物,"photograph, photo",写真,,192
-expr-193,cat-50,動く写真を見る物,"movie, film",映画,,193
-expr-194,cat-50,きれいな音,music,音楽,,194
-expr-195,cat-50,毎日書く本,newspaper,新聞,,195
-expr-196,cat-50,多い事を書いた本,magazine,雑誌,,196
-expr-197,cat-50,人に書く言葉,"letter, written letter",手紙,,197
-expr-198,cat-50,持つ物,"luggage, baggage, package",荷物,,198
-expr-199,cat-50,家を開ける物,"key, lock",鍵,,199
-expr-200,cat-50,家の中に外の光が入る場所,window,窓,,200
-expr-201,cat-50,家の右と左にある物,wall,壁,,201
-expr-202,cat-50,家の中の下,floor,床,,202
-expr-203,cat-50,家の上にある物,roof,屋根,,203
-expr-204,cat-50,食べる物を作る場所,kitchen,台所,,204
-expr-205,cat-50,体を水できれいにする場所,"bath, bathtub",風呂,,205
-expr-206,cat-50,家の中の場所,room,部屋,,206
-expr-207,cat-50,場所をきれいにする事,"cleaning, sweeping",掃除,,207
-expr-208,cat-50,服を水できれいにする事,"laundry, washing clothes",洗濯,,208
-expr-209,cat-50,食べる物を作る事,"cooking, cuisine",料理,,209
-expr-210,cat-50,物を買う事,shopping,買い物,,210
-expr-211,cat-50,外を動いていく事,"walk, stroll",散歩,,211
-expr-212,cat-50,前にする事,"preparation, getting ready",支度,,212
-expr-213,cat-50,始まる前にする事,"preparation, arrangement",準備,,213
-expr-214,cat-50,人に「する」と言う事,"promise, appointment",約束,,214
-expr-215,cat-50,後にする事,"schedule, plan",予定,,215
-expr-216,cat-50,好きでする事,"hobby, interest",趣味,,216
-expr-217,cat-50,良くなるために何かを多くする事,"practice, training",練習,,217
-expr-218,cat-50,知るために読んだり聞いたりする事,"study, studying",勉強,,218
-expr-219,cat-50,家でする勉強,homework,宿題,,219
-expr-220,cat-50,知りたい事を聞く言葉,question,質問,,220
-expr-221,cat-50,聞かれた事を言う事,"answer, response",答え,,221
-expr-222,cat-50,人の言葉に言う事,"reply, response",返事,,222
-expr-223,cat-50,会った時に言う言葉,greeting,挨拶,,223
-expr-224,cat-50,人に知らせる事,"contact, communication",連絡,,224
-expr-225,cat-50,人と考える事,"consultation, discussion",相談,,225
-expr-226,cat-50,人や物の事を他の人に教える事,"introduction, referral",紹介,,226
-expr-227,cat-50,人に「来てください」と言う事,invitation,招待,,227
-expr-228,cat-50,前にした事,experience,経験,,228
-expr-229,cat-50,後にする事を考える事,"plan, project",計画,,229
-expr-230,cat-50,よく見てほしい事,"caution, attention, warning",注意,,230
-expr-231,cat-50,「これをください」と言う事,"order (food, goods)",注文,,231
-expr-232,cat-50,物を買うお金,"price, cost",値段,,232
-expr-233,cat-50,お金が少しで良くなる事,discount,割引,,233
-expr-234,cat-50,お金がない事,free of charge,無料,,234
-expr-235,cat-50,変ではない,"ordinary, normal, usual",普通,,235
-expr-236,cat-50,他と違う良い事,"special, particular",特別,,236
-expr-237,cat-50,とても必要な,"important, precious, valued",大切,,237
+expr-133,cat-45,知【し】らない,unknown,,not known,133
+expr-134,cat-45,見【み】えない,invisible,,not visible,134
+expr-135,cat-45,中【なか】に何【なに】もない,empty,,nothing inside,135
+expr-136,cat-45,悪【わる】い事【こと】が起【お】こらない,safe,,bad things don't happen,136
+expr-137,cat-45,楽【たの】しくない,boring,,not fun,137
+expr-138,cat-46,速【はや】く足【あし】で動【うご】く,run,,move fast with feet,138
+expr-139,cat-46,空【そら】を行【い】く,fly,,go in sky,139
+expr-140,cat-46,水【みず】の中【なか】を動【うご】く,swim,,move in water,140
+expr-141,cat-46,上【うえ】に行【い】く,climb,,go up,141
+expr-142,cat-46,速【はや】く上【うえ】に動【うご】く,jump,,quickly move up,142
+expr-143,cat-46,下【した】に行【い】く,fall,,go down,143
+expr-144,cat-46,家【いえ】に行【い】く,return,,go home,144
+expr-145,cat-46,何【なに】もしない,rest,,do nothing,145
+expr-146,cat-46,楽【たの】しい事【こと】をする,play,,do fun things,146
+expr-147,cat-46,新【あたら】しく知【し】る,learn,,newly know,147
+expr-148,cat-46,知【し】らなくなる,forget,,become not-knowing,148
+expr-149,cat-46,見【み】えない場所【ばしょ】に行【い】く,hide,,go to unseen place,149
+expr-150,cat-46,音【おと】を作【つく】る,sing,,make sound,150
+expr-151,cat-46,火【ひ】で食【た】べ物【もの】を作【つく】る,cook,,make food with fire,151
+expr-152,cat-46,人【ひと】の物【もの】を持【も】って行【い】く,steal,,take person's thing,152
+expr-153,cat-46,水【みず】できれいにする,wash,,make clean with water,153
+expr-154,cat-46,壊【こわ】れた物【もの】を良【よ】くする,repair,,make broken thing good,154
+expr-155,cat-46,草【くさ】を土【つち】に入【い】れる,plant,,put grass in earth,155
+expr-156,cat-46,色【いろ】で物【もの】を作【つく】る,draw,,make things with color,156
+expr-157,cat-47,生【い】きる事【こと】,life,,living matter,157
+expr-158,cat-47,死【し】ぬ事【こと】,death,,dying matter,158
+expr-159,cat-47,心【こころ】がとても好【す】きな事【こと】,love,,heart very-liking,159
+expr-160,cat-47,怒【おこ】る事【こと】,anger,,angry matter,160
+expr-161,cat-47,怖【こわ】いと感【かん】じる事【こと】,fear,,feeling scared,161
+expr-162,cat-47,良【よ】い事【こと】を待【ま】つ事【こと】,hope,,waiting for good things,162
+expr-163,cat-47,戦【たたか】わない事【こと】,peace,,not fighting,163
+expr-164,cat-47,国【くに】と国【くに】が戦【たたか】う事【こと】,war,,countries fighting,164
+expr-165,cat-47,好【す】きにできる事【こと】,freedom,,able to do as liked,165
+expr-166,cat-47,本当【ほんとう】の事【こと】,truth,,true matter,166
+expr-167,cat-47,本当【ほんとう】じゃない事【こと】,lie,,not-true matter,167
+expr-168,cat-47,新【あたら】しい考【かんが】え,idea,,new thought,168
+expr-169,cat-47,良【よ】い事【こと】が起【お】こる事【こと】,luck,,good things happening,169
+expr-170,cat-47,他【ほか】の人【ひと】が知【し】らない事【こと】,secret,,thing others don't know,170
+expr-171,cat-47,きれいな音【おと】,music,,pretty sound,171
+expr-172,cat-47,長【なが】い言葉【ことば】,story,,long words,172
+expr-173,cat-47,音【おと】と言葉【ことば】,song,,sound and words,173
+expr-174,cat-47,書【か】いた言葉【ことば】,letter (mail),,written words,174
+expr-175,cat-47,与【あた】える物【もの】,gift,,giving thing,175
+expr-176,cat-47,国【くに】の言葉【ことば】,language,,country's words,176
+expr-177,cat-47,悪【わる】くした事【こと】,mistake,,badly-done thing,177
+expr-178,cat-47,心【こころ】が良【よ】い事【こと】,happiness,,heart-good matter,178
+expr-179,cat-47,悪【わる】い事【こと】が起【お】こる,danger,,bad things happen,179
+expr-180,cat-48,足【あし】で動【うご】く,walk,,move with feet,180
+expr-181,cat-48,太陽【たいよう】が出【で】る時【とき】,morning,,sun coming-out time,181
+expr-182,cat-48,今【いま】の日【ひ】,today,,now's day,182
+expr-183,cat-48,する事【こと】,work,,thing to do,183
+expr-184,cat-48,悪【わる】い事【こと】,problem,,bad thing,184
+expr-185,cat-48,言葉【ことば】の事【こと】,meaning,,word's matter,185
+expr-186,cat-48,とても必要【ひつよう】,important,,very necessary,186
+expr-187,cat-48,悪【わる】い事【こと】が起【お】こる,dangerous,,bad things happen,187
+expr-188,cat-48,全部【ぜんぶ】の場所【ばしょ】,world,,all places,188
+expr-189,cat-48,手【て】で感【かん】じる,touch,,feel with hand,189
+expr-190,cat-50,毎【まい】日【ひ】する事【こと】,"daily life, living",生活,,190
+expr-191,cat-50,外【そと】にいる人【ひと】と言葉【ことば】を使【つか】う物【もの】,"telephone, phone call",電話,,191
+expr-192,cat-50,見【み】た物【もの】を書【か】いた物【もの】,"photograph, photo",写真,,192
+expr-193,cat-50,動【うご】く写真【しゃしん】を見【み】る物【もの】,"movie, film",映画,,193
+expr-194,cat-50,きれいな音【おと】,music,音楽,,194
+expr-195,cat-50,毎【まい】日【ひ】書【か】く本【ほん】,newspaper,新聞,,195
+expr-196,cat-50,多【おお】い事【こと】を書【か】いた本【ほん】,magazine,雑誌,,196
+expr-197,cat-50,人【ひと】に書【か】く言葉【ことば】,"letter, written letter",手紙,,197
+expr-198,cat-50,持【も】つ物【もの】,"luggage, baggage, package",荷物,,198
+expr-199,cat-50,家【いえ】を開【あ】ける物【もの】,"key, lock",鍵,,199
+expr-200,cat-50,家【いえ】の中【なか】に外【そと】の光【ひかり】が入【はい】る場所【ばしょ】,window,窓,,200
+expr-201,cat-50,家【いえ】の右【みぎ】と左【ひだり】にある物【もの】,wall,壁,,201
+expr-202,cat-50,家【いえ】の中【なか】の下【した】,floor,床,,202
+expr-203,cat-50,家【いえ】の上【うえ】にある物【もの】,roof,屋根,,203
+expr-204,cat-50,食【た】べる物【もの】を作【つく】る場所【ばしょ】,kitchen,台所,,204
+expr-205,cat-50,体【からだ】を水【みず】できれいにする場所【ばしょ】,"bath, bathtub",風呂,,205
+expr-206,cat-50,家【いえ】の中【なか】の場所【ばしょ】,room,部屋,,206
+expr-207,cat-50,場所【ばしょ】をきれいにする事【こと】,"cleaning, sweeping",掃除,,207
+expr-208,cat-50,服【ふく】を水【みず】できれいにする事【こと】,"laundry, washing clothes",洗濯,,208
+expr-209,cat-50,食【た】べる物【もの】を作【つく】る事【こと】,"cooking, cuisine",料理,,209
+expr-210,cat-50,物【もの】を買【か】う事【こと】,shopping,買い物,,210
+expr-211,cat-50,外【そと】を動【うご】いていく事【こと】,"walk, stroll",散歩,,211
+expr-212,cat-50,前【まえ】にする事【こと】,"preparation, getting ready",支度,,212
+expr-213,cat-50,始【はじ】まる前【まえ】にする事【こと】,"preparation, arrangement",準備,,213
+expr-214,cat-50,人【ひと】に「する」と言【い】う事【こと】,"promise, appointment",約束,,214
+expr-215,cat-50,後【あと】にする事【こと】,"schedule, plan",予定,,215
+expr-216,cat-50,好【す】きでする事【こと】,"hobby, interest",趣味,,216
+expr-217,cat-50,良【よ】くなるために何【なに】かを多【おお】くする事【こと】,"practice, training",練習,,217
+expr-218,cat-50,知【し】るために読【よ】んだり聞【き】いたりする事【こと】,"study, studying",勉強,,218
+expr-219,cat-50,家【いえ】でする勉強【べんきょう】,homework,宿題,,219
+expr-220,cat-50,知【し】りたい事【こと】を聞【き】く言葉【ことば】,question,質問,,220
+expr-221,cat-50,聞【き】かれた事【こと】を言【い】う事【こと】,"answer, response",答え,,221
+expr-222,cat-50,人【ひと】の言葉【ことば】に言【い】う事【こと】,"reply, response",返事,,222
+expr-223,cat-50,会【あ】った時【とき】に言【い】う言葉【ことば】,greeting,挨拶,,223
+expr-224,cat-50,人【ひと】に知【し】らせる事【こと】,"contact, communication",連絡,,224
+expr-225,cat-50,人【ひと】と考【かんが】える事【こと】,"consultation, discussion",相談,,225
+expr-226,cat-50,人【ひと】や物【もの】の事【こと】を他【ほか】の人【ひと】に教【おし】える事【こと】,"introduction, referral",紹介,,226
+expr-227,cat-50,人【ひと】に「来【き】てください」と言【い】う事【こと】,invitation,招待,,227
+expr-228,cat-50,前【まえ】にした事【こと】,experience,経験,,228
+expr-229,cat-50,後【あと】にする事【こと】を考【かんが】える事【こと】,"plan, project",計画,,229
+expr-230,cat-50,よく見【み】てほしい事【こと】,"caution, attention, warning",注意,,230
+expr-231,cat-50,「これをください」と言【い】う事【こと】,"order (food, goods)",注文,,231
+expr-232,cat-50,物【もの】を買【か】うお金【おかね】,"price, cost",値段,,232
+expr-233,cat-50,お金【おかね】が少【すこ】しで良【よ】くなる事【こと】,discount,割引,,233
+expr-234,cat-50,お金【おかね】がない事【こと】,free of charge,無料,,234
+expr-235,cat-50,変【へん】ではない,"ordinary, normal, usual",普通,,235
+expr-236,cat-50,他【ほか】と違【ちが】う良【よ】い事【こと】,"special, particular",特別,,236
+expr-237,cat-50,とても必要【ひつよう】な,"important, precious, valued",大切,,237
 expr-238,cat-50,だれでもできる,"easy, simple",簡単,,238
-expr-239,cat-50,多くの事が中にある,"complex, complicated",複雑,,239
-expr-240,cat-50,よく使える良い,"convenient, handy",便利,,240
-expr-241,cat-50,よく使えない悪い,inconvenient,不便,,241
-expr-242,cat-50,人に良い言葉を使う,"polite, careful, thorough",丁寧,,242
-expr-243,cat-50,その時に良い,"suitable, appropriate; casual",適当,,243
-expr-244,cat-50,したい事ができる,"freedom, liberty",自由,,244
-expr-245,cat-50,他の国や場所に行く事,"travel, trip",旅行,,245
-expr-246,cat-50,空の今の事,weather,天気,,246
-expr-247,cat-50,年の中の時,season,季節,,247
-expr-248,cat-51,する事,"work, job, occupation",仕事,,248
-expr-249,cat-51,仕事をする場所,"company, business",会社,,249
-expr-250,cat-51,会社の一番上の人,"company president, CEO",社長,,250
-expr-251,cat-51,会社で仕事をする人,company employee,社員,,251
-expr-252,cat-51,会社の中の大きい場所の上の人,"department head, director",部長,,252
-expr-253,cat-51,仕事で上にいる人,"superior, boss",上司,,253
-expr-254,cat-51,仕事で下にいる人,"subordinate, staff under one",部下,,254
-expr-255,cat-51,その会社で仕事をする他の人,"colleague, coworker",同僚,,255
-expr-256,cat-51,来る人,"customer, guest, visitor",客,,256
-expr-257,cat-51,多くの人が来て考える事,"meeting, conference",会議,,257
-expr-258,cat-51,仕事に使う書いた物,"materials, documents, data",資料,,258
-expr-259,cat-51,した事を上の人に言う事,"report, notification",報告,,259
-expr-260,cat-51,知らない人に言葉で教える事,"explanation, description",説明,,260
-expr-261,cat-51,人と違う考えを言う事,"debate, argument, discussion",議論,,261
-expr-262,cat-51,人と「する」と書いた物,"contract, agreement",契約,,262
-expr-263,cat-51,仕事をしてもらうお金,"salary, wages, pay",給料,,263
-expr-264,cat-51,終わった後もする仕事,overtime work,残業,,264
-expr-265,cat-51,仕事で他の場所に行く事,business trip,出張,,265
-expr-266,cat-51,違う仕事に変わる事,"job change, career change",転職,,266
-expr-267,cat-51,仕事を終わらせる事,"retirement, resignation",退職,,267
-expr-268,cat-51,はじめて仕事を始める事,"getting a job, employment",就職,,268
-expr-269,cat-51,仕事のために会って言葉を使う事,job interview,面接,,269
-expr-270,cat-51,知っているかを見る事,"exam, test",試験,,270
-expr-271,cat-51,試験でどのくらい良かったかの数,"grades, results, performance",成績,,271
-expr-272,cat-51,学校が終わる事,graduation,卒業,,272
-expr-273,cat-51,学校に入る事,"school enrollment, starting school",入学,,273
-expr-274,cat-51,学校で教えてもらう事,"class, lesson, lecture",授業,,274
-expr-275,cat-51,教える場所,classroom,教室,,275
-expr-276,cat-51,勉強する場所,school,学校,,276
-expr-277,cat-51,大きい学校,"university, college",大学,,277
-expr-278,cat-51,まだ知らない事を探す事,"research, study, investigation",研究,,278
-expr-279,cat-51,知るために物を使ってみる事,"experiment, test",実験,,279
-expr-280,cat-51,物を作ったり使ったりできる事,"technology, technique, skill",技術,,280
-expr-281,cat-51,できる事,"ability, capability, talent",能力,,281
-expr-282,cat-51,良くなるためにとても強くする事,"effort, hard work",努力,,282
-expr-283,cat-51,したい事ができた事,"success, achievement",成功,,283
-expr-284,cat-51,したい事ができなかった事,"failure, mistake",失敗,,284
-expr-285,cat-51,した後に起こる事,"result, outcome",結果,,285
-expr-286,cat-51,したい事の場所,"goal, target, objective",目標,,286
-expr-287,cat-51,なぜかの事,"reason, cause",理由,,287
-expr-288,cat-51,どうするかの事,"method, way, means",方法,,288
-expr-289,cat-51,良くない事が起こっている,"problem, question, issue",問題,,289
-expr-290,cat-51,問題を良くする事,"solution, resolution",解決,,290
-expr-291,cat-51,しなければならない事,"responsibility, duty",責任,,291
-expr-292,cat-51,しなければならない事と、してはいけない事,"rule, regulation",規則,,292
-expr-293,cat-51,「していい」と言う事,"permission, approval",許可,,293
-expr-294,cat-51,しなければならない事,"assignment, task, challenge",課題,,294
-expr-295,cat-51,良いか悪いかを見る事,"evaluation, assessment, rating",評価,,295
-expr-296,cat-51,多くの人に言う事,"presentation, announcement",発表,,296
-expr-297,cat-51,私が思う事,"opinion, view",意見,,297
-expr-298,cat-51,教える人,"teacher, instructor",先生,,298
-expr-299,cat-51,学校で勉強する子供,"student (K-12), pupil",生徒,,299
-expr-300,cat-52,十が十,hundred (100),百,,300
-expr-301,cat-52,百が十,"thousand (1,000)",千,,301
-expr-302,cat-52,千が十,"ten-thousand (10,000)",万,,302
-expr-303,cat-52,一つの物を二つに切った一つ,half,半分,,303
-expr-304,cat-52,もう一つ多い事,"double, times (multiplier)",倍,,304
-expr-305,cat-52,その物の名前になる数,number (as identifier),番号,,305
-expr-306,cat-52,いくつあるかを言う物,"number, count, quantity",数,,306
-expr-307,cat-52,何かをした数,"time(s), occurrence (counter)",回,,307
-expr-308,cat-52,何かが起こった数,"degree, time(s), occasion",度,,308
-expr-309,cat-52,本の中のような物の数を言う言葉,"flat things counter (sheets, cards)",枚,,309
-expr-310,cat-52,長い物の数を言う言葉,"long thin things counter (pens, bottles)",本,,310
-expr-311,cat-52,物の数を言う言葉,small objects counter (pieces),個,,311
-expr-312,cat-52,動物の数を言う言葉,small animals counter,匹,,312
-expr-313,cat-52,動く物の数を言う言葉,machines/vehicles counter,台,,313
-expr-314,cat-52,飲む物の数を言う言葉,cups/bowls counter (drinks),杯,,314
-expr-315,cat-52,本の数を言う言葉,bound books counter,冊,,315
-expr-316,cat-52,足に着る物の数を言う言葉,pairs of footwear counter,足,,316
-expr-317,cat-52,体に着る物の数を言う言葉,clothing items counter,着,,317
-expr-318,cat-52,十の中の一つ,"ten percent unit, proportion",割,,318
-expr-319,cat-52,前から何番目かを言う言葉,"number in sequence, rank",番,,319
-expr-320,cat-52,一番前,"first, number one",第一,,320
-expr-321,cat-52,一番前の時,"first, beginning",最初,,321
-expr-322,cat-52,一番後の時,"last, final",最後,,322
-expr-323,cat-52,全部の数,"total, sum",合計,,323
-expr-324,cat-52,全部を一つにした数,"average, mean",平均,,324
-expr-325,cat-53,家の人たち,family,家族,,325
-expr-326,cat-53,男の上の子供,older brother,兄,,326
-expr-327,cat-53,男の下の子供,younger brother,弟,,327
-expr-328,cat-53,女の上の子供,older sister,姉,,328
-expr-329,cat-53,女の下の子供,younger sister,妹,,329
-expr-330,cat-53,女の人の男,husband,夫,,330
-expr-331,cat-53,男の人の女,wife,妻,,331
-expr-332,cat-53,私の男の子供,son,息子,,332
-expr-333,cat-53,私の女の子供,daughter,娘,,333
-expr-334,cat-53,子供の父または母,parent,親,,334
-expr-335,cat-53,父の父,grandfather,祖父,,335
-expr-336,cat-53,父の母,grandmother,祖母,,336
-expr-337,cat-53,子供の子供,grandchild,孫,,337
-expr-338,cat-53,よく会う好きな人,friend,友達,,338
-expr-339,cat-53,とても好きな人,romantic partner,恋人,,339
-expr-340,cat-53,あの男の人,he / boyfriend,彼,,340
-expr-341,cat-53,あの女の人,she / girlfriend,彼女,,341
-expr-342,cat-53,前からいる人,senior / upperclassman,先輩,,342
-expr-343,cat-53,後から来た人,junior / underclassman,後輩,,343
-expr-344,cat-53,よく会う人たち,companion / fellow member,仲間,,344
-expr-345,cat-53,近くにいる人,neighbor,隣人,,345
-expr-346,cat-53,会っている人,partner / opponent,相手,,346
-expr-347,cat-53,全部の人,everyone,皆,,347
-expr-348,cat-53,まだ大きくなっていない子供,baby,赤ちゃん,,348
-expr-349,cat-53,年が少しの人,young person,若者,,349
-expr-350,cat-53,年が多い人,elderly person,老人,,350
-expr-351,cat-53,大きくなった人,adult,大人,,351
-expr-352,cat-53,教える人,teacher,先生,,352
-expr-353,cat-53,体を助ける人,doctor,医者,,353
-expr-354,cat-53,悪いことをする人を止める人,police,警察,,354
-expr-355,cat-53,戦う人,soldier,兵士,,355
-expr-356,cat-53,国で高い人,king,王,,356
-expr-357,cat-53,とても強い上にいる人,god / deity,神,,357
-expr-358,cat-53,その国にいる人,citizen,市民,,358
-expr-359,cat-53,その国の全部の人,nationals / people of a country,国民,,359
-expr-360,cat-53,戦う悪い人,enemy,敵,,360
-expr-361,cat-53,よく助けてくれる人,ally,味方,,361
-expr-362,cat-53,悪いことをされた人,victim,被害者,,362
-expr-363,cat-53,悪いことをした人,criminal / culprit,犯人,,363
-expr-364,cat-53,外の国から来た人,foreigner,外国人,,364
-expr-365,cat-53,その場所を見に来た人,tourist,観光客,,365
-expr-366,cat-53,動く物の中にいる人,passenger,乗客,,366
-expr-367,cat-53,体が悪い人,patient (medical),患者,,367
-expr-368,cat-53,選ばれた人,athlete / player,選手,,368
-expr-369,cat-53,口から音を出す人,singer,歌手,,369
-expr-370,cat-53,本を作る人,author / writer,作家,,370
-expr-371,cat-53,きれいな物を作る人,painter / artist,画家,,371
-expr-372,cat-53,上にいる人,boss / superior,上司,,372
-expr-373,cat-53,下にいる人,subordinate,部下,,373
-expr-374,cat-53,来た人,customer / guest,客,,374
-expr-375,cat-54,良いことがあった心,happy / glad,嬉しい,,375
-expr-376,cat-54,一人で悲しい,lonely,寂しい,,376
-expr-377,cat-54,人に見られたくない心,embarrassed / shy,恥ずかしい,,377
-expr-378,cat-54,体も心もとても悪い,painful / agonizing,苦しい,,378
-expr-379,cat-54,とても悲しくて悪い,hard / tough / painful,辛い,,379
-expr-380,cat-54,人に良くする心がある,kind / gentle,優しい,,380
-expr-381,cat-54,とても強くて悪いことを止める,strict / harsh,厳しい,,381
-expr-382,cat-54,変なことをしない良い心,honest / obedient,素直,,382
-expr-383,cat-54,良くしようと考える人,serious / diligent,真面目,,383
-expr-384,cat-54,体も心も良い,energetic / well,元気,,384
-expr-385,cat-54,良いことが多くある心,happiness / fortune,幸せ,,385
-expr-386,cat-54,これから悪いことが来るかもしれないと思う心,anxiety / unease,不安,,386
-expr-387,cat-54,悪いことが起こるかもと考える,worry / concern,心配,,387
-expr-388,cat-54,怖くて体が動きにくい,nervousness / tension,緊張,,388
-expr-389,cat-54,心が大きく動く,being moved / deeply touched,感動,,389
-expr-390,cat-54,ありがとうと思う心,gratitude / thanks,感謝,,390
-expr-391,cat-54,前にしたことが悪かったと思う,regret,後悔,,391
-expr-392,cat-54,私は良いと思う強い心,self-confidence,自信,,392
-expr-393,cat-54,良いことが来ると思って待つ,expectation / anticipation,期待,,393
-expr-394,cat-54,良いことが起こってほしいと思う,hope / wish,希望,,394
-expr-395,cat-54,良いことはないと思う,despair,絶望,,395
-expr-396,cat-54,もっと知りたいと思う心,interest / curiosity,興味,,396
-expr-397,cat-54,楽しいことが何もない,boredom,退屈,,397
-expr-398,cat-54,知らなかったことが起こって感じる,to be surprised,驚く,,398
-expr-399,cat-54,どうすればいいか思えなくて悪い,to be troubled,困る,,399
-expr-400,cat-54,どれを選ぶかと考えて止まる,to hesitate / be lost,迷う,,400
-expr-401,cat-54,速くしなければと思って怖い,to be impatient / flustered,焦る,,401
-expr-402,cat-54,悪くても止まらずにいること,endurance / patience,我慢,,402
-expr-403,cat-54,悪いことをした人を良いと言う,to forgive / permit,許す,,403
-expr-404,cat-54,本当だと思う,to believe / trust,信じる,,404
-expr-405,cat-54,本当かどうかと思う,to doubt / suspect,疑う,,405
-expr-406,cat-54,とても良い人だと思う,respect,尊敬,,406
-expr-407,cat-54,とても悪い人だと思う,contempt / scorn,軽蔑,,407
-expr-408,cat-54,悲しい人の心を感じる,sympathy / compassion,同情,,408
-expr-409,cat-54,他の人が持っているものを欲しいと思う,jealousy / envy,嫉妬,,409
-expr-410,cat-54,悪いことをされてまだ怒る,to resent / bear a grudge,恨む,,410
-expr-411,cat-54,あの人のようになりたいと思う,to admire / yearn for,憧れる,,411
-expr-412,cat-54,もう良いと感じる,satisfaction / contentment,満足,,412
-expr-413,cat-54,まだ良くないと思う,dissatisfaction / discontent,不満,,413
-expr-414,cat-54,一人しかいなくて悲しい,loneliness / isolation,孤独,,414
-expr-415,cat-54,怖くても前に行く強い心,courage / bravery,勇気,,415
-expr-416,cat-54,私は良いと感じる強い心,pride,誇り,,416
-expr-417,cat-54,ある人がとても好きになる心,romantic love / crush,恋,,417
-expr-418,cat-54,ある人をとても良くしたい強い心,love,愛,,418
-expr-419,cat-54,悪いことが起こって怒る心,anger,怒り,,419
-expr-420,cat-54,良いことが起こって笑いたい心,joy / delight,喜び,,420
-expr-421,cat-54,知らなかったことを見たり聞いたりした心,surprise / astonishment,驚き,,421
-expr-422,cat-54,とても怖い心,fear / terror,恐怖,,422
-expr-423,cat-54,怒らないで良く考える,calm / composed,冷静,,423
-expr-424,cat-54,他の人の良いものを欲しいと思う,to envy,羨む,,424
-expr-425,cat-55,人たちがいる場所,society,社会,,425
-expr-426,cat-55,国をどうするかを選ぶこと,politics,政治,,426
-expr-427,cat-55,お金と物の動き,economy,経済,,427
-expr-428,cat-55,国の人がしなければならないこと,law,法律,,428
-expr-429,cat-55,人がしてもいいこと,rights,権利,,429
-expr-430,cat-55,人がしなければならないこと,duty / obligation,義務,,430
+expr-239,cat-50,多【おお】くの事【こと】が中【なか】にある,"complex, complicated",複雑,,239
+expr-240,cat-50,よく使【つか】える良【よ】い,"convenient, handy",便利,,240
+expr-241,cat-50,よく使【つか】えない悪【わる】い,inconvenient,不便,,241
+expr-242,cat-50,人【ひと】に良【よ】い言葉【ことば】を使【つか】う,"polite, careful, thorough",丁寧,,242
+expr-243,cat-50,その時【とき】に良【よ】い,"suitable, appropriate; casual",適当,,243
+expr-244,cat-50,したい事【こと】ができる,"freedom, liberty",自由,,244
+expr-245,cat-50,他【ほか】の国【くに】や場所【ばしょ】に行【い】く事【こと】,"travel, trip",旅行,,245
+expr-246,cat-50,空【そら】の今【いま】の事【こと】,weather,天気,,246
+expr-247,cat-50,年【とし】の中【なか】の時【とき】,season,季節,,247
+expr-248,cat-51,する事【こと】,"work, job, occupation",仕事,,248
+expr-249,cat-51,仕事【しごと】をする場所【ばしょ】,"company, business",会社,,249
+expr-250,cat-51,会社【かいしゃ】の一【いち】番上【うえ】の人【ひと】,"company president, CEO",社長,,250
+expr-251,cat-51,会社【かいしゃ】で仕事【しごと】をする人【ひと】,company employee,社員,,251
+expr-252,cat-51,会社【かいしゃ】の中【なか】の大【おお】きい場所【ばしょ】の上【うえ】の人【ひと】,"department head, director",部長,,252
+expr-253,cat-51,仕事【しごと】で上【うえ】にいる人【ひと】,"superior, boss",上司,,253
+expr-254,cat-51,仕事【しごと】で下【した】にいる人【ひと】,"subordinate, staff under one",部下,,254
+expr-255,cat-51,その会社【かいしゃ】で仕事【しごと】をする他【ほか】の人【ひと】,"colleague, coworker",同僚,,255
+expr-256,cat-51,来【く】る人【ひと】,"customer, guest, visitor",客,,256
+expr-257,cat-51,多【おお】くの人【ひと】が来【き】て考【かんが】える事【こと】,"meeting, conference",会議,,257
+expr-258,cat-51,仕事【しごと】に使【つか】う書【か】いた物【もの】,"materials, documents, data",資料,,258
+expr-259,cat-51,した事【こと】を上【うえ】の人【ひと】に言【い】う事【こと】,"report, notification",報告,,259
+expr-260,cat-51,知【し】らない人【ひと】に言葉【ことば】で教【おし】える事【こと】,"explanation, description",説明,,260
+expr-261,cat-51,人【ひと】と違【ちが】う考【かんが】えを言【い】う事【こと】,"debate, argument, discussion",議論,,261
+expr-262,cat-51,人【ひと】と「する」と書【か】いた物【もの】,"contract, agreement",契約,,262
+expr-263,cat-51,仕事【しごと】をしてもらうお金【おかね】,"salary, wages, pay",給料,,263
+expr-264,cat-51,終【お】わった後【あと】もする仕事【しごと】,overtime work,残業,,264
+expr-265,cat-51,仕事【しごと】で他【ほか】の場所【ばしょ】に行【い】く事【こと】,business trip,出張,,265
+expr-266,cat-51,違【ちが】う仕事【しごと】に変【か】わる事【こと】,"job change, career change",転職,,266
+expr-267,cat-51,仕事【しごと】を終【お】わらせる事【こと】,"retirement, resignation",退職,,267
+expr-268,cat-51,はじめて仕事【しごと】を始【はじ】める事【こと】,"getting a job, employment",就職,,268
+expr-269,cat-51,仕事【しごと】のために会【あ】って言葉【ことば】を使【つか】う事【こと】,job interview,面接,,269
+expr-270,cat-51,知【し】っているかを見【み】る事【こと】,"exam, test",試験,,270
+expr-271,cat-51,試験【しけん】でどのくらい良【よ】かったかの数【かず】,"grades, results, performance",成績,,271
+expr-272,cat-51,学校【がっこう】が終【お】わる事【こと】,graduation,卒業,,272
+expr-273,cat-51,学校【がっこう】に入【はい】る事【こと】,"school enrollment, starting school",入学,,273
+expr-274,cat-51,学校【がっこう】で教【おし】えてもらう事【こと】,"class, lesson, lecture",授業,,274
+expr-275,cat-51,教【おし】える場所【ばしょ】,classroom,教室,,275
+expr-276,cat-51,勉強【べんきょう】する場所【ばしょ】,school,学校,,276
+expr-277,cat-51,大【おお】きい学校【がっこう】,"university, college",大学,,277
+expr-278,cat-51,まだ知【し】らない事【こと】を探【さが】す事【こと】,"research, study, investigation",研究,,278
+expr-279,cat-51,知【し】るために物【もの】を使【つか】ってみる事【こと】,"experiment, test",実験,,279
+expr-280,cat-51,物【もの】を作【つく】ったり使【つか】ったりできる事【こと】,"technology, technique, skill",技術,,280
+expr-281,cat-51,できる事【こと】,"ability, capability, talent",能力,,281
+expr-282,cat-51,良【よ】くなるためにとても強【つよ】くする事【こと】,"effort, hard work",努力,,282
+expr-283,cat-51,したい事【こと】ができた事【こと】,"success, achievement",成功,,283
+expr-284,cat-51,したい事【こと】ができなかった事【こと】,"failure, mistake",失敗,,284
+expr-285,cat-51,した後【あと】に起【お】こる事【こと】,"result, outcome",結果,,285
+expr-286,cat-51,したい事【こと】の場所【ばしょ】,"goal, target, objective",目標,,286
+expr-287,cat-51,なぜかの事【こと】,"reason, cause",理由,,287
+expr-288,cat-51,どうするかの事【こと】,"method, way, means",方法,,288
+expr-289,cat-51,良【よ】くない事【こと】が起【お】こっている,"problem, question, issue",問題,,289
+expr-290,cat-51,問題【もんだい】を良【よ】くする事【こと】,"solution, resolution",解決,,290
+expr-291,cat-51,しなければならない事【こと】,"responsibility, duty",責任,,291
+expr-292,cat-51,しなければならない事【こと】と、してはいけない事【こと】,"rule, regulation",規則,,292
+expr-293,cat-51,「していい」と言【い】う事【こと】,"permission, approval",許可,,293
+expr-294,cat-51,しなければならない事【こと】,"assignment, task, challenge",課題,,294
+expr-295,cat-51,良【よ】いか悪【わる】いかを見【み】る事【こと】,"evaluation, assessment, rating",評価,,295
+expr-296,cat-51,多【おお】くの人【ひと】に言【い】う事【こと】,"presentation, announcement",発表,,296
+expr-297,cat-51,私【わたし】が思【おも】う事【こと】,"opinion, view",意見,,297
+expr-298,cat-51,教【おし】える人【ひと】,"teacher, instructor",先生,,298
+expr-299,cat-51,学校【がっこう】で勉強【べんきょう】する子供【こども】,"student (K-12), pupil",生徒,,299
+expr-300,cat-52,十【じゅう】が十【じゅう】,hundred (100),百,,300
+expr-301,cat-52,百【ひゃく】が十【じゅう】,"thousand (1,000)",千,,301
+expr-302,cat-52,千【せん】が十【じゅう】,"ten-thousand (10,000)",万,,302
+expr-303,cat-52,一【いち】つの物【もの】を二【に】つに切【き】った一【いち】つ,half,半分,,303
+expr-304,cat-52,もう一【いち】つ多【おお】い事【こと】,"double, times (multiplier)",倍,,304
+expr-305,cat-52,その物【もの】の名前【なまえ】になる数【かず】,number (as identifier),番号,,305
+expr-306,cat-52,いくつあるかを言【い】う物【もの】,"number, count, quantity",数,,306
+expr-307,cat-52,何かをした数【かず】,"time(s), occurrence (counter)",回,,307
+expr-308,cat-52,何かが起【お】こった数【かず】,"degree, time(s), occasion",度,,308
+expr-309,cat-52,本【ほん】の中【なか】のような物【もの】の数【かず】を言【い】う言葉【ことば】,"flat things counter (sheets, cards)",枚,,309
+expr-310,cat-52,長【なが】い物【もの】の数【かず】を言【い】う言葉【ことば】,"long thin things counter (pens, bottles)",本,,310
+expr-311,cat-52,物【もの】の数【かず】を言【い】う言葉【ことば】,small objects counter (pieces),個,,311
+expr-312,cat-52,動物【どうぶつ】の数【かず】を言【い】う言葉【ことば】,small animals counter,匹,,312
+expr-313,cat-52,動【うご】く物【もの】の数【かず】を言【い】う言葉【ことば】,machines/vehicles counter,台,,313
+expr-314,cat-52,飲【の】む物【もの】の数【かず】を言【い】う言葉【ことば】,cups/bowls counter (drinks),杯,,314
+expr-315,cat-52,本【ほん】の数【かず】を言【い】う言葉【ことば】,bound books counter,冊,,315
+expr-316,cat-52,足【あし】に着【き】る物【もの】の数【かず】を言【い】う言葉【ことば】,pairs of footwear counter,足,,316
+expr-317,cat-52,体【からだ】に着【き】る物【もの】の数【かず】を言【い】う言葉【ことば】,clothing items counter,着,,317
+expr-318,cat-52,十【じゅう】の中【なか】の一【いち】つ,"ten percent unit, proportion",割,,318
+expr-319,cat-52,前【まえ】から何【なに】番目かを言【い】う言葉【ことば】,"number in sequence, rank",番,,319
+expr-320,cat-52,一【いち】番前【まえ】,"first, number one",第一,,320
+expr-321,cat-52,一【いち】番前【まえ】の時【とき】,"first, beginning",最初,,321
+expr-322,cat-52,一【いち】番後【あと】の時【とき】,"last, final",最後,,322
+expr-323,cat-52,全部【ぜんぶ】の数【かず】,"total, sum",合計,,323
+expr-324,cat-52,全部【ぜんぶ】を一【いち】つにした数【かず】,"average, mean",平均,,324
+expr-325,cat-53,家【いえ】の人【ひと】たち,family,家族,,325
+expr-326,cat-53,男【おとこ】の上【うえ】の子供【こども】,older brother,兄,,326
+expr-327,cat-53,男【おとこ】の下【した】の子供【こども】,younger brother,弟,,327
+expr-328,cat-53,女【おんな】の上【うえ】の子供【こども】,older sister,姉,,328
+expr-329,cat-53,女【おんな】の下【した】の子供【こども】,younger sister,妹,,329
+expr-330,cat-53,女【おんな】の人【ひと】の男【おとこ】,husband,夫,,330
+expr-331,cat-53,男【おとこ】の人【ひと】の女【おんな】,wife,妻,,331
+expr-332,cat-53,私の男【おとこ】の子供【こども】,son,息子,,332
+expr-333,cat-53,私の女【おんな】の子供【こども】,daughter,娘,,333
+expr-334,cat-53,子供【こども】の父【ちち】または母【はは】,parent,親,,334
+expr-335,cat-53,父【ちち】の父【ちち】,grandfather,祖父,,335
+expr-336,cat-53,父【ちち】の母【はは】,grandmother,祖母,,336
+expr-337,cat-53,子供【こども】の子供【こども】,grandchild,孫,,337
+expr-338,cat-53,よく会【あ】う好【す】きな人【ひと】,friend,友達,,338
+expr-339,cat-53,とても好【す】きな人【ひと】,romantic partner,恋人,,339
+expr-340,cat-53,あの男【おとこ】の人【ひと】,he / boyfriend,彼,,340
+expr-341,cat-53,あの女【おんな】の人【ひと】,she / girlfriend,彼女,,341
+expr-342,cat-53,前【まえ】からいる人【ひと】,senior / upperclassman,先輩,,342
+expr-343,cat-53,後【あと】から来【き】た人【ひと】,junior / underclassman,後輩,,343
+expr-344,cat-53,よく会【あ】う人【ひと】たち,companion / fellow member,仲間,,344
+expr-345,cat-53,近【ちか】くにいる人【ひと】,neighbor,隣人,,345
+expr-346,cat-53,会【あ】っている人【ひと】,partner / opponent,相手,,346
+expr-347,cat-53,全部【ぜんぶ】の人【ひと】,everyone,皆,,347
+expr-348,cat-53,まだ大【おお】きくなっていない子供【こども】,baby,赤ちゃん,,348
+expr-349,cat-53,年【とし】が少【すこ】しの人【ひと】,young person,若者,,349
+expr-350,cat-53,年【とし】が多【おお】い人【ひと】,elderly person,老人,,350
+expr-351,cat-53,大【おお】きくなった人【ひと】,adult,大人,,351
+expr-352,cat-53,教【おし】える人【ひと】,teacher,先生,,352
+expr-353,cat-53,体【からだ】を助【たす】ける人【ひと】,doctor,医者,,353
+expr-354,cat-53,悪【わる】いことをする人【ひと】を止【と】める人【ひと】,police,警察,,354
+expr-355,cat-53,戦【たたか】う人【ひと】,soldier,兵士,,355
+expr-356,cat-53,国【くに】で高【たか】い人【ひと】,king,王,,356
+expr-357,cat-53,とても強【つよ】い上【うえ】にいる人【ひと】,god / deity,神,,357
+expr-358,cat-53,その国【くに】にいる人【ひと】,citizen,市民,,358
+expr-359,cat-53,その国【くに】の全部【ぜんぶ】の人【ひと】,nationals / people of a country,国民,,359
+expr-360,cat-53,戦【たたか】う悪【わる】い人【ひと】,enemy,敵,,360
+expr-361,cat-53,よく助【たす】けてくれる人【ひと】,ally,味方,,361
+expr-362,cat-53,悪【わる】いことをされた人【ひと】,victim,被害者,,362
+expr-363,cat-53,悪【わる】いことをした人【ひと】,criminal / culprit,犯人,,363
+expr-364,cat-53,外【そと】の国【くに】から来【き】た人【ひと】,foreigner,外国人,,364
+expr-365,cat-53,その場所【ばしょ】を見【み】に来【き】た人【ひと】,tourist,観光客,,365
+expr-366,cat-53,動【うご】く物【もの】の中【なか】にいる人【ひと】,passenger,乗客,,366
+expr-367,cat-53,体【からだ】が悪【わる】い人【ひと】,patient (medical),患者,,367
+expr-368,cat-53,選【えら】ばれた人【ひと】,athlete / player,選手,,368
+expr-369,cat-53,口【くち】から音【おと】を出【だ】す人【ひと】,singer,歌手,,369
+expr-370,cat-53,本【ほん】を作【つく】る人【ひと】,author / writer,作家,,370
+expr-371,cat-53,きれいな物【もの】を作【つく】る人【ひと】,painter / artist,画家,,371
+expr-372,cat-53,上【うえ】にいる人【ひと】,boss / superior,上司,,372
+expr-373,cat-53,下【した】にいる人【ひと】,subordinate,部下,,373
+expr-374,cat-53,来【き】た人【ひと】,customer / guest,客,,374
+expr-375,cat-54,良【よ】いことがあった心【こころ】,happy / glad,嬉しい,,375
+expr-376,cat-54,一人で悲【かな】しい,lonely,寂しい,,376
+expr-377,cat-54,人【ひと】に見【み】られたくない心【こころ】,embarrassed / shy,恥ずかしい,,377
+expr-378,cat-54,体【からだ】も心【こころ】もとても悪【わる】い,painful / agonizing,苦しい,,378
+expr-379,cat-54,とても悲【かな】しくて悪【わる】い,hard / tough / painful,辛い,,379
+expr-380,cat-54,人【ひと】に良【よ】くする心【こころ】がある,kind / gentle,優しい,,380
+expr-381,cat-54,とても強【つよ】くて悪【わる】いことを止【と】める,strict / harsh,厳しい,,381
+expr-382,cat-54,変【へん】なことをしない良【よ】い心【こころ】,honest / obedient,素直,,382
+expr-383,cat-54,良【よ】くしようと考【かんが】える人【ひと】,serious / diligent,真面目,,383
+expr-384,cat-54,体【からだ】も心【こころ】も良【よ】い,energetic / well,元気,,384
+expr-385,cat-54,良【よ】いことが多【おお】くある心【こころ】,happiness / fortune,幸せ,,385
+expr-386,cat-54,これから悪【わる】いことが来【く】るかもしれないと思【おも】う心【こころ】,anxiety / unease,不安,,386
+expr-387,cat-54,悪【わる】いことが起【お】こるかもと考【かんが】える,worry / concern,心配,,387
+expr-388,cat-54,怖【こわ】くて体【からだ】が動【うご】きにくい,nervousness / tension,緊張,,388
+expr-389,cat-54,心【こころ】が大【おお】きく動【うご】く,being moved / deeply touched,感動,,389
+expr-390,cat-54,ありがとうと思【おも】う心【こころ】,gratitude / thanks,感謝,,390
+expr-391,cat-54,前【まえ】にしたことが悪【わる】かったと思【おも】う,regret,後悔,,391
+expr-392,cat-54,私は良【よ】いと思【おも】う強【つよ】い心【こころ】,self-confidence,自信,,392
+expr-393,cat-54,良【よ】いことが来【く】ると思【おも】って待【ま】つ,expectation / anticipation,期待,,393
+expr-394,cat-54,良【よ】いことが起【お】こってほしいと思【おも】う,hope / wish,希望,,394
+expr-395,cat-54,良【よ】いことはないと思【おも】う,despair,絶望,,395
+expr-396,cat-54,もっと知【し】りたいと思【おも】う心【こころ】,interest / curiosity,興味,,396
+expr-397,cat-54,楽【たの】しいことが何【なに】もない,boredom,退屈,,397
+expr-398,cat-54,知らなかったことが起【お】こって感【かん】じる,to be surprised,驚く,,398
+expr-399,cat-54,どうすればいいか思【おも】えなくて悪【わる】い,to be troubled,困る,,399
+expr-400,cat-54,どれを選【えら】ぶかと考【かんが】えて止【と】まる,to hesitate / be lost,迷う,,400
+expr-401,cat-54,速【はや】くしなければと思【おも】って怖【こわ】い,to be impatient / flustered,焦る,,401
+expr-402,cat-54,悪【わる】くても止【と】まらずにいること,endurance / patience,我慢,,402
+expr-403,cat-54,悪【わる】いことをした人【ひと】を良【よ】いと言【い】う,to forgive / permit,許す,,403
+expr-404,cat-54,本当【ほんとう】だと思【おも】う,to believe / trust,信じる,,404
+expr-405,cat-54,本当【ほんとう】かどうかと思【おも】う,to doubt / suspect,疑う,,405
+expr-406,cat-54,とても良【よ】い人【ひと】だと思【おも】う,respect,尊敬,,406
+expr-407,cat-54,とても悪【わる】い人【ひと】だと思【おも】う,contempt / scorn,軽蔑,,407
+expr-408,cat-54,悲【かな】しい人【ひと】の心【こころ】を感【かん】じる,sympathy / compassion,同情,,408
+expr-409,cat-54,他【ほか】の人【ひと】が持【も】っているものを欲【ほ】しいと思【おも】う,jealousy / envy,嫉妬,,409
+expr-410,cat-54,悪【わる】いことをされてまだ怒【おこ】る,to resent / bear a grudge,恨む,,410
+expr-411,cat-54,あの人【ひと】のようになりたいと思【おも】う,to admire / yearn for,憧れる,,411
+expr-412,cat-54,もう良【よ】いと感【かん】じる,satisfaction / contentment,満足,,412
+expr-413,cat-54,まだ良【よ】くないと思【おも】う,dissatisfaction / discontent,不満,,413
+expr-414,cat-54,一人しかいなくて悲【かな】しい,loneliness / isolation,孤独,,414
+expr-415,cat-54,怖【こわ】くても前【まえ】に行【い】く強【つよ】い心【こころ】,courage / bravery,勇気,,415
+expr-416,cat-54,私は良【よ】いと感【かん】じる強【つよ】い心【こころ】,pride,誇り,,416
+expr-417,cat-54,ある人【ひと】がとても好【す】きになる心【こころ】,romantic love / crush,恋,,417
+expr-418,cat-54,ある人【ひと】をとても良【よ】くしたい強【つよ】い心【こころ】,love,愛,,418
+expr-419,cat-54,悪【わる】いことが起【お】こって怒【おこ】る心【こころ】,anger,怒り,,419
+expr-420,cat-54,良【よ】いことが起【お】こって笑【わら】いたい心【こころ】,joy / delight,喜び,,420
+expr-421,cat-54,知らなかったことを見【み】たり聞【き】いたりした心【こころ】,surprise / astonishment,驚き,,421
+expr-422,cat-54,とても怖【こわ】い心【こころ】,fear / terror,恐怖,,422
+expr-423,cat-54,怒【おこ】らないで良【よ】く考【かんが】える,calm / composed,冷静,,423
+expr-424,cat-54,他【ほか】の人【ひと】の良【よ】いものを欲【ほ】しいと思【おも】う,to envy,羨む,,424
+expr-425,cat-55,人【ひと】たちがいる場所【ばしょ】,society,社会,,425
+expr-426,cat-55,国【くに】をどうするかを選【えら】ぶこと,politics,政治,,426
+expr-427,cat-55,お金【おかね】と物【もの】の動【うご】き,economy,経済,,427
+expr-428,cat-55,国【くに】の人【ひと】がしなければならないこと,law,法律,,428
+expr-429,cat-55,人【ひと】がしてもいいこと,rights,権利,,429
+expr-430,cat-55,人【ひと】がしなければならないこと,duty / obligation,義務,,430
 expr-431,cat-55,したいことができること,freedom / liberty,自由,,431
-expr-432,cat-55,戦いがない良い時,peace,平和,,432
-expr-433,cat-55,国と国が戦うこと,war,戦争,,433
-expr-434,cat-55,国のために戦う人たち,military / army,軍隊,,434
-expr-435,cat-55,国を動かす人たち,government,政府,,435
-expr-436,cat-55,国を動かす人を選ぶこと,election,選挙,,436
-expr-437,cat-55,国に与えるお金,tax,税金,,437
-expr-438,cat-55,前に起こったこと,history,歴史,,438
-expr-439,cat-55,その国の人たちがすること,culture,文化,,439
-expr-440,cat-55,人の上にいる強い物を思うこと,religion,宗教,,440
-expr-441,cat-55,人に教えること,education,教育,,441
-expr-442,cat-55,物がどうなっているかを知ること,science,科学,,442
-expr-443,cat-55,きれいな物を作ること,art,芸術,,443
-expr-444,cat-55,言葉で作った本,literature,文学,,444
-expr-445,cat-55,なぜ生きるかを考えること,philosophy,哲学,,445
-expr-446,cat-55,前からある事,tradition,伝統,,446
-expr-447,cat-55,全部の人で楽しくする日,festival,祭り,,447
-expr-448,cat-55,人たちが前からする事,ritual / ceremony,儀式,,448
-expr-449,cat-55,男と女が家の人になること,marriage,結婚,,449
-expr-450,cat-55,死んだ人のためにする事,funeral,葬式,,450
-expr-451,cat-55,悪いことが起こった事,incident / case,事件,,451
-expr-452,cat-55,思わないで悪いことが起こること,accident,事故,,452
-expr-453,cat-55,人がしてはいけない悪いこと,crime,犯罪,,453
-expr-454,cat-55,悪いことをしたかどうかを人が言うこと,trial / court,裁判,,454
-expr-455,cat-55,悪いことをした人に与える悪いこと,punishment / penalty,刑罰,,455
-expr-456,cat-55,毎日の事が書いてある本,newspaper,新聞,,456
-expr-457,cat-55,多くの人に音や光で言葉を出すこと,broadcast,放送,,457
-expr-458,cat-55,物を買ってほしいと言うこと,advertisement,広告,,458
-expr-459,cat-55,人に知らせること,information,情報,,459
-expr-460,cat-55,人に言葉を出すこと,communication / telecommunications,通信,,460
-expr-461,cat-55,物を作るための知ること,technology / technique,技術,,461
-expr-462,cat-55,多くの物を作ること,industry,産業,,462
-expr-463,cat-55,国と国で物を買ったり与えたりすること,trade / commerce,貿易,,463
-expr-464,cat-55,人の外にある水や空気や土,environment,環境,,464
-expr-465,cat-55,水や空気が悪くなること,pollution / contamination,汚染,,465
-expr-466,cat-55,人が使える物,resources,資源,,466
-expr-467,cat-55,その場所にいる人の多さ,population,人口,,467
-expr-468,cat-55,ある人を他の人より悪くすること,discrimination,差別,,468
-expr-469,cat-55,全部の人が良いとすること,equality,平等,,469
-expr-470,cat-55,全部の人が国のことを選べること,democracy,民主主義,,470
-expr-471,cat-55,国のやることを大きく変えること,revolution,革命,,471
-expr-472,cat-55,他の国が持っている場所,colony,植民地,,472
-expr-473,cat-55,他の国に行ってそこにいる人,immigrant / migration,移民,,473
-expr-474,cat-55,怖いので国から出た人,refugee,難民,,474
-expr-475,cat-56,多くの人がいる場所,town,町,,475
-expr-476,cat-56,とても多くの人がいる大きい場所,city,市,,476
-expr-477,cat-56,人が少しだけいる場所,village,村,,477
-expr-478,cat-56,人が来る物を待つ場所,station,駅,,478
-expr-479,cat-56,物を買う場所,shop/store,店,,479
-expr-480,cat-56,体が悪い人を助ける場所,hospital,病院,,480
-expr-481,cat-56,お金を守る場所,bank,銀行,,481
-expr-482,cat-56,書いた物を他の人に与える場所,post office,郵便局,,482
-expr-483,cat-56,本を読む場所,library,図書館,,483
-expr-484,cat-56,きれいな物を見る場所,art museum,美術館,,484
-expr-485,cat-56,国の物を見る場所,museum,博物館,,485
-expr-486,cat-56,人が見せる事をする場所,theater,劇場,,486
-expr-487,cat-56,大きい光の物を見る場所,cinema/movie theater,映画館,,487
-expr-488,cat-56,外で楽しくいられる場所,park,公園,,488
-expr-489,cat-56,多くの人が来る外の場所,plaza/square,広場,,489
-expr-490,cat-56,水の上を行く道,bridge,橋,,490
-expr-491,cat-56,高くて長い物,tower,塔,,491
-expr-492,cat-56,強い人が守る大きい家,castle,城,,492
-expr-493,cat-56,人が心の事を考える場所,Buddhist temple,寺,,493
-expr-494,cat-56,この国の心に言う場所,Shinto shrine,神社,,494
-expr-495,cat-56,人が心に良いことを聞く場所,church,教会,,495
-expr-496,cat-56,物を作る場所,factory,工場,,496
-expr-497,cat-56,物を中に入れて守る場所,warehouse,倉庫,,497
-expr-498,cat-56,海を動く物が来る場所,harbor/port,港,,498
-expr-499,cat-56,空を動く物が出る場所,airport,空港,,499
-expr-500,cat-56,物が速く動く道,road,道路,,500
-expr-501,cat-56,道と道が会う場所,intersection,交差点,,501
-expr-502,cat-56,赤と青の光で動くのを止める物,traffic light,信号,,502
-expr-503,cat-56,上に行くための道,stairs,階段,,503
-expr-504,cat-56,中に入るための場所,entrance,入口,,504
-expr-505,cat-56,外に出るための場所,exit,出口,,505
-expr-506,cat-56,家にあって外が見えるもの,window,窓,,506
-expr-507,cat-56,開いたり閉めたりする物,door,扉,,507
-expr-508,cat-56,外と中の入り口にある大きい物,gate,門,,508
-expr-509,cat-56,家の一ばん上にある物,roof,屋根,,509
-expr-510,cat-56,家の外にある石や木でできた物,wall,壁,,510
-expr-511,cat-56,家の中で足が上にある下の物,floor,床,,511
-expr-512,cat-56,家の中の一ばん上,ceiling,天井,,512
-expr-513,cat-56,家の外にある草の場所,garden/yard,庭,,513
-expr-514,cat-56,家の中で食べ物を作る場所,kitchen,台所,,514
-expr-515,cat-56,家の中で人が楽しくいる場所,living room,居間,,515
-expr-516,cat-56,家の中で寝る場所,bedroom,寝室,,516
-expr-517,cat-56,土の下,underground/basement,地下,,517
-expr-518,cat-56,土の上,above ground,地上,,518
-expr-519,cat-56,海の中にある土の場所,island,島,,519
-expr-520,cat-56,水がなくて暑い場所,desert,砂漠,,520
-expr-521,cat-56,木が多くある場所,forest,森,,521
-expr-522,cat-56,山と山の下にある場所,valley,谷,,522
-expr-523,cat-56,山から海へ水が動く道,river,川,,523
-expr-524,cat-57,道を速く動く物,car,車,,524
-expr-525,cat-57,道の上を動く長い物,train,電車,,525
-expr-526,cat-57,多くの人が中に入る大きい物,bus,バス,,526
-expr-527,cat-57,空を動く物,airplane,飛行機,,527
-expr-528,cat-57,海を動く物,ship/boat,船,,528
-expr-529,cat-57,足を使って動かす物,bicycle,自転車,,529
-expr-530,cat-57,お金を与えて中に入る物,taxi,タクシー,,530
-expr-531,cat-57,重い物を持って動く大きい物,truck,トラック,,531
-expr-532,cat-57,速く動ける大きい道,highway/expressway,高速道路,,532
-expr-533,cat-57,長い物が動く道,railway system,鉄道,,533
-expr-534,cat-57,長い物が上を動く道,railroad tracks,線路,,534
-expr-535,cat-57,物を動かすこと,driving,運転,,535
-expr-536,cat-57,場所を出ること,departure,出発,,536
-expr-537,cat-57,場所に来ること,arrival,到着,,537
-expr-538,cat-57,他の場所に行くこと,travel/trip,旅行,,538
-expr-539,cat-57,他の場所を見ること,sightseeing,観光,,539
-expr-540,cat-57,道や場所を教えること,guidance/guide,案内,,540
-expr-541,cat-57,場所を書いた物,map,地図,,541
-expr-542,cat-57,中に入るために買う物,ticket,切符,,542
-expr-543,cat-57,他の国に行くときに必要な本,passport,パスポート,,543
-expr-544,cat-57,行く時に持って行く物,luggage/baggage,荷物,,544
-expr-545,cat-57,座る場所,seat,座席,,545
-expr-546,cat-57,どのくらい速いかということ,speed,速度,,546
-expr-547,cat-57,二つの場所がどのくらい近くないか,distance,距離,,547
-expr-548,cat-57,どちらに行くかということ,direction,方向,,548
-expr-549,cat-57,道を人や物が動くこと,traffic/transportation,交通,,549
-expr-550,cat-57,物が動けなくなること,traffic jam,渋滞,,550
-expr-551,cat-57,悪いことが起こること,accident,事故,,551
-expr-552,cat-57,中に入るために与えるお金,fare,運賃,,552
-expr-553,cat-57,行くだけで来ない道,one-way,片道,,553
-expr-554,cat-57,行って来ること,round trip,往復,,554
-expr-555,cat-57,行きたい場所,destination,目的地,,555
-expr-556,cat-57,他の国,foreign country,外国,,556
-expr-557,cat-57,もとの国に来ること,returning to home country,帰国,,557
-expr-558,cat-57,道が見えなくなった子供,lost child,迷子,,558
-expr-559,cat-57,始まりと終わりの前,on the way/midway,途中,,559
-expr-560,cat-57,物の中に入る人,passenger,乗客,,560
-expr-561,cat-57,物を動かす人,driver,運転手,,561
-expr-562,cat-57,動く物が止まって終わる場所,final stop/terminus,終点,,562
-expr-563,cat-58,空から白くて寒い水が来ること,snow,雪,,563
-expr-564,cat-58,寒くなった水,ice,氷,,564
-expr-565,cat-58,白い空気で何も見えなくなること,fog/mist,霧,,565
-expr-566,cat-58,空にある白い水の物,cloud,雲,,566
-expr-567,cat-58,雨の後に空に出る色の光,rainbow,虹,,567
-expr-568,cat-58,空で大きい音と光が起こること,thunder/lightning,雷,,568
-expr-569,cat-58,強い風と雨が来ること,typhoon,台風,,569
-expr-570,cat-58,土が動くこと,earthquake,地震,,570
-expr-571,cat-58,水が多くなって場所が水の中に入ること,flood,洪水,,571
-expr-572,cat-58,外で起こる悪いこと,disaster,災害,,572
-expr-573,cat-58,山や土の中にある大きい水,lake,湖,,573
-expr-574,cat-58,山や土の中にある水,pond,池,,574
-expr-575,cat-58,高い場所から水が下に出てくること,waterfall,滝,,575
-expr-576,cat-58,土の中から水が出てくる場所,spring/fountain,泉,,576
-expr-577,cat-58,木が多くある場所,grove/woodland,林,,577
-expr-578,cat-58,食べ物を作る土の場所,field/farmland,畑,,578
-expr-579,cat-58,水を使って食べ物を作る場所,rice paddy,田んぼ,,579
-expr-580,cat-58,海や山にある石でできた物,sand,砂,,580
-expr-581,cat-58,草や木にある色のある物,flower,花,,581
-expr-582,cat-58,白や赤の色の木の物,cherry blossom,桜,,582
-expr-583,cat-58,木の緑の物,leaf,葉,,583
-expr-584,cat-58,木や草の土の中にある物,root,根,,584
-expr-585,cat-58,草や木になる前の物,seed,種,,585
-expr-586,cat-58,木にある食べられる物,fruit/berry,実,,586
-expr-587,cat-58,空を動く動物,bird,鳥,,587
-expr-588,cat-58,水の中で生きる動物,fish,魚,,588
-expr-589,cat-58,足が多い動物,insect/bug,虫,,589
-expr-590,cat-58,人と生きる動物,dog,犬,,590
-expr-591,cat-58,家にいる動物,cat,猫,,591
-expr-592,cat-58,大きくて強い動物で人が上に座るもの,horse,馬,,592
-expr-593,cat-58,白と黒の大きい動物,cow,牛,,593
-expr-594,cat-58,足がなくて長い動物,snake,蛇,,594
-expr-595,cat-58,大きくて強くて怖い動物,bear,熊,,595
-expr-596,cat-58,空を動く動物が作る物,egg,卵,,596
-expr-597,cat-58,空を動く動物が使う物,feather/wing,羽,,597
-expr-598,cat-58,年の中で暑さや寒さが変わる時,season,季節,,598
-expr-599,cat-58,寒い時の後で暑くなる前の時,spring,春,,599
-expr-600,cat-58,年で一ばん暑い時,summer,夏,,600
-expr-601,cat-58,暑い時の後で寒くなる前の時,autumn/fall,秋,,601
-expr-602,cat-58,年で一ばん寒い時,winter,冬,,602
-expr-603,cat-58,太陽が空に出てくること,sunrise,日の出,,603
-expr-604,cat-58,太陽が下に入ること,sunset,日の入り,,604
-expr-605,cat-58,太陽が出てきた後の時,morning,朝,,605
-expr-606,cat-58,海の水が上に来たり下に行ったりすること,tide,潮,,606
-expr-607,cat-58,海の水が動くこと,wave,波,,607
-expr-608,cat-59,火で作った食べ物,"cooking, dish",料理,,608
-expr-609,cat-59,食べる事,meal,食事,,609
-expr-610,cat-59,朝に食べる物,breakfast,朝食,,610
-expr-611,cat-59,昼に食べる物,lunch,昼食,,611
-expr-612,cat-59,夜に食べる物,dinner,夕食,,612
-expr-613,cat-59,外で食べるために作った食べ物,packed lunch,弁当,,613
-expr-614,cat-59,とても好きな甘い食べ物,"sweets, snacks",お菓子,,614
-expr-615,cat-59,小むぎで作った食べ物,bread,パン,,615
-expr-616,cat-59,日ほんで多く食べる白い食べ物,rice (uncooked),米,,616
-expr-617,cat-59,水で作った米の食べ物,"cooked rice, meal",ご飯,,617
-expr-618,cat-59,動物の体の食べ物,meat,肉,,618
-expr-619,cat-59,水の中にいる動物,fish,魚,,619
-expr-620,cat-59,土から出る食べる草,vegetables,野菜,,620
-expr-621,cat-59,木からもらう甘い食べ物,fruit,果物,,621
-expr-622,cat-59,動物から出る丸くて白い物,egg,卵,,622
-expr-623,cat-59,海の水から作る白い物,salt,塩,,623
-expr-624,cat-59,食べ物を甘くする白い物,sugar,砂糖,,624
-expr-625,cat-59,黒い色の食べ物に使う水,soy sauce,醤油,,625
-expr-626,cat-59,口で感じる事,"taste, flavor",味,,626
-expr-627,cat-59,鼻で感じる事,"smell, scent",匂い,,627
-expr-628,cat-59,飲むと体が変になる水,"alcohol, sake",酒,,628
-expr-629,cat-59,草から作った飲み物,tea,お茶,,629
-expr-630,cat-59,果物から出る甘い水,juice,ジュース,,630
-expr-631,cat-59,動物の体から出る白い飲み物,milk,牛乳,,631
-expr-632,cat-59,黒くて苦い飲み物,coffee,コーヒー,,632
-expr-633,cat-59,食べ物を置く物,"plate, dish",皿,,633
-expr-634,cat-59,食べる時に使う二本の木,chopsticks,箸,,634
-expr-635,cat-59,飲み物を入れる物,"cup, glass",コップ,,635
-expr-636,cat-59,水や飲み物を入れる物,bottle,瓶,,636
-expr-637,cat-59,火で食べ物を作る物,"pot, pan",鍋,,637
-expr-638,cat-59,食べ物を切る物,kitchen knife,包丁,,638
-expr-639,cat-59,食べ物を冷たくして入れる物,refrigerator,冷蔵庫,,639
-expr-640,cat-59,とても寒くなった水,ice,氷,,640
-expr-641,cat-59,食べ物を火で作る時に使う物,oil,油,,641
-expr-642,cat-59,水で作った温かい食べ物,soup,スープ,,642
-expr-643,cat-59,切った野菜の食べ物,salad,サラダ,,643
-expr-644,cat-59,口で感じる良い味,sweet,甘い,,644
-expr-645,cat-59,口で感じる悪い味,bitter,苦い,,645
-expr-646,cat-59,口に強い感じがする食べ物の味,"spicy, hot",辛い,,646
-expr-647,cat-59,口がとても変に感じる味,sour,酸っぱい,,647
-expr-648,cat-59,食べ物が良い味がする,delicious,美味しい,,648
-expr-649,cat-59,食べ物の味が悪い,bad-tasting,まずい,,649
-expr-650,cat-59,火で食べ物を作る,"to grill, to bake",焼く,,650
-expr-651,cat-59,水と火で食べ物を作る,"to boil, to simmer",煮る,,651
-expr-652,cat-59,油と火で食べ物を作る,to deep-fry,揚げる,,652
-expr-653,cat-59,食べ物が欲しくなる,to get hungry,腹が減る,,653
-expr-654,cat-59,飲み物が欲しくなる,to get thirsty,喉が渇く,,654
-expr-655,cat-60,体が悪い状態,"illness, disease",病気,,655
-expr-656,cat-60,体を良くするために飲む物,medicine,薬,,656
-expr-657,cat-60,体が壊れた事,injury,怪我,,657
-expr-658,cat-60,体が悪く感じる,"painful, hurts",痛い,,658
-expr-659,cat-60,体がとても暑くなる事,fever,熱,,659
-expr-660,cat-60,体が悪くて熱が出る病,cold (illness),風邪,,660
-expr-661,cat-60,口から強く空気が出る事,cough,咳,,661
-expr-662,cat-60,体の中にある赤い水,blood,血,,662
-expr-663,cat-60,体の中にある硬い物,bone,骨,,663
-expr-664,cat-60,体の外の部分,skin,肌,,664
-expr-665,cat-60,体を動かす物,muscle,筋肉,,665
-expr-666,cat-60,口の中で食べ物を切る白い物,"tooth, teeth",歯,,666
-expr-667,cat-60,手や足の先の長い部分,"finger, toe",指,,667
-expr-668,cat-60,頭の下、手の上にある体の部分,shoulder,肩,,668
-expr-669,cat-60,体の中ほどにある部分,"lower back, hips",腰,,669
-expr-670,cat-60,体の後ろにある部分,back (of body),背中,,670
-expr-671,cat-60,頭と体をつなぐ部分,neck,首,,671
-expr-672,cat-60,体の前の上の部分,chest,胸,,672
-expr-673,cat-60,体の前の中ほどの部分,"abdomen, belly",腹,,673
-expr-674,cat-60,頭の前の部分,face,顔,,674
-expr-675,cat-60,頭の上にある物,hair (on head),髪,,675
-expr-676,cat-60,指の先にある硬い物,nail (finger/toe),爪,,676
-expr-677,cat-60,口の外の赤い部分,lips,唇,,677
-expr-678,cat-60,口の中で味を感じる物,tongue,舌,,678
-expr-679,cat-60,悲しい時に目から出る水,tears,涙,,679
-expr-680,cat-60,暑い時に体から出る水,"sweat, perspiration",汗,,680
-expr-681,cat-60,口から出る音,voice,声,,681
-expr-682,cat-60,口や鼻から出る空気,breath,息,,682
-expr-683,cat-60,空気を体の中に入れたり出したりする事,"breathing, respiration",呼吸,,683
-expr-684,cat-60,体の中で血が動く音,pulse,脈,,684
-expr-685,cat-60,体が良い状態,health,健康,,685
-expr-686,cat-60,体も心も良い状態,"energetic, healthy",元気,,686
-expr-687,cat-60,体や心が動けなくなる,to get tired,疲れる,,687
-expr-688,cat-60,寝たいと感じる,sleepy,眠い,,688
-expr-689,cat-60,寝ている状態から出る,to wake up,起きる,,689
-expr-690,cat-60,体の悪い人を助ける人,"doctor, physician",医者,,690
-expr-691,cat-60,体の悪い人の世話をする人,nurse,看護師,,691
-expr-692,cat-60,体を切って中を直す事,"surgery, operation",手術,,692
-expr-693,cat-60,体の中に物を入れる事,"injection, shot",注射,,693
-expr-694,cat-60,病が悪くて家を出てどこかに入る事,hospitalization,入院,,694
-expr-695,cat-60,体が良くなって出る事,hospital discharge,退院,,695
-expr-696,cat-60,体の中を見る事,"examination, test",検査,,696
-expr-697,cat-60,体が悪い時に出る変な事,symptom,症状,,697
-expr-698,cat-60,体が悪い状態から良くなる,"to heal, to recover",治る,,698
-expr-699,cat-60,体を良い状態にする,"to cure, to fix",治す,,699
-expr-700,cat-60,体が大きく重くなる,to gain weight,太る,,700
-expr-701,cat-60,体が小さく軽くなる,to lose weight,痩せる,,701
-expr-702,cat-60,女の体の中に子供がいる状態,pregnancy,妊娠,,702
-expr-703,cat-60,体から子供が出る事,childbirth,出産,,703
-expr-704,cat-60,ある物に体が悪く変わる事,allergy,アレルギー,,704
-expr-705,cat-60,体が切れた所,"wound, scar",傷,,705
-expr-706,cat-61,太陽が出てくる時,morning,朝,,706
-expr-707,cat-61,太陽が上にある時,"daytime, noon",昼,,707
-expr-708,cat-61,太陽が下に入る時,evening,夕方,,708
-expr-709,cat-61,今日の朝,this morning,今朝,,709
-expr-710,cat-61,今日の夜,tonight,今夜,,710
-expr-711,cat-61,明の後の日,day after tomorrow,明後日,,711
-expr-712,cat-61,昨日の前の日,day before yesterday,一昨日,,712
-expr-713,cat-61,今の前の七日,last week,先週,,713
-expr-714,cat-61,今の七日,this week,今週,,714
-expr-715,cat-61,今の後の七日,next week,来週,,715
-expr-716,cat-61,今の月の前の月,last month,先月,,716
-expr-717,cat-61,今の月,this month,今月,,717
-expr-718,cat-61,今の月の後の月,next month,来月,,718
-expr-719,cat-61,今の年の前の年,last year,去年,,719
-expr-720,cat-61,今の年,this year,今年,,720
-expr-721,cat-61,今の年の後の年,next year,来年,,721
-expr-722,cat-61,七日の終わりの日,weekend,週末,,722
-expr-723,cat-61,毎日の普通の日,weekday,平日,,723
-expr-724,cat-61,今から前や後まで続く物,"time, hour",時間,,724
-expr-725,cat-61,一時間を六十に切った時の一つ,minute,分,,725
-expr-726,cat-61,とても短い時の単位,second,秒,,726
-expr-727,cat-61,太陽が一番高くなる前の時,"AM, morning",午前,,727
-expr-728,cat-61,太陽が一番高くなった後の時,"PM, afternoon",午後,,728
-expr-729,cat-61,太陽が一番高くなる時,"noon, midday",正午,,729
-expr-730,cat-61,太陽の日,Sunday,日曜日,,730
-expr-731,cat-61,月の日,Monday,月曜日,,731
-expr-732,cat-61,何もしなくていい日,"day off, holiday",休日,,732
-expr-733,cat-61,国が決めた休む日,national holiday,祝日,,733
-expr-734,cat-61,年の中で天気が変わる時,season,季節,,734
-expr-735,cat-61,人が生きる事が始まった日,birthday,誕生日,,735
-expr-736,cat-61,よく覚えている大切な日,anniversary,記念日,,736
-expr-737,cat-61,とても短い時,"moment, instant",瞬間,,737
-expr-738,cat-61,始まりから終わりまでの時,"period, duration",期間,,738
-expr-739,cat-61,その事が終わらなければならない時,"deadline, expiry",期限,,739
-expr-740,cat-61,これ以上後はできないという時,deadline (submission),締め切り,,740
-expr-741,cat-61,今から少し前の時,"recently, lately",最近,,741
-expr-742,cat-61,とても短い時の後に,"soon, right away",すぐ,,742
-expr-743,cat-61,少し後の時に,"eventually, before long",やがて,,743
-expr-744,cat-61,終わらない時,"eternity, forever",永遠,,744
-expr-745,cat-61,生きている全部の時,one's whole life,一生,,745
-expr-746,cat-61,百年の時,century,世紀,,746
-expr-747,cat-61,ある長い時の事が起こった時,"era, period (of history)",時代,,747
-expr-748,cat-61,とても長い時の後に,"finally, at last",ついに,,748
-expr-749,cat-61,思っていなかった時に起こる,"suddenly, all of a sudden",突然,,749
-expr-750,cat-61,長い時が終わって会う,after a long time,久しぶり,,750
-expr-751,cat-62,速く足で動く,run,走る,,751
-expr-752,cat-62,速くなく足で動く,walk,歩く,,752
-expr-753,cat-62,水の中で動く,swim,泳ぐ,,753
-expr-754,cat-62,空を動く,fly,飛ぶ,,754
-expr-755,cat-62,上へ行く,climb,登る,,755
-expr-756,cat-62,下へ動く,fall,落ちる,,756
-expr-757,cat-62,下へ出る,get off / descend,降りる,,757
-expr-758,cat-62,上に入る,ride / board,乗る,,758
-expr-759,cat-62,持って行く,carry / transport,運ぶ,,759
-expr-760,cat-62,ある場所へ行かせる,send,送る,,760
-expr-761,cat-62,持って来て与える,deliver,届ける,,761
-expr-762,cat-62,来て手に入る,arrive / reach,届く,,762
-expr-763,cat-62,持って与える,hand over,渡す,,763
-expr-764,cat-62,右か左の外へ行く,cross over,渡る,,764
-expr-765,cat-62,手で感じる,touch,触る,,765
-expr-766,cat-62,手で動かす,push,押す,,766
-expr-767,cat-62,手で近くへ動かす,pull,引く,,767
-expr-768,cat-62,手で空へ出す,throw,投げる,,768
-expr-769,cat-62,下にある物を手で持つ,pick up,拾う,,769
-expr-770,cat-62,ある場所に止める,place / put down,置く,,770
-expr-771,cat-62,上から物を止める,hang / apply,掛ける,,771
-expr-772,cat-62,お金を与える,pay,払う,,772
-expr-773,cat-62,お金をもらって物を与える,sell,売る,,773
-expr-774,cat-62,また返すために与える,lend,貸す,,774
-expr-775,cat-62,また返すためにもらう,borrow,借りる,,775
-expr-776,cat-62,もらった人に与える,return (something),返す,,776
-expr-777,cat-62,いらない物を出す,throw away,捨てる,,777
-expr-778,cat-62,多く持ってくる,gather / collect,集める,,778
-expr-779,cat-62,一つの物を二つ以上にする,divide / separate,分ける,,779
-expr-780,cat-62,二つ以上の物を一つにする,mix,混ぜる,,780
-expr-781,cat-62,一つ一つ前と後に立つ,line up,並ぶ,,781
-expr-782,cat-62,終わらずに起こる,continue (intrans.),続く,,782
-expr-783,cat-62,終わらせずにする,continue (trans.),続ける,,783
-expr-784,cat-62,一つを選ぶ,decide,決める,,784
-expr-785,cat-62,一つに選ばれる,be decided,決まる,,785
-expr-786,cat-62,二つの物が違うか見る,compare,比べる,,786
-expr-787,cat-62,いくつあるか知る,count,数える,,787
-expr-788,cat-62,良いか見るためにする,try / test,試す,,788
-expr-789,cat-62,ほんとうかどうか見る,confirm / verify,確かめる,,789
-expr-790,cat-62,知るために見る,investigate / look up,調べる,,790
-expr-791,cat-62,聞かれたことを言う,answer,答える,,791
-expr-792,cat-62,してほしいと言う,ask (a favor) / request,頼む,,792
-expr-793,cat-62,しないと言う,refuse / decline,断る,,793
-expr-794,cat-62,来てほしいと言う,invite,招く,,794
-expr-795,cat-62,言葉を口から出す,speak / talk,話す,,795
-expr-796,cat-62,言葉で知らせる,convey / tell,伝える,,796
-expr-797,cat-62,とても大きな音で口から言う,shout / scream,叫ぶ,,797
-expr-798,cat-62,名前を言って来るように言う,call (out to),呼ぶ,,798
-expr-799,cat-62,音のある言葉を口から出す,sing,歌う,,799
-expr-800,cat-62,音で体を動かす,dance,踊る,,800
-expr-801,cat-62,楽しいことをする,play,遊ぶ,,801
-expr-802,cat-62,お金のためにする,work,働く,,802
-expr-803,cat-62,ある時まで止める,rest / take a break,休む,,803
-expr-804,cat-62,寝るのを止めて立つ,wake up / get up,起きる,,804
-expr-805,cat-62,ある場所に毎日いる,live (reside),住む,,805
-expr-806,cat-62,私の家へ行く,return home,帰る,,806
-expr-807,cat-62,ある場所の中を行く,pass through,通る,,807
-expr-808,cat-62,その場所を出る,pass by / exceed,過ぎる,,808
-expr-809,cat-62,とても速くする,hurry,急ぐ,,809
-expr-810,cat-62,怖いものから外へ行く,escape / run away,逃げる,,810
-expr-811,cat-62,ある人・物の後から行く,chase,追う,,811
-expr-812,cat-62,動けないようにする,catch / capture,捕まえる,,812
-expr-813,cat-62,見えないようにする,hide (something),隠す,,813
-expr-814,cat-62,見えるようになる,appear,現れる,,814
-expr-815,cat-62,見えなくなる,disappear,消える,,815
-expr-816,cat-62,もっと多くなる,increase,増える,,816
-expr-817,cat-62,より少しになる,decrease,減る,,817
-expr-818,cat-62,上へ動く,rise / go up,上がる,,818
-expr-819,cat-62,下へ動く,fall / go down,下がる,,819
-expr-820,cat-62,ある物の外を動く,turn / go around,回る,,820
-expr-821,cat-62,道が右か左へ変わる,turn / bend,曲がる,,821
-expr-822,cat-62,体が速く少し動く,tremble / shake,震える,,822
-expr-823,cat-62,右と左に速くなく動く,sway / shake,揺れる,,823
-expr-824,cat-62,光を出す,shine / glow,光る,,824
-expr-825,cat-62,火になる,burn,燃える,,825
-expr-826,cat-62,水のようになる,melt / dissolve,溶ける,,826
-expr-827,cat-62,水がなくなる,dry,乾く,,827
-expr-828,cat-62,水がつく,get wet,濡れる,,828
-expr-829,cat-62,悪いものがつく,get dirty,汚れる,,829
+expr-432,cat-55,戦【たたか】いがない良【よ】い時【とき】,peace,平和,,432
+expr-433,cat-55,国【くに】と国【くに】が戦【たたか】うこと,war,戦争,,433
+expr-434,cat-55,国【くに】のために戦【たたか】う人【ひと】たち,military / army,軍隊,,434
+expr-435,cat-55,国【くに】を動【うご】かす人【ひと】たち,government,政府,,435
+expr-436,cat-55,国【くに】を動【うご】かす人【ひと】を選【えら】ぶこと,election,選挙,,436
+expr-437,cat-55,国【くに】に与【あた】えるお金【おかね】,tax,税金,,437
+expr-438,cat-55,前【まえ】に起【お】こったこと,history,歴史,,438
+expr-439,cat-55,その国【くに】の人【ひと】たちがすること,culture,文化,,439
+expr-440,cat-55,人【ひと】の上【うえ】にいる強【つよ】い物【もの】を思【おも】うこと,religion,宗教,,440
+expr-441,cat-55,人【ひと】に教【おし】えること,education,教育,,441
+expr-442,cat-55,物【もの】がどうなっているかを知【し】ること,science,科学,,442
+expr-443,cat-55,きれいな物【もの】を作【つく】ること,art,芸術,,443
+expr-444,cat-55,言葉【ことば】で作【つく】った本【ほん】,literature,文学,,444
+expr-445,cat-55,なぜ生【い】きるかを考【かんが】えること,philosophy,哲学,,445
+expr-446,cat-55,前【まえ】からある事【こと】,tradition,伝統,,446
+expr-447,cat-55,全部【ぜんぶ】の人【ひと】で楽【たの】しくする日【ひ】,festival,祭り,,447
+expr-448,cat-55,人【ひと】たちが前【まえ】からする事【こと】,ritual / ceremony,儀式,,448
+expr-449,cat-55,男【おとこ】と女【おんな】が家【いえ】の人【ひと】になること,marriage,結婚,,449
+expr-450,cat-55,死【し】んだ人【ひと】のためにする事【こと】,funeral,葬式,,450
+expr-451,cat-55,悪【わる】いことが起【お】こった事【こと】,incident / case,事件,,451
+expr-452,cat-55,思【おも】わないで悪【わる】いことが起【お】こること,accident,事故,,452
+expr-453,cat-55,人【ひと】がしてはいけない悪【わる】いこと,crime,犯罪,,453
+expr-454,cat-55,悪【わる】いことをしたかどうかを人【ひと】が言【い】うこと,trial / court,裁判,,454
+expr-455,cat-55,悪【わる】いことをした人【ひと】に与【あた】える悪【わる】いこと,punishment / penalty,刑罰,,455
+expr-456,cat-55,毎【まい】日【にち】の事【こと】が書【か】いてある本【ほん】,newspaper,新聞,,456
+expr-457,cat-55,多【おお】くの人【ひと】に音【おと】や光【ひかり】で言葉【ことば】を出【だ】すこと,broadcast,放送,,457
+expr-458,cat-55,物【もの】を買【か】ってほしいと言【い】うこと,advertisement,広告,,458
+expr-459,cat-55,人【ひと】に知【し】らせること,information,情報,,459
+expr-460,cat-55,人【ひと】に言葉【ことば】を出【だ】すこと,communication / telecommunications,通信,,460
+expr-461,cat-55,物【もの】を作【つく】るための知【し】ること,technology / technique,技術,,461
+expr-462,cat-55,多【おお】くの物【もの】を作【つく】ること,industry,産業,,462
+expr-463,cat-55,国【くに】と国【くに】で物【もの】を買【か】ったり与【あた】えたりすること,trade / commerce,貿易,,463
+expr-464,cat-55,人【ひと】の外【そと】にある水【みず】や空気【くうき】や土【つち】,environment,環境,,464
+expr-465,cat-55,水【みず】や空気【くうき】が悪【わる】くなること,pollution / contamination,汚染,,465
+expr-466,cat-55,人【ひと】が使【つか】える物【もの】,resources,資源,,466
+expr-467,cat-55,その場所【ばしょ】にいる人【ひと】の多【おお】さ,population,人口,,467
+expr-468,cat-55,ある人【ひと】を他【ほか】の人【ひと】より悪【わる】くすること,discrimination,差別,,468
+expr-469,cat-55,全部【ぜんぶ】の人【ひと】が良【よ】いとすること,equality,平等,,469
+expr-470,cat-55,全部【ぜんぶ】の人【ひと】が国【くに】のことを選【えら】べること,democracy,民主主義,,470
+expr-471,cat-55,国【くに】のやることを大【おお】きく変【か】えること,revolution,革命,,471
+expr-472,cat-55,他【ほか】の国【くに】が持【も】っている場所【ばしょ】,colony,植民地,,472
+expr-473,cat-55,他【ほか】の国【くに】に行【い】ってそこにいる人【ひと】,immigrant / migration,移民,,473
+expr-474,cat-55,怖【こわ】いので国【くに】から出【で】た人【ひと】,refugee,難民,,474
+expr-475,cat-56,多【おお】くの人【ひと】がいる場所【ばしょ】,town,町,,475
+expr-476,cat-56,とても多【おお】くの人【ひと】がいる大【おお】きい場所【ばしょ】,city,市,,476
+expr-477,cat-56,人【ひと】が少【すこ】しだけいる場所【ばしょ】,village,村,,477
+expr-478,cat-56,人【ひと】が来【く】る物【もの】を待【ま】つ場所【ばしょ】,station,駅,,478
+expr-479,cat-56,物【もの】を買【か】う場所【ばしょ】,shop/store,店,,479
+expr-480,cat-56,体【からだ】が悪【わる】い人【ひと】を助【たす】ける場所【ばしょ】,hospital,病院,,480
+expr-481,cat-56,お金【おかね】を守【まも】る場所【ばしょ】,bank,銀行,,481
+expr-482,cat-56,書【か】いた物【もの】を他【ほか】の人【ひと】に与【あた】える場所【ばしょ】,post office,郵便局,,482
+expr-483,cat-56,本【ほん】を読【よ】む場所【ばしょ】,library,図書館,,483
+expr-484,cat-56,きれいな物【もの】を見【み】る場所【ばしょ】,art museum,美術館,,484
+expr-485,cat-56,国【くに】の物【もの】を見【み】る場所【ばしょ】,museum,博物館,,485
+expr-486,cat-56,人【ひと】が見【み】せる事【こと】をする場所【ばしょ】,theater,劇場,,486
+expr-487,cat-56,大【おお】きい光【ひかり】の物【もの】を見【み】る場所【ばしょ】,cinema/movie theater,映画館,,487
+expr-488,cat-56,外【そと】で楽【たの】しくいられる場所【ばしょ】,park,公園,,488
+expr-489,cat-56,多【おお】くの人【ひと】が来【く】る外【そと】の場所【ばしょ】,plaza/square,広場,,489
+expr-490,cat-56,水【みず】の上【うえ】を行【い】く道【みち】,bridge,橋,,490
+expr-491,cat-56,高【たか】くて長【なが】い物【もの】,tower,塔,,491
+expr-492,cat-56,強【つよ】い人【ひと】が守【まも】る大【おお】きい家【いえ】,castle,城,,492
+expr-493,cat-56,人【ひと】が心【こころ】の事【こと】を考【かんが】える場所【ばしょ】,Buddhist temple,寺,,493
+expr-494,cat-56,この国【くに】の心【こころ】に言【い】う場所【ばしょ】,Shinto shrine,神社,,494
+expr-495,cat-56,人【ひと】が心【こころ】に良【よ】いことを聞【き】く場所【ばしょ】,church,教会,,495
+expr-496,cat-56,物【もの】を作【つく】る場所【ばしょ】,factory,工場,,496
+expr-497,cat-56,物【もの】を中【なか】に入【い】れて守【まも】る場所【ばしょ】,warehouse,倉庫,,497
+expr-498,cat-56,海【うみ】を動【うご】く物【もの】が来【く】る場所【ばしょ】,harbor/port,港,,498
+expr-499,cat-56,空【そら】を動【うご】く物【もの】が出【で】る場所【ばしょ】,airport,空港,,499
+expr-500,cat-56,物【もの】が速【はや】く動【うご】く道【みち】,road,道路,,500
+expr-501,cat-56,道【みち】と道【みち】が会【あ】う場所【ばしょ】,intersection,交差点,,501
+expr-502,cat-56,赤【あか】と青【あお】の光【ひかり】で動【うご】くのを止【と】める物【もの】,traffic light,信号,,502
+expr-503,cat-56,上【うえ】に行【い】くための道【みち】,stairs,階段,,503
+expr-504,cat-56,中【なか】に入【はい】るための場所【ばしょ】,entrance,入口,,504
+expr-505,cat-56,外【そと】に出【で】るための場所【ばしょ】,exit,出口,,505
+expr-506,cat-56,家【いえ】にあって外【そと】が見【み】えるもの,window,窓,,506
+expr-507,cat-56,開【あ】いたり閉【し】めたりする物【もの】,door,扉,,507
+expr-508,cat-56,外【そと】と中【なか】の入【い】り口【ぐち】にある大【おお】きい物【もの】,gate,門,,508
+expr-509,cat-56,家【いえ】の一【いち】ばん上【うえ】にある物【もの】,roof,屋根,,509
+expr-510,cat-56,家【いえ】の外【そと】にある石【いし】や木【き】でできた物【もの】,wall,壁,,510
+expr-511,cat-56,家【いえ】の中【なか】で足【あし】が上【うえ】にある下【した】の物【もの】,floor,床,,511
+expr-512,cat-56,家【いえ】の中【なか】の一【いち】ばん上【うえ】,ceiling,天井,,512
+expr-513,cat-56,家【いえ】の外【そと】にある草【くさ】の場所【ばしょ】,garden/yard,庭,,513
+expr-514,cat-56,家【いえ】の中【なか】で食【た】べ物【もの】を作【つく】る場所【ばしょ】,kitchen,台所,,514
+expr-515,cat-56,家【いえ】の中【なか】で人【ひと】が楽【たの】しくいる場所【ばしょ】,living room,居間,,515
+expr-516,cat-56,家【いえ】の中【なか】で寝【ね】る場所【ばしょ】,bedroom,寝室,,516
+expr-517,cat-56,土【つち】の下【した】,underground/basement,地下,,517
+expr-518,cat-56,土【つち】の上【うえ】,above ground,地上,,518
+expr-519,cat-56,海【うみ】の中【なか】にある土【つち】の場所【ばしょ】,island,島,,519
+expr-520,cat-56,水【みず】がなくて暑【あつ】い場所【ばしょ】,desert,砂漠,,520
+expr-521,cat-56,木【き】が多【おお】くある場所【ばしょ】,forest,森,,521
+expr-522,cat-56,山【やま】と山【やま】の下【した】にある場所【ばしょ】,valley,谷,,522
+expr-523,cat-56,山【やま】から海【うみ】へ水【みず】が動【うご】く道【みち】,river,川,,523
+expr-524,cat-57,道【みち】を速【はや】く動【うご】く物【もの】,car,車,,524
+expr-525,cat-57,道【みち】の上【うえ】を動【うご】く長【なが】い物【もの】,train,電車,,525
+expr-526,cat-57,多【おお】くの人【ひと】が中【なか】に入【はい】る大【おお】きい物【もの】,bus,バス,,526
+expr-527,cat-57,空【そら】を動【うご】く物【もの】,airplane,飛行機,,527
+expr-528,cat-57,海【うみ】を動【うご】く物【もの】,ship/boat,船,,528
+expr-529,cat-57,足【あし】を使【つか】って動【うご】かす物【もの】,bicycle,自転車,,529
+expr-530,cat-57,お金【おかね】を与【あた】えて中【なか】に入【はい】る物【もの】,taxi,タクシー,,530
+expr-531,cat-57,重【おも】い物【もの】を持【も】って動【うご】く大【おお】きい物【もの】,truck,トラック,,531
+expr-532,cat-57,速【はや】く動【うご】ける大【おお】きい道【みち】,highway/expressway,高速道路,,532
+expr-533,cat-57,長【なが】い物【もの】が動【うご】く道【みち】,railway system,鉄道,,533
+expr-534,cat-57,長【なが】い物【もの】が上【うえ】を動【うご】く道【みち】,railroad tracks,線路,,534
+expr-535,cat-57,物【もの】を動【うご】かすこと,driving,運転,,535
+expr-536,cat-57,場所【ばしょ】を出【で】ること,departure,出発,,536
+expr-537,cat-57,場所【ばしょ】に来【く】ること,arrival,到着,,537
+expr-538,cat-57,他【ほか】の場所【ばしょ】に行【い】くこと,travel/trip,旅行,,538
+expr-539,cat-57,他【ほか】の場所【ばしょ】を見【み】ること,sightseeing,観光,,539
+expr-540,cat-57,道【みち】や場所【ばしょ】を教【おし】えること,guidance/guide,案内,,540
+expr-541,cat-57,場所【ばしょ】を書【か】いた物【もの】,map,地図,,541
+expr-542,cat-57,中【なか】に入【はい】るために買【か】う物【もの】,ticket,切符,,542
+expr-543,cat-57,他【ほか】の国【くに】に行【い】くときに必要【ひつよう】な本【ほん】,passport,パスポート,,543
+expr-544,cat-57,行【い】く時【とき】に持【も】って行【い】く物【もの】,luggage/baggage,荷物,,544
+expr-545,cat-57,座【すわ】る場所【ばしょ】,seat,座席,,545
+expr-546,cat-57,どのくらい速【はや】いかということ,speed,速度,,546
+expr-547,cat-57,二つの場所【ばしょ】がどのくらい近【ちか】くないか,distance,距離,,547
+expr-548,cat-57,どちらに行【い】くかということ,direction,方向,,548
+expr-549,cat-57,道【みち】を人【ひと】や物【もの】が動【うご】くこと,traffic/transportation,交通,,549
+expr-550,cat-57,物【もの】が動【うご】けなくなること,traffic jam,渋滞,,550
+expr-551,cat-57,悪【わる】いことが起【お】こること,accident,事故,,551
+expr-552,cat-57,中【なか】に入【はい】るために与【あた】えるお金【おかね】,fare,運賃,,552
+expr-553,cat-57,行【い】くだけで来【こ】ない道【みち】,one-way,片道,,553
+expr-554,cat-57,行【い】って来【く】ること,round trip,往復,,554
+expr-555,cat-57,行【い】きたい場所【ばしょ】,destination,目的地,,555
+expr-556,cat-57,他【ほか】の国【くに】,foreign country,外国,,556
+expr-557,cat-57,もとの国【くに】に来【く】ること,returning to home country,帰国,,557
+expr-558,cat-57,道【みち】が見【み】えなくなった子供【こども】,lost child,迷子,,558
+expr-559,cat-57,始【はじ】まりと終【お】わりの前【まえ】,on the way/midway,途中,,559
+expr-560,cat-57,物【もの】の中【なか】に入【はい】る人【ひと】,passenger,乗客,,560
+expr-561,cat-57,物【もの】を動【うご】かす人【ひと】,driver,運転手,,561
+expr-562,cat-57,動【うご】く物【もの】が止【と】まって終【お】わる場所【ばしょ】,final stop/terminus,終点,,562
+expr-563,cat-58,空【そら】から白【しろ】くて寒【さむ】い水【みず】が来【く】ること,snow,雪,,563
+expr-564,cat-58,寒【さむ】くなった水【みず】,ice,氷,,564
+expr-565,cat-58,白【しろ】い空気【くうき】で何【なに】も見【み】えなくなること,fog/mist,霧,,565
+expr-566,cat-58,空【そら】にある白【しろ】い水【みず】の物【もの】,cloud,雲,,566
+expr-567,cat-58,雨【あめ】の後【あと】に空【そら】に出【で】る色【いろ】の光【ひかり】,rainbow,虹,,567
+expr-568,cat-58,空【そら】で大【おお】きい音【おと】と光【ひかり】が起【お】こること,thunder/lightning,雷,,568
+expr-569,cat-58,強【つよ】い風【かぜ】と雨【あめ】が来【く】ること,typhoon,台風,,569
+expr-570,cat-58,土【つち】が動【うご】くこと,earthquake,地震,,570
+expr-571,cat-58,水【みず】が多【おお】くなって場所【ばしょ】が水【みず】の中【なか】に入【はい】ること,flood,洪水,,571
+expr-572,cat-58,外【そと】で起【お】こる悪【わる】いこと,disaster,災害,,572
+expr-573,cat-58,山【やま】や土【つち】の中【なか】にある大【おお】きい水【みず】,lake,湖,,573
+expr-574,cat-58,山【やま】や土【つち】の中【なか】にある水【みず】,pond,池,,574
+expr-575,cat-58,高【たか】い場所【ばしょ】から水【みず】が下【した】に出【で】てくること,waterfall,滝,,575
+expr-576,cat-58,土【つち】の中【なか】から水【みず】が出【で】てくる場所【ばしょ】,spring/fountain,泉,,576
+expr-577,cat-58,木【き】が多【おお】くある場所【ばしょ】,grove/woodland,林,,577
+expr-578,cat-58,食【た】べ物【もの】を作【つく】る土【つち】の場所【ばしょ】,field/farmland,畑,,578
+expr-579,cat-58,水【みず】を使【つか】って食【た】べ物【もの】を作【つく】る場所【ばしょ】,rice paddy,田んぼ,,579
+expr-580,cat-58,海【うみ】や山【やま】にある石【いし】でできた物【もの】,sand,砂,,580
+expr-581,cat-58,草【くさ】や木【き】にある色【いろ】のある物【もの】,flower,花,,581
+expr-582,cat-58,白【しろ】や赤【あか】の色【いろ】の木【き】の物【もの】,cherry blossom,桜,,582
+expr-583,cat-58,木【き】の緑【みどり】の物【もの】,leaf,葉,,583
+expr-584,cat-58,木【き】や草【くさ】の土【つち】の中【なか】にある物【もの】,root,根,,584
+expr-585,cat-58,草【くさ】や木【き】になる前【まえ】の物【もの】,seed,種,,585
+expr-586,cat-58,木【き】にある食【た】べられる物【もの】,fruit/berry,実,,586
+expr-587,cat-58,空【そら】を動【うご】く動物【どうぶつ】,bird,鳥,,587
+expr-588,cat-58,水【みず】の中【なか】で生【い】きる動物【どうぶつ】,fish,魚,,588
+expr-589,cat-58,足【あし】が多【おお】い動物【どうぶつ】,insect/bug,虫,,589
+expr-590,cat-58,人【ひと】と生【い】きる動物【どうぶつ】,dog,犬,,590
+expr-591,cat-58,家【いえ】にいる動物【どうぶつ】,cat,猫,,591
+expr-592,cat-58,大【おお】きくて強【つよ】い動物【どうぶつ】で人【ひと】が上【うえ】に座【すわ】るもの,horse,馬,,592
+expr-593,cat-58,白【しろ】と黒【くろ】の大【おお】きい動物【どうぶつ】,cow,牛,,593
+expr-594,cat-58,足【あし】がなくて長【なが】い動物【どうぶつ】,snake,蛇,,594
+expr-595,cat-58,大【おお】きくて強【つよ】くて怖【こわ】い動物【どうぶつ】,bear,熊,,595
+expr-596,cat-58,空【そら】を動【うご】く動物【どうぶつ】が作【つく】る物【もの】,egg,卵,,596
+expr-597,cat-58,空【そら】を動【うご】く動物【どうぶつ】が使【つか】う物【もの】,feather/wing,羽,,597
+expr-598,cat-58,年【とし】の中【なか】で暑【あつ】さや寒【さむ】さが変【か】わる時【とき】,season,季節,,598
+expr-599,cat-58,寒【さむ】い時【とき】の後【あと】で暑【あつ】くなる前【まえ】の時【とき】,spring,春,,599
+expr-600,cat-58,年【とし】で一【いち】ばん暑【あつ】い時【とき】,summer,夏,,600
+expr-601,cat-58,暑【あつ】い時【とき】の後【あと】で寒【さむ】くなる前【まえ】の時【とき】,autumn/fall,秋,,601
+expr-602,cat-58,年【とし】で一【いち】ばん寒【さむ】い時【とき】,winter,冬,,602
+expr-603,cat-58,太陽【たいよう】が空【そら】に出【で】てくること,sunrise,日の出,,603
+expr-604,cat-58,太陽【たいよう】が下【した】に入【はい】ること,sunset,日の入り,,604
+expr-605,cat-58,太陽【たいよう】が出【で】てきた後【あと】の時【とき】,morning,朝,,605
+expr-606,cat-58,海【うみ】の水【みず】が上【うえ】に来【く】たり下【した】に行【い】ったりすること,tide,潮,,606
+expr-607,cat-58,海【うみ】の水【みず】が動【うご】くこと,wave,波,,607
+expr-608,cat-59,火【ひ】で作【つく】った食【た】べ物【もの】,"cooking, dish",料理,,608
+expr-609,cat-59,食【た】べる事【こと】,meal,食事,,609
+expr-610,cat-59,朝【あさ】に食【た】べる物【もの】,breakfast,朝食,,610
+expr-611,cat-59,昼【ひる】に食【た】べる物【もの】,lunch,昼食,,611
+expr-612,cat-59,夜【よる】に食【た】べる物【もの】,dinner,夕食,,612
+expr-613,cat-59,外【そと】で食【た】べるために作【つく】った食【た】べ物【もの】,packed lunch,弁当,,613
+expr-614,cat-59,とても好【す】きな甘【あま】い食【た】べ物【もの】,"sweets, snacks",お菓子,,614
+expr-615,cat-59,小【こ】むぎで作【つく】った食【た】べ物【もの】,bread,パン,,615
+expr-616,cat-59,日【に】ほんで多【おお】く食【た】べる白【しろ】い食【た】べ物【もの】,rice (uncooked),米,,616
+expr-617,cat-59,水【みず】で作【つく】った米【こめ】の食【た】べ物【もの】,"cooked rice, meal",ご飯,,617
+expr-618,cat-59,動【どう】物【ぶつ】の体【からだ】の食【た】べ物【もの】,meat,肉,,618
+expr-619,cat-59,水【みず】の中【なか】にいる動【どう】物【ぶつ】,fish,魚,,619
+expr-620,cat-59,土【つち】から出【で】る食【た】べる草【くさ】,vegetables,野菜,,620
+expr-621,cat-59,木【き】からもらう【もらう】甘【あま】い食【た】べ物【もの】,fruit,果物,,621
+expr-622,cat-59,動【どう】物【ぶつ】から出【で】る丸【まる】くて白【しろ】い物【もの】,egg,卵,,622
+expr-623,cat-59,海【うみ】の水【みず】から作【つく】る白【しろ】い物【もの】,salt,塩,,623
+expr-624,cat-59,食【た】べ物【もの】を甘【あま】くする白【しろ】い物【もの】,sugar,砂糖,,624
+expr-625,cat-59,黒【くろ】い色【いろ】の食【た】べ物【もの】に使【つか】う水【みず】,soy sauce,醤油,,625
+expr-626,cat-59,口【くち】で感【かん】じる事【こと】,"taste, flavor",味,,626
+expr-627,cat-59,鼻【はな】で感【かん】じる事【こと】,"smell, scent",匂い,,627
+expr-628,cat-59,飲【の】むと体【からだ】が変【へん】になる水【みず】,"alcohol, sake",酒,,628
+expr-629,cat-59,草【くさ】から作【つく】った飲【の】み物【もの】,tea,お茶,,629
+expr-630,cat-59,果【くだ】物【もの】から出【で】る甘【あま】い水【みず】,juice,ジュース,,630
+expr-631,cat-59,動【どう】物【ぶつ】の体【からだ】から出【で】る白【しろ】い飲【の】み物【もの】,milk,牛乳,,631
+expr-632,cat-59,黒【くろ】くて苦【にが】い飲【の】み物【もの】,coffee,コーヒー,,632
+expr-633,cat-59,食【た】べ物【もの】を置【お】く物【もの】,"plate, dish",皿,,633
+expr-634,cat-59,食【た】べる時【とき】に使【つか】う二【に】本の木【き】,chopsticks,箸,,634
+expr-635,cat-59,飲【の】み物【もの】を入【い】れる物【もの】,"cup, glass",コップ,,635
+expr-636,cat-59,水【みず】や飲【の】み物【もの】を入【い】れる物【もの】,bottle,瓶,,636
+expr-637,cat-59,火【ひ】で食【た】べ物【もの】を作【つく】る物【もの】,"pot, pan",鍋,,637
+expr-638,cat-59,食【た】べ物【もの】を切【き】る物【もの】,kitchen knife,包丁,,638
+expr-639,cat-59,食【た】べ物【もの】を冷【つめ】たくして入【い】れる物【もの】,refrigerator,冷蔵庫,,639
+expr-640,cat-59,とても寒【さむ】くなった水【みず】,ice,氷,,640
+expr-641,cat-59,食【た】べ物【もの】を火【ひ】で作【つく】る時【とき】に使【つか】う物【もの】,oil,油,,641
+expr-642,cat-59,水【みず】で作【つく】った温【あたた】かい食【た】べ物【もの】,soup,スープ,,642
+expr-643,cat-59,切【き】った野【や】菜【さい】の食【た】べ物【もの】,salad,サラダ,,643
+expr-644,cat-59,口【くち】で感【かん】じる良【よ】い味【あじ】,sweet,甘い,,644
+expr-645,cat-59,口【くち】で感【かん】じる悪【わる】い味【あじ】,bitter,苦い,,645
+expr-646,cat-59,口【くち】に強【つよ】い感【かん】じがする食【た】べ物【もの】の味【あじ】,"spicy, hot",辛い,,646
+expr-647,cat-59,口【くち】がとても変【へん】に感【かん】じる味【あじ】,sour,酸っぱい,,647
+expr-648,cat-59,食【た】べ物【もの】が良【よ】い味【あじ】がする,delicious,美味しい,,648
+expr-649,cat-59,食【た】べ物【もの】の味【あじ】が悪【わる】い,bad-tasting,まずい,,649
+expr-650,cat-59,火【ひ】で食【た】べ物【もの】を作【つく】る,"to grill, to bake",焼く,,650
+expr-651,cat-59,水【みず】と火【ひ】で食【た】べ物【もの】を作【つく】る,"to boil, to simmer",煮る,,651
+expr-652,cat-59,油【あぶら】と火【ひ】で食【た】べ物【もの】を作【つく】る,to deep-fry,揚げる,,652
+expr-653,cat-59,食【た】べ物【もの】が欲【ほ】しくなる,to get hungry,腹が減る,,653
+expr-654,cat-59,飲【の】み物【もの】が欲【ほ】しくなる,to get thirsty,喉が渇く,,654
+expr-655,cat-60,体【からだ】が悪【わる】い状【じょう】態【たい】,"illness, disease",病気,,655
+expr-656,cat-60,体【からだ】を良【よ】くするために飲【の】む物【もの】,medicine,薬,,656
+expr-657,cat-60,体【からだ】が壊【こわ】れた事【こと】,injury,怪我,,657
+expr-658,cat-60,体【からだ】が悪【わる】く感【かん】じる,"painful, hurts",痛い,,658
+expr-659,cat-60,体【からだ】がとても暑【あつ】くなる事【こと】,fever,熱,,659
+expr-660,cat-60,体【からだ】が悪【わる】くて熱【ねつ】が出【で】る病【やまい】,cold (illness),風邪,,660
+expr-661,cat-60,口【くち】から強【つよ】く空【くう】気【き】が出【で】る事【こと】,cough,咳,,661
+expr-662,cat-60,体【からだ】の中【なか】にある赤【あか】い水【みず】,blood,血,,662
+expr-663,cat-60,体【からだ】の中【なか】にある硬【かた】い物【もの】,bone,骨,,663
+expr-664,cat-60,体【からだ】の外【そと】の部【ぶ】分【ぶん】,skin,肌,,664
+expr-665,cat-60,体【からだ】を動【うご】かす物【もの】,muscle,筋肉,,665
+expr-666,cat-60,口【くち】の中【なか】で食【た】べ物【もの】を切【き】る白【しろ】い物【もの】,"tooth, teeth",歯,,666
+expr-667,cat-60,手【て】や足【あし】の先【さき】の長【なが】い部【ぶ】分【ぶん】,"finger, toe",指,,667
+expr-668,cat-60,頭【あたま】の下【した】、手【て】の上【うえ】にある体【からだ】の部【ぶ】分【ぶん】,shoulder,肩,,668
+expr-669,cat-60,体【からだ】の中【なか】ほどにある部【ぶ】分【ぶん】,"lower back, hips",腰,,669
+expr-670,cat-60,体【からだ】の後【うし】ろにある部【ぶ】分【ぶん】,back (of body),背中,,670
+expr-671,cat-60,頭【あたま】と体【からだ】をつなぐ部【ぶ】分【ぶん】,neck,首,,671
+expr-672,cat-60,体【からだ】の前【まえ】の上【うえ】の部【ぶ】分【ぶん】,chest,胸,,672
+expr-673,cat-60,体【からだ】の前【まえ】の中【なか】ほどの部【ぶ】分【ぶん】,"abdomen, belly",腹,,673
+expr-674,cat-60,頭【あたま】の前【まえ】の部【ぶ】分【ぶん】,face,顔,,674
+expr-675,cat-60,頭【あたま】の上【うえ】にある物【もの】,hair (on head),髪,,675
+expr-676,cat-60,指【ゆび】の先【さき】にある硬【かた】い物【もの】,nail (finger/toe),爪,,676
+expr-677,cat-60,口【くち】の外【そと】の赤【あか】い部【ぶ】分【ぶん】,lips,唇,,677
+expr-678,cat-60,口【くち】の中【なか】で味【あじ】を感【かん】じる物【もの】,tongue,舌,,678
+expr-679,cat-60,悲【かな】しい時【とき】に目【め】から出【で】る水【みず】,tears,涙,,679
+expr-680,cat-60,暑【あつ】い時【とき】に体【からだ】から出【で】る水【みず】,"sweat, perspiration",汗,,680
+expr-681,cat-60,口【くち】から出【で】る音【おと】,voice,声,,681
+expr-682,cat-60,口【くち】や鼻【はな】から出【で】る空【くう】気【き】,breath,息,,682
+expr-683,cat-60,空【くう】気【き】を体【からだ】の中【なか】に入【い】れたり出【だ】したりする事【こと】,"breathing, respiration",呼吸,,683
+expr-684,cat-60,体【からだ】の中【なか】で血【ち】が動【うご】く音【おと】,pulse,脈,,684
+expr-685,cat-60,体【からだ】が良【よ】い状【じょう】態【たい】,health,健康,,685
+expr-686,cat-60,体【からだ】も心【こころ】も良【よ】い状【じょう】態【たい】,"energetic, healthy",元気,,686
+expr-687,cat-60,体【からだ】や心【こころ】が動【うご】けなくなる,to get tired,疲れる,,687
+expr-688,cat-60,寝【ね】たいと感【かん】じる,sleepy,眠い,,688
+expr-689,cat-60,寝【ね】ている状【じょう】態【たい】から出【で】る,to wake up,起きる,,689
+expr-690,cat-60,体【からだ】の悪【わる】い人【ひと】を助【たす】ける人【ひと】,"doctor, physician",医者,,690
+expr-691,cat-60,体【からだ】の悪【わる】い人【ひと】の世【せ】話【わ】をする人【ひと】,nurse,看護師,,691
+expr-692,cat-60,体【からだ】を切【き】って中【なか】を直【なお】す事【こと】,"surgery, operation",手術,,692
+expr-693,cat-60,体【からだ】の中【なか】に物【もの】を入【い】れる事【こと】,"injection, shot",注射,,693
+expr-694,cat-60,病【やまい】が悪【わる】くて家【いえ】を出【で】てどこかに入【はい】る事【こと】,hospitalization,入院,,694
+expr-695,cat-60,体【からだ】が良【よ】くなって出【で】る事【こと】,hospital discharge,退院,,695
+expr-696,cat-60,体【からだ】の中【なか】を見【み】る事【こと】,"examination, test",検査,,696
+expr-697,cat-60,体【からだ】が悪【わる】い時【とき】に出【で】る変【へん】な事【こと】,symptom,症状,,697
+expr-698,cat-60,体【からだ】が悪【わる】い状【じょう】態【たい】から良【よ】くなる,"to heal, to recover",治る,,698
+expr-699,cat-60,体【からだ】を良【よ】い状【じょう】態【たい】にする,"to cure, to fix",治す,,699
+expr-700,cat-60,体【からだ】が大【おお】きく重【おも】くなる,to gain weight,太る,,700
+expr-701,cat-60,体【からだ】が小【ちい】さく軽【かる】くなる,to lose weight,痩せる,,701
+expr-702,cat-60,女【おんな】の体【からだ】の中【なか】に子【こ】供【ども】がいる状【じょう】態【たい】,pregnancy,妊娠,,702
+expr-703,cat-60,体【からだ】から子【こ】供【ども】が出【で】る事【こと】,childbirth,出産,,703
+expr-704,cat-60,ある物【もの】に体【からだ】が悪【わる】く変【か】わる事【こと】,allergy,アレルギー,,704
+expr-705,cat-60,体【からだ】が切【き】れた所【ところ】,"wound, scar",傷,,705
+expr-706,cat-61,太【たい】陽【よう】が出【で】てくる時【とき】,morning,朝,,706
+expr-707,cat-61,太【たい】陽【よう】が上【うえ】にある時【とき】,"daytime, noon",昼,,707
+expr-708,cat-61,太【たい】陽【よう】が下【した】に入【はい】る時【とき】,evening,夕方,,708
+expr-709,cat-61,今【いま】日【ひ】の朝【あさ】,this morning,今朝,,709
+expr-710,cat-61,今【いま】日【ひ】の夜【よる】,tonight,今夜,,710
+expr-711,cat-61,明【あす】の後【あと】の日【ひ】,day after tomorrow,明後日,,711
+expr-712,cat-61,昨【きの】日【う】の前【まえ】の日【ひ】,day before yesterday,一昨日,,712
+expr-713,cat-61,今【いま】の前【まえ】の七【なな】日【にち】,last week,先週,,713
+expr-714,cat-61,今【いま】の七【なな】日【にち】,this week,今週,,714
+expr-715,cat-61,今【いま】の後【あと】の七【なな】日【にち】,next week,来週,,715
+expr-716,cat-61,今【いま】の月【つき】の前【まえ】の月【つき】,last month,先月,,716
+expr-717,cat-61,今【いま】の月【つき】,this month,今月,,717
+expr-718,cat-61,今【いま】の月【つき】の後【あと】の月【つき】,next month,来月,,718
+expr-719,cat-61,今【いま】の年【とし】の前【まえ】の年【とし】,last year,去年,,719
+expr-720,cat-61,今【いま】の年【とし】,this year,今年,,720
+expr-721,cat-61,今【いま】の年【とし】の後【あと】の年【とし】,next year,来年,,721
+expr-722,cat-61,七【なな】日【にち】の終【お】わりの日【ひ】,weekend,週末,,722
+expr-723,cat-61,毎【まい】日【にち】の普【ふ】通【つう】の日【ひ】,weekday,平日,,723
+expr-724,cat-61,今【いま】から前【まえ】や後【あと】まで続【つづ】く物【もの】,"time, hour",時間,,724
+expr-725,cat-61,一【いち】時【じ】間【かん】を六【ろく】十【じゅう】に切【き】った時【とき】の一【ひと】つ,minute,分,,725
+expr-726,cat-61,とても短【みじか】い時【とき】の単【たん】位【い】,second,秒,,726
+expr-727,cat-61,太【たい】陽【よう】が一【いち】番【ばん】高【たか】くなる前【まえ】の時【とき】,"AM, morning",午前,,727
+expr-728,cat-61,太【たい】陽【よう】が一【いち】番【ばん】高【たか】くなった後【あと】の時【とき】,"PM, afternoon",午後,,728
+expr-729,cat-61,太【たい】陽【よう】が一【いち】番【ばん】高【たか】くなる時【とき】,"noon, midday",正午,,729
+expr-730,cat-61,太【たい】陽【よう】の日【ひ】,Sunday,日曜日,,730
+expr-731,cat-61,月【つき】の日【ひ】,Monday,月曜日,,731
+expr-732,cat-61,何【なに】もしなくていい日【ひ】,"day off, holiday",休日,,732
+expr-733,cat-61,国【くに】が決【き】めた休【やす】む日【ひ】,national holiday,祝日,,733
+expr-734,cat-61,年【とし】の中【なか】で天【てん】気【き】が変【か】わる時【とき】,season,季節,,734
+expr-735,cat-61,人【ひと】が生【い】きる事【こと】が始【はじ】まった日【ひ】,birthday,誕生日,,735
+expr-736,cat-61,よく覚【おぼ】えている大【たい】切【せつ】な日【ひ】,anniversary,記念日,,736
+expr-737,cat-61,とても短【みじか】い時【とき】,"moment, instant",瞬間,,737
+expr-738,cat-61,始【はじ】まりから終【お】わりまでの時【とき】,"period, duration",期間,,738
+expr-739,cat-61,その事【こと】が終【お】わらなければならない時【とき】,"deadline, expiry",期限,,739
+expr-740,cat-61,これ以【い】上【じょう】後【あと】はできないという時【とき】,deadline (submission),締め切り,,740
+expr-741,cat-61,今【いま】から少【すこ】し前【まえ】の時【とき】,"recently, lately",最近,,741
+expr-742,cat-61,とても短【みじか】い時【とき】の後【あと】に,"soon, right away",すぐ,,742
+expr-743,cat-61,少【すこ】し後【あと】の時【とき】に,"eventually, before long",やがて,,743
+expr-744,cat-61,終【お】わらない時【とき】,"eternity, forever",永遠,,744
+expr-745,cat-61,生【い】きている全【ぜん】部【ぶ】の時【とき】,one's whole life,一生,,745
+expr-746,cat-61,百【ひゃく】年【ねん】の時【とき】,century,世紀,,746
+expr-747,cat-61,ある長【なが】い時【とき】の事【こと】が起【お】こった時【とき】,"era, period (of history)",時代,,747
+expr-748,cat-61,とても長【なが】い時【とき】の後【あと】に,"finally, at last",ついに,,748
+expr-749,cat-61,思【おも】っていなかった時【とき】に起【お】こる,"suddenly, all of a sudden",突然,,749
+expr-750,cat-61,長【なが】い時【とき】が終【お】わって会【あ】う,after a long time,久しぶり,,750
+expr-751,cat-62,速【はや】く足【あし】で動【うご】く,run,走る,,751
+expr-752,cat-62,速【はや】くなく足【あし】で動【うご】く,walk,歩く,,752
+expr-753,cat-62,水【みず】の中【なか】で動【うご】く,swim,泳ぐ,,753
+expr-754,cat-62,空【そら】を動【うご】く,fly,飛ぶ,,754
+expr-755,cat-62,上【うえ】へ行【い】く,climb,登る,,755
+expr-756,cat-62,下【した】へ動【うご】く,fall,落ちる,,756
+expr-757,cat-62,下【した】へ出【で】る,get off / descend,降りる,,757
+expr-758,cat-62,上【うえ】に入【はい】る,ride / board,乗る,,758
+expr-759,cat-62,持【も】って行【い】く,carry / transport,運ぶ,,759
+expr-760,cat-62,ある場所【ばしょ】へ行【い】かせる,send,送る,,760
+expr-761,cat-62,持【も】って来【き】て与【あた】える,deliver,届ける,,761
+expr-762,cat-62,来【き】て手【て】に入【はい】る,arrive / reach,届く,,762
+expr-763,cat-62,持【も】って与【あた】える,hand over,渡す,,763
+expr-764,cat-62,右【みぎ】か左【ひだり】の外【そと】へ行【い】く,cross over,渡る,,764
+expr-765,cat-62,手【て】で感【かん】じる,touch,触る,,765
+expr-766,cat-62,手【て】で動【うご】かす,push,押す,,766
+expr-767,cat-62,手【て】で近【ちか】くへ動【うご】かす,pull,引く,,767
+expr-768,cat-62,手【て】で空【そら】へ出【で】す,throw,投げる,,768
+expr-769,cat-62,下【した】にある物【もの】を手【て】で持【も】つ,pick up,拾う,,769
+expr-770,cat-62,ある場所【ばしょ】に止【と】める,place / put down,置く,,770
+expr-771,cat-62,上【うえ】から物【もの】を止【と】める,hang / apply,掛ける,,771
+expr-772,cat-62,お金【おかね】を与【あた】える,pay,払う,,772
+expr-773,cat-62,お金【おかね】をもらって物【もの】を与【あた】える,sell,売る,,773
+expr-774,cat-62,また返【かえ】すために与【あた】える,lend,貸す,,774
+expr-775,cat-62,また返【かえ】すためにもらう,borrow,借りる,,775
+expr-776,cat-62,もらった人【ひと】に与【あた】える,return (something),返す,,776
+expr-777,cat-62,いらない物【もの】を出【で】す,throw away,捨てる,,777
+expr-778,cat-62,多【おお】く持【も】ってくる,gather / collect,集める,,778
+expr-779,cat-62,一【いち】つの物【もの】を二【に】つ以上にする,divide / separate,分ける,,779
+expr-780,cat-62,二【に】つ以上の物【もの】を一【いち】つにする,mix,混ぜる,,780
+expr-781,cat-62,一つ一つ前【まえ】と後【あと】に立【た】つ,line up,並ぶ,,781
+expr-782,cat-62,終【お】わらずに起【お】こる,continue (intrans.),続く,,782
+expr-783,cat-62,終【お】わらせずにする,continue (trans.),続ける,,783
+expr-784,cat-62,一【いち】つを選【えら】ぶ,decide,決める,,784
+expr-785,cat-62,一【いち】つに選【えら】ばれる,be decided,決まる,,785
+expr-786,cat-62,二【に】つの物【もの】が違【ちが】うか見【み】る,compare,比べる,,786
+expr-787,cat-62,いくつあるか知【し】る,count,数える,,787
+expr-788,cat-62,良【よ】いか見【み】るためにする,try / test,試す,,788
+expr-789,cat-62,ほんとうかどうか見【み】る,confirm / verify,確かめる,,789
+expr-790,cat-62,知【し】るために見【み】る,investigate / look up,調べる,,790
+expr-791,cat-62,聞【き】かれたことを言【い】う,answer,答える,,791
+expr-792,cat-62,してほしいと言【い】う,ask (a favor) / request,頼む,,792
+expr-793,cat-62,しないと言【い】う,refuse / decline,断る,,793
+expr-794,cat-62,来【き】てほしいと言【い】う,invite,招く,,794
+expr-795,cat-62,言葉【ことば】を口【くち】から出【で】す,speak / talk,話す,,795
+expr-796,cat-62,言葉【ことば】で知【し】らせる,convey / tell,伝える,,796
+expr-797,cat-62,とても大【おお】きな音【おと】で口【くち】から言【い】う,shout / scream,叫ぶ,,797
+expr-798,cat-62,名前【なまえ】を言【い】って来【く】るように言【い】う,call (out to),呼ぶ,,798
+expr-799,cat-62,音【おと】のある言葉【ことば】を口【くち】から出【で】す,sing,歌う,,799
+expr-800,cat-62,音【おと】で体【からだ】を動【うご】かす,dance,踊る,,800
+expr-801,cat-62,楽【たの】しいことをする,play,遊ぶ,,801
+expr-802,cat-62,お金【おかね】のためにする,work,働く,,802
+expr-803,cat-62,ある時【とき】まで止【と】める,rest / take a break,休む,,803
+expr-804,cat-62,寝【ね】るのを止【と】めて立【た】つ,wake up / get up,起きる,,804
+expr-805,cat-62,ある場所【ばしょ】に毎【まい】日【にち】いる,live (reside),住む,,805
+expr-806,cat-62,私【わたし】の家【いえ】へ行【い】く,return home,帰る,,806
+expr-807,cat-62,ある場所【ばしょ】の中【なか】を行【い】く,pass through,通る,,807
+expr-808,cat-62,その場所【ばしょ】を出【で】る,pass by / exceed,過ぎる,,808
+expr-809,cat-62,とても速【はや】くする,hurry,急ぐ,,809
+expr-810,cat-62,怖【こわ】いものから外【そと】へ行【い】く,escape / run away,逃げる,,810
+expr-811,cat-62,ある人【ひと】・物【もの】の後【あと】から行【い】く,chase,追う,,811
+expr-812,cat-62,動【うご】けないようにする,catch / capture,捕まえる,,812
+expr-813,cat-62,見【み】えないようにする,hide (something),隠す,,813
+expr-814,cat-62,見【み】えるようになる,appear,現れる,,814
+expr-815,cat-62,見【み】えなくなる,disappear,消える,,815
+expr-816,cat-62,もっと多【おお】くなる,increase,増える,,816
+expr-817,cat-62,より少【すこ】しになる,decrease,減る,,817
+expr-818,cat-62,上【うえ】へ動【うご】く,rise / go up,上がる,,818
+expr-819,cat-62,下【した】へ動【うご】く,fall / go down,下がる,,819
+expr-820,cat-62,ある物【もの】の外【そと】を動【うご】く,turn / go around,回る,,820
+expr-821,cat-62,道【みち】が右【みぎ】か左【ひだり】へ変【か】わる,turn / bend,曲がる,,821
+expr-822,cat-62,体【からだ】が速【はや】く少【すこ】し動【うご】く,tremble / shake,震える,,822
+expr-823,cat-62,右【みぎ】と左【ひだり】に速【はや】くなく動【うご】く,sway / shake,揺れる,,823
+expr-824,cat-62,光【ひかり】を出【で】す,shine / glow,光る,,824
+expr-825,cat-62,火【ひ】になる,burn,燃える,,825
+expr-826,cat-62,水【みず】のようになる,melt / dissolve,溶ける,,826
+expr-827,cat-62,水【みず】がなくなる,dry,乾く,,827
+expr-828,cat-62,水【みず】がつく,get wet,濡れる,,828
+expr-829,cat-62,悪【わる】いものがつく,get dirty,汚れる,,829
 expr-830,cat-62,きれいになるようにする,polish / brush,磨く,,830
-expr-831,cat-62,物の外を全部見えないようにする,wrap,包む,,831
-expr-832,cat-62,二つの物を一つに止める,tie / bind,結ぶ,,832
-expr-833,cat-62,手で目に見えるものを作る,draw / depict,描く,,833
-expr-834,cat-63,大きくない,small,小さい,,834
-expr-835,cat-63,長くない,short (length),短い,,835
-expr-836,cat-63,高くない,low / short (height),低い,,836
-expr-837,cat-63,重くない,light (weight),軽い,,837
-expr-838,cat-63,強くない,weak,弱い,,838
-expr-839,cat-63,速くない,slow / late,遅い,,839
-expr-840,cat-63,新しくない,old (things),古い,,840
-expr-841,cat-63,年が少ない,young,若い,,841
-expr-842,cat-63,大きな場所だ,wide / spacious,広い,,842
-expr-843,cat-63,場所が大きくない,narrow / small space,狭い,,843
-expr-844,cat-63,下まで長い,deep,深い,,844
-expr-845,cat-63,下まで長くない,shallow,浅い,,845
-expr-846,cat-63,中まで長い,thick,厚い,,846
-expr-847,cat-63,中まで長くない,thin / light (color),薄い,,847
-expr-848,cat-63,外が大きい,thick / fat (width),太い,,848
-expr-849,cat-63,外が大きくない,thin / slender,細い,,849
-expr-850,cat-63,月や太陽のような物だ,round,丸い,,850
-expr-851,cat-63,手で変えられない,hard / stiff,固い,,851
-expr-852,cat-63,手で変えられる,soft,柔らかい,,852
-expr-853,cat-63,食べると良いと感じる,sweet,甘い,,853
-expr-854,cat-63,食べると好きではないと感じる,bitter,苦い,,854
-expr-855,cat-63,食べると火のように感じる,spicy / hot (taste),辛い,,855
-expr-856,cat-63,食べると変に感じる,sour,酸っぱい,,856
-expr-857,cat-63,音が大きすぎる,noisy / annoying,うるさい,,857
-expr-858,cat-63,音がない,quiet,静か,,858
-expr-859,cat-63,良いと言える,correct / right,正しい,,859
-expr-860,cat-63,できない事が多い,difficult,難しい,,860
+expr-831,cat-62,物【もの】の外【そと】を全部【ぜんぶ】見【み】えないようにする,wrap,包む,,831
+expr-832,cat-62,二【に】つの物【もの】を一【いち】つに止【と】める,tie / bind,結ぶ,,832
+expr-833,cat-62,手【て】で目【め】に見【み】えるものを作【つく】る,draw / depict,描く,,833
+expr-834,cat-63,大【おお】きくない,small,小さい,,834
+expr-835,cat-63,長【なが】くない,short (length),短い,,835
+expr-836,cat-63,高【たか】くない,low / short (height),低い,,836
+expr-837,cat-63,重【おも】くない,light (weight),軽い,,837
+expr-838,cat-63,強【つよ】くない,weak,弱い,,838
+expr-839,cat-63,速【はや】くない,slow / late,遅い,,839
+expr-840,cat-63,新【あたら】しくない,old (things),古い,,840
+expr-841,cat-63,年【とし】が少【すこ】ない,young,若い,,841
+expr-842,cat-63,大【おお】きな場所【ばしょ】だ,wide / spacious,広い,,842
+expr-843,cat-63,場所【ばしょ】が大【おお】きくない,narrow / small space,狭い,,843
+expr-844,cat-63,下【した】まで長【なが】い,deep,深い,,844
+expr-845,cat-63,下【した】まで長【なが】くない,shallow,浅い,,845
+expr-846,cat-63,中【なか】まで長【なが】い,thick,厚い,,846
+expr-847,cat-63,中【なか】まで長【なが】くない,thin / light (color),薄い,,847
+expr-848,cat-63,外【そと】が大【おお】きい,thick / fat (width),太い,,848
+expr-849,cat-63,外【そと】が大【おお】きくない,thin / slender,細い,,849
+expr-850,cat-63,月【つき】や太陽【たいよう】のような物【もの】だ,round,丸い,,850
+expr-851,cat-63,手【て】で変【か】えられない,hard / stiff,固い,,851
+expr-852,cat-63,手【て】で変【か】えられる,soft,柔らかい,,852
+expr-853,cat-63,食【た】べると良【よ】いと感【かん】じる,sweet,甘い,,853
+expr-854,cat-63,食【た】べると好【す】きではないと感【かん】じる,bitter,苦い,,854
+expr-855,cat-63,食【た】べると火【ひ】のように感【かん】じる,spicy / hot (taste),辛い,,855
+expr-856,cat-63,食【た】べると変【へん】に感【かん】じる,sour,酸っぱい,,856
+expr-857,cat-63,音【おと】が大【おお】きすぎる,noisy / annoying,うるさい,,857
+expr-858,cat-63,音【おと】がない,quiet,静か,,858
+expr-859,cat-63,良【よ】いと言【い】える,correct / right,正しい,,859
+expr-860,cat-63,できない事【こと】が多【おお】い,difficult,難しい,,860
 expr-861,cat-63,すぐにできる,easy,易しい,,861
-expr-862,cat-63,することが多すぎる,busy,忙しい,,862
+expr-862,cat-63,することが多【おお】すぎる,busy,忙しい,,862
 expr-863,cat-63,することがない,free (time) / idle,暇,,863
 expr-864,cat-63,とてもきれいだ,beautiful,美しい,,864
 expr-865,cat-63,きれいではない,ugly,醜い,,865
-expr-866,cat-63,悪いものがある,dirty,汚い,,866
-expr-867,cat-63,悪い空気がある,stinky / smelly,臭い,,867
-expr-868,cat-63,体が悪く感じる,painful,痛い,,868
-expr-869,cat-63,寝たいと感じる,sleepy,眠い,,869
-expr-870,cat-63,他の人に見られたくないと感じる,embarrassed / ashamed,恥ずかしい,,870
-expr-871,cat-63,あまり見ない物だ,rare / unusual,珍しい,,871
-expr-872,cat-63,前のことを思って良いと感じる,nostalgic,懐かしい,,872
-expr-873,cat-63,とても良い,wonderful / splendid,素晴らしい,,873
-expr-874,cat-63,良い物が多い,rich / abundant,豊か,,874
-expr-875,cat-63,お金がとても少ない,poor,貧しい,,875
-expr-876,cat-63,多くの人が知っている,famous,有名,,876
-expr-877,cat-63,多くのことがある,complex,複雑,,877
-expr-878,cat-63,ことが少ない,simple,単純,,878
-expr-879,cat-63,怖いことがない,safe,安全,,879
-expr-880,cat-63,悪いことが起こるかもしれない,dangerous,危険,,880
+expr-866,cat-63,悪【わる】いものがある,dirty,汚い,,866
+expr-867,cat-63,悪【わる】い空気【くうき】がある,stinky / smelly,臭い,,867
+expr-868,cat-63,体【からだ】が悪【わる】く感【かん】じる,painful,痛い,,868
+expr-869,cat-63,寝【ね】たいと感【かん】じる,sleepy,眠い,,869
+expr-870,cat-63,他【ほか】の人【ひと】に見【み】られたくないと感【かん】じる,embarrassed / ashamed,恥ずかしい,,870
+expr-871,cat-63,あまり見【み】ない物【もの】だ,rare / unusual,珍しい,,871
+expr-872,cat-63,前【まえ】のことを思【おも】って良【よ】いと感【かん】じる,nostalgic,懐かしい,,872
+expr-873,cat-63,とても良【よ】い,wonderful / splendid,素晴らしい,,873
+expr-874,cat-63,良【よ】い物【もの】が多【おお】い,rich / abundant,豊か,,874
+expr-875,cat-63,お金【おかね】がとても少【すこ】ない,poor,貧しい,,875
+expr-876,cat-63,多【おお】くの人【ひと】が知【し】っている,famous,有名,,876
+expr-877,cat-63,多【おお】くのことがある,complex,複雑,,877
+expr-878,cat-63,ことが少【すこ】ない,simple,単純,,878
+expr-879,cat-63,怖【こわ】いことがない,safe,安全,,879
+expr-880,cat-63,悪【わる】いことが起【お】こるかもしれない,dangerous,危険,,880
 expr-881,cat-63,できる,possible,可能,,881
 expr-882,cat-63,できない,impossible,不可能,,882
-expr-883,cat-63,変ではない,normal / ordinary,普通,,883
-expr-884,cat-63,ほかと違う,special,特別,,884
-expr-885,cat-63,一番良い,best / greatest,最高,,885
-expr-886,cat-63,一番悪い,worst / lowest,最低,,886
-expr-887,cat-63,もっと必要ではない,enough / sufficient,十分,,887
-expr-888,cat-63,この事に良い,suitable / appropriate,適当,,888
-expr-889,cat-64,その言葉が言うこと,meaning,意味,,889
+expr-883,cat-63,変【へん】ではない,normal / ordinary,普通,,883
+expr-884,cat-63,ほかと違【ちが】う,special,特別,,884
+expr-885,cat-63,一番良【よ】い,best / greatest,最高,,885
+expr-886,cat-63,一番悪【わる】い,worst / lowest,最低,,886
+expr-887,cat-63,もっと必要【ひつよう】ではない,enough / sufficient,十分,,887
+expr-888,cat-63,この事【こと】に良【よ】い,suitable / appropriate,適当,,888
+expr-889,cat-64,その言葉【ことば】が言【い】うこと,meaning,意味,,889
 expr-890,cat-64,なぜそうなったかということ,reason,理由,,890
 expr-891,cat-64,どうするかということ,method / way,方法,,891
 expr-892,cat-64,なぜするかということ,purpose / goal,目的,,892
-expr-893,cat-64,したあとに起こること,result,結果,,893
-expr-894,cat-64,それが起こる前にあったもの,cause,原因,,894
-expr-895,cat-64,あることが他のことを変えること,influence / effect,影響,,895
-expr-896,cat-64,二つの物や人が一つのことに入っていること,relationship,関係,,896
-expr-897,cat-64,そうなるために必要なこと,condition,条件,,897
+expr-893,cat-64,したあとに起【お】こること,result,結果,,893
+expr-894,cat-64,それが起【お】こる前【まえ】にあったもの,cause,原因,,894
+expr-895,cat-64,あることが他【ほか】のことを変【か】えること,influence / effect,影響,,895
+expr-896,cat-64,二【に】つの物【もの】や人【ひと】が一【いち】つのことに入【はい】っていること,relationship,関係,,896
+expr-897,cat-64,そうなるために必要【ひつよう】なこと,condition,条件,,897
 expr-898,cat-64,今どうなっているかということ,state / condition,状態,,898
 expr-899,cat-64,どのくらいかということ,degree / extent,程度,,899
-expr-900,cat-64,どんな物かということ,type / kind,種類,,900
-expr-901,cat-64,悪いことで考えなければならないこと,problem / question,問題,,901
-expr-902,cat-64,聞かれたことへの言葉,answer,答え,,902
-expr-903,cat-64,知りたいことを聞くこと,question,質問,,903
-expr-904,cat-64,こういう物だということを見せるもの,example,例,,904
-expr-905,cat-64,ある時に起こること,case / situation,場合,,905
-expr-906,cat-64,できる時があること,opportunity,機会,,906
-expr-907,cat-64,起こるかもしれないということ,possibility,可能性,,907
+expr-900,cat-64,どんな物【もの】かということ,type / kind,種類,,900
+expr-901,cat-64,悪【わる】いことで考【かんが】えなければならないこと,problem / question,問題,,901
+expr-902,cat-64,聞【き】かれたことへの言葉【ことば】,answer,答え,,902
+expr-903,cat-64,知【し】りたいことを聞【き】くこと,question,質問,,903
+expr-904,cat-64,こういう物【もの】だということを見【み】せるもの,example,例,,904
+expr-905,cat-64,ある時【とき】に起【お】こること,case / situation,場合,,905
+expr-906,cat-64,できる時【とき】があること,opportunity,機会,,906
+expr-907,cat-64,起【お】こるかもしれないということ,possibility,可能性,,907
 expr-908,cat-64,したことがあるということ,experience,経験,,908
-expr-909,cat-64,前のことを心に持っていること,memory,記憶,,909
-expr-910,cat-64,見えないものを頭の中で作ること,imagination,想像,,910
-expr-911,cat-64,見た時に感じたこと,impression,印象,,911
-expr-912,cat-64,あることについて思うこと,opinion,意見,,912
-expr-913,cat-64,頭の中にあること,thought / idea,考え,,913
-expr-914,cat-64,心で感じること,feeling,気持ち,,914
-expr-915,cat-64,人に見せる体と言葉の動き,attitude,態度,,915
+expr-909,cat-64,前【まえ】のことを心【こころ】に持【も】っていること,memory,記憶,,909
+expr-910,cat-64,見【み】えないものを頭【あたま】の中【なか】で作【つく】ること,imagination,想像,,910
+expr-911,cat-64,見【み】た時【とき】に感【かん】じたこと,impression,印象,,911
+expr-912,cat-64,あることについて思【おも】うこと,opinion,意見,,912
+expr-913,cat-64,頭【あたま】の中【なか】にあること,thought / idea,考え,,913
+expr-914,cat-64,心【こころ】で感【かん】じること,feeling,気持ち,,914
+expr-915,cat-64,人【ひと】に見【み】せる体【からだ】と言葉【ことば】の動【うご】き,attitude,態度,,915
 expr-916,cat-64,すること,action / behavior,行動,,916
-expr-917,cat-64,強くしようとすること,effort,努力,,917
+expr-917,cat-64,強【つよ】くしようとすること,effort,努力,,917
 expr-918,cat-64,しようとしたことができたこと,success,成功,,918
 expr-919,cat-64,しようとしたことができなかったこと,failure,失敗,,919
-expr-920,cat-64,変わること,change,変化,,920
-expr-921,cat-64,より良くなること,progress,進歩,,921
-expr-922,cat-64,もっと大きくなること,development,発展,,922
-expr-923,cat-64,生きていること,life,命,,923
-expr-924,cat-64,これから起こることが前に決まっているという考え,fate / destiny,運命,,924
-expr-925,cat-64,強く動かすことができること,power / strength,力,,925
+expr-920,cat-64,変【か】わること,change,変化,,920
+expr-921,cat-64,より良【よ】くなること,progress,進歩,,921
+expr-922,cat-64,もっと大【おお】きくなること,development,発展,,922
+expr-923,cat-64,生【い】きていること,life,命,,923
+expr-924,cat-64,これから起【お】こることが前【まえ】に決【き】まっているという考【かんが】え,fate / destiny,運命,,924
+expr-925,cat-64,強【つよ】く動【うご】かすことができること,power / strength,力,,925
 expr-926,cat-64,できることがあること,ability / capacity,能力,,926
-expr-927,cat-64,とても良くできること,talent,才能,,927
-expr-928,cat-64,知っていること,knowledge,知識,,928
-expr-929,cat-64,全部の人が知っていること,common sense,常識,,929
-expr-930,cat-64,毎日すること,habit / custom,習慣,,930
-expr-931,cat-64,他の人に言わないこと,secret,秘密,,931
-expr-932,cat-64,すると言ったこと,promise,約束,,932
-expr-933,cat-64,しなければならないと思うこと,responsibility,責任,,933
+expr-927,cat-64,とても良【よ】くできること,talent,才能,,927
+expr-928,cat-64,知【し】っていること,knowledge,知識,,928
+expr-929,cat-64,全部【ぜんぶ】の人【ひと】が知【し】っていること,common sense,常識,,929
+expr-930,cat-64,毎【まい】日【にち】すること,habit / custom,習慣,,930
+expr-931,cat-64,他【ほか】の人【ひと】に言【い】わないこと,secret,秘密,,931
+expr-932,cat-64,すると言【い】ったこと,promise,約束,,932
+expr-933,cat-64,しなければならないと思【おも】うこと,responsibility,責任,,933
 expr-934,cat-64,しなければならないこと,duty / obligation,義務,,934
-expr-935,cat-64,してもいいと言われていること,right (legal),権利,,935
-expr-936,cat-64,良いことをするという考え,justice,正義,,936
-expr-937,cat-64,どのくらい良いかということ,value / worth,価値,,937
-expr-938,cat-64,するという強い心,will / volition,意志,,938
+expr-935,cat-64,してもいいと言【い】われていること,right (legal),権利,,935
+expr-936,cat-64,良【よ】いことをするという考【かんが】え,justice,正義,,936
+expr-937,cat-64,どのくらい良【よ】いかということ,value / worth,価値,,937
+expr-938,cat-64,するという強【つよ】い心【こころ】,will / volition,意志,,938

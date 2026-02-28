@@ -1,33 +1,33 @@
 id,category_id,minihongo,english,japanese,sort_order
-haiku-1,cat-65,山の上 / 風が来ている / 空青い,"Upon the mountain, wind arrives. The sky, so blue",,1
-haiku-2,cat-65,雨の音 / 外に聞こえる / 夜の道,"Sound of falling rain, heard from beyond the walls, a road at night",,2
-haiku-3,cat-65,海の水 / 大きく動く / 白い石,"Water of the sea, moving in great swells, white stones on the shore",,3
-haiku-4,cat-65,白い月 / 水の上出る / 夜の海,"A white moon rises above the water, the nighttime sea",,4
-haiku-5,cat-66,水を飲む / 太陽が出て / 外を見る,"Drinking water, the sun has risen, I gaze outside",,5
-haiku-6,cat-66,食べ物を / 子供と食べる / 家の中,"A meal together, eating with the children, inside our home",,6
-haiku-7,cat-66,道を行く / 大きい木見る / 風の音,"Walking the path, I see the great trees, the sound of wind",,7
-haiku-8,cat-66,夜が来る / 月を見ている / 目を閉める,"Night arrives, watching the moon a while, I close my eyes",,8
-haiku-9,cat-67,人を待つ / 心の中に / いつもいる,"Waiting for someone, always present within my heart",,9
-haiku-10,cat-67,楽しい日 / 子供が笑う / 音を聞く,"A joyful day, children laughing, I listen to the sound",,10
-haiku-11,cat-67,泣く子供 / 母が手を持つ / 光見る,"A child in tears, mother takes their hand, they see the light",,11
-haiku-12,cat-67,人に会う / 言葉を少し / 笑う人,"Meeting someone, just a few small words, a person smiling",,12
-haiku-13,cat-68,花開く / 山の風来る / 草動く,"Blossoms split open, wind comes pouring down the mountain, the grasses stir",,13
-haiku-14,cat-68,空暑い / 水を飲む人 / 日が終わる,"The sky burns heavy, a person drinking water, and the day is done",,14
-haiku-15,cat-68,木が変わる / 赤くなる山 / 風寒い,"The trees are changing, the mountains going crimson, the wind turns cold",,15
-haiku-16,cat-68,寒い夜 / 火に近い人 / 音もない,"A cold night settles, a person drawn close to the fire, not a sound",,16
-haiku-17,cat-69,誰か来る / 名前も知らぬ / 笑う人,"Someone is coming, I do not even know their name, and yet they are smiling",,17
-haiku-18,cat-69,また会おう / と言った後に / 道長い,"Let us meet again - the words still drift in the air, the road stretches on",,18
-haiku-19,cat-69,あなた待つ / 来ないと知って / まだここに,"Waiting for you still, knowing well you will not come, here I remain",,19
-haiku-20,cat-69,手与える / もらう人の目 / 光見た,"A hand reaches out, in the eyes of the one who receives, light was seen",,20
-haiku-21,cat-70,始まる日 / 小さい体 / 泣いている,"The day that begins, a body so impossibly small, crying into the world",,21
-haiku-22,cat-70,生きること / 食べて動いて / また来る日,"What it means to live: eat, move through the world, the next day arrives",,22
-haiku-23,cat-70,人は死ぬ / 土の中入る / 草生きる,"All people must die, entering into the dark earth, the grasses live on",,23
-haiku-24,cat-70,終わる夜 / 光始まる / 空はある,"The night comes to end, light begins its work again, the sky is still there",,24
-haiku-25,cat-71,月の夜 / 火が一つある / 誰かいる,"A night with the moon, one small fire burning somewhere, someone is there",,25
-haiku-26,cat-71,光来る / 怖いの終わる / 目を開く,"The light comes at last, all of the fear finds its end, I open my eyes",,26
-haiku-27,cat-71,火を止めて / 光なくなる / 体だけ,"The fire is stopped, light drains away from the room, only the body",,27
-haiku-28,cat-71,夜の空 / 月白く出る / 道白い,"The night sky opens, the moon rises pale and cold, the road turns silver",,28
-haiku-29,cat-72,言葉ない / 心が動く / 人と人,"Without any words, something moves inside the heart, two people, one moment",,29
-haiku-30,cat-72,書く言葉 / 誰も読まない / まだそこに,"Words written in ink, that no one will ever read, they are still there",,30
-haiku-31,cat-72,聞く言葉 / 知らない言葉 / 道開く,"Words you hear spoken, words you have never known before, a road opens",,31
-haiku-32,cat-72,言わないで / 手を持っている / それでいい,"Without saying a word, holding your hand in the quiet, this is enough",,32
+haiku-1,cat-65,山【やま】の上【うえ】 / 風【かぜ】が来【き】ている / 空【そら】青【あお】い,"Upon the mountain, wind arrives. The sky, so blue",,1
+haiku-2,cat-65,雨【あめ】の音【おと】 / 外【そと】に聞【き】こえる / 夜【よる】の道【みち】,"Sound of falling rain, heard from beyond the walls, a road at night",,2
+haiku-3,cat-65,海【うみ】の水【みず】 / 大【おお】きく動【うご】く / 白【しろ】い石【いし】,"Water of the sea, moving in great swells, white stones on the shore",,3
+haiku-4,cat-65,白【しろ】い月【つき】 / 水【みず】の上【うえ】出【で】る / 夜【よる】の海【うみ】,"A white moon rises above the water, the nighttime sea",,4
+haiku-5,cat-66,水【みず】を飲【の】む / 太陽【たいよう】が出【で】て / 外【そと】を見【み】る,"Drinking water, the sun has risen, I gaze outside",,5
+haiku-6,cat-66,食【た】べ物【もの】を / 子供【こども】と食【た】べる / 家【いえ】の中【なか】,"A meal together, eating with the children, inside our home",,6
+haiku-7,cat-66,道【みち】を行【い】く / 大【おお】きい木【き】見【み】る / 風【かぜ】の音【おと】,"Walking the path, I see the great trees, the sound of wind",,7
+haiku-8,cat-66,夜【よる】が来【く】る / 月【つき】を見【み】ている / 目【め】を閉【し】める,"Night arrives, watching the moon a while, I close my eyes",,8
+haiku-9,cat-67,人【ひと】を待【ま】つ / 心【こころ】の中【なか】に / いつもいる,"Waiting for someone, always present within my heart",,9
+haiku-10,cat-67,楽【たの】しい日【ひ】 / 子供【こども】が笑【わら】う / 音【おと】を聞【き】く,"A joyful day, children laughing, I listen to the sound",,10
+haiku-11,cat-67,泣【な】く子供【こども】 / 母【はは】が手【て】を持【も】つ / 光【ひかり】見【み】る,"A child in tears, mother takes their hand, they see the light",,11
+haiku-12,cat-67,人【ひと】に会【あ】う / 言葉【ことば】を少【すこ】し / 笑【わら】う人【ひと】,"Meeting someone, just a few small words, a person smiling",,12
+haiku-13,cat-68,花【はな】開【ひら】く / 山【やま】の風【かぜ】来【く】る / 草【くさ】動【うご】く,"Blossoms split open, wind comes pouring down the mountain, the grasses stir",,13
+haiku-14,cat-68,空【そら】暑【あつ】い / 水【みず】を飲【の】む人【ひと】 / 日【ひ】が終【お】わる,"The sky burns heavy, a person drinking water, and the day is done",,14
+haiku-15,cat-68,木【き】が変【か】わる / 赤【あか】くなる山【やま】 / 風【かぜ】寒【さむ】い,"The trees are changing, the mountains going crimson, the wind turns cold",,15
+haiku-16,cat-68,寒【さむ】い夜【よる】 / 火【ひ】に近【ちか】い人【ひと】 / 音【おと】もない,"A cold night settles, a person drawn close to the fire, not a sound",,16
+haiku-17,cat-69,誰【だれ】か来【く】る / 名前【なまえ】も知【し】らぬ / 笑【わら】う人【ひと】,"Someone is coming, I do not even know their name, and yet they are smiling",,17
+haiku-18,cat-69,また会【あ】おう / と言【い】った後【あと】に / 道【みち】長【なが】い,"Let us meet again - the words still drift in the air, the road stretches on",,18
+haiku-19,cat-69,あなた待【ま】つ / 来【こ】ないと知【し】って / まだここに,"Waiting for you still, knowing well you will not come, here I remain",,19
+haiku-20,cat-69,手【て】与【あた】える / もらう人【ひと】の目【め】 / 光【ひかり】見【み】た,"A hand reaches out, in the eyes of the one who receives, light was seen",,20
+haiku-21,cat-70,始【はじ】まる日【ひ】 / 小【ちい】さい体【からだ】 / 泣【な】いている,"The day that begins, a body so impossibly small, crying into the world",,21
+haiku-22,cat-70,生【い】きること / 食【た】べて動【うご】いて / また来【く】る日【ひ】,"What it means to live: eat, move through the world, the next day arrives",,22
+haiku-23,cat-70,人【ひと】は死【し】ぬ / 土【つち】の中【なか】入【い】る / 草【くさ】生【い】きる,"All people must die, entering into the dark earth, the grasses live on",,23
+haiku-24,cat-70,終【お】わる夜【よる】 / 光【ひかり】始【はじ】まる / 空【そら】はある,"The night comes to end, light begins its work again, the sky is still there",,24
+haiku-25,cat-71,月【つき】の夜【よる】 / 火【ひ】が一【ひと】つある / 誰【だれ】かいる,"A night with the moon, one small fire burning somewhere, someone is there",,25
+haiku-26,cat-71,光【ひかり】来【く】る / 怖【こわ】いの終【お】わる / 目【め】を開【ひら】く,"The light comes at last, all of the fear finds its end, I open my eyes",,26
+haiku-27,cat-71,火【ひ】を止【と】めて / 光【ひかり】なくなる / 体【からだ】だけ,"The fire is stopped, light drains away from the room, only the body",,27
+haiku-28,cat-71,夜【よる】の空【そら】 / 月【つき】白【しろ】く出【で】る / 道【みち】白【しろ】い,"The night sky opens, the moon rises pale and cold, the road turns silver",,28
+haiku-29,cat-72,言葉【ことば】ない / 心【こころ】が動【うご】く / 人【ひと】と人【ひと】,"Without any words, something moves inside the heart, two people, one moment",,29
+haiku-30,cat-72,書【か】く言葉【ことば】 / 誰【だれ】も読【よ】まない / まだそこに,"Words written in ink, that no one will ever read, they are still there",,30
+haiku-31,cat-72,聞【き】く言葉【ことば】 / 知【し】らない言葉【ことば】 / 道【みち】開【ひら】く,"Words you hear spoken, words you have never known before, a road opens",,31
+haiku-32,cat-72,言【い】わないで / 手【て】を持【も】っている / それでいい,"Without saying a word, holding your hand in the quiet, this is enough",,32
