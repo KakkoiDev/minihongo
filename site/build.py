@@ -28,7 +28,7 @@ LANGS = ['en', 'ja', 'mh']
 LANG_COL = {'en': 'english', 'ja': 'japanese', 'mh': 'minihongo'}
 # mh uses Japanese script, so html lang is 'ja' for it too
 HTML_LANGS = {'en': 'en', 'ja': 'ja', 'mh': 'ja'}
-LANG_LABELS = {'en': 'EN', 'ja': '日本語', 'mh': 'ミニ本語'}
+LANG_LABELS = {'en': 'English', 'ja': '日本語', 'mh': 'ミニ本語'}
 BASE_URLS = {'en': '/', 'ja': '/ja/', 'mh': '/mh/'}
 
 
