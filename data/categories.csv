@@ -21,58 +21,58 @@ cat-19,,grammar,どんな,Describing Things,修飾,4
 cat-20,,grammar,物【もの】にする,Making Nouns,名詞化,5
 cat-21,,grammar,思【おも】うと「もし」,Will & Conditions,意志と条件,6
 cat-22,,grammar,聞【き】き方【かた】,Questions,疑問と終助詞,7
-cat-23,,word-building,字【じ】を一【ひと】つにする,Real Kanji Compounds,比較と極限,1
+cat-23,,word-building,字【じ】を一【ひと】つにする,Real Kanji Compounds,漢字熟語,1
 cat-24,cat-23,word-building,人【ひと】,People,人と関係,1
-cat-25,cat-23,word-building,外【そと】の世界【せかい】,Nature & Geography,物と素材,2
-cat-26,cat-23,word-building,空【そら】と時【とき】,Sky & Time,自然と天候,3
-cat-27,cat-23,word-building,体【からだ】,Body,体と健康,4
-cat-28,cat-23,word-building,物【もの】,Things,心と感覚,5
-cat-29,cat-23,word-building,手【て】,Hand Compounds,場所と建物,6
-cat-30,cat-23,word-building,入【はい】ると出【で】る,In & Out,時間と暦,7
-cat-31,cat-23,word-building,本【ほん】と書【か】く,Books & Writing,数量と測定,8
-cat-32,cat-23,word-building,国【くに】,Country & State,社会と制度,9
-cat-33,cat-23,word-building,心【こころ】と感【かん】じ,Mind & Feeling,文化と知識,10
-cat-34,cat-23,word-building,動【うご】くと変【か】わる,Movement & Change,伝達と表現,11
-cat-35,cat-23,word-building,大【おお】きい,Big Compounds,動作と変化,12
-cat-36,cat-23,word-building,他【ほか】,Other,性質と状態,13
-cat-37,,word-building,自分【じぶん】で作【つく】る言【こと】葉【ば】,Build Your Own Vocabulary,論理と疑問,2
-cat-38,cat-37,word-building,人【ひと】,People,漢字熟語,1
-cat-39,cat-37,word-building,動物【どうぶつ】,Animals,自作語彙,2
-cat-40,cat-37,word-building,外【そと】の世界【せかい】,Nature,一般語彙,3
-cat-41,cat-37,word-building,場所【ばしょ】,Places,人と関係,4
-cat-42,cat-37,word-building,物【もの】,Objects,物と概念,5
-cat-43,cat-37,word-building,食【た】べ物【もの】と体【からだ】,Food & Body,自然と環境,6
-cat-44,cat-37,word-building,時【とき】,Time,体と感覚,7
-cat-45,cat-37,word-building,どんな - 反対【はんたい】は「ない」,Qualities — Negate to Get the Opposite,心と気持ち,8
-cat-46,cat-37,word-building,する事【こと】,Actions,場所と空間,9
-cat-47,cat-37,word-building,心【こころ】と考【かんが】え,Abstract,時間と変化,10
-cat-48,cat-37,word-building,消【き】えた言【こと】葉【ば】,Removed Words as Compounds,数量と度合い,11
-cat-49,,word-building,よく使【つか】う言【こと】葉【ば】,Common Words in Minihongo,社会と活動,3
-cat-50,cat-49,word-building,毎【まい】日【にち】の事【こと】,Daily Life & Routines,知識と表現,1
-cat-51,cat-49,word-building,する事【こと】と学【まな】ぶ事【こと】,Work & School,動作と行為,2
-cat-52,cat-49,word-building,数【かず】と数【かぞ】え方【かた】,Numbers & Counting,性質と比較,3
-cat-53,cat-49,word-building,人【ひと】と人【ひと】,People & Relationships,抽象概念,4
-cat-54,cat-49,word-building,心【こころ】の感【かん】じ,Emotions & Personality,人と関係,5
-cat-55,cat-49,word-building,人【ひと】の世界【せかい】,Society & Culture,物と道具,6
-cat-56,cat-49,word-building,場所【ばしょ】と建物【たてもの】,Places & Buildings,自然と動物,7
-cat-57,cat-49,word-building,動【うご】く物【もの】と行【い】く事【こと】,Transport & Travel,体と健康,8
-cat-58,cat-49,word-building,外【そと】と空【そら】,Nature & Weather,心と感情,9
-cat-59,cat-49,word-building,食【た】べ物【もの】と飲【の】み物【もの】,Food & Drink,場所と移動,10
-cat-60,cat-49,word-building,体【からだ】と元気【げんき】,Body & Health,時間と頻度,11
-cat-61,cat-49,word-building,時【とき】の言【こと】葉【ば】,Time Expressions,数と量,12
-cat-62,cat-49,word-building,する事【こと】,Verbs not in base,社会と仕事,13
-cat-63,cat-49,word-building,どんな,Adjectives not in base,知識と教育,14
-cat-64,cat-49,word-building,考【かんが】えの事【こと】,Abstract Concepts,伝達と表現,15
-cat-76,,reading,話【はな】し,Dialogs,存在の俳句,1
-cat-73,cat-76,reading,毎【まい】日【にち】の話【はな】し,Daily Life Dialogs,日常会話,1
+cat-25,cat-23,word-building,外【そと】の世界【せかい】,Nature & Geography,自然と地理,2
+cat-26,cat-23,word-building,空【そら】と時【とき】,Sky & Time,空と時間,3
+cat-27,cat-23,word-building,体【からだ】,Body,体,4
+cat-28,cat-23,word-building,物【もの】,Things,物,5
+cat-29,cat-23,word-building,手【て】,Hand Compounds,手の熟語,6
+cat-30,cat-23,word-building,入【はい】ると出【で】る,In & Out,入と出,7
+cat-31,cat-23,word-building,本【ほん】と書【か】く,Books & Writing,本と書,8
+cat-32,cat-23,word-building,国【くに】,Country & State,国と政治,9
+cat-33,cat-23,word-building,心【こころ】と感【かん】じ,Mind & Feeling,心と感情,10
+cat-34,cat-23,word-building,動【うご】くと変【か】わる,Movement & Change,動きと変化,11
+cat-35,cat-23,word-building,大【おお】きい,Big Compounds,大きい熟語,12
+cat-36,cat-23,word-building,他【ほか】,Other,その他,13
+cat-37,,word-building,自分【じぶん】で作【つく】る言【こと】葉【ば】,Build Your Own Vocabulary,自作語彙,2
+cat-38,cat-37,word-building,人【ひと】,People,人,1
+cat-39,cat-37,word-building,動物【どうぶつ】,Animals,動物,2
+cat-40,cat-37,word-building,外【そと】の世界【せかい】,Nature,自然,3
+cat-41,cat-37,word-building,場所【ばしょ】,Places,場所,4
+cat-42,cat-37,word-building,物【もの】,Objects,物,5
+cat-43,cat-37,word-building,食【た】べ物【もの】と体【からだ】,Food & Body,食べ物と体,6
+cat-44,cat-37,word-building,時【とき】,Time,時間,7
+cat-45,cat-37,word-building,どんな - 反対【はんたい】は「ない」,Qualities — Negate to Get the Opposite,性質（反対で作る）,8
+cat-46,cat-37,word-building,する事【こと】,Actions,動作,9
+cat-47,cat-37,word-building,心【こころ】と考【かんが】え,Abstract,抽象,10
+cat-48,cat-37,word-building,消【き】えた言【こと】葉【ば】,Removed Words as Compounds,除外語を熟語で,11
+cat-49,,word-building,よく使【つか】う言【こと】葉【ば】,Common Words in Minihongo,よく使う言葉,3
+cat-50,cat-49,word-building,毎【まい】日【にち】の事【こと】,Daily Life & Routines,日常生活,1
+cat-51,cat-49,word-building,する事【こと】と学【まな】ぶ事【こと】,Work & School,仕事と学校,2
+cat-52,cat-49,word-building,数【かず】と数【かぞ】え方【かた】,Numbers & Counting,数と数え方,3
+cat-53,cat-49,word-building,人【ひと】と人【ひと】,People & Relationships,人と関係,4
+cat-54,cat-49,word-building,心【こころ】の感【かん】じ,Emotions & Personality,感情と性格,5
+cat-55,cat-49,word-building,人【ひと】の世界【せかい】,Society & Culture,社会と文化,6
+cat-56,cat-49,word-building,場所【ばしょ】と建物【たてもの】,Places & Buildings,場所と建物,7
+cat-57,cat-49,word-building,動【うご】く物【もの】と行【い】く事【こと】,Transport & Travel,移動と旅行,8
+cat-58,cat-49,word-building,外【そと】と空【そら】,Nature & Weather,自然と天気,9
+cat-59,cat-49,word-building,食【た】べ物【もの】と飲【の】み物【もの】,Food & Drink,食べ物と飲み物,10
+cat-60,cat-49,word-building,体【からだ】と元気【げんき】,Body & Health,体と健康,11
+cat-61,cat-49,word-building,時【とき】の言【こと】葉【ば】,Time Expressions,時間の表現,12
+cat-62,cat-49,word-building,する事【こと】,Verbs not in base,基本外の動詞,13
+cat-63,cat-49,word-building,どんな,Adjectives not in base,基本外の形容詞,14
+cat-64,cat-49,word-building,考【かんが】えの事【こと】,Abstract Concepts,抽象概念,15
+cat-76,,reading,話【はな】し,Dialogs,対話,1
+cat-73,cat-76,reading,毎【まい】日【にち】の話【はな】し,Daily Life Dialogs,日常の対話,1
 cat-74,cat-76,reading,考【かんが】える話【はな】し,Thinking Dialogs,思索の対話,2
 cat-75,,reading,短【みじか】い話【はな】し,Short Stories,短編,2
 cat-78,,reading,俳句【はいく】,Haiku,俳句,3
-cat-65,cat-78,reading,自然【しぜん】,Nature,日常動作,1
-cat-66,cat-78,reading,毎【まい】日【にち】,Daily Life,性質と状態,2
-cat-67,cat-78,reading,心【こころ】,Heart & Mind,抽象表現,3
-cat-68,cat-78,reading,時【とき】の変【か】わり,Seasons,俳句,4
-cat-69,cat-78,reading,人【ひと】と人【ひと】,Between People,季節の俳句,5
-cat-70,cat-78,reading,生【い】きると死【し】ぬ,Life & Death,自然の俳句,6
-cat-71,cat-78,reading,光【ひかり】と闇【やみ】,Light & Dark,人の俳句,7
-cat-72,cat-78,reading,言【こと】葉【ば】,Words,心の俳句,8
+cat-65,cat-78,reading,自然【しぜん】,Nature,自然,1
+cat-66,cat-78,reading,毎【まい】日【にち】,Daily Life,日常,2
+cat-67,cat-78,reading,心【こころ】,Heart & Mind,心,3
+cat-68,cat-78,reading,時【とき】の変【か】わり,Seasons,季節,4
+cat-69,cat-78,reading,人【ひと】と人【ひと】,Between People,人の間,5
+cat-70,cat-78,reading,生【い】きると死【し】ぬ,Life & Death,生と死,6
+cat-71,cat-78,reading,光【ひかり】と闇【やみ】,Light & Dark,光と闇,7
+cat-72,cat-78,reading,言【こと】葉【ば】,Words,言葉,8
