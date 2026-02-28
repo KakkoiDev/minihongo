@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600">
+  <rect width="900" height="600" fill="#fff"/>
+  <g stroke="#BC002D" stroke-linecap="round" fill="none" stroke-width="38">
+    <!-- ミ (mi) - three angled strokes, top shortest -->
+    <line x1="385" y1="181" x2="305" y2="210"/>
+    <line x1="400" y1="270" x2="285" y2="311"/>
+    <line x1="415" y1="363" x2="265" y2="417"/>
+    <!-- ニ (ni) - two horizontal strokes, bottom longer -->
+    <line x1="500" y1="235" x2="600" y2="235"/>
+    <line x1="485" y1="405" x2="635" y2="405"/>
+  </g>
+</svg>
