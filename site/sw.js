@@ -5,6 +5,7 @@ const NET_TIMEOUT = 2_000 // network-first timeout in ms
 const PRECACHE = [
   './',
   'static/style.css',
+  // en
   'lessons/2-vocabulary.html',
   'lessons/3-grammar.html',
   'lessons/5-word-building.html',
@@ -14,6 +15,28 @@ const PRECACHE = [
   '_f/lessons/3-grammar.html',
   '_f/lessons/5-word-building.html',
   '_f/lessons/6-texts-dialogs.html',
+  // ja
+  'ja/',
+  'ja/lessons/2-vocabulary.html',
+  'ja/lessons/3-grammar.html',
+  'ja/lessons/5-word-building.html',
+  'ja/lessons/6-texts-dialogs.html',
+  '_f/ja/index.html',
+  '_f/ja/lessons/2-vocabulary.html',
+  '_f/ja/lessons/3-grammar.html',
+  '_f/ja/lessons/5-word-building.html',
+  '_f/ja/lessons/6-texts-dialogs.html',
+  // mh
+  'mh/',
+  'mh/lessons/2-vocabulary.html',
+  'mh/lessons/3-grammar.html',
+  'mh/lessons/5-word-building.html',
+  'mh/lessons/6-texts-dialogs.html',
+  '_f/mh/index.html',
+  '_f/mh/lessons/2-vocabulary.html',
+  '_f/mh/lessons/3-grammar.html',
+  '_f/mh/lessons/5-word-building.html',
+  '_f/mh/lessons/6-texts-dialogs.html',
 ]
 
 self.addEventListener('install', () => {
@@ -26,7 +49,7 @@ self.addEventListener('activate', e => {
       Promise.all(keys.filter(k => k !== CACHE).map(k => caches.delete(k)))
     ).then(() => self.clients.claim())
       .then(() => {
-        // Background precache — does not block activation or navigation
+        // Background precache - does not block activation or navigation
         caches.open(CACHE).then(c => c.addAll(PRECACHE)).catch(() => {})
       })
   )

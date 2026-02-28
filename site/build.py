@@ -4,11 +4,13 @@ Minihongo static site builder.
 
 - Build-time web components (custom elements with <slot> expansion)
 - htmz fragment generation for partial page loads
+- Multilingual output (en, ja, mh) from single page source
 - Zero dependencies beyond Python 3.10+
 
 Usage: python site/build.py
 """
 
+import csv
 import hashlib
 import os
 import re
@@ -20,6 +22,76 @@ COMPONENTS = ROOT / "components"
 PAGES = ROOT / "pages"
 STATIC = ROOT / "static"
 OUT = ROOT.parent / "docs"
+DATA = ROOT.parent / "data"
+
+LANGS = ['en', 'ja', 'mh']
+LANG_COL = {'en': 'english', 'ja': 'japanese', 'mh': 'minihongo'}
+# mh uses Japanese script, so html lang is 'ja' for it too
+HTML_LANGS = {'en': 'en', 'ja': 'ja', 'mh': 'ja'}
+LANG_LABELS = {'en': 'EN', 'ja': '日本語', 'mh': 'MH'}
+BASE_URLS = {'en': '/', 'ja': '/ja/', 'mh': '/mh/'}
+
+
+def load_csv(name):
+    with open(DATA / f'{name}.csv', encoding='utf-8') as f:
+        return list(csv.DictReader(f))
+
+
+def load_nav_labels():
+    """Load page names per language from pages.csv."""
+    pages = sorted(load_csv('pages'), key=lambda r: int(r['sort_order']))
+    labels = {}
+    for lang in LANGS:
+        lang_labels = {}
+        for p in pages:
+            col = LANG_COL[lang]
+            name = p.get(f'name_{col}', '').strip()
+            if not name:
+                name = p.get('name_english', '').strip()
+            if not name:
+                name = p.get('name_minihongo', '').strip()
+            lang_labels[p['id']] = name
+        labels[lang] = lang_labels
+    return labels
+
+
+def load_ui_strings():
+    """Load ui_strings.csv into nested dict: {key: {lang: value}}."""
+    rows = load_csv('ui_strings')
+    return {r['key']: r for r in rows}
+
+
+def detect_lang(rel_path):
+    """Detect language from relative page path."""
+    s = str(rel_path)
+    for prefix in ['ja/', 'mh/']:
+        if s.startswith(prefix):
+            return prefix.rstrip('/')
+    return 'en'
+
+
+def lang_switcher_html(rel_path, lang):
+    """Generate language switcher links for a page."""
+    # Get the page-relative path (strip lang prefix)
+    s = str(rel_path)
+    if lang != 'en':
+        page_path = s[len(lang) + 1:]  # strip 'ja/' or 'mh/'
+    else:
+        page_path = s
+
+    links = []
+    for l in LANGS:
+        label = LANG_LABELS[l]
+        if l == 'en':
+            href = f'/{page_path}'
+        else:
+            href = f'/{l}/{page_path}'
+        if l == lang:
+            links.append(f'<span class="lang-current">{label}</span>')
+        else:
+            links.append(f'<a href="{href}" class="lang-link">{label}</a>')
+
+    return f'<span class="lang-switch">{" ".join(links)}</span>'
 
 
 def load_components():
@@ -32,11 +104,7 @@ def load_components():
 
 
 def extract_slots(inner_html):
-    """Parse slotted content from inside a component usage.
-
-    Named slots:   <span slot="title">Hello</span>  -> slots["title"] = "Hello"
-    Default slot:  everything else                    -> slots[""]
-    """
+    """Parse slotted content from inside a component usage."""
     slots = {}
     named_re = re.compile(r'<(\w+)\s+slot="([^"]+)"[^>]*>(.*?)</\1>', re.DOTALL)
     for m in named_re.finditer(inner_html):
@@ -49,14 +117,12 @@ def extract_slots(inner_html):
 
 def fill_slots(template, slots):
     """Replace <slot> elements in a component template with actual content."""
-    # Named: <slot name="x">fallback</slot>
     out = re.sub(
         r'<slot\s+name="([^"]+)">(.*?)</slot>',
         lambda m: slots.get(m.group(1), m.group(2)),
         template,
         flags=re.DOTALL,
     )
-    # Default: <slot>fallback</slot>
     out = re.sub(
         r'<slot>(.*?)</slot>',
         lambda m: slots.get("", m.group(1)),
@@ -67,18 +133,11 @@ def fill_slots(template, slots):
 
 
 def expand(html, components):
-    """Expand custom element tags inside-out (innermost first).
-
-    Uses a regex that only matches components whose inner content
-    contains no other component tags. Repeats until all are expanded.
-    """
+    """Expand custom element tags inside-out (innermost first)."""
     comp_names = "|".join(re.escape(n) for n in components)
     if not comp_names:
         return html
 
-    # Match a component whose content has NO nested component opening tags.
-    # The negative lookahead (?!<(comp-names)) at each char prevents matching
-    # outer components before their children are expanded.
     inner_re = re.compile(
         rf"<({comp_names})([^>]*)>((?:(?!<(?:{comp_names})[\s>]).)*)</\1>",
         re.DOTALL,
@@ -120,6 +179,7 @@ def build():
         shutil.copy2(f, OUT / f.name)
 
     components = load_components()
+    nav_labels = load_nav_labels()
     print(f"components: {', '.join(components)}")
 
     frag_dir = OUT / "_f"
@@ -127,15 +187,30 @@ def build():
 
     for src in sorted(PAGES.rglob("*.html")):
         rel = src.relative_to(PAGES)
+        lang = detect_lang(rel)
+        lang_base = BASE_URLS[lang] if base_url == "/" else base_url
+
         html = expand(src.read_text(), components)
-        html = html.replace("{{BASE_URL}}", base_url)
+        html = html.replace("{{BASE_URL}}", lang_base)
+        html = html.replace("{{HTML_LANG}}", HTML_LANGS[lang])
+
+        # Nav labels
+        labels = nav_labels[lang]
+        html = html.replace("{{NAV_VOCABULARY}}", labels.get('vocabulary', 'Vocabulary'))
+        html = html.replace("{{NAV_GRAMMAR}}", labels.get('grammar', 'Grammar'))
+        html = html.replace("{{NAV_WORD_BUILDING}}", labels.get('word-building', 'Word Building'))
+        html = html.replace("{{NAV_READING}}", labels.get('reading', 'Reading'))
+
+        # Language switcher
+        switcher = lang_switcher_html(rel, lang)
+        html = html.replace("{{LANG_SWITCHER}}", switcher)
 
         # Full page
         dest = OUT / rel
         dest.parent.mkdir(parents=True, exist_ok=True)
         dest.write_text(html)
 
-        # htmz fragment (just the <main> element)
+        # htmz fragment
         frag = frag_dir / rel
         frag.parent.mkdir(parents=True, exist_ok=True)
         frag.write_text(extract_fragment(html))

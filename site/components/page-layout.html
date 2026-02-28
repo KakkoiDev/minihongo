@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="{{HTML_LANG}}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,10 +10,11 @@
 <body>
   <nav>
     <a href="./" class="logo" lang="ja">ミニ本語</a>
-    <a href="lessons/2-vocabulary.html">Vocabulary</a>
-    <a href="lessons/3-grammar.html">Grammar</a>
-    <a href="lessons/5-word-building.html">Word Building</a>
-    <a href="lessons/6-texts-dialogs.html">Reading</a>
+    <a href="lessons/2-vocabulary.html">{{NAV_VOCABULARY}}</a>
+    <a href="lessons/3-grammar.html">{{NAV_GRAMMAR}}</a>
+    <a href="lessons/5-word-building.html">{{NAV_WORD_BUILDING}}</a>
+    <a href="lessons/6-texts-dialogs.html">{{NAV_READING}}</a>
+    {{LANG_SWITCHER}}
   </nav>
 
   <main id="content">
@@ -40,7 +41,7 @@
         const pagePath = loc.pathname.replace(basePath, '').replace(/^_f\//, '')
         const pageUrl = base + pagePath
         const h1 = document.querySelector('#content h1')
-        document.title = (h1?.textContent || 'Minihongo') + ' — Minihongo'
+        document.title = (h1?.textContent || 'Minihongo') + ' - Minihongo'
         if (location.href !== pageUrl) history.pushState({ path: pagePath }, '', pageUrl)
       })
     }
@@ -54,12 +55,13 @@
           const doc = new DOMParser().parseFromString(html, 'text/html')
           document.querySelector('#content')?.replaceWith(...doc.body.childNodes)
           const h1 = document.querySelector('#content h1')
-          document.title = (h1?.textContent || 'Minihongo') + ' — Minihongo'
+          document.title = (h1?.textContent || 'Minihongo') + ' - Minihongo'
         })
     })
 
     // Rewrite nav links for htmz
     document.querySelectorAll('nav a:not(.logo)').forEach(a => {
+      if (a.classList.contains('lang-link')) return
       a.target = 'htmz'
       const path = new URL(a.href).pathname.replace(basePath, '')
       a.href = base + '_f/' + path + '#content'
@@ -82,7 +84,7 @@
       document.querySelector('iframe[name=htmz]').src = base + '_f/' + path + '#content'
     })
 
-    navigator.serviceWorker?.register('sw.js')
+    navigator.serviceWorker?.register('/sw.js')
   </script>
   <iframe hidden name="htmz" onload="onHtmzLoad(this)"></iframe>
 </body>

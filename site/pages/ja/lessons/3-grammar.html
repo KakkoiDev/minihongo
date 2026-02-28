@@ -1,0 +1,343 @@
+<page-layout>
+  <span slot="title">Grammar - ミニ本語</span>
+
+  <h1>Grammar</h1>
+  <p>The structural insights that unlock the language.</p>
+
+  <label class="toggle">
+    <input type="checkbox" id="furigana-toggle" checked>
+    読みを表示する
+  </label>
+
+  <nav class="toc">
+    <ul>
+      <li><a href="#sentence-shape">Sentence Shape</a></li>
+      <li><a href="#particles">Particles</a></li>
+      <li><a href="#verbs">Verbs</a></li>
+      <li><a href="#describing-things">Describing Things</a></li>
+      <li><a href="#making-nouns">Making Nouns</a></li>
+      <li><a href="#will-conditions">Will &amp; Conditions</a></li>
+      <li><a href="#questions">Questions</a></li>
+    </ul>
+  </nav>
+
+  <h2 id="sentence-shape" class="section-heading">第1: 文の形 (Sentence Shape)</h2>
+
+  <grammar-point>
+    <span slot="pattern">語順 (Word Order)</span>
+    <span slot="explanation">Verb last. Particles mark roles. Sentences end with verb, adjective, or noun+だ.</span>
+    <div class="sentence">
+      <p lang="ja"><ruby>私<rt>わたし</rt></ruby>は <ruby>本<rt>ほん</rt></ruby>を <ruby>読<rt>よ</rt></ruby>む</p>
+      <p>I read a book. (I + book + read)</p>
+    </div>
+    <div class="sentence">
+      <p lang="ja"><ruby>私<rt>わたし</rt></ruby>は <ruby>人<rt>ひと</rt></ruby>だ。</p>
+      <p>I am a person.</p>
+    </div>
+  </grammar-point>
+
+  <grammar-point>
+    <span slot="pattern">省略 (Dropping)</span>
+    <span slot="explanation">Drop what's known. Subjects, objects - anything established vanishes. This is the default.</span>
+    <div class="sentence">
+      <p lang="ja">「<ruby>何<rt>なに</rt></ruby>を <ruby>食<rt>た</rt></ruby>べる？」「<ruby>魚<rt>さかな</rt></ruby>。」</p>
+      <p>What will you eat? - Fish.</p>
+    </div>
+  </grammar-point>
+
+  <grammar-point>
+    <span slot="pattern">ある / いる (Existence)</span>
+    <span slot="explanation">Existence IS possession. No separate "have" verb. いる for living, ある for everything else.</span>
+    <div class="sentence">
+      <p lang="ja"><ruby>猫<rt>ねこ</rt></ruby>がいる。<ruby>本<rt>ほん</rt></ruby>がある。</p>
+      <p>A cat is here. A book is here.</p>
+    </div>
+    <div class="sentence">
+      <p lang="ja"><ruby>私<rt>わたし</rt></ruby>は <ruby>本<rt>ほん</rt></ruby>がある。</p>
+      <p>I have a book. (as for me, a book exists)</p>
+    </div>
+  </grammar-point>
+
+  <h2 id="particles" class="section-heading">第2: 助詞 (Particles)</h2>
+
+  <grammar-point>
+    <span slot="pattern">は (wa) — topic</span>
+    <span slot="explanation">Topic marker. "As for X..."</span>
+    <div class="sentence">
+      <p lang="ja">この <ruby>本<rt>ほん</rt></ruby>は <ruby>良<rt>よ</rt></ruby>い。/ <ruby>私<rt>わたし</rt></ruby>は <ruby>目<rt>め</rt></ruby>が <ruby>良<rt>よ</rt></ruby>い。</p>
+      <p>This book is good. / As for me, my eyes are good. (は = topic, が = subject within)</p>
+    </div>
+  </grammar-point>
+
+  <grammar-point>
+    <span slot="pattern">が (ga) — subject</span>
+    <span slot="explanation">Subject. Who does it. New information.</span>
+    <div class="sentence">
+      <p lang="ja"><ruby>誰<rt>だれ</rt></ruby>が <ruby>来<rt>く</rt></ruby>る？</p>
+      <p>Who is coming?</p>
+    </div>
+  </grammar-point>
+
+  <grammar-point>
+    <span slot="pattern">を (o) — object</span>
+    <span slot="explanation">Object. What the action is done to.</span>
+    <div class="sentence">
+      <p lang="ja"><ruby>水<rt>みず</rt></ruby>を <ruby>飲<rt>の</rt></ruby>む。</p>
+      <p>I drink water.</p>
+    </div>
+  </grammar-point>
+
+  <grammar-point>
+    <span slot="pattern">に (ni) — direction / time / location</span>
+    <span slot="explanation">Direction, time, location of existence.</span>
+    <div class="sentence">
+      <p lang="ja"><ruby>山<rt>やま</rt></ruby>に <ruby>行<rt>い</rt></ruby>く。/ <ruby>夜<rt>よる</rt></ruby>に <ruby>寝<rt>ね</rt></ruby>る。/ <ruby>家<rt>いえ</rt></ruby>に <ruby>猫<rt>ねこ</rt></ruby>がいる。</p>
+      <p>I go to the mountain. / I sleep at night. / A cat is in the house.</p>
+    </div>
+  </grammar-point>
+
+  <grammar-point>
+    <span slot="pattern">で (de) — location of action / means</span>
+    <span slot="explanation">Location of action, means/tool. Compare に: に = where things exist, で = where things happen.</span>
+    <div class="sentence">
+      <p lang="ja"><ruby>家<rt>いえ</rt></ruby>で <ruby>読<rt>よ</rt></ruby>む。/ <ruby>手<rt>て</rt></ruby>で <ruby>書<rt>か</rt></ruby>く。</p>
+      <p>I read at home. / I write by hand.</p>
+    </div>
+  </grammar-point>
+
+  <grammar-point>
+    <span slot="pattern">の (no) — connecting</span>
+    <span slot="explanation">Connects nouns. Also turns verbs into nouns (see section 5).</span>
+    <div class="sentence">
+      <p lang="ja"><ruby>私<rt>わたし</rt></ruby>の <ruby>本<rt>ほん</rt></ruby> / <ruby>山<rt>やま</rt></ruby>の <ruby>上<rt>うえ</rt></ruby></p>
+      <p>My book / top of the mountain</p>
+    </div>
+  </grammar-point>
+
+  <grammar-point>
+    <span slot="pattern">と (to) — and / quoting</span>
+    <span slot="explanation">And, with, quotation. Quotes anything: speech, thoughts, sounds, names.</span>
+    <div class="sentence">
+      <p lang="ja"><ruby>水<rt>みず</rt></ruby>と <ruby>魚<rt>さかな</rt></ruby>を <ruby>買<rt>か</rt></ruby>った。/ 「<ruby>行<rt>い</rt></ruby>く」と <ruby>言<rt>い</rt></ruby>った。</p>
+      <p>I bought water and fish. / Said "I'll go."</p>
+    </div>
+  </grammar-point>
+
+  <grammar-point>
+    <span slot="pattern">も (mo) — also</span>
+    <span slot="explanation">Also. Replaces は, が, or を.</span>
+    <div class="sentence">
+      <p lang="ja"><ruby>父<rt>ちち</rt></ruby>は <ruby>本<rt>ほん</rt></ruby>を <ruby>読<rt>よ</rt></ruby>む。<ruby>母<rt>はは</rt></ruby>も <ruby>読<rt>よ</rt></ruby>む。</p>
+      <p>Father reads books. Mother also reads.</p>
+    </div>
+  </grammar-point>
+
+  <grammar-point>
+    <span slot="pattern">から / まで — from / until</span>
+    <span slot="explanation">Start points (from), end points (until). から also gives reasons (because).</span>
+    <div class="sentence">
+      <p lang="ja"><ruby>家<rt>いえ</rt></ruby>から <ruby>山<rt>やま</rt></ruby>まで <ruby>歩<rt>ある</rt></ruby>く。/ <ruby>夜<rt>よる</rt></ruby>まで <ruby>待<rt>ま</rt></ruby>つ。</p>
+      <p>I walk from home to the mountain. / I wait until night.</p>
+    </div>
+    <div class="sentence">
+      <p lang="ja"><ruby>寒<rt>さむ</rt></ruby>いから、<ruby>家<rt>いえ</rt></ruby>にいる。</p>
+      <p>It's cold, so I stay home.</p>
+    </div>
+  </grammar-point>
+
+  <grammar-point>
+    <span slot="pattern">より — comparison</span>
+    <span slot="explanation">Xより = "more than X." One particle, all comparisons.</span>
+    <div class="sentence">
+      <p lang="ja"><ruby>山<rt>やま</rt></ruby>より <ruby>大<rt>おお</rt></ruby>きい。/ <ruby>魚<rt>さかな</rt></ruby>より <ruby>肉<rt>にく</rt></ruby>が <ruby>好<rt>す</rt></ruby>きだ。</p>
+      <p>Bigger than a mountain. / I like meat more than fish.</p>
+    </div>
+  </grammar-point>
+
+  <h2 id="verbs" class="section-heading">第3: 動詞 (Verbs)</h2>
+
+  <grammar-point>
+    <span slot="pattern">四つの形 (Four Forms)</span>
+    <span slot="explanation">Plain form only. Polite form (ます) is a social layer, not grammar. る/た/ない/なかった. Everything layers on top.</span>
+    <div class="sentence">
+      <p lang="ja"><ruby>食<rt>た</rt></ruby>べる → <ruby>食<rt>た</rt></ruby>べた → <ruby>食<rt>た</rt></ruby>べない → <ruby>食<rt>た</rt></ruby>べなかった</p>
+      <p>eat / ate / don't eat / didn't eat</p>
+    </div>
+    <div class="sentence">
+      <p lang="ja"><ruby>行<rt>い</rt></ruby>く → <ruby>行<rt>い</rt></ruby>った → <ruby>行<rt>い</rt></ruby>かない → <ruby>行<rt>い</rt></ruby>かなかった</p>
+      <p>go / went / don't go / didn't go</p>
+    </div>
+    <div class="sentence">
+      <p lang="ja">する → した → しない → しなかった</p>
+      <p>do / did / don't do / didn't do</p>
+    </div>
+    <div class="sentence">
+      <p lang="ja"><ruby>来<rt>く</rt></ruby>る → <ruby>来<rt>き</rt></ruby>た → <ruby>来<rt>こ</rt></ruby>ない → <ruby>来<rt>こ</rt></ruby>なかった</p>
+      <p>come / came / don't come / didn't come</p>
+    </div>
+  </grammar-point>
+
+  <grammar-point>
+    <span slot="pattern">て形 (Te-Form)</span>
+    <span slot="explanation">Universal connector. Chain actions, request (+ください), ongoing (+いる), permission (+もいい), prohibition (+はいけない). One tense at the end. Formation varies by verb ending: く→いて, む→んで, つ→って, る→て.</span>
+    <div class="sentence">
+      <p lang="ja"><ruby>書<rt>か</rt></ruby>いて <ruby>読<rt>よ</rt></ruby>んで <ruby>寝<rt>ね</rt></ruby>た。</p>
+      <p>Wrote, read, slept. (one tense at the end)</p>
+    </div>
+    <div class="sentence">
+      <p lang="ja"><ruby>待<rt>ま</rt></ruby>ってください。/ <ruby>今<rt>いま</rt></ruby> <ruby>読<rt>よ</rt></ruby>んでいる。</p>
+      <p>Please wait. / I am reading now.</p>
+    </div>
+    <div class="sentence">
+      <p lang="ja"><ruby>座<rt>すわ</rt></ruby>ってもいい？ / <ruby>入<rt>はい</rt></ruby>ってはいけない。</p>
+      <p>May I sit? / Must not enter.</p>
+    </div>
+    <div class="sentence">
+      <p lang="ja"><ruby>書<rt>か</rt></ruby>く→<ruby>書<rt>か</rt></ruby>いて / <ruby>飲<rt>の</rt></ruby>む→<ruby>飲<rt>の</rt></ruby>んで / <ruby>待<rt>ま</rt></ruby>つ→<ruby>待<rt>ま</rt></ruby>って / <ruby>食<rt>た</rt></ruby>べる→<ruby>食<rt>た</rt></ruby>べて</p>
+      <p>く→いて / む→んで / つ→って / る→て</p>
+    </div>
+  </grammar-point>
+
+  <grammar-point>
+    <span slot="pattern">られる / える (Potential)</span>
+    <span slot="explanation">Ability. る-verbs: drop る, add られる. Other verbs: え-row + る. する → できる.</span>
+    <div class="sentence">
+      <p lang="ja"><ruby>書<rt>か</rt></ruby>ける / <ruby>見<rt>み</rt></ruby>られる / する → できる</p>
+      <p>can write / can see / do → can do</p>
+    </div>
+  </grammar-point>
+
+  <h2 id="describing-things" class="section-heading">第4: 様子 (Describing Things)</h2>
+
+  <grammar-point>
+    <span slot="pattern">い形容詞</span>
+    <span slot="explanation">ARE verbs. 寒い is a complete sentence. Conjugate: くない, かった, くて. No copula needed.</span>
+    <div class="sentence">
+      <p lang="ja"><ruby>寒<rt>さむ</rt></ruby>い。<ruby>寒<rt>さむ</rt></ruby>くない。<ruby>寒<rt>さむ</rt></ruby>かった。<ruby>寒<rt>さむ</rt></ruby>くて <ruby>暗<rt>くら</rt></ruby>い。</p>
+      <p>Cold. Not cold. Was cold. Cold and dark.</p>
+    </div>
+  </grammar-point>
+
+  <grammar-point>
+    <span slot="pattern">な形容詞</span>
+    <span slot="explanation">Add な before nouns. じゃない (neg), だった (past).</span>
+    <div class="sentence">
+      <p lang="ja"><ruby>必要<rt>ひつよう</rt></ruby>な <ruby>物<rt>もの</rt></ruby> / <ruby>必要<rt>ひつよう</rt></ruby>じゃない / <ruby>必要<rt>ひつよう</rt></ruby>だった</p>
+      <p>necessary thing / not necessary / was necessary</p>
+    </div>
+  </grammar-point>
+
+  <grammar-point>
+    <span slot="pattern">〜くなる / 〜になる</span>
+    <span slot="explanation">Change of state. One pattern for all changes.</span>
+    <div class="sentence">
+      <p lang="ja"><ruby>暑<rt>あつ</rt></ruby>くなる。/ <ruby>必要<rt>ひつよう</rt></ruby>になる。</p>
+      <p>It becomes hot. / It becomes necessary.</p>
+    </div>
+  </grammar-point>
+
+  <grammar-point>
+    <span slot="pattern">Clause + noun (Relative Clauses)</span>
+    <span slot="explanation">Put a verb or sentence before a noun to describe it. Engine of word-building.</span>
+    <div class="sentence">
+      <p lang="ja"><ruby>山<rt>やま</rt></ruby>で <ruby>遊<rt>あそ</rt></ruby>ぶ <ruby>子供<rt>こども</rt></ruby> / <ruby>私<rt>わたし</rt></ruby>が <ruby>買<rt>か</rt></ruby>った <ruby>物<rt>もの</rt></ruby></p>
+      <p>child who plays on the mountain / thing I bought</p>
+    </div>
+  </grammar-point>
+
+  <h2 id="making-nouns" class="section-heading">第5: 名詞化 (Making Nouns)</h2>
+
+  <grammar-point>
+    <span slot="pattern">の (Nominalization)</span>
+    <span slot="explanation">Casual. 食べるのが好き. Also in questions: 何しているの？</span>
+    <div class="sentence">
+      <p lang="ja"><ruby>食<rt>た</rt></ruby>べるのが <ruby>好<rt>す</rt></ruby>きだ。/ <ruby>何<rt>なに</rt></ruby>しているの？</p>
+      <p>I like eating. / What are you doing?</p>
+    </div>
+  </grammar-point>
+
+  <grammar-point>
+    <span slot="pattern">こと</span>
+    <span slot="explanation">Abstract concept. 走ることは良い. 行くことができる.</span>
+    <div class="sentence">
+      <p lang="ja"><ruby>走<rt>はし</rt></ruby>ることは <ruby>良<rt>よ</rt></ruby>い。/ <ruby>行<rt>い</rt></ruby>くことができる。</p>
+      <p>Running is good. / It is possible to go.</p>
+    </div>
+  </grammar-point>
+
+  <grammar-point>
+    <span slot="pattern">もの</span>
+    <span slot="explanation">Physical thing or tangible reason. 飲むもの = something to drink.</span>
+    <div class="sentence">
+      <p lang="ja"><ruby>飲<rt>の</rt></ruby>むもの / <ruby>読<rt>よ</rt></ruby>むもの</p>
+      <p>something to drink / something to read</p>
+    </div>
+  </grammar-point>
+
+  <h2 id="will-conditions" class="section-heading">第6: 思いと条件 (Will &amp; Conditions)</h2>
+
+  <grammar-point>
+    <span slot="pattern">たい / 欲しい</span>
+    <span slot="explanation">Want to do (verb stem + たい). Want a thing (欲しい).</span>
+    <div class="sentence">
+      <p lang="ja"><ruby>行<rt>い</rt></ruby>きたい。/ <ruby>新<rt>あたら</rt></ruby>しい <ruby>家<rt>いえ</rt></ruby>が <ruby>欲<rt>ほ</rt></ruby>しい。</p>
+      <p>I want to go. / I want a new house.</p>
+    </div>
+  </grammar-point>
+
+  <grammar-point>
+    <span slot="pattern">たら / なら</span>
+    <span slot="explanation">たら = when/if something happens (verb た + ら). なら = if it's the case.</span>
+    <div class="sentence">
+      <p lang="ja"><ruby>雨<rt>あめ</rt></ruby>が <ruby>降<rt>ふ</rt></ruby>ったら、<ruby>行<rt>い</rt></ruby>かない。/ <ruby>時間<rt>じかん</rt></ruby>があるなら、<ruby>来<rt>き</rt></ruby>てください。</p>
+      <p>If it rains, I won't go. / If you have time, please come.</p>
+    </div>
+  </grammar-point>
+
+  <grammar-point>
+    <span slot="pattern">と<ruby>思<rt>おも</rt></ruby>う / と<ruby>言<rt>い</rt></ruby>う</span>
+    <span slot="explanation">Quote anything with と. Thoughts, speech, sounds. という = "called."</span>
+    <div class="sentence">
+      <p lang="ja"><ruby>良<rt>よ</rt></ruby>いと <ruby>思<rt>おも</rt></ruby>う。/ 「<ruby>行<rt>い</rt></ruby>く」と <ruby>言<rt>い</rt></ruby>った。/ <ruby>富士山<rt>ふじさん</rt></ruby>という <ruby>山<rt>やま</rt></ruby></p>
+      <p>I think it's good. / Said "I'll go." / A mountain called Fujisan.</p>
+    </div>
+  </grammar-point>
+
+  <grammar-point>
+    <span slot="pattern">ために</span>
+    <span slot="explanation">Purpose and beneficiary. Verb+ために or noun+のために.</span>
+    <div class="sentence">
+      <p lang="ja"><ruby>学<rt>まな</rt></ruby>ぶために <ruby>読<rt>よ</rt></ruby>む。/ <ruby>子供<rt>こども</rt></ruby>のために。</p>
+      <p>I read in order to learn. / For the children.</p>
+    </div>
+  </grammar-point>
+
+  <h2 id="questions" class="section-heading">第7: 聞き方 (Questions)</h2>
+
+  <grammar-point>
+    <span slot="pattern">か / ね / よ</span>
+    <span slot="explanation">Question / right? / emphasis. か often dropped in casual - just rising tone.</span>
+    <div class="sentence">
+      <p lang="ja">これは <ruby>水<rt>みず</rt></ruby>か？ / <ruby>良<rt>よ</rt></ruby>い <ruby>日<rt>ひ</rt></ruby>だね。/ <ruby>行<rt>い</rt></ruby>くよ。</p>
+      <p>Is this water? / Nice day, right? / I'm going!</p>
+    </div>
+  </grammar-point>
+
+  <grammar-point>
+    <span slot="pattern">何・誰・どこ・いつ・なぜ + も/でも</span>
+    <span slot="explanation">Question words go where the answer goes. +も (neg verb) = nothing/nobody. +でも = anything/anyone. 5 words + 2 particles = 20 pronouns free.</span>
+    <div class="sentence">
+      <p lang="ja"><ruby>何<rt>なに</rt></ruby>を <ruby>食<rt>た</rt></ruby>べる？→ <ruby>何<rt>なに</rt></ruby>も <ruby>食<rt>た</rt></ruby>べない。</p>
+      <p>What will you eat? → I eat nothing.</p>
+    </div>
+    <div class="sentence">
+      <p lang="ja"><ruby>何<rt>なに</rt></ruby>でも <ruby>作<rt>つく</rt></ruby>れる。/ <ruby>誰<rt>だれ</rt></ruby>もいない。/ <ruby>誰<rt>だれ</rt></ruby>でもできる。</p>
+      <p>I can make anything. / Nobody is here. / Anyone can do it.</p>
+    </div>
+  </grammar-point>
+
+  <nav class="lesson-nav">
+    <a href="lessons/2-vocabulary.html">← Vocabulary</a>
+    <a href="lessons/5-word-building.html">Word Building →</a>
+  </nav>
+</page-layout>

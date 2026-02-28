@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate lesson HTML pages from CSV data."""
+"""Generate lesson HTML pages from CSV data for all languages."""
 import csv
 import html as html_mod
 import re
@@ -7,15 +7,77 @@ from pathlib import Path
 from collections import defaultdict
 
 DATA = Path('data')
-OUT = Path('site/pages/lessons')
+PAGES_OUT = Path('site/pages')
+
+LANGS = ['en', 'ja', 'mh']
+LANG_COL = {'en': 'english', 'ja': 'japanese', 'mh': 'minihongo'}
+
+PAGE_FILES = {
+    'vocabulary': '2-vocabulary.html',
+    'grammar': '3-grammar.html',
+    'word-building': '5-word-building.html',
+    'reading': '6-texts-dialogs.html',
+}
+
+WB_DESC_KEYS = {
+    'Real Kanji Compounds': 'wb_desc_compounds',
+    'Build Your Own Vocabulary': 'wb_desc_byov',
+    'Common Words in Minihongo': 'wb_desc_common',
+}
+
+UI_STRINGS = {}
+PAGE_DATA = []
 
 
-# -- Helpers ------------------------------------------------------------------
+# -- Data loading -------------------------------------------------------------
 
 def load_csv(name):
     """Read data/{name}.csv into list of dicts."""
     with open(DATA / f'{name}.csv', encoding='utf-8') as f:
         return list(csv.DictReader(f))
+
+
+def load_ui_strings():
+    global UI_STRINGS
+    UI_STRINGS = {r['key']: r for r in load_csv('ui_strings')}
+
+
+def load_page_data():
+    global PAGE_DATA
+    PAGE_DATA = sorted(load_csv('pages'), key=lambda r: int(r['sort_order']))
+
+
+# -- Helpers ------------------------------------------------------------------
+
+def ui(key, lang):
+    """Get UI string with fallback: lang -> en -> mh."""
+    row = UI_STRINGS.get(key)
+    if not row:
+        return key
+    for l in [lang, 'en', 'mh']:
+        val = row.get(l, '').strip()
+        if val:
+            return val
+    return key
+
+
+def t(row, field, lang):
+    """Get translated field with fallback: lang -> en -> mh."""
+    for l in [LANG_COL[lang], 'english', 'minihongo']:
+        col = f'{field}_{l}' if field else l
+        val = row.get(col, '').strip()
+        if val:
+            return val
+    return ''
+
+
+def page_desc(page_row, lang):
+    """Get page description with fallback: lang -> en -> mh."""
+    for l in [lang, 'en', 'mh']:
+        val = page_row.get(f'desc_{l}', '').strip()
+        if val:
+            return val
+    return ''
 
 
 def to_ruby_html(text):
@@ -32,11 +94,11 @@ def esc(text):
     return html_mod.escape(text, quote=False)
 
 
-def bilingual(mh, en):
+def bilingual(mh, translated):
     """Format bilingual heading."""
-    if mh == en or not en:
+    if mh == translated or not translated:
         return esc(mh)
-    return f'{esc(mh)} ({esc(en)})'
+    return f'{esc(mh)} ({esc(translated)})'
 
 
 def by_sort(rows):
@@ -55,50 +117,21 @@ def slugify(text):
 
 # -- Page wrapper -------------------------------------------------------------
 
-PAGE_META = {
-    'vocabulary': {
-        'title': 'Vocabulary',
-        'file': '2-vocabulary.html',
-        'desc': '181 words. Every word earns its place.',
-        'prev': None,
-        'next': ('lessons/3-grammar.html', 'Grammar'),
-    },
-    'grammar': {
-        'title': 'Grammar',
-        'file': '3-grammar.html',
-        'desc': 'The structural insights that unlock the language.',
-        'prev': ('lessons/2-vocabulary.html', 'Vocabulary'),
-        'next': ('lessons/5-word-building.html', 'Word Building'),
-    },
-    'word-building': {
-        'title': 'Word Building',
-        'file': '5-word-building.html',
-        'desc': '181 words. Infinite expression. Combine core words to say anything.',
-        'prev': ('lessons/3-grammar.html', 'Grammar'),
-        'next': ('lessons/6-texts-dialogs.html', 'Reading'),
-    },
-    'reading': {
-        'title': 'Reading',
-        'file': '6-texts-dialogs.html',
-        'desc': 'Haiku, dialogs, and short stories using only the 181 base words.',
-        'prev': ('lessons/5-word-building.html', 'Word Building'),
-        'next': None,
-    },
-}
-
-# Section descriptions for word-building h2 categories (not in CSV)
-WB_DESCS = {
-    'Real Kanji Compounds': 'Real Japanese words built entirely from kanji in the 181-word vocabulary.',
-    '181 \u2192 \u221e': 'Like Toki Pona, combine primitives to express any concept. From simple negation to creative description.',
-    'Common Words in Minihongo': 'Real Japanese words from the top 1000 most common, expressed using only the 181 base words.',
-}
+def get_page(page_id):
+    """Get page data row by id."""
+    for p in PAGE_DATA:
+        if p['id'] == page_id:
+            return p
+    return None
 
 
-def wrap_page(page_id, content, toc=None):
+def wrap_page(page_id, content, lang, toc=None):
     """Wrap section content in page-layout template."""
-    meta = PAGE_META[page_id]
-    title = meta['title']
-    desc = meta['desc']
+    page = get_page(page_id)
+    title = t(page, 'name', lang)
+    desc = page_desc(page, lang)
+    site_name = ui('site_name', lang)
+    show_readings = ui('show_readings', lang)
 
     # TOC
     toc_html = ''
@@ -115,29 +148,36 @@ def wrap_page(page_id, content, toc=None):
             f'  </nav>\n\n'
         )
 
-    # Nav links
-    if meta['prev']:
-        href, label = meta['prev']
-        prev_link = f'    <a href="{href}">\u2190 {label}</a>'
+    # Nav links from sorted page list
+    page_ids = [p['id'] for p in PAGE_DATA]
+    idx = page_ids.index(page_id)
+
+    if idx > 0:
+        prev_id = page_ids[idx - 1]
+        prev_label = t(get_page(prev_id), 'name', lang)
+        prev_href = f'lessons/{PAGE_FILES[prev_id]}'
+        prev_link = f'    <a href="{prev_href}">\u2190 {prev_label}</a>'
     else:
         prev_link = '    <span></span>'
 
-    if meta['next']:
-        href, label = meta['next']
-        next_link = f'    <a href="{href}">{label} \u2192</a>'
+    if idx < len(page_ids) - 1:
+        next_id = page_ids[idx + 1]
+        next_label = t(get_page(next_id), 'name', lang)
+        next_href = f'lessons/{PAGE_FILES[next_id]}'
+        next_link = f'    <a href="{next_href}">{next_label} \u2192</a>'
     else:
         next_link = '    <span></span>'
 
     return (
         f'<page-layout>\n'
-        f'  <span slot="title">{title} \u2014 Minihongo</span>\n'
+        f'  <span slot="title">{title} - {site_name}</span>\n'
         f'\n'
         f'  <h1>{title}</h1>\n'
         f'  <p>{desc}</p>\n'
         f'\n'
         f'  <label class="toggle">\n'
         f'    <input type="checkbox" id="furigana-toggle" checked>\n'
-        f'    Show readings\n'
+        f'    {show_readings}\n'
         f'  </label>\n'
         f'\n'
         f'{toc_html}'
@@ -150,13 +190,34 @@ def wrap_page(page_id, content, toc=None):
     )
 
 
+# -- Homepage -----------------------------------------------------------------
+
+def gen_index(lang):
+    site_name = ui('site_name', lang)
+    tagline = ui('home_tagline', lang)
+    desc = ui('home_desc', lang)
+
+    return (
+        f'<page-layout>\n'
+        f'  <span slot="title">{site_name}</span>\n'
+        f'\n'
+        f'  <h1 lang="ja">\u30df\u30cb\u672c\u8a9e</h1>\n'
+        f'  <p>{tagline}</p>\n'
+        f'  <p>{desc}</p>\n'
+        f'</page-layout>\n'
+    )
+
+
 # -- Vocabulary ---------------------------------------------------------------
 
-def gen_vocabulary(categories, words):
+def gen_vocabulary(categories, words, lang):
     cats = by_sort([c for c in categories if c['page_id'] == 'vocabulary'])
     words_by_cat = defaultdict(list)
     for w in words:
         words_by_cat[w['category_id']].append(w)
+
+    th_word = ui('th_word', lang)
+    th_meaning = ui('th_meaning', lang)
 
     toc = []
     parts = []
@@ -164,28 +225,30 @@ def gen_vocabulary(categories, words):
         cat_words = by_sort(words_by_cat.get(cat['id'], []))
         count = len(cat_words)
         slug = slugify(cat['name_english'])
-        h = bilingual(cat['name_minihongo'], cat['name_english'])
-        toc.append((slug, f'{cat["sort_order"]}. {esc(cat["name_english"])}'))
-        parts.append(f'  <h2 id="{slug}" class="section-heading">{cat["sort_order"]}. {h} \u2014 {count}</h2>\n')
+        translated = t(cat, 'name', lang)
+        h = bilingual(cat['name_minihongo'], translated)
+        toc_label = translated or cat['name_english']
+        toc.append((slug, f'{cat["sort_order"]}. {esc(toc_label)}'))
+        parts.append(f'  <h2 id="{slug}" class="section-heading">{cat["sort_order"]}. {h} - {count}</h2>\n')
         parts.append('\n')
         parts.append('  <table class="compact-table">\n')
-        parts.append('    <thead><tr><th>Word</th><th>Meaning</th><th>Example</th></tr></thead>\n')
+        parts.append(f'    <thead><tr><th>{th_word}</th><th>{th_meaning}</th><th>Example</th></tr></thead>\n')
         parts.append('    <tbody>\n')
         for w in cat_words:
             word = to_ruby_html(w['minihongo'])
-            meaning = esc(w['english'])
+            meaning = esc(t(w, '', lang))
             example = to_ruby_html(w['example_minihongo'])
             parts.append(f'      <tr><td lang="ja">{word}</td><td>{meaning}</td><td lang="ja">{example}</td></tr>\n')
         parts.append('    </tbody>\n')
         parts.append('  </table>\n')
         parts.append('\n')
 
-    return wrap_page('vocabulary', ''.join(parts), toc)
+    return wrap_page('vocabulary', ''.join(parts), lang, toc)
 
 
 # -- Grammar ------------------------------------------------------------------
 
-def gen_grammar(categories, grammar, grammar_examples):
+def gen_grammar(categories, grammar, grammar_examples, lang):
     cats = by_sort([c for c in categories if c['page_id'] == 'grammar'])
     gram_by_cat = defaultdict(list)
     for g in grammar:
@@ -198,36 +261,37 @@ def gen_grammar(categories, grammar, grammar_examples):
     parts = []
     for cat in cats:
         slug = slugify(cat['name_english'])
-        h = bilingual(cat['name_minihongo'], cat['name_english'])
-        toc.append((slug, esc(cat['name_english'])))
+        translated = t(cat, 'name', lang)
+        h = bilingual(cat['name_minihongo'], translated)
+        toc_label = translated or cat['name_english']
+        toc.append((slug, esc(toc_label)))
         parts.append(f'  <h2 id="{slug}" class="section-heading">{h}</h2>\n')
         parts.append('\n')
 
         for gp in by_sort(gram_by_cat.get(cat['id'], [])):
             pattern = to_ruby_html(gp['minihongo'])
-            explanation = gp['explanation_english']
+            explanation = t(gp, 'explanation', lang)
             parts.append('  <grammar-point>\n')
             parts.append(f'    <span slot="pattern">{pattern}</span>\n')
             parts.append(f'    <span slot="explanation">{explanation}</span>\n')
 
             for ex in by_sort(ex_by_gram.get(gp['id'], [])):
                 mh = to_ruby_html(ex['minihongo'])
-                en = ex['english']
+                translated_ex = t(ex, '', lang)
                 parts.append('    <div class="sentence">\n')
                 parts.append(f'      <p lang="ja">{mh}</p>\n')
-                parts.append(f'      <p>{en}</p>\n')
+                parts.append(f'      <p>{translated_ex}</p>\n')
                 parts.append('    </div>\n')
 
             parts.append('  </grammar-point>\n')
             parts.append('\n')
 
-    return wrap_page('grammar', ''.join(parts), toc)
+    return wrap_page('grammar', ''.join(parts), lang, toc)
 
 
 # -- Word Building ------------------------------------------------------------
 
-def gen_word_building(categories, compounds, expressions):
-    # Build lookup tables
+def gen_word_building(categories, compounds, expressions, lang):
     compounds_by_cat = defaultdict(list)
     for c in compounds:
         compounds_by_cat[c['category_id']].append(c)
@@ -235,7 +299,6 @@ def gen_word_building(categories, compounds, expressions):
     for e in expressions:
         expressions_by_cat[e['category_id']].append(e)
 
-    # Separate h2 (no parent) and h3 (with parent) categories
     h2_cats = by_sort([c for c in categories
                        if c['page_id'] == 'word-building' and not c['parent_id']])
     children = defaultdict(list)
@@ -249,49 +312,55 @@ def gen_word_building(categories, compounds, expressions):
     parts = []
     for h2 in h2_cats:
         slug = slugify(h2['name_english'])
-        h = bilingual(h2['name_minihongo'], h2['name_english'])
-        toc.append((slug, esc(h2['name_english'])))
+        translated = t(h2, 'name', lang)
+        h = bilingual(h2['name_minihongo'], translated)
+        toc_label = translated or h2['name_english']
+        toc.append((slug, esc(toc_label)))
         parts.append(f'  <h2 id="{slug}" class="section-heading">{h}</h2>\n')
 
-        # Section description if available
-        desc = WB_DESCS.get(h2['name_english'], '')
-        if desc:
+        desc_key = WB_DESC_KEYS.get(h2['name_english'], '')
+        if desc_key:
+            desc = ui(desc_key, lang)
             parts.append(f'  <p>{desc}</p>\n')
         parts.append('\n')
 
         for h3 in children.get(h2['id'], []):
-            h3_heading = bilingual(h3['name_minihongo'], h3['name_english'])
+            h3_translated = t(h3, 'name', lang)
+            h3_heading = bilingual(h3['name_minihongo'], h3_translated)
             parts.append(f'  <h3>{h3_heading}</h3>\n')
 
             cat_compounds = by_sort(compounds_by_cat.get(h3['id'], []))
             cat_expressions = by_sort(expressions_by_cat.get(h3['id'], []))
 
             if cat_compounds:
-                _render_compound_table(parts, cat_compounds)
+                _render_compound_table(parts, cat_compounds, lang)
             elif cat_expressions:
-                # Determine type: common-word (has japanese) vs concept (no japanese)
                 has_japanese = any(e['japanese'] for e in cat_expressions)
                 if has_japanese:
-                    _render_common_table(parts, cat_expressions)
+                    _render_common_table(parts, cat_expressions, lang)
                 else:
-                    _render_concept_table(parts, cat_expressions)
+                    _render_concept_table(parts, cat_expressions, lang)
 
             parts.append('\n')
 
-    return wrap_page('word-building', ''.join(parts), toc)
+    return wrap_page('word-building', ''.join(parts), lang, toc)
 
 
-def _render_compound_table(parts, rows):
+def _render_compound_table(parts, rows, lang):
     """4-col table: Word / Reading / Meaning / Parts."""
+    th_word = ui('th_word', lang)
+    th_reading = ui('th_reading', lang)
+    th_meaning = ui('th_meaning', lang)
+    th_parts = ui('th_parts', lang)
     parts.append('  <table class="compound-table">\n')
-    parts.append('    <thead><tr><th lang="ja">\u8a00\u8449</th><th>Reading</th><th>Meaning</th><th>Parts</th></tr></thead>\n')
+    parts.append(f'    <thead><tr><th lang="ja">{th_word}</th><th>{th_reading}</th><th>{th_meaning}</th><th>{th_parts}</th></tr></thead>\n')
     parts.append('    <tbody>\n')
     for r in rows:
         parts.append(
             f'      <tr>'
             f'<td lang="ja">{r["minihongo"]}</td>'
             f'<td lang="ja">{r["reading"]}</td>'
-            f'<td>{esc(r["english"])}</td>'
+            f'<td>{esc(t(r, "", lang))}</td>'
             f'<td>{esc(r["english_litteral"])}</td>'
             f'</tr>\n'
         )
@@ -299,10 +368,11 @@ def _render_compound_table(parts, rows):
     parts.append('  </table>\n')
 
 
-def _render_common_table(parts, rows):
+def _render_common_table(parts, rows, lang):
     """4-col table: Word / Reading / English / Minihongo."""
+    th_reading = ui('th_reading', lang)
     parts.append('<table class="compound-table">\n')
-    parts.append('  <thead><tr><th>Word</th><th>Reading</th><th>English</th><th>Minihongo</th></tr></thead>\n')
+    parts.append(f'  <thead><tr><th>Word</th><th>{th_reading}</th><th>English</th><th>Minihongo</th></tr></thead>\n')
     parts.append('  <tbody>\n')
     for r in rows:
         mh = to_ruby_html(r['minihongo'])
@@ -318,10 +388,12 @@ def _render_common_table(parts, rows):
     parts.append('</table>\n')
 
 
-def _render_concept_table(parts, rows):
-    """3-col table: Concept / Minihongo / Literally."""
+def _render_concept_table(parts, rows, lang):
+    """3-col table: Concept / Expression / Literally."""
+    th_concept = ui('th_concept', lang)
+    th_literally = ui('th_literally', lang)
     parts.append('  <table class="compound-table">\n')
-    parts.append('    <thead><tr><th>Concept</th><th lang="ja">\u8a00\u3044\u65b9</th><th>Literally</th></tr></thead>\n')
+    parts.append(f'    <thead><tr><th>{th_concept}</th><th lang="ja">\u8a00\u3044\u65b9</th><th>{th_literally}</th></tr></thead>\n')
     parts.append('    <tbody>\n')
     for r in rows:
         mh = to_ruby_html(r['minihongo'])
@@ -338,7 +410,7 @@ def _render_concept_table(parts, rows):
 
 # -- Reading ------------------------------------------------------------------
 
-def gen_reading(categories, haiku, dialog_groups, dialogs, stories):
+def gen_reading(categories, haiku, dialog_groups, dialogs, stories, lang):
     haiku_by_cat = defaultdict(list)
     for h in haiku:
         haiku_by_cat[h['category_id']].append(h)
@@ -355,7 +427,6 @@ def gen_reading(categories, haiku, dialog_groups, dialogs, stories):
     for s in stories:
         stories_by_cat[s['category_id']].append(s)
 
-    # Separate h2 (no parent) and h3 (with parent) categories
     h2_cats = by_sort([c for c in categories
                        if c['page_id'] == 'reading' and not c['parent_id']])
     children = defaultdict(list)
@@ -369,30 +440,33 @@ def gen_reading(categories, haiku, dialog_groups, dialogs, stories):
     parts = []
     for h2 in h2_cats:
         slug = slugify(h2['name_english'])
-        h = bilingual(h2['name_minihongo'], h2['name_english'])
-        toc.append((slug, esc(h2['name_english'])))
+        translated = t(h2, 'name', lang)
+        h = bilingual(h2['name_minihongo'], translated)
+        toc_label = translated or h2['name_english']
+        toc.append((slug, esc(toc_label)))
         parts.append(f'  <h2 id="{slug}" class="section-heading">{h}</h2>\n')
         parts.append('\n')
 
         for cat in children.get(h2['id'], [h2]):
-            # Subcategory heading (only if there are children)
             if children.get(h2['id']):
-                sub_h = bilingual(cat['name_minihongo'], cat['name_english'])
+                sub_translated = t(cat, 'name', lang)
+                sub_h = bilingual(cat['name_minihongo'], sub_translated)
                 parts.append(f'<h3>{sub_h}</h3>\n')
 
             # Haiku
             for hk in by_sort(haiku_by_cat.get(cat['id'], [])):
                 mh = to_ruby_html(hk['minihongo']).replace(' / ', '<br>')
-                en = hk['english']
+                translated_hk = t(hk, '', lang)
                 parts.append('  <div class="haiku">\n')
                 parts.append(f'    <p lang="ja">{mh}</p>\n')
-                parts.append(f'    <p>{en}</p>\n')
+                parts.append(f'    <p>{translated_hk}</p>\n')
                 parts.append('  </div>\n')
                 parts.append('\n')
 
             # Dialog groups
             for dg in by_sort(dgrp_by_cat.get(cat['id'], [])):
-                title = to_ruby_html(bilingual(dg['title_minihongo'], dg['title_english']))
+                dg_translated = t(dg, 'title', lang)
+                title = to_ruby_html(bilingual(dg['title_minihongo'], dg_translated))
                 lines = sorted(dlg_by_grp.get(dg['id'], []),
                               key=lambda d: int(d['line_number']))
 
@@ -405,17 +479,17 @@ def gen_reading(categories, haiku, dialog_groups, dialogs, stories):
                 parts.append('</div>\n')
                 parts.append('<div class="dialog-translation">\n')
                 for ln in lines:
-                    speaker = ln['speaker_english']
-                    body = ln['english']
+                    speaker = t(ln, 'speaker', lang)
+                    body = t(ln, '', lang)
                     parts.append(f'  <p><strong>{speaker}:</strong> {body}</p>\n')
                 parts.append('</div>\n')
                 parts.append('\n')
 
             # Stories
             for st in by_sort(stories_by_cat.get(cat['id'], [])):
-                title = to_ruby_html(bilingual(st['title_minihongo'], st['title_english']))
+                st_translated = t(st, 'title', lang)
+                title = to_ruby_html(bilingual(st['title_minihongo'], st_translated))
 
-                # Split Japanese text into paragraphs on space after 。or 」
                 mh_text = st['minihongo']
                 mh_paras = re.split(r'(?<=[\u3002\u300d]) ', mh_text)
                 mh_paras = [p for p in mh_paras if p.strip()]
@@ -426,19 +500,20 @@ def gen_reading(categories, haiku, dialog_groups, dialogs, stories):
                     parts.append(f'  <p lang="ja">{to_ruby_html(para)}</p>\n')
                 parts.append('</div>\n')
 
-                # English as single paragraph
+                translated_story = t(st, '', lang)
                 parts.append('<div class="story-translation">\n')
-                parts.append(f'  <p>{st["english"]}</p>\n')
+                parts.append(f'  <p>{translated_story}</p>\n')
                 parts.append('</div>\n')
                 parts.append('\n')
 
-    return wrap_page('reading', ''.join(parts), toc)
+    return wrap_page('reading', ''.join(parts), lang, toc)
 
 
 # -- Main ---------------------------------------------------------------------
 
 def main():
-    OUT.mkdir(parents=True, exist_ok=True)
+    load_ui_strings()
+    load_page_data()
 
     categories = load_csv('categories')
     words = load_csv('words')
@@ -451,17 +526,32 @@ def main():
     dialogs_data = load_csv('dialogs')
     stories = load_csv('stories')
 
-    pages = [
-        ('vocabulary', gen_vocabulary(categories, words)),
-        ('grammar', gen_grammar(categories, grammar, grammar_examples)),
-        ('word-building', gen_word_building(categories, compounds, expressions)),
-        ('reading', gen_reading(categories, haiku, dialog_groups, dialogs_data, stories)),
-    ]
+    for lang in LANGS:
+        if lang == 'en':
+            out_dir = PAGES_OUT / 'lessons'
+            index_path = PAGES_OUT / 'index.html'
+        else:
+            out_dir = PAGES_OUT / lang / 'lessons'
+            index_path = PAGES_OUT / lang / 'index.html'
 
-    for page_id, html in pages:
-        path = OUT / PAGE_META[page_id]['file']
-        path.write_text(html)
-        print(f'  {path}')
+        out_dir.mkdir(parents=True, exist_ok=True)
+
+        # Homepage
+        index_path.write_text(gen_index(lang))
+        print(f'  {index_path}')
+
+        # Lesson pages
+        pages = [
+            ('vocabulary', gen_vocabulary(categories, words, lang)),
+            ('grammar', gen_grammar(categories, grammar, grammar_examples, lang)),
+            ('word-building', gen_word_building(categories, compounds, expressions, lang)),
+            ('reading', gen_reading(categories, haiku, dialog_groups, dialogs_data, stories, lang)),
+        ]
+
+        for page_id, html in pages:
+            path = out_dir / PAGE_FILES[page_id]
+            path.write_text(html)
+            print(f'  {path}')
 
 
 if __name__ == '__main__':
