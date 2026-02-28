@@ -44,6 +44,15 @@ def by_sort(rows):
     return sorted(rows, key=lambda r: int(r['sort_order']))
 
 
+def slugify(text):
+    """Create URL-friendly ID from text."""
+    text = text.lower()
+    text = text.replace('→', 'to').replace('∞', 'infinity')
+    text = re.sub(r'[^a-z0-9\s-]', '', text)
+    text = re.sub(r'[\s-]+', '-', text.strip())
+    return text
+
+
 # -- Page wrapper -------------------------------------------------------------
 
 PAGE_META = {
@@ -85,11 +94,26 @@ WB_DESCS = {
 }
 
 
-def wrap_page(page_id, content):
+def wrap_page(page_id, content, toc=None):
     """Wrap section content in page-layout template."""
     meta = PAGE_META[page_id]
     title = meta['title']
     desc = meta['desc']
+
+    # TOC
+    toc_html = ''
+    if toc:
+        items = '\n'.join(
+            f'      <li><a href="#{slug}">{label}</a></li>'
+            for slug, label in toc
+        )
+        toc_html = (
+            f'  <nav class="toc">\n'
+            f'    <ul>\n'
+            f'{items}\n'
+            f'    </ul>\n'
+            f'  </nav>\n\n'
+        )
 
     # Nav links
     if meta['prev']:
@@ -116,6 +140,7 @@ def wrap_page(page_id, content):
         f'    Show readings\n'
         f'  </label>\n'
         f'\n'
+        f'{toc_html}'
         f'{content}'
         f'  <nav class="lesson-nav">\n'
         f'{prev_link}\n'
@@ -133,12 +158,15 @@ def gen_vocabulary(categories, words):
     for w in words:
         words_by_cat[w['category_id']].append(w)
 
+    toc = []
     parts = []
     for cat in cats:
         cat_words = by_sort(words_by_cat.get(cat['id'], []))
         count = len(cat_words)
+        slug = slugify(cat['name_english'])
         h = bilingual(cat['name_minihongo'], cat['name_english'])
-        parts.append(f'  <h2 class="section-heading">{cat["sort_order"]}. {h} \u2014 {count}</h2>\n')
+        toc.append((slug, f'{cat["sort_order"]}. {esc(cat["name_english"])}'))
+        parts.append(f'  <h2 id="{slug}" class="section-heading">{cat["sort_order"]}. {h} \u2014 {count}</h2>\n')
         parts.append('\n')
         parts.append('  <table class="compact-table">\n')
         parts.append('    <thead><tr><th>Word</th><th>Meaning</th><th>Example</th></tr></thead>\n')
@@ -152,7 +180,7 @@ def gen_vocabulary(categories, words):
         parts.append('  </table>\n')
         parts.append('\n')
 
-    return wrap_page('vocabulary', ''.join(parts))
+    return wrap_page('vocabulary', ''.join(parts), toc)
 
 
 # -- Grammar ------------------------------------------------------------------
@@ -166,10 +194,13 @@ def gen_grammar(categories, grammar, grammar_examples):
     for e in grammar_examples:
         ex_by_gram[e['grammar_id']].append(e)
 
+    toc = []
     parts = []
     for cat in cats:
+        slug = slugify(cat['name_english'])
         h = bilingual(cat['name_minihongo'], cat['name_english'])
-        parts.append(f'  <h2 class="section-heading">{h}</h2>\n')
+        toc.append((slug, esc(cat['name_english'])))
+        parts.append(f'  <h2 id="{slug}" class="section-heading">{h}</h2>\n')
         parts.append('\n')
 
         for gp in by_sort(gram_by_cat.get(cat['id'], [])):
@@ -190,7 +221,7 @@ def gen_grammar(categories, grammar, grammar_examples):
             parts.append('  </grammar-point>\n')
             parts.append('\n')
 
-    return wrap_page('grammar', ''.join(parts))
+    return wrap_page('grammar', ''.join(parts), toc)
 
 
 # -- Word Building ------------------------------------------------------------
@@ -214,10 +245,13 @@ def gen_word_building(categories, compounds, expressions):
     for k in children:
         children[k] = by_sort(children[k])
 
+    toc = []
     parts = []
     for h2 in h2_cats:
+        slug = slugify(h2['name_english'])
         h = bilingual(h2['name_minihongo'], h2['name_english'])
-        parts.append(f'  <h2 class="section-heading">{h}</h2>\n')
+        toc.append((slug, esc(h2['name_english'])))
+        parts.append(f'  <h2 id="{slug}" class="section-heading">{h}</h2>\n')
 
         # Section description if available
         desc = WB_DESCS.get(h2['name_english'], '')
@@ -244,7 +278,7 @@ def gen_word_building(categories, compounds, expressions):
 
             parts.append('\n')
 
-    return wrap_page('word-building', ''.join(parts))
+    return wrap_page('word-building', ''.join(parts), toc)
 
 
 def _render_compound_table(parts, rows):
@@ -323,10 +357,18 @@ def gen_reading(categories, haiku, dialog_groups, dialogs, stories):
     for s in stories:
         stories_by_cat[s['category_id']].append(s)
 
+    # Reorder: dialogs and stories first, haiku last
+    haiku_cats = [c for c in cats if haiku_by_cat.get(c['id'])]
+    other_cats = [c for c in cats if not haiku_by_cat.get(c['id'])]
+    cats = other_cats + haiku_cats
+
+    toc = []
     parts = []
     for cat in cats:
+        slug = slugify(cat['name_english'])
         h = bilingual(cat['name_minihongo'], cat['name_english'])
-        parts.append(f'  <h2 class="section-heading">{h}</h2>\n')
+        toc.append((slug, esc(cat['name_english'])))
+        parts.append(f'  <h2 id="{slug}" class="section-heading">{h}</h2>\n')
         parts.append('\n')
 
         # Haiku
@@ -381,7 +423,7 @@ def gen_reading(categories, haiku, dialog_groups, dialogs, stories):
             parts.append('</div>\n')
             parts.append('\n')
 
-    return wrap_page('reading', ''.join(parts))
+    return wrap_page('reading', ''.join(parts), toc)
 
 
 # -- Main ---------------------------------------------------------------------
