@@ -133,7 +133,7 @@
 
     function showToast(msg, opts) {
       clearTimeout(toastTimer)
-      toastMsg.textContent = msg
+      toastMsg.innerHTML = msg
       const old = toast.querySelector('.toast-btn')
       if (old) old.remove()
       toastOnDismiss = opts?.onDismiss || null
