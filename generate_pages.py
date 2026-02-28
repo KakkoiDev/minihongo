@@ -334,6 +334,9 @@ def gen_word_building(categories, compounds, expressions, lang):
         if desc_key:
             desc = ui(desc_key, lang)
             parts.append(f'  <p>{desc}</p>\n')
+            if desc_key == 'wb_desc_compounds':
+                warning = ui('wb_reading_warning', lang)
+                parts.append(f'  <p class="reading-warning">{warning}</p>\n')
         parts.append('\n')
 
         for h3 in children.get(h2['id'], []):
@@ -359,21 +362,18 @@ def gen_word_building(categories, compounds, expressions, lang):
 
 
 def _render_compound_table(parts, rows, lang):
-    """4-col table: Word / Reading / Meaning / Parts."""
+    """2-col table: Word (with furigana) / Meaning."""
     th_word = ui('th_word', lang)
-    th_reading = ui('th_reading', lang)
     th_meaning = ui('th_meaning', lang)
-    th_parts = ui('th_parts', lang)
     parts.append('  <table class="compound-table">\n')
-    parts.append(f'    <thead><tr><th lang="ja">{th_word}</th><th>{th_reading}</th><th>{th_meaning}</th><th>{th_parts}</th></tr></thead>\n')
+    parts.append(f'    <thead><tr><th lang="ja">{th_word}</th><th>{th_meaning}</th></tr></thead>\n')
     parts.append('    <tbody>\n')
     for r in rows:
+        word = f'<ruby>{r["minihongo"]}<rt>{r["reading"]}</rt></ruby>'
         parts.append(
             f'      <tr>'
-            f'<td lang="ja">{r["minihongo"]}</td>'
-            f'<td lang="ja">{r["reading"]}</td>'
+            f'<td lang="ja">{word}</td>'
             f'<td>{render(t(r, "", lang))}</td>'
-            f'<td>{esc(r["english_litteral"])}</td>'
             f'</tr>\n'
         )
     parts.append('    </tbody>\n')
@@ -381,33 +381,31 @@ def _render_compound_table(parts, rows, lang):
 
 
 def _render_common_table(parts, rows, lang):
-    """4-col table: Word / Reading / English / Minihongo.
-    For mh: 3-col, drop English column."""
+    """Common words table: Word (with furigana) / English / Minihongo.
+    For mh: 2-col, drop English column."""
     th_word = ui('th_word', lang)
-    th_reading = ui('th_reading', lang)
     th_minihongo = ui('th_minihongo', lang)
     parts.append('<table class="compound-table">\n')
     if lang == 'mh':
-        parts.append(f'  <thead><tr><th>{th_word}</th><th>{th_reading}</th><th>{th_minihongo}</th></tr></thead>\n')
+        parts.append(f'  <thead><tr><th>{th_word}</th><th>{th_minihongo}</th></tr></thead>\n')
     else:
         th_english = ui('th_english', lang)
-        parts.append(f'  <thead><tr><th>{th_word}</th><th>{th_reading}</th><th>{th_english}</th><th>{th_minihongo}</th></tr></thead>\n')
+        parts.append(f'  <thead><tr><th>{th_word}</th><th>{th_english}</th><th>{th_minihongo}</th></tr></thead>\n')
     parts.append('  <tbody>\n')
     for r in rows:
         mh = to_ruby_html(r['minihongo'])
+        word = f'<ruby>{r["japanese"]}<rt>{r["reading"]}</rt></ruby>'
         if lang == 'mh':
             parts.append(
                 f'    <tr>'
-                f'<td lang="ja">{r["japanese"]}</td>'
-                f'<td lang="ja">{r["reading"]}</td>'
+                f'<td lang="ja">{word}</td>'
                 f'<td lang="ja">{mh}</td>'
                 f'</tr>\n'
             )
         else:
             parts.append(
                 f'    <tr>'
-                f'<td lang="ja">{r["japanese"]}</td>'
-                f'<td lang="ja">{r["reading"]}</td>'
+                f'<td lang="ja">{word}</td>'
                 f'<td>{esc(r["english"])}</td>'
                 f'<td lang="ja">{mh}</td>'
                 f'</tr>\n'
