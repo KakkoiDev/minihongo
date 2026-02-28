@@ -379,16 +379,20 @@ def gen_word_building(categories, compounds, expressions, lang):
 def _render_compound_table(parts, rows, lang):
     """2-col table: Word (with furigana) / Meaning."""
     th_word = ui('th_word', lang)
-    th_meaning = ui('th_meaning', lang)
+    th_meaning = ui('th_meaning', lang) if lang != 'mh' else ui('th_parts', lang)
     parts.append('  <table class="compound-table">\n')
     parts.append(f'    <thead><tr><th lang="ja">{th_word}</th><th>{th_meaning}</th></tr></thead>\n')
     parts.append('    <tbody>\n')
     for r in rows:
         word = f'<ruby>{r["minihongo"]}<rt>{r["reading"]}</rt></ruby>'
+        if lang == 'mh':
+            meaning = to_ruby_html(esc(r.get('english_litteral', '') or r['minihongo']))
+        else:
+            meaning = render(t(r, "", lang))
         parts.append(
             f'      <tr>'
             f'<td lang="ja">{word}</td>'
-            f'<td>{render(t(r, "", lang))}</td>'
+            f'<td>{meaning}</td>'
             f'</tr>\n'
         )
     parts.append('    </tbody>\n')
