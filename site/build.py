@@ -70,6 +70,16 @@ def load_ui_strings():
     return {r['key']: r for r in rows}
 
 
+def ui_str(ui_strings, key, lang):
+    """Get UI string with fallback: lang -> en -> mh."""
+    row = ui_strings.get(key, {})
+    for l in [lang, 'en', 'mh']:
+        val = row.get(l, '').strip()
+        if val:
+            return to_ruby_html(val)
+    return key
+
+
 def detect_lang(rel_path):
     """Detect language from relative page path."""
     s = str(rel_path)
@@ -191,6 +201,7 @@ def build():
 
     components = load_components()
     nav_labels = load_nav_labels()
+    ui_strings = load_ui_strings()
     print(f"components: {', '.join(components)}")
 
     (OUT / "_f").mkdir()
@@ -210,6 +221,12 @@ def build():
         html = html.replace("{{NAV_GRAMMAR}}", labels.get('grammar', 'Grammar'))
         html = html.replace("{{NAV_WORD_BUILDING}}", labels.get('word-building', 'Word Building'))
         html = html.replace("{{NAV_READING}}", labels.get('reading', 'Reading'))
+
+        # Furigana toggle label
+        html = html.replace("{{FURIGANA_LABEL}}", ui_str(ui_strings, 'show_readings', lang))
+
+        # Dark mode toggle label
+        html = html.replace("{{DARK_MODE_LABEL}}", ui_str(ui_strings, 'dark_mode', lang))
 
         # Language switcher
         switcher = lang_switcher_html(rel, lang)

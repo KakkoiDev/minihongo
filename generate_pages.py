@@ -139,7 +139,6 @@ def wrap_page(page_id, content, lang, toc=None):
     desc = page_desc(page, lang)
     site_name_plain = re.sub(r'<ruby>|</ruby>|<rt>[^<]*</rt>', '', ui('site_name', lang))
     site_name = ui('site_name', lang)
-    show_readings = ui('show_readings', lang)
 
     # TOC
     toc_html = ''
@@ -183,11 +182,6 @@ def wrap_page(page_id, content, lang, toc=None):
         f'  <h1>{title}</h1>\n'
         f'  <p>{desc}</p>\n'
         f'\n'
-        f'  <label class="toggle">\n'
-        f'    <input type="checkbox" id="furigana-toggle" checked>\n'
-        f'    {show_readings}\n'
-        f'  </label>\n'
-        f'\n'
         f'{toc_html}'
         f'{content}'
         f'  <nav class="lesson-nav">\n'
@@ -203,7 +197,8 @@ def wrap_page(page_id, content, lang, toc=None):
 def gen_index(lang):
     site_name = ui('site_name', lang)
     tagline = ui('home_tagline', lang)
-    desc = ui('home_desc', lang)
+    bullets = [ui(f'home_{i}', lang) for i in range(1, 4)]
+    items = '\n'.join(f'    <li>{b}</li>' for b in bullets)
 
     return (
         f'<page-layout>\n'
@@ -211,7 +206,9 @@ def gen_index(lang):
         f'\n'
         f'  <h1 lang="ja">\u30df\u30cb\u672c\u8a9e</h1>\n'
         f'  <p>{tagline}</p>\n'
-        f'  <p>{desc}</p>\n'
+        f'  <ul>\n'
+        f'{items}\n'
+        f'  </ul>\n'
         f'</page-layout>\n'
     )
 
@@ -226,6 +223,7 @@ def gen_vocabulary(categories, words, lang):
 
     th_word = ui('th_word', lang)
     th_meaning = ui('th_meaning', lang)
+    th_example = ui('th_example', lang)
 
     toc = []
     parts = []
@@ -240,7 +238,7 @@ def gen_vocabulary(categories, words, lang):
         parts.append(f'  <h2 id="{slug}" class="section-heading">{cat["sort_order"]}. {h} - {count}</h2>\n')
         parts.append('\n')
         parts.append('  <table class="compact-table">\n')
-        parts.append(f'    <thead><tr><th>{th_word}</th><th>{th_meaning}</th><th>Example</th></tr></thead>\n')
+        parts.append(f'    <thead><tr><th>{th_word}</th><th>{th_meaning}</th><th>{th_example}</th></tr></thead>\n')
         parts.append('    <tbody>\n')
         for w in cat_words:
             word = to_ruby_html(w['minihongo'])
@@ -385,9 +383,12 @@ def _render_compound_table(parts, rows, lang):
 
 def _render_common_table(parts, rows, lang):
     """4-col table: Word / Reading / English / Minihongo."""
+    th_word = ui('th_word', lang)
     th_reading = ui('th_reading', lang)
+    th_english = ui('th_english', lang)
+    th_minihongo = ui('th_minihongo', lang)
     parts.append('<table class="compound-table">\n')
-    parts.append(f'  <thead><tr><th>Word</th><th>{th_reading}</th><th>English</th><th>Minihongo</th></tr></thead>\n')
+    parts.append(f'  <thead><tr><th>{th_word}</th><th>{th_reading}</th><th>{th_english}</th><th>{th_minihongo}</th></tr></thead>\n')
     parts.append('  <tbody>\n')
     for r in rows:
         mh = to_ruby_html(r['minihongo'])
@@ -471,10 +472,11 @@ def gen_reading(categories, haiku, dialog_groups, dialogs, stories, lang):
             # Haiku
             for hk in by_sort(haiku_by_cat.get(cat['id'], [])):
                 mh = to_ruby_html(hk['minihongo']).replace(' / ', '<br>')
-                translated_hk = to_ruby_html(t(hk, '', lang))
                 parts.append('  <div class="haiku">\n')
                 parts.append(f'    <p lang="ja">{mh}</p>\n')
-                parts.append(f'    <p>{translated_hk}</p>\n')
+                if lang != 'mh':
+                    translated_hk = to_ruby_html(t(hk, '', lang))
+                    parts.append(f'    <p>{translated_hk}</p>\n')
                 parts.append('  </div>\n')
                 parts.append('\n')
 
@@ -492,12 +494,13 @@ def gen_reading(categories, haiku, dialog_groups, dialogs, stories, lang):
                     body = to_ruby_html(ln['minihongo'])
                     parts.append(f'  <p lang="ja"><strong>{speaker}:</strong> {body}</p>\n')
                 parts.append('</div>\n')
-                parts.append('<div class="dialog-translation">\n')
-                for ln in lines:
-                    speaker = to_ruby_html(t(ln, 'speaker', lang))
-                    body = to_ruby_html(t(ln, '', lang))
-                    parts.append(f'  <p><strong>{speaker}:</strong> {body}</p>\n')
-                parts.append('</div>\n')
+                if lang != 'mh':
+                    parts.append('<div class="dialog-translation">\n')
+                    for ln in lines:
+                        speaker = to_ruby_html(t(ln, 'speaker', lang))
+                        body = to_ruby_html(t(ln, '', lang))
+                        parts.append(f'  <p><strong>{speaker}:</strong> {body}</p>\n')
+                    parts.append('</div>\n')
                 parts.append('\n')
 
             # Stories
@@ -514,11 +517,11 @@ def gen_reading(categories, haiku, dialog_groups, dialogs, stories, lang):
                 for para in mh_paras:
                     parts.append(f'  <p lang="ja">{to_ruby_html(para)}</p>\n')
                 parts.append('</div>\n')
-
-                translated_story = to_ruby_html(t(st, '', lang))
-                parts.append('<div class="story-translation">\n')
-                parts.append(f'  <p>{translated_story}</p>\n')
-                parts.append('</div>\n')
+                if lang != 'mh':
+                    translated_story = to_ruby_html(t(st, '', lang))
+                    parts.append('<div class="story-translation">\n')
+                    parts.append(f'  <p>{translated_story}</p>\n')
+                    parts.append('</div>\n')
                 parts.append('\n')
 
     return wrap_page('reading', ''.join(parts), lang, toc)

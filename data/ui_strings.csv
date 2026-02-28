@@ -1,8 +1,10 @@
 key,en,ja,mh
 show_readings,Show readings,読みを表示する,読【よ】みを見【み】せる
 site_name,Minihongo,ミニ本語,ミニ本語
-home_tagline,"181 words. Infinite expression.",,"181の言【こと】葉【ば】。何【なに】でも言【い】える。"
-home_desc,"Learn to express any idea in Japanese with the minimum vocabulary.",,"少【すこ】しの言【こと】葉【ば】で何【なに】でも言【い】う事【こと】ができる。"
+home_tagline,"181 words. Say anything.",,"181の言【こと】葉【ば】。何【なに】でも言【い】える。"
+home_1,"Think in Japanese from day one. Not translation - a Japanese brain.",,"一【いち】日【にち】目【め】から日本語【にほんご】で考【かんが】える。他【ほか】の言【こと】葉【ば】から変【か】えるのではない。"
+home_2,"181 base words + full grammar. Combine them to express any idea.",,"181の言【こと】葉【ば】と全部【ぜんぶ】の言【こと】葉【ば】の道【みち】。一【ひと】つにして何【なに】でも言【い】える。"
+home_3,"Grow naturally. Add real vocabulary as you learn - the 181 are always your fallback.",,"自然【しぜん】に大【おお】きくなる。新【あたら】しい言【こと】葉【ば】を足【た】していく。181はいつでも使【つか】える。"
 th_reading,Reading,読み,読【よ】み
 th_meaning,Meaning,意味,何【なに】の事【こと】
 th_parts,Parts,,中【なか】の言【こと】葉【ば】
@@ -12,3 +14,7 @@ th_literally,Literally,,言【こと】葉【ば】のまま
 wb_desc_compounds,"Real Japanese words built entirely from kanji in the 181-word vocabulary.",,"181の言【こと】葉【ば】の中【なか】の字【じ】で作【つく】った本当【ほんとう】の言【こと】葉【ば】。"
 wb_desc_byov,"Like Toki Pona, combine primitives to express any concept.",,"少【すこ】しの言【こと】葉【ば】を使【つか】って何【なに】でも言【い】える。"
 wb_desc_common,"Real Japanese words from the top 1000 most common, expressed using only the 181 base words.",,"よく使【つか】う言【こと】葉【ば】を181の言【こと】葉【ば】だけで言【い】う。"
+th_example,Example,,使【つか】い方【かた】
+th_english,English,,英語【えいご】
+th_minihongo,Minihongo,,ミニ本語
+dark_mode,Dark mode,ダークモード,暗【くら】いモード

@@ -5,6 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <base href="{{BASE_URL}}">
   <title><slot name="title">Minihongo</slot></title>
+  <script>
+    var t = localStorage.getItem('theme') ||
+      (matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light')
+    document.documentElement.dataset.theme = t
+    if (localStorage.getItem('furigana') === '0')
+      document.documentElement.classList.add('no-furigana')
+  </script>
   <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
@@ -14,6 +21,8 @@
     <a href="lessons/3-grammar.html">{{NAV_GRAMMAR}}</a>
     <a href="lessons/5-word-building.html">{{NAV_WORD_BUILDING}}</a>
     <a href="lessons/6-texts-dialogs.html">{{NAV_READING}}</a>
+    <button class="nav-toggle" onclick="toggleFurigana()">{{FURIGANA_LABEL}}</button>
+    <button class="nav-toggle" onclick="toggleTheme()">{{DARK_MODE_LABEL}}</button>
     {{LANG_SWITCHER}}
   </nav>
 
@@ -83,6 +92,17 @@
       const path = new URL(nav.href, base).pathname.replace(basePath, '')
       document.querySelector('iframe[name=htmz]').src = base + '_f/' + path + '#content'
     })
+
+    function toggleTheme() {
+      const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark'
+      document.documentElement.dataset.theme = next
+      localStorage.setItem('theme', next)
+    }
+
+    function toggleFurigana() {
+      const on = document.documentElement.classList.toggle('no-furigana')
+      localStorage.setItem('furigana', on ? '0' : '1')
+    }
 
     navigator.serviceWorker?.register('/sw.js')
   </script>
