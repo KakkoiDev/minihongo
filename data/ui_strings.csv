@@ -1,6 +1,6 @@
 key,en,ja,mh
 show_readings,Show readings,読みを表示する,読【よ】みを見【み】せる
-site_name,Minihongo,ミニ本語,ミニ本語
+site_name,Minihongo,ミニ本語,ミニ本【ほん】語【ご】
 home_tagline,"182 words. Say anything.",182語で何でも言える。,"182の言【こと】葉【ば】。何【なに】でも言【い】える。"
 home_1,"Think in Japanese from day one. Not translation - a Japanese brain.",初日から日本語で考える。翻訳ではなく日本語の頭を作る。,"一【いち】日【にち】目【め】から日本語【にほんご】で考【かんが】える。他【ほか】の言【こと】葉【ば】から変【か】えるのではない。"
 home_2,"182 base words + full grammar. Combine them to express any idea.",182の基本語と文法で何でも表現できる。,"182の言【こと】葉【ば】と全部【ぜんぶ】の言【こと】葉【ば】の道【みち】。一【ひと】つにして何【なに】でも言【い】える。"
@@ -16,11 +16,11 @@ wb_desc_byov,"Like Toki Pona, combine primitives to express any concept.",基本
 wb_desc_common,"Real Japanese words from the top 1000 most common, expressed using only the 182 base words.",よく使う日本語を182の基本語だけで表現する。,"よく使【つか】う言【こと】葉【ば】を182の言【こと】葉【ば】だけで言【い】う。"
 th_example,Example,例文,使【つか】い方【かた】
 th_english,English,英語,英語【えいご】
-th_minihongo,Minihongo,ミニ本語,ミニ本語
+th_minihongo,Minihongo,ミニ本語,ミニ本【ほん】語【ご】
 wb_reading_warning,"Kanji have multiple readings. The same character can sound different in different words. Learn each compound as a whole word, not by combining individual readings.",漢字には複数の読み方がある。同じ字でも言葉によって読みが変わる。熟語を丸ごと覚えること。,"字【じ】には読【よ】み方【かた】が色々【いろいろ】ある。同【おな】じ字【じ】でも言【こと】葉【ば】によって音【おと】が変【か】わる。一【ひと】つ一【ひと】つの言【こと】葉【ば】を全部【ぜんぶ】で覚【おぼ】える。"
 dark_mode,Dark mode,ダークモード,暗【くら】いモード
 toast_offline,You are offline. Content is cached.,オフラインです。,オフラインです。
-toast_online,Back online.,オンラインに戻りました。,オンラインに戻りました。
+toast_online,Back online.,オンラインに戻りました。,オンラインに戻【もど】りました。
 toast_install,Install Minihongo as an app,アプリとしてインストール,アプリとしてインストール
 toast_install_btn,Install,インストール,インストール
-toast_updated,App updated.,更新されました。,新しくなりました。
+toast_updated,App updated.,更新されました。,新【あたら】しくなりました。

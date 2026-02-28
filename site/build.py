@@ -42,7 +42,7 @@ def load_csv(name):
 def to_ruby_html(text):
     """Convert bracket notation 人【ひと】 to <ruby>人<rt>ひと</rt></ruby>."""
     return re.sub(
-        r'([\u4e00-\u9fff]+)【([^】]+)】',
+        r'([\u4e00-\u9fff\u3005]+)【([^】]+)】',
         r'<ruby>\1<rt>\2</rt></ruby>',
         text,
     )

@@ -54,9 +54,8 @@
         if (!target) return
         // Original htmz swap
         target.replaceWith(...frame.contentDocument.body.childNodes)
-        // Clear iframe history entry
-        frame.remove()
-        document.body.appendChild(frame)
+        // Clear iframe: reset src to prevent reload loop on re-append
+        frame.src = 'about:blank'
         // URL history
         const pagePath = loc.pathname.replace(basePath, '').replace(/^_f\//, '')
         const pageUrl = base + pagePath

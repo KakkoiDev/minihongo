@@ -1,13 +1,13 @@
 id,category_id,minihongo,english,japanese,explanation_minihongo,explanation_english,explanation_japanese,sort_order
-gram-1,cat-16,言【こと】葉【ば】の並【なら】び (語順),Word Order,語順,言【こと】葉【ば】の最【さい】後【ご】にする事【こと】が来【く】る。つなぐ言【こと】葉【ば】が何【なに】をするか見【み】せる。する事【こと】か、どんなか、物【もの】+だ で終【お】わる。,"Verb last. Particles mark roles. Sentences end with verb, adjective, or noun+だ.",述語が文末に来る。助詞が語の役割を示す。文は動詞・形容詞・名詞+だ で終わる。,1
-gram-2,cat-16,言【い】わない事【こと】 (省略),Omission,省略,知【し】っている事【こと】は言【い】わない。誰【だれ】が、何【なに】を - 分【わ】かるなら言【い】わなくていい。これが普通【ふつう】。,"Drop what's known. Subjects, objects - anything established vanishes. This is the default.",既知の情報は省略する。主語・目的語など、文脈から分かるものは言わなくてよい。これが日本語の基本。,2
+gram-1,cat-16,言【こと】葉【ば】の並【なら】び (語順【ごじゅん】),Word Order,語順,言【こと】葉【ば】の最【さい】後【ご】にする事【こと】が来【く】る。つなぐ言【こと】葉【ば】が何【なに】をするか見【み】せる。する事【こと】か、どんなか、物【もの】+だ で終【お】わる。,"Verb last. Particles mark roles. Sentences end with verb, adjective, or noun+だ.",述語が文末に来る。助詞が語の役割を示す。文は動詞・形容詞・名詞+だ で終わる。,1
+gram-2,cat-16,言【い】わない事【こと】 (省略【しょうりゃく】),Omission,省略,知【し】っている事【こと】は言【い】わない。誰【だれ】が、何【なに】を - 分【わ】かるなら言【い】わなくていい。これが普通【ふつう】。,"Drop what's known. Subjects, objects - anything established vanishes. This is the default.",既知の情報は省略する。主語・目的語など、文脈から分かるものは言わなくてよい。これが日本語の基本。,2
 gram-3,cat-16,ある / いる,Existence / Possession,ある / いる,ある事【こと】は持【も】つ事【こと】と同【おな】じ。「持【も】つ」のする事【こと】はない。生【い】き物【もの】はいる、他【ほか】は全部【ぜんぶ】ある。,"Existence IS possession. No separate ""have"" verb. いる for living, ある for everything else.",存在がそのまま所有を表す。「have」に当たる動詞は不要。生き物には「いる」、それ以外は「ある」を使う。,3
 gram-4,cat-17,は (wa),Topic Marker,は（主題）,何【なに】の話【はなし】かを見【み】せる。「これの事【こと】は...」,"Topic marker. ""As for X...""",文の主題を示す。「〜については...」という意味。,4
 gram-5,cat-17,が (ga),Subject Marker,が（主格）,する人【ひと】。誰【だれ】がそれをするか。新【あたら】しい事【こと】。,Subject. Who does it. New information.,動作の主体を示す。誰がそれをするか。新しい情報を表す。,5
 gram-6,cat-17,を (o),Object Marker,を（対格）,何【なに】にする事【こと】をするか。,Object. What the action is done to.,動作の対象を示す。何に対して動作をするか。,6
 gram-7,cat-17,に (ni),"Direction, Time, Location",に（方向・時・場所）,どこに行【い】く。いつ。どこにいる。,"Direction, time, location of existence.",方向・時間・存在の場所を表す。どこへ行くか、いつか、どこにいるか。,7
 gram-8,cat-17,で (de),"Location of Action, Means",で（場所・手段）,どこでする。何【なに】を使【つか】ってする。に は物【もの】がいるところ、で はする事【こと】のところ。,"Location of action, means/tool. Compare に: に = where things exist, で = where things happen.",動作の場所・手段を表す。「に」は存在の場所、「で」は動作の場所。,8
-gram-9,cat-17,の (no),Possessive / Connector,の（連体）,物【もの】と物【もの】をつなぐ。する事【こと】を物【もの】にもする (第5を見【み】る)。,Connects nouns. Also turns verbs into nouns (see section 5).,名詞と名詞をつなぐ。動詞を名詞化する用法もある（第5章参照）。,9
+gram-9,cat-17,の (no),Possessive / Connector,の（連体）,物【もの】と物【もの】をつなぐ。する事【こと】を物【もの】にもする (第【だい】5を見【み】る)。,Connects nouns. Also turns verbs into nouns (see section 5).,名詞と名詞をつなぐ。動詞を名詞化する用法もある（第5章参照）。,9
 gram-10,cat-17,と (to),"And, With, Quotation",と（並列・引用）,「と」でつなぐ。「と一【いっ】緒【しょ】に」。言【い】った事【こと】を書【か】く。言【い】う事【こと】、思【おも】う事【こと】、音【おと】、名前【なまえ】。,"And, with, quotation. Quotes anything: speech, thoughts, sounds, names.",並列・共同・引用を表す。発言・思考・音・名前など、あらゆるものを引用できる。,10
 gram-11,cat-17,も (mo),Also,も（添加）,「も」で同【おな】じ。は、が、を の代【か】わりに使【つか】う。,"Also. Replaces は, が, or を.",「〜も」で同様であることを示す。は・が・を の代わりに使う。,11
 gram-12,cat-17,から / まで,From / Until,から / まで,始【はじ】まるところ (から)、終【お】わるところ (まで)。から はなぜかも言【い】える。,"Start points (from), end points (until). から also gives reasons (because).",起点（から）と終点（まで）を表す。「から」は理由も表せる。,12

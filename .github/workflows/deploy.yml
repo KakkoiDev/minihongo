@@ -26,7 +26,7 @@ jobs:
         with:
           python-version: "3.12"
 
-      - run: python site/build.py
+      - run: python generate_pages.py && python site/build.py
         env:
           BASE_URL: /
 
