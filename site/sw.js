@@ -1,6 +1,4 @@
 const CACHE = 'minihongo-{{CACHE_HASH}}'
-const MAX_AGE = 60_000 // 1 minute in ms
-const NET_TIMEOUT = 2_000 // network-first timeout in ms
 
 const PRECACHE = [
   './',
@@ -49,7 +47,6 @@ self.addEventListener('activate', e => {
       Promise.all(keys.filter(k => k !== CACHE).map(k => caches.delete(k)))
     ).then(() => self.clients.claim())
       .then(() => {
-        // Background precache - does not block activation or navigation
         caches.open(CACHE).then(c => c.addAll(PRECACHE)).catch(() => {})
       })
   )
@@ -57,59 +54,19 @@ self.addEventListener('activate', e => {
 
 self.addEventListener('fetch', e => {
   if (e.request.method !== 'GET') return
-
-  const url = new URL(e.request.url)
-
-  // Fragments: network-first (small, want fresh content)
-  // Everything else: stale-while-revalidate (instant loads)
-  if (url.pathname.includes('/_f/')) {
-    e.respondWith(networkFirst(e.request))
-  } else {
-    e.respondWith(staleWhileRevalidate(e.request))
-  }
+  e.respondWith(cacheFirst(e.request))
 })
 
-async function networkFirst(request) {
-  const cache = await caches.open(CACHE)
-  try {
-    const res = await timeout(fetch(request), NET_TIMEOUT)
-    if (res.ok) cache.put(request, res.clone())
-    return res
-  } catch {
-    return await cache.match(request) || new Response('Offline', { status: 503 })
-  }
-}
-
-async function staleWhileRevalidate(request) {
+async function cacheFirst(request) {
   const cache = await caches.open(CACHE)
   const cached = await cache.match(request)
 
-  const age = cached?.headers.get('x-cached-at')
-  const stale = !age || (Date.now() - Number(age)) > MAX_AGE
+  // Always revalidate in the background
+  const refresh = fetch(request).then(res => {
+    if (res.ok) cache.put(request, res.clone())
+    return res
+  }).catch(() => null)
 
-  if (stale) {
-    const refresh = fetch(request).then(res => {
-      if (res.ok) {
-        const headers = new Headers(res.headers)
-        headers.set('x-cached-at', String(Date.now()))
-        cache.put(request, new Response(res.clone().body, {
-          status: res.status,
-          statusText: res.statusText,
-          headers,
-        }))
-      }
-      return res
-    }).catch(() => cached)
-
-    return cached || refresh
-  }
-
-  return cached
-}
-
-function timeout(promise, ms) {
-  return Promise.race([
-    promise,
-    new Promise((_, reject) => setTimeout(() => reject(new Error('timeout')), ms)),
-  ])
+  // Serve cached immediately if available, otherwise wait for network
+  return cached || await refresh || new Response('Offline', { status: 503 })
 }

@@ -1,30 +1,30 @@
 id,category_id,minihongo,english,japanese,explanation_minihongo,explanation_english,explanation_japanese,sort_order
-gram-1,cat-16,語順 (Word Order),,,,"Verb last. Particles mark roles. Sentences end with verb, adjective, or noun+だ.",,1
-gram-2,cat-16,省略 (Dropping),,,,"Drop what's known. Subjects, objects - anything established vanishes. This is the default.",,2
-gram-3,cat-16,ある / いる (Existence),,,,"Existence IS possession. No separate ""have"" verb. いる for living, ある for everything else.",,3
-gram-4,cat-17,は (wa) — topic,,,,"Topic marker. ""As for X...""",,4
-gram-5,cat-17,が (ga) — subject,,,,Subject. Who does it. New information.,,5
-gram-6,cat-17,を (o) — object,,,,Object. What the action is done to.,,6
-gram-7,cat-17,に (ni) — direction / time / location,,,,"Direction, time, location of existence.",,7
-gram-8,cat-17,で (de) — location of action / means,,,,"Location of action, means/tool. Compare に: に = where things exist, で = where things happen.",,8
-gram-9,cat-17,の (no) — connecting,,,,Connects nouns. Also turns verbs into nouns (see section 5).,,9
-gram-10,cat-17,と (to) — and / quoting,,,,"And, with, quotation. Quotes anything: speech, thoughts, sounds, names.",,10
-gram-11,cat-17,も (mo) — also,,,,"Also. Replaces は, が, or を.",,11
-gram-12,cat-17,から / まで — from / until,,,,"Start points (from), end points (until). から also gives reasons (because).",,12
-gram-13,cat-17,より — comparison,,,,"Xより = ""more than X."" One particle, all comparisons.",,13
-gram-14,cat-18,四つの形 (Four Forms),,,,"Plain form only. Polite form (ます) is a social layer, not grammar. る/た/ない/なかった. Everything layers on top.",,14
-gram-15,cat-18,て形 (Te-Form),,,,"Universal connector. Chain actions, request (+ください), ongoing (+いる), permission (+もいい), prohibition (+はいけない). One tense at the end. Formation varies by verb ending: く→いて, む→んで, つ→って, る→て.",,15
-gram-16,cat-18,られる / える (Potential),,,,"Ability. る-verbs: drop る, add られる. Other verbs: え-row + る. する → できる.",,16
-gram-17,cat-19,い形容詞,,,,"ARE verbs. 寒い is a complete sentence. Conjugate: くない, かった, くて. No copula needed.",,17
-gram-18,cat-19,な形容詞,,,,"Add な before nouns. じゃない (neg), だった (past).",,18
-gram-19,cat-19,〜くなる / 〜になる,,,,Change of state. One pattern for all changes.,,19
-gram-20,cat-19,Clause + noun (Relative Clauses),,,,Put a verb or sentence before a noun to describe it. Engine of word-building.,,20
-gram-21,cat-20,の (Nominalization),,,,"Casual. 食べるのが好き. Also in questions: 何しているの？",,21
-gram-22,cat-20,こと,,,,Abstract concept. 走ることは良い. 行くことができる.,,22
-gram-23,cat-20,もの,,,,Physical thing or tangible reason. 飲むもの = something to drink.,,23
-gram-24,cat-21,たい / 欲しい,,,,Want to do (verb stem + たい). Want a thing (欲しい).,,24
-gram-25,cat-21,たら / なら,,,,たら = when/if something happens (verb た + ら). なら = if it's the case.,,25
-gram-26,cat-21,と思【おも】う / と言【い】う,,,,"Quote anything with と. Thoughts, speech, sounds. という = ""called.""",,26
-gram-27,cat-21,ために,,,,Purpose and beneficiary. Verb+ために or noun+のために.,,27
-gram-28,cat-22,か / ね / よ,,,,Question / right? / emphasis. か often dropped in casual - just rising tone.,,28
-gram-29,cat-22,何・誰・どこ・いつ・なぜ + も/でも,,,,Question words go where the answer goes. +も (neg verb) = nothing/nobody. +でも = anything/anyone. 5 words + 2 particles = 20 pronouns free.,,29
+gram-1,cat-16,言【こと】葉【ば】の並【なら】び (語順),,,言【こと】葉【ば】の最【さい】後【ご】にする事【こと】が来【く】る。つなぐ言【こと】葉【ば】が何【なに】をするか見【み】せる。する事【こと】か、どんなか、物【もの】+だ で終【お】わる。,"Verb last. Particles mark roles. Sentences end with verb, adjective, or noun+だ.",,1
+gram-2,cat-16,言【い】わない事【こと】 (省略),,,知【し】っている事【こと】は言【い】わない。誰【だれ】が、何【なに】を - 分【わ】かるなら言【い】わなくていい。これが普通【ふつう】。,"Drop what's known. Subjects, objects - anything established vanishes. This is the default.",,2
+gram-3,cat-16,ある / いる,,,ある事【こと】は持【も】つ事【こと】と同【おな】じ。「持【も】つ」のする事【こと】はない。生【い】き物【もの】はいる、他【ほか】は全部【ぜんぶ】ある。,"Existence IS possession. No separate ""have"" verb. いる for living, ある for everything else.",,3
+gram-4,cat-17,は (wa),,,何【なに】の話【はなし】かを見【み】せる。「これの事【こと】は...」,"Topic marker. ""As for X...""",,4
+gram-5,cat-17,が (ga),,,する人【ひと】。誰【だれ】がそれをするか。新【あたら】しい事【こと】。,Subject. Who does it. New information.,,5
+gram-6,cat-17,を (o),,,何【なに】にする事【こと】をするか。,Object. What the action is done to.,,6
+gram-7,cat-17,に (ni),,,どこに行【い】く。いつ。どこにいる。,"Direction, time, location of existence.",,7
+gram-8,cat-17,で (de),,,どこでする。何【なに】を使【つか】ってする。に は物【もの】がいるところ、で はする事【こと】のところ。,"Location of action, means/tool. Compare に: に = where things exist, で = where things happen.",,8
+gram-9,cat-17,の (no),,,物【もの】と物【もの】をつなぐ。する事【こと】を物【もの】にもする (第5を見【み】る)。,Connects nouns. Also turns verbs into nouns (see section 5).,,9
+gram-10,cat-17,と (to),,,「と」でつなぐ。「と一【いっ】緒【しょ】に」。言【い】った事【こと】を書【か】く。言【い】う事【こと】、思【おも】う事【こと】、音【おと】、名前【なまえ】。,"And, with, quotation. Quotes anything: speech, thoughts, sounds, names.",,10
+gram-11,cat-17,も (mo),,,「も」で同【おな】じ。は、が、を の代【か】わりに使【つか】う。,"Also. Replaces は, が, or を.",,11
+gram-12,cat-17,から / まで,,,始【はじ】まるところ (から)、終【お】わるところ (まで)。から はなぜかも言【い】える。,"Start points (from), end points (until). から also gives reasons (because).",,12
+gram-13,cat-17,より,,,Xより = 「Xよりもっと」。この一【ひと】つの言【こと】葉【ば】で全部【ぜんぶ】。,"Xより = ""more than X."" One particle, all comparisons.",,13
+gram-14,cat-18,四【よっ】つの形【かたち】,,,普通【ふつう】の形【かたち】だけ。ます はする事【こと】の道【みち】でなく、人【ひと】への形【かたち】。る/た/ない/なかった。全部【ぜんぶ】これの上【うえ】に作【つく】る。,"Plain form only. Polite form (ます) is a social layer, not grammar. る/た/ない/なかった. Everything layers on top.",,14
+gram-15,cat-18,て形【けい】,,,全部【ぜんぶ】をつなぐ形【かたち】。する事【こと】をつなぐ、お願【ねが】い (+ください)、今【いま】している (+いる)、していい (+もいい)、してはいけない (+はいけない)。時【とき】は最【さい】後【ご】だけ。く→いて、む→んで、つ→って、る→て。,"Universal connector. Chain actions, request (+ください), ongoing (+いる), permission (+もいい), prohibition (+はいけない). One tense at the end. Formation varies by verb ending: く→いて, む→んで, つ→って, る→て.",,15
+gram-16,cat-18,られる / える,,,できる事【こと】。る-のする事【こと】: る を取【と】って、られる を足【た】す。他【ほか】: え の並【なら】び + る。する → できる。,"Ability. る-verbs: drop る, add られる. Other verbs: え-row + る. する → できる.",,16
+gram-17,cat-19,い のどんな,,,する事【こと】と同【おな】じ。寒【さむ】い だけで言【こと】葉【ば】が終【お】わる。変【か】える: くない、かった、くて。だ はいらない。,"ARE verbs. 寒い is a complete sentence. Conjugate: くない, かった, くて. No copula needed.",,17
+gram-18,cat-19,な のどんな,,,物【もの】の前【まえ】に な を足【た】す。じゃない (違【ちが】う)、だった (前【まえ】)。,"Add な before nouns. じゃない (neg), だった (past).",,18
+gram-19,cat-19,〜くなる / 〜になる,,,変【か】わる事【こと】。全部【ぜんぶ】の変【か】わり方【かた】がこれ一【ひと】つ。,Change of state. One pattern for all changes.,,19
+gram-20,cat-19,する事【こと】 + 物【もの】,,,する事【こと】や言【こと】葉【ば】を物【もの】の前【まえ】に置【お】いて、それを見【み】せる。言【こと】葉【ば】作【づく】りの力【ちから】。,Put a verb or sentence before a noun to describe it. Engine of word-building.,,20
+gram-21,cat-20,の,,,普通【ふつう】の形【かたち】。食【た】べるのが好【す】き。聞【き】く時【とき】にも: 何【なに】しているの？,"Casual. 食べるのが好き. Also in questions: 何しているの？",,21
+gram-22,cat-20,こと,,,考【かんが】えの物【もの】。走【はし】ることは良【よ】い。行【い】くことができる。,Abstract concept. 走ることは良い. 行くことができる.,,22
+gram-23,cat-20,もの,,,手【て】で持【も】てるものや本当【ほんとう】のもの。飲【の】むもの = 飲【の】む何【なに】か。,Physical thing or tangible reason. 飲むもの = something to drink.,,23
+gram-24,cat-21,たい / 欲【ほ】しい,,,する事【こと】がしたい (する事【こと】の始【はじ】め + たい)。物【もの】が欲【ほ】しい (欲【ほ】しい)。,Want to do (verb stem + たい). Want a thing (欲しい).,,24
+gram-25,cat-21,たら / なら,,,たら = もしそれが起【お】こったら (した + ら)。なら = もしそうなら。,たら = when/if something happens (verb た + ら). なら = if it's the case.,,25
+gram-26,cat-21,と思【おも】う / と言【い】う,,,と で何【なに】でも言【い】える。思【おも】う事【こと】、言【い】う事【こと】、音【おと】。という = 「その名前【なまえ】の」。,"Quote anything with と. Thoughts, speech, sounds. という = ""called.""",,26
+gram-27,cat-21,ために,,,何【なに】のためにするか。する事【こと】+ために か 物【もの】+のために。,Purpose and beneficiary. Verb+ために or noun+のために.,,27
+gram-28,cat-22,か / ね / よ,,,聞【き】く / そうでしょう？ / 強【つよ】く言【い】う。普通【ふつう】の話【はなし】では か を言【い】わない事【こと】も多【おお】い。,Question / right? / emphasis. か often dropped in casual - just rising tone.,,28
+gram-29,cat-22,何【なに】・誰【だれ】・どこ・いつ・なぜ + も/でも,,,聞【き】く言【こと】葉【ば】は答【こた】えのところに置【お】く。+も (ない) = 何【なに】もない。+でも = 何【なに】でも。5つの言【こと】葉【ば】 + 2つのつなぎ = 20の言【こと】葉【ば】が作【つく】れる。,Question words go where the answer goes. +も (neg verb) = nothing/nobody. +でも = anything/anyone. 5 words + 2 particles = 20 pronouns free.,,29
