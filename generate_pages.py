@@ -241,7 +241,10 @@ def gen_vocabulary(categories, words, lang):
         parts.append('    <tbody>\n')
         for w in cat_words:
             word = to_ruby_html(w['minihongo'])
-            meaning = render(t(w, '', lang))
+            if lang == 'mh':
+                meaning = to_ruby_html(w.get('definition_minihongo', '') or t(w, '', lang))
+            else:
+                meaning = render(t(w, '', lang))
             example = to_ruby_html(w['example_minihongo'])
             parts.append(f'      <tr><td lang="ja">{word}</td><td>{meaning}</td><td lang="ja">{example}</td></tr>\n')
         parts.append('    </tbody>\n')

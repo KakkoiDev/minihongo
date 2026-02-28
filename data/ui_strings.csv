@@ -1,14 +1,14 @@
 key,en,ja,mh
-show_readings,Show readings,読みを表示する,読【よ】みを見【み】る
+show_readings,Show readings,読みを表示する,読【よ】みを見【み】せる
 site_name,Minihongo,ミニ本語,ミニ本語
-home_tagline,"181 words. Infinite expression.",,
-home_desc,"Learn to express any idea in Japanese with the minimum vocabulary.",,
+home_tagline,"181 words. Infinite expression.",,"181の言【こと】葉【ば】。何【なに】でも言【い】える。"
+home_desc,"Learn to express any idea in Japanese with the minimum vocabulary.",,"少【すこ】しの言【こと】葉【ば】で何【なに】でも言【い】う事【こと】ができる。"
 th_reading,Reading,読み,読【よ】み
-th_meaning,Meaning,意味,意味【いみ】
-th_parts,Parts,,
+th_meaning,Meaning,意味,何【なに】の事【こと】
+th_parts,Parts,,中【なか】の言【こと】葉【ば】
 th_word,Word,言葉,言【こと】葉【ば】
-th_concept,Concept,,
-th_literally,Literally,,
-wb_desc_compounds,"Real Japanese words built entirely from kanji in the 181-word vocabulary.",,
-wb_desc_byov,"Like Toki Pona, combine primitives to express any concept.",,
-wb_desc_common,"Real Japanese words from the top 1000 most common, expressed using only the 181 base words.",,
+th_concept,Concept,,考【かんが】え
+th_literally,Literally,,言【こと】葉【ば】のまま
+wb_desc_compounds,"Real Japanese words built entirely from kanji in the 181-word vocabulary.",,"181の言【こと】葉【ば】の中【なか】の字【じ】で作【つく】った本当【ほんとう】の言【こと】葉【ば】。"
+wb_desc_byov,"Like Toki Pona, combine primitives to express any concept.",,"少【すこ】しの言【こと】葉【ば】を使【つか】って何【なに】でも言【い】える。"
+wb_desc_common,"Real Japanese words from the top 1000 most common, expressed using only the 181 base words.",,"よく使【つか】う言【こと】葉【ば】を181の言【こと】葉【ば】だけで言【い】う。"
