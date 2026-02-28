@@ -81,7 +81,7 @@ def page_desc(page_row, lang):
     for l in [lang, 'en', 'mh']:
         val = page_row.get(f'desc_{l}', '').strip()
         if val:
-            return val
+            return to_ruby_html(val)
     return ''
 
 
@@ -102,8 +102,8 @@ def esc(text):
 def bilingual(mh, translated):
     """Format bilingual heading."""
     if mh == translated or not translated:
-        return esc(mh)
-    return f'{esc(mh)} ({esc(translated)})'
+        return to_ruby_html(esc(mh))
+    return f'{to_ruby_html(esc(mh))} ({to_ruby_html(esc(translated))})'
 
 
 def by_sort(rows):
@@ -133,8 +133,11 @@ def get_page(page_id):
 def wrap_page(page_id, content, lang, toc=None):
     """Wrap section content in page-layout template."""
     page = get_page(page_id)
-    title = t(page, 'name', lang)
+    title_raw = t(page, 'name', lang)
+    title_plain = re.sub(r'【[^】]+】', '', title_raw)
+    title = to_ruby_html(title_raw)
     desc = page_desc(page, lang)
+    site_name_plain = re.sub(r'<ruby>|</ruby>|<rt>[^<]*</rt>', '', ui('site_name', lang))
     site_name = ui('site_name', lang)
     show_readings = ui('show_readings', lang)
 
@@ -159,7 +162,7 @@ def wrap_page(page_id, content, lang, toc=None):
 
     if idx > 0:
         prev_id = page_ids[idx - 1]
-        prev_label = t(get_page(prev_id), 'name', lang)
+        prev_label = to_ruby_html(t(get_page(prev_id), 'name', lang))
         prev_href = f'lessons/{PAGE_FILES[prev_id]}'
         prev_link = f'    <a href="{prev_href}">\u2190 {prev_label}</a>'
     else:
@@ -167,7 +170,7 @@ def wrap_page(page_id, content, lang, toc=None):
 
     if idx < len(page_ids) - 1:
         next_id = page_ids[idx + 1]
-        next_label = t(get_page(next_id), 'name', lang)
+        next_label = to_ruby_html(t(get_page(next_id), 'name', lang))
         next_href = f'lessons/{PAGE_FILES[next_id]}'
         next_link = f'    <a href="{next_href}">{next_label} \u2192</a>'
     else:
@@ -175,7 +178,7 @@ def wrap_page(page_id, content, lang, toc=None):
 
     return (
         f'<page-layout>\n'
-        f'  <span slot="title">{title} - {site_name}</span>\n'
+        f'  <span slot="title">{title_plain} - {site_name_plain}</span>\n'
         f'\n'
         f'  <h1>{title}</h1>\n'
         f'  <p>{desc}</p>\n'
@@ -233,7 +236,7 @@ def gen_vocabulary(categories, words, lang):
         translated = t(cat, 'name', lang)
         h = bilingual(cat['name_minihongo'], translated)
         toc_label = translated or cat['name_english']
-        toc.append((slug, f'{cat["sort_order"]}. {esc(toc_label)}'))
+        toc.append((slug, f'{cat["sort_order"]}. {to_ruby_html(esc(toc_label))}'))
         parts.append(f'  <h2 id="{slug}" class="section-heading">{cat["sort_order"]}. {h} - {count}</h2>\n')
         parts.append('\n')
         parts.append('  <table class="compact-table">\n')
@@ -272,12 +275,16 @@ def gen_grammar(categories, grammar, grammar_examples, lang):
         translated = t(cat, 'name', lang)
         h = bilingual(cat['name_minihongo'], translated)
         toc_label = translated or cat['name_english']
-        toc.append((slug, esc(toc_label)))
+        toc.append((slug, to_ruby_html(esc(toc_label))))
         parts.append(f'  <h2 id="{slug}" class="section-heading">{h}</h2>\n')
         parts.append('\n')
 
         for gp in by_sort(gram_by_cat.get(cat['id'], [])):
-            pattern = to_ruby_html(gp['minihongo'])
+            raw_pattern = gp['minihongo']
+            if lang == 'mh':
+                # Strip romaji/english in parentheses: "は (wa)" -> "は"
+                raw_pattern = re.sub(r'\s*\([A-Za-z &/\-]+\)', '', raw_pattern).strip()
+            pattern = to_ruby_html(raw_pattern)
             explanation = to_ruby_html(t(gp, 'explanation', lang))
             parts.append('  <grammar-point>\n')
             parts.append(f'    <span slot="pattern">{pattern}</span>\n')
@@ -323,7 +330,7 @@ def gen_word_building(categories, compounds, expressions, lang):
         translated = t(h2, 'name', lang)
         h = bilingual(h2['name_minihongo'], translated)
         toc_label = translated or h2['name_english']
-        toc.append((slug, esc(toc_label)))
+        toc.append((slug, to_ruby_html(esc(toc_label))))
         parts.append(f'  <h2 id="{slug}" class="section-heading">{h}</h2>\n')
 
         desc_key = WB_DESC_KEYS.get(h2['name_english'], '')
@@ -451,7 +458,7 @@ def gen_reading(categories, haiku, dialog_groups, dialogs, stories, lang):
         translated = t(h2, 'name', lang)
         h = bilingual(h2['name_minihongo'], translated)
         toc_label = translated or h2['name_english']
-        toc.append((slug, esc(toc_label)))
+        toc.append((slug, to_ruby_html(esc(toc_label))))
         parts.append(f'  <h2 id="{slug}" class="section-heading">{h}</h2>\n')
         parts.append('\n')
 

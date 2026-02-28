@@ -28,13 +28,22 @@ LANGS = ['en', 'ja', 'mh']
 LANG_COL = {'en': 'english', 'ja': 'japanese', 'mh': 'minihongo'}
 # mh uses Japanese script, so html lang is 'ja' for it too
 HTML_LANGS = {'en': 'en', 'ja': 'ja', 'mh': 'ja'}
-LANG_LABELS = {'en': 'EN', 'ja': '日本語', 'mh': 'MH'}
+LANG_LABELS = {'en': 'EN', 'ja': '日本語', 'mh': 'ミニ本語'}
 BASE_URLS = {'en': '/', 'ja': '/ja/', 'mh': '/mh/'}
 
 
 def load_csv(name):
     with open(DATA / f'{name}.csv', encoding='utf-8') as f:
         return list(csv.DictReader(f))
+
+
+def to_ruby_html(text):
+    """Convert bracket notation 人【ひと】 to <ruby>人<rt>ひと</rt></ruby>."""
+    return re.sub(
+        r'([\u4e00-\u9fff]+)【([^】]+)】',
+        r'<ruby>\1<rt>\2</rt></ruby>',
+        text,
+    )
 
 
 def load_nav_labels():
@@ -50,7 +59,7 @@ def load_nav_labels():
                 name = p.get('name_english', '').strip()
             if not name:
                 name = p.get('name_minihongo', '').strip()
-            lang_labels[p['id']] = name
+            lang_labels[p['id']] = to_ruby_html(name)
         labels[lang] = lang_labels
     return labels
 
@@ -79,19 +88,21 @@ def lang_switcher_html(rel_path, lang):
     else:
         page_path = s
 
-    links = []
+    options = []
     for l in LANGS:
         label = LANG_LABELS[l]
         if l == 'en':
             href = f'/{page_path}'
         else:
             href = f'/{l}/{page_path}'
-        if l == lang:
-            links.append(f'<span class="lang-current">{label}</span>')
-        else:
-            links.append(f'<a href="{href}" class="lang-link">{label}</a>')
+        selected = ' selected' if l == lang else ''
+        options.append(f'<option value="{href}"{selected}>{label}</option>')
 
-    return f'<span class="lang-switch">{" ".join(links)}</span>'
+    return (
+        f'<select class="lang-switch" onchange="location.href=this.value">'
+        f'{"".join(options)}'
+        f'</select>'
+    )
 
 
 def load_components():
