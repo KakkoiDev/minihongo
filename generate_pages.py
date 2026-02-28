@@ -229,13 +229,12 @@ def gen_vocabulary(categories, words, lang):
     parts = []
     for cat in cats:
         cat_words = by_sort(words_by_cat.get(cat['id'], []))
-        count = len(cat_words)
         slug = slugify(cat['name_english'])
         translated = t(cat, 'name', lang)
         h = bilingual(cat['name_minihongo'], translated)
         toc_label = translated or cat['name_english']
         toc.append((slug, f'{cat["sort_order"]}. {to_ruby_html(esc(toc_label))}'))
-        parts.append(f'  <h2 id="{slug}" class="section-heading">{cat["sort_order"]}. {h} - {count}</h2>\n')
+        parts.append(f'  <h2 id="{slug}" class="section-heading">{cat["sort_order"]}. {h}</h2>\n')
         parts.append('\n')
         parts.append('  <table class="compact-table">\n')
         parts.append(f'    <thead><tr><th>{th_word}</th><th>{th_meaning}</th><th>{th_example}</th></tr></thead>\n')
