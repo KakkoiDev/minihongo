@@ -304,10 +304,11 @@ def gen_grammar(categories, grammar, grammar_examples, lang):
 
             for ex in by_sort(ex_by_gram.get(gp['id'], [])):
                 mh = to_ruby_html(ex['minihongo'])
-                translated_ex = to_ruby_html(t(ex, '', lang))
                 parts.append('    <div class="sentence">\n')
                 parts.append(f'      <p lang="ja">{mh}</p>\n')
-                parts.append(f'      <p>{translated_ex}</p>\n')
+                if lang != 'mh':
+                    translated_ex = to_ruby_html(t(ex, '', lang))
+                    parts.append(f'      <p>{translated_ex}</p>\n')
                 parts.append('    </div>\n')
 
             parts.append('  </grammar-point>\n')
