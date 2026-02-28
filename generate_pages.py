@@ -57,7 +57,7 @@ def ui(key, lang):
     for l in [lang, 'en', 'mh']:
         val = row.get(l, '').strip()
         if val:
-            return val
+            return to_ruby_html(val)
     return key
 
 
@@ -69,6 +69,11 @@ def t(row, field, lang):
         if val:
             return val
     return ''
+
+
+def render(text):
+    """Escape HTML then convert bracket notation to ruby. Safe for plain text."""
+    return to_ruby_html(esc(text))
 
 
 def page_desc(page_row, lang):
@@ -236,7 +241,7 @@ def gen_vocabulary(categories, words, lang):
         parts.append('    <tbody>\n')
         for w in cat_words:
             word = to_ruby_html(w['minihongo'])
-            meaning = esc(t(w, '', lang))
+            meaning = render(t(w, '', lang))
             example = to_ruby_html(w['example_minihongo'])
             parts.append(f'      <tr><td lang="ja">{word}</td><td>{meaning}</td><td lang="ja">{example}</td></tr>\n')
         parts.append('    </tbody>\n')
@@ -270,14 +275,14 @@ def gen_grammar(categories, grammar, grammar_examples, lang):
 
         for gp in by_sort(gram_by_cat.get(cat['id'], [])):
             pattern = to_ruby_html(gp['minihongo'])
-            explanation = t(gp, 'explanation', lang)
+            explanation = to_ruby_html(t(gp, 'explanation', lang))
             parts.append('  <grammar-point>\n')
             parts.append(f'    <span slot="pattern">{pattern}</span>\n')
             parts.append(f'    <span slot="explanation">{explanation}</span>\n')
 
             for ex in by_sort(ex_by_gram.get(gp['id'], [])):
                 mh = to_ruby_html(ex['minihongo'])
-                translated_ex = t(ex, '', lang)
+                translated_ex = to_ruby_html(t(ex, '', lang))
                 parts.append('    <div class="sentence">\n')
                 parts.append(f'      <p lang="ja">{mh}</p>\n')
                 parts.append(f'      <p>{translated_ex}</p>\n')
@@ -360,7 +365,7 @@ def _render_compound_table(parts, rows, lang):
             f'      <tr>'
             f'<td lang="ja">{r["minihongo"]}</td>'
             f'<td lang="ja">{r["reading"]}</td>'
-            f'<td>{esc(t(r, "", lang))}</td>'
+            f'<td>{render(t(r, "", lang))}</td>'
             f'<td>{esc(r["english_litteral"])}</td>'
             f'</tr>\n'
         )
@@ -456,7 +461,7 @@ def gen_reading(categories, haiku, dialog_groups, dialogs, stories, lang):
             # Haiku
             for hk in by_sort(haiku_by_cat.get(cat['id'], [])):
                 mh = to_ruby_html(hk['minihongo']).replace(' / ', '<br>')
-                translated_hk = t(hk, '', lang)
+                translated_hk = to_ruby_html(t(hk, '', lang))
                 parts.append('  <div class="haiku">\n')
                 parts.append(f'    <p lang="ja">{mh}</p>\n')
                 parts.append(f'    <p>{translated_hk}</p>\n')
@@ -479,8 +484,8 @@ def gen_reading(categories, haiku, dialog_groups, dialogs, stories, lang):
                 parts.append('</div>\n')
                 parts.append('<div class="dialog-translation">\n')
                 for ln in lines:
-                    speaker = t(ln, 'speaker', lang)
-                    body = t(ln, '', lang)
+                    speaker = to_ruby_html(t(ln, 'speaker', lang))
+                    body = to_ruby_html(t(ln, '', lang))
                     parts.append(f'  <p><strong>{speaker}:</strong> {body}</p>\n')
                 parts.append('</div>\n')
                 parts.append('\n')
@@ -500,7 +505,7 @@ def gen_reading(categories, haiku, dialog_groups, dialogs, stories, lang):
                     parts.append(f'  <p lang="ja">{to_ruby_html(para)}</p>\n')
                 parts.append('</div>\n')
 
-                translated_story = t(st, '', lang)
+                translated_story = to_ruby_html(t(st, '', lang))
                 parts.append('<div class="story-translation">\n')
                 parts.append(f'  <p>{translated_story}</p>\n')
                 parts.append('</div>\n')
