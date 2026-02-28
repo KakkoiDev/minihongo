@@ -81,6 +81,16 @@ site/
 docs/                     # Built output (gitignored, built in CI)
 ```
 
+## Claude Code Skill
+
+This repo includes a `/minihongo` skill for [Claude Code](https://claude.com/claude-code). It makes the AI speak entirely in Minihongo - only the 182 base words, with furigana.
+
+```
+/minihongo
+```
+
+The skill lives at `.claude/skills/minihongo/SKILL.md`.
+
 ## Design
 
 - Noto Sans JP for Japanese text

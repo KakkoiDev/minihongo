@@ -6,4 +6,5 @@ site/pages/lessons/
 *.md
 !README.md
 !SCHEMA.md
+!.claude/skills/**/SKILL.md
 conversation-about-minihongo.html
