@@ -130,11 +130,14 @@
     const toastMsg = toast.querySelector('.toast-msg')
     let toastTimer = 0
 
+    let toastOnDismiss = null
+
     function showToast(msg, opts) {
       clearTimeout(toastTimer)
       toastMsg.textContent = msg
       const old = toast.querySelector('.toast-btn')
       if (old) old.remove()
+      toastOnDismiss = opts?.onDismiss || null
       if (opts?.actionLabel) {
         const btn = document.createElement('button')
         btn.className = 'toast-btn'
@@ -149,6 +152,7 @@
     function hideToast() {
       clearTimeout(toastTimer)
       toast.classList.remove('visible')
+      if (toastOnDismiss) { toastOnDismiss(); toastOnDismiss = null }
     }
 
     toast.addEventListener('click', hideToast)
@@ -160,13 +164,17 @@
     addEventListener('beforeinstallprompt', e => {
       e.preventDefault()
       deferredInstall = e
+      const dismissed = localStorage.getItem('install_dismissed')
+      if (dismissed && Date.now() - Number(dismissed) < 7 * 86400000) return
       showToast(TOAST.install, {
         actionLabel: TOAST.installBtn,
         action() {
           deferredInstall?.prompt()
           deferredInstall = null
+          toastOnDismiss = null
           hideToast()
-        }
+        },
+        onDismiss() { localStorage.setItem('install_dismissed', Date.now()) }
       })
     })
 
