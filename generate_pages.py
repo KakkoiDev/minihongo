@@ -367,8 +367,10 @@ def gen_word_building(categories, compounds, expressions, lang):
                 _render_compound_table(parts, cat_compounds, lang)
             elif cat_expressions:
                 has_japanese = any(e['japanese'] for e in cat_expressions)
+                is_byov = h2['name_english'] == 'Build Your Own Vocabulary'
                 if has_japanese:
-                    _render_common_table(parts, cat_expressions, lang)
+                    _render_common_table(parts, cat_expressions, lang,
+                                         byov=is_byov)
                 else:
                     _render_concept_table(parts, cat_expressions, lang)
 
@@ -380,14 +382,16 @@ def gen_word_building(categories, compounds, expressions, lang):
 def _render_compound_table(parts, rows, lang):
     """2-col table: Word (with furigana) / Meaning."""
     th_word = ui('th_word', lang)
-    th_meaning = ui('th_meaning', lang) if lang != 'mh' else ui('th_parts', lang)
+    th_meaning = ui('th_meaning', lang)
     parts.append('  <table class="compound-table">\n')
     parts.append(f'    <thead><tr><th lang="ja">{th_word}</th><th>{th_meaning}</th></tr></thead>\n')
     parts.append('    <tbody>\n')
     for r in rows:
         word = f'<ruby>{r["minihongo"]}<rt>{r["reading"]}</rt></ruby>'
         if lang == 'mh':
-            meaning = to_ruby_html(esc(r.get('english_litteral', '') or r['minihongo']))
+            meaning = to_ruby_html(esc(
+                r.get('definition_minihongo', '') or r.get('english_litteral', '') or r['minihongo']
+            ))
         else:
             meaning = render(t(r, "", lang))
         parts.append(
@@ -400,13 +404,16 @@ def _render_compound_table(parts, rows, lang):
     parts.append('  </table>\n')
 
 
-def _render_common_table(parts, rows, lang):
+def _render_common_table(parts, rows, lang, byov=False):
     """Common words table: Word (with furigana) / English / Minihongo.
-    For mh: 2-col, drop English column."""
+    For mh: 2-col, drop English column.
+    For mh+byov: 1-col, only minihongo expression."""
     th_word = ui('th_word', lang)
     th_minihongo = ui('th_minihongo', lang)
     parts.append('<table class="compound-table">\n')
-    if lang == 'mh':
+    if lang == 'mh' and byov:
+        parts.append(f'  <thead><tr><th lang="ja">{th_minihongo}</th></tr></thead>\n')
+    elif lang == 'mh':
         parts.append(f'  <thead><tr><th>{th_word}</th><th>{th_minihongo}</th></tr></thead>\n')
     else:
         th_english = ui('th_english', lang)
@@ -415,7 +422,9 @@ def _render_common_table(parts, rows, lang):
     for r in rows:
         mh = to_ruby_html(r['minihongo'])
         word = f'<ruby>{r["japanese"]}<rt>{r["reading"]}</rt></ruby>'
-        if lang == 'mh':
+        if lang == 'mh' and byov:
+            parts.append(f'    <tr><td lang="ja">{mh}</td></tr>\n')
+        elif lang == 'mh':
             parts.append(
                 f'    <tr>'
                 f'<td lang="ja">{word}</td>'
@@ -436,15 +445,24 @@ def _render_common_table(parts, rows, lang):
 
 def _render_concept_table(parts, rows, lang):
     """3-col table: Concept / Expression / Literally.
-    For mh: 1-col, just the minihongo expression."""
+    For mh: 2-col, minihongo expression + definition."""
     if lang == 'mh':
         th_word = ui('th_word', lang)
+        th_meaning = ui('th_meaning', lang)
+        has_defs = any(r.get('definition_minihongo') for r in rows)
         parts.append('  <table class="compound-table">\n')
-        parts.append(f'    <thead><tr><th lang="ja">{th_word}</th></tr></thead>\n')
+        if has_defs:
+            parts.append(f'    <thead><tr><th lang="ja">{th_word}</th><th>{th_meaning}</th></tr></thead>\n')
+        else:
+            parts.append(f'    <thead><tr><th lang="ja">{th_word}</th></tr></thead>\n')
         parts.append('    <tbody>\n')
         for r in rows:
             mh = to_ruby_html(r['minihongo'])
-            parts.append(f'      <tr><td lang="ja">{mh}</td></tr>\n')
+            if has_defs:
+                defn = to_ruby_html(esc(r.get('definition_minihongo', '') or ''))
+                parts.append(f'      <tr><td lang="ja">{mh}</td><td>{defn}</td></tr>\n')
+            else:
+                parts.append(f'      <tr><td lang="ja">{mh}</td></tr>\n')
         parts.append('    </tbody>\n')
         parts.append('  </table>\n')
         return

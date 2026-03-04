@@ -37,7 +37,10 @@ const PRECACHE = [
   'mh/_f/lessons/6-texts-dialogs.html',
 ]
 
-self.addEventListener('install', () => {
+self.addEventListener('install', e => {
+  e.waitUntil(
+    caches.open(CACHE).then(c => c.addAll(PRECACHE))
+  )
   self.skipWaiting()
 })
 
@@ -46,9 +49,6 @@ self.addEventListener('activate', e => {
     caches.keys().then(keys =>
       Promise.all(keys.filter(k => k !== CACHE).map(k => caches.delete(k)))
     ).then(() => self.clients.claim())
-      .then(() => {
-        caches.open(CACHE).then(c => c.addAll(PRECACHE)).catch(() => {})
-      })
   )
 })
 

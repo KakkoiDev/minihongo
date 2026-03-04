@@ -134,6 +134,11 @@
 
     navigator.serviceWorker?.register('/sw.js')
 
+    // Recover from bfcache (back from another app)
+    addEventListener('pageshow', e => {
+      if (e.persisted && !document.querySelector('#content')?.children.length) location.reload()
+    })
+
     // Toast banner system
     const TOAST = {
       offline: '{{TOAST_OFFLINE}}',

@@ -362,6 +362,10 @@
             "type": "string"
           },
           {
+            "name": "definition_minihongo",
+            "type": "string"
+          },
+          {
             "name": "sort_order",
             "type": "integer",
             "constraints": {

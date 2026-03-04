@@ -21,7 +21,7 @@ cat-19,,grammar,どんな,Describing Things,修飾,4
 cat-20,,grammar,物【もの】にする,Making Nouns,名詞化,5
 cat-21,,grammar,思【おも】うと「もし」,Will & Conditions,意志と条件,6
 cat-22,,grammar,聞【き】き方【かた】,Questions,疑問と終助詞,7
-cat-23,,word-building,字【じ】を一【ひと】つにする,Real Kanji Compounds,漢字熟語,1
+cat-23,,word-building,字【じ】を一【ひと】つにする,Real Kanji Compounds,漢字熟語,3
 cat-24,cat-23,word-building,人【ひと】,People,人と関係,1
 cat-25,cat-23,word-building,外【そと】の世界【せかい】,Nature & Geography,自然と地理,2
 cat-26,cat-23,word-building,空【そら】と時【とき】,Sky & Time,空と時間,3
@@ -47,7 +47,7 @@ cat-45,cat-37,word-building,どんな - 反対【はんたい】は「ない」,
 cat-46,cat-37,word-building,する事【こと】,Actions,動作,9
 cat-47,cat-37,word-building,心【こころ】と考【かんが】え,Abstract,抽象,10
 cat-48,cat-37,word-building,消【き】えた言【こと】葉【ば】,Removed Words as Compounds,除外語を熟語で,11
-cat-49,,word-building,よく使【つか】う言【こと】葉【ば】,Common Words in Minihongo,よく使う言葉,3
+cat-49,,word-building,よく使【つか】う言【こと】葉【ば】,Common Words in Minihongo,よく使う言葉,1
 cat-50,cat-49,word-building,毎【まい】日【にち】の事【こと】,Daily Life & Routines,日常生活,1
 cat-51,cat-49,word-building,する事【こと】と学【まな】ぶ事【こと】,Work & School,仕事と学校,2
 cat-52,cat-49,word-building,数【かず】と数【かぞ】え方【かた】,Numbers & Counting,数と数え方,3
@@ -67,7 +67,7 @@ cat-76,,reading,話【はな】し,Dialogs,対話,1
 cat-73,cat-76,reading,毎【まい】日【にち】の話【はな】し,Daily Life Dialogs,日常の対話,1
 cat-74,cat-76,reading,考【かんが】える話【はな】し,Thinking Dialogs,思索の対話,2
 cat-75,,reading,短【みじか】い話【はな】し,Short Stories,短編,2
-cat-78,,reading,俳句【はいく】,Haiku,俳句,3
+cat-78,,reading,少【すこ】しの言【こと】葉【ば】,Haiku,俳句,3
 cat-65,cat-78,reading,自然【しぜん】,Nature,自然,1
 cat-66,cat-78,reading,毎【まい】日【にち】,Daily Life,日常,2
 cat-67,cat-78,reading,心【こころ】,Heart & Mind,心,3
