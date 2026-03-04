@@ -405,38 +405,27 @@ def _render_compound_table(parts, rows, lang):
 
 
 def _render_common_table(parts, rows, lang, byov=False):
-    """Common words table: Word (with furigana) / English / Minihongo.
-    For mh: 2-col, drop English column.
-    For mh+byov: 1-col, only minihongo expression."""
-    th_word = ui('th_word', lang)
+    """Common words table.
+    For mh: 1-col, only minihongo expression.
+    For en/ja: 2-col, Minihongo + English/Japanese meaning."""
     th_minihongo = ui('th_minihongo', lang)
     parts.append('<table class="compound-table">\n')
-    if lang == 'mh' and byov:
+    if lang == 'mh':
         parts.append(f'  <thead><tr><th lang="ja">{th_minihongo}</th></tr></thead>\n')
-    elif lang == 'mh':
-        parts.append(f'  <thead><tr><th>{th_word}</th><th>{th_minihongo}</th></tr></thead>\n')
     else:
-        th_english = ui('th_english', lang)
-        parts.append(f'  <thead><tr><th>{th_word}</th><th>{th_english}</th><th>{th_minihongo}</th></tr></thead>\n')
+        th_meaning = ui('th_meaning', lang)
+        parts.append(f'  <thead><tr><th lang="ja">{th_minihongo}</th><th>{th_meaning}</th></tr></thead>\n')
     parts.append('  <tbody>\n')
     for r in rows:
         mh = to_ruby_html(r['minihongo'])
-        word = f'<ruby>{r["japanese"]}<rt>{r["reading"]}</rt></ruby>'
-        if lang == 'mh' and byov:
+        if lang == 'mh':
             parts.append(f'    <tr><td lang="ja">{mh}</td></tr>\n')
-        elif lang == 'mh':
-            parts.append(
-                f'    <tr>'
-                f'<td lang="ja">{word}</td>'
-                f'<td lang="ja">{mh}</td>'
-                f'</tr>\n'
-            )
         else:
+            meaning = esc(r['japanese'] if lang == 'ja' else r['english'])
             parts.append(
                 f'    <tr>'
-                f'<td lang="ja">{word}</td>'
-                f'<td>{esc(r["english"])}</td>'
                 f'<td lang="ja">{mh}</td>'
+                f'<td>{meaning}</td>'
                 f'</tr>\n'
             )
     parts.append('  </tbody>\n')
