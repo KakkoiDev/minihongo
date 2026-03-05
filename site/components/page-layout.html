@@ -57,37 +57,47 @@
     const basePath = new URL(base).pathname
 
     function onHtmzLoad(frame) {
-      const loc = frame.contentWindow.location
-      if (loc.href === 'about:blank') return
-      setTimeout(() => {
-        const target = document.querySelector(loc.hash || null)
-        if (!target) return
-        // Original htmz swap
-        target.replaceWith(...frame.contentDocument.body.childNodes)
-        // Clear iframe: reset src to prevent reload loop on re-append
-        frame.src = 'about:blank'
-        // URL history
-        const pagePath = loc.pathname.replace(basePath, '').replace(/^_f\//, '')
-        const pageUrl = base + pagePath
-        const h1 = document.querySelector('#content h1')
-        document.title = (h1?.textContent || 'Minihongo') + ' - Minihongo'
-        if (location.href !== pageUrl) history.pushState({ path: pagePath }, '', pageUrl)
-        scrollTo(0, 0)
-      })
+      try {
+        const loc = frame.contentWindow.location
+        if (loc.href === 'about:blank') return
+        setTimeout(() => {
+          try {
+            const target = document.querySelector(loc.hash || null)
+            if (!target) return
+            const nodes = [...frame.contentDocument.body.childNodes]
+            if (!nodes.length) return
+            target.replaceWith(...nodes)
+            frame.src = 'about:blank'
+            const pagePath = loc.pathname.replace(basePath, '').replace(/^_f\//, '')
+            const pageUrl = base + pagePath
+            const h1 = document.querySelector('#content h1')
+            document.title = (h1?.textContent || 'Minihongo') + ' - Minihongo'
+            if (location.href !== pageUrl) history.pushState({ path: pagePath }, '', pageUrl)
+            scrollTo(0, 0)
+          } catch { location.reload() }
+        })
+      } catch { /* iframe in bad state after app resume - ignore */ }
     }
 
     // Back/forward
     addEventListener('popstate', e => {
       if (!e.state?.path) return location.reload()
-      fetch(base + '_f/' + e.state.path + '#content')
-        .then(r => r.text())
+      fetch(base + '_f/' + e.state.path)
+        .then(r => {
+          if (!r.ok) throw new Error(r.status)
+          return r.text()
+        })
         .then(html => {
           const doc = new DOMParser().parseFromString(html, 'text/html')
-          document.querySelector('#content')?.replaceWith(...doc.body.childNodes)
+          const nodes = [...doc.body.childNodes]
+          const target = document.querySelector('#content')
+          if (!target || !nodes.length) return location.reload()
+          target.replaceWith(...nodes)
           const h1 = document.querySelector('#content h1')
           document.title = (h1?.textContent || 'Minihongo') + ' - Minihongo'
           scrollTo(0, 0)
         })
+        .catch(() => location.reload())
     })
 
     // Rewrite nav links for htmz
@@ -134,9 +144,14 @@
 
     navigator.serviceWorker?.register('/sw.js')
 
-    // Recover from bfcache (back from another app)
-    addEventListener('pageshow', e => {
-      if (e.persisted && !document.querySelector('#content')?.children.length) location.reload()
+    // Recover from freeze/resume (back from another app)
+    function checkContentIntegrity() {
+      if (!document.querySelector('#content')?.children.length) location.reload()
+    }
+    addEventListener('pageshow', e => { if (e.persisted) checkContentIntegrity() })
+    addEventListener('resume', checkContentIntegrity)
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'visible') checkContentIntegrity()
     })
 
     // Toast banner system

@@ -4,6 +4,12 @@
 
 Live at [minihongo.com](https://minihongo.com)
 
+## Goals
+
+- **Make Japanese accessible to everyone.** Even extremely busy people or those with cognitive disabilities can learn 182 words. That is enough to express any idea.
+- **Give anyone the minimum tools for self-expression.** Being able to name feelings and needs lowers aggression and frustration.
+- **Break down language barriers between communities.** Small minorities can communicate with society at large without relying on ethnic community interpreters. Shared language increases mutual understanding and reduces isolation.
+
 ## Lessons
 
 | # | Lesson | What |
