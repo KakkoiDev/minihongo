@@ -39,6 +39,18 @@
             "type": "string"
           },
           {
+            "name": "desc_en",
+            "type": "string"
+          },
+          {
+            "name": "desc_ja",
+            "type": "string"
+          },
+          {
+            "name": "desc_mh",
+            "type": "string"
+          },
+          {
             "name": "sort_order",
             "type": "integer",
             "constraints": {
@@ -149,15 +161,16 @@
             "type": "string"
           },
           {
+            "name": "definition_minihongo",
+            "type": "string"
+          },
+          {
             "name": "english_litteral",
             "type": "string"
           },
           {
             "name": "example_minihongo",
-            "type": "string",
-            "constraints": {
-              "required": true
-            }
+            "type": "string"
           },
           {
             "name": "example_english",

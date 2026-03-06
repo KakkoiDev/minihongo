@@ -16,6 +16,8 @@ import hashlib
 import os
 import re
 import shutil
+import subprocess
+import sys
 import tempfile
 from datetime import datetime
 from pathlib import Path
@@ -303,10 +305,54 @@ def extract_fragment(html):
 
 # ── Build ──────────────────────────────────────────────────────────
 
+def _cleanup_stale_builds():
+    """Remove orphan .docs_build_* temp dirs from interrupted builds."""
+    for d in OUT.parent.glob('.docs_build_*'):
+        if d.is_dir():
+            shutil.rmtree(d)
+            print(f"  cleaned up {d.name}")
+
+
+def check():
+    """Run template lint + schema validation. Returns True if all pass."""
+    ok = True
+
+    # Template lint
+    from lint import lint_all
+    errors, file_count = lint_all()
+    if errors:
+        for e in errors:
+            print(f"  {e}")
+        print(f"\nlint: {len(errors)} error(s) in {file_count} file(s)")
+        ok = False
+    else:
+        print(f"lint: OK - {file_count} file(s)")
+
+    # Schema validation (frictionless)
+    try:
+        result = subprocess.run(
+            ['frictionless', 'validate', str(DATA / 'datapackage.json')],
+            capture_output=True, text=True,
+        )
+        if result.returncode != 0:
+            print(result.stdout)
+            if result.stderr:
+                print(result.stderr)
+            ok = False
+        else:
+            print("schema: OK")
+    except FileNotFoundError:
+        print("schema: skipped (frictionless not installed)")
+
+    return ok
+
+
 def build():
     base_url = os.environ.get("BASE_URL", "/")
     if not base_url.endswith("/"):
         base_url += "/"
+
+    _cleanup_stale_builds()
 
     tmp_dir = Path(tempfile.mkdtemp(dir=OUT.parent, prefix='.docs_build_'))
     _build_to(tmp_dir, base_url)
@@ -436,4 +482,6 @@ def _detect_lang(rel_path):
 
 
 if __name__ == "__main__":
+    if '--check' in sys.argv:
+        sys.exit(0 if check() else 1)
     build()

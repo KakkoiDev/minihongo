@@ -100,7 +100,7 @@ window.switchLang = (lang) => {
 
 // -- Service worker -------------------------------------------------
 
-navigator.serviceWorker?.register('/sw.js')
+navigator.serviceWorker?.register(`${basePath}sw.js`)
 
 // -- Content integrity recovery -------------------------------------
 
