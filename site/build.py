@@ -66,6 +66,39 @@ def load_nav_labels():
     return labels
 
 
+def load_meta_descriptions():
+    """Load page descriptions per language from pages.csv for <meta> tags."""
+    pages = load_csv('pages')
+    # Map page IDs to descriptions per lang
+    descs = {}
+    for lang in LANGS:
+        col = {'en': 'desc_en', 'ja': 'desc_ja', 'mh': 'desc_mh'}[lang]
+        lang_descs = {}
+        for p in pages:
+            val = p.get(col, '').strip()
+            if not val:
+                val = p.get('desc_en', '').strip()
+            # Strip furigana brackets for meta tag (plain text)
+            lang_descs[p['id']] = re.sub(r'【[^】]+】', '', val)
+        descs[lang] = lang_descs
+    return descs
+
+
+# Map page filenames to page IDs for description lookup
+PAGE_ID_MAP = {
+    'index.html': None,  # homepage uses site-level description
+    '404.html': '_404',
+    'lessons/2-vocabulary.html': 'vocabulary',
+    'lessons/3-grammar.html': 'grammar',
+    'lessons/5-word-building.html': 'word-building',
+    'lessons/6-texts-dialogs.html': 'reading',
+}
+
+STATIC_DESCS = {
+    '_404': 'Page not found.',
+}
+
+
 def load_ui_strings():
     """Load ui_strings.csv into nested dict: {key: {lang: value}}."""
     rows = load_csv('ui_strings')
@@ -205,6 +238,7 @@ def _build_to(OUT, base_url):
     components = load_components()
     nav_labels = load_nav_labels()
     ui_strings = load_ui_strings()
+    meta_descs = load_meta_descriptions()
     print(f"components: {', '.join(components)}")
 
     (OUT / "_f").mkdir()
@@ -238,6 +272,18 @@ def _build_to(OUT, base_url):
         # Copyright year
         html = html.replace("{{COPYRIGHT_YEAR}}", str(datetime.now().year))
 
+        # Meta description
+        page_file = str(rel).replace(f'{lang}/', '') if lang != 'en' else str(rel)
+        page_id = PAGE_ID_MAP.get(page_file)
+        if page_id and page_id in STATIC_DESCS:
+            desc = STATIC_DESCS[page_id]
+        elif page_id:
+            desc = meta_descs[lang].get(page_id, '')
+        else:
+            desc = ui_str(ui_strings, 'home_tagline', lang)
+            desc = re.sub(r'<[^>]+>', '', desc)  # strip any HTML from ruby
+        html = html.replace('{{META_DESCRIPTION}}', desc)
+
         # Toast strings
         for toast_key in ['toast_offline', 'toast_online', 'toast_install',
                           'toast_install_btn', 'toast_updated']:
@@ -250,6 +296,10 @@ def _build_to(OUT, base_url):
         dest.write_text(html)
 
         # htmz fragment: place under {lang}/_f/ so base + '_f/' works
+        # Skip 404 page - no fragment needed
+        if rel.name == '404.html':
+            print(f"  {rel}")
+            continue
         if lang == 'en':
             frag = OUT / '_f' / rel
         else:
@@ -259,6 +309,32 @@ def _build_to(OUT, base_url):
         frag.write_text(extract_fragment(html))
 
         print(f"  {rel}")
+
+    # Generate sitemap.xml
+    site_url = os.environ.get("SITE_URL", "https://minihongo.com")
+    sitemap_urls = []
+    for f in sorted(OUT.rglob("*.html")):
+        rel_path = f.relative_to(OUT)
+        if '_f/' in str(rel_path) or rel_path.name == '404.html':
+            continue
+        path = str(rel_path).replace('index.html', '')
+        sitemap_urls.append(f'  <url><loc>{site_url}/{path}</loc></url>')
+    sitemap = (
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+        + '\n'.join(sitemap_urls) + '\n'
+        '</urlset>\n'
+    )
+    (OUT / 'sitemap.xml').write_text(sitemap)
+    print("  sitemap.xml")
+
+    # Generate robots.txt
+    robots = f'User-agent: *\nAllow: /\nSitemap: {site_url}/sitemap.xml\n'
+    (OUT / 'robots.txt').write_text(robots)
+    print("  robots.txt")
+
+    # 404.html is built as a regular page (site/pages/404.html)
+    # and lands in the right place for GitHub Pages
 
     # Hash all output files for cache busting
     h = hashlib.sha256()

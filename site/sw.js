@@ -10,6 +10,7 @@ const CACHE = 'minihongo-{{CACHE_HASH}}'
 const PRECACHE = [
   './',
   'static/style.css',
+  'static/app.js',
   // English pages + htmz fragments
   'lessons/2-vocabulary.html',
   'lessons/3-grammar.html',

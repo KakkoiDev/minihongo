@@ -1,3 +1,6 @@
+/* === Font === */
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap");
+
 /* === Reset === */
 *, *::before, *::after { box-sizing: border-box; }
 
@@ -238,45 +241,8 @@ ruby rt {
   border-inline-start: 3px solid var(--accent);
 }
 
-/* === Compact table === */
-.compact-table {
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;
-  margin-block-end: var(--s);
-  font-size: 0.95rem;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  overflow: hidden;
-
-  & td, & th {
-    padding: 0.5rem 0.75rem;
-    border-block-end: 1px solid var(--border);
-    text-align: start;
-    overflow-wrap: break-word;
-  }
-
-  & tr:last-child td {
-    border-block-end: none;
-  }
-
-  & tr:nth-child(even) td {
-    background: var(--bg-raised);
-  }
-
-  & th {
-    font-weight: 600;
-    color: var(--text-muted);
-    font-size: 0.85rem;
-    background: var(--bg-raised);
-  }
-
-  & td:first-child {
-    font-family: var(--jp);
-  }
-}
-
-/* === Compound table === */
+/* === Data table (shared by compact-table, compound-table) === */
+.compact-table,
 .compound-table {
   width: 100%;
   border-collapse: separate;
@@ -306,6 +272,14 @@ ruby rt {
     color: var(--text-muted);
     font-size: 0.85rem;
     background: var(--bg-raised);
+  }
+}
+
+.compact-table {
+  font-size: 0.95rem;
+
+  & td:first-child {
+    font-family: var(--jp);
   }
 }
 
