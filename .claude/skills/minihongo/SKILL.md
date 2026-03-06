@@ -1,6 +1,6 @@
 ---
 name: minihongo
-description: Speak entirely in Minihongo - Japanese using only the 182 base words. Use when user says /minihongo or asks you to speak in minihongo.
+description: Speak entirely in Minihongo - Japanese using only the 182 base words. Use when user says /minihongo or asks you to speak in minihongo. Also use when validating vocabulary compliance, writing haiku/stories/dialogs, or building/deploying the site.
 ---
 
 # Minihongo Speaking Mode
@@ -15,6 +15,9 @@ You are now speaking in Minihongo. You MUST communicate using ONLY the 182 base 
 4. Write all kanji with furigana brackets: 人【ひと】, 食【た】べる
 5. If you cannot express something with these words, describe it using combinations.
 6. Keep sentences short and clear.
+7. Grammar must be modern (no classical forms like ぬ negative - use ない).
+8. Plain form only (not polite ます form).
+9. Gently correct if the user uses words outside the vocabulary, suggesting minihongo alternatives.
 
 ## Word Combination Examples
 
@@ -25,6 +28,45 @@ You are now speaking in Minihongo. You MUST communicate using ONLY the 182 base 
 - music = 耳【みみ】の楽【たの】しい音【おと】 (ear-fun sound)
 - hospital = 体【からだ】を助【たす】ける場所【ばしょ】 (body-helping place)
 - library = 本【ほん】の家【いえ】 (book house)
+
+## Vocabulary Checker
+
+When validating content, check against the 182 base words below.
+
+Rules:
+- Only use words from the list (+ particles and grammar forms)
+- Compounds from `data/compounds.csv` are allowed (built from base words)
+- Loanwords in katakana are allowed per lesson 4/5 rules
+- Conjugated forms of base verbs are fine (食べる -> 食べた, 食べない, 食べて, etc.)
+
+## Content Authoring
+
+When writing haiku, stories, or dialogs:
+- Use only minihongo vocabulary
+- Haiku must be 5-7-5 mora
+- Stories use `<div class="sentence">` with `<p lang="ja">` and `<p>` (English)
+- Dialogs use `<div class="dialog">` and `<div class="dialog-translation">`
+- JA pages: omit English translations for content a Japanese reader understands natively (e.g., haiku)
+- Furigana in HTML: `<ruby>漢字<rt>reading</rt></ruby>`
+- Haiku categories: cat-65 to cat-72 (Nature, Daily Life, Heart, Seasons, Between People, Life & Death, Light & Dark, Words)
+
+## Build & Deploy
+
+```
+data/               CSV data (source of truth)
+site/
+  build.py          Static site generator (Python 3.10+, zero deps)
+  components/       HTML components (page-layout, vocab-card, grammar-point, kana-table)
+  pages/            EN source pages
+  pages/ja/         JA source pages
+  static/style.css  Styles
+docs/               Built output (GitHub Pages), gitignored
+```
+
+- `make build` - generate docs/ from site/
+- `make serve` - build + localhost:3000
+- `make watch` - auto-rebuild on change
+- Two versions: EN (`/`) and JA (`/ja/`)
 
 ## The 182 Words
 
@@ -59,7 +101,7 @@ You are now speaking in Minihongo. You MUST communicate using ONLY the 182 base 
 言葉【ことば】(word) 名前【なまえ】(name) 音【おと】(sound)
 
 ### Time
-時【とき】(time/when) 今【いま】(now) 前【まえ】(before) 後【あと】(after) 毎【まい】(every) 日【ひ】(day) 年【とし】(year) 夜【よる】(night)
+時【とき】(time/when) 今【いま】(now) 前【まえ】(before) 後【あと】(after) 毎【まい】(every) 日【にち】(day) 年【とし】(year) 夜【よる】(night)
 
 ### Space
 家【いえ】(home) 上【うえ】(up) 下【した】(down) 中【なか】(inside) 右【みぎ】(right) 左【ひだり】(left) 近【ちか】い(near) ここ(here) そこ(there) どこ(where)
