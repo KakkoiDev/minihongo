@@ -10,11 +10,13 @@ CSV files validated with [Frictionless Data Framework](https://github.com/fricti
 | Column | Type | Constraints |
 |--------|------|-------------|
 | id | string | PK |
+| path | string | required |
 | name_minihongo | string | required |
 | name_english | string | required |
 | name_japanese | string | |
 | sort_order | integer | required |
 
+path maps page id to its file path (e.g. lessons/2-vocabulary.html).
 Values: vocabulary, grammar, word-building, reading
 
 ### categories

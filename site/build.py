@@ -36,16 +36,6 @@ HTML_LANGS = {'en': 'en', 'ja': 'ja', 'mh': 'ja'}
 LANG_LABELS = {'en': 'English', 'ja': '日本語', 'mh': 'ミニ本語'}
 BASE_URLS = {'en': '/', 'ja': '/ja/', 'mh': '/mh/'}
 
-# Map page filenames to pages.csv IDs for meta descriptions
-PAGE_ID_MAP = {
-    'index.html': None,
-    '404.html': '_404',
-    'lessons/2-vocabulary.html': 'vocabulary',
-    'lessons/3-grammar.html': 'grammar',
-    'lessons/5-word-building.html': 'word-building',
-    'lessons/6-texts-dialogs.html': 'reading',
-}
-
 STATIC_DESCS = {'_404': 'Page not found.'}
 
 MEANING_COL_MAP = {'en': 'english', 'ja': 'japanese', 'mh': 'definition_minihongo'}
@@ -89,6 +79,14 @@ def ui_str(ui_strings, key, lang):
     return key
 
 
+def build_page_id_map(data):
+    """Build {page_file: page_id} from pages.csv path column."""
+    m = {p['path']: p['id'] for p in data.get('pages', []) if p.get('path')}
+    m['index.html'] = None
+    m['404.html'] = '_404'
+    return m
+
+
 def build_nav_labels(data, lang):
     """Build nav label dict from pages.csv for a language."""
     ruby = BUILTIN_FILTERS['ruby']
@@ -104,9 +102,9 @@ def build_nav_labels(data, lang):
     return labels
 
 
-def build_meta_desc(data, ui_strings, page_file, lang):
+def build_meta_desc(data, ui_strings, page_file, lang, page_id_map):
     """Get meta description for a page file."""
-    page_id = PAGE_ID_MAP.get(page_file)
+    page_id = page_id_map.get(page_file)
     if page_id and page_id in STATIC_DESCS:
         return STATIC_DESCS[page_id]
     if page_id:
@@ -133,7 +131,7 @@ def lang_switcher_html(lang):
     )
 
 
-def build_page_context(data, ui_strings, lang, page_file, base_url):
+def build_page_context(data, ui_strings, lang, page_file, base_url, page_id_map):
     """Build the full template context for a page."""
     ruby = BUILTIN_FILTERS['ruby']
     strip_fg = BUILTIN_FILTERS['strip_furigana']
@@ -141,7 +139,7 @@ def build_page_context(data, ui_strings, lang, page_file, base_url):
     lang_base = BASE_URLS[lang] if base_url == "/" else base_url
 
     # Page-specific names from pages.csv
-    page_id = PAGE_ID_MAP.get(page_file)
+    page_id = page_id_map.get(page_file)
     page_name = ''
     page_name_plain = ''
     page_desc = ''
@@ -177,7 +175,7 @@ def build_page_context(data, ui_strings, lang, page_file, base_url):
         'FURIGANA_LABEL': ui_str(ui_strings, 'show_readings', lang),
         'DARK_MODE_LABEL': ui_str(ui_strings, 'dark_mode', lang),
         'LANG_SWITCHER': lang_switcher_html(lang),
-        'META_DESCRIPTION': build_meta_desc(data, ui_strings, page_file, lang),
+        'META_DESCRIPTION': build_meta_desc(data, ui_strings, page_file, lang, page_id_map),
         'PAGE_NAME': page_name,
         'PAGE_NAME_PLAIN': page_name_plain,
         'PAGE_DESC': page_desc,
@@ -336,6 +334,7 @@ def _build_to(OUT, base_url):
     components = load_components()
     data = load_all_data()
     ui_strings = load_ui_strings(data)
+    page_id_map = build_page_id_map(data)
     print(f"components: {', '.join(components)}")
 
     (OUT / "_f").mkdir()
@@ -352,7 +351,7 @@ def _build_to(OUT, base_url):
         html = expand(html, components)
 
         # 2. Render through template engine (resolves all {{ }} and {% %})
-        ctx = build_page_context(data, ui_strings, lang, page_file, base_url)
+        ctx = build_page_context(data, ui_strings, lang, page_file, base_url, page_id_map)
         html = engine.render(html, ctx)
 
         # Full page
@@ -398,6 +397,19 @@ def _build_to(OUT, base_url):
     )
     print("  robots.txt")
 
+    # Auto-generate PRECACHE list from built files
+    precache = ["'./'", "'static/style.css'", "'static/app.js'"]
+    for f in sorted(OUT.rglob("*.html")):
+        rel_path = str(f.relative_to(OUT))
+        if f.name == '404.html':
+            continue
+        # index.html -> directory URL (e.g. 'ja/' instead of 'ja/index.html')
+        url = rel_path.replace('index.html', '') if rel_path.endswith('index.html') else rel_path
+        if not url or url == './':
+            continue  # already in static list as './'
+        precache.append(f"'{url}'")
+    precache_js = '[\n  ' + ',\n  '.join(precache) + ',\n]'
+
     # Cache busting hash
     h = hashlib.sha256()
     for f in sorted(OUT.rglob("*")):
@@ -406,7 +418,10 @@ def _build_to(OUT, base_url):
     cache_hash = h.hexdigest()[:8]
 
     sw = OUT / "sw.js"
-    sw.write_text(sw.read_text().replace("{{CACHE_HASH}}", cache_hash))
+    sw_text = sw.read_text()
+    sw_text = sw_text.replace("{{PRECACHE}}", precache_js)
+    sw_text = sw_text.replace("{{CACHE_HASH}}", cache_hash)
+    sw.write_text(sw_text)
     print(f"  cache: {cache_hash}")
 
     print(f"-> {OUT}/")
