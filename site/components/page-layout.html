@@ -45,7 +45,7 @@
     {{LANG_SWITCHER}}
   </nav>
 
-  <div id="toast"><span class="toast-msg"></span></div>
+  <div id="toast-container"></div>
 
   <main id="content">
     <slot></slot>
@@ -198,42 +198,61 @@
       updated: '{{TOAST_UPDATED}}'
     }
 
-    const toast = document.getElementById('toast')
-    const toastMsg = toast.querySelector('.toast-msg')
-    let toastTimer = 0
-    let toastOnDismiss = null
+    const toastContainer = document.getElementById('toast-container')
 
-    // Show a toast message with optional action button and auto-dismiss
+    // Show a toast that stacks in the fixed top container.
+    // Returns the toast element for manual removal if needed.
     const showToast = (msg, opts) => {
-      clearTimeout(toastTimer)
-      toastMsg.textContent = msg
-      toast.querySelector('.toast-btn')?.remove()
-      toastOnDismiss = opts?.onDismiss ?? null
+      const el = document.createElement('div')
+      el.className = 'toast'
+
+      const msgSpan = document.createElement('span')
+      msgSpan.className = 'toast-msg'
+      msgSpan.textContent = msg
+      el.appendChild(msgSpan)
+
       if (opts?.actionLabel) {
         const btn = document.createElement('button')
         btn.className = 'toast-btn'
         btn.textContent = opts.actionLabel
         btn.addEventListener('click', (e) => { e.stopPropagation(); opts.action?.() })
-        toast.appendChild(btn)
+        el.appendChild(btn)
       }
-      toast.classList.add('visible')
-      if (opts?.duration) toastTimer = setTimeout(hideToast, opts.duration)
+
+      // Dismiss on click/tap
+      const dismiss = () => {
+        el.classList.add('toast-out')
+        el.addEventListener('animationend', () => {
+          el.remove()
+          opts?.onDismiss?.()
+        }, { once: true })
+      }
+      el.addEventListener('click', dismiss)
+
+      toastContainer.appendChild(el)
+
+      // Auto-dismiss after duration
+      if (opts?.duration) setTimeout(dismiss, opts.duration)
+
+      return { el, dismiss }
     }
 
-    const hideToast = () => {
-      clearTimeout(toastTimer)
-      toast.classList.remove('visible')
-      toastOnDismiss?.()
-      toastOnDismiss = null
+    // Remove all toasts (used when going back online, etc.)
+    const clearToasts = () => {
+      for (const el of [...toastContainer.children]) el.remove()
     }
-
-    // Tap anywhere on the toast to dismiss it
-    toast.addEventListener('click', hideToast)
 
     // Network status toasts
-    addEventListener('offline', () => showToast(TOAST.offline))
-    addEventListener('online', () => showToast(TOAST.online, { duration: 3000 }))
-    if (!navigator.onLine) showToast(TOAST.offline)
+    let offlineToast = null
+    addEventListener('offline', () => {
+      offlineToast = showToast(TOAST.offline)
+    })
+    addEventListener('online', () => {
+      offlineToast?.dismiss()
+      offlineToast = null
+      showToast(TOAST.online, { duration: 3000 })
+    })
+    if (!navigator.onLine) offlineToast = showToast(TOAST.offline)
 
     // -- PWA install prompt ---------------------------------------------
 
@@ -245,13 +264,13 @@
       deferredInstall = e
       const dismissed = localStorage.getItem('install_dismissed')
       if (dismissed && Date.now() - Number(dismissed) < 7 * 86400000) return
-      showToast(TOAST.install, {
+      let installToast = null
+      installToast = showToast(TOAST.install, {
         actionLabel: TOAST.installBtn,
         action() {
           deferredInstall?.prompt()
           deferredInstall = null
-          toastOnDismiss = null
-          hideToast()
+          installToast?.dismiss()
         },
         onDismiss() { localStorage.setItem('install_dismissed', Date.now()) }
       })
