@@ -1,9 +1,16 @@
+// Service Worker for Minihongo PWA
+// Provides offline support via two caching strategies:
+// - Cache-first with background revalidation (static assets, full pages)
+// - Network-first with cache fallback (htmz fragment pages)
+
+// Cache name includes a content hash so a new deploy busts the old cache
 const CACHE = 'minihongo-{{CACHE_HASH}}'
 
+// All pages and assets to pre-cache on install (enables full offline use)
 const PRECACHE = [
   './',
   'static/style.css',
-  // en
+  // English pages + htmz fragments
   'lessons/2-vocabulary.html',
   'lessons/3-grammar.html',
   'lessons/5-word-building.html',
@@ -13,7 +20,7 @@ const PRECACHE = [
   '_f/lessons/3-grammar.html',
   '_f/lessons/5-word-building.html',
   '_f/lessons/6-texts-dialogs.html',
-  // ja
+  // Japanese pages + htmz fragments
   'ja/',
   'ja/lessons/2-vocabulary.html',
   'ja/lessons/3-grammar.html',
@@ -24,7 +31,7 @@ const PRECACHE = [
   'ja/_f/lessons/3-grammar.html',
   'ja/_f/lessons/5-word-building.html',
   'ja/_f/lessons/6-texts-dialogs.html',
-  // mh
+  // Minihongo pages + htmz fragments
   'mh/',
   'mh/lessons/2-vocabulary.html',
   'mh/lessons/3-grammar.html',
@@ -37,53 +44,58 @@ const PRECACHE = [
   'mh/_f/lessons/6-texts-dialogs.html',
 ]
 
-self.addEventListener('install', e => {
-  e.waitUntil(
-    caches.open(CACHE).then(c => c.addAll(PRECACHE))
-  )
+// -- Lifecycle events ---------------------------------------------------
+
+// Pre-cache all assets on install, then activate immediately
+self.addEventListener('install', (e) => {
+  e.waitUntil(caches.open(CACHE).then((c) => c.addAll(PRECACHE)))
   self.skipWaiting()
 })
 
-self.addEventListener('activate', e => {
+// Delete old caches from previous versions, then claim all clients
+self.addEventListener('activate', (e) => {
   e.waitUntil(
-    caches.keys().then(keys =>
-      Promise.all(keys.filter(k => k !== CACHE).map(k => caches.delete(k)))
-    ).then(() => self.clients.claim())
+    caches.keys()
+      .then((keys) => Promise.all(keys.filter((k) => k !== CACHE).map((k) => caches.delete(k))))
+      .then(() => self.clients.claim())
   )
 })
 
-self.addEventListener('fetch', e => {
+// -- Fetch routing ------------------------------------------------------
+
+// Fragment pages (/_f/*) use network-first so htmz navigation stays fresh.
+// Everything else uses cache-first for instant loads with background refresh.
+self.addEventListener('fetch', (e) => {
   if (e.request.method !== 'GET') return
-  const url = new URL(e.request.url)
-  // Fragments: network-first to avoid stale cache issues
-  if (url.pathname.includes('/_f/')) {
-    e.respondWith(networkFirst(e.request))
-  } else {
-    e.respondWith(cacheFirst(e.request))
-  }
+  const { pathname } = new URL(e.request.url)
+  e.respondWith(pathname.includes('/_f/') ? networkFirst(e.request) : cacheFirst(e.request))
 })
 
-async function networkFirst(request) {
+// -- Caching strategies -------------------------------------------------
+
+// Network-first: try network, fall back to cache, last resort 503
+const networkFirst = async (request) => {
   const cache = await caches.open(CACHE)
   try {
     const res = await fetch(request)
     if (res.ok) cache.put(request, res.clone())
     return res
   } catch {
-    return await cache.match(request) || new Response('Offline', { status: 503 })
+    return (await cache.match(request)) ?? new Response('Offline', { status: 503 })
   }
 }
 
-async function cacheFirst(request) {
+// Cache-first with stale-while-revalidate: serve cached immediately,
+// refresh in the background for next visit
+const cacheFirst = async (request) => {
   const cache = await caches.open(CACHE)
   const cached = await cache.match(request)
 
-  // Always revalidate in the background
-  const refresh = fetch(request).then(res => {
+  // Background refresh (don't await unless no cache hit)
+  const refresh = fetch(request).then((res) => {
     if (res.ok) cache.put(request, res.clone())
     return res
   }).catch(() => null)
 
-  // Serve cached immediately if available, otherwise wait for network
-  return cached || await refresh || new Response('Offline', { status: 503 })
+  return cached ?? (await refresh) ?? new Response('Offline', { status: 503 })
 }

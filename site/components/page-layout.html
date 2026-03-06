@@ -5,20 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <base href="{{BASE_URL}}">
   <title><slot name="title">Minihongo</slot></title>
+  <!-- Render-blocking: apply saved preferences before first paint to prevent flicker -->
   <script>
-    var t = localStorage.getItem('theme') ||
+    // Restore theme (dark/light) from localStorage or system preference
+    const t = localStorage.getItem('theme') ??
       (matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light')
     document.documentElement.dataset.theme = t
+
+    // Restore furigana visibility preference
     if (localStorage.getItem('furigana') === '0')
       document.documentElement.classList.add('no-furigana')
-    // Language persistence: redirect to stored language on page load
-    var savedLang = localStorage.getItem('lang')
+
+    // Redirect to stored language if user is on the wrong locale path
+    const savedLang = localStorage.getItem('lang')
     if (savedLang && /^(en|ja|mh)$/.test(savedLang)) {
-      var curLang = location.pathname.startsWith('/mh/') ? 'mh'
+      const curLang = location.pathname.startsWith('/mh/') ? 'mh'
         : location.pathname.startsWith('/ja/') ? 'ja' : 'en'
       if (savedLang !== curLang) {
-        var pg = location.pathname.replace(/^\/(ja|mh)\//, '/')
-        location.replace(savedLang === 'en' ? pg : '/' + savedLang + pg)
+        const pg = location.pathname.replace(/^\/(ja|mh)\//, '/')
+        location.replace(savedLang === 'en' ? pg : `/${savedLang}${pg}`)
       }
     }
   </script>
@@ -35,8 +40,8 @@
     <a href="lessons/3-grammar.html">{{NAV_GRAMMAR}}</a>
     <a href="lessons/5-word-building.html">{{NAV_WORD_BUILDING}}</a>
     <a href="lessons/6-texts-dialogs.html">{{NAV_READING}}</a>
-    <button class="nav-toggle" onclick="toggleFurigana()">{{FURIGANA_LABEL}}</button>
-    <button class="nav-toggle" onclick="toggleTheme()">{{DARK_MODE_LABEL}}</button>
+    <button class="nav-toggle" id="btn-furigana">{{FURIGANA_LABEL}}</button>
+    <button class="nav-toggle" id="btn-theme">{{DARK_MODE_LABEL}}</button>
     {{LANG_SWITCHER}}
   </nav>
 
@@ -51,110 +56,140 @@
     <span>&copy; {{COPYRIGHT_YEAR}} KakkoiDev</span>
   </footer>
 
-  <!-- htmz: partial page loads via hidden iframe -->
+  <!--
+    htmz SPA navigation
+    Uses a hidden iframe to load page fragments, then swaps them into #content.
+    See: https://leanrada.com/htmz/
+  -->
   <script>
     const base = document.querySelector('base').href
     const basePath = new URL(base).pathname
 
-    function onHtmzLoad(frame) {
+    // -- Helpers --------------------------------------------------------
+
+    // Set document title from the current page's <h1>
+    const updateTitle = () => {
+      const h1 = document.querySelector('#content h1')
+      document.title = `${h1?.textContent ?? 'Minihongo'} - Minihongo`
+    }
+
+    // Replace a target element with new nodes, update title, scroll to top
+    const swapContent = (nodes, target) => {
+      if (!target || !nodes.length) return false
+      target.replaceWith(...nodes)
+      updateTitle()
+      scrollTo(0, 0)
+      return true
+    }
+
+    // -- htmz iframe handler --------------------------------------------
+
+    // Called when the hidden iframe finishes loading a fragment page.
+    // Extracts body nodes from the iframe and swaps them into #content.
+    const onHtmzLoad = (frame) => {
       try {
-        const loc = frame.contentWindow.location
+        const { location: loc } = frame.contentWindow
         if (loc.href === 'about:blank') return
         setTimeout(() => {
           try {
             const target = document.querySelector(loc.hash || null)
-            if (!target) return
             const nodes = [...frame.contentDocument.body.childNodes]
-            if (!nodes.length) return
-            target.replaceWith(...nodes)
+            if (!swapContent(nodes, target)) return
             frame.src = 'about:blank'
+            // Strip the _f/ fragment prefix to get the clean page path
             const pagePath = loc.pathname.replace(basePath, '').replace(/^_f\//, '')
-            const pageUrl = base + pagePath
-            const h1 = document.querySelector('#content h1')
-            document.title = (h1?.textContent || 'Minihongo') + ' - Minihongo'
+            const pageUrl = `${base}${pagePath}`
             if (location.href !== pageUrl) history.pushState({ path: pagePath }, '', pageUrl)
-            scrollTo(0, 0)
           } catch { location.reload() }
         })
-      } catch { /* iframe in bad state after app resume - ignore */ }
+      } catch { /* iframe in bad state after OS freeze/resume - ignore */ }
     }
 
-    // Back/forward
-    addEventListener('popstate', e => {
+    // -- Back/forward navigation ----------------------------------------
+
+    // Fetch the fragment page and swap it in on history navigation
+    addEventListener('popstate', async (e) => {
       if (!e.state?.path) return location.reload()
-      fetch(base + '_f/' + e.state.path)
-        .then(r => {
-          if (!r.ok) throw new Error(r.status)
-          return r.text()
-        })
-        .then(html => {
-          const doc = new DOMParser().parseFromString(html, 'text/html')
-          const nodes = [...doc.body.childNodes]
-          const target = document.querySelector('#content')
-          if (!target || !nodes.length) return location.reload()
-          target.replaceWith(...nodes)
-          const h1 = document.querySelector('#content h1')
-          document.title = (h1?.textContent || 'Minihongo') + ' - Minihongo'
-          scrollTo(0, 0)
-        })
-        .catch(() => location.reload())
+      try {
+        const res = await fetch(`${base}_f/${e.state.path}`)
+        if (!res.ok) throw new Error(res.status)
+        const html = await res.text()
+        const doc = new DOMParser().parseFromString(html, 'text/html')
+        const nodes = [...doc.body.childNodes]
+        if (!swapContent(nodes, document.querySelector('#content'))) location.reload()
+      } catch { location.reload() }
     })
 
-    // Rewrite nav links for htmz
-    document.querySelectorAll('nav:not(.lesson-nav):not(.toc) a:not(.logo)').forEach(a => {
-      if (a.classList.contains('lang-link')) return
+    // -- Rewrite nav links for htmz ------------------------------------
+
+    // Point top-nav links at the hidden iframe so clicks load fragments
+    for (const a of document.querySelectorAll('nav:not(.lesson-nav):not(.toc) a:not(.logo)')) {
+      if (a.classList.contains('lang-link')) continue
       a.target = 'htmz'
       const path = new URL(a.href).pathname.replace(basePath, '')
-      a.href = base + '_f/' + path + '#content'
-    })
+      a.href = `${base}_f/${path}#content`
+    }
 
-    // Intercept in-page anchor links (TOC etc.) broken by <base href>
-    document.addEventListener('click', e => {
-      const a = e.target.closest('#content a[href^="#"]')
-      if (a) {
+    // -- Click delegation -----------------------------------------------
+
+    document.addEventListener('click', (e) => {
+      // Fix in-page anchor links (TOC etc.) broken by <base href>
+      const anchor = e.target.closest('#content a[href^="#"]')
+      if (anchor) {
         e.preventDefault()
-        const el = document.getElementById(a.getAttribute('href').slice(1))
-        if (el) el.scrollIntoView()
+        document.getElementById(anchor.getAttribute('href').slice(1))?.scrollIntoView()
         return
       }
-      // Intercept lesson-nav links via event delegation
+      // Route lesson-nav links through the htmz iframe
       const nav = e.target.closest('.lesson-nav a')
       if (!nav) return
       e.preventDefault()
       const path = new URL(nav.href, base).pathname.replace(basePath, '')
-      document.querySelector('iframe[name=htmz]').src = base + '_f/' + path + '#content'
+      document.querySelector('iframe[name=htmz]').src = `${base}_f/${path}#content`
     })
 
-    function toggleTheme() {
+    // -- Toggle buttons -------------------------------------------------
+
+    // Toggle dark/light theme and persist choice
+    document.getElementById('btn-theme').addEventListener('click', () => {
       const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark'
       document.documentElement.dataset.theme = next
       localStorage.setItem('theme', next)
-    }
+    })
 
-    function toggleFurigana() {
+    // Toggle furigana (ruby text) visibility and persist choice
+    document.getElementById('btn-furigana').addEventListener('click', () => {
       const on = document.documentElement.classList.toggle('no-furigana')
       localStorage.setItem('furigana', on ? '0' : '1')
-    }
+    })
 
-    function switchLang(lang) {
+    // Switch site language (en/ja/mh) - global, called from lang switcher onclick
+    const switchLang = (lang) => {
       localStorage.setItem('lang', lang)
       const pagePath = location.pathname.replace(/^\/(ja|mh)\//, '/')
-      location.href = lang === 'en' ? pagePath : '/' + lang + pagePath
+      location.href = lang === 'en' ? pagePath : `/${lang}${pagePath}`
     }
+
+    // -- Service worker -------------------------------------------------
 
     navigator.serviceWorker?.register('/sw.js')
 
-    // Recover from freeze/resume (back from another app)
-    function checkContentIntegrity() {
+    // -- Content integrity recovery -------------------------------------
+
+    // After OS freeze/resume (switching apps on mobile), the iframe and
+    // #content can end up in a broken state. Detect and reload if empty.
+    const checkContentIntegrity = () => {
       if (!document.querySelector('#content')?.children.length) location.reload()
     }
-    addEventListener('pageshow', e => { if (e.persisted) checkContentIntegrity() })
+    addEventListener('pageshow', (e) => { if (e.persisted) checkContentIntegrity() })
     addEventListener('resume', checkContentIntegrity)
     document.addEventListener('visibilitychange', () => {
       if (document.visibilityState === 'visible') checkContentIntegrity()
     })
 
-    // Toast banner system
+    // -- Toast banner system --------------------------------------------
+
+    // Localized toast messages (injected at build time)
     const TOAST = {
       offline: '{{TOAST_OFFLINE}}',
       online: '{{TOAST_ONLINE}}',
@@ -166,40 +201,46 @@
     const toast = document.getElementById('toast')
     const toastMsg = toast.querySelector('.toast-msg')
     let toastTimer = 0
-
     let toastOnDismiss = null
 
-    function showToast(msg, opts) {
+    // Show a toast message with optional action button and auto-dismiss
+    const showToast = (msg, opts) => {
       clearTimeout(toastTimer)
-      toastMsg.innerHTML = msg
-      const old = toast.querySelector('.toast-btn')
-      if (old) old.remove()
-      toastOnDismiss = opts?.onDismiss || null
+      toastMsg.textContent = msg
+      toast.querySelector('.toast-btn')?.remove()
+      toastOnDismiss = opts?.onDismiss ?? null
       if (opts?.actionLabel) {
         const btn = document.createElement('button')
         btn.className = 'toast-btn'
         btn.textContent = opts.actionLabel
-        btn.onclick = e => { e.stopPropagation(); opts.action?.() }
+        btn.addEventListener('click', (e) => { e.stopPropagation(); opts.action?.() })
         toast.appendChild(btn)
       }
       toast.classList.add('visible')
       if (opts?.duration) toastTimer = setTimeout(hideToast, opts.duration)
     }
 
-    function hideToast() {
+    const hideToast = () => {
       clearTimeout(toastTimer)
       toast.classList.remove('visible')
-      if (toastOnDismiss) { toastOnDismiss(); toastOnDismiss = null }
+      toastOnDismiss?.()
+      toastOnDismiss = null
     }
 
+    // Tap anywhere on the toast to dismiss it
     toast.addEventListener('click', hideToast)
 
+    // Network status toasts
     addEventListener('offline', () => showToast(TOAST.offline))
     addEventListener('online', () => showToast(TOAST.online, { duration: 3000 }))
     if (!navigator.onLine) showToast(TOAST.offline)
 
+    // -- PWA install prompt ---------------------------------------------
+
+    // Capture the browser's install prompt and show it as a toast.
+    // If dismissed, suppress for 7 days.
     let deferredInstall = null
-    addEventListener('beforeinstallprompt', e => {
+    addEventListener('beforeinstallprompt', (e) => {
       e.preventDefault()
       deferredInstall = e
       const dismissed = localStorage.getItem('install_dismissed')
@@ -216,6 +257,7 @@
       })
     })
 
+    // Notify user when a new service worker version takes over
     navigator.serviceWorker?.addEventListener('controllerchange', () => {
       showToast(TOAST.updated, { duration: 4000 })
     })
