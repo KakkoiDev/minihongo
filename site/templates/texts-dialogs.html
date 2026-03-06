@@ -1,0 +1,70 @@
+  <h1>{{ PAGE_NAME }}</h1>
+  <p>{{ PAGE_DESC }}</p>
+
+  {% set top_cats = data.categories | where: page_id="reading", parent_id="" | sort: "sort_order" %}
+  <nav class="toc">
+    <ul>
+      {% for cat in top_cats %}
+      <li><a href="#{{ cat.name_english | slugify }}">{{ cat | get: CAT_NAME_COL | ruby }}</a></li>
+      {% endfor %}
+    </ul>
+  </nav>
+
+  {% for section in top_cats %}
+  <h2 id="{{ section.name_english | slugify }}" class="section-heading">{{ section.name_minihongo | ruby }}{% if lang != "mh" %} ({{ section | get: CAT_NAME_COL }}){% endif %}</h2>
+
+{% if section.id == "cat-76" %}
+{# ── Dialogs ── #}
+  {% for subcat in data.categories | where: parent_id=section.id | sort: "sort_order" %}
+  <h3>{{ subcat.name_minihongo | ruby }}{% if lang != "mh" %} ({{ subcat | get: CAT_NAME_COL }}){% endif %}</h3>
+  {% for dg in data.dialog_groups | where: category_id=subcat.id | sort: "sort_order" %}
+<h4>{{ dg.title_minihongo | ruby }}{% if lang != "mh" %} ({{ dg | get: TITLE_COL }}){% endif %}</h4>
+<div class="dialog">
+  {% for dl in data.dialogs | where: dialog_group_id=dg.id | sort: "line_number" %}
+  <p lang="ja"><strong>{{ dl.speaker_minihongo | ruby }}:</strong> {{ dl.minihongo | ruby }}</p>
+  {% endfor %}
+</div>
+{% if TRANSLATION_COL %}
+<div class="dialog-translation">
+  {% for dl in data.dialogs | where: dialog_group_id=dg.id | sort: "line_number" %}
+  <p><strong>{{ dl | get: SPEAKER_COL }}:</strong> {{ dl | get: TRANSLATION_COL }}</p>
+  {% endfor %}
+</div>
+{% endif %}
+  {% endfor %}
+  {% endfor %}
+
+{% elif section.id == "cat-75" %}
+{# ── Short Stories ── #}
+  {% for story in data.stories | where: category_id=section.id | sort: "sort_order" %}
+<h4>{{ story.title_minihongo | ruby }}{% if lang != "mh" %} ({{ story | get: TITLE_COL }}){% endif %}</h4>
+<div class="story">
+  {% for sentence in story.minihongo | split: " " %}
+  <p lang="ja">{{ sentence | ruby }}</p>
+  {% endfor %}
+</div>
+{% if TRANSLATION_COL %}
+<div class="story-translation">
+  <p>{{ story | get: TRANSLATION_COL }}</p>
+</div>
+{% endif %}
+  {% endfor %}
+
+{% elif section.id == "cat-78" %}
+{# ── Haiku ── #}
+  {% for subcat in data.categories | where: parent_id=section.id | sort: "sort_order" %}
+<h3>{{ subcat.name_minihongo | ruby }}{% if lang != "mh" %} ({{ subcat | get: CAT_NAME_COL }}){% endif %}</h3>
+  {% for h in data.haiku | where: category_id=subcat.id | sort: "sort_order" %}
+  <div class="haiku">
+    <p lang="ja">{{ h.minihongo | ruby | replace: " / ", "<br>" }}</p>
+    {% if lang != "mh" %}<p>{{ h.english }}</p>{% endif %}
+  </div>
+  {% endfor %}
+  {% endfor %}
+
+{% endif %}
+  {% endfor %}
+  <nav class="lesson-nav">
+    <a href="lessons/5-word-building.html">&larr; {{ NAV_WORD_BUILDING }}</a>
+    <span></span>
+  </nav>

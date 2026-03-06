@@ -1,0 +1,33 @@
+  <h1>{{ PAGE_NAME }}</h1>
+  <p>{{ PAGE_DESC }}</p>
+
+  {% set cats = data.categories | where: page_id="grammar" | sort: "sort_order" %}
+  <nav class="toc">
+    <ul>
+      {% for cat in cats %}
+      <li><a href="#{{ cat.name_english | slugify }}">{{ cat | get: CAT_NAME_COL | ruby }}</a></li>
+      {% endfor %}
+    </ul>
+  </nav>
+
+  {% for cat in cats %}
+  <h2 id="{{ cat.name_english | slugify }}" class="section-heading">{{ cat.name_minihongo | ruby }}{% if lang != "mh" %} ({{ cat | get: CAT_NAME_COL }}){% endif %}</h2>
+
+  {% for gram in data.grammar | where: category_id=cat.id | sort: "sort_order" %}
+  <grammar-point>
+    <span slot="pattern">{% if lang == "mh" %}{{ gram.minihongo | strip_paren | ruby }}{% else %}{{ gram.minihongo | ruby }}{% endif %}</span>
+    <span slot="explanation">{{ gram | get: EXPLANATION_COL | ruby }}</span>
+    {% for ex in data.grammar_examples | where: grammar_id=gram.id | sort: "sort_order" %}
+    <div class="sentence">
+      <p lang="ja">{{ ex.minihongo | ruby }}</p>
+      {% if TRANSLATION_COL %}<p>{{ ex | get: TRANSLATION_COL }}</p>{% endif %}
+    </div>
+    {% endfor %}
+  </grammar-point>
+
+  {% endfor %}
+  {% endfor %}
+  <nav class="lesson-nav">
+    <a href="lessons/2-vocabulary.html">← {{ NAV_VOCABULARY }}</a>
+    <a href="lessons/5-word-building.html">{{ NAV_WORD_BUILDING }} →</a>
+  </nav>

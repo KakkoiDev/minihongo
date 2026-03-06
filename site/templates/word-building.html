@@ -1,0 +1,58 @@
+  <h1>{{ PAGE_NAME }}</h1>
+  <p>{{ PAGE_DESC }}</p>
+
+  {% set top_cats = data.categories | where: page_id="word-building", parent_id="" | sort: "sort_order" %}
+  <nav class="toc">
+    <ul>
+      {% for cat in top_cats %}
+      <li><a href="#{{ cat.name_english | slugify }}">{{ cat | get: CAT_NAME_COL | ruby }}</a></li>
+      {% endfor %}
+    </ul>
+  </nav>
+
+  {% for section in top_cats %}
+  <h2 id="{{ section.name_english | slugify }}" class="section-heading">{{ section.name_minihongo | ruby }}{% if lang != "mh" %} ({{ section | get: CAT_NAME_COL }}){% endif %}</h2>
+  {% if section.id == "cat-49" %}<p>{{ ui.wb_desc_common }}</p>{% endif %}
+  {% if section.id == "cat-37" %}<p>{{ ui.wb_desc_byov }}</p>{% endif %}
+  {% if section.id == "cat-23" %}
+  <p>{{ ui.wb_desc_compounds }}</p>
+  <p class="reading-warning">{{ ui.wb_reading_warning }}</p>
+  {% endif %}
+
+  {% for subcat in data.categories | where: parent_id=section.id | sort: "sort_order" %}
+  <h3>{{ subcat.name_minihongo | ruby }}{% if lang != "mh" %} ({{ subcat | get: CAT_NAME_COL }}){% endif %}</h3>
+{% if section.id == "cat-23" %}
+<table class="compound-table">
+    <thead><tr><th lang="ja">{{ ui.th_word }}</th><th>{{ ui.th_meaning }}</th></tr></thead>
+    <tbody>
+      {% for comp in data.compounds | where: category_id=subcat.id | sort: "sort_order" %}
+      <tr><td lang="ja"><ruby>{{ comp.minihongo }}<rt>{{ comp.reading }}</rt></ruby></td><td>{{ comp | get: MEANING_COL | ruby }}</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% elif lang == "mh" %}
+<table class="compound-table">
+  <thead><tr><th lang="ja">{{ ui.th_minihongo }}</th></tr></thead>
+  <tbody>
+    {% for expr in data.expressions | where: category_id=subcat.id | sort: "sort_order" %}
+    <tr><td lang="ja">{{ expr.minihongo | ruby }}</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<table class="compound-table">
+  <thead><tr><th lang="ja">{{ ui.th_minihongo }}</th><th>{{ ui.th_meaning }}</th></tr></thead>
+  <tbody>
+    {% for expr in data.expressions | where: category_id=subcat.id | sort: "sort_order" %}
+    <tr><td lang="ja">{{ expr.minihongo | ruby }}</td><td>{{ expr | get: MEANING_COL }}</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endif %}
+
+  {% endfor %}
+  {% endfor %}
+  <nav class="lesson-nav">
+    <a href="lessons/3-grammar.html">← {{ NAV_GRAMMAR }}</a>
+    <a href="lessons/6-texts-dialogs.html">{{ NAV_READING }} →</a>
+  </nav>

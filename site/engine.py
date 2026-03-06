@@ -92,6 +92,11 @@ class SetNode:
         self.name = name
         self.expr_raw = expr_raw
 
+class IncludeNode:
+    __slots__ = ('path',)
+    def __init__(self, path):
+        self.path = path
+
 
 # ── Tokenizer ──────────────────────────────────────────────────────
 
@@ -154,6 +159,12 @@ def _parse_block(tokens, pos, end_tags):
                 if not m:
                     raise TemplateError(f"Invalid set: {{% {content} %}}")
                 nodes.append(SetNode(m.group(1), m.group(2).strip()))
+                pos += 1
+            elif keyword == 'include':
+                m = re.match(r'include\s+["\']([^"\']+)["\']', content)
+                if not m:
+                    raise TemplateError(f"Invalid include: {{% {content} %}}")
+                nodes.append(IncludeNode(m.group(1)))
                 pos += 1
             else:
                 raise TemplateError(f"Unknown tag: {{% {content} %}}")
@@ -483,6 +494,30 @@ def _f_nl2br(value):
     if not isinstance(value, str): return str(value) if value is not None else ''
     return value.replace('\n', '<br>\n')
 
+def _f_strip_paren(value):
+    if not isinstance(value, str): return str(value) if value is not None else ''
+    return re.sub(r'\s*\([^)]+\)\s*$', '', value)
+
+def _f_slugify(value):
+    if not isinstance(value, str): return ''
+    s = value.lower()
+    s = re.sub(r'[^a-z0-9]+', '-', s)
+    return s.strip('-')
+
+def _f_get(value, key=None):
+    if isinstance(value, dict) and key:
+        return value.get(key)
+    return None
+
+def _f_replace(value, old=None, new=None):
+    if not isinstance(value, str): return str(value) if value is not None else ''
+    if old is None: return value
+    return value.replace(old, new or '')
+
+def _f_split(value, sep=None):
+    if not isinstance(value, str): return []
+    return value.split(sep) if sep else value.split()
+
 
 BUILTIN_FILTERS = {
     'ruby': _f_ruby,
@@ -497,12 +532,17 @@ BUILTIN_FILTERS = {
     'length': _f_length,
     'int': _f_int,
     'nl2br': _f_nl2br,
+    'strip_paren': _f_strip_paren,
+    'slugify': _f_slugify,
+    'get': _f_get,
+    'replace': _f_replace,
+    'split': _f_split,
 }
 
 
 # ── Renderer ───────────────────────────────────────────────────────
 
-def _render(nodes, ctx, filters):
+def _render(nodes, ctx, filters, loader=None):
     out = []
     for node in nodes:
         if isinstance(node, TextNode):
@@ -511,24 +551,30 @@ def _render(nodes, ctx, filters):
             val = _eval_full(node.raw, ctx, filters)
             out.append(str(val) if val is not None else '')
         elif isinstance(node, ForNode):
-            out.append(_render_for(node, ctx, filters))
+            out.append(_render_for(node, ctx, filters, loader))
         elif isinstance(node, IfNode):
-            out.append(_render_if(node, ctx, filters))
+            out.append(_render_if(node, ctx, filters, loader))
         elif isinstance(node, SetNode):
             ctx.set(node.name, _eval_full(node.expr_raw, ctx, filters))
+        elif isinstance(node, IncludeNode):
+            if not loader:
+                raise TemplateError(f"No loader for include: {node.path}")
+            tpl = loader(node.path)
+            inc_nodes = _parse(_tokenize(tpl))
+            out.append(_render(inc_nodes, ctx, filters, loader))
     return ''.join(out)
 
 
-def _render_for(node, ctx, filters):
+def _render_for(node, ctx, filters, loader=None):
     iterable = _eval_full(node.iter_raw, ctx, filters)
     if not iterable:
-        return _render(node.else_body, ctx, filters)
+        return _render(node.else_body, ctx, filters, loader)
 
     if isinstance(iterable, dict):
         iterable = list(iterable.items())
     items = list(iterable)
     if not items:
-        return _render(node.else_body, ctx, filters)
+        return _render(node.else_body, ctx, filters, loader)
 
     out = []
     length = len(items)
@@ -551,28 +597,29 @@ def _render_for(node, ctx, filters):
             elif isinstance(item, dict):
                 for name in node.var_names:
                     child[name] = item.get(name)
-        out.append(_render(node.body, ctx.child(child), filters))
+        out.append(_render(node.body, ctx.child(child), filters, loader))
     return ''.join(out)
 
 
-def _render_if(node, ctx, filters):
+def _render_if(node, ctx, filters, loader=None):
     for condition, body in node.branches:
         if _eval_full(condition, ctx, filters):
-            return _render(body, ctx, filters)
-    return _render(node.else_body, ctx, filters)
+            return _render(body, ctx, filters, loader)
+    return _render(node.else_body, ctx, filters, loader)
 
 
 # ── Public API ─────────────────────────────────────────────────────
 
 class Engine:
-    def __init__(self, extra_filters=None):
+    def __init__(self, extra_filters=None, loader=None):
         self.filters = {**BUILTIN_FILTERS}
         if extra_filters:
             self.filters.update(extra_filters)
+        self.loader = loader
 
     def render(self, template, context=None):
         """Render a template string with the given context dict."""
         tokens = _tokenize(template)
         nodes = _parse(tokens)
         ctx = Context(context or {})
-        return _render(nodes, ctx, self.filters)
+        return _render(nodes, ctx, self.filters, self.loader)

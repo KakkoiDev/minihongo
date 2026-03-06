@@ -24,6 +24,7 @@ from engine import Engine, BUILTIN_FILTERS
 
 ROOT = Path(__file__).parent
 COMPONENTS = ROOT / "components"
+TEMPLATES = ROOT / "templates"
 PAGES = ROOT / "pages"
 STATIC = ROOT / "static"
 OUT = ROOT.parent / "docs"
@@ -46,6 +47,13 @@ PAGE_ID_MAP = {
 }
 
 STATIC_DESCS = {'_404': 'Page not found.'}
+
+MEANING_COL_MAP = {'en': 'english', 'ja': 'japanese', 'mh': 'definition_minihongo'}
+CAT_NAME_COL_MAP = {'en': 'name_english', 'ja': 'name_japanese', 'mh': 'name_minihongo'}
+EXPLANATION_COL_MAP = {'en': 'explanation_english', 'ja': 'explanation_japanese', 'mh': 'explanation_minihongo'}
+TRANSLATION_COL_MAP = {'en': 'english', 'ja': 'japanese', 'mh': ''}
+SPEAKER_COL_MAP = {'en': 'speaker_english', 'ja': 'speaker_japanese', 'mh': ''}
+TITLE_COL_MAP = {'en': 'title_english', 'ja': 'title_japanese', 'mh': 'title_minihongo'}
 
 
 # ── Data loading ───────────────────────────────────────────────────
@@ -127,8 +135,31 @@ def lang_switcher_html(lang):
 
 def build_page_context(data, ui_strings, lang, page_file, base_url):
     """Build the full template context for a page."""
+    ruby = BUILTIN_FILTERS['ruby']
+    strip_fg = BUILTIN_FILTERS['strip_furigana']
     labels = build_nav_labels(data, lang)
     lang_base = BASE_URLS[lang] if base_url == "/" else base_url
+
+    # Page-specific names from pages.csv
+    page_id = PAGE_ID_MAP.get(page_file)
+    page_name = ''
+    page_name_plain = ''
+    page_desc = ''
+    if page_id:
+        col = LANG_COL[lang]
+        for p in data.get('pages', []):
+            if p['id'] == page_id:
+                raw = p.get(f'name_{col}', '') or p.get('name_english', '')
+                page_name = ruby(raw)
+                page_name_plain = strip_fg(raw)
+                desc_raw = p.get(f'desc_{lang}', '') or p.get('desc_en', '')
+                page_desc = ruby(desc_raw)
+                break
+
+    # Site name without ruby/furigana for <title>
+    site_row = ui_strings.get('site_name', {})
+    site_raw = site_row.get(lang, '') or site_row.get('en', '')
+    site_name_plain = strip_fg(site_raw)
 
     return {
         # All CSV data available as data.*
@@ -147,6 +178,16 @@ def build_page_context(data, ui_strings, lang, page_file, base_url):
         'DARK_MODE_LABEL': ui_str(ui_strings, 'dark_mode', lang),
         'LANG_SWITCHER': lang_switcher_html(lang),
         'META_DESCRIPTION': build_meta_desc(data, ui_strings, page_file, lang),
+        'PAGE_NAME': page_name,
+        'PAGE_NAME_PLAIN': page_name_plain,
+        'PAGE_DESC': page_desc,
+        'SITE_NAME_PLAIN': site_name_plain,
+        'MEANING_COL': MEANING_COL_MAP[lang],
+        'CAT_NAME_COL': CAT_NAME_COL_MAP[lang],
+        'EXPLANATION_COL': EXPLANATION_COL_MAP[lang],
+        'TRANSLATION_COL': TRANSLATION_COL_MAP[lang],
+        'SPEAKER_COL': SPEAKER_COL_MAP[lang],
+        'TITLE_COL': TITLE_COL_MAP[lang],
         'COPYRIGHT_YEAR': str(datetime.now().year),
         # Toast strings
         'TOAST_OFFLINE': ui_str(ui_strings, 'toast_offline', lang),
@@ -245,6 +286,17 @@ def expand(html, components):
     return html
 
 
+def resolve_includes(html):
+    """Pre-resolve {% include "file" %} before component expansion."""
+    _INC_RE = re.compile(r'\{%\s*include\s+["\']([^"\']+)["\']\s*%\}')
+    while True:
+        new = _INC_RE.sub(lambda m: (TEMPLATES / m.group(1)).read_text(), html)
+        if new == html:
+            break
+        html = new
+    return html
+
+
 def extract_fragment(html):
     """Pull out <main id="content">...</main> for htmz partial loading."""
     m = re.search(r'<main\s+id="content"[^>]*>.*?</main>', html, re.DOTALL)
@@ -279,7 +331,8 @@ def _build_to(OUT, base_url):
     for f in ROOT.glob("*.json"):
         shutil.copy2(f, OUT / f.name)
 
-    engine = Engine()
+    loader = lambda path: (TEMPLATES / path).read_text()
+    engine = Engine(loader=loader)
     components = load_components()
     data = load_all_data()
     ui_strings = load_ui_strings(data)
@@ -294,8 +347,9 @@ def _build_to(OUT, base_url):
         # Determine page file (without lang prefix)
         page_file = str(rel).replace(f'{lang}/', '') if lang != 'en' else str(rel)
 
-        # 1. Expand web components (structural: slots + props)
-        html = expand(src.read_text(), components)
+        # 1. Pre-resolve includes, then expand web components
+        html = resolve_includes(src.read_text())
+        html = expand(html, components)
 
         # 2. Render through template engine (resolves all {{ }} and {% %})
         ctx = build_page_context(data, ui_strings, lang, page_file, base_url)
