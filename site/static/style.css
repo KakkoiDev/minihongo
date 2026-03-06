@@ -471,7 +471,8 @@ footer {
 }
 
 .toast-out {
-  animation: toast-out 0.2s ease-in forwards;
+  animation: toast-out 0.3s ease-in forwards;
+  overflow: hidden;
 }
 
 .toast-msg { flex: 1; font-size: 0.9rem; }
@@ -497,8 +498,9 @@ footer {
 }
 
 @keyframes toast-out {
-  from { opacity: 1; translate: 0 0; }
-  to   { opacity: 0; translate: 0 -1rem; }
+  0%   { opacity: 1; translate: 0 0; }
+  50%  { opacity: 0; translate: 0 -1rem; }
+  100% { opacity: 0; height: 0; padding-block: 0; margin-block: 0; }
 }
 
 /* === Lang switch === */

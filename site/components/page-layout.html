@@ -221,6 +221,7 @@
 
       // Dismiss on click/tap
       const dismiss = () => {
+        el.style.height = `${el.offsetHeight}px`
         el.classList.add('toast-out')
         el.addEventListener('animationend', () => {
           el.remove()
