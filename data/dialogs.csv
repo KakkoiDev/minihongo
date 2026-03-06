@@ -1,45 +1,45 @@
 id,dialog_group_id,line_number,speaker_minihongo,speaker_english,speaker_japanese,minihongo,english,japanese
-dlg-1,dgrp-1,1,A,A,A,すみません。この食【た】べ物【もの】は何【なに】ですか。,Excuse me. What is this food?,すみません。この食べ物は何ですか。
-dlg-2,dgrp-1,2,B,B,B,これは良【よ】い食【た】べ物【もの】です。水【みず】と草【くさ】で作【つく】りました。,This is good food. We made it with water and greens.,これはおいしい食べ物です。水と野菜で作りました。
-dlg-3,dgrp-1,3,A,A,A,これをください。他【ほか】の物【もの】もありますか。,Please give me this. Do you have other things too?,これをください。他の物もありますか。
-dlg-4,dgrp-1,4,B,B,B,はい。そこに新【あたら】しい物【もの】があります。,Yes. There are new things over there.,はい。あちらに新しい品物があります。
-dlg-5,dgrp-1,5,A,A,A,それも見【み】てもいいですか。,May I look at that too?,それも見てもいいですか。
+dlg-1,dgrp-1,1,A,A,A,すみません。この食【た】べ物【もの】は何【なに】か。,Excuse me. What is this food?,すみません。この食べ物は何ですか。
+dlg-2,dgrp-1,2,B,B,B,これは良【よ】い食【た】べ物【もの】だ。水【みず】と草【くさ】で作【つく】った。,This is good food. We made it with water and greens.,これはおいしい食べ物です。水と野菜で作りました。
+dlg-3,dgrp-1,3,A,A,A,これをください。他【ほか】の物【もの】もあるか。,Please give me this. Do you have other things too?,これをください。他の物もありますか。
+dlg-4,dgrp-1,4,B,B,B,はい。そこに新【あたら】しい物【もの】がある。,Yes. There are new things over there.,はい。あちらに新しい品物があります。
+dlg-5,dgrp-1,5,A,A,A,それも見【み】てもいいか。,May I look at that too?,それも見てもいいですか。
 dlg-6,dgrp-1,6,B,B,B,どうぞ。手【て】で持【も】ってください。,Go ahead. Please hold it in your hands.,どうぞ。手に取ってご覧ください。
-dlg-7,dgrp-1,7,A,A,A,これを買【か】います。ありがとうございます。,I'll buy this. Thank you.,これを買います。ありがとうございます。
-dlg-8,dgrp-1,8,B,B,B,ありがとうございます。また来【き】てください。,Thank you. Please come again.,ありがとうございます。またお越しください。
-dlg-9,dgrp-2,1,A,A,A,あ！どこに行【い】きますか。,Oh! Where are you going?,あ！どこに行くんですか。
-dlg-10,dgrp-2,2,B,B,B,今【いま】は海【うみ】に行【い】きます。あなたは？,I'm heading to the sea now. And you?,今から海に行くところです。あなたは？
-dlg-11,dgrp-2,3,A,A,A,私【わたし】は家【いえ】に来【き】ます。体【からだ】が少【すこ】し悪【わる】いです。,I'm going home. My body feels a little bad.,私は家に帰ります。体の調子が少し悪いんです。
-dlg-12,dgrp-2,4,B,B,B,体【からだ】が悪【わる】いですか？水【みず】を飲【の】んで、寝【ね】てください。,Your body feels bad? Please drink water and sleep.,体調が悪いんですか？水を飲んで、休んでください。
-dlg-13,dgrp-2,5,A,A,A,ありがとうございます。海【うみ】の空気【くうき】はとても良【よ】いですね。,"Thank you. The sea air is really good, isn't it.",ありがとうございます。海の空気はとても気持ちいいですよね。
-dlg-14,dgrp-2,6,B,B,B,そうですね。でも今【いま】は風【かぜ】が強【つよ】いです。,It is. But right now the wind is strong.,そうですね。でも今日は風が強いです。
-dlg-15,dgrp-2,7,A,A,A,良【よ】く守【まも】ってください。また会【あ】いましょう！,Please take care of yourself. Let's meet again!,お気をつけて。また会いましょう！
-dlg-16,dgrp-2,8,B,B,B,はい、また会【あ】いましょう！,"Yes, let's meet again!",はい、また会いましょう！
-dlg-17,dgrp-3,1,母【はは】,Mother,母,座【すわ】ってください。食【た】べ物【もの】ができました。,Everyone please sit down. The food is ready.,座ってください。ご飯ができましたよ。
-dlg-18,dgrp-3,2,子供【こども】,Child,子供,今【いま】は何【なに】を食【た】べますか？,What are we eating now?,今日は何を食べるの？
-dlg-19,dgrp-3,3,母【はは】,Mother,母,草【くさ】と水【みず】で作【つく】りました。体【からだ】に良【よ】いです。,I made it with greens and water. It's good for your body.,野菜と水で作りました。体にいいですよ。
-dlg-20,dgrp-3,4,父【ちち】,Father,父,とても良【よ】い物【もの】ですね。今【いま】まで体【からだ】がとても重【おも】かったです。,It looks very good. My body has felt very heavy until now.,とてもおいしそうですね。最近ずっと体が重かったんです。
-dlg-21,dgrp-3,5,子供【こども】,Child,子供,父【ちち】、今【いま】の日【にち】は楽【たの】しかったですか。,"Father, was this day enjoyable?",お父さん、今日は楽しかった？
-dlg-22,dgrp-3,6,父【ちち】,Father,父,まあまあでした。でも家【いえ】に来【き】ることがもっと好【す】きです。,More or less. But coming home is what I like most.,まあまあだったよ。でも家に帰るのが一番好きだ。
+dlg-7,dgrp-1,7,A,A,A,これを買【か】う。ありがとう。,I'll buy this. Thank you.,これを買います。ありがとうございます。
+dlg-8,dgrp-1,8,B,B,B,ありがとう。また来【き】てください。,Thank you. Please come again.,ありがとうございます。またお越しください。
+dlg-9,dgrp-2,1,A,A,A,あ！どこに行【い】く？,Oh! Where are you going?,あ！どこに行くんですか。
+dlg-10,dgrp-2,2,B,B,B,今【いま】は海【うみ】に行【い】く。あなたは？,I'm heading to the sea now. And you?,今から海に行くところです。あなたは？
+dlg-11,dgrp-2,3,A,A,A,私【わたし】は家【いえ】に来【く】る。体【からだ】が少【すこ】し悪【わる】い。,I'm going home. My body feels a little bad.,私は家に帰ります。体の調子が少し悪いんです。
+dlg-12,dgrp-2,4,B,B,B,体【からだ】が悪【わる】いか？水【みず】を飲【の】んで、寝【ね】てください。,Your body feels bad? Please drink water and sleep.,体調が悪いんですか？水を飲んで、休んでください。
+dlg-13,dgrp-2,5,A,A,A,ありがとう。海【うみ】の空気【くうき】はとても良【よ】いね。,"Thank you. The sea air is really good, isn't it.",ありがとうございます。海の空気はとても気持ちいいですよね。
+dlg-14,dgrp-2,6,B,B,B,そうだね。でも今【いま】は風【かぜ】が強【つよ】い。,It is. But right now the wind is strong.,そうですね。でも今日は風が強いです。
+dlg-15,dgrp-2,7,A,A,A,良【よ】く守【まも】ってください。また会【あ】おう！,Please take care of yourself. Let's meet again!,お気をつけて。また会いましょう！
+dlg-16,dgrp-2,8,B,B,B,はい、また会【あ】おう！,"Yes, let's meet again!",はい、また会いましょう！
+dlg-17,dgrp-3,1,母【はは】,Mother,母,座【すわ】ってください。食【た】べ物【もの】ができた。,Everyone please sit down. The food is ready.,座ってください。ご飯ができましたよ。
+dlg-18,dgrp-3,2,子供【こども】,Child,子供,今【いま】は何【なに】を食【た】べる？,What are we eating now?,今日は何を食べるの？
+dlg-19,dgrp-3,3,母【はは】,Mother,母,草【くさ】と水【みず】で作【つく】った。体【からだ】に良【よ】い。,I made it with greens and water. It's good for your body.,野菜と水で作りました。体にいいですよ。
+dlg-20,dgrp-3,4,父【ちち】,Father,父,とても良【よ】い物【もの】だね。今【いま】まで体【からだ】がとても重【おも】かった。,It looks very good. My body has felt very heavy until now.,とてもおいしそうですね。最近ずっと体が重かったんです。
+dlg-21,dgrp-3,5,子供【こども】,Child,子供,父【ちち】、今【いま】の日【にち】は楽【たの】しかったか。,"Father, was this day enjoyable?",お父さん、今日は楽しかった？
+dlg-22,dgrp-3,6,父【ちち】,Father,父,まあまあだった。でも家【いえ】に来【く】ることがもっと好【す】きだ。,More or less. But coming home is what I like most.,まあまあだったよ。でも家に帰るのが一番好きだ。
 dlg-23,dgrp-3,7,母【はは】,Mother,母,この物【もの】を全部【ぜんぶ】食【た】べてください。,Please eat all of this.,これを全部食べてくださいね。
-dlg-24,dgrp-3,8,子供【こども】,Child,子供,はい！とても良【よ】いです。ありがとう、母【はは】。,"Yes! It's very good. Thank you, Mother.",うん！とてもおいしい。ありがとう、お母さん。
-dlg-25,dgrp-4,1,A,A,A,すみません。大【おお】きい建物【たてもの】はどこですか。,Excuse me. Where is the big building?,すみません。大きい建物はどこですか。
-dlg-26,dgrp-4,2,B,B,B,ここから近【ちか】くないです。,It's not close from here.,ここからは近くないですよ。
-dlg-27,dgrp-4,3,A,A,A,どう行【い】ったらいいですか。,How should I get there?,どう行ったらいいですか。
+dlg-24,dgrp-3,8,子供【こども】,Child,子供,はい！とても良【よ】い。ありがとう、母【はは】。,"Yes! It's very good. Thank you, Mother.",うん！とてもおいしい。ありがとう、お母さん。
+dlg-25,dgrp-4,1,A,A,A,すみません。大【おお】きい建物【たてもの】はどこか。,Excuse me. Where is the big building?,すみません。大きい建物はどこですか。
+dlg-26,dgrp-4,2,B,B,B,ここから近【ちか】くない。,It's not close from here.,ここからは近くないですよ。
+dlg-27,dgrp-4,3,A,A,A,どう行【い】ったらいいか。,How should I get there?,どう行ったらいいですか。
 dlg-28,dgrp-4,4,B,B,B,この道【みち】を行【い】ってください。大【おお】きい木【き】の前【まえ】で右【みぎ】に入【はい】ってください。,"Please go along this road. At the big tree, turn right.",この道をまっすぐ行ってください。大きな木のところで右に曲がってください。
-dlg-29,dgrp-4,5,A,A,A,木【き】の前【まえ】で右【みぎ】ですね。その後【あと】は？,Right at the tree. And after that?,木のところで右ですね。その後は？
-dlg-30,dgrp-4,6,B,B,B,建物【たてもの】を見【み】ることができます。それです。,You can see the building. That's it.,建物が見えます。それです。
-dlg-31,dgrp-4,7,A,A,A,足【あし】で行【い】けますか。,Can I go on foot?,歩いて行けますか。
-dlg-32,dgrp-4,8,B,B,B,はい、足【あし】で行【い】けます。近【ちか】くないですが、良【よ】い道【みち】です。,"Yes, you can go on foot. It's not close, but it's a good road.",はい、歩いて行けます。近くはないですが、いい道ですよ。
-dlg-33,dgrp-4,9,A,A,A,ありがとうございます！,Thank you!,ありがとうございます！
-dlg-34,dgrp-5,1,母【はは】,Mother,母,もう立【た】ってください！日【にち】が出【で】ています。,Please get up already! The sun is out.,もう起きなさい！日が出ていますよ。
-dlg-35,dgrp-5,2,子供【こども】,Child,子供,まだ目【め】が重【おも】いです。もう少【すこ】し寝【ね】たいです。,My eyes are still heavy. I want to sleep a little more.,まだ眠いよ。もう少し寝たい。
-dlg-36,dgrp-5,3,母【はは】,Mother,母,だめです。速【はや】く服【ふく】を着【き】てください。,No. Hurry and get dressed.,だめです。早く服を着なさい。
-dlg-37,dgrp-5,4,子供【こども】,Child,子供,はい。でも今【いま】は空【そら】が明【あか】るくないです。雨【あめ】が来【き】ますか。,Okay. But the sky isn't bright right now. Will rain come?,はい。でも今日は空が暗いね。雨が降るかな。
-dlg-38,dgrp-5,5,母【はは】,Mother,母,そうですね。外【そと】は少【すこ】し寒【さむ】いから、良【よ】い服【ふく】を着【き】てください。,"It does look that way. Outside is a bit cold, so please wear good clothes.",そうね。外は少し寒いから、暖かい服を着てね。
-dlg-39,dgrp-5,6,子供【こども】,Child,子供,今【いま】は何【なに】を食【た】べますか。,What are we eating now?,今朝は何を食べるの？
-dlg-40,dgrp-5,7,母【はは】,Mother,母,水【みず】と食【た】べ物【もの】があります。全部【ぜんぶ】食【た】べてください。,There's water and food. Please eat all of it.,お水とご飯があるよ。全部食べてね。
-dlg-41,dgrp-5,8,子供【こども】,Child,子供,はい、母【はは】。今【いま】の日【にち】も楽【たの】しいと思【おも】います！,"Yes, Mother. I think this day will be fun too!",はい、お母さん。今日も楽しい日になると思う！
+dlg-29,dgrp-4,5,A,A,A,木【き】の前【まえ】で右【みぎ】だね。その後【あと】は？,Right at the tree. And after that?,木のところで右ですね。その後は？
+dlg-30,dgrp-4,6,B,B,B,建物【たてもの】を見【み】ることができる。それだ。,You can see the building. That's it.,建物が見えます。それです。
+dlg-31,dgrp-4,7,A,A,A,足【あし】で行【い】けるか。,Can I go on foot?,歩いて行けますか。
+dlg-32,dgrp-4,8,B,B,B,はい、足【あし】で行【い】ける。近【ちか】くないが、良【よ】い道【みち】だ。,"Yes, you can go on foot. It's not close, but it's a good road.",はい、歩いて行けます。近くはないですが、いい道ですよ。
+dlg-33,dgrp-4,9,A,A,A,ありがとう！,Thank you!,ありがとうございます！
+dlg-34,dgrp-5,1,母【はは】,Mother,母,もう立【た】ってください！日【にち】が出【で】ている。,Please get up already! The sun is out.,もう起きなさい！日が出ていますよ。
+dlg-35,dgrp-5,2,子供【こども】,Child,子供,まだ目【め】が重【おも】い。もう少【すこ】し寝【ね】たい。,My eyes are still heavy. I want to sleep a little more.,まだ眠いよ。もう少し寝たい。
+dlg-36,dgrp-5,3,母【はは】,Mother,母,だめだ。速【はや】く服【ふく】を着【き】てください。,No. Hurry and get dressed.,だめです。早く服を着なさい。
+dlg-37,dgrp-5,4,子供【こども】,Child,子供,はい。でも今【いま】は空【そら】が明【あか】るくない。雨【あめ】が来【く】るか。,Okay. But the sky isn't bright right now. Will rain come?,はい。でも今日は空が暗いね。雨が降るかな。
+dlg-38,dgrp-5,5,母【はは】,Mother,母,そうだね。外【そと】は少【すこ】し寒【さむ】いから、良【よ】い服【ふく】を着【き】てください。,"It does look that way. Outside is a bit cold, so please wear good clothes.",そうね。外は少し寒いから、暖かい服を着てね。
+dlg-39,dgrp-5,6,子供【こども】,Child,子供,今【いま】は何【なに】を食【た】べる？,What are we eating now?,今朝は何を食べるの？
+dlg-40,dgrp-5,7,母【はは】,Mother,母,水【みず】と食【た】べ物【もの】がある。全部【ぜんぶ】食【た】べてください。,There's water and food. Please eat all of it.,お水とご飯があるよ。全部食べてね。
+dlg-41,dgrp-5,8,子供【こども】,Child,子供,はい、母【はは】。今【いま】の日【にち】も楽【たの】しいと思【おも】う！,"Yes, Mother. I think this day will be fun too!",はい、お母さん。今日も楽しい日になると思う！
 dlg-42,dgrp-6,1,A,A,A,石【いし】は動【うご】かない。草【くさ】は動【うご】く。何【なに】が生【い】き物【もの】を生【い】きている物【もの】にする？,A stone doesn't move. Grass moves. What makes something alive?,石は動かない。草は動く。何が生き物を生かしているんだろう？
 dlg-43,dgrp-6,2,B,B,B,動【うご】くだけじゃない。水【みず】も動【うご】く。火【ひ】も動【うご】く。でもそれは生【い】きていない。,Not just moving. Water moves too. Fire moves too. But those aren't alive.,動くだけではない。水も動く。火も動く。でもそれは生きていない。
 dlg-44,dgrp-6,3,A,A,A,じゃあ何【なに】だ？生【い】き物【もの】には何【なに】があって石【いし】にはない？,Then what is it? What do living things have that stones don't?,では何だろう？生き物には何があって石にはないのか？
@@ -81,38 +81,38 @@ dlg-79,dgrp-10,5,A,A,A,時【とき】は前【まえ】に動【うご】くだ
 dlg-80,dgrp-10,6,B,B,B,体【からだ】は前【まえ】に行【い】けない。でも心【こころ】は行【い】ける。本【ほん】の中【なか】で、目【め】を閉【し】めた中【なか】で。,"The body cannot go back. But the heart can - inside books, inside closed eyes.",体は戻れない。でも心は戻れる。本の中で、目を閉じた時に。
 dlg-81,dgrp-10,7,A,A,A,それなら時【とき】は二【ふた】つある。体【からだ】の時【とき】と、心【こころ】の時【とき】と。,"Then there are two times: the time of the body, and the time of the heart.",それなら時間は二つある。体の時間と、心の時間と。
 dlg-82,dgrp-10,8,B,B,B,そして私【わたし】たちが死【し】んだ後【あと】も、あなたと私【わたし】が感【かん】じた事【こと】は他【ほか】の人【ひと】の心【こころ】の中【なか】で生【い】きるかもしれない。,"And even after we die, what you and I felt may go on living inside the hearts of other people.",そして私たちが死んだ後も、あなたと私が感じたことは他の人の心の中で生き続けるかもしれない。
-dlg-83,dgrp-11,1,A,A,A,先生【せんせい】、本【ほん】を読【よ】んだら、その事【こと】を知【し】っていると言【い】えますか。,"Teacher, if I have read a book, can I say I know that thing?",先生、本を読んだら、そのことを知っていると言えますか。
-dlg-84,dgrp-11,2,B,B,B,本【ほん】の言葉【ことば】は知【し】ることができます。でも、本当【ほんとう】に知【し】ることは違【ちが】います。,You can know the words of a book. But truly knowing is different.,本の言葉は知ることができます。でも、本当に知るということは違います。
-dlg-85,dgrp-11,3,A,A,A,どう違【ちが】いますか。,How is it different?,どう違いますか。
-dlg-86,dgrp-11,4,B,B,B,手【て】で作【つく】ったり、体【からだ】で感【かん】じたりしたとき、本当【ほんとう】に知【し】る事【こと】が始【はじ】まります。,"When you have made something with your hands, felt something in your body - that is when truly knowing begins.",手で作ったり、体で感じたりした時、本当に知ることが始まります。
-dlg-87,dgrp-11,5,A,A,A,では、私【わたし】はまだ知【し】らないのですか。,Then I do not know yet?,では、私はまだ知らないのですか。
-dlg-88,dgrp-11,6,B,B,B,知【し】りたいと思【おも】っているなら、もう始【はじ】まっています。それで良【よ】いと思【おも】います。,"If you want to know, it has already begun. I think that is enough.",知りたいと思っているなら、もう始まっています。それで十分だと思います。
-dlg-89,dgrp-11,7,A,A,A,知【し】ることは終【お】わりますか。,Does knowing ever end?,知ることに終わりはありますか。
-dlg-90,dgrp-11,8,B,B,B,良【よ】い先生【せんせい】も、まだ知【し】らない事【こと】がとても多【おお】いと感【かん】じています。,Even a good teacher feels there are still very many things they do not know.,良い先生でも、まだ知らないことがとても多いと感じています。
-dlg-91,dgrp-12,1,A,A,A,この海【うみ】はとても大【おお】きいですね。外【そと】に何【なに】がありますか。,This sea is very large. What is on the other side?,この海はとても大きいですね。向こうに何がありますか。
-dlg-92,dgrp-12,2,B,B,B,他【ほか】の国【くに】があります。でも目【め】では見【み】えません。,There are other countries. But you cannot see them with your eyes.,他の国があります。でも目では見えません。
-dlg-93,dgrp-12,3,A,A,A,その国【くに】の人【ひと】たちも、この水【みず】を見【み】ていると思【おも】いますか。,Do you think the people of those countries are also looking at this water?,その国の人たちも、この海を見ていると思いますか。
-dlg-94,dgrp-12,4,B,B,B,はい、全部【ぜんぶ】一【ひと】つの水【みず】です。海【うみ】は一【ひと】つだと思【おも】います。,"Yes, it is all one water. I think the sea is one.",はい、すべて一つの海です。海はつながっていると思います。
-dlg-95,dgrp-12,5,A,A,A,水【みず】の中【なか】に何【なに】がいますか。,What lives inside the water?,海の中に何がいますか。
-dlg-96,dgrp-12,6,B,B,B,動物【どうぶつ】が多【おお】くいます。私【わたし】たちが知【し】らない動物【どうぶつ】も、まだいると思【おも】います。,Many animals. I think there are still animals we do not know.,たくさんの生き物がいます。私たちがまだ知らない生き物もいると思います。
-dlg-97,dgrp-12,7,A,A,A,海【うみ】は怖【こわ】いですか。,Is the sea frightening?,海は怖いですか。
-dlg-98,dgrp-12,8,B,B,B,怖【こわ】いです。でも海【うみ】の音【おと】を聞【き】くと、心【こころ】が良【よ】くなります。,"It is frightening. But when I hear the sound of the sea, my heart becomes well.",怖いです。でも波の音を聞くと、心が穏やかになります。
-dlg-99,dgrp-12,9,A,A,A,私【わたし】もそう感【かん】じます。大【おお】きい物【もの】の前【まえ】に立【た】つと、心【こころ】が小【ちい】さくなります。,"I feel that too. Standing before something vast, my heart becomes small.",私もそう感じます。大きなものの前に立つと、自分が小さく感じられます。
-dlg-100,dgrp-13,1,A,A,A,この国【くに】はとても変【か】わりましたね。前【まえ】は違【ちが】いました。,"This country has changed a great deal. Before, it was different.",この国はとても変わりましたね。昔とは違います。
-dlg-101,dgrp-13,2,B,B,B,はい。新【あたら】しい建物【たてもの】が多【おお】くなりました。前【まえ】からある家【いえ】は少【すく】なくなりました。,Yes. There are many more new buildings. The houses that were here before have grown few.,はい。新しい建物が増えました。昔からある家は少なくなりました。
-dlg-102,dgrp-13,3,A,A,A,前【まえ】からある道【みち】も変【か】わりました。前【まえ】は木【き】が多【おお】かったです。,"The old roads have also changed. Before, there were many trees.",昔からある道も変わりました。以前は木が多かったです。
-dlg-103,dgrp-13,4,B,B,B,新【あたら】しいものは良【よ】いですか、悪【わる】いですか。,"Are new things good, or bad?",新しいものは良いですか、悪いですか。
-dlg-104,dgrp-13,5,A,A,A,新【あたら】しい機械【きかい】で、人【ひと】がする事【こと】が速【はや】くなりました。でも前【まえ】にしていた事【こと】を知【し】っている人【ひと】が少【すく】なくなっています。,"With new machines, the things people do have become faster. But people who know the earlier ways of doing things are growing fewer.",新しい機械のおかげで、物事が速くなりました。でも昔のやり方を知っている人が少なくなっています。
-dlg-105,dgrp-13,6,B,B,B,言葉【ことば】も変【か】わります。前【まえ】の人【ひと】たちの言葉【ことば】は今【いま】もありますか。,Even words change. Do the words of the people before us still exist?,言葉も変わります。昔の人たちの言葉は今も残っていますか。
-dlg-106,dgrp-13,7,A,A,A,本【ほん】の中【なか】にあります。でも使【つか】う人【ひと】は少【すこ】しだけです。,They exist inside books. But only a few people use them.,本の中にあります。でも使う人はごくわずかです。
-dlg-107,dgrp-13,8,B,B,B,変【か】わらない事【こと】はありますか。,Is there anything that does not change?,変わらないものはありますか。
-dlg-108,dgrp-13,9,A,A,A,山【やま】と海【うみ】はまだ変【か】わりません。太陽【たいよう】も毎【まい】日【にち】出【で】ます。,The mountains and sea have not changed. The sun still rises every day.,山と海はまだ変わりません。太陽も毎日昇ります。
-dlg-109,dgrp-14,1,A,A,A,あの人【ひと】が作【つく】った音【おと】を聞【き】くと、悲【かな】しくなります。なぜですか。,"When I hear the sounds that person made, I become sad. Why is that?",あの人が作った音楽を聞くと、悲しくなります。なぜでしょうか。
-dlg-110,dgrp-14,2,B,B,B,私【わたし】もそう感【かん】じます。その音【おと】は何【なに】かを感【かん】じさせます。,I feel the same. Those sounds cause something to be felt.,私もそう感じます。その音は何かを呼び起こします。
-dlg-111,dgrp-14,3,A,A,A,言葉【ことば】は使【つか】っていません。でも心【こころ】に入【はい】ります。,No words are used. Yet it enters the heart.,言葉は使っていません。でも心に届きます。
-dlg-112,dgrp-14,4,B,B,B,言葉【ことば】より前【まえ】に、体【からだ】が感【かん】じると思【おも】います。雨【あめ】の音【おと】や風【かぜ】の音【おと】も、心【こころ】を動【うご】かします。,"I think the body feels it before words do. The sound of rain, the sound of wind - these too move the heart.",言葉より先に、体が感じるのだと思います。雨の音や風の音も、心を動かします。
-dlg-113,dgrp-14,5,A,A,A,では、人【ひと】が作【つく】る音【おと】と山【やま】や海【うみ】の音【おと】は違【ちが】いますか。,"Then, are sounds made by people different from the sounds of mountains and sea?",では、人が作る音と自然の音は違いますか。
-dlg-114,dgrp-14,6,B,B,B,違【ちが】うと思【おも】います。人【ひと】が作【つく】る音【おと】の中【なか】には、その人【ひと】の心【こころ】があります。,"I think they are different. Inside the sounds a person makes, there is that person's heart.",違うと思います。人が作る音の中には、その人の心が込められています。
-dlg-115,dgrp-14,7,A,A,A,悲【かな】しい音【おと】を聞【き】いて、なぜ楽【たの】しいと感【かん】じますか。変【へん】ですね。,"Hearing a sad sound, why do I feel something like joy? It is strange.",悲しい音楽を聞いて、なぜ心地よいと感じるのでしょう。不思議ですね。
-dlg-116,dgrp-14,8,B,B,B,悲【かな】しさを感【かん】じていい、と思【おも】えるからかもしれません。一人【ひとり】じゃないと感【かん】じます。,Perhaps because it lets you feel that sadness is allowed. You feel you are not alone.,悲しさを感じてもいいのだ、と思えるからかもしれません。一人じゃないと感じられるのです。
-dlg-117,dgrp-14,9,A,A,A,その音【おと】を作【つく】った人【ひと】も、その悲【かな】しさを知【し】っていたのですね。,The person who made those sounds also knew that sadness.,その音楽を作った人も、同じ悲しみを知っていたのですね。
+dlg-83,dgrp-11,1,A,A,A,先生【せんせい】、本【ほん】を読【よ】んだら、その事【こと】を知【し】っていると言【い】えるか。,"Teacher, if I have read a book, can I say I know that thing?",先生、本を読んだら、そのことを知っていると言えますか。
+dlg-84,dgrp-11,2,B,B,B,本【ほん】の言葉【ことば】は知【し】ることができる。でも、本当【ほんとう】に知【し】ることは違【ちが】う。,You can know the words of a book. But truly knowing is different.,本の言葉は知ることができます。でも、本当に知るということは違います。
+dlg-85,dgrp-11,3,A,A,A,どう違【ちが】うか。,How is it different?,どう違いますか。
+dlg-86,dgrp-11,4,B,B,B,手【て】で作【つく】ったり、体【からだ】で感【かん】じたりしたとき、本当【ほんとう】に知【し】る事【こと】が始【はじ】まる。,"When you have made something with your hands, felt something in your body - that is when truly knowing begins.",手で作ったり、体で感じたりした時、本当に知ることが始まります。
+dlg-87,dgrp-11,5,A,A,A,では、私【わたし】はまだ知【し】らないのか。,Then I do not know yet?,では、私はまだ知らないのですか。
+dlg-88,dgrp-11,6,B,B,B,知【し】りたいと思【おも】っているなら、もう始【はじ】まっている。それで良【よ】いと思【おも】う。,"If you want to know, it has already begun. I think that is enough.",知りたいと思っているなら、もう始まっています。それで十分だと思います。
+dlg-89,dgrp-11,7,A,A,A,知【し】ることは終【お】わるか。,Does knowing ever end?,知ることに終わりはありますか。
+dlg-90,dgrp-11,8,B,B,B,良【よ】い先生【せんせい】も、まだ知【し】らない事【こと】がとても多【おお】いと感【かん】じている。,Even a good teacher feels there are still very many things they do not know.,良い先生でも、まだ知らないことがとても多いと感じています。
+dlg-91,dgrp-12,1,A,A,A,この海【うみ】はとても大【おお】きいね。外【そと】に何【なに】があるか。,This sea is very large. What is on the other side?,この海はとても大きいですね。向こうに何がありますか。
+dlg-92,dgrp-12,2,B,B,B,他【ほか】の国【くに】がある。でも目【め】では見【み】えない。,There are other countries. But you cannot see them with your eyes.,他の国があります。でも目では見えません。
+dlg-93,dgrp-12,3,A,A,A,その国【くに】の人【ひと】たちも、この水【みず】を見【み】ていると思【おも】うか。,Do you think the people of those countries are also looking at this water?,その国の人たちも、この海を見ていると思いますか。
+dlg-94,dgrp-12,4,B,B,B,はい、全部【ぜんぶ】一【ひと】つの水【みず】だ。海【うみ】は一【ひと】つだと思【おも】う。,"Yes, it is all one water. I think the sea is one.",はい、すべて一つの海です。海はつながっていると思います。
+dlg-95,dgrp-12,5,A,A,A,水【みず】の中【なか】に何【なに】がいるか。,What lives inside the water?,海の中に何がいますか。
+dlg-96,dgrp-12,6,B,B,B,動物【どうぶつ】が多【おお】くいる。私【わたし】たちが知【し】らない動物【どうぶつ】も、まだいると思【おも】う。,Many animals. I think there are still animals we do not know.,たくさんの生き物がいます。私たちがまだ知らない生き物もいると思います。
+dlg-97,dgrp-12,7,A,A,A,海【うみ】は怖【こわ】いか。,Is the sea frightening?,海は怖いですか。
+dlg-98,dgrp-12,8,B,B,B,怖【こわ】い。でも海【うみ】の音【おと】を聞【き】くと、心【こころ】が良【よ】くなる。,"It is frightening. But when I hear the sound of the sea, my heart becomes well.",怖いです。でも波の音を聞くと、心が穏やかになります。
+dlg-99,dgrp-12,9,A,A,A,私【わたし】もそう感【かん】じる。大【おお】きい物【もの】の前【まえ】に立【た】つと、心【こころ】が小【ちい】さくなる。,"I feel that too. Standing before something vast, my heart becomes small.",私もそう感じます。大きなものの前に立つと、自分が小さく感じられます。
+dlg-100,dgrp-13,1,A,A,A,この国【くに】はとても変【か】わったね。前【まえ】は違【ちが】った。,"This country has changed a great deal. Before, it was different.",この国はとても変わりましたね。昔とは違います。
+dlg-101,dgrp-13,2,B,B,B,はい。新【あたら】しい建物【たてもの】が多【おお】くなった。前【まえ】からある家【いえ】は少【すく】なくなった。,Yes. There are many more new buildings. The houses that were here before have grown few.,はい。新しい建物が増えました。昔からある家は少なくなりました。
+dlg-102,dgrp-13,3,A,A,A,前【まえ】からある道【みち】も変【か】わった。前【まえ】は木【き】が多【おお】かった。,"The old roads have also changed. Before, there were many trees.",昔からある道も変わりました。以前は木が多かったです。
+dlg-103,dgrp-13,4,B,B,B,新【あたら】しいものは良【よ】いか、悪【わる】いか。,"Are new things good, or bad?",新しいものは良いですか、悪いですか。
+dlg-104,dgrp-13,5,A,A,A,新【あたら】しい機械【きかい】で、人【ひと】がする事【こと】が速【はや】くなった。でも前【まえ】にしていた事【こと】を知【し】っている人【ひと】が少【すく】なくなっている。,"With new machines, the things people do have become faster. But people who know the earlier ways of doing things are growing fewer.",新しい機械のおかげで、物事が速くなりました。でも昔のやり方を知っている人が少なくなっています。
+dlg-105,dgrp-13,6,B,B,B,言葉【ことば】も変【か】わる。前【まえ】の人【ひと】たちの言葉【ことば】は今【いま】もあるか。,Even words change. Do the words of the people before us still exist?,言葉も変わります。昔の人たちの言葉は今も残っていますか。
+dlg-106,dgrp-13,7,A,A,A,本【ほん】の中【なか】にある。でも使【つか】う人【ひと】は少【すこ】しだけだ。,They exist inside books. But only a few people use them.,本の中にあります。でも使う人はごくわずかです。
+dlg-107,dgrp-13,8,B,B,B,変【か】わらない事【こと】はあるか。,Is there anything that does not change?,変わらないものはありますか。
+dlg-108,dgrp-13,9,A,A,A,山【やま】と海【うみ】はまだ変【か】わらない。太陽【たいよう】も毎【まい】日【にち】出【で】る。,The mountains and sea have not changed. The sun still rises every day.,山と海はまだ変わりません。太陽も毎日昇ります。
+dlg-109,dgrp-14,1,A,A,A,あの人【ひと】が作【つく】った音【おと】を聞【き】くと、悲【かな】しくなる。なぜか。,"When I hear the sounds that person made, I become sad. Why is that?",あの人が作った音楽を聞くと、悲しくなります。なぜでしょうか。
+dlg-110,dgrp-14,2,B,B,B,私【わたし】もそう感【かん】じる。その音【おと】は何【なに】かを感【かん】じさせる。,I feel the same. Those sounds cause something to be felt.,私もそう感じます。その音は何かを呼び起こします。
+dlg-111,dgrp-14,3,A,A,A,言葉【ことば】は使【つか】っていない。でも心【こころ】に入【はい】る。,No words are used. Yet it enters the heart.,言葉は使っていません。でも心に届きます。
+dlg-112,dgrp-14,4,B,B,B,言葉【ことば】より前【まえ】に、体【からだ】が感【かん】じると思【おも】う。雨【あめ】の音【おと】や風【かぜ】の音【おと】も、心【こころ】を動【うご】かす。,"I think the body feels it before words do. The sound of rain, the sound of wind - these too move the heart.",言葉より先に、体が感じるのだと思います。雨の音や風の音も、心を動かします。
+dlg-113,dgrp-14,5,A,A,A,では、人【ひと】が作【つく】る音【おと】と山【やま】や海【うみ】の音【おと】は違【ちが】うか。,"Then, are sounds made by people different from the sounds of mountains and sea?",では、人が作る音と自然の音は違いますか。
+dlg-114,dgrp-14,6,B,B,B,違【ちが】うと思【おも】う。人【ひと】が作【つく】る音【おと】の中【なか】には、その人【ひと】の心【こころ】がある。,"I think they are different. Inside the sounds a person makes, there is that person's heart.",違うと思います。人が作る音の中には、その人の心が込められています。
+dlg-115,dgrp-14,7,A,A,A,悲【かな】しい音【おと】を聞【き】いて、なぜ楽【たの】しいと感【かん】じるか。変【へん】だね。,"Hearing a sad sound, why do I feel something like joy? It is strange.",悲しい音楽を聞いて、なぜ心地よいと感じるのでしょう。不思議ですね。
+dlg-116,dgrp-14,8,B,B,B,悲【かな】しさを感【かん】じていい、と思【おも】えるからかもしれない。一人【ひとり】じゃないと感【かん】じる。,Perhaps because it lets you feel that sadness is allowed. You feel you are not alone.,悲しさを感じてもいいのだ、と思えるからかもしれません。一人じゃないと感じられるのです。
+dlg-117,dgrp-14,9,A,A,A,その音【おと】を作【つく】った人【ひと】も、その悲【かな】しさを知【し】っていたのだね。,The person who made those sounds also knew that sadness.,その音楽を作った人も、同じ悲しみを知っていたのですね。
