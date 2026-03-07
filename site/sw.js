@@ -30,6 +30,8 @@ self.addEventListener('activate', (e) => {
 
 self.addEventListener('fetch', (e) => {
   if (e.request.method !== 'GET') return
+  // Audio files: skip SW entirely (let browser fetch directly)
+  if (e.request.url.includes('/audio/')) return
   e.respondWith(cacheFirst(e.request))
 })
 

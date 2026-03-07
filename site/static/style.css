@@ -205,7 +205,7 @@ ruby rt {
     padding: 0.5rem 0.75rem;
     border-block-end: 1px solid var(--border);
     text-align: start;
-    overflow-wrap: break-word;
+    white-space: nowrap;
   }
 
   & tr:last-child td {
@@ -226,10 +226,6 @@ ruby rt {
 
 .compact-table {
   font-size: 0.95rem;
-
-  & td, & th {
-    white-space: nowrap;
-  }
 
   & td:first-child {
     font-family: var(--jp);
