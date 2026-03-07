@@ -157,17 +157,13 @@ def extract_reading(text):
 
 
 def furigana_to_reading(text):
-    """Replace kanji【reading】 with reading, keep everything else (punctuation, kana)."""
-    parts = []
-    last = 0
-    for m in _FURIGANA_EXTRACT_RE.finditer(text):
-        if m.start() > last:
-            parts.append(text[last:m.start()])
-        parts.append(m.group(2))
-        last = m.end()
-    if last < len(text):
-        parts.append(text[last:])
-    return ''.join(parts)
+    """Replace kanji【reading】 with reading, keep everything else (punctuation, kana).
+
+    e.g. あの人【ひと】は誰【だれ】？ -> あのひとはだれ？
+    """
+    # Replace kanji+【reading】 with just reading
+    # \S+【 would eat kana too, so only match CJK ideographs before 【
+    return re.sub(r'[\u4e00-\u9fff\u3400-\u4dbf]+【([^】]+)】', r'\1', text)
 
 
 def text_for_tts(text):
