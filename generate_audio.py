@@ -317,7 +317,8 @@ async def gen_words():
                 and all('\u4e00' <= c <= '\u9fff' for c in bare)
                 and 'は' not in reading
             )
-            tts_text = (reading if use_reading else bare) + '。'
+            word = reading if use_reading else bare
+            tts_text = word + '。'
             await tts_generate(tts_text, VOICE_MALE, word_path)
             print(f'  {word_file}')
 
