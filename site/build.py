@@ -451,7 +451,7 @@ def _build_to(OUT, base_url):
             continue
         # index.html -> directory URL (e.g. 'ja/' instead of 'ja/index.html')
         url = rel_path.replace('index.html', '') if rel_path.endswith('index.html') else rel_path
-        if not url or url == './':
+        if not url or url == './' or url == '/':
             continue  # already in static list as './'
         precache.append(f"'{url}'")
     precache_js = '[\n  ' + ',\n  '.join(precache) + ',\n]'

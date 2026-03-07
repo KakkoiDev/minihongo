@@ -10,16 +10,25 @@ const updateTitle = () => {
   document.title = `${h1?.textContent ?? 'Minihongo'} - Minihongo`
 }
 
+// Prefetch cache: path -> Promise<Document>
+const prefetchCache = new Map()
+
+const fetchPage = (path) => {
+  if (prefetchCache.has(path)) return prefetchCache.get(path)
+  const promise = fetch(`${base}_f/${path}`)
+    .then(r => { if (!r.ok) throw new Error(r.status); return r.text() })
+    .then(html => new DOMParser().parseFromString(html, 'text/html'))
+  prefetchCache.set(path, promise)
+  return promise
+}
+
 const navigate = async (path) => {
   try {
-    const res = await fetch(`${base}_f/${path}`)
-    if (!res.ok) throw new Error(res.status)
-    const html = await res.text()
-    const doc = new DOMParser().parseFromString(html, 'text/html')
+    const doc = await fetchPage(path)
+    prefetchCache.delete(path)
     const newContent = doc.querySelector('#content')
     if (!newContent) throw new Error('no #content')
-    const target = document.querySelector('#content')
-    target.replaceWith(newContent)
+    document.querySelector('#content').replaceWith(newContent)
     updateTitle()
     scrollTo(0, 0)
     bindContentLinks()
@@ -29,17 +38,28 @@ const navigate = async (path) => {
   }
 }
 
+const hrefToPath = (href) => new URL(href, base).pathname.replace(basePath, '')
+
 const handleNavClick = async (e, href) => {
   e.preventDefault()
-  const path = new URL(href, base).pathname.replace(basePath, '')
+  const path = hrefToPath(href)
   history.pushState({ path }, '', `${base}${path}`)
   if (!await navigate(path)) location.reload()
+}
+
+const handleNavHover = (href) => {
+  fetchPage(hrefToPath(href))
+}
+
+const bindLink = (a) => {
+  a.onclick = (e) => handleNavClick(e, a.href)
+  a.onmouseenter = () => handleNavHover(a.href)
 }
 
 // Bind lesson-nav and TOC links inside #content (re-run after each swap)
 const bindContentLinks = () => {
   for (const a of document.querySelectorAll('.lesson-nav a, .toc a')) {
-    a.onclick = (e) => handleNavClick(e, a.href)
+    bindLink(a)
   }
   for (const a of document.querySelectorAll('#content a[href^="#"]')) {
     a.onclick = (e) => {
@@ -52,7 +72,7 @@ const bindContentLinks = () => {
 // Top nav links
 for (const a of document.querySelectorAll('nav:not(.lesson-nav):not(.toc) a:not(.logo)')) {
   if (a.classList.contains('lang-link')) continue
-  a.onclick = (e) => handleNavClick(e, a.href)
+  bindLink(a)
 }
 
 // Initial content links

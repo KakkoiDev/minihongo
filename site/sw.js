@@ -1,7 +1,6 @@
 // Service Worker for Minihongo PWA
-// Provides offline support via two caching strategies:
-// - Cache-first with background revalidation (static assets, full pages)
-// - Network-first with cache fallback (htmz fragment pages)
+// Cache-first with background revalidation for all assets
+// Cache name includes content hash so deploys bust the old cache
 
 // Cache name includes a content hash so a new deploy busts the old cache
 const CACHE = 'minihongo-{{CACHE_HASH}}'
@@ -29,27 +28,12 @@ self.addEventListener('activate', (e) => {
 
 // -- Fetch routing ------------------------------------------------------
 
-// Fragment pages (/_f/*) use network-first so htmz navigation stays fresh.
-// Everything else uses cache-first for instant loads with background refresh.
 self.addEventListener('fetch', (e) => {
   if (e.request.method !== 'GET') return
-  const { pathname } = new URL(e.request.url)
-  e.respondWith(pathname.includes('/_f/') ? networkFirst(e.request) : cacheFirst(e.request))
+  e.respondWith(cacheFirst(e.request))
 })
 
-// -- Caching strategies -------------------------------------------------
-
-// Network-first: try network, fall back to cache, last resort 503
-const networkFirst = async (request) => {
-  const cache = await caches.open(CACHE)
-  try {
-    const res = await fetch(request)
-    if (res.ok) cache.put(request, res.clone())
-    return res
-  } catch {
-    return (await cache.match(request)) ?? new Response('Offline', { status: 503 })
-  }
-}
+// -- Caching strategy ---------------------------------------------------
 
 // Cache-first with stale-while-revalidate: serve cached immediately,
 // refresh in the background for next visit
