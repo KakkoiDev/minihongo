@@ -186,6 +186,14 @@
             "constraints": {
               "required": true
             }
+          },
+          {
+            "name": "audio_word",
+            "type": "string"
+          },
+          {
+            "name": "audio_example",
+            "type": "string"
           }
         ],
         "primaryKey": "id",
@@ -321,6 +329,10 @@
             "constraints": {
               "required": true
             }
+          },
+          {
+            "name": "audio_file",
+            "type": "string"
           }
         ],
         "primaryKey": "id",
@@ -391,6 +403,10 @@
             "constraints": {
               "required": true
             }
+          },
+          {
+            "name": "audio_file",
+            "type": "string"
           }
         ],
         "primaryKey": "id",
@@ -457,6 +473,10 @@
             "constraints": {
               "required": true
             }
+          },
+          {
+            "name": "audio_file",
+            "type": "string"
           }
         ],
         "primaryKey": "id",
@@ -515,6 +535,10 @@
             "constraints": {
               "required": true
             }
+          },
+          {
+            "name": "audio_file",
+            "type": "string"
           }
         ],
         "primaryKey": "id",
@@ -576,6 +600,10 @@
             "constraints": {
               "required": true
             }
+          },
+          {
+            "name": "audio_file",
+            "type": "string"
           }
         ],
         "primaryKey": "id",
@@ -728,6 +756,10 @@
             "constraints": {
               "required": true
             }
+          },
+          {
+            "name": "audio_file",
+            "type": "string"
           }
         ],
         "primaryKey": "id",

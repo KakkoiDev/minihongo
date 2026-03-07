@@ -1,939 +1,939 @@
-id,category_id,minihongo,reading,english,japanese,english_litteral,sort_order
-expr-1,cat-38,好【す】きな人【ひと】,,friend,友達,liked person,1
-expr-2,cat-38,父【ちち】と母【はは】と子供【こども】,,family,家族,"father, mother, children",2
-expr-3,cat-38,教【おし】える人【ひと】,,teacher,先生,teaching person,3
-expr-4,cat-38,教【おし】えてもらう人【ひと】,,student,生徒,taught person,4
-expr-5,cat-38,体【からだ】を助【たす】ける人【ひと】,,doctor,医者,body-helping person,5
-expr-6,cat-38,心【こころ】を助【たす】ける人【ひと】,,therapist,セラピスト,heart-helping person,6
-expr-7,cat-38,守【まも】る人【ひと】,,police,警察,protecting person,7
-expr-8,cat-38,戦【たたか】う人【ひと】,,soldier,兵士,fighting person,8
-expr-9,cat-38,食【た】べ物【もの】を作【つく】る人【ひと】,,farmer,農家,food-making person,9
-expr-10,cat-38,火【ひ】で食【た】べ物【もの】を作【つく】る人【ひと】,,cook,料理人,fire food-making person,10
-expr-11,cat-38,本【ほん】を書【か】く人【ひと】,,writer,作家,book-writing person,11
-expr-12,cat-38,よく知【し】る人【ひと】,,expert,専門家,well-knowing person,12
-expr-13,cat-38,上【うえ】の人【ひと】,,boss,上司,above person,13
-expr-14,cat-38,助【たす】ける人【ひと】,,helper,助手,helping person,14
-expr-15,cat-38,物【もの】を持【も】って行【い】く人【ひと】,,thief,泥棒,thing-taking person,15
-expr-16,cat-38,家【いえ】が近【ちか】い人【ひと】,,neighbor,隣人,house-near person,16
-expr-17,cat-38,父【ちち】の父【ちち】,,grandfather,祖父,father's father,17
-expr-18,cat-38,母【はは】の母【はは】,,grandmother,祖母,mother's mother,18
-expr-19,cat-38,新【あたら】しい子供【こども】,,baby,赤ちゃん,new child,19
-expr-20,cat-38,年【とし】が多【おお】い人【ひと】,,old person,老人,many-year person,20
-expr-21,cat-39,空【そら】の動物【どうぶつ】,,bird,鳥,sky animal,21
-expr-22,cat-39,水【みず】の動物【どうぶつ】,,fish,魚,water animal,22
-expr-23,cat-39,とても大【おお】きくない動物【どうぶつ】,,insect,虫,very not-big animal,23
-expr-24,cat-39,家【いえ】の動物【どうぶつ】,,dog,犬,house animal,24
-expr-25,cat-39,大【おお】きくない家【いえ】の動物【どうぶつ】,,cat,猫,not-big house animal,25
-expr-26,cat-39,速【はや】い大【おお】きい動物【どうぶつ】,,horse,馬,fast big animal,26
-expr-27,cat-39,長【なが】い動物【どうぶつ】,,snake,蛇,long animal,27
-expr-28,cat-39,海【うみ】のとても大【おお】きい動物【どうぶつ】,,whale,鯨,sea's very big animal,28
-expr-29,cat-39,山【やま】の強【つよ】い動物【どうぶつ】,,bear,熊,mountain strong animal,29
-expr-30,cat-39,木【き】の動物【どうぶつ】,,monkey,猿,tree animal,30
-expr-31,cat-39,水【みず】と土【つち】の動物【どうぶつ】,,frog,蛙,water-and-earth animal,31
-expr-32,cat-39,夜【よる】の動物【どうぶつ】,,wolf,狼,night animal,32
-expr-33,cat-39,強【つよ】い動物【どうぶつ】,,lion,ライオン,strong animal,33
-expr-34,cat-39,とても大【おお】きい動物【どうぶつ】,,elephant,象,very big animal,34
-expr-35,cat-39,きれいな大【おお】きくない動物【どうぶつ】,,butterfly,蝶,pretty not-big animal,35
-expr-36,cat-40,空【そら】の事【こと】,,weather,天気,sky matter,36
-expr-37,cat-40,空【そら】の白【しろ】,,cloud,雲,sky's white,37
-expr-38,cat-40,夜【よる】の光【ひかり】,,star,星,night light,38
-expr-39,cat-40,月【つき】の光【ひかり】,,moonlight,月光,moon's light,39
-expr-40,cat-40,空【そら】の火【ひ】,,lightning,稲妻,sky fire,40
-expr-41,cat-40,白【しろ】い雨【あめ】,,snow,雪,white rain,41
-expr-42,cat-40,寒【さむ】い水【みず】,,ice,氷,cold water,42
-expr-43,cat-40,白【しろ】い空気【くうき】,,fog,霧,white air,43
-expr-44,cat-40,強【つよ】い風【かぜ】と雨【あめ】,,storm,嵐,strong wind and rain,44
-expr-45,cat-40,雨【あめ】の後【あと】の色【いろ】,,rainbow,虹,color after rain,45
-expr-46,cat-40,土【つち】が動【うご】く事【こと】,,earthquake,地震,earth moving,46
-expr-47,cat-40,水【みず】が多【おお】すぎる事【こと】,,flood,洪水,too-much water,47
-expr-48,cat-40,長【なが】い水【みず】,,river,川,long water,48
-expr-49,cat-40,大【おお】きい水【みず】,,lake,湖,big water,49
-expr-50,cat-40,海【うみ】の中【なか】の土【つち】,,island,島,earth in the sea,50
-expr-51,cat-40,木【き】が多【おお】い場所【ばしょ】,,forest,森,many-tree place,51
-expr-52,cat-40,水【みず】がない暑【あつ】い場所【ばしょ】,,desert,砂漠,waterless hot place,52
-expr-53,cat-40,火【ひ】の山【やま】,,volcano,火山,fire mountain,53
-expr-54,cat-40,水【みず】が下【した】に行【い】く場所【ばしょ】,,waterfall,滝,water going-down place,54
-expr-55,cat-40,太陽【たいよう】が出【で】る時【とき】,,sunrise,日の出,sun coming-out time,55
-expr-56,cat-40,太陽【たいよう】が入【はい】る時【とき】,,sunset,日の入り,sun going-in time,56
-expr-57,cat-41,家【いえ】の中【なか】,,room,部屋,inside house,57
-expr-58,cat-41,教【おし】える場所【ばしょ】,,school,学校,teaching place,58
-expr-59,cat-41,買【か】う場所【ばしょ】,,shop,店,buying place,59
-expr-60,cat-41,食【た】べる場所【ばしょ】,,restaurant,レストラン,eating place,60
-expr-61,cat-41,体【からだ】を助【たす】ける場所【ばしょ】,,hospital,病院,body-helping place,61
-expr-62,cat-41,本【ほん】が多【おお】い場所【ばしょ】,,library,図書館,many-book place,62
-expr-63,cat-41,食【た】べ物【もの】を作【つく】る場所【ばしょ】,,kitchen,台所,food-making place,63
-expr-64,cat-41,草【くさ】がある場所【ばしょ】,,garden,庭,grass place,64
-expr-65,cat-41,外【そと】の場所【ばしょ】,,park,公園,outside place,65
-expr-66,cat-41,人【ひと】が多【おお】い場所【ばしょ】,,city,都市,many-people place,66
-expr-67,cat-41,水【みず】の上【うえ】の道【みち】,,bridge,橋,road above water,67
-expr-68,cat-41,高【たか】い場所【ばしょ】,,tower,塔,tall place,68
-expr-69,cat-41,出【で】られない場所【ばしょ】,,prison,刑務所,can't-leave place,69
-expr-70,cat-41,空【そら】に行【い】く場所【ばしょ】,,airport,空港,sky-going place,70
-expr-71,cat-42,使【つか】う物【もの】,,tool,道具,using thing,71
-expr-72,cat-42,中【なか】に入【い】れる物【もの】,,box,箱,put-inside thing,72
-expr-73,cat-42,書【か】く物【もの】,,paper,紙,writing thing,73
-expr-74,cat-42,切【き】る物【もの】,,knife,ナイフ,cutting thing,74
-expr-75,cat-42,開【あ】ける物【もの】,,key,鍵,opening thing,75
-expr-76,cat-42,物【もの】を持【も】つ物【もの】,,bag,鞄,thing-holding thing,76
-expr-77,cat-42,雨【あめ】の物【もの】,,umbrella,傘,rain thing,77
-expr-78,cat-42,寝【ね】る場所【ばしょ】,,bed,ベッド,sleeping place,78
-expr-79,cat-42,座【すわ】る物【もの】,,chair,椅子,sitting thing,79
-expr-80,cat-42,入【はい】る場所【ばしょ】,,door,ドア,entering place,80
-expr-81,cat-42,外【そと】を見【み】る場所【ばしょ】,,window,窓,outside-looking place,81
-expr-82,cat-42,時【とき】を見【み】る物【もの】,,clock,時計,time-seeing thing,82
-expr-83,cat-42,自分【じぶん】を見【み】る物【もの】,,mirror,鏡,self-seeing thing,83
-expr-84,cat-42,火【ひ】の光【ひかり】,,candle,蝋燭,fire light,84
-expr-85,cat-42,長【なが】い強【つよ】い物【もの】,,rope,縄,long strong thing,85
-expr-86,cat-42,考【かんが】える物【もの】,,computer,コンピューター,thinking thing,86
-expr-87,cat-42,音【おと】で言【い】う物【もの】,,phone,電話,sound-saying thing,87
-expr-88,cat-42,速【はや】く行【い】く物【もの】,,car,車,fast-going thing,88
-expr-89,cat-42,水【みず】の上【うえ】の物【もの】,,boat,船,on-water thing,89
-expr-90,cat-42,空【そら】を行【い】く物【もの】,,airplane,飛行機,sky-going thing,90
-expr-91,cat-43,木【き】の食【た】べ物【もの】,,fruit,果物,tree food,91
-expr-92,cat-43,草【くさ】の食【た】べ物【もの】,,vegetable,野菜,grass food,92
-expr-93,cat-43,動物【どうぶつ】の食【た】べ物【もの】,,meat,肉,animal food,93
-expr-94,cat-43,白【しろ】い動物【どうぶつ】の水【みず】,,milk,牛乳,white animal water,94
-expr-95,cat-43,体【からだ】を良【よ】くする物【もの】,,medicine,薬,body-improving thing,95
-expr-96,cat-43,体【からだ】を悪【わる】くする物【もの】,,poison,毒,body-worsening thing,96
-expr-97,cat-43,目【め】と口【くち】がある場所【ばしょ】,,face,顔,place with eyes and mouth,97
-expr-98,cat-43,口【くち】の中【なか】の白【しろ】い物【もの】,,tooth,歯,white thing in mouth,98
-expr-99,cat-43,体【からだ】の中【なか】の赤【あか】い水【みず】,,blood,血,red water in body,99
-expr-100,cat-43,体【からだ】が悪【わる】い事【こと】,,sickness,病気,body being bad,100
-expr-101,cat-43,体【からだ】が暑【あつ】い,,fever,熱,body is hot,101
-expr-102,cat-43,悪【わる】い感【かん】じ,,pain,痛み,bad feeling,102
-expr-103,cat-43,寝【ね】る時【とき】に見【み】る事【こと】,,dream,夢,thing seen while sleeping,103
-expr-104,cat-43,食【た】べ物【もの】が欲【ほ】しい,,hungry,空腹,want food,104
-expr-105,cat-43,体【からだ】が重【おも】い,,tired,疲労,body is heavy,105
-expr-106,cat-44,前【まえ】の日【にち】,,yesterday,昨日,previous day,106
-expr-107,cat-44,後【あと】の日【にち】,,tomorrow,明日,next day,107
-expr-108,cat-44,日【にち】の中【なか】,,noon,正午,middle of day,108
-expr-109,cat-44,夜【よる】の中【なか】,,midnight,真夜中,middle of night,109
-expr-110,cat-44,今【いま】の夜【よる】,,tonight,今夜,now's night,110
-expr-111,cat-44,暑【あつ】くなる時【とき】,,spring,春,becoming-hot time,111
-expr-112,cat-44,暑【あつ】い時【とき】,,summer,夏,hot time,112
-expr-113,cat-44,寒【さむ】くなる時【とき】,,autumn,秋,becoming-cold time,113
-expr-114,cat-44,寒【さむ】い時【とき】,,winter,冬,cold time,114
-expr-115,cat-44,終【お】わらない時【とき】,,forever,永遠,never-ending time,115
-expr-116,cat-44,とても前【まえ】の時【とき】,,ancient,古代,very before time,116
-expr-117,cat-44,後【あと】の時【とき】,,future,未来,after time,117
-expr-118,cat-44,する事【こと】がない日【にち】,,holiday,休日,nothing-to-do day,118
-expr-119,cat-45,大【おお】きくない,,small,小さい,not 大きい,119
-expr-120,cat-45,長【なが】くない,,short,短い,not 長い,120
-expr-121,cat-45,高【たか】くない,,"low, cheap",低い,not 高い,121
-expr-122,cat-45,重【おも】くない,,light (weight),軽い,not 重い,122
-expr-123,cat-45,強【つよ】くない,,weak,弱い,not 強い,123
-expr-124,cat-45,速【はや】くない,,slow,遅い,not 速い,124
-expr-125,cat-45,新【あたら】しくない,,old (thing),古い,not 新しい,125
-expr-126,cat-45,きれいじゃない,,dirty,汚い,not きれい,126
-expr-127,cat-45,明【あか】るくない,,dark,暗い,not 明るい,127
-expr-128,cat-45,音【おと】がない,,quiet,静か,soundless,128
-expr-129,cat-45,違【ちが】わない,,same,同じ,not different,129
-expr-130,cat-45,良【よ】くない,,bad,悪い,not good,130
-expr-131,cat-45,必要【ひつよう】じゃない,,unnecessary,不要,not necessary,131
-expr-132,cat-45,できない,,impossible,不可能,cannot,132
-expr-133,cat-45,知【し】らない,,unknown,未知,not known,133
-expr-134,cat-45,見【み】えない,,invisible,見えない,not visible,134
-expr-135,cat-45,中【なか】に何【なに】もない,,empty,空っぽ,nothing inside,135
-expr-136,cat-45,悪【わる】い事【こと】が起【お】こらない,,safe,安全,bad things don't happen,136
-expr-137,cat-45,楽【たの】しくない,,boring,退屈,not fun,137
-expr-138,cat-46,速【はや】く足【あし】で動【うご】く,,run,走る,move fast with feet,138
-expr-139,cat-46,空【そら】を行【い】く,,fly,飛ぶ,go in sky,139
-expr-140,cat-46,水【みず】の中【なか】を動【うご】く,,swim,泳ぐ,move in water,140
-expr-141,cat-46,上【うえ】に行【い】く,,climb,登る,go up,141
-expr-142,cat-46,速【はや】く上【うえ】に動【うご】く,,jump,跳ぶ,quickly move up,142
-expr-143,cat-46,下【した】に行【い】く,,fall,落ちる,go down,143
-expr-144,cat-46,家【いえ】に行【い】く,,return,帰る,go home,144
-expr-145,cat-46,何【なに】もしない,,rest,休む,do nothing,145
-expr-146,cat-46,楽【たの】しい事【こと】をする,,play,遊ぶ,do fun things,146
-expr-147,cat-46,新【あたら】しく知【し】る,,learn,学ぶ,newly know,147
-expr-148,cat-46,知【し】らなくなる,,forget,忘れる,become not-knowing,148
-expr-149,cat-46,見【み】えない場所【ばしょ】に行【い】く,,hide,隠れる,go to unseen place,149
-expr-150,cat-46,音【おと】を作【つく】る,,sing,歌う,make sound,150
-expr-151,cat-46,火【ひ】で食【た】べ物【もの】を作【つく】る,,cook,料理する,make food with fire,151
-expr-152,cat-46,人【ひと】の物【もの】を持【も】って行【い】く,,steal,盗む,take person's thing,152
-expr-153,cat-46,水【みず】できれいにする,,wash,洗う,make clean with water,153
-expr-154,cat-46,壊【こわ】れた物【もの】を良【よ】くする,,repair,修理する,make broken thing good,154
-expr-155,cat-46,草【くさ】を土【つち】に入【い】れる,,plant,植える,put grass in earth,155
-expr-156,cat-46,色【いろ】で物【もの】を作【つく】る,,draw,描く,make things with color,156
-expr-157,cat-47,生【い】きる事【こと】,,life,命,living matter,157
-expr-158,cat-47,死【し】ぬ事【こと】,,death,死,dying matter,158
-expr-159,cat-47,心【こころ】がとても好【す】きな事【こと】,,love,愛,heart very-liking,159
-expr-160,cat-47,怒【おこ】る事【こと】,,anger,怒り,angry matter,160
-expr-161,cat-47,怖【こわ】いと感【かん】じる事【こと】,,fear,恐怖,feeling scared,161
-expr-162,cat-47,良【よ】い事【こと】を待【ま】つ事【こと】,,hope,希望,waiting for good things,162
-expr-163,cat-47,戦【たたか】わない事【こと】,,peace,平和,not fighting,163
-expr-164,cat-47,国【くに】と国【くに】が戦【たたか】う事【こと】,,war,戦争,countries fighting,164
-expr-165,cat-47,好【す】きにできる事【こと】,,freedom,自由,able to do as liked,165
-expr-166,cat-47,本当【ほんとう】の事【こと】,,truth,真実,true matter,166
-expr-167,cat-47,本当【ほんとう】じゃない事【こと】,,lie,嘘,not-true matter,167
-expr-168,cat-47,新【あたら】しい考【かんが】え,,idea,アイデア,new thought,168
-expr-169,cat-47,良【よ】い事【こと】が起【お】こる事【こと】,,luck,幸運,good things happening,169
-expr-170,cat-47,他【ほか】の人【ひと】が知【し】らない事【こと】,,secret,秘密,thing others don't know,170
-expr-171,cat-47,きれいな音【おと】,,music,音楽,pretty sound,171
-expr-172,cat-47,長【なが】い言葉【ことば】,,story,物語,long words,172
-expr-173,cat-47,音【おと】と言葉【ことば】,,song,歌,sound and words,173
-expr-174,cat-47,書【か】いた言葉【ことば】,,letter (mail),手紙,written words,174
-expr-175,cat-47,与【あた】える物【もの】,,gift,贈り物,giving thing,175
-expr-176,cat-47,国【くに】の言葉【ことば】,,language,言語,country's words,176
-expr-177,cat-47,悪【わる】くした事【こと】,,mistake,間違い,badly-done thing,177
-expr-178,cat-47,心【こころ】が良【よ】い事【こと】,,happiness,幸福,heart-good matter,178
-expr-179,cat-47,悪【わる】い事【こと】が起【お】こる,,danger,危険,bad things happen,179
-expr-180,cat-48,足【あし】で動【うご】く,,walk,歩く,move with feet,180
-expr-181,cat-48,太陽【たいよう】が出【で】る時【とき】,,morning,朝,sun coming-out time,181
-expr-182,cat-48,今【いま】の日【にち】,,today,今日,now's day,182
-expr-183,cat-48,する事【こと】,,work,仕事,thing to do,183
-expr-184,cat-48,悪【わる】い事【こと】,,problem,問題,bad thing,184
-expr-185,cat-48,言葉【ことば】の事【こと】,,meaning,意味,word's matter,185
-expr-186,cat-48,とても必要【ひつよう】,,important,重要,very necessary,186
-expr-187,cat-48,悪【わる】い事【こと】が起【お】こる,,dangerous,危険,bad things happen,187
-expr-188,cat-48,全部【ぜんぶ】の場所【ばしょ】,,world,世界,all places,188
-expr-189,cat-48,手【て】で感【かん】じる,,touch,触る,feel with hand,189
-expr-190,cat-50,毎【まい】日【にち】する事【こと】,せいかつ,"daily life, living",生活,,190
-expr-191,cat-50,外【そと】にいる人【ひと】と言葉【ことば】を使【つか】う物【もの】,でんわ,"telephone, phone call",電話,,191
-expr-192,cat-50,見【み】た物【もの】を書【か】いた物【もの】,しゃしん,"photograph, photo",写真,,192
-expr-193,cat-50,動【うご】く写真【しゃしん】を見【み】る物【もの】,えいが,"movie, film",映画,,193
-expr-194,cat-50,きれいな音【おと】,おんがく,music,音楽,,194
-expr-195,cat-50,毎【まい】日【にち】書【か】く本【ほん】,しんぶん,newspaper,新聞,,195
-expr-196,cat-50,多【おお】い事【こと】を書【か】いた本【ほん】,ざっし,magazine,雑誌,,196
-expr-197,cat-50,人【ひと】に書【か】く言葉【ことば】,てがみ,"letter, written letter",手紙,,197
-expr-198,cat-50,持【も】つ物【もの】,にもつ,"luggage, baggage, package",荷物,,198
-expr-199,cat-50,家【いえ】を開【あ】ける物【もの】,かぎ,"key, lock",鍵,,199
-expr-200,cat-50,家【いえ】の中【なか】に外【そと】の光【ひかり】が入【はい】る場所【ばしょ】,まど,window,窓,,200
-expr-201,cat-50,家【いえ】の右【みぎ】と左【ひだり】にある物【もの】,かべ,wall,壁,,201
-expr-202,cat-50,家【いえ】の中【なか】の下【した】,ゆか,floor,床,,202
-expr-203,cat-50,家【いえ】の上【うえ】にある物【もの】,やね,roof,屋根,,203
-expr-204,cat-50,食【た】べる物【もの】を作【つく】る場所【ばしょ】,だいどころ,kitchen,台所,,204
-expr-205,cat-50,体【からだ】を水【みず】できれいにする場所【ばしょ】,ふろ,"bath, bathtub",風呂,,205
-expr-206,cat-50,家【いえ】の中【なか】の場所【ばしょ】,へや,room,部屋,,206
-expr-207,cat-50,場所【ばしょ】をきれいにする事【こと】,そうじ,"cleaning, sweeping",掃除,,207
-expr-208,cat-50,服【ふく】を水【みず】できれいにする事【こと】,せんたく,"laundry, washing clothes",洗濯,,208
-expr-209,cat-50,食【た】べる物【もの】を作【つく】る事【こと】,りょうり,"cooking, cuisine",料理,,209
-expr-210,cat-50,物【もの】を買【か】う事【こと】,かいもの,shopping,買い物,,210
-expr-211,cat-50,外【そと】を動【うご】いていく事【こと】,さんぽ,"walk, stroll",散歩,,211
-expr-212,cat-50,前【まえ】にする事【こと】,したく,"preparation, getting ready",支度,,212
-expr-213,cat-50,始【はじ】まる前【まえ】にする事【こと】,じゅんび,"preparation, arrangement",準備,,213
-expr-214,cat-50,人【ひと】に「する」と言【い】う事【こと】,やくそく,"promise, appointment",約束,,214
-expr-215,cat-50,後【あと】にする事【こと】,よてい,"schedule, plan",予定,,215
-expr-216,cat-50,好【す】きでする事【こと】,しゅみ,"hobby, interest",趣味,,216
-expr-217,cat-50,良【よ】くなるために何【なに】かを多【おお】くする事【こと】,れんしゅう,"practice, training",練習,,217
-expr-218,cat-50,知【し】るために読【よ】んだり聞【き】いたりする事【こと】,べんきょう,"study, studying",勉強,,218
-expr-219,cat-50,家【いえ】でする勉強【べんきょう】,しゅくだい,homework,宿題,,219
-expr-220,cat-50,知【し】りたい事【こと】を聞【き】く言葉【ことば】,しつもん,question,質問,,220
-expr-221,cat-50,聞【き】かれた事【こと】を言【い】う事【こと】,こたえ,"answer, response",答え,,221
-expr-222,cat-50,人【ひと】の言葉【ことば】に言【い】う事【こと】,へんじ,"reply, response",返事,,222
-expr-223,cat-50,会【あ】った時【とき】に言【い】う言葉【ことば】,あいさつ,greeting,挨拶,,223
-expr-224,cat-50,人【ひと】に知【し】らせる事【こと】,れんらく,"contact, communication",連絡,,224
-expr-225,cat-50,人【ひと】と考【かんが】える事【こと】,そうだん,"consultation, discussion",相談,,225
-expr-226,cat-50,人【ひと】や物【もの】の事【こと】を他【ほか】の人【ひと】に教【おし】える事【こと】,しょうかい,"introduction, referral",紹介,,226
-expr-227,cat-50,人【ひと】に「来【き】てください」と言【い】う事【こと】,しょうたい,invitation,招待,,227
-expr-228,cat-50,前【まえ】にした事【こと】,けいけん,experience,経験,,228
-expr-229,cat-50,後【あと】にする事【こと】を考【かんが】える事【こと】,けいかく,"plan, project",計画,,229
-expr-230,cat-50,よく見【み】てほしい事【こと】,ちゅうい,"caution, attention, warning",注意,,230
-expr-231,cat-50,「これをください」と言【い】う事【こと】,ちゅうもん,"order (food, goods)",注文,,231
-expr-232,cat-50,物【もの】を買【か】うお金【おかね】,ねだん,"price, cost",値段,,232
-expr-233,cat-50,お金【おかね】が少【すこ】しで良【よ】くなる事【こと】,わりびき,discount,割引,,233
-expr-234,cat-50,お金【おかね】がない事【こと】,むりょう,free of charge,無料,,234
-expr-235,cat-50,変【へん】ではない,ふつう,"ordinary, normal, usual",普通,,235
-expr-236,cat-50,他【ほか】と違【ちが】う良【よ】い事【こと】,とくべつ,"special, particular",特別,,236
-expr-237,cat-50,とても必要【ひつよう】な,たいせつ,"important, precious, valued",大切,,237
-expr-238,cat-50,だれでもできる,かんたん,"easy, simple",簡単,,238
-expr-239,cat-50,多【おお】くの事【こと】が中【なか】にある,ふくざつ,"complex, complicated",複雑,,239
-expr-240,cat-50,よく使【つか】える良【よ】い,べんり,"convenient, handy",便利,,240
-expr-241,cat-50,よく使【つか】えない悪【わる】い,ふべん,inconvenient,不便,,241
-expr-242,cat-50,人【ひと】に良【よ】い言葉【ことば】を使【つか】う,ていねい,"polite, careful, thorough",丁寧,,242
-expr-243,cat-50,その時【とき】に良【よ】い,てきとう,"suitable, appropriate; casual",適当,,243
-expr-244,cat-50,したい事【こと】ができる,じゆう,"freedom, liberty",自由,,244
-expr-245,cat-50,他【ほか】の国【くに】や場所【ばしょ】に行【い】く事【こと】,りょこう,"travel, trip",旅行,,245
-expr-246,cat-50,空【そら】の今【いま】の事【こと】,てんき,weather,天気,,246
-expr-247,cat-50,年【とし】の中【なか】の時【とき】,きせつ,season,季節,,247
-expr-248,cat-51,する事【こと】,しごと,"work, job, occupation",仕事,,248
-expr-249,cat-51,仕事【しごと】をする場所【ばしょ】,かいしゃ,"company, business",会社,,249
-expr-250,cat-51,会社【かいしゃ】の一【いち】番上【うえ】の人【ひと】,しゃちょう,"company president, CEO",社長,,250
-expr-251,cat-51,会社【かいしゃ】で仕事【しごと】をする人【ひと】,しゃいん,company employee,社員,,251
-expr-252,cat-51,会社【かいしゃ】の中【なか】の大【おお】きい場所【ばしょ】の上【うえ】の人【ひと】,ぶちょう,"department head, director",部長,,252
-expr-253,cat-51,仕事【しごと】で上【うえ】にいる人【ひと】,じょうし,"superior, boss",上司,,253
-expr-254,cat-51,仕事【しごと】で下【した】にいる人【ひと】,ぶか,"subordinate, staff under one",部下,,254
-expr-255,cat-51,その会社【かいしゃ】で仕事【しごと】をする他【ほか】の人【ひと】,どうりょう,"colleague, coworker",同僚,,255
-expr-256,cat-51,来【く】る人【ひと】,きゃく,"customer, guest, visitor",客,,256
-expr-257,cat-51,多【おお】くの人【ひと】が来【き】て考【かんが】える事【こと】,かいぎ,"meeting, conference",会議,,257
-expr-258,cat-51,仕事【しごと】に使【つか】う書【か】いた物【もの】,しりょう,"materials, documents, data",資料,,258
-expr-259,cat-51,した事【こと】を上【うえ】の人【ひと】に言【い】う事【こと】,ほうこく,"report, notification",報告,,259
-expr-260,cat-51,知【し】らない人【ひと】に言葉【ことば】で教【おし】える事【こと】,せつめい,"explanation, description",説明,,260
-expr-261,cat-51,人【ひと】と違【ちが】う考【かんが】えを言【い】う事【こと】,ぎろん,"debate, argument, discussion",議論,,261
-expr-262,cat-51,人【ひと】と「する」と書【か】いた物【もの】,けいやく,"contract, agreement",契約,,262
-expr-263,cat-51,仕事【しごと】をしてもらうお金【おかね】,きゅうりょう,"salary, wages, pay",給料,,263
-expr-264,cat-51,終【お】わった後【あと】もする仕事【しごと】,ざんぎょう,overtime work,残業,,264
-expr-265,cat-51,仕事【しごと】で他【ほか】の場所【ばしょ】に行【い】く事【こと】,しゅっちょう,business trip,出張,,265
-expr-266,cat-51,違【ちが】う仕事【しごと】に変【か】わる事【こと】,てんしょく,"job change, career change",転職,,266
-expr-267,cat-51,仕事【しごと】を終【お】わらせる事【こと】,たいしょく,"retirement, resignation",退職,,267
-expr-268,cat-51,はじめて仕事【しごと】を始【はじ】める事【こと】,しゅうしょく,"getting a job, employment",就職,,268
-expr-269,cat-51,仕事【しごと】のために会【あ】って言葉【ことば】を使【つか】う事【こと】,めんせつ,job interview,面接,,269
-expr-270,cat-51,知【し】っているかを見【み】る事【こと】,しけん,"exam, test",試験,,270
-expr-271,cat-51,試験【しけん】でどのくらい良【よ】かったかの数【かず】,せいせき,"grades, results, performance",成績,,271
-expr-272,cat-51,学校【がっこう】が終【お】わる事【こと】,そつぎょう,graduation,卒業,,272
-expr-273,cat-51,学校【がっこう】に入【はい】る事【こと】,にゅうがく,"school enrollment, starting school",入学,,273
-expr-274,cat-51,学校【がっこう】で教【おし】えてもらう事【こと】,じゅぎょう,"class, lesson, lecture",授業,,274
-expr-275,cat-51,教【おし】える場所【ばしょ】,きょうしつ,classroom,教室,,275
-expr-276,cat-51,勉強【べんきょう】する場所【ばしょ】,がっこう,school,学校,,276
-expr-277,cat-51,大【おお】きい学校【がっこう】,だいがく,"university, college",大学,,277
-expr-278,cat-51,まだ知【し】らない事【こと】を探【さが】す事【こと】,けんきゅう,"research, study, investigation",研究,,278
-expr-279,cat-51,知【し】るために物【もの】を使【つか】ってみる事【こと】,じっけん,"experiment, test",実験,,279
-expr-280,cat-51,物【もの】を作【つく】ったり使【つか】ったりできる事【こと】,ぎじゅつ,"technology, technique, skill",技術,,280
-expr-281,cat-51,できる事【こと】,のうりょく,"ability, capability, talent",能力,,281
-expr-282,cat-51,良【よ】くなるためにとても強【つよ】くする事【こと】,どりょく,"effort, hard work",努力,,282
-expr-283,cat-51,したい事【こと】ができた事【こと】,せいこう,"success, achievement",成功,,283
-expr-284,cat-51,したい事【こと】ができなかった事【こと】,しっぱい,"failure, mistake",失敗,,284
-expr-285,cat-51,した後【あと】に起【お】こる事【こと】,けっか,"result, outcome",結果,,285
-expr-286,cat-51,したい事【こと】の場所【ばしょ】,もくひょう,"goal, target, objective",目標,,286
-expr-287,cat-51,なぜかの事【こと】,りゆう,"reason, cause",理由,,287
-expr-288,cat-51,どうするかの事【こと】,ほうほう,"method, way, means",方法,,288
-expr-289,cat-51,良【よ】くない事【こと】が起【お】こっている,もんだい,"problem, question, issue",問題,,289
-expr-290,cat-51,問題【もんだい】を良【よ】くする事【こと】,かいけつ,"solution, resolution",解決,,290
-expr-291,cat-51,しなければならない事【こと】,せきにん,"responsibility, duty",責任,,291
-expr-292,cat-51,しなければならない事【こと】と、してはいけない事【こと】,きそく,"rule, regulation",規則,,292
-expr-293,cat-51,「していい」と言【い】う事【こと】,きょか,"permission, approval",許可,,293
-expr-294,cat-51,しなければならない事【こと】,かだい,"assignment, task, challenge",課題,,294
-expr-295,cat-51,良【よ】いか悪【わる】いかを見【み】る事【こと】,ひょうか,"evaluation, assessment, rating",評価,,295
-expr-296,cat-51,多【おお】くの人【ひと】に言【い】う事【こと】,はっぴょう,"presentation, announcement",発表,,296
-expr-297,cat-51,私【わたし】が思【おも】う事【こと】,いけん,"opinion, view",意見,,297
-expr-298,cat-51,教【おし】える人【ひと】,せんせい,"teacher, instructor",先生,,298
-expr-299,cat-51,学校【がっこう】で勉強【べんきょう】する子供【こども】,せいと,"student (K-12), pupil",生徒,,299
-expr-300,cat-52,十【じゅう】が十【じゅう】,ひゃく,hundred (100),百,,300
-expr-301,cat-52,百【ひゃく】が十【じゅう】,せん,"thousand (1,000)",千,,301
-expr-302,cat-52,千【せん】が十【じゅう】,まん,"ten-thousand (10,000)",万,,302
-expr-303,cat-52,一【いち】つの物【もの】を二【に】つに切【き】った一【いち】つ,はんぶん,half,半分,,303
-expr-304,cat-52,もう一【いち】つ多【おお】い事【こと】,ばい,"double, times (multiplier)",倍,,304
-expr-305,cat-52,その物【もの】の名前【なまえ】になる数【かず】,ばんごう,number (as identifier),番号,,305
-expr-306,cat-52,いくつあるかを言【い】う物【もの】,かず,"number, count, quantity",数,,306
-expr-307,cat-52,何【なに】かをした数【かず】,かい,"time(s), occurrence (counter)",回,,307
-expr-308,cat-52,何【なに】かが起【お】こった数【かず】,ど,"degree, time(s), occasion",度,,308
-expr-309,cat-52,本【ほん】の中【なか】のような物【もの】の数【かず】を言【い】う言葉【ことば】,まい,"flat things counter (sheets, cards)",枚,,309
-expr-310,cat-52,長【なが】い物【もの】の数【かず】を言【い】う言葉【ことば】,ほん,"long thin things counter (pens, bottles)",本,,310
-expr-311,cat-52,物【もの】の数【かず】を言【い】う言葉【ことば】,こ,small objects counter (pieces),個,,311
-expr-312,cat-52,動物【どうぶつ】の数【かず】を言【い】う言葉【ことば】,ひき,small animals counter,匹,,312
-expr-313,cat-52,動【うご】く物【もの】の数【かず】を言【い】う言葉【ことば】,だい,machines/vehicles counter,台,,313
-expr-314,cat-52,飲【の】む物【もの】の数【かず】を言【い】う言葉【ことば】,はい,cups/bowls counter (drinks),杯,,314
-expr-315,cat-52,本【ほん】の数【かず】を言【い】う言葉【ことば】,さつ,bound books counter,冊,,315
-expr-316,cat-52,足【あし】に着【き】る物【もの】の数【かず】を言【い】う言葉【ことば】,そく,pairs of footwear counter,足,,316
-expr-317,cat-52,体【からだ】に着【き】る物【もの】の数【かず】を言【い】う言葉【ことば】,ちゃく,clothing items counter,着,,317
-expr-318,cat-52,十【じゅう】の中【なか】の一【いち】つ,わり,"ten percent unit, proportion",割,,318
-expr-319,cat-52,前【まえ】から何【なに】番目【ばんめ】かを言【い】う言葉【ことば】,ばん,"number in sequence, rank",番,,319
-expr-320,cat-52,一【いち】番前【まえ】,だいいち,"first, number one",第一,,320
-expr-321,cat-52,一【いち】番前【まえ】の時【とき】,さいしょ,"first, beginning",最初,,321
-expr-322,cat-52,一【いち】番後【あと】の時【とき】,さいご,"last, final",最後,,322
-expr-323,cat-52,全部【ぜんぶ】の数【かず】,ごうけい,"total, sum",合計,,323
-expr-324,cat-52,全部【ぜんぶ】を一【いち】つにした数【かず】,へいきん,"average, mean",平均,,324
-expr-325,cat-53,家【いえ】の人【ひと】たち,かぞく,family,家族,,325
-expr-326,cat-53,男【おとこ】の上【うえ】の子供【こども】,あに,older brother,兄,,326
-expr-327,cat-53,男【おとこ】の下【した】の子供【こども】,おとうと,younger brother,弟,,327
-expr-328,cat-53,女【おんな】の上【うえ】の子供【こども】,あね,older sister,姉,,328
-expr-329,cat-53,女【おんな】の下【した】の子供【こども】,いもうと,younger sister,妹,,329
-expr-330,cat-53,女【おんな】の人【ひと】の男【おとこ】,おっと,husband,夫,,330
-expr-331,cat-53,男【おとこ】の人【ひと】の女【おんな】,つま,wife,妻,,331
-expr-332,cat-53,私【わたし】の男【おとこ】の子供【こども】,むすこ,son,息子,,332
-expr-333,cat-53,私【わたし】の女【おんな】の子供【こども】,むすめ,daughter,娘,,333
-expr-334,cat-53,子供【こども】の父【ちち】または母【はは】,おや,parent,親,,334
-expr-335,cat-53,父【ちち】の父【ちち】,そふ,grandfather,祖父,,335
-expr-336,cat-53,父【ちち】の母【はは】,そぼ,grandmother,祖母,,336
-expr-337,cat-53,子供【こども】の子供【こども】,まご,grandchild,孫,,337
-expr-338,cat-53,よく会【あ】う好【す】きな人【ひと】,ともだち,friend,友達,,338
-expr-339,cat-53,とても好【す】きな人【ひと】,こいびと,romantic partner,恋人,,339
-expr-340,cat-53,あの男【おとこ】の人【ひと】,かれ,he / boyfriend,彼,,340
-expr-341,cat-53,あの女【おんな】の人【ひと】,かのじょ,she / girlfriend,彼女,,341
-expr-342,cat-53,前【まえ】からいる人【ひと】,せんぱい,senior / upperclassman,先輩,,342
-expr-343,cat-53,後【あと】から来【き】た人【ひと】,こうはい,junior / underclassman,後輩,,343
-expr-344,cat-53,よく会【あ】う人【ひと】たち,なかま,companion / fellow member,仲間,,344
-expr-345,cat-53,近【ちか】くにいる人【ひと】,りんじん,neighbor,隣人,,345
-expr-346,cat-53,会【あ】っている人【ひと】,あいて,partner / opponent,相手,,346
-expr-347,cat-53,全部【ぜんぶ】の人【ひと】,みんな,everyone,皆,,347
-expr-348,cat-53,まだ大【おお】きくなっていない子供【こども】,あかちゃん,baby,赤ちゃん,,348
-expr-349,cat-53,年【とし】が少【すこ】しの人【ひと】,わかもの,young person,若者,,349
-expr-350,cat-53,年【とし】が多【おお】い人【ひと】,ろうじん,elderly person,老人,,350
-expr-351,cat-53,大【おお】きくなった人【ひと】,おとな,adult,大人,,351
-expr-352,cat-53,教【おし】える人【ひと】,せんせい,teacher,先生,,352
-expr-353,cat-53,体【からだ】を助【たす】ける人【ひと】,いしゃ,doctor,医者,,353
-expr-354,cat-53,悪【わる】いことをする人【ひと】を止【と】める人【ひと】,けいさつ,police,警察,,354
-expr-355,cat-53,戦【たたか】う人【ひと】,へいし,soldier,兵士,,355
-expr-356,cat-53,国【くに】で高【たか】い人【ひと】,おう,king,王,,356
-expr-357,cat-53,とても強【つよ】い上【うえ】にいる人【ひと】,かみ,god / deity,神,,357
-expr-358,cat-53,その国【くに】にいる人【ひと】,しみん,citizen,市民,,358
-expr-359,cat-53,その国【くに】の全部【ぜんぶ】の人【ひと】,こくみん,nationals / people of a country,国民,,359
-expr-360,cat-53,戦【たたか】う悪【わる】い人【ひと】,てき,enemy,敵,,360
-expr-361,cat-53,よく助【たす】けてくれる人【ひと】,みかた,ally,味方,,361
-expr-362,cat-53,悪【わる】いことをされた人【ひと】,ひがいしゃ,victim,被害者,,362
-expr-363,cat-53,悪【わる】いことをした人【ひと】,はんにん,criminal / culprit,犯人,,363
-expr-364,cat-53,外【そと】の国【くに】から来【き】た人【ひと】,がいこくじん,foreigner,外国人,,364
-expr-365,cat-53,その場所【ばしょ】を見【み】に来【き】た人【ひと】,かんこうきゃく,tourist,観光客,,365
-expr-366,cat-53,動【うご】く物【もの】の中【なか】にいる人【ひと】,じょうきゃく,passenger,乗客,,366
-expr-367,cat-53,体【からだ】が悪【わる】い人【ひと】,かんじゃ,patient (medical),患者,,367
-expr-368,cat-53,選【えら】ばれた人【ひと】,せんしゅ,athlete / player,選手,,368
-expr-369,cat-53,口【くち】から音【おと】を出【だ】す人【ひと】,かしゅ,singer,歌手,,369
-expr-370,cat-53,本【ほん】を作【つく】る人【ひと】,さっか,author / writer,作家,,370
-expr-371,cat-53,きれいな物【もの】を作【つく】る人【ひと】,がか,painter / artist,画家,,371
-expr-372,cat-53,上【うえ】にいる人【ひと】,じょうし,boss / superior,上司,,372
-expr-373,cat-53,下【した】にいる人【ひと】,ぶか,subordinate,部下,,373
-expr-374,cat-53,来【き】た人【ひと】,きゃく,customer / guest,客,,374
-expr-375,cat-54,良【よ】いことがあった心【こころ】,うれしい,happy / glad,嬉しい,,375
-expr-376,cat-54,一人【ひとり】で悲【かな】しい,さびしい,lonely,寂しい,,376
-expr-377,cat-54,人【ひと】に見【み】られたくない心【こころ】,はずかしい,embarrassed / shy,恥ずかしい,,377
-expr-378,cat-54,体【からだ】も心【こころ】もとても悪【わる】い,くるしい,painful / agonizing,苦しい,,378
-expr-379,cat-54,とても悲【かな】しくて悪【わる】い,つらい,hard / tough / painful,辛い,,379
-expr-380,cat-54,人【ひと】に良【よ】くする心【こころ】がある,やさしい,kind / gentle,優しい,,380
-expr-381,cat-54,とても強【つよ】くて悪【わる】いことを止【と】める,きびしい,strict / harsh,厳しい,,381
-expr-382,cat-54,変【へん】なことをしない良【よ】い心【こころ】,すなお,honest / obedient,素直,,382
-expr-383,cat-54,良【よ】くしようと考【かんが】える人【ひと】,まじめ,serious / diligent,真面目,,383
-expr-384,cat-54,体【からだ】も心【こころ】も良【よ】い,げんき,energetic / well,元気,,384
-expr-385,cat-54,良【よ】いことが多【おお】くある心【こころ】,しあわせ,happiness / fortune,幸せ,,385
-expr-386,cat-54,これから悪【わる】いことが来【く】るかもしれないと思【おも】う心【こころ】,ふあん,anxiety / unease,不安,,386
-expr-387,cat-54,悪【わる】いことが起【お】こるかもと考【かんが】える,しんぱい,worry / concern,心配,,387
-expr-388,cat-54,怖【こわ】くて体【からだ】が動【うご】きにくい,きんちょう,nervousness / tension,緊張,,388
-expr-389,cat-54,心【こころ】が大【おお】きく動【うご】く,かんどう,being moved / deeply touched,感動,,389
-expr-390,cat-54,ありがとうと思【おも】う心【こころ】,かんしゃ,gratitude / thanks,感謝,,390
-expr-391,cat-54,前【まえ】にしたことが悪【わる】かったと思【おも】う,こうかい,regret,後悔,,391
-expr-392,cat-54,私【わたし】は良【よ】いと思【おも】う強【つよ】い心【こころ】,じしん,self-confidence,自信,,392
-expr-393,cat-54,良【よ】いことが来【く】ると思【おも】って待【ま】つ,きたい,expectation / anticipation,期待,,393
-expr-394,cat-54,良【よ】いことが起【お】こってほしいと思【おも】う,きぼう,hope / wish,希望,,394
-expr-395,cat-54,良【よ】いことはないと思【おも】う,ぜつぼう,despair,絶望,,395
-expr-396,cat-54,もっと知【し】りたいと思【おも】う心【こころ】,きょうみ,interest / curiosity,興味,,396
-expr-397,cat-54,楽【たの】しいことが何【なに】もない,たいくつ,boredom,退屈,,397
-expr-398,cat-54,知【し】らなかったことが起【お】こって感【かん】じる,おどろく,to be surprised,驚く,,398
-expr-399,cat-54,どうすればいいか思【おも】えなくて悪【わる】い,こまる,to be troubled,困る,,399
-expr-400,cat-54,どれを選【えら】ぶかと考【かんが】えて止【と】まる,まよう,to hesitate / be lost,迷う,,400
-expr-401,cat-54,速【はや】くしなければと思【おも】って怖【こわ】い,あせる,to be impatient / flustered,焦る,,401
-expr-402,cat-54,悪【わる】くても止【と】まらずにいること,がまん,endurance / patience,我慢,,402
-expr-403,cat-54,悪【わる】いことをした人【ひと】を良【よ】いと言【い】う,ゆるす,to forgive / permit,許す,,403
-expr-404,cat-54,本当【ほんとう】だと思【おも】う,しんじる,to believe / trust,信じる,,404
-expr-405,cat-54,本当【ほんとう】かどうかと思【おも】う,うたがう,to doubt / suspect,疑う,,405
-expr-406,cat-54,とても良【よ】い人【ひと】だと思【おも】う,そんけい,respect,尊敬,,406
-expr-407,cat-54,とても悪【わる】い人【ひと】だと思【おも】う,けいべつ,contempt / scorn,軽蔑,,407
-expr-408,cat-54,悲【かな】しい人【ひと】の心【こころ】を感【かん】じる,どうじょう,sympathy / compassion,同情,,408
-expr-409,cat-54,他【ほか】の人【ひと】が持【も】っているものを欲【ほ】しいと思【おも】う,しっと,jealousy / envy,嫉妬,,409
-expr-410,cat-54,悪【わる】いことをされてまだ怒【おこ】る,うらむ,to resent / bear a grudge,恨む,,410
-expr-411,cat-54,あの人【ひと】のようになりたいと思【おも】う,あこがれる,to admire / yearn for,憧れる,,411
-expr-412,cat-54,もう良【よ】いと感【かん】じる,まんぞく,satisfaction / contentment,満足,,412
-expr-413,cat-54,まだ良【よ】くないと思【おも】う,ふまん,dissatisfaction / discontent,不満,,413
-expr-414,cat-54,一人【ひとり】しかいなくて悲【かな】しい,こどく,loneliness / isolation,孤独,,414
-expr-415,cat-54,怖【こわ】くても前【まえ】に行【い】く強【つよ】い心【こころ】,ゆうき,courage / bravery,勇気,,415
-expr-416,cat-54,私【わたし】は良【よ】いと感【かん】じる強【つよ】い心【こころ】,ほこり,pride,誇り,,416
-expr-417,cat-54,ある人【ひと】がとても好【す】きになる心【こころ】,こい,romantic love / crush,恋,,417
-expr-418,cat-54,ある人【ひと】をとても良【よ】くしたい強【つよ】い心【こころ】,あい,love,愛,,418
-expr-419,cat-54,悪【わる】いことが起【お】こって怒【おこ】る心【こころ】,いかり,anger,怒り,,419
-expr-420,cat-54,良【よ】いことが起【お】こって笑【わら】いたい心【こころ】,よろこび,joy / delight,喜び,,420
-expr-421,cat-54,知【し】らなかったことを見【み】たり聞【き】いたりした心【こころ】,おどろき,surprise / astonishment,驚き,,421
-expr-422,cat-54,とても怖【こわ】い心【こころ】,きょうふ,fear / terror,恐怖,,422
-expr-423,cat-54,怒【おこ】らないで良【よ】く考【かんが】える,れいせい,calm / composed,冷静,,423
-expr-424,cat-54,他【ほか】の人【ひと】の良【よ】いものを欲【ほ】しいと思【おも】う,うらやむ,to envy,羨む,,424
-expr-425,cat-55,人【ひと】たちがいる場所【ばしょ】,しゃかい,society,社会,,425
-expr-426,cat-55,国【くに】をどうするかを選【えら】ぶこと,せいじ,politics,政治,,426
-expr-427,cat-55,お金【おかね】と物【もの】の動【うご】き,けいざい,economy,経済,,427
-expr-428,cat-55,国【くに】の人【ひと】がしなければならないこと,ほうりつ,law,法律,,428
-expr-429,cat-55,人【ひと】がしてもいいこと,けんり,rights,権利,,429
-expr-430,cat-55,人【ひと】がしなければならないこと,ぎむ,duty / obligation,義務,,430
-expr-431,cat-55,したいことができること,じゆう,freedom / liberty,自由,,431
-expr-432,cat-55,戦【たたか】いがない良【よ】い時【とき】,へいわ,peace,平和,,432
-expr-433,cat-55,国【くに】と国【くに】が戦【たたか】うこと,せんそう,war,戦争,,433
-expr-434,cat-55,国【くに】のために戦【たたか】う人【ひと】たち,ぐんたい,military / army,軍隊,,434
-expr-435,cat-55,国【くに】を動【うご】かす人【ひと】たち,せいふ,government,政府,,435
-expr-436,cat-55,国【くに】を動【うご】かす人【ひと】を選【えら】ぶこと,せんきょ,election,選挙,,436
-expr-437,cat-55,国【くに】に与【あた】えるお金【おかね】,ぜいきん,tax,税金,,437
-expr-438,cat-55,前【まえ】に起【お】こったこと,れきし,history,歴史,,438
-expr-439,cat-55,その国【くに】の人【ひと】たちがすること,ぶんか,culture,文化,,439
-expr-440,cat-55,人【ひと】の上【うえ】にいる強【つよ】い物【もの】を思【おも】うこと,しゅうきょう,religion,宗教,,440
-expr-441,cat-55,人【ひと】に教【おし】えること,きょういく,education,教育,,441
-expr-442,cat-55,物【もの】がどうなっているかを知【し】ること,かがく,science,科学,,442
-expr-443,cat-55,きれいな物【もの】を作【つく】ること,げいじゅつ,art,芸術,,443
-expr-444,cat-55,言葉【ことば】で作【つく】った本【ほん】,ぶんがく,literature,文学,,444
-expr-445,cat-55,なぜ生【い】きるかを考【かんが】えること,てつがく,philosophy,哲学,,445
-expr-446,cat-55,前【まえ】からある事【こと】,でんとう,tradition,伝統,,446
-expr-447,cat-55,全部【ぜんぶ】の人【ひと】で楽【たの】しくする日【にち】,まつり,festival,祭り,,447
-expr-448,cat-55,人【ひと】たちが前【まえ】からする事【こと】,ぎしき,ritual / ceremony,儀式,,448
-expr-449,cat-55,男【おとこ】と女【おんな】が家【いえ】の人【ひと】になること,けっこん,marriage,結婚,,449
-expr-450,cat-55,死【し】んだ人【ひと】のためにする事【こと】,そうしき,funeral,葬式,,450
-expr-451,cat-55,悪【わる】いことが起【お】こった事【こと】,じけん,incident / case,事件,,451
-expr-452,cat-55,思【おも】わないで悪【わる】いことが起【お】こること,じこ,accident,事故,,452
-expr-453,cat-55,人【ひと】がしてはいけない悪【わる】いこと,はんざい,crime,犯罪,,453
-expr-454,cat-55,悪【わる】いことをしたかどうかを人【ひと】が言【い】うこと,さいばん,trial / court,裁判,,454
-expr-455,cat-55,悪【わる】いことをした人【ひと】に与【あた】える悪【わる】いこと,けいばつ,punishment / penalty,刑罰,,455
-expr-456,cat-55,毎【まい】日【にち】の事【こと】が書【か】いてある本【ほん】,しんぶん,newspaper,新聞,,456
-expr-457,cat-55,多【おお】くの人【ひと】に音【おと】や光【ひかり】で言葉【ことば】を出【だ】すこと,ほうそう,broadcast,放送,,457
-expr-458,cat-55,物【もの】を買【か】ってほしいと言【い】うこと,こうこく,advertisement,広告,,458
-expr-459,cat-55,人【ひと】に知【し】らせること,じょうほう,information,情報,,459
-expr-460,cat-55,人【ひと】に言葉【ことば】を出【だ】すこと,つうしん,communication,通信,,460
-expr-461,cat-55,物【もの】を作【つく】るための知【し】ること,ぎじゅつ,technology,技術,,461
-expr-462,cat-55,多【おお】くの物【もの】を作【つく】ること,さんぎょう,industry,産業,,462
-expr-463,cat-55,国【くに】と国【くに】で物【もの】を買【か】ったり与【あた】えたりすること,ぼうえき,trade / commerce,貿易,,463
-expr-464,cat-55,人【ひと】の外【そと】にある水【みず】や空気【くうき】や土【つち】,かんきょう,environment,環境,,464
-expr-465,cat-55,水【みず】や空気【くうき】が悪【わる】くなること,おせん,pollution / contamination,汚染,,465
-expr-466,cat-55,人【ひと】が使【つか】える物【もの】,しげん,resources,資源,,466
-expr-467,cat-55,その場所【ばしょ】にいる人【ひと】の多【おお】さ,じんこう,population,人口,,467
-expr-468,cat-55,ある人【ひと】を他【ほか】の人【ひと】より悪【わる】くすること,さべつ,discrimination,差別,,468
-expr-469,cat-55,全部【ぜんぶ】の人【ひと】が良【よ】いとすること,びょうどう,equality,平等,,469
-expr-470,cat-55,全部【ぜんぶ】の人【ひと】が国【くに】のことを選【えら】べること,みんしゅしゅぎ,democracy,民主主義,,470
-expr-471,cat-55,国【くに】のやることを大【おお】きく変【か】えること,かくめい,revolution,革命,,471
-expr-472,cat-55,他【ほか】の国【くに】が持【も】っている場所【ばしょ】,しょくみんち,colony,植民地,,472
-expr-473,cat-55,他【ほか】の国【くに】に行【い】ってそこにいる人【ひと】,いみん,immigrant / migration,移民,,473
-expr-474,cat-55,怖【こわ】いので国【くに】から出【で】た人【ひと】,なんみん,refugee,難民,,474
-expr-475,cat-56,多【おお】くの人【ひと】がいる場所【ばしょ】,まち,town,町,,475
-expr-476,cat-56,とても多【おお】くの人【ひと】がいる大【おお】きい場所【ばしょ】,し,city,市,,476
-expr-477,cat-56,人【ひと】が少【すこ】しだけいる場所【ばしょ】,むら,village,村,,477
-expr-478,cat-56,人【ひと】が来【く】る物【もの】を待【ま】つ場所【ばしょ】,えき,station,駅,,478
-expr-479,cat-56,物【もの】を買【か】う場所【ばしょ】,みせ,shop/store,店,,479
-expr-480,cat-56,体【からだ】が悪【わる】い人【ひと】を助【たす】ける場所【ばしょ】,びょういん,hospital,病院,,480
-expr-481,cat-56,お金【おかね】を守【まも】る場所【ばしょ】,ぎんこう,bank,銀行,,481
-expr-482,cat-56,書【か】いた物【もの】を他【ほか】の人【ひと】に与【あた】える場所【ばしょ】,ゆうびんきょく,post office,郵便局,,482
-expr-483,cat-56,本【ほん】を読【よ】む場所【ばしょ】,としょかん,library,図書館,,483
-expr-484,cat-56,きれいな物【もの】を見【み】る場所【ばしょ】,びじゅつかん,art museum,美術館,,484
-expr-485,cat-56,国【くに】の物【もの】を見【み】る場所【ばしょ】,はくぶつかん,museum,博物館,,485
-expr-486,cat-56,人【ひと】が見【み】せる事【こと】をする場所【ばしょ】,げきじょう,theater,劇場,,486
-expr-487,cat-56,大【おお】きい光【ひかり】の物【もの】を見【み】る場所【ばしょ】,えいがかん,cinema/movie theater,映画館,,487
-expr-488,cat-56,外【そと】で楽【たの】しくいられる場所【ばしょ】,こうえん,park,公園,,488
-expr-489,cat-56,多【おお】くの人【ひと】が来【く】る外【そと】の場所【ばしょ】,ひろば,plaza/square,広場,,489
-expr-490,cat-56,水【みず】の上【うえ】を行【い】く道【みち】,はし,bridge,橋,,490
-expr-491,cat-56,高【たか】くて長【なが】い物【もの】,とう,tower,塔,,491
-expr-492,cat-56,強【つよ】い人【ひと】が守【まも】る大【おお】きい家【いえ】,しろ,castle,城,,492
-expr-493,cat-56,人【ひと】が心【こころ】の事【こと】を考【かんが】える場所【ばしょ】,てら,Buddhist temple,寺,,493
-expr-494,cat-56,この国【くに】の心【こころ】に言【い】う場所【ばしょ】,じんじゃ,Shinto shrine,神社,,494
-expr-495,cat-56,人【ひと】が心【こころ】に良【よ】いことを聞【き】く場所【ばしょ】,きょうかい,church,教会,,495
-expr-496,cat-56,物【もの】を作【つく】る場所【ばしょ】,こうじょう,factory,工場,,496
-expr-497,cat-56,物【もの】を中【なか】に入【い】れて守【まも】る場所【ばしょ】,そうこ,warehouse,倉庫,,497
-expr-498,cat-56,海【うみ】を動【うご】く物【もの】が来【く】る場所【ばしょ】,みなと,harbor/port,港,,498
-expr-499,cat-56,空【そら】を動【うご】く物【もの】が出【で】る場所【ばしょ】,くうこう,airport,空港,,499
-expr-500,cat-56,物【もの】が速【はや】く動【うご】く道【みち】,どうろ,road,道路,,500
-expr-501,cat-56,道【みち】と道【みち】が会【あ】う場所【ばしょ】,こうさてん,intersection,交差点,,501
-expr-502,cat-56,赤【あか】と青【あお】の光【ひかり】で動【うご】くのを止【と】める物【もの】,しんごう,traffic light,信号,,502
-expr-503,cat-56,上【うえ】に行【い】くための道【みち】,かいだん,stairs,階段,,503
-expr-504,cat-56,中【なか】に入【はい】るための場所【ばしょ】,いりぐち,entrance,入口,,504
-expr-505,cat-56,外【そと】に出【で】るための場所【ばしょ】,でぐち,exit,出口,,505
-expr-506,cat-56,家【いえ】にあって外【そと】が見【み】えるもの,まど,window,窓,,506
-expr-507,cat-56,開【あ】いたり閉【し】めたりする物【もの】,とびら,door,扉,,507
-expr-508,cat-56,外【そと】と中【なか】の入【い】り口【ぐち】にある大【おお】きい物【もの】,もん,gate,門,,508
-expr-509,cat-56,家【いえ】の一【いち】ばん上【うえ】にある物【もの】,やね,roof,屋根,,509
-expr-510,cat-56,家【いえ】の外【そと】にある石【いし】や木【き】でできた物【もの】,かべ,wall,壁,,510
-expr-511,cat-56,家【いえ】の中【なか】で足【あし】が上【うえ】にある下【した】の物【もの】,ゆか,floor,床,,511
-expr-512,cat-56,家【いえ】の中【なか】の一【いち】ばん上【うえ】,てんじょう,ceiling,天井,,512
-expr-513,cat-56,家【いえ】の外【そと】にある草【くさ】の場所【ばしょ】,にわ,garden/yard,庭,,513
-expr-514,cat-56,家【いえ】の中【なか】で食【た】べ物【もの】を作【つく】る場所【ばしょ】,だいどころ,kitchen,台所,,514
-expr-515,cat-56,家【いえ】の中【なか】で人【ひと】が楽【たの】しくいる場所【ばしょ】,いま,living room,居間,,515
-expr-516,cat-56,家【いえ】の中【なか】で寝【ね】る場所【ばしょ】,しんしつ,bedroom,寝室,,516
-expr-517,cat-56,土【つち】の下【した】,ちか,underground/basement,地下,,517
-expr-518,cat-56,土【つち】の上【うえ】,ちじょう,above ground,地上,,518
-expr-519,cat-56,海【うみ】の中【なか】にある土【つち】の場所【ばしょ】,しま,island,島,,519
-expr-520,cat-56,水【みず】がなくて暑【あつ】い場所【ばしょ】,さばく,desert,砂漠,,520
-expr-521,cat-56,木【き】が多【おお】くある場所【ばしょ】,もり,forest,森,,521
-expr-522,cat-56,山【やま】と山【やま】の下【した】にある場所【ばしょ】,たに,valley,谷,,522
-expr-523,cat-56,山【やま】から海【うみ】へ水【みず】が動【うご】く道【みち】,かわ,river,川,,523
-expr-524,cat-57,道【みち】を速【はや】く動【うご】く物【もの】,くるま,car,車,,524
-expr-525,cat-57,道【みち】の上【うえ】を動【うご】く長【なが】い物【もの】,でんしゃ,train,電車,,525
-expr-526,cat-57,多【おお】くの人【ひと】が中【なか】に入【はい】る大【おお】きい物【もの】,ばす,bus,バス,,526
-expr-527,cat-57,空【そら】を動【うご】く物【もの】,ひこうき,airplane,飛行機,,527
-expr-528,cat-57,海【うみ】を動【うご】く物【もの】,ふね,ship/boat,船,,528
-expr-529,cat-57,足【あし】を使【つか】って動【うご】かす物【もの】,じてんしゃ,bicycle,自転車,,529
-expr-530,cat-57,お金【おかね】を与【あた】えて中【なか】に入【はい】る物【もの】,たくしー,taxi,タクシー,,530
-expr-531,cat-57,重【おも】い物【もの】を持【も】って動【うご】く大【おお】きい物【もの】,とらっく,truck,トラック,,531
-expr-532,cat-57,速【はや】く動【うご】ける大【おお】きい道【みち】,こうそくどうろ,highway/expressway,高速道路,,532
-expr-533,cat-57,長【なが】い物【もの】が動【うご】く道【みち】,てつどう,railway system,鉄道,,533
-expr-534,cat-57,長【なが】い物【もの】が上【うえ】を動【うご】く道【みち】,せんろ,railroad tracks,線路,,534
-expr-535,cat-57,物【もの】を動【うご】かすこと,うんてん,driving,運転,,535
-expr-536,cat-57,場所【ばしょ】を出【で】ること,しゅっぱつ,departure,出発,,536
-expr-537,cat-57,場所【ばしょ】に来【く】ること,とうちゃく,arrival,到着,,537
-expr-538,cat-57,他【ほか】の場所【ばしょ】に行【い】くこと,りょこう,travel/trip,旅行,,538
-expr-539,cat-57,他【ほか】の場所【ばしょ】を見【み】ること,かんこう,sightseeing,観光,,539
-expr-540,cat-57,道【みち】や場所【ばしょ】を教【おし】えること,あんない,guidance/guide,案内,,540
-expr-541,cat-57,場所【ばしょ】を書【か】いた物【もの】,ちず,map,地図,,541
-expr-542,cat-57,中【なか】に入【はい】るために買【か】う物【もの】,きっぷ,ticket,切符,,542
-expr-543,cat-57,他【ほか】の国【くに】に行【い】くときに必要【ひつよう】な本【ほん】,ぱすぽーと,passport,パスポート,,543
-expr-544,cat-57,行【い】く時【とき】に持【も】って行【い】く物【もの】,にもつ,luggage/baggage,荷物,,544
-expr-545,cat-57,座【すわ】る場所【ばしょ】,ざせき,seat,座席,,545
-expr-546,cat-57,どのくらい速【はや】いかということ,そくど,speed,速度,,546
-expr-547,cat-57,二【ふた】つの場所【ばしょ】がどのくらい近【ちか】くないか,きょり,distance,距離,,547
-expr-548,cat-57,どちらに行【い】くかということ,ほうこう,direction,方向,,548
-expr-549,cat-57,道【みち】を人【ひと】や物【もの】が動【うご】くこと,こうつう,traffic/transportation,交通,,549
-expr-550,cat-57,物【もの】が動【うご】けなくなること,じゅうたい,traffic jam,渋滞,,550
-expr-551,cat-57,悪【わる】いことが起【お】こること,じこ,accident,事故,,551
-expr-552,cat-57,中【なか】に入【はい】るために与【あた】えるお金【おかね】,うんちん,fare,運賃,,552
-expr-553,cat-57,行【い】くだけで来【こ】ない道【みち】,かたみち,one-way,片道,,553
-expr-554,cat-57,行【い】って来【く】ること,おうふく,round trip,往復,,554
-expr-555,cat-57,行【い】きたい場所【ばしょ】,もくてきち,destination,目的地,,555
-expr-556,cat-57,他【ほか】の国【くに】,がいこく,foreign country,外国,,556
-expr-557,cat-57,もとの国【くに】に来【く】ること,きこく,returning to home country,帰国,,557
-expr-558,cat-57,道【みち】が見【み】えなくなった子供【こども】,まいご,lost child,迷子,,558
-expr-559,cat-57,始【はじ】まりと終【お】わりの前【まえ】,とちゅう,on the way/midway,途中,,559
-expr-560,cat-57,物【もの】の中【なか】に入【はい】る人【ひと】,じょうきゃく,passenger,乗客,,560
-expr-561,cat-57,物【もの】を動【うご】かす人【ひと】,うんてんしゅ,driver,運転手,,561
-expr-562,cat-57,動【うご】く物【もの】が止【と】まって終【お】わる場所【ばしょ】,しゅうてん,final stop/terminus,終点,,562
-expr-563,cat-58,空【そら】から白【しろ】くて寒【さむ】い水【みず】が来【く】ること,ゆき,snow,雪,,563
-expr-564,cat-58,寒【さむ】くなった水【みず】,こおり,ice,氷,,564
-expr-565,cat-58,白【しろ】い空気【くうき】で何【なに】も見【み】えなくなること,きり,fog/mist,霧,,565
-expr-566,cat-58,空【そら】にある白【しろ】い水【みず】の物【もの】,くも,cloud,雲,,566
-expr-567,cat-58,雨【あめ】の後【あと】に空【そら】に出【で】る色【いろ】の光【ひかり】,にじ,rainbow,虹,,567
-expr-568,cat-58,空【そら】で大【おお】きい音【おと】と光【ひかり】が起【お】こること,かみなり,thunder/lightning,雷,,568
-expr-569,cat-58,強【つよ】い風【かぜ】と雨【あめ】が来【く】ること,たいふう,typhoon,台風,,569
-expr-570,cat-58,土【つち】が動【うご】くこと,じしん,earthquake,地震,,570
-expr-571,cat-58,水【みず】が多【おお】くなって場所【ばしょ】が水【みず】の中【なか】に入【はい】ること,こうずい,flood,洪水,,571
-expr-572,cat-58,外【そと】で起【お】こる悪【わる】いこと,さいがい,disaster,災害,,572
-expr-573,cat-58,山【やま】や土【つち】の中【なか】にある大【おお】きい水【みず】,みずうみ,lake,湖,,573
-expr-574,cat-58,山【やま】や土【つち】の中【なか】にある水【みず】,いけ,pond,池,,574
-expr-575,cat-58,高【たか】い場所【ばしょ】から水【みず】が下【した】に出【で】てくること,たき,waterfall,滝,,575
-expr-576,cat-58,土【つち】の中【なか】から水【みず】が出【で】てくる場所【ばしょ】,いずみ,spring/fountain,泉,,576
-expr-577,cat-58,木【き】が多【おお】くある場所【ばしょ】,はやし,grove/woodland,林,,577
-expr-578,cat-58,食【た】べ物【もの】を作【つく】る土【つち】の場所【ばしょ】,はたけ,field/farmland,畑,,578
-expr-579,cat-58,水【みず】を使【つか】って食【た】べ物【もの】を作【つく】る場所【ばしょ】,たんぼ,rice paddy,田んぼ,,579
-expr-580,cat-58,海【うみ】や山【やま】にある石【いし】でできた物【もの】,すな,sand,砂,,580
-expr-581,cat-58,草【くさ】や木【き】にある色【いろ】のある物【もの】,はな,flower,花,,581
-expr-582,cat-58,白【しろ】や赤【あか】の色【いろ】の木【き】の物【もの】,さくら,cherry blossom,桜,,582
-expr-583,cat-58,木【き】の緑【みどり】の物【もの】,は,leaf,葉,,583
-expr-584,cat-58,木【き】や草【くさ】の土【つち】の中【なか】にある物【もの】,ね,root,根,,584
-expr-585,cat-58,草【くさ】や木【き】になる前【まえ】の物【もの】,たね,seed,種,,585
-expr-586,cat-58,木【き】にある食【た】べられる物【もの】,み,fruit/berry,実,,586
-expr-587,cat-58,空【そら】を動【うご】く動物【どうぶつ】,とり,bird,鳥,,587
-expr-588,cat-58,水【みず】の中【なか】で生【い】きる動物【どうぶつ】,さかな,fish,魚,,588
-expr-589,cat-58,足【あし】が多【おお】い動物【どうぶつ】,むし,insect/bug,虫,,589
-expr-590,cat-58,人【ひと】と生【い】きる動物【どうぶつ】,いぬ,dog,犬,,590
-expr-591,cat-58,家【いえ】にいる動物【どうぶつ】,ねこ,cat,猫,,591
-expr-592,cat-58,大【おお】きくて強【つよ】い動物【どうぶつ】で人【ひと】が上【うえ】に座【すわ】るもの,うま,horse,馬,,592
-expr-593,cat-58,白【しろ】と黒【くろ】の大【おお】きい動物【どうぶつ】,うし,cow,牛,,593
-expr-594,cat-58,足【あし】がなくて長【なが】い動物【どうぶつ】,へび,snake,蛇,,594
-expr-595,cat-58,大【おお】きくて強【つよ】くて怖【こわ】い動物【どうぶつ】,くま,bear,熊,,595
-expr-596,cat-58,空【そら】を動【うご】く動物【どうぶつ】が作【つく】る物【もの】,たまご,egg,卵,,596
-expr-597,cat-58,空【そら】を動【うご】く動物【どうぶつ】が使【つか】う物【もの】,はね,feather/wing,羽,,597
-expr-598,cat-58,年【とし】の中【なか】で暑【あつ】さや寒【さむ】さが変【か】わる時【とき】,きせつ,season,季節,,598
-expr-599,cat-58,寒【さむ】い時【とき】の後【あと】で暑【あつ】くなる前【まえ】の時【とき】,はる,spring,春,,599
-expr-600,cat-58,年【とし】で一【いち】ばん暑【あつ】い時【とき】,なつ,summer,夏,,600
-expr-601,cat-58,暑【あつ】い時【とき】の後【あと】で寒【さむ】くなる前【まえ】の時【とき】,あき,autumn/fall,秋,,601
-expr-602,cat-58,年【とし】で一【いち】ばん寒【さむ】い時【とき】,ふゆ,winter,冬,,602
-expr-603,cat-58,太陽【たいよう】が空【そら】に出【で】てくること,ひので,sunrise,日の出,,603
-expr-604,cat-58,太陽【たいよう】が下【した】に入【はい】ること,ひのいり,sunset,日の入り,,604
-expr-605,cat-58,太陽【たいよう】が出【で】てきた後【あと】の時【とき】,あさ,morning,朝,,605
-expr-606,cat-58,海【うみ】の水【みず】が上【うえ】に来【く】たり下【した】に行【い】ったりすること,しお,tide,潮,,606
-expr-607,cat-58,海【うみ】の水【みず】が動【うご】くこと,なみ,wave,波,,607
-expr-608,cat-59,火【ひ】で作【つく】った食【た】べ物【もの】,りょうり,"cooking, dish",料理,,608
-expr-609,cat-59,食【た】べる事【こと】,しょくじ,meal,食事,,609
-expr-610,cat-59,朝【あさ】に食【た】べる物【もの】,ちょうしょく,breakfast,朝食,,610
-expr-611,cat-59,昼【ひる】に食【た】べる物【もの】,ちゅうしょく,lunch,昼食,,611
-expr-612,cat-59,夜【よる】に食【た】べる物【もの】,ゆうしょく,dinner,夕食,,612
-expr-613,cat-59,外【そと】で食【た】べるために作【つく】った食【た】べ物【もの】,べんとう,packed lunch,弁当,,613
-expr-614,cat-59,とても好【す】きな甘【あま】い食【た】べ物【もの】,おかし,"sweets, snacks",お菓子,,614
-expr-615,cat-59,小【こ】むぎで作【つく】った食【た】べ物【もの】,ぱん,bread,パン,,615
-expr-616,cat-59,日【に】ほんで多【おお】く食【た】べる白【しろ】い食【た】べ物【もの】,こめ,rice (uncooked),米,,616
-expr-617,cat-59,水【みず】で作【つく】った米【こめ】の食【た】べ物【もの】,ごはん,"cooked rice, meal",ご飯,,617
-expr-618,cat-59,動【どう】物【ぶつ】の体【からだ】の食【た】べ物【もの】,にく,meat,肉,,618
-expr-619,cat-59,水【みず】の中【なか】にいる動【どう】物【ぶつ】,さかな,fish,魚,,619
-expr-620,cat-59,土【つち】から出【で】る食【た】べる草【くさ】,やさい,vegetables,野菜,,620
-expr-621,cat-59,木【き】からもらう【もらう】甘【あま】い食【た】べ物【もの】,くだもの,fruit,果物,,621
-expr-622,cat-59,動【どう】物【ぶつ】から出【で】る丸【まる】くて白【しろ】い物【もの】,たまご,egg,卵,,622
-expr-623,cat-59,海【うみ】の水【みず】から作【つく】る白【しろ】い物【もの】,しお,salt,塩,,623
-expr-624,cat-59,食【た】べ物【もの】を甘【あま】くする白【しろ】い物【もの】,さとう,sugar,砂糖,,624
-expr-625,cat-59,黒【くろ】い色【いろ】の食【た】べ物【もの】に使【つか】う水【みず】,しょうゆ,soy sauce,醤油,,625
-expr-626,cat-59,口【くち】で感【かん】じる事【こと】,あじ,"taste, flavor",味,,626
-expr-627,cat-59,鼻【はな】で感【かん】じる事【こと】,においい,"smell, scent",匂い,,627
-expr-628,cat-59,飲【の】むと体【からだ】が変【へん】になる水【みず】,さけ,"alcohol, sake",酒,,628
-expr-629,cat-59,草【くさ】から作【つく】った飲【の】み物【もの】,おちゃ,tea,お茶,,629
-expr-630,cat-59,果【くだ】物【もの】から出【で】る甘【あま】い水【みず】,じゅーす,juice,ジュース,,630
-expr-631,cat-59,動【どう】物【ぶつ】の体【からだ】から出【で】る白【しろ】い飲【の】み物【もの】,ぎゅうにゅう,milk,牛乳,,631
-expr-632,cat-59,黒【くろ】くて苦【にが】い飲【の】み物【もの】,こーひー,coffee,コーヒー,,632
-expr-633,cat-59,食【た】べ物【もの】を置【お】く物【もの】,さら,"plate, dish",皿,,633
-expr-634,cat-59,食【た】べる時【とき】に使【つか】う二【に】本【ほん】の木【き】,はし,chopsticks,箸,,634
-expr-635,cat-59,飲【の】み物【もの】を入【い】れる物【もの】,こっぷ,"cup, glass",コップ,,635
-expr-636,cat-59,水【みず】や飲【の】み物【もの】を入【い】れる物【もの】,びん,bottle,瓶,,636
-expr-637,cat-59,火【ひ】で食【た】べ物【もの】を作【つく】る物【もの】,なべ,"pot, pan",鍋,,637
-expr-638,cat-59,食【た】べ物【もの】を切【き】る物【もの】,ほうちょう,kitchen knife,包丁,,638
-expr-639,cat-59,食【た】べ物【もの】を冷【つめ】たくして入【い】れる物【もの】,れいぞうこ,refrigerator,冷蔵庫,,639
-expr-640,cat-59,とても寒【さむ】くなった水【みず】,こおり,ice,氷,,640
-expr-641,cat-59,食【た】べ物【もの】を火【ひ】で作【つく】る時【とき】に使【つか】う物【もの】,あぶら,oil,油,,641
-expr-642,cat-59,水【みず】で作【つく】った温【あたた】かい食【た】べ物【もの】,すーぷ,soup,スープ,,642
-expr-643,cat-59,切【き】った野【や】菜【さい】の食【た】べ物【もの】,さらだ,salad,サラダ,,643
-expr-644,cat-59,口【くち】で感【かん】じる良【よ】い味【あじ】,あまい,sweet,甘い,,644
-expr-645,cat-59,口【くち】で感【かん】じる悪【わる】い味【あじ】,にがい,bitter,苦い,,645
-expr-646,cat-59,口【くち】に強【つよ】い感【かん】じがする食【た】べ物【もの】の味【あじ】,からい,"spicy, hot",辛い,,646
-expr-647,cat-59,口【くち】がとても変【へん】に感【かん】じる味【あじ】,すっぱい,sour,酸っぱい,,647
-expr-648,cat-59,食【た】べ物【もの】が良【よ】い味【あじ】がする,おいしい,delicious,美味しい,,648
-expr-649,cat-59,食【た】べ物【もの】の味【あじ】が悪【わる】い,まずい,bad-tasting,まずい,,649
-expr-650,cat-59,火【ひ】で食【た】べ物【もの】を作【つく】る,やく,"to grill, to bake",焼く,,650
-expr-651,cat-59,水【みず】と火【ひ】で食【た】べ物【もの】を作【つく】る,にる,"to boil, to simmer",煮る,,651
-expr-652,cat-59,油【あぶら】と火【ひ】で食【た】べ物【もの】を作【つく】る,あげる,to deep-fry,揚げる,,652
-expr-653,cat-59,食【た】べ物【もの】が欲【ほ】しくなる,はらがへる,to get hungry,腹が減る,,653
-expr-654,cat-59,飲【の】み物【もの】が欲【ほ】しくなる,のどがかわく,to get thirsty,喉が渇く,,654
-expr-655,cat-60,体【からだ】が悪【わる】い状【じょう】態【たい】,びょうき,"illness, disease",病気,,655
-expr-656,cat-60,体【からだ】を良【よ】くするために飲【の】む物【もの】,くすり,medicine,薬,,656
-expr-657,cat-60,体【からだ】が壊【こわ】れた事【こと】,けが,injury,怪我,,657
-expr-658,cat-60,体【からだ】が悪【わる】く感【かん】じる,いたい,"painful, hurts",痛い,,658
-expr-659,cat-60,体【からだ】がとても暑【あつ】くなる事【こと】,ねつ,fever,熱,,659
-expr-660,cat-60,体【からだ】が悪【わる】くて熱【ねつ】が出【で】る病【やまい】,かぜ,cold (illness),風邪,,660
-expr-661,cat-60,口【くち】から強【つよ】く空【くう】気【き】が出【で】る事【こと】,せき,cough,咳,,661
-expr-662,cat-60,体【からだ】の中【なか】にある赤【あか】い水【みず】,ち,blood,血,,662
-expr-663,cat-60,体【からだ】の中【なか】にある硬【かた】い物【もの】,ほね,bone,骨,,663
-expr-664,cat-60,体【からだ】の外【そと】の部【ぶ】分【ぶん】,はだ,skin,肌,,664
-expr-665,cat-60,体【からだ】を動【うご】かす物【もの】,きんにく,muscle,筋肉,,665
-expr-666,cat-60,口【くち】の中【なか】で食【た】べ物【もの】を切【き】る白【しろ】い物【もの】,は,"tooth, teeth",歯,,666
-expr-667,cat-60,手【て】や足【あし】の先【さき】の長【なが】い部【ぶ】分【ぶん】,ゆび,"finger, toe",指,,667
-expr-668,cat-60,頭【あたま】の下【した】、手【て】の上【うえ】にある体【からだ】の部【ぶ】分【ぶん】,かた,shoulder,肩,,668
-expr-669,cat-60,体【からだ】の中【なか】ほどにある部【ぶ】分【ぶん】,こし,"lower back, hips",腰,,669
-expr-670,cat-60,体【からだ】の後【うし】ろにある部【ぶ】分【ぶん】,せなか,back (of body),背中,,670
-expr-671,cat-60,頭【あたま】と体【からだ】をつなぐ部【ぶ】分【ぶん】,くび,neck,首,,671
-expr-672,cat-60,体【からだ】の前【まえ】の上【うえ】の部【ぶ】分【ぶん】,むね,chest,胸,,672
-expr-673,cat-60,体【からだ】の前【まえ】の中【なか】ほどの部【ぶ】分【ぶん】,はら,"abdomen, belly",腹,,673
-expr-674,cat-60,頭【あたま】の前【まえ】の部【ぶ】分【ぶん】,かお,face,顔,,674
-expr-675,cat-60,頭【あたま】の上【うえ】にある物【もの】,かみ,hair (on head),髪,,675
-expr-676,cat-60,指【ゆび】の先【さき】にある硬【かた】い物【もの】,つめ,nail (finger/toe),爪,,676
-expr-677,cat-60,口【くち】の外【そと】の赤【あか】い部【ぶ】分【ぶん】,くちびる,lips,唇,,677
-expr-678,cat-60,口【くち】の中【なか】で味【あじ】を感【かん】じる物【もの】,した,tongue,舌,,678
-expr-679,cat-60,悲【かな】しい時【とき】に目【め】から出【で】る水【みず】,なみだ,tears,涙,,679
-expr-680,cat-60,暑【あつ】い時【とき】に体【からだ】から出【で】る水【みず】,あせ,"sweat, perspiration",汗,,680
-expr-681,cat-60,口【くち】から出【で】る音【おと】,こえ,voice,声,,681
-expr-682,cat-60,口【くち】や鼻【はな】から出【で】る空【くう】気【き】,いき,breath,息,,682
-expr-683,cat-60,空【くう】気【き】を体【からだ】の中【なか】に入【い】れたり出【だ】したりする事【こと】,こきゅう,"breathing, respiration",呼吸,,683
-expr-684,cat-60,体【からだ】の中【なか】で血【ち】が動【うご】く音【おと】,みゃく,pulse,脈,,684
-expr-685,cat-60,体【からだ】が良【よ】い状【じょう】態【たい】,けんこう,health,健康,,685
-expr-686,cat-60,体【からだ】も心【こころ】も良【よ】い状【じょう】態【たい】,げんき,"energetic, healthy",元気,,686
-expr-687,cat-60,体【からだ】や心【こころ】が動【うご】けなくなる,つかれる,to get tired,疲れる,,687
-expr-688,cat-60,寝【ね】たいと感【かん】じる,ねむい,sleepy,眠い,,688
-expr-689,cat-60,寝【ね】ている状【じょう】態【たい】から出【で】る,おきる,to wake up,起きる,,689
-expr-690,cat-60,体【からだ】の悪【わる】い人【ひと】を助【たす】ける人【ひと】,いしゃ,"doctor, physician",医者,,690
-expr-691,cat-60,体【からだ】の悪【わる】い人【ひと】の世【せ】話【わ】をする人【ひと】,かんごし,nurse,看護師,,691
-expr-692,cat-60,体【からだ】を切【き】って中【なか】を直【なお】す事【こと】,しゅじゅつ,"surgery, operation",手術,,692
-expr-693,cat-60,体【からだ】の中【なか】に物【もの】を入【い】れる事【こと】,ちゅうしゃ,"injection, shot",注射,,693
-expr-694,cat-60,病【やまい】が悪【わる】くて家【いえ】を出【で】てどこかに入【はい】る事【こと】,にゅういん,hospitalization,入院,,694
-expr-695,cat-60,体【からだ】が良【よ】くなって出【で】る事【こと】,たいいん,hospital discharge,退院,,695
-expr-696,cat-60,体【からだ】の中【なか】を見【み】る事【こと】,けんさ,"examination, test",検査,,696
-expr-697,cat-60,体【からだ】が悪【わる】い時【とき】に出【で】る変【へん】な事【こと】,しょうじょう,symptom,症状,,697
-expr-698,cat-60,体【からだ】が悪【わる】い状【じょう】態【たい】から良【よ】くなる,なおる,"to heal, to recover",治る,,698
-expr-699,cat-60,体【からだ】を良【よ】い状【じょう】態【たい】にする,なおす,"to cure, to fix",治す,,699
-expr-700,cat-60,体【からだ】が大【おお】きく重【おも】くなる,ふとる,to gain weight,太る,,700
-expr-701,cat-60,体【からだ】が小【ちい】さく軽【かる】くなる,やせる,to lose weight,痩せる,,701
-expr-702,cat-60,女【おんな】の体【からだ】の中【なか】に子【こ】供【ども】がいる状【じょう】態【たい】,にんしん,pregnancy,妊娠,,702
-expr-703,cat-60,体【からだ】から子【こ】供【ども】が出【で】る事【こと】,しゅっさん,childbirth,出産,,703
-expr-704,cat-60,ある物【もの】に体【からだ】が悪【わる】く変【か】わる事【こと】,あれるぎー,allergy,アレルギー,,704
-expr-705,cat-60,体【からだ】が切【き】れた所【ところ】,きず,"wound, scar",傷,,705
-expr-706,cat-61,太【たい】陽【よう】が出【で】てくる時【とき】,あさ,morning,朝,,706
-expr-707,cat-61,太【たい】陽【よう】が上【うえ】にある時【とき】,ひる,"daytime, noon",昼,,707
-expr-708,cat-61,太【たい】陽【よう】が下【した】に入【はい】る時【とき】,ゆうがた,evening,夕方,,708
-expr-709,cat-61,今【いま】日【にち】の朝【あさ】,けさ,this morning,今朝,,709
-expr-710,cat-61,今【いま】日【にち】の夜【よる】,こんや,tonight,今夜,,710
-expr-711,cat-61,明【あす】の後【あと】の日【にち】,あさって,day after tomorrow,明後日,,711
-expr-712,cat-61,昨【きの】日【う】の前【まえ】の日【にち】,おととい,day before yesterday,一昨日,,712
-expr-713,cat-61,今【いま】の前【まえ】の七【なな】日【にち】,せんしゅう,last week,先週,,713
-expr-714,cat-61,今【いま】の七【なな】日【にち】,こんしゅう,this week,今週,,714
-expr-715,cat-61,今【いま】の後【あと】の七【なな】日【にち】,らいしゅう,next week,来週,,715
-expr-716,cat-61,今【いま】の月【つき】の前【まえ】の月【つき】,せんげつ,last month,先月,,716
-expr-717,cat-61,今【いま】の月【つき】,こんげつ,this month,今月,,717
-expr-718,cat-61,今【いま】の月【つき】の後【あと】の月【つき】,らいげつ,next month,来月,,718
-expr-719,cat-61,今【いま】の年【とし】の前【まえ】の年【とし】,きょねん,last year,去年,,719
-expr-720,cat-61,今【いま】の年【とし】,ことし,this year,今年,,720
-expr-721,cat-61,今【いま】の年【とし】の後【あと】の年【とし】,らいねん,next year,来年,,721
-expr-722,cat-61,七【なな】日【にち】の終【お】わりの日【にち】,しゅうまつ,weekend,週末,,722
-expr-723,cat-61,毎【まい】日【にち】の普【ふ】通【つう】の日【にち】,へいじつ,weekday,平日,,723
-expr-724,cat-61,今【いま】から前【まえ】や後【あと】まで続【つづ】く物【もの】,じかん,"time, hour",時間,,724
-expr-725,cat-61,一【いち】時【じ】間【かん】を六【ろく】十【じゅう】に切【き】った時【とき】の一【ひと】つ,ふん,minute,分,,725
-expr-726,cat-61,とても短【みじか】い時【とき】の単【たん】位【い】,びょう,second,秒,,726
-expr-727,cat-61,太【たい】陽【よう】が一【いち】番【ばん】高【たか】くなる前【まえ】の時【とき】,ごぜん,"AM, morning",午前,,727
-expr-728,cat-61,太【たい】陽【よう】が一【いち】番【ばん】高【たか】くなった後【あと】の時【とき】,ごご,"PM, afternoon",午後,,728
-expr-729,cat-61,太【たい】陽【よう】が一【いち】番【ばん】高【たか】くなる時【とき】,しょうご,"noon, midday",正午,,729
-expr-730,cat-61,太【たい】陽【よう】の日【にち】,にちようび,Sunday,日曜日,,730
-expr-731,cat-61,月【つき】の日【にち】,げつようび,Monday,月曜日,,731
-expr-732,cat-61,何【なに】もしなくていい日【にち】,きゅうじつ,"day off, holiday",休日,,732
-expr-733,cat-61,国【くに】が決【き】めた休【やす】む日【にち】,しゅくじつ,national holiday,祝日,,733
-expr-734,cat-61,年【とし】の中【なか】で天【てん】気【き】が変【か】わる時【とき】,きせつ,season,季節,,734
-expr-735,cat-61,人【ひと】が生【い】きる事【こと】が始【はじ】まった日【にち】,たんじょうび,birthday,誕生日,,735
-expr-736,cat-61,よく覚【おぼ】えている大【たい】切【せつ】な日【にち】,きねんび,anniversary,記念日,,736
-expr-737,cat-61,とても短【みじか】い時【とき】,しゅんかん,"moment, instant",瞬間,,737
-expr-738,cat-61,始【はじ】まりから終【お】わりまでの時【とき】,きかん,"period, duration",期間,,738
-expr-739,cat-61,その事【こと】が終【お】わらなければならない時【とき】,きげん,"deadline, expiry",期限,,739
-expr-740,cat-61,これ以【い】上【じょう】後【あと】はできないという時【とき】,しめきり,deadline (submission),締め切り,,740
-expr-741,cat-61,今【いま】から少【すこ】し前【まえ】の時【とき】,さいきん,"recently, lately",最近,,741
-expr-742,cat-61,とても短【みじか】い時【とき】の後【あと】に,すぐ,"soon, right away",すぐ,,742
-expr-743,cat-61,少【すこ】し後【あと】の時【とき】に,やがて,"eventually, before long",やがて,,743
-expr-744,cat-61,終【お】わらない時【とき】,えいえん,"eternity, forever",永遠,,744
-expr-745,cat-61,生【い】きている全【ぜん】部【ぶ】の時【とき】,いっしょう,one's whole life,一生,,745
-expr-746,cat-61,百【ひゃく】年【ねん】の時【とき】,せいき,century,世紀,,746
-expr-747,cat-61,ある長【なが】い時【とき】の事【こと】が起【お】こった時【とき】,じだい,"era, period (of history)",時代,,747
-expr-748,cat-61,とても長【なが】い時【とき】の後【あと】に,ついに,"finally, at last",ついに,,748
-expr-749,cat-61,思【おも】っていなかった時【とき】に起【お】こる,とつぜん,"suddenly, all of a sudden",突然,,749
-expr-750,cat-61,長【なが】い時【とき】が終【お】わって会【あ】う,ひさしぶり,after a long time,久しぶり,,750
-expr-751,cat-62,速【はや】く足【あし】で動【うご】く,はしる,run,走る,,751
-expr-752,cat-62,速【はや】くなく足【あし】で動【うご】く,あるく,walk,歩く,,752
-expr-753,cat-62,水【みず】の中【なか】で動【うご】く,およぐ,swim,泳ぐ,,753
-expr-754,cat-62,空【そら】を動【うご】く,とぶ,fly,飛ぶ,,754
-expr-755,cat-62,上【うえ】へ行【い】く,のぼる,climb,登る,,755
-expr-756,cat-62,下【した】へ動【うご】く,おちる,fall,落ちる,,756
-expr-757,cat-62,下【した】へ出【で】る,おりる,get off / descend,降りる,,757
-expr-758,cat-62,上【うえ】に入【はい】る,のる,ride / board,乗る,,758
-expr-759,cat-62,持【も】って行【い】く,はこぶ,carry / transport,運ぶ,,759
-expr-760,cat-62,ある場所【ばしょ】へ行【い】かせる,おくる,send,送る,,760
-expr-761,cat-62,持【も】って来【き】て与【あた】える,とどける,deliver,届ける,,761
-expr-762,cat-62,来【き】て手【て】に入【はい】る,とどく,arrive / reach,届く,,762
-expr-763,cat-62,持【も】って与【あた】える,わたす,hand over,渡す,,763
-expr-764,cat-62,右【みぎ】か左【ひだり】の外【そと】へ行【い】く,わたる,cross over,渡る,,764
-expr-765,cat-62,手【て】で感【かん】じる,さわる,touch,触る,,765
-expr-766,cat-62,手【て】で動【うご】かす,おす,push,押す,,766
-expr-767,cat-62,手【て】で近【ちか】くへ動【うご】かす,ひく,pull,引く,,767
-expr-768,cat-62,手【て】で空【そら】へ出【で】す,なげる,throw,投げる,,768
-expr-769,cat-62,下【した】にある物【もの】を手【て】で持【も】つ,ひろう,pick up,拾う,,769
-expr-770,cat-62,ある場所【ばしょ】に止【と】める,おく,place / put down,置く,,770
-expr-771,cat-62,上【うえ】から物【もの】を止【と】める,かける,hang / apply,掛ける,,771
-expr-772,cat-62,お金【おかね】を与【あた】える,はらう,pay,払う,,772
-expr-773,cat-62,お金【おかね】をもらって物【もの】を与【あた】える,うる,sell,売る,,773
-expr-774,cat-62,また返【かえ】すために与【あた】える,かす,lend,貸す,,774
-expr-775,cat-62,また返【かえ】すためにもらう,かりる,borrow,借りる,,775
-expr-776,cat-62,もらった人【ひと】に与【あた】える,かえす,return (something),返す,,776
-expr-777,cat-62,いらない物【もの】を出【で】す,すてる,throw away,捨てる,,777
-expr-778,cat-62,多【おお】く持【も】ってくる,あつめる,gather / collect,集める,,778
-expr-779,cat-62,一【ひと】つの物【もの】を二【ふた】つ以上【いじょう】にする,わける,divide / separate,分ける,,779
-expr-780,cat-62,二【ふた】つ以上【いじょう】の物【もの】を一【ひと】つにする,まぜる,mix,混ぜる,,780
-expr-781,cat-62,一【ひと】つ一【ひと】つ前【まえ】と後【あと】に立【た】つ,ならぶ,line up,並ぶ,,781
-expr-782,cat-62,終【お】わらずに起【お】こる,つづく,continue (intrans.),続く,,782
-expr-783,cat-62,終【お】わらせずにする,つづける,continue (trans.),続ける,,783
-expr-784,cat-62,一【いち】つを選【えら】ぶ,きめる,decide,決める,,784
-expr-785,cat-62,一【いち】つに選【えら】ばれる,きまる,be decided,決まる,,785
-expr-786,cat-62,二【に】つの物【もの】が違【ちが】うか見【み】る,くらべる,compare,比べる,,786
-expr-787,cat-62,いくつあるか知【し】る,かぞえる,count,数える,,787
-expr-788,cat-62,良【よ】いか見【み】るためにする,ためす,try / test,試す,,788
-expr-789,cat-62,ほんとうかどうか見【み】る,たしかめる,confirm / verify,確かめる,,789
-expr-790,cat-62,知【し】るために見【み】る,しらべる,investigate / look up,調べる,,790
-expr-791,cat-62,聞【き】かれたことを言【い】う,こたえる,answer,答える,,791
-expr-792,cat-62,してほしいと言【い】う,たのむ,ask (a favor) / request,頼む,,792
-expr-793,cat-62,しないと言【い】う,ことわる,refuse / decline,断る,,793
-expr-794,cat-62,来【き】てほしいと言【い】う,まねく,invite,招く,,794
-expr-795,cat-62,言葉【ことば】を口【くち】から出【で】す,はなす,speak / talk,話す,,795
-expr-796,cat-62,言葉【ことば】で知【し】らせる,つたえる,convey / tell,伝える,,796
-expr-797,cat-62,とても大【おお】きな音【おと】で口【くち】から言【い】う,さけぶ,shout / scream,叫ぶ,,797
-expr-798,cat-62,名前【なまえ】を言【い】って来【く】るように言【い】う,よぶ,call (out to),呼ぶ,,798
-expr-799,cat-62,音【おと】のある言葉【ことば】を口【くち】から出【で】す,うたう,sing,歌う,,799
-expr-800,cat-62,音【おと】で体【からだ】を動【うご】かす,おどる,dance,踊る,,800
-expr-801,cat-62,楽【たの】しいことをする,あそぶ,play,遊ぶ,,801
-expr-802,cat-62,お金【おかね】のためにする,はたらく,work,働く,,802
-expr-803,cat-62,ある時【とき】まで止【と】める,やすむ,rest / take a break,休む,,803
-expr-804,cat-62,寝【ね】るのを止【と】めて立【た】つ,おきる,wake up / get up,起きる,,804
-expr-805,cat-62,ある場所【ばしょ】に毎【まい】日【にち】いる,すむ,live (reside),住む,,805
-expr-806,cat-62,私【わたし】の家【いえ】へ行【い】く,かえる,return home,帰る,,806
-expr-807,cat-62,ある場所【ばしょ】の中【なか】を行【い】く,とおる,pass through,通る,,807
-expr-808,cat-62,その場所【ばしょ】を出【で】る,すぎる,pass by / exceed,過ぎる,,808
-expr-809,cat-62,とても速【はや】くする,いそぐ,hurry,急ぐ,,809
-expr-810,cat-62,怖【こわ】いものから外【そと】へ行【い】く,にげる,escape / run away,逃げる,,810
-expr-811,cat-62,ある人【ひと】・物【もの】の後【あと】から行【い】く,おう,chase,追う,,811
-expr-812,cat-62,動【うご】けないようにする,つかまえる,catch / capture,捕まえる,,812
-expr-813,cat-62,見【み】えないようにする,かくす,hide (something),隠す,,813
-expr-814,cat-62,見【み】えるようになる,あらわれる,appear,現れる,,814
-expr-815,cat-62,見【み】えなくなる,きえる,disappear,消える,,815
-expr-816,cat-62,もっと多【おお】くなる,ふえる,increase,増える,,816
-expr-817,cat-62,より少【すこ】しになる,へる,decrease,減る,,817
-expr-818,cat-62,上【うえ】へ動【うご】く,あがる,rise / go up,上がる,,818
-expr-819,cat-62,下【した】へ動【うご】く,さがる,fall / go down,下がる,,819
-expr-820,cat-62,ある物【もの】の外【そと】を動【うご】く,まわる,turn / go around,回る,,820
-expr-821,cat-62,道【みち】が右【みぎ】か左【ひだり】へ変【か】わる,まがる,turn / bend,曲がる,,821
-expr-822,cat-62,体【からだ】が速【はや】く少【すこ】し動【うご】く,ふるえる,tremble / shake,震える,,822
-expr-823,cat-62,右【みぎ】と左【ひだり】に速【はや】くなく動【うご】く,ゆれる,sway / shake,揺れる,,823
-expr-824,cat-62,光【ひかり】を出【で】す,ひかる,shine / glow,光る,,824
-expr-825,cat-62,火【ひ】になる,もえる,burn,燃える,,825
-expr-826,cat-62,水【みず】のようになる,とける,melt / dissolve,溶ける,,826
-expr-827,cat-62,水【みず】がなくなる,かわく,dry,乾く,,827
-expr-828,cat-62,水【みず】がつく,ぬれる,get wet,濡れる,,828
-expr-829,cat-62,悪【わる】いものがつく,よごれる,get dirty,汚れる,,829
-expr-830,cat-62,きれいになるようにする,みがく,polish / brush,磨く,,830
-expr-831,cat-62,物【もの】の外【そと】を全部【ぜんぶ】見【み】えないようにする,つつむ,wrap,包む,,831
-expr-832,cat-62,二【に】つの物【もの】を一【いち】つに止【と】める,むすぶ,tie / bind,結ぶ,,832
-expr-833,cat-62,手【て】で目【め】に見【み】えるものを作【つく】る,えがく,draw / depict,描く,,833
-expr-834,cat-63,大【おお】きくない,ちいさい,small,小さい,,834
-expr-835,cat-63,長【なが】くない,みじかい,short (length),短い,,835
-expr-836,cat-63,高【たか】くない,ひくい,low / short (height),低い,,836
-expr-837,cat-63,重【おも】くない,かるい,light (weight),軽い,,837
-expr-838,cat-63,強【つよ】くない,よわい,weak,弱い,,838
-expr-839,cat-63,速【はや】くない,おそい,slow / late,遅い,,839
-expr-840,cat-63,新【あたら】しくない,ふるい,old (things),古い,,840
-expr-841,cat-63,年【とし】が少【すこ】ない,わかい,young,若い,,841
-expr-842,cat-63,大【おお】きな場所【ばしょ】だ,ひろい,wide / spacious,広い,,842
-expr-843,cat-63,場所【ばしょ】が大【おお】きくない,せまい,narrow / small space,狭い,,843
-expr-844,cat-63,下【した】まで長【なが】い,ふかい,deep,深い,,844
-expr-845,cat-63,下【した】まで長【なが】くない,あさい,shallow,浅い,,845
-expr-846,cat-63,中【なか】まで長【なが】い,あつい,thick,厚い,,846
-expr-847,cat-63,中【なか】まで長【なが】くない,うすい,thin / light (color),薄い,,847
-expr-848,cat-63,外【そと】が大【おお】きい,ふとい,thick / fat (width),太い,,848
-expr-849,cat-63,外【そと】が大【おお】きくない,ほそい,thin / slender,細い,,849
-expr-850,cat-63,月【つき】や太陽【たいよう】のような物【もの】だ,まるい,round,丸い,,850
-expr-851,cat-63,手【て】で変【か】えられない,かたい,hard / stiff,固い,,851
-expr-852,cat-63,手【て】で変【か】えられる,やわらかい,soft,柔らかい,,852
-expr-853,cat-63,食【た】べると良【よ】いと感【かん】じる,あまい,sweet,甘い,,853
-expr-854,cat-63,食【た】べると好【す】きではないと感【かん】じる,にがい,bitter,苦い,,854
-expr-855,cat-63,食【た】べると火【ひ】のように感【かん】じる,からい,spicy / hot (taste),辛い,,855
-expr-856,cat-63,食【た】べると変【へん】に感【かん】じる,すっぱい,sour,酸っぱい,,856
-expr-857,cat-63,音【おと】が大【おお】きすぎる,うるさい,noisy / annoying,うるさい,,857
-expr-858,cat-63,音【おと】がない,しずか,quiet,静か,,858
-expr-859,cat-63,良【よ】いと言【い】える,ただしい,correct / right,正しい,,859
-expr-860,cat-63,できない事【こと】が多【おお】い,むずかしい,difficult,難しい,,860
-expr-861,cat-63,すぐにできる,やさしい,easy,易しい,,861
-expr-862,cat-63,することが多【おお】すぎる,いそがしい,busy,忙しい,,862
-expr-863,cat-63,することがない,ひま,free (time) / idle,暇,,863
-expr-864,cat-63,とてもきれいだ,うつくしい,beautiful,美しい,,864
-expr-865,cat-63,きれいではない,みにくい,ugly,醜い,,865
-expr-866,cat-63,悪【わる】いものがある,きたない,dirty,汚い,,866
-expr-867,cat-63,悪【わる】い空気【くうき】がある,くさい,stinky / smelly,臭い,,867
-expr-868,cat-63,体【からだ】が悪【わる】く感【かん】じる,いたい,painful,痛い,,868
-expr-869,cat-63,寝【ね】たいと感【かん】じる,ねむい,sleepy,眠い,,869
-expr-870,cat-63,他【ほか】の人【ひと】に見【み】られたくないと感【かん】じる,はずかしい,embarrassed / ashamed,恥ずかしい,,870
-expr-871,cat-63,あまり見【み】ない物【もの】だ,めずらしい,rare / unusual,珍しい,,871
-expr-872,cat-63,前【まえ】のことを思【おも】って良【よ】いと感【かん】じる,なつかしい,nostalgic,懐かしい,,872
-expr-873,cat-63,とても良【よ】い,すばらしい,wonderful / splendid,素晴らしい,,873
-expr-874,cat-63,良【よ】い物【もの】が多【おお】い,ゆたか,rich / abundant,豊か,,874
-expr-875,cat-63,お金【おかね】がとても少【すこ】ない,まずしい,poor,貧しい,,875
-expr-876,cat-63,多【おお】くの人【ひと】が知【し】っている,ゆうめい,famous,有名,,876
-expr-877,cat-63,多【おお】くのことがある,ふくざつ,complex,複雑,,877
-expr-878,cat-63,ことが少【すこ】ない,たんじゅん,simple,単純,,878
-expr-879,cat-63,怖【こわ】いことがない,あんぜん,safe,安全,,879
-expr-880,cat-63,悪【わる】いことが起【お】こるかもしれない,きけん,dangerous,危険,,880
-expr-881,cat-63,できる,かのう,possible,可能,,881
-expr-882,cat-63,できない,ふかのう,impossible,不可能,,882
-expr-883,cat-63,変【へん】ではない,ふつう,normal / ordinary,普通,,883
-expr-884,cat-63,ほかと違【ちが】う,とくべつ,special,特別,,884
-expr-885,cat-63,一番良【よ】い,さいこう,best / greatest,最高,,885
-expr-886,cat-63,一番悪【わる】い,さいてい,worst / lowest,最低,,886
-expr-887,cat-63,もっと必要【ひつよう】ではない,じゅうぶん,enough / sufficient,十分,,887
-expr-888,cat-63,この事【こと】に良【よ】い,てきとう,suitable / appropriate,適当,,888
-expr-889,cat-64,その言葉【ことば】が言【い】うこと,いみ,meaning,意味,,889
-expr-890,cat-64,なぜそうなったかということ,りゆう,reason,理由,,890
-expr-891,cat-64,どうするかということ,ほうほう,method / way,方法,,891
-expr-892,cat-64,なぜするかということ,もくてき,purpose / goal,目的,,892
-expr-893,cat-64,したあとに起【お】こること,けっか,result,結果,,893
-expr-894,cat-64,それが起【お】こる前【まえ】にあったもの,げんいん,cause,原因,,894
-expr-895,cat-64,あることが他【ほか】のことを変【か】えること,えいきょう,influence / effect,影響,,895
-expr-896,cat-64,二【に】つの物【もの】や人【ひと】が一【いち】つのことに入【はい】っていること,かんけい,relationship,関係,,896
-expr-897,cat-64,そうなるために必要【ひつよう】なこと,じょうけん,condition,条件,,897
-expr-898,cat-64,今【いま】どうなっているかということ,じょうたい,state / condition,状態,,898
-expr-899,cat-64,どのくらいかということ,ていど,degree / extent,程度,,899
-expr-900,cat-64,どんな物【もの】かということ,しゅるい,type / kind,種類,,900
-expr-901,cat-64,悪【わる】いことで考【かんが】えなければならないこと,もんだい,problem / question,問題,,901
-expr-902,cat-64,聞【き】かれたことへの言葉【ことば】,こたえ,answer,答え,,902
-expr-903,cat-64,知【し】りたいことを聞【き】くこと,しつもん,question,質問,,903
-expr-904,cat-64,こういう物【もの】だということを見【み】せるもの,れい,example,例,,904
-expr-905,cat-64,ある時【とき】に起【お】こること,ばあい,case / situation,場合,,905
-expr-906,cat-64,できる時【とき】があること,きかい,opportunity,機会,,906
-expr-907,cat-64,起【お】こるかもしれないということ,かのうせい,possibility,可能性,,907
-expr-908,cat-64,したことがあるということ,けいけん,experience,経験,,908
-expr-909,cat-64,前【まえ】のことを心【こころ】に持【も】っていること,きおく,memory,記憶,,909
-expr-910,cat-64,見【み】えないものを頭【あたま】の中【なか】で作【つく】ること,そうぞう,imagination,想像,,910
-expr-911,cat-64,見【み】た時【とき】に感【かん】じたこと,いんしょう,impression,印象,,911
-expr-912,cat-64,あることについて思【おも】うこと,いけん,opinion,意見,,912
-expr-913,cat-64,頭【あたま】の中【なか】にあること,かんがえ,thought / idea,考え,,913
-expr-914,cat-64,心【こころ】で感【かん】じること,きもち,feeling,気持ち,,914
-expr-915,cat-64,人【ひと】に見【み】せる体【からだ】と言葉【ことば】の動【うご】き,たいど,attitude,態度,,915
-expr-916,cat-64,すること,こうどう,action / behavior,行動,,916
-expr-917,cat-64,強【つよ】くしようとすること,どりょく,effort,努力,,917
-expr-918,cat-64,しようとしたことができたこと,せいこう,success,成功,,918
-expr-919,cat-64,しようとしたことができなかったこと,しっぱい,failure,失敗,,919
-expr-920,cat-64,変【か】わること,へんか,change,変化,,920
-expr-921,cat-64,より良【よ】くなること,しんぽ,progress,進歩,,921
-expr-922,cat-64,もっと大【おお】きくなること,はってん,development,発展,,922
-expr-923,cat-64,生【い】きていること,いのち,life,命,,923
-expr-924,cat-64,これから起【お】こることが前【まえ】に決【き】まっているという考【かんが】え,うんめい,fate / destiny,運命,,924
-expr-925,cat-64,強【つよ】く動【うご】かすことができること,ちから,power / strength,力,,925
-expr-926,cat-64,できることがあること,のうりょく,ability / capacity,能力,,926
-expr-927,cat-64,とても良【よ】くできること,さいのう,talent,才能,,927
-expr-928,cat-64,知【し】っていること,ちしき,knowledge,知識,,928
-expr-929,cat-64,全部【ぜんぶ】の人【ひと】が知【し】っていること,じょうしき,common sense,常識,,929
-expr-930,cat-64,毎【まい】日【にち】すること,しゅうかん,habit / custom,習慣,,930
-expr-931,cat-64,他【ほか】の人【ひと】に言【い】わないこと,ひみつ,secret,秘密,,931
-expr-932,cat-64,すると言【い】ったこと,やくそく,promise,約束,,932
-expr-933,cat-64,しなければならないと思【おも】うこと,せきにん,responsibility,責任,,933
-expr-934,cat-64,しなければならないこと,ぎむ,duty / obligation,義務,,934
-expr-935,cat-64,してもいいと言【い】われていること,けんり,right (legal),権利,,935
-expr-936,cat-64,良【よ】いことをするという考【かんが】え,せいぎ,justice,正義,,936
-expr-937,cat-64,どのくらい良【よ】いかということ,かち,value / worth,価値,,937
-expr-938,cat-64,するという強【つよ】い心【こころ】,いし,will / volition,意志,,938
+id,category_id,minihongo,reading,english,japanese,english_litteral,sort_order,audio_file
+expr-1,cat-38,好【す】きな人【ひと】,,friend,友達,liked person,1,e_1_suhito.mp3
+expr-2,cat-38,父【ちち】と母【はは】と子供【こども】,,family,家族,"father, mother, children",2,e_2_chichihahakodomo.mp3
+expr-3,cat-38,教【おし】える人【ひと】,,teacher,先生,teaching person,3,e_3_oshihito.mp3
+expr-4,cat-38,教【おし】えてもらう人【ひと】,,student,生徒,taught person,4,e_4_oshihito.mp3
+expr-5,cat-38,体【からだ】を助【たす】ける人【ひと】,,doctor,医者,body-helping person,5,e_5_karadatasuhito.mp3
+expr-6,cat-38,心【こころ】を助【たす】ける人【ひと】,,therapist,セラピスト,heart-helping person,6,e_6_kokorotasuhito.mp3
+expr-7,cat-38,守【まも】る人【ひと】,,police,警察,protecting person,7,e_7_mamohito.mp3
+expr-8,cat-38,戦【たたか】う人【ひと】,,soldier,兵士,fighting person,8,e_8_tatakahito.mp3
+expr-9,cat-38,食【た】べ物【もの】を作【つく】る人【ひと】,,farmer,農家,food-making person,9,e_9_tamonotsukuhito.mp3
+expr-10,cat-38,火【ひ】で食【た】べ物【もの】を作【つく】る人【ひと】,,cook,料理人,fire food-making person,10,e_10_hitamonotsukuhito.mp3
+expr-11,cat-38,本【ほん】を書【か】く人【ひと】,,writer,作家,book-writing person,11,e_11_honkahito.mp3
+expr-12,cat-38,よく知【し】る人【ひと】,,expert,専門家,well-knowing person,12,e_12_shihito.mp3
+expr-13,cat-38,上【うえ】の人【ひと】,,boss,上司,above person,13,e_13_uehito.mp3
+expr-14,cat-38,助【たす】ける人【ひと】,,helper,助手,helping person,14,e_14_tasuhito.mp3
+expr-15,cat-38,物【もの】を持【も】って行【い】く人【ひと】,,thief,泥棒,thing-taking person,15,e_15_monomoihito.mp3
+expr-16,cat-38,家【いえ】が近【ちか】い人【ひと】,,neighbor,隣人,house-near person,16,e_16_iechikahito.mp3
+expr-17,cat-38,父【ちち】の父【ちち】,,grandfather,祖父,father's father,17,e_17_chichichichi.mp3
+expr-18,cat-38,母【はは】の母【はは】,,grandmother,祖母,mother's mother,18,e_18_hahahaha.mp3
+expr-19,cat-38,新【あたら】しい子供【こども】,,baby,赤ちゃん,new child,19,e_19_atarakodomo.mp3
+expr-20,cat-38,年【とし】が多【おお】い人【ひと】,,old person,老人,many-year person,20,e_20_toshioohito.mp3
+expr-21,cat-39,空【そら】の動物【どうぶつ】,,bird,鳥,sky animal,21,e_21_soradoubutsu.mp3
+expr-22,cat-39,水【みず】の動物【どうぶつ】,,fish,魚,water animal,22,e_22_mizudoubutsu.mp3
+expr-23,cat-39,とても大【おお】きくない動物【どうぶつ】,,insect,虫,very not-big animal,23,e_23_oodoubutsu.mp3
+expr-24,cat-39,家【いえ】の動物【どうぶつ】,,dog,犬,house animal,24,e_24_iedoubutsu.mp3
+expr-25,cat-39,大【おお】きくない家【いえ】の動物【どうぶつ】,,cat,猫,not-big house animal,25,e_25_ooiedoubutsu.mp3
+expr-26,cat-39,速【はや】い大【おお】きい動物【どうぶつ】,,horse,馬,fast big animal,26,e_26_hayaoodoubutsu.mp3
+expr-27,cat-39,長【なが】い動物【どうぶつ】,,snake,蛇,long animal,27,e_27_nagadoubutsu.mp3
+expr-28,cat-39,海【うみ】のとても大【おお】きい動物【どうぶつ】,,whale,鯨,sea's very big animal,28,e_28_umioodoubutsu.mp3
+expr-29,cat-39,山【やま】の強【つよ】い動物【どうぶつ】,,bear,熊,mountain strong animal,29,e_29_yamatsuyodoubutsu.mp3
+expr-30,cat-39,木【き】の動物【どうぶつ】,,monkey,猿,tree animal,30,e_30_kidoubutsu.mp3
+expr-31,cat-39,水【みず】と土【つち】の動物【どうぶつ】,,frog,蛙,water-and-earth animal,31,e_31_mizutsuchidoubutsu.mp3
+expr-32,cat-39,夜【よる】の動物【どうぶつ】,,wolf,狼,night animal,32,e_32_yorudoubutsu.mp3
+expr-33,cat-39,強【つよ】い動物【どうぶつ】,,lion,ライオン,strong animal,33,e_33_tsuyodoubutsu.mp3
+expr-34,cat-39,とても大【おお】きい動物【どうぶつ】,,elephant,象,very big animal,34,e_34_oodoubutsu.mp3
+expr-35,cat-39,きれいな大【おお】きくない動物【どうぶつ】,,butterfly,蝶,pretty not-big animal,35,e_35_oodoubutsu.mp3
+expr-36,cat-40,空【そら】の事【こと】,,weather,天気,sky matter,36,e_36_sorakoto.mp3
+expr-37,cat-40,空【そら】の白【しろ】,,cloud,雲,sky's white,37,e_37_sorashiro.mp3
+expr-38,cat-40,夜【よる】の光【ひかり】,,star,星,night light,38,e_38_yoruhikari.mp3
+expr-39,cat-40,月【つき】の光【ひかり】,,moonlight,月光,moon's light,39,e_39_tsukihikari.mp3
+expr-40,cat-40,空【そら】の火【ひ】,,lightning,稲妻,sky fire,40,e_40_sorahi.mp3
+expr-41,cat-40,白【しろ】い雨【あめ】,,snow,雪,white rain,41,e_41_shiroame.mp3
+expr-42,cat-40,寒【さむ】い水【みず】,,ice,氷,cold water,42,e_42_samumizu.mp3
+expr-43,cat-40,白【しろ】い空気【くうき】,,fog,霧,white air,43,e_43_shirokuuki.mp3
+expr-44,cat-40,強【つよ】い風【かぜ】と雨【あめ】,,storm,嵐,strong wind and rain,44,e_44_tsuyokazeame.mp3
+expr-45,cat-40,雨【あめ】の後【あと】の色【いろ】,,rainbow,虹,color after rain,45,e_45_ameatoiro.mp3
+expr-46,cat-40,土【つち】が動【うご】く事【こと】,,earthquake,地震,earth moving,46,e_46_tsuchiugokoto.mp3
+expr-47,cat-40,水【みず】が多【おお】すぎる事【こと】,,flood,洪水,too-much water,47,e_47_mizuookoto.mp3
+expr-48,cat-40,長【なが】い水【みず】,,river,川,long water,48,e_48_nagamizu.mp3
+expr-49,cat-40,大【おお】きい水【みず】,,lake,湖,big water,49,e_49_oomizu.mp3
+expr-50,cat-40,海【うみ】の中【なか】の土【つち】,,island,島,earth in the sea,50,e_50_uminakatsuchi.mp3
+expr-51,cat-40,木【き】が多【おお】い場所【ばしょ】,,forest,森,many-tree place,51,e_51_kioobasho.mp3
+expr-52,cat-40,水【みず】がない暑【あつ】い場所【ばしょ】,,desert,砂漠,waterless hot place,52,e_52_mizuatsubasho.mp3
+expr-53,cat-40,火【ひ】の山【やま】,,volcano,火山,fire mountain,53,e_53_hiyama.mp3
+expr-54,cat-40,水【みず】が下【した】に行【い】く場所【ばしょ】,,waterfall,滝,water going-down place,54,e_54_mizushitaibasho.mp3
+expr-55,cat-40,太陽【たいよう】が出【で】る時【とき】,,sunrise,日の出,sun coming-out time,55,e_55_taiyoudetoki.mp3
+expr-56,cat-40,太陽【たいよう】が入【はい】る時【とき】,,sunset,日の入り,sun going-in time,56,e_56_taiyouhaitoki.mp3
+expr-57,cat-41,家【いえ】の中【なか】,,room,部屋,inside house,57,e_57_ienaka.mp3
+expr-58,cat-41,教【おし】える場所【ばしょ】,,school,学校,teaching place,58,e_58_oshibasho.mp3
+expr-59,cat-41,買【か】う場所【ばしょ】,,shop,店,buying place,59,e_59_kabasho.mp3
+expr-60,cat-41,食【た】べる場所【ばしょ】,,restaurant,レストラン,eating place,60,e_60_tabasho.mp3
+expr-61,cat-41,体【からだ】を助【たす】ける場所【ばしょ】,,hospital,病院,body-helping place,61,e_61_karadatasubasho.mp3
+expr-62,cat-41,本【ほん】が多【おお】い場所【ばしょ】,,library,図書館,many-book place,62,e_62_honoobasho.mp3
+expr-63,cat-41,食【た】べ物【もの】を作【つく】る場所【ばしょ】,,kitchen,台所,food-making place,63,e_63_tamonotsukubasho.mp3
+expr-64,cat-41,草【くさ】がある場所【ばしょ】,,garden,庭,grass place,64,e_64_kusabasho.mp3
+expr-65,cat-41,外【そと】の場所【ばしょ】,,park,公園,outside place,65,e_65_sotobasho.mp3
+expr-66,cat-41,人【ひと】が多【おお】い場所【ばしょ】,,city,都市,many-people place,66,e_66_hitooobasho.mp3
+expr-67,cat-41,水【みず】の上【うえ】の道【みち】,,bridge,橋,road above water,67,e_67_mizuuemichi.mp3
+expr-68,cat-41,高【たか】い場所【ばしょ】,,tower,塔,tall place,68,e_68_takabasho.mp3
+expr-69,cat-41,出【で】られない場所【ばしょ】,,prison,刑務所,can't-leave place,69,e_69_debasho.mp3
+expr-70,cat-41,空【そら】に行【い】く場所【ばしょ】,,airport,空港,sky-going place,70,e_70_soraibasho.mp3
+expr-71,cat-42,使【つか】う物【もの】,,tool,道具,using thing,71,e_71_tsukamono.mp3
+expr-72,cat-42,中【なか】に入【い】れる物【もの】,,box,箱,put-inside thing,72,e_72_nakaimono.mp3
+expr-73,cat-42,書【か】く物【もの】,,paper,紙,writing thing,73,e_73_kamono.mp3
+expr-74,cat-42,切【き】る物【もの】,,knife,ナイフ,cutting thing,74,e_74_kimono.mp3
+expr-75,cat-42,開【あ】ける物【もの】,,key,鍵,opening thing,75,e_75_amono.mp3
+expr-76,cat-42,物【もの】を持【も】つ物【もの】,,bag,鞄,thing-holding thing,76,e_76_monomomono.mp3
+expr-77,cat-42,雨【あめ】の物【もの】,,umbrella,傘,rain thing,77,e_77_amemono.mp3
+expr-78,cat-42,寝【ね】る場所【ばしょ】,,bed,ベッド,sleeping place,78,e_78_nebasho.mp3
+expr-79,cat-42,座【すわ】る物【もの】,,chair,椅子,sitting thing,79,e_79_suwamono.mp3
+expr-80,cat-42,入【はい】る場所【ばしょ】,,door,ドア,entering place,80,e_80_haibasho.mp3
+expr-81,cat-42,外【そと】を見【み】る場所【ばしょ】,,window,窓,outside-looking place,81,e_81_sotomibasho.mp3
+expr-82,cat-42,時【とき】を見【み】る物【もの】,,clock,時計,time-seeing thing,82,e_82_tokimimono.mp3
+expr-83,cat-42,自分【じぶん】を見【み】る物【もの】,,mirror,鏡,self-seeing thing,83,e_83_jibunmimono.mp3
+expr-84,cat-42,火【ひ】の光【ひかり】,,candle,蝋燭,fire light,84,e_84_hihikari.mp3
+expr-85,cat-42,長【なが】い強【つよ】い物【もの】,,rope,縄,long strong thing,85,e_85_nagatsuyomono.mp3
+expr-86,cat-42,考【かんが】える物【もの】,,computer,コンピューター,thinking thing,86,e_86_kangamono.mp3
+expr-87,cat-42,音【おと】で言【い】う物【もの】,,phone,電話,sound-saying thing,87,e_87_otoimono.mp3
+expr-88,cat-42,速【はや】く行【い】く物【もの】,,car,車,fast-going thing,88,e_88_hayaimono.mp3
+expr-89,cat-42,水【みず】の上【うえ】の物【もの】,,boat,船,on-water thing,89,e_89_mizuuemono.mp3
+expr-90,cat-42,空【そら】を行【い】く物【もの】,,airplane,飛行機,sky-going thing,90,e_90_soraimono.mp3
+expr-91,cat-43,木【き】の食【た】べ物【もの】,,fruit,果物,tree food,91,e_91_kitamono.mp3
+expr-92,cat-43,草【くさ】の食【た】べ物【もの】,,vegetable,野菜,grass food,92,e_92_kusatamono.mp3
+expr-93,cat-43,動物【どうぶつ】の食【た】べ物【もの】,,meat,肉,animal food,93,e_93_doubutsutamono.mp3
+expr-94,cat-43,白【しろ】い動物【どうぶつ】の水【みず】,,milk,牛乳,white animal water,94,e_94_shirodoubutsumizu.mp3
+expr-95,cat-43,体【からだ】を良【よ】くする物【もの】,,medicine,薬,body-improving thing,95,e_95_karadayomono.mp3
+expr-96,cat-43,体【からだ】を悪【わる】くする物【もの】,,poison,毒,body-worsening thing,96,e_96_karadawarumono.mp3
+expr-97,cat-43,目【め】と口【くち】がある場所【ばしょ】,,face,顔,place with eyes and mouth,97,e_97_mekuchibasho.mp3
+expr-98,cat-43,口【くち】の中【なか】の白【しろ】い物【もの】,,tooth,歯,white thing in mouth,98,e_98_kuchinakashiromono.mp3
+expr-99,cat-43,体【からだ】の中【なか】の赤【あか】い水【みず】,,blood,血,red water in body,99,e_99_karadanakaakamizu.mp3
+expr-100,cat-43,体【からだ】が悪【わる】い事【こと】,,sickness,病気,body being bad,100,e_100_karadawarukoto.mp3
+expr-101,cat-43,体【からだ】が暑【あつ】い,,fever,熱,body is hot,101,e_101_karadaatsui.mp3
+expr-102,cat-43,悪【わる】い感【かん】じ,,pain,痛み,bad feeling,102,e_102_warukanji.mp3
+expr-103,cat-43,寝【ね】る時【とき】に見【み】る事【こと】,,dream,夢,thing seen while sleeping,103,e_103_netokimikoto.mp3
+expr-104,cat-43,食【た】べ物【もの】が欲【ほ】しい,,hungry,空腹,want food,104,e_104_tamonohoshii.mp3
+expr-105,cat-43,体【からだ】が重【おも】い,,tired,疲労,body is heavy,105,e_105_karadaomoi.mp3
+expr-106,cat-44,前【まえ】の日【にち】,,yesterday,昨日,previous day,106,e_106_maenichi.mp3
+expr-107,cat-44,後【あと】の日【にち】,,tomorrow,明日,next day,107,e_107_atonichi.mp3
+expr-108,cat-44,日【にち】の中【なか】,,noon,正午,middle of day,108,e_108_nichinaka.mp3
+expr-109,cat-44,夜【よる】の中【なか】,,midnight,真夜中,middle of night,109,e_109_yorunaka.mp3
+expr-110,cat-44,今【いま】の夜【よる】,,tonight,今夜,now's night,110,e_110_imayoru.mp3
+expr-111,cat-44,暑【あつ】くなる時【とき】,,spring,春,becoming-hot time,111,e_111_atsutoki.mp3
+expr-112,cat-44,暑【あつ】い時【とき】,,summer,夏,hot time,112,e_112_atsutoki.mp3
+expr-113,cat-44,寒【さむ】くなる時【とき】,,autumn,秋,becoming-cold time,113,e_113_samutoki.mp3
+expr-114,cat-44,寒【さむ】い時【とき】,,winter,冬,cold time,114,e_114_samutoki.mp3
+expr-115,cat-44,終【お】わらない時【とき】,,forever,永遠,never-ending time,115,e_115_otoki.mp3
+expr-116,cat-44,とても前【まえ】の時【とき】,,ancient,古代,very before time,116,e_116_maetoki.mp3
+expr-117,cat-44,後【あと】の時【とき】,,future,未来,after time,117,e_117_atotoki.mp3
+expr-118,cat-44,する事【こと】がない日【にち】,,holiday,休日,nothing-to-do day,118,e_118_kotonichi.mp3
+expr-119,cat-45,大【おお】きくない,,small,小さい,not 大きい,119,e_119_ookikunai.mp3
+expr-120,cat-45,長【なが】くない,,short,短い,not 長い,120,e_120_nagakunai.mp3
+expr-121,cat-45,高【たか】くない,,"low, cheap",低い,not 高い,121,e_121_takakunai.mp3
+expr-122,cat-45,重【おも】くない,,light (weight),軽い,not 重い,122,e_122_omokunai.mp3
+expr-123,cat-45,強【つよ】くない,,weak,弱い,not 強い,123,e_123_tsuyokunai.mp3
+expr-124,cat-45,速【はや】くない,,slow,遅い,not 速い,124,e_124_hayakunai.mp3
+expr-125,cat-45,新【あたら】しくない,,old (thing),古い,not 新しい,125,e_125_atarashikunai.mp3
+expr-126,cat-45,きれいじゃない,,dirty,汚い,not きれい,126,e_126_kireijanai.mp3
+expr-127,cat-45,明【あか】るくない,,dark,暗い,not 明るい,127,e_127_akarukunai.mp3
+expr-128,cat-45,音【おと】がない,,quiet,静か,soundless,128,e_128_otoganai.mp3
+expr-129,cat-45,違【ちが】わない,,same,同じ,not different,129,e_129_chigawanai.mp3
+expr-130,cat-45,良【よ】くない,,bad,悪い,not good,130,e_130_yokunai.mp3
+expr-131,cat-45,必要【ひつよう】じゃない,,unnecessary,不要,not necessary,131,e_131_hitsuyoujanai.mp3
+expr-132,cat-45,できない,,impossible,不可能,cannot,132,e_132_dekinai.mp3
+expr-133,cat-45,知【し】らない,,unknown,未知,not known,133,e_133_shiranai.mp3
+expr-134,cat-45,見【み】えない,,invisible,見えない,not visible,134,e_134_mienai.mp3
+expr-135,cat-45,中【なか】に何【なに】もない,,empty,空っぽ,nothing inside,135,e_135_nakananimonai.mp3
+expr-136,cat-45,悪【わる】い事【こと】が起【お】こらない,,safe,安全,bad things don't happen,136,e_136_warukotookoranai.mp3
+expr-137,cat-45,楽【たの】しくない,,boring,退屈,not fun,137,e_137_tanoshikunai.mp3
+expr-138,cat-46,速【はや】く足【あし】で動【うご】く,,run,走る,move fast with feet,138,e_138_hayaashiugoku.mp3
+expr-139,cat-46,空【そら】を行【い】く,,fly,飛ぶ,go in sky,139,e_139_soraiku.mp3
+expr-140,cat-46,水【みず】の中【なか】を動【うご】く,,swim,泳ぐ,move in water,140,e_140_mizunakaugoku.mp3
+expr-141,cat-46,上【うえ】に行【い】く,,climb,登る,go up,141,e_141_ueiku.mp3
+expr-142,cat-46,速【はや】く上【うえ】に動【うご】く,,jump,跳ぶ,quickly move up,142,e_142_hayaueugoku.mp3
+expr-143,cat-46,下【した】に行【い】く,,fall,落ちる,go down,143,e_143_shitaiku.mp3
+expr-144,cat-46,家【いえ】に行【い】く,,return,帰る,go home,144,e_144_ieiku.mp3
+expr-145,cat-46,何【なに】もしない,,rest,休む,do nothing,145,e_145_nanimoshinai.mp3
+expr-146,cat-46,楽【たの】しい事【こと】をする,,play,遊ぶ,do fun things,146,e_146_tanokotowosuru.mp3
+expr-147,cat-46,新【あたら】しく知【し】る,,learn,学ぶ,newly know,147,e_147_atarashiru.mp3
+expr-148,cat-46,知【し】らなくなる,,forget,忘れる,become not-knowing,148,e_148_shiranakunaru.mp3
+expr-149,cat-46,見【み】えない場所【ばしょ】に行【い】く,,hide,隠れる,go to unseen place,149,e_149_mibashoiku.mp3
+expr-150,cat-46,音【おと】を作【つく】る,,sing,歌う,make sound,150,e_150_ototsukuru.mp3
+expr-151,cat-46,火【ひ】で食【た】べ物【もの】を作【つく】る,,cook,料理する,make food with fire,151,e_151_hitamonotsukuru.mp3
+expr-152,cat-46,人【ひと】の物【もの】を持【も】って行【い】く,,steal,盗む,take person's thing,152,e_152_hitomonomoiku.mp3
+expr-153,cat-46,水【みず】できれいにする,,wash,洗う,make clean with water,153,e_153_mizudekireinisuru.mp3
+expr-154,cat-46,壊【こわ】れた物【もの】を良【よ】くする,,repair,修理する,make broken thing good,154,e_154_kowamonoyokusuru.mp3
+expr-155,cat-46,草【くさ】を土【つち】に入【い】れる,,plant,植える,put grass in earth,155,e_155_kusatsuchiireru.mp3
+expr-156,cat-46,色【いろ】で物【もの】を作【つく】る,,draw,描く,make things with color,156,e_156_iromonotsukuru.mp3
+expr-157,cat-47,生【い】きる事【こと】,,life,命,living matter,157,e_157_ikoto.mp3
+expr-158,cat-47,死【し】ぬ事【こと】,,death,死,dying matter,158,e_158_shikoto.mp3
+expr-159,cat-47,心【こころ】がとても好【す】きな事【こと】,,love,愛,heart very-liking,159,e_159_kokorosukoto.mp3
+expr-160,cat-47,怒【おこ】る事【こと】,,anger,怒り,angry matter,160,e_160_okokoto.mp3
+expr-161,cat-47,怖【こわ】いと感【かん】じる事【こと】,,fear,恐怖,feeling scared,161,e_161_kowakankoto.mp3
+expr-162,cat-47,良【よ】い事【こと】を待【ま】つ事【こと】,,hope,希望,waiting for good things,162,e_162_yokotomakoto.mp3
+expr-163,cat-47,戦【たたか】わない事【こと】,,peace,平和,not fighting,163,e_163_tatakakoto.mp3
+expr-164,cat-47,国【くに】と国【くに】が戦【たたか】う事【こと】,,war,戦争,countries fighting,164,e_164_kunikunitatakakoto.mp3
+expr-165,cat-47,好【す】きにできる事【こと】,,freedom,自由,able to do as liked,165,e_165_sukoto.mp3
+expr-166,cat-47,本当【ほんとう】の事【こと】,,truth,真実,true matter,166,e_166_hontoukoto.mp3
+expr-167,cat-47,本当【ほんとう】じゃない事【こと】,,lie,嘘,not-true matter,167,e_167_hontoukoto.mp3
+expr-168,cat-47,新【あたら】しい考【かんが】え,,idea,アイデア,new thought,168,e_168_atarakangae.mp3
+expr-169,cat-47,良【よ】い事【こと】が起【お】こる事【こと】,,luck,幸運,good things happening,169,e_169_yokotookoto.mp3
+expr-170,cat-47,他【ほか】の人【ひと】が知【し】らない事【こと】,,secret,秘密,thing others don't know,170,e_170_hokahitoshikoto.mp3
+expr-171,cat-47,きれいな音【おと】,,music,音楽,pretty sound,171,e_171_oto.mp3
+expr-172,cat-47,長【なが】い言葉【ことば】,,story,物語,long words,172,e_172_nagakotoba.mp3
+expr-173,cat-47,音【おと】と言葉【ことば】,,song,歌,sound and words,173,e_173_otokotoba.mp3
+expr-174,cat-47,書【か】いた言葉【ことば】,,letter (mail),手紙,written words,174,e_174_kakotoba.mp3
+expr-175,cat-47,与【あた】える物【もの】,,gift,贈り物,giving thing,175,e_175_atamono.mp3
+expr-176,cat-47,国【くに】の言葉【ことば】,,language,言語,country's words,176,e_176_kunikotoba.mp3
+expr-177,cat-47,悪【わる】くした事【こと】,,mistake,間違い,badly-done thing,177,e_177_warukoto.mp3
+expr-178,cat-47,心【こころ】が良【よ】い事【こと】,,happiness,幸福,heart-good matter,178,e_178_kokoroyokoto.mp3
+expr-179,cat-47,悪【わる】い事【こと】が起【お】こる,,danger,危険,bad things happen,179,e_179_warukotookoru.mp3
+expr-180,cat-48,足【あし】で動【うご】く,,walk,歩く,move with feet,180,e_180_ashiugoku.mp3
+expr-181,cat-48,太陽【たいよう】が出【で】る時【とき】,,morning,朝,sun coming-out time,181,e_181_taiyoudetoki.mp3
+expr-182,cat-48,今【いま】の日【にち】,,today,今日,now's day,182,e_182_imanichi.mp3
+expr-183,cat-48,する事【こと】,,work,仕事,thing to do,183,e_183_koto.mp3
+expr-184,cat-48,悪【わる】い事【こと】,,problem,問題,bad thing,184,e_184_warukoto.mp3
+expr-185,cat-48,言葉【ことば】の事【こと】,,meaning,意味,word's matter,185,e_185_kotobakoto.mp3
+expr-186,cat-48,とても必要【ひつよう】,,important,重要,very necessary,186,e_186_hitsuyou.mp3
+expr-187,cat-48,悪【わる】い事【こと】が起【お】こる,,dangerous,危険,bad things happen,187,e_187_warukotookoru.mp3
+expr-188,cat-48,全部【ぜんぶ】の場所【ばしょ】,,world,世界,all places,188,e_188_zenbubasho.mp3
+expr-189,cat-48,手【て】で感【かん】じる,,touch,触る,feel with hand,189,e_189_tekanjiru.mp3
+expr-190,cat-50,毎【まい】日【にち】する事【こと】,せいかつ,"daily life, living",生活,,190,e_190_seikatsu.mp3
+expr-191,cat-50,外【そと】にいる人【ひと】と言葉【ことば】を使【つか】う物【もの】,でんわ,"telephone, phone call",電話,,191,e_191_denwa.mp3
+expr-192,cat-50,見【み】た物【もの】を書【か】いた物【もの】,しゃしん,"photograph, photo",写真,,192,e_192_shashin.mp3
+expr-193,cat-50,動【うご】く写真【しゃしん】を見【み】る物【もの】,えいが,"movie, film",映画,,193,e_193_eiga.mp3
+expr-194,cat-50,きれいな音【おと】,おんがく,music,音楽,,194,e_194_ongaku.mp3
+expr-195,cat-50,毎【まい】日【にち】書【か】く本【ほん】,しんぶん,newspaper,新聞,,195,e_195_shinbun.mp3
+expr-196,cat-50,多【おお】い事【こと】を書【か】いた本【ほん】,ざっし,magazine,雑誌,,196,e_196_zasshi.mp3
+expr-197,cat-50,人【ひと】に書【か】く言葉【ことば】,てがみ,"letter, written letter",手紙,,197,e_197_tegami.mp3
+expr-198,cat-50,持【も】つ物【もの】,にもつ,"luggage, baggage, package",荷物,,198,e_198_nimotsu.mp3
+expr-199,cat-50,家【いえ】を開【あ】ける物【もの】,かぎ,"key, lock",鍵,,199,e_199_kagi.mp3
+expr-200,cat-50,家【いえ】の中【なか】に外【そと】の光【ひかり】が入【はい】る場所【ばしょ】,まど,window,窓,,200,e_200_mado.mp3
+expr-201,cat-50,家【いえ】の右【みぎ】と左【ひだり】にある物【もの】,かべ,wall,壁,,201,e_201_kabe.mp3
+expr-202,cat-50,家【いえ】の中【なか】の下【した】,ゆか,floor,床,,202,e_202_yuka.mp3
+expr-203,cat-50,家【いえ】の上【うえ】にある物【もの】,やね,roof,屋根,,203,e_203_yane.mp3
+expr-204,cat-50,食【た】べる物【もの】を作【つく】る場所【ばしょ】,だいどころ,kitchen,台所,,204,e_204_daidokoro.mp3
+expr-205,cat-50,体【からだ】を水【みず】できれいにする場所【ばしょ】,ふろ,"bath, bathtub",風呂,,205,e_205_furo.mp3
+expr-206,cat-50,家【いえ】の中【なか】の場所【ばしょ】,へや,room,部屋,,206,e_206_heya.mp3
+expr-207,cat-50,場所【ばしょ】をきれいにする事【こと】,そうじ,"cleaning, sweeping",掃除,,207,e_207_souji.mp3
+expr-208,cat-50,服【ふく】を水【みず】できれいにする事【こと】,せんたく,"laundry, washing clothes",洗濯,,208,e_208_sentaku.mp3
+expr-209,cat-50,食【た】べる物【もの】を作【つく】る事【こと】,りょうり,"cooking, cuisine",料理,,209,e_209_ryouri.mp3
+expr-210,cat-50,物【もの】を買【か】う事【こと】,かいもの,shopping,買い物,,210,e_210_kaimono.mp3
+expr-211,cat-50,外【そと】を動【うご】いていく事【こと】,さんぽ,"walk, stroll",散歩,,211,e_211_sanpo.mp3
+expr-212,cat-50,前【まえ】にする事【こと】,したく,"preparation, getting ready",支度,,212,e_212_shitaku.mp3
+expr-213,cat-50,始【はじ】まる前【まえ】にする事【こと】,じゅんび,"preparation, arrangement",準備,,213,e_213_junbi.mp3
+expr-214,cat-50,人【ひと】に「する」と言【い】う事【こと】,やくそく,"promise, appointment",約束,,214,e_214_yakusoku.mp3
+expr-215,cat-50,後【あと】にする事【こと】,よてい,"schedule, plan",予定,,215,e_215_yotei.mp3
+expr-216,cat-50,好【す】きでする事【こと】,しゅみ,"hobby, interest",趣味,,216,e_216_shumi.mp3
+expr-217,cat-50,良【よ】くなるために何【なに】かを多【おお】くする事【こと】,れんしゅう,"practice, training",練習,,217,e_217_renshuu.mp3
+expr-218,cat-50,知【し】るために読【よ】んだり聞【き】いたりする事【こと】,べんきょう,"study, studying",勉強,,218,e_218_benkyou.mp3
+expr-219,cat-50,家【いえ】でする勉強【べんきょう】,しゅくだい,homework,宿題,,219,e_219_shukudai.mp3
+expr-220,cat-50,知【し】りたい事【こと】を聞【き】く言葉【ことば】,しつもん,question,質問,,220,e_220_shitsumon.mp3
+expr-221,cat-50,聞【き】かれた事【こと】を言【い】う事【こと】,こたえ,"answer, response",答え,,221,e_221_kotae.mp3
+expr-222,cat-50,人【ひと】の言葉【ことば】に言【い】う事【こと】,へんじ,"reply, response",返事,,222,e_222_henji.mp3
+expr-223,cat-50,会【あ】った時【とき】に言【い】う言葉【ことば】,あいさつ,greeting,挨拶,,223,e_223_aisatsu.mp3
+expr-224,cat-50,人【ひと】に知【し】らせる事【こと】,れんらく,"contact, communication",連絡,,224,e_224_renraku.mp3
+expr-225,cat-50,人【ひと】と考【かんが】える事【こと】,そうだん,"consultation, discussion",相談,,225,e_225_soudan.mp3
+expr-226,cat-50,人【ひと】や物【もの】の事【こと】を他【ほか】の人【ひと】に教【おし】える事【こと】,しょうかい,"introduction, referral",紹介,,226,e_226_shoukai.mp3
+expr-227,cat-50,人【ひと】に「来【き】てください」と言【い】う事【こと】,しょうたい,invitation,招待,,227,e_227_shoutai.mp3
+expr-228,cat-50,前【まえ】にした事【こと】,けいけん,experience,経験,,228,e_228_keiken.mp3
+expr-229,cat-50,後【あと】にする事【こと】を考【かんが】える事【こと】,けいかく,"plan, project",計画,,229,e_229_keikaku.mp3
+expr-230,cat-50,よく見【み】てほしい事【こと】,ちゅうい,"caution, attention, warning",注意,,230,e_230_chuui.mp3
+expr-231,cat-50,「これをください」と言【い】う事【こと】,ちゅうもん,"order (food, goods)",注文,,231,e_231_chuumon.mp3
+expr-232,cat-50,物【もの】を買【か】うお金【おかね】,ねだん,"price, cost",値段,,232,e_232_nedan.mp3
+expr-233,cat-50,お金【おかね】が少【すこ】しで良【よ】くなる事【こと】,わりびき,discount,割引,,233,e_233_waribiki.mp3
+expr-234,cat-50,お金【おかね】がない事【こと】,むりょう,free of charge,無料,,234,e_234_muryou.mp3
+expr-235,cat-50,変【へん】ではない,ふつう,"ordinary, normal, usual",普通,,235,e_235_futsuu.mp3
+expr-236,cat-50,他【ほか】と違【ちが】う良【よ】い事【こと】,とくべつ,"special, particular",特別,,236,e_236_tokubetsu.mp3
+expr-237,cat-50,とても必要【ひつよう】な,たいせつ,"important, precious, valued",大切,,237,e_237_taisetsu.mp3
+expr-238,cat-50,だれでもできる,かんたん,"easy, simple",簡単,,238,e_238_kantan.mp3
+expr-239,cat-50,多【おお】くの事【こと】が中【なか】にある,ふくざつ,"complex, complicated",複雑,,239,e_239_fukuzatsu.mp3
+expr-240,cat-50,よく使【つか】える良【よ】い,べんり,"convenient, handy",便利,,240,e_240_benri.mp3
+expr-241,cat-50,よく使【つか】えない悪【わる】い,ふべん,inconvenient,不便,,241,e_241_fuben.mp3
+expr-242,cat-50,人【ひと】に良【よ】い言葉【ことば】を使【つか】う,ていねい,"polite, careful, thorough",丁寧,,242,e_242_teinei.mp3
+expr-243,cat-50,その時【とき】に良【よ】い,てきとう,"suitable, appropriate; casual",適当,,243,e_243_tekitou.mp3
+expr-244,cat-50,したい事【こと】ができる,じゆう,"freedom, liberty",自由,,244,e_244_jiyuu.mp3
+expr-245,cat-50,他【ほか】の国【くに】や場所【ばしょ】に行【い】く事【こと】,りょこう,"travel, trip",旅行,,245,e_245_ryokou.mp3
+expr-246,cat-50,空【そら】の今【いま】の事【こと】,てんき,weather,天気,,246,e_246_tenki.mp3
+expr-247,cat-50,年【とし】の中【なか】の時【とき】,きせつ,season,季節,,247,e_247_kisetsu.mp3
+expr-248,cat-51,する事【こと】,しごと,"work, job, occupation",仕事,,248,e_248_shigoto.mp3
+expr-249,cat-51,仕事【しごと】をする場所【ばしょ】,かいしゃ,"company, business",会社,,249,e_249_kaisha.mp3
+expr-250,cat-51,会社【かいしゃ】の一【いち】番上【うえ】の人【ひと】,しゃちょう,"company president, CEO",社長,,250,e_250_shachou.mp3
+expr-251,cat-51,会社【かいしゃ】で仕事【しごと】をする人【ひと】,しゃいん,company employee,社員,,251,e_251_shain.mp3
+expr-252,cat-51,会社【かいしゃ】の中【なか】の大【おお】きい場所【ばしょ】の上【うえ】の人【ひと】,ぶちょう,"department head, director",部長,,252,e_252_buchou.mp3
+expr-253,cat-51,仕事【しごと】で上【うえ】にいる人【ひと】,じょうし,"superior, boss",上司,,253,e_253_joushi.mp3
+expr-254,cat-51,仕事【しごと】で下【した】にいる人【ひと】,ぶか,"subordinate, staff under one",部下,,254,e_254_buka.mp3
+expr-255,cat-51,その会社【かいしゃ】で仕事【しごと】をする他【ほか】の人【ひと】,どうりょう,"colleague, coworker",同僚,,255,e_255_douryou.mp3
+expr-256,cat-51,来【く】る人【ひと】,きゃく,"customer, guest, visitor",客,,256,e_256_kyaku.mp3
+expr-257,cat-51,多【おお】くの人【ひと】が来【き】て考【かんが】える事【こと】,かいぎ,"meeting, conference",会議,,257,e_257_kaigi.mp3
+expr-258,cat-51,仕事【しごと】に使【つか】う書【か】いた物【もの】,しりょう,"materials, documents, data",資料,,258,e_258_shiryou.mp3
+expr-259,cat-51,した事【こと】を上【うえ】の人【ひと】に言【い】う事【こと】,ほうこく,"report, notification",報告,,259,e_259_houkoku.mp3
+expr-260,cat-51,知【し】らない人【ひと】に言葉【ことば】で教【おし】える事【こと】,せつめい,"explanation, description",説明,,260,e_260_setsumei.mp3
+expr-261,cat-51,人【ひと】と違【ちが】う考【かんが】えを言【い】う事【こと】,ぎろん,"debate, argument, discussion",議論,,261,e_261_giron.mp3
+expr-262,cat-51,人【ひと】と「する」と書【か】いた物【もの】,けいやく,"contract, agreement",契約,,262,e_262_keiyaku.mp3
+expr-263,cat-51,仕事【しごと】をしてもらうお金【おかね】,きゅうりょう,"salary, wages, pay",給料,,263,e_263_kyuuryou.mp3
+expr-264,cat-51,終【お】わった後【あと】もする仕事【しごと】,ざんぎょう,overtime work,残業,,264,e_264_zangyou.mp3
+expr-265,cat-51,仕事【しごと】で他【ほか】の場所【ばしょ】に行【い】く事【こと】,しゅっちょう,business trip,出張,,265,e_265_shucchou.mp3
+expr-266,cat-51,違【ちが】う仕事【しごと】に変【か】わる事【こと】,てんしょく,"job change, career change",転職,,266,e_266_tenshoku.mp3
+expr-267,cat-51,仕事【しごと】を終【お】わらせる事【こと】,たいしょく,"retirement, resignation",退職,,267,e_267_taishoku.mp3
+expr-268,cat-51,はじめて仕事【しごと】を始【はじ】める事【こと】,しゅうしょく,"getting a job, employment",就職,,268,e_268_shuushoku.mp3
+expr-269,cat-51,仕事【しごと】のために会【あ】って言葉【ことば】を使【つか】う事【こと】,めんせつ,job interview,面接,,269,e_269_mensetsu.mp3
+expr-270,cat-51,知【し】っているかを見【み】る事【こと】,しけん,"exam, test",試験,,270,e_270_shiken.mp3
+expr-271,cat-51,試験【しけん】でどのくらい良【よ】かったかの数【かず】,せいせき,"grades, results, performance",成績,,271,e_271_seiseki.mp3
+expr-272,cat-51,学校【がっこう】が終【お】わる事【こと】,そつぎょう,graduation,卒業,,272,e_272_sotsugyou.mp3
+expr-273,cat-51,学校【がっこう】に入【はい】る事【こと】,にゅうがく,"school enrollment, starting school",入学,,273,e_273_nyuugaku.mp3
+expr-274,cat-51,学校【がっこう】で教【おし】えてもらう事【こと】,じゅぎょう,"class, lesson, lecture",授業,,274,e_274_jugyou.mp3
+expr-275,cat-51,教【おし】える場所【ばしょ】,きょうしつ,classroom,教室,,275,e_275_kyoushitsu.mp3
+expr-276,cat-51,勉強【べんきょう】する場所【ばしょ】,がっこう,school,学校,,276,e_276_gakkou.mp3
+expr-277,cat-51,大【おお】きい学校【がっこう】,だいがく,"university, college",大学,,277,e_277_daigaku.mp3
+expr-278,cat-51,まだ知【し】らない事【こと】を探【さが】す事【こと】,けんきゅう,"research, study, investigation",研究,,278,e_278_kenkyuu.mp3
+expr-279,cat-51,知【し】るために物【もの】を使【つか】ってみる事【こと】,じっけん,"experiment, test",実験,,279,e_279_jikken.mp3
+expr-280,cat-51,物【もの】を作【つく】ったり使【つか】ったりできる事【こと】,ぎじゅつ,"technology, technique, skill",技術,,280,e_280_gijutsu.mp3
+expr-281,cat-51,できる事【こと】,のうりょく,"ability, capability, talent",能力,,281,e_281_nouryoku.mp3
+expr-282,cat-51,良【よ】くなるためにとても強【つよ】くする事【こと】,どりょく,"effort, hard work",努力,,282,e_282_doryoku.mp3
+expr-283,cat-51,したい事【こと】ができた事【こと】,せいこう,"success, achievement",成功,,283,e_283_seikou.mp3
+expr-284,cat-51,したい事【こと】ができなかった事【こと】,しっぱい,"failure, mistake",失敗,,284,e_284_shippai.mp3
+expr-285,cat-51,した後【あと】に起【お】こる事【こと】,けっか,"result, outcome",結果,,285,e_285_kekka.mp3
+expr-286,cat-51,したい事【こと】の場所【ばしょ】,もくひょう,"goal, target, objective",目標,,286,e_286_mokuhyou.mp3
+expr-287,cat-51,なぜかの事【こと】,りゆう,"reason, cause",理由,,287,e_287_riyuu.mp3
+expr-288,cat-51,どうするかの事【こと】,ほうほう,"method, way, means",方法,,288,e_288_houhou.mp3
+expr-289,cat-51,良【よ】くない事【こと】が起【お】こっている,もんだい,"problem, question, issue",問題,,289,e_289_mondai.mp3
+expr-290,cat-51,問題【もんだい】を良【よ】くする事【こと】,かいけつ,"solution, resolution",解決,,290,e_290_kaiketsu.mp3
+expr-291,cat-51,しなければならない事【こと】,せきにん,"responsibility, duty",責任,,291,e_291_sekinin.mp3
+expr-292,cat-51,しなければならない事【こと】と、してはいけない事【こと】,きそく,"rule, regulation",規則,,292,e_292_kisoku.mp3
+expr-293,cat-51,「していい」と言【い】う事【こと】,きょか,"permission, approval",許可,,293,e_293_kyoka.mp3
+expr-294,cat-51,しなければならない事【こと】,かだい,"assignment, task, challenge",課題,,294,e_294_kadai.mp3
+expr-295,cat-51,良【よ】いか悪【わる】いかを見【み】る事【こと】,ひょうか,"evaluation, assessment, rating",評価,,295,e_295_hyouka.mp3
+expr-296,cat-51,多【おお】くの人【ひと】に言【い】う事【こと】,はっぴょう,"presentation, announcement",発表,,296,e_296_happyou.mp3
+expr-297,cat-51,私【わたし】が思【おも】う事【こと】,いけん,"opinion, view",意見,,297,e_297_iken.mp3
+expr-298,cat-51,教【おし】える人【ひと】,せんせい,"teacher, instructor",先生,,298,e_298_sensei.mp3
+expr-299,cat-51,学校【がっこう】で勉強【べんきょう】する子供【こども】,せいと,"student (K-12), pupil",生徒,,299,e_299_seito.mp3
+expr-300,cat-52,十【じゅう】が十【じゅう】,ひゃく,hundred (100),百,,300,e_300_hyaku.mp3
+expr-301,cat-52,百【ひゃく】が十【じゅう】,せん,"thousand (1,000)",千,,301,e_301_sen.mp3
+expr-302,cat-52,千【せん】が十【じゅう】,まん,"ten-thousand (10,000)",万,,302,e_302_man.mp3
+expr-303,cat-52,一【いち】つの物【もの】を二【に】つに切【き】った一【いち】つ,はんぶん,half,半分,,303,e_303_hanbun.mp3
+expr-304,cat-52,もう一【いち】つ多【おお】い事【こと】,ばい,"double, times (multiplier)",倍,,304,e_304_bai.mp3
+expr-305,cat-52,その物【もの】の名前【なまえ】になる数【かず】,ばんごう,number (as identifier),番号,,305,e_305_bangou.mp3
+expr-306,cat-52,いくつあるかを言【い】う物【もの】,かず,"number, count, quantity",数,,306,e_306_kazu.mp3
+expr-307,cat-52,何【なに】かをした数【かず】,かい,"time(s), occurrence (counter)",回,,307,e_307_kai.mp3
+expr-308,cat-52,何【なに】かが起【お】こった数【かず】,ど,"degree, time(s), occasion",度,,308,e_308_do.mp3
+expr-309,cat-52,本【ほん】の中【なか】のような物【もの】の数【かず】を言【い】う言葉【ことば】,まい,"flat things counter (sheets, cards)",枚,,309,e_309_mai.mp3
+expr-310,cat-52,長【なが】い物【もの】の数【かず】を言【い】う言葉【ことば】,ほん,"long thin things counter (pens, bottles)",本,,310,e_310_hon.mp3
+expr-311,cat-52,物【もの】の数【かず】を言【い】う言葉【ことば】,こ,small objects counter (pieces),個,,311,e_311_ko.mp3
+expr-312,cat-52,動物【どうぶつ】の数【かず】を言【い】う言葉【ことば】,ひき,small animals counter,匹,,312,e_312_hiki.mp3
+expr-313,cat-52,動【うご】く物【もの】の数【かず】を言【い】う言葉【ことば】,だい,machines/vehicles counter,台,,313,e_313_dai.mp3
+expr-314,cat-52,飲【の】む物【もの】の数【かず】を言【い】う言葉【ことば】,はい,cups/bowls counter (drinks),杯,,314,e_314_hai.mp3
+expr-315,cat-52,本【ほん】の数【かず】を言【い】う言葉【ことば】,さつ,bound books counter,冊,,315,e_315_satsu.mp3
+expr-316,cat-52,足【あし】に着【き】る物【もの】の数【かず】を言【い】う言葉【ことば】,そく,pairs of footwear counter,足,,316,e_316_soku.mp3
+expr-317,cat-52,体【からだ】に着【き】る物【もの】の数【かず】を言【い】う言葉【ことば】,ちゃく,clothing items counter,着,,317,e_317_chaku.mp3
+expr-318,cat-52,十【じゅう】の中【なか】の一【いち】つ,わり,"ten percent unit, proportion",割,,318,e_318_wari.mp3
+expr-319,cat-52,前【まえ】から何【なに】番目【ばんめ】かを言【い】う言葉【ことば】,ばん,"number in sequence, rank",番,,319,e_319_ban.mp3
+expr-320,cat-52,一【いち】番前【まえ】,だいいち,"first, number one",第一,,320,e_320_daiichi.mp3
+expr-321,cat-52,一【いち】番前【まえ】の時【とき】,さいしょ,"first, beginning",最初,,321,e_321_saisho.mp3
+expr-322,cat-52,一【いち】番後【あと】の時【とき】,さいご,"last, final",最後,,322,e_322_saigo.mp3
+expr-323,cat-52,全部【ぜんぶ】の数【かず】,ごうけい,"total, sum",合計,,323,e_323_goukei.mp3
+expr-324,cat-52,全部【ぜんぶ】を一【いち】つにした数【かず】,へいきん,"average, mean",平均,,324,e_324_heikin.mp3
+expr-325,cat-53,家【いえ】の人【ひと】たち,かぞく,family,家族,,325,e_325_kazoku.mp3
+expr-326,cat-53,男【おとこ】の上【うえ】の子供【こども】,あに,older brother,兄,,326,e_326_ani.mp3
+expr-327,cat-53,男【おとこ】の下【した】の子供【こども】,おとうと,younger brother,弟,,327,e_327_otouto.mp3
+expr-328,cat-53,女【おんな】の上【うえ】の子供【こども】,あね,older sister,姉,,328,e_328_ane.mp3
+expr-329,cat-53,女【おんな】の下【した】の子供【こども】,いもうと,younger sister,妹,,329,e_329_imouto.mp3
+expr-330,cat-53,女【おんな】の人【ひと】の男【おとこ】,おっと,husband,夫,,330,e_330_otto.mp3
+expr-331,cat-53,男【おとこ】の人【ひと】の女【おんな】,つま,wife,妻,,331,e_331_tsuma.mp3
+expr-332,cat-53,私【わたし】の男【おとこ】の子供【こども】,むすこ,son,息子,,332,e_332_musuko.mp3
+expr-333,cat-53,私【わたし】の女【おんな】の子供【こども】,むすめ,daughter,娘,,333,e_333_musume.mp3
+expr-334,cat-53,子供【こども】の父【ちち】または母【はは】,おや,parent,親,,334,e_334_oya.mp3
+expr-335,cat-53,父【ちち】の父【ちち】,そふ,grandfather,祖父,,335,e_335_sofu.mp3
+expr-336,cat-53,父【ちち】の母【はは】,そぼ,grandmother,祖母,,336,e_336_sobo.mp3
+expr-337,cat-53,子供【こども】の子供【こども】,まご,grandchild,孫,,337,e_337_mago.mp3
+expr-338,cat-53,よく会【あ】う好【す】きな人【ひと】,ともだち,friend,友達,,338,e_338_tomodachi.mp3
+expr-339,cat-53,とても好【す】きな人【ひと】,こいびと,romantic partner,恋人,,339,e_339_koibito.mp3
+expr-340,cat-53,あの男【おとこ】の人【ひと】,かれ,he / boyfriend,彼,,340,e_340_kare.mp3
+expr-341,cat-53,あの女【おんな】の人【ひと】,かのじょ,she / girlfriend,彼女,,341,e_341_kanojo.mp3
+expr-342,cat-53,前【まえ】からいる人【ひと】,せんぱい,senior / upperclassman,先輩,,342,e_342_senpai.mp3
+expr-343,cat-53,後【あと】から来【き】た人【ひと】,こうはい,junior / underclassman,後輩,,343,e_343_kouhai.mp3
+expr-344,cat-53,よく会【あ】う人【ひと】たち,なかま,companion / fellow member,仲間,,344,e_344_nakama.mp3
+expr-345,cat-53,近【ちか】くにいる人【ひと】,りんじん,neighbor,隣人,,345,e_345_rinjin.mp3
+expr-346,cat-53,会【あ】っている人【ひと】,あいて,partner / opponent,相手,,346,e_346_aite.mp3
+expr-347,cat-53,全部【ぜんぶ】の人【ひと】,みんな,everyone,皆,,347,e_347_minna.mp3
+expr-348,cat-53,まだ大【おお】きくなっていない子供【こども】,あかちゃん,baby,赤ちゃん,,348,e_348_akachan.mp3
+expr-349,cat-53,年【とし】が少【すこ】しの人【ひと】,わかもの,young person,若者,,349,e_349_wakamono.mp3
+expr-350,cat-53,年【とし】が多【おお】い人【ひと】,ろうじん,elderly person,老人,,350,e_350_roujin.mp3
+expr-351,cat-53,大【おお】きくなった人【ひと】,おとな,adult,大人,,351,e_351_otona.mp3
+expr-352,cat-53,教【おし】える人【ひと】,せんせい,teacher,先生,,352,e_352_sensei.mp3
+expr-353,cat-53,体【からだ】を助【たす】ける人【ひと】,いしゃ,doctor,医者,,353,e_353_isha.mp3
+expr-354,cat-53,悪【わる】いことをする人【ひと】を止【と】める人【ひと】,けいさつ,police,警察,,354,e_354_keisatsu.mp3
+expr-355,cat-53,戦【たたか】う人【ひと】,へいし,soldier,兵士,,355,e_355_heishi.mp3
+expr-356,cat-53,国【くに】で高【たか】い人【ひと】,おう,king,王,,356,e_356_ou.mp3
+expr-357,cat-53,とても強【つよ】い上【うえ】にいる人【ひと】,かみ,god / deity,神,,357,e_357_kami.mp3
+expr-358,cat-53,その国【くに】にいる人【ひと】,しみん,citizen,市民,,358,e_358_shimin.mp3
+expr-359,cat-53,その国【くに】の全部【ぜんぶ】の人【ひと】,こくみん,nationals / people of a country,国民,,359,e_359_kokumin.mp3
+expr-360,cat-53,戦【たたか】う悪【わる】い人【ひと】,てき,enemy,敵,,360,e_360_teki.mp3
+expr-361,cat-53,よく助【たす】けてくれる人【ひと】,みかた,ally,味方,,361,e_361_mikata.mp3
+expr-362,cat-53,悪【わる】いことをされた人【ひと】,ひがいしゃ,victim,被害者,,362,e_362_higaisha.mp3
+expr-363,cat-53,悪【わる】いことをした人【ひと】,はんにん,criminal / culprit,犯人,,363,e_363_hannin.mp3
+expr-364,cat-53,外【そと】の国【くに】から来【き】た人【ひと】,がいこくじん,foreigner,外国人,,364,e_364_gaikokujin.mp3
+expr-365,cat-53,その場所【ばしょ】を見【み】に来【き】た人【ひと】,かんこうきゃく,tourist,観光客,,365,e_365_kankoukyaku.mp3
+expr-366,cat-53,動【うご】く物【もの】の中【なか】にいる人【ひと】,じょうきゃく,passenger,乗客,,366,e_366_joukyaku.mp3
+expr-367,cat-53,体【からだ】が悪【わる】い人【ひと】,かんじゃ,patient (medical),患者,,367,e_367_kanja.mp3
+expr-368,cat-53,選【えら】ばれた人【ひと】,せんしゅ,athlete / player,選手,,368,e_368_senshu.mp3
+expr-369,cat-53,口【くち】から音【おと】を出【だ】す人【ひと】,かしゅ,singer,歌手,,369,e_369_kashu.mp3
+expr-370,cat-53,本【ほん】を作【つく】る人【ひと】,さっか,author / writer,作家,,370,e_370_sakka.mp3
+expr-371,cat-53,きれいな物【もの】を作【つく】る人【ひと】,がか,painter / artist,画家,,371,e_371_gaka.mp3
+expr-372,cat-53,上【うえ】にいる人【ひと】,じょうし,boss / superior,上司,,372,e_372_joushi.mp3
+expr-373,cat-53,下【した】にいる人【ひと】,ぶか,subordinate,部下,,373,e_373_buka.mp3
+expr-374,cat-53,来【き】た人【ひと】,きゃく,customer / guest,客,,374,e_374_kyaku.mp3
+expr-375,cat-54,良【よ】いことがあった心【こころ】,うれしい,happy / glad,嬉しい,,375,e_375_ureshii.mp3
+expr-376,cat-54,一人【ひとり】で悲【かな】しい,さびしい,lonely,寂しい,,376,e_376_sabishii.mp3
+expr-377,cat-54,人【ひと】に見【み】られたくない心【こころ】,はずかしい,embarrassed / shy,恥ずかしい,,377,e_377_hazukashii.mp3
+expr-378,cat-54,体【からだ】も心【こころ】もとても悪【わる】い,くるしい,painful / agonizing,苦しい,,378,e_378_kurushii.mp3
+expr-379,cat-54,とても悲【かな】しくて悪【わる】い,つらい,hard / tough / painful,辛い,,379,e_379_tsurai.mp3
+expr-380,cat-54,人【ひと】に良【よ】くする心【こころ】がある,やさしい,kind / gentle,優しい,,380,e_380_yasashii.mp3
+expr-381,cat-54,とても強【つよ】くて悪【わる】いことを止【と】める,きびしい,strict / harsh,厳しい,,381,e_381_kibishii.mp3
+expr-382,cat-54,変【へん】なことをしない良【よ】い心【こころ】,すなお,honest / obedient,素直,,382,e_382_sunao.mp3
+expr-383,cat-54,良【よ】くしようと考【かんが】える人【ひと】,まじめ,serious / diligent,真面目,,383,e_383_majime.mp3
+expr-384,cat-54,体【からだ】も心【こころ】も良【よ】い,げんき,energetic / well,元気,,384,e_384_genki.mp3
+expr-385,cat-54,良【よ】いことが多【おお】くある心【こころ】,しあわせ,happiness / fortune,幸せ,,385,e_385_shiawase.mp3
+expr-386,cat-54,これから悪【わる】いことが来【く】るかもしれないと思【おも】う心【こころ】,ふあん,anxiety / unease,不安,,386,e_386_fuan.mp3
+expr-387,cat-54,悪【わる】いことが起【お】こるかもと考【かんが】える,しんぱい,worry / concern,心配,,387,e_387_shinpai.mp3
+expr-388,cat-54,怖【こわ】くて体【からだ】が動【うご】きにくい,きんちょう,nervousness / tension,緊張,,388,e_388_kinchou.mp3
+expr-389,cat-54,心【こころ】が大【おお】きく動【うご】く,かんどう,being moved / deeply touched,感動,,389,e_389_kandou.mp3
+expr-390,cat-54,ありがとうと思【おも】う心【こころ】,かんしゃ,gratitude / thanks,感謝,,390,e_390_kansha.mp3
+expr-391,cat-54,前【まえ】にしたことが悪【わる】かったと思【おも】う,こうかい,regret,後悔,,391,e_391_koukai.mp3
+expr-392,cat-54,私【わたし】は良【よ】いと思【おも】う強【つよ】い心【こころ】,じしん,self-confidence,自信,,392,e_392_jishin.mp3
+expr-393,cat-54,良【よ】いことが来【く】ると思【おも】って待【ま】つ,きたい,expectation / anticipation,期待,,393,e_393_kitai.mp3
+expr-394,cat-54,良【よ】いことが起【お】こってほしいと思【おも】う,きぼう,hope / wish,希望,,394,e_394_kibou.mp3
+expr-395,cat-54,良【よ】いことはないと思【おも】う,ぜつぼう,despair,絶望,,395,e_395_zetsubou.mp3
+expr-396,cat-54,もっと知【し】りたいと思【おも】う心【こころ】,きょうみ,interest / curiosity,興味,,396,e_396_kyoumi.mp3
+expr-397,cat-54,楽【たの】しいことが何【なに】もない,たいくつ,boredom,退屈,,397,e_397_taikutsu.mp3
+expr-398,cat-54,知【し】らなかったことが起【お】こって感【かん】じる,おどろく,to be surprised,驚く,,398,e_398_odoroku.mp3
+expr-399,cat-54,どうすればいいか思【おも】えなくて悪【わる】い,こまる,to be troubled,困る,,399,e_399_komaru.mp3
+expr-400,cat-54,どれを選【えら】ぶかと考【かんが】えて止【と】まる,まよう,to hesitate / be lost,迷う,,400,e_400_mayou.mp3
+expr-401,cat-54,速【はや】くしなければと思【おも】って怖【こわ】い,あせる,to be impatient / flustered,焦る,,401,e_401_aseru.mp3
+expr-402,cat-54,悪【わる】くても止【と】まらずにいること,がまん,endurance / patience,我慢,,402,e_402_gaman.mp3
+expr-403,cat-54,悪【わる】いことをした人【ひと】を良【よ】いと言【い】う,ゆるす,to forgive / permit,許す,,403,e_403_yurusu.mp3
+expr-404,cat-54,本当【ほんとう】だと思【おも】う,しんじる,to believe / trust,信じる,,404,e_404_shinjiru.mp3
+expr-405,cat-54,本当【ほんとう】かどうかと思【おも】う,うたがう,to doubt / suspect,疑う,,405,e_405_utagau.mp3
+expr-406,cat-54,とても良【よ】い人【ひと】だと思【おも】う,そんけい,respect,尊敬,,406,e_406_sonkei.mp3
+expr-407,cat-54,とても悪【わる】い人【ひと】だと思【おも】う,けいべつ,contempt / scorn,軽蔑,,407,e_407_keibetsu.mp3
+expr-408,cat-54,悲【かな】しい人【ひと】の心【こころ】を感【かん】じる,どうじょう,sympathy / compassion,同情,,408,e_408_doujou.mp3
+expr-409,cat-54,他【ほか】の人【ひと】が持【も】っているものを欲【ほ】しいと思【おも】う,しっと,jealousy / envy,嫉妬,,409,e_409_shitto.mp3
+expr-410,cat-54,悪【わる】いことをされてまだ怒【おこ】る,うらむ,to resent / bear a grudge,恨む,,410,e_410_uramu.mp3
+expr-411,cat-54,あの人【ひと】のようになりたいと思【おも】う,あこがれる,to admire / yearn for,憧れる,,411,e_411_akogareru.mp3
+expr-412,cat-54,もう良【よ】いと感【かん】じる,まんぞく,satisfaction / contentment,満足,,412,e_412_manzoku.mp3
+expr-413,cat-54,まだ良【よ】くないと思【おも】う,ふまん,dissatisfaction / discontent,不満,,413,e_413_fuman.mp3
+expr-414,cat-54,一人【ひとり】しかいなくて悲【かな】しい,こどく,loneliness / isolation,孤独,,414,e_414_kodoku.mp3
+expr-415,cat-54,怖【こわ】くても前【まえ】に行【い】く強【つよ】い心【こころ】,ゆうき,courage / bravery,勇気,,415,e_415_yuuki.mp3
+expr-416,cat-54,私【わたし】は良【よ】いと感【かん】じる強【つよ】い心【こころ】,ほこり,pride,誇り,,416,e_416_hokori.mp3
+expr-417,cat-54,ある人【ひと】がとても好【す】きになる心【こころ】,こい,romantic love / crush,恋,,417,e_417_koi.mp3
+expr-418,cat-54,ある人【ひと】をとても良【よ】くしたい強【つよ】い心【こころ】,あい,love,愛,,418,e_418_ai.mp3
+expr-419,cat-54,悪【わる】いことが起【お】こって怒【おこ】る心【こころ】,いかり,anger,怒り,,419,e_419_ikari.mp3
+expr-420,cat-54,良【よ】いことが起【お】こって笑【わら】いたい心【こころ】,よろこび,joy / delight,喜び,,420,e_420_yorokobi.mp3
+expr-421,cat-54,知【し】らなかったことを見【み】たり聞【き】いたりした心【こころ】,おどろき,surprise / astonishment,驚き,,421,e_421_odoroki.mp3
+expr-422,cat-54,とても怖【こわ】い心【こころ】,きょうふ,fear / terror,恐怖,,422,e_422_kyoufu.mp3
+expr-423,cat-54,怒【おこ】らないで良【よ】く考【かんが】える,れいせい,calm / composed,冷静,,423,e_423_reisei.mp3
+expr-424,cat-54,他【ほか】の人【ひと】の良【よ】いものを欲【ほ】しいと思【おも】う,うらやむ,to envy,羨む,,424,e_424_urayamu.mp3
+expr-425,cat-55,人【ひと】たちがいる場所【ばしょ】,しゃかい,society,社会,,425,e_425_shakai.mp3
+expr-426,cat-55,国【くに】をどうするかを選【えら】ぶこと,せいじ,politics,政治,,426,e_426_seiji.mp3
+expr-427,cat-55,お金【おかね】と物【もの】の動【うご】き,けいざい,economy,経済,,427,e_427_keizai.mp3
+expr-428,cat-55,国【くに】の人【ひと】がしなければならないこと,ほうりつ,law,法律,,428,e_428_houritsu.mp3
+expr-429,cat-55,人【ひと】がしてもいいこと,けんり,rights,権利,,429,e_429_kenri.mp3
+expr-430,cat-55,人【ひと】がしなければならないこと,ぎむ,duty / obligation,義務,,430,e_430_gimu.mp3
+expr-431,cat-55,したいことができること,じゆう,freedom / liberty,自由,,431,e_431_jiyuu.mp3
+expr-432,cat-55,戦【たたか】いがない良【よ】い時【とき】,へいわ,peace,平和,,432,e_432_heiwa.mp3
+expr-433,cat-55,国【くに】と国【くに】が戦【たたか】うこと,せんそう,war,戦争,,433,e_433_sensou.mp3
+expr-434,cat-55,国【くに】のために戦【たたか】う人【ひと】たち,ぐんたい,military / army,軍隊,,434,e_434_guntai.mp3
+expr-435,cat-55,国【くに】を動【うご】かす人【ひと】たち,せいふ,government,政府,,435,e_435_seifu.mp3
+expr-436,cat-55,国【くに】を動【うご】かす人【ひと】を選【えら】ぶこと,せんきょ,election,選挙,,436,e_436_senkyo.mp3
+expr-437,cat-55,国【くに】に与【あた】えるお金【おかね】,ぜいきん,tax,税金,,437,e_437_zeikin.mp3
+expr-438,cat-55,前【まえ】に起【お】こったこと,れきし,history,歴史,,438,e_438_rekishi.mp3
+expr-439,cat-55,その国【くに】の人【ひと】たちがすること,ぶんか,culture,文化,,439,e_439_bunka.mp3
+expr-440,cat-55,人【ひと】の上【うえ】にいる強【つよ】い物【もの】を思【おも】うこと,しゅうきょう,religion,宗教,,440,e_440_shuukyou.mp3
+expr-441,cat-55,人【ひと】に教【おし】えること,きょういく,education,教育,,441,e_441_kyouiku.mp3
+expr-442,cat-55,物【もの】がどうなっているかを知【し】ること,かがく,science,科学,,442,e_442_kagaku.mp3
+expr-443,cat-55,きれいな物【もの】を作【つく】ること,げいじゅつ,art,芸術,,443,e_443_geijutsu.mp3
+expr-444,cat-55,言葉【ことば】で作【つく】った本【ほん】,ぶんがく,literature,文学,,444,e_444_bungaku.mp3
+expr-445,cat-55,なぜ生【い】きるかを考【かんが】えること,てつがく,philosophy,哲学,,445,e_445_tetsugaku.mp3
+expr-446,cat-55,前【まえ】からある事【こと】,でんとう,tradition,伝統,,446,e_446_dentou.mp3
+expr-447,cat-55,全部【ぜんぶ】の人【ひと】で楽【たの】しくする日【にち】,まつり,festival,祭り,,447,e_447_matsuri.mp3
+expr-448,cat-55,人【ひと】たちが前【まえ】からする事【こと】,ぎしき,ritual / ceremony,儀式,,448,e_448_gishiki.mp3
+expr-449,cat-55,男【おとこ】と女【おんな】が家【いえ】の人【ひと】になること,けっこん,marriage,結婚,,449,e_449_kekkon.mp3
+expr-450,cat-55,死【し】んだ人【ひと】のためにする事【こと】,そうしき,funeral,葬式,,450,e_450_soushiki.mp3
+expr-451,cat-55,悪【わる】いことが起【お】こった事【こと】,じけん,incident / case,事件,,451,e_451_jiken.mp3
+expr-452,cat-55,思【おも】わないで悪【わる】いことが起【お】こること,じこ,accident,事故,,452,e_452_jiko.mp3
+expr-453,cat-55,人【ひと】がしてはいけない悪【わる】いこと,はんざい,crime,犯罪,,453,e_453_hanzai.mp3
+expr-454,cat-55,悪【わる】いことをしたかどうかを人【ひと】が言【い】うこと,さいばん,trial / court,裁判,,454,e_454_saiban.mp3
+expr-455,cat-55,悪【わる】いことをした人【ひと】に与【あた】える悪【わる】いこと,けいばつ,punishment / penalty,刑罰,,455,e_455_keibatsu.mp3
+expr-456,cat-55,毎【まい】日【にち】の事【こと】が書【か】いてある本【ほん】,しんぶん,newspaper,新聞,,456,e_456_shinbun.mp3
+expr-457,cat-55,多【おお】くの人【ひと】に音【おと】や光【ひかり】で言葉【ことば】を出【だ】すこと,ほうそう,broadcast,放送,,457,e_457_housou.mp3
+expr-458,cat-55,物【もの】を買【か】ってほしいと言【い】うこと,こうこく,advertisement,広告,,458,e_458_koukoku.mp3
+expr-459,cat-55,人【ひと】に知【し】らせること,じょうほう,information,情報,,459,e_459_jouhou.mp3
+expr-460,cat-55,人【ひと】に言葉【ことば】を出【だ】すこと,つうしん,communication,通信,,460,e_460_tsuushin.mp3
+expr-461,cat-55,物【もの】を作【つく】るための知【し】ること,ぎじゅつ,technology,技術,,461,e_461_gijutsu.mp3
+expr-462,cat-55,多【おお】くの物【もの】を作【つく】ること,さんぎょう,industry,産業,,462,e_462_sangyou.mp3
+expr-463,cat-55,国【くに】と国【くに】で物【もの】を買【か】ったり与【あた】えたりすること,ぼうえき,trade / commerce,貿易,,463,e_463_boueki.mp3
+expr-464,cat-55,人【ひと】の外【そと】にある水【みず】や空気【くうき】や土【つち】,かんきょう,environment,環境,,464,e_464_kankyou.mp3
+expr-465,cat-55,水【みず】や空気【くうき】が悪【わる】くなること,おせん,pollution / contamination,汚染,,465,e_465_osen.mp3
+expr-466,cat-55,人【ひと】が使【つか】える物【もの】,しげん,resources,資源,,466,e_466_shigen.mp3
+expr-467,cat-55,その場所【ばしょ】にいる人【ひと】の多【おお】さ,じんこう,population,人口,,467,e_467_jinkou.mp3
+expr-468,cat-55,ある人【ひと】を他【ほか】の人【ひと】より悪【わる】くすること,さべつ,discrimination,差別,,468,e_468_sabetsu.mp3
+expr-469,cat-55,全部【ぜんぶ】の人【ひと】が良【よ】いとすること,びょうどう,equality,平等,,469,e_469_byoudou.mp3
+expr-470,cat-55,全部【ぜんぶ】の人【ひと】が国【くに】のことを選【えら】べること,みんしゅしゅぎ,democracy,民主主義,,470,e_470_minshushugi.mp3
+expr-471,cat-55,国【くに】のやることを大【おお】きく変【か】えること,かくめい,revolution,革命,,471,e_471_kakumei.mp3
+expr-472,cat-55,他【ほか】の国【くに】が持【も】っている場所【ばしょ】,しょくみんち,colony,植民地,,472,e_472_shokuminchi.mp3
+expr-473,cat-55,他【ほか】の国【くに】に行【い】ってそこにいる人【ひと】,いみん,immigrant / migration,移民,,473,e_473_imin.mp3
+expr-474,cat-55,怖【こわ】いので国【くに】から出【で】た人【ひと】,なんみん,refugee,難民,,474,e_474_nanmin.mp3
+expr-475,cat-56,多【おお】くの人【ひと】がいる場所【ばしょ】,まち,town,町,,475,e_475_machi.mp3
+expr-476,cat-56,とても多【おお】くの人【ひと】がいる大【おお】きい場所【ばしょ】,し,city,市,,476,e_476_shi.mp3
+expr-477,cat-56,人【ひと】が少【すこ】しだけいる場所【ばしょ】,むら,village,村,,477,e_477_mura.mp3
+expr-478,cat-56,人【ひと】が来【く】る物【もの】を待【ま】つ場所【ばしょ】,えき,station,駅,,478,e_478_eki.mp3
+expr-479,cat-56,物【もの】を買【か】う場所【ばしょ】,みせ,shop/store,店,,479,e_479_mise.mp3
+expr-480,cat-56,体【からだ】が悪【わる】い人【ひと】を助【たす】ける場所【ばしょ】,びょういん,hospital,病院,,480,e_480_byouin.mp3
+expr-481,cat-56,お金【おかね】を守【まも】る場所【ばしょ】,ぎんこう,bank,銀行,,481,e_481_ginkou.mp3
+expr-482,cat-56,書【か】いた物【もの】を他【ほか】の人【ひと】に与【あた】える場所【ばしょ】,ゆうびんきょく,post office,郵便局,,482,e_482_yuubinkyoku.mp3
+expr-483,cat-56,本【ほん】を読【よ】む場所【ばしょ】,としょかん,library,図書館,,483,e_483_toshokan.mp3
+expr-484,cat-56,きれいな物【もの】を見【み】る場所【ばしょ】,びじゅつかん,art museum,美術館,,484,e_484_bijutsukan.mp3
+expr-485,cat-56,国【くに】の物【もの】を見【み】る場所【ばしょ】,はくぶつかん,museum,博物館,,485,e_485_hakubutsukan.mp3
+expr-486,cat-56,人【ひと】が見【み】せる事【こと】をする場所【ばしょ】,げきじょう,theater,劇場,,486,e_486_gekijou.mp3
+expr-487,cat-56,大【おお】きい光【ひかり】の物【もの】を見【み】る場所【ばしょ】,えいがかん,cinema/movie theater,映画館,,487,e_487_eigakan.mp3
+expr-488,cat-56,外【そと】で楽【たの】しくいられる場所【ばしょ】,こうえん,park,公園,,488,e_488_kouen.mp3
+expr-489,cat-56,多【おお】くの人【ひと】が来【く】る外【そと】の場所【ばしょ】,ひろば,plaza/square,広場,,489,e_489_hiroba.mp3
+expr-490,cat-56,水【みず】の上【うえ】を行【い】く道【みち】,はし,bridge,橋,,490,e_490_hashi.mp3
+expr-491,cat-56,高【たか】くて長【なが】い物【もの】,とう,tower,塔,,491,e_491_tou.mp3
+expr-492,cat-56,強【つよ】い人【ひと】が守【まも】る大【おお】きい家【いえ】,しろ,castle,城,,492,e_492_shiro.mp3
+expr-493,cat-56,人【ひと】が心【こころ】の事【こと】を考【かんが】える場所【ばしょ】,てら,Buddhist temple,寺,,493,e_493_tera.mp3
+expr-494,cat-56,この国【くに】の心【こころ】に言【い】う場所【ばしょ】,じんじゃ,Shinto shrine,神社,,494,e_494_jinja.mp3
+expr-495,cat-56,人【ひと】が心【こころ】に良【よ】いことを聞【き】く場所【ばしょ】,きょうかい,church,教会,,495,e_495_kyoukai.mp3
+expr-496,cat-56,物【もの】を作【つく】る場所【ばしょ】,こうじょう,factory,工場,,496,e_496_koujou.mp3
+expr-497,cat-56,物【もの】を中【なか】に入【い】れて守【まも】る場所【ばしょ】,そうこ,warehouse,倉庫,,497,e_497_souko.mp3
+expr-498,cat-56,海【うみ】を動【うご】く物【もの】が来【く】る場所【ばしょ】,みなと,harbor/port,港,,498,e_498_minato.mp3
+expr-499,cat-56,空【そら】を動【うご】く物【もの】が出【で】る場所【ばしょ】,くうこう,airport,空港,,499,e_499_kuukou.mp3
+expr-500,cat-56,物【もの】が速【はや】く動【うご】く道【みち】,どうろ,road,道路,,500,e_500_douro.mp3
+expr-501,cat-56,道【みち】と道【みち】が会【あ】う場所【ばしょ】,こうさてん,intersection,交差点,,501,e_501_kousaten.mp3
+expr-502,cat-56,赤【あか】と青【あお】の光【ひかり】で動【うご】くのを止【と】める物【もの】,しんごう,traffic light,信号,,502,e_502_shingou.mp3
+expr-503,cat-56,上【うえ】に行【い】くための道【みち】,かいだん,stairs,階段,,503,e_503_kaidan.mp3
+expr-504,cat-56,中【なか】に入【はい】るための場所【ばしょ】,いりぐち,entrance,入口,,504,e_504_iriguchi.mp3
+expr-505,cat-56,外【そと】に出【で】るための場所【ばしょ】,でぐち,exit,出口,,505,e_505_deguchi.mp3
+expr-506,cat-56,家【いえ】にあって外【そと】が見【み】えるもの,まど,window,窓,,506,e_506_mado.mp3
+expr-507,cat-56,開【あ】いたり閉【し】めたりする物【もの】,とびら,door,扉,,507,e_507_tobira.mp3
+expr-508,cat-56,外【そと】と中【なか】の入【い】り口【ぐち】にある大【おお】きい物【もの】,もん,gate,門,,508,e_508_mon.mp3
+expr-509,cat-56,家【いえ】の一【いち】ばん上【うえ】にある物【もの】,やね,roof,屋根,,509,e_509_yane.mp3
+expr-510,cat-56,家【いえ】の外【そと】にある石【いし】や木【き】でできた物【もの】,かべ,wall,壁,,510,e_510_kabe.mp3
+expr-511,cat-56,家【いえ】の中【なか】で足【あし】が上【うえ】にある下【した】の物【もの】,ゆか,floor,床,,511,e_511_yuka.mp3
+expr-512,cat-56,家【いえ】の中【なか】の一【いち】ばん上【うえ】,てんじょう,ceiling,天井,,512,e_512_tenjou.mp3
+expr-513,cat-56,家【いえ】の外【そと】にある草【くさ】の場所【ばしょ】,にわ,garden/yard,庭,,513,e_513_niwa.mp3
+expr-514,cat-56,家【いえ】の中【なか】で食【た】べ物【もの】を作【つく】る場所【ばしょ】,だいどころ,kitchen,台所,,514,e_514_daidokoro.mp3
+expr-515,cat-56,家【いえ】の中【なか】で人【ひと】が楽【たの】しくいる場所【ばしょ】,いま,living room,居間,,515,e_515_ima.mp3
+expr-516,cat-56,家【いえ】の中【なか】で寝【ね】る場所【ばしょ】,しんしつ,bedroom,寝室,,516,e_516_shinshitsu.mp3
+expr-517,cat-56,土【つち】の下【した】,ちか,underground/basement,地下,,517,e_517_chika.mp3
+expr-518,cat-56,土【つち】の上【うえ】,ちじょう,above ground,地上,,518,e_518_chijou.mp3
+expr-519,cat-56,海【うみ】の中【なか】にある土【つち】の場所【ばしょ】,しま,island,島,,519,e_519_shima.mp3
+expr-520,cat-56,水【みず】がなくて暑【あつ】い場所【ばしょ】,さばく,desert,砂漠,,520,e_520_sabaku.mp3
+expr-521,cat-56,木【き】が多【おお】くある場所【ばしょ】,もり,forest,森,,521,e_521_mori.mp3
+expr-522,cat-56,山【やま】と山【やま】の下【した】にある場所【ばしょ】,たに,valley,谷,,522,e_522_tani.mp3
+expr-523,cat-56,山【やま】から海【うみ】へ水【みず】が動【うご】く道【みち】,かわ,river,川,,523,e_523_kawa.mp3
+expr-524,cat-57,道【みち】を速【はや】く動【うご】く物【もの】,くるま,car,車,,524,e_524_kuruma.mp3
+expr-525,cat-57,道【みち】の上【うえ】を動【うご】く長【なが】い物【もの】,でんしゃ,train,電車,,525,e_525_densha.mp3
+expr-526,cat-57,多【おお】くの人【ひと】が中【なか】に入【はい】る大【おお】きい物【もの】,ばす,bus,バス,,526,e_526_basu.mp3
+expr-527,cat-57,空【そら】を動【うご】く物【もの】,ひこうき,airplane,飛行機,,527,e_527_hikouki.mp3
+expr-528,cat-57,海【うみ】を動【うご】く物【もの】,ふね,ship/boat,船,,528,e_528_fune.mp3
+expr-529,cat-57,足【あし】を使【つか】って動【うご】かす物【もの】,じてんしゃ,bicycle,自転車,,529,e_529_jitensha.mp3
+expr-530,cat-57,お金【おかね】を与【あた】えて中【なか】に入【はい】る物【もの】,たくしー,taxi,タクシー,,530,e_530_takushii.mp3
+expr-531,cat-57,重【おも】い物【もの】を持【も】って動【うご】く大【おお】きい物【もの】,とらっく,truck,トラック,,531,e_531_torakku.mp3
+expr-532,cat-57,速【はや】く動【うご】ける大【おお】きい道【みち】,こうそくどうろ,highway/expressway,高速道路,,532,e_532_kousokudouro.mp3
+expr-533,cat-57,長【なが】い物【もの】が動【うご】く道【みち】,てつどう,railway system,鉄道,,533,e_533_tetsudou.mp3
+expr-534,cat-57,長【なが】い物【もの】が上【うえ】を動【うご】く道【みち】,せんろ,railroad tracks,線路,,534,e_534_senro.mp3
+expr-535,cat-57,物【もの】を動【うご】かすこと,うんてん,driving,運転,,535,e_535_unten.mp3
+expr-536,cat-57,場所【ばしょ】を出【で】ること,しゅっぱつ,departure,出発,,536,e_536_shuppatsu.mp3
+expr-537,cat-57,場所【ばしょ】に来【く】ること,とうちゃく,arrival,到着,,537,e_537_touchaku.mp3
+expr-538,cat-57,他【ほか】の場所【ばしょ】に行【い】くこと,りょこう,travel/trip,旅行,,538,e_538_ryokou.mp3
+expr-539,cat-57,他【ほか】の場所【ばしょ】を見【み】ること,かんこう,sightseeing,観光,,539,e_539_kankou.mp3
+expr-540,cat-57,道【みち】や場所【ばしょ】を教【おし】えること,あんない,guidance/guide,案内,,540,e_540_annai.mp3
+expr-541,cat-57,場所【ばしょ】を書【か】いた物【もの】,ちず,map,地図,,541,e_541_chizu.mp3
+expr-542,cat-57,中【なか】に入【はい】るために買【か】う物【もの】,きっぷ,ticket,切符,,542,e_542_kippu.mp3
+expr-543,cat-57,他【ほか】の国【くに】に行【い】くときに必要【ひつよう】な本【ほん】,ぱすぽーと,passport,パスポート,,543,e_543_pasupooto.mp3
+expr-544,cat-57,行【い】く時【とき】に持【も】って行【い】く物【もの】,にもつ,luggage/baggage,荷物,,544,e_544_nimotsu.mp3
+expr-545,cat-57,座【すわ】る場所【ばしょ】,ざせき,seat,座席,,545,e_545_zaseki.mp3
+expr-546,cat-57,どのくらい速【はや】いかということ,そくど,speed,速度,,546,e_546_sokudo.mp3
+expr-547,cat-57,二【ふた】つの場所【ばしょ】がどのくらい近【ちか】くないか,きょり,distance,距離,,547,e_547_kyori.mp3
+expr-548,cat-57,どちらに行【い】くかということ,ほうこう,direction,方向,,548,e_548_houkou.mp3
+expr-549,cat-57,道【みち】を人【ひと】や物【もの】が動【うご】くこと,こうつう,traffic/transportation,交通,,549,e_549_koutsuu.mp3
+expr-550,cat-57,物【もの】が動【うご】けなくなること,じゅうたい,traffic jam,渋滞,,550,e_550_juutai.mp3
+expr-551,cat-57,悪【わる】いことが起【お】こること,じこ,accident,事故,,551,e_551_jiko.mp3
+expr-552,cat-57,中【なか】に入【はい】るために与【あた】えるお金【おかね】,うんちん,fare,運賃,,552,e_552_unchin.mp3
+expr-553,cat-57,行【い】くだけで来【こ】ない道【みち】,かたみち,one-way,片道,,553,e_553_katamichi.mp3
+expr-554,cat-57,行【い】って来【く】ること,おうふく,round trip,往復,,554,e_554_oufuku.mp3
+expr-555,cat-57,行【い】きたい場所【ばしょ】,もくてきち,destination,目的地,,555,e_555_mokutekichi.mp3
+expr-556,cat-57,他【ほか】の国【くに】,がいこく,foreign country,外国,,556,e_556_gaikoku.mp3
+expr-557,cat-57,もとの国【くに】に来【く】ること,きこく,returning to home country,帰国,,557,e_557_kikoku.mp3
+expr-558,cat-57,道【みち】が見【み】えなくなった子供【こども】,まいご,lost child,迷子,,558,e_558_maigo.mp3
+expr-559,cat-57,始【はじ】まりと終【お】わりの前【まえ】,とちゅう,on the way/midway,途中,,559,e_559_tochuu.mp3
+expr-560,cat-57,物【もの】の中【なか】に入【はい】る人【ひと】,じょうきゃく,passenger,乗客,,560,e_560_joukyaku.mp3
+expr-561,cat-57,物【もの】を動【うご】かす人【ひと】,うんてんしゅ,driver,運転手,,561,e_561_untenshu.mp3
+expr-562,cat-57,動【うご】く物【もの】が止【と】まって終【お】わる場所【ばしょ】,しゅうてん,final stop/terminus,終点,,562,e_562_shuuten.mp3
+expr-563,cat-58,空【そら】から白【しろ】くて寒【さむ】い水【みず】が来【く】ること,ゆき,snow,雪,,563,e_563_yuki.mp3
+expr-564,cat-58,寒【さむ】くなった水【みず】,こおり,ice,氷,,564,e_564_koori.mp3
+expr-565,cat-58,白【しろ】い空気【くうき】で何【なに】も見【み】えなくなること,きり,fog/mist,霧,,565,e_565_kiri.mp3
+expr-566,cat-58,空【そら】にある白【しろ】い水【みず】の物【もの】,くも,cloud,雲,,566,e_566_kumo.mp3
+expr-567,cat-58,雨【あめ】の後【あと】に空【そら】に出【で】る色【いろ】の光【ひかり】,にじ,rainbow,虹,,567,e_567_niji.mp3
+expr-568,cat-58,空【そら】で大【おお】きい音【おと】と光【ひかり】が起【お】こること,かみなり,thunder/lightning,雷,,568,e_568_kaminari.mp3
+expr-569,cat-58,強【つよ】い風【かぜ】と雨【あめ】が来【く】ること,たいふう,typhoon,台風,,569,e_569_taifuu.mp3
+expr-570,cat-58,土【つち】が動【うご】くこと,じしん,earthquake,地震,,570,e_570_jishin.mp3
+expr-571,cat-58,水【みず】が多【おお】くなって場所【ばしょ】が水【みず】の中【なか】に入【はい】ること,こうずい,flood,洪水,,571,e_571_kouzui.mp3
+expr-572,cat-58,外【そと】で起【お】こる悪【わる】いこと,さいがい,disaster,災害,,572,e_572_saigai.mp3
+expr-573,cat-58,山【やま】や土【つち】の中【なか】にある大【おお】きい水【みず】,みずうみ,lake,湖,,573,e_573_mizuumi.mp3
+expr-574,cat-58,山【やま】や土【つち】の中【なか】にある水【みず】,いけ,pond,池,,574,e_574_ike.mp3
+expr-575,cat-58,高【たか】い場所【ばしょ】から水【みず】が下【した】に出【で】てくること,たき,waterfall,滝,,575,e_575_taki.mp3
+expr-576,cat-58,土【つち】の中【なか】から水【みず】が出【で】てくる場所【ばしょ】,いずみ,spring/fountain,泉,,576,e_576_izumi.mp3
+expr-577,cat-58,木【き】が多【おお】くある場所【ばしょ】,はやし,grove/woodland,林,,577,e_577_hayashi.mp3
+expr-578,cat-58,食【た】べ物【もの】を作【つく】る土【つち】の場所【ばしょ】,はたけ,field/farmland,畑,,578,e_578_hatake.mp3
+expr-579,cat-58,水【みず】を使【つか】って食【た】べ物【もの】を作【つく】る場所【ばしょ】,たんぼ,rice paddy,田んぼ,,579,e_579_tanbo.mp3
+expr-580,cat-58,海【うみ】や山【やま】にある石【いし】でできた物【もの】,すな,sand,砂,,580,e_580_suna.mp3
+expr-581,cat-58,草【くさ】や木【き】にある色【いろ】のある物【もの】,はな,flower,花,,581,e_581_hana.mp3
+expr-582,cat-58,白【しろ】や赤【あか】の色【いろ】の木【き】の物【もの】,さくら,cherry blossom,桜,,582,e_582_sakura.mp3
+expr-583,cat-58,木【き】の緑【みどり】の物【もの】,は,leaf,葉,,583,e_583_ha.mp3
+expr-584,cat-58,木【き】や草【くさ】の土【つち】の中【なか】にある物【もの】,ね,root,根,,584,e_584_ne.mp3
+expr-585,cat-58,草【くさ】や木【き】になる前【まえ】の物【もの】,たね,seed,種,,585,e_585_tane.mp3
+expr-586,cat-58,木【き】にある食【た】べられる物【もの】,み,fruit/berry,実,,586,e_586_mi.mp3
+expr-587,cat-58,空【そら】を動【うご】く動物【どうぶつ】,とり,bird,鳥,,587,e_587_tori.mp3
+expr-588,cat-58,水【みず】の中【なか】で生【い】きる動物【どうぶつ】,さかな,fish,魚,,588,e_588_sakana.mp3
+expr-589,cat-58,足【あし】が多【おお】い動物【どうぶつ】,むし,insect/bug,虫,,589,e_589_mushi.mp3
+expr-590,cat-58,人【ひと】と生【い】きる動物【どうぶつ】,いぬ,dog,犬,,590,e_590_inu.mp3
+expr-591,cat-58,家【いえ】にいる動物【どうぶつ】,ねこ,cat,猫,,591,e_591_neko.mp3
+expr-592,cat-58,大【おお】きくて強【つよ】い動物【どうぶつ】で人【ひと】が上【うえ】に座【すわ】るもの,うま,horse,馬,,592,e_592_uma.mp3
+expr-593,cat-58,白【しろ】と黒【くろ】の大【おお】きい動物【どうぶつ】,うし,cow,牛,,593,e_593_ushi.mp3
+expr-594,cat-58,足【あし】がなくて長【なが】い動物【どうぶつ】,へび,snake,蛇,,594,e_594_hebi.mp3
+expr-595,cat-58,大【おお】きくて強【つよ】くて怖【こわ】い動物【どうぶつ】,くま,bear,熊,,595,e_595_kuma.mp3
+expr-596,cat-58,空【そら】を動【うご】く動物【どうぶつ】が作【つく】る物【もの】,たまご,egg,卵,,596,e_596_tamago.mp3
+expr-597,cat-58,空【そら】を動【うご】く動物【どうぶつ】が使【つか】う物【もの】,はね,feather/wing,羽,,597,e_597_hane.mp3
+expr-598,cat-58,年【とし】の中【なか】で暑【あつ】さや寒【さむ】さが変【か】わる時【とき】,きせつ,season,季節,,598,e_598_kisetsu.mp3
+expr-599,cat-58,寒【さむ】い時【とき】の後【あと】で暑【あつ】くなる前【まえ】の時【とき】,はる,spring,春,,599,e_599_haru.mp3
+expr-600,cat-58,年【とし】で一【いち】ばん暑【あつ】い時【とき】,なつ,summer,夏,,600,e_600_natsu.mp3
+expr-601,cat-58,暑【あつ】い時【とき】の後【あと】で寒【さむ】くなる前【まえ】の時【とき】,あき,autumn/fall,秋,,601,e_601_aki.mp3
+expr-602,cat-58,年【とし】で一【いち】ばん寒【さむ】い時【とき】,ふゆ,winter,冬,,602,e_602_fuyu.mp3
+expr-603,cat-58,太陽【たいよう】が空【そら】に出【で】てくること,ひので,sunrise,日の出,,603,e_603_hinode.mp3
+expr-604,cat-58,太陽【たいよう】が下【した】に入【はい】ること,ひのいり,sunset,日の入り,,604,e_604_hinoiri.mp3
+expr-605,cat-58,太陽【たいよう】が出【で】てきた後【あと】の時【とき】,あさ,morning,朝,,605,e_605_asa.mp3
+expr-606,cat-58,海【うみ】の水【みず】が上【うえ】に来【く】たり下【した】に行【い】ったりすること,しお,tide,潮,,606,e_606_shio.mp3
+expr-607,cat-58,海【うみ】の水【みず】が動【うご】くこと,なみ,wave,波,,607,e_607_nami.mp3
+expr-608,cat-59,火【ひ】で作【つく】った食【た】べ物【もの】,りょうり,"cooking, dish",料理,,608,e_608_ryouri.mp3
+expr-609,cat-59,食【た】べる事【こと】,しょくじ,meal,食事,,609,e_609_shokuji.mp3
+expr-610,cat-59,朝【あさ】に食【た】べる物【もの】,ちょうしょく,breakfast,朝食,,610,e_610_choushoku.mp3
+expr-611,cat-59,昼【ひる】に食【た】べる物【もの】,ちゅうしょく,lunch,昼食,,611,e_611_chuushoku.mp3
+expr-612,cat-59,夜【よる】に食【た】べる物【もの】,ゆうしょく,dinner,夕食,,612,e_612_yuushoku.mp3
+expr-613,cat-59,外【そと】で食【た】べるために作【つく】った食【た】べ物【もの】,べんとう,packed lunch,弁当,,613,e_613_bentou.mp3
+expr-614,cat-59,とても好【す】きな甘【あま】い食【た】べ物【もの】,おかし,"sweets, snacks",お菓子,,614,e_614_okashi.mp3
+expr-615,cat-59,小【こ】むぎで作【つく】った食【た】べ物【もの】,ぱん,bread,パン,,615,e_615_pan.mp3
+expr-616,cat-59,日【に】ほんで多【おお】く食【た】べる白【しろ】い食【た】べ物【もの】,こめ,rice (uncooked),米,,616,e_616_kome.mp3
+expr-617,cat-59,水【みず】で作【つく】った米【こめ】の食【た】べ物【もの】,ごはん,"cooked rice, meal",ご飯,,617,e_617_gohan.mp3
+expr-618,cat-59,動【どう】物【ぶつ】の体【からだ】の食【た】べ物【もの】,にく,meat,肉,,618,e_618_niku.mp3
+expr-619,cat-59,水【みず】の中【なか】にいる動【どう】物【ぶつ】,さかな,fish,魚,,619,e_619_sakana.mp3
+expr-620,cat-59,土【つち】から出【で】る食【た】べる草【くさ】,やさい,vegetables,野菜,,620,e_620_yasai.mp3
+expr-621,cat-59,木【き】からもらう【もらう】甘【あま】い食【た】べ物【もの】,くだもの,fruit,果物,,621,e_621_kudamono.mp3
+expr-622,cat-59,動【どう】物【ぶつ】から出【で】る丸【まる】くて白【しろ】い物【もの】,たまご,egg,卵,,622,e_622_tamago.mp3
+expr-623,cat-59,海【うみ】の水【みず】から作【つく】る白【しろ】い物【もの】,しお,salt,塩,,623,e_623_shio.mp3
+expr-624,cat-59,食【た】べ物【もの】を甘【あま】くする白【しろ】い物【もの】,さとう,sugar,砂糖,,624,e_624_satou.mp3
+expr-625,cat-59,黒【くろ】い色【いろ】の食【た】べ物【もの】に使【つか】う水【みず】,しょうゆ,soy sauce,醤油,,625,e_625_shouyu.mp3
+expr-626,cat-59,口【くち】で感【かん】じる事【こと】,あじ,"taste, flavor",味,,626,e_626_aji.mp3
+expr-627,cat-59,鼻【はな】で感【かん】じる事【こと】,においい,"smell, scent",匂い,,627,e_627_nioii.mp3
+expr-628,cat-59,飲【の】むと体【からだ】が変【へん】になる水【みず】,さけ,"alcohol, sake",酒,,628,e_628_sake.mp3
+expr-629,cat-59,草【くさ】から作【つく】った飲【の】み物【もの】,おちゃ,tea,お茶,,629,e_629_ocha.mp3
+expr-630,cat-59,果【くだ】物【もの】から出【で】る甘【あま】い水【みず】,じゅーす,juice,ジュース,,630,e_630_juusu.mp3
+expr-631,cat-59,動【どう】物【ぶつ】の体【からだ】から出【で】る白【しろ】い飲【の】み物【もの】,ぎゅうにゅう,milk,牛乳,,631,e_631_gyuunyuu.mp3
+expr-632,cat-59,黒【くろ】くて苦【にが】い飲【の】み物【もの】,こーひー,coffee,コーヒー,,632,e_632_koohii.mp3
+expr-633,cat-59,食【た】べ物【もの】を置【お】く物【もの】,さら,"plate, dish",皿,,633,e_633_sara.mp3
+expr-634,cat-59,食【た】べる時【とき】に使【つか】う二【に】本【ほん】の木【き】,はし,chopsticks,箸,,634,e_634_hashi.mp3
+expr-635,cat-59,飲【の】み物【もの】を入【い】れる物【もの】,こっぷ,"cup, glass",コップ,,635,e_635_koppu.mp3
+expr-636,cat-59,水【みず】や飲【の】み物【もの】を入【い】れる物【もの】,びん,bottle,瓶,,636,e_636_bin.mp3
+expr-637,cat-59,火【ひ】で食【た】べ物【もの】を作【つく】る物【もの】,なべ,"pot, pan",鍋,,637,e_637_nabe.mp3
+expr-638,cat-59,食【た】べ物【もの】を切【き】る物【もの】,ほうちょう,kitchen knife,包丁,,638,e_638_houchou.mp3
+expr-639,cat-59,食【た】べ物【もの】を冷【つめ】たくして入【い】れる物【もの】,れいぞうこ,refrigerator,冷蔵庫,,639,e_639_reizouko.mp3
+expr-640,cat-59,とても寒【さむ】くなった水【みず】,こおり,ice,氷,,640,e_640_koori.mp3
+expr-641,cat-59,食【た】べ物【もの】を火【ひ】で作【つく】る時【とき】に使【つか】う物【もの】,あぶら,oil,油,,641,e_641_abura.mp3
+expr-642,cat-59,水【みず】で作【つく】った温【あたた】かい食【た】べ物【もの】,すーぷ,soup,スープ,,642,e_642_suupu.mp3
+expr-643,cat-59,切【き】った野【や】菜【さい】の食【た】べ物【もの】,さらだ,salad,サラダ,,643,e_643_sarada.mp3
+expr-644,cat-59,口【くち】で感【かん】じる良【よ】い味【あじ】,あまい,sweet,甘い,,644,e_644_amai.mp3
+expr-645,cat-59,口【くち】で感【かん】じる悪【わる】い味【あじ】,にがい,bitter,苦い,,645,e_645_nigai.mp3
+expr-646,cat-59,口【くち】に強【つよ】い感【かん】じがする食【た】べ物【もの】の味【あじ】,からい,"spicy, hot",辛い,,646,e_646_karai.mp3
+expr-647,cat-59,口【くち】がとても変【へん】に感【かん】じる味【あじ】,すっぱい,sour,酸っぱい,,647,e_647_suppai.mp3
+expr-648,cat-59,食【た】べ物【もの】が良【よ】い味【あじ】がする,おいしい,delicious,美味しい,,648,e_648_oishii.mp3
+expr-649,cat-59,食【た】べ物【もの】の味【あじ】が悪【わる】い,まずい,bad-tasting,まずい,,649,e_649_mazui.mp3
+expr-650,cat-59,火【ひ】で食【た】べ物【もの】を作【つく】る,やく,"to grill, to bake",焼く,,650,e_650_yaku.mp3
+expr-651,cat-59,水【みず】と火【ひ】で食【た】べ物【もの】を作【つく】る,にる,"to boil, to simmer",煮る,,651,e_651_niru.mp3
+expr-652,cat-59,油【あぶら】と火【ひ】で食【た】べ物【もの】を作【つく】る,あげる,to deep-fry,揚げる,,652,e_652_ageru.mp3
+expr-653,cat-59,食【た】べ物【もの】が欲【ほ】しくなる,はらがへる,to get hungry,腹が減る,,653,e_653_haragaheru.mp3
+expr-654,cat-59,飲【の】み物【もの】が欲【ほ】しくなる,のどがかわく,to get thirsty,喉が渇く,,654,e_654_nodogakawaku.mp3
+expr-655,cat-60,体【からだ】が悪【わる】い状【じょう】態【たい】,びょうき,"illness, disease",病気,,655,e_655_byouki.mp3
+expr-656,cat-60,体【からだ】を良【よ】くするために飲【の】む物【もの】,くすり,medicine,薬,,656,e_656_kusuri.mp3
+expr-657,cat-60,体【からだ】が壊【こわ】れた事【こと】,けが,injury,怪我,,657,e_657_kega.mp3
+expr-658,cat-60,体【からだ】が悪【わる】く感【かん】じる,いたい,"painful, hurts",痛い,,658,e_658_itai.mp3
+expr-659,cat-60,体【からだ】がとても暑【あつ】くなる事【こと】,ねつ,fever,熱,,659,e_659_netsu.mp3
+expr-660,cat-60,体【からだ】が悪【わる】くて熱【ねつ】が出【で】る病【やまい】,かぜ,cold (illness),風邪,,660,e_660_kaze.mp3
+expr-661,cat-60,口【くち】から強【つよ】く空【くう】気【き】が出【で】る事【こと】,せき,cough,咳,,661,e_661_seki.mp3
+expr-662,cat-60,体【からだ】の中【なか】にある赤【あか】い水【みず】,ち,blood,血,,662,e_662_chi.mp3
+expr-663,cat-60,体【からだ】の中【なか】にある硬【かた】い物【もの】,ほね,bone,骨,,663,e_663_hone.mp3
+expr-664,cat-60,体【からだ】の外【そと】の部【ぶ】分【ぶん】,はだ,skin,肌,,664,e_664_hada.mp3
+expr-665,cat-60,体【からだ】を動【うご】かす物【もの】,きんにく,muscle,筋肉,,665,e_665_kinniku.mp3
+expr-666,cat-60,口【くち】の中【なか】で食【た】べ物【もの】を切【き】る白【しろ】い物【もの】,は,"tooth, teeth",歯,,666,e_666_ha.mp3
+expr-667,cat-60,手【て】や足【あし】の先【さき】の長【なが】い部【ぶ】分【ぶん】,ゆび,"finger, toe",指,,667,e_667_yubi.mp3
+expr-668,cat-60,頭【あたま】の下【した】、手【て】の上【うえ】にある体【からだ】の部【ぶ】分【ぶん】,かた,shoulder,肩,,668,e_668_kata.mp3
+expr-669,cat-60,体【からだ】の中【なか】ほどにある部【ぶ】分【ぶん】,こし,"lower back, hips",腰,,669,e_669_koshi.mp3
+expr-670,cat-60,体【からだ】の後【うし】ろにある部【ぶ】分【ぶん】,せなか,back (of body),背中,,670,e_670_senaka.mp3
+expr-671,cat-60,頭【あたま】と体【からだ】をつなぐ部【ぶ】分【ぶん】,くび,neck,首,,671,e_671_kubi.mp3
+expr-672,cat-60,体【からだ】の前【まえ】の上【うえ】の部【ぶ】分【ぶん】,むね,chest,胸,,672,e_672_mune.mp3
+expr-673,cat-60,体【からだ】の前【まえ】の中【なか】ほどの部【ぶ】分【ぶん】,はら,"abdomen, belly",腹,,673,e_673_hara.mp3
+expr-674,cat-60,頭【あたま】の前【まえ】の部【ぶ】分【ぶん】,かお,face,顔,,674,e_674_kao.mp3
+expr-675,cat-60,頭【あたま】の上【うえ】にある物【もの】,かみ,hair (on head),髪,,675,e_675_kami.mp3
+expr-676,cat-60,指【ゆび】の先【さき】にある硬【かた】い物【もの】,つめ,nail (finger/toe),爪,,676,e_676_tsume.mp3
+expr-677,cat-60,口【くち】の外【そと】の赤【あか】い部【ぶ】分【ぶん】,くちびる,lips,唇,,677,e_677_kuchibiru.mp3
+expr-678,cat-60,口【くち】の中【なか】で味【あじ】を感【かん】じる物【もの】,した,tongue,舌,,678,e_678_shita.mp3
+expr-679,cat-60,悲【かな】しい時【とき】に目【め】から出【で】る水【みず】,なみだ,tears,涙,,679,e_679_namida.mp3
+expr-680,cat-60,暑【あつ】い時【とき】に体【からだ】から出【で】る水【みず】,あせ,"sweat, perspiration",汗,,680,e_680_ase.mp3
+expr-681,cat-60,口【くち】から出【で】る音【おと】,こえ,voice,声,,681,e_681_koe.mp3
+expr-682,cat-60,口【くち】や鼻【はな】から出【で】る空【くう】気【き】,いき,breath,息,,682,e_682_iki.mp3
+expr-683,cat-60,空【くう】気【き】を体【からだ】の中【なか】に入【い】れたり出【だ】したりする事【こと】,こきゅう,"breathing, respiration",呼吸,,683,e_683_kokyuu.mp3
+expr-684,cat-60,体【からだ】の中【なか】で血【ち】が動【うご】く音【おと】,みゃく,pulse,脈,,684,e_684_myaku.mp3
+expr-685,cat-60,体【からだ】が良【よ】い状【じょう】態【たい】,けんこう,health,健康,,685,e_685_kenkou.mp3
+expr-686,cat-60,体【からだ】も心【こころ】も良【よ】い状【じょう】態【たい】,げんき,"energetic, healthy",元気,,686,e_686_genki.mp3
+expr-687,cat-60,体【からだ】や心【こころ】が動【うご】けなくなる,つかれる,to get tired,疲れる,,687,e_687_tsukareru.mp3
+expr-688,cat-60,寝【ね】たいと感【かん】じる,ねむい,sleepy,眠い,,688,e_688_nemui.mp3
+expr-689,cat-60,寝【ね】ている状【じょう】態【たい】から出【で】る,おきる,to wake up,起きる,,689,e_689_okiru.mp3
+expr-690,cat-60,体【からだ】の悪【わる】い人【ひと】を助【たす】ける人【ひと】,いしゃ,"doctor, physician",医者,,690,e_690_isha.mp3
+expr-691,cat-60,体【からだ】の悪【わる】い人【ひと】の世【せ】話【わ】をする人【ひと】,かんごし,nurse,看護師,,691,e_691_kangoshi.mp3
+expr-692,cat-60,体【からだ】を切【き】って中【なか】を直【なお】す事【こと】,しゅじゅつ,"surgery, operation",手術,,692,e_692_shujutsu.mp3
+expr-693,cat-60,体【からだ】の中【なか】に物【もの】を入【い】れる事【こと】,ちゅうしゃ,"injection, shot",注射,,693,e_693_chuusha.mp3
+expr-694,cat-60,病【やまい】が悪【わる】くて家【いえ】を出【で】てどこかに入【はい】る事【こと】,にゅういん,hospitalization,入院,,694,e_694_nyuuin.mp3
+expr-695,cat-60,体【からだ】が良【よ】くなって出【で】る事【こと】,たいいん,hospital discharge,退院,,695,e_695_taiin.mp3
+expr-696,cat-60,体【からだ】の中【なか】を見【み】る事【こと】,けんさ,"examination, test",検査,,696,e_696_kensa.mp3
+expr-697,cat-60,体【からだ】が悪【わる】い時【とき】に出【で】る変【へん】な事【こと】,しょうじょう,symptom,症状,,697,e_697_shoujou.mp3
+expr-698,cat-60,体【からだ】が悪【わる】い状【じょう】態【たい】から良【よ】くなる,なおる,"to heal, to recover",治る,,698,e_698_naoru.mp3
+expr-699,cat-60,体【からだ】を良【よ】い状【じょう】態【たい】にする,なおす,"to cure, to fix",治す,,699,e_699_naosu.mp3
+expr-700,cat-60,体【からだ】が大【おお】きく重【おも】くなる,ふとる,to gain weight,太る,,700,e_700_futoru.mp3
+expr-701,cat-60,体【からだ】が小【ちい】さく軽【かる】くなる,やせる,to lose weight,痩せる,,701,e_701_yaseru.mp3
+expr-702,cat-60,女【おんな】の体【からだ】の中【なか】に子【こ】供【ども】がいる状【じょう】態【たい】,にんしん,pregnancy,妊娠,,702,e_702_ninshin.mp3
+expr-703,cat-60,体【からだ】から子【こ】供【ども】が出【で】る事【こと】,しゅっさん,childbirth,出産,,703,e_703_shussan.mp3
+expr-704,cat-60,ある物【もの】に体【からだ】が悪【わる】く変【か】わる事【こと】,あれるぎー,allergy,アレルギー,,704,e_704_arerugii.mp3
+expr-705,cat-60,体【からだ】が切【き】れた所【ところ】,きず,"wound, scar",傷,,705,e_705_kizu.mp3
+expr-706,cat-61,太【たい】陽【よう】が出【で】てくる時【とき】,あさ,morning,朝,,706,e_706_asa.mp3
+expr-707,cat-61,太【たい】陽【よう】が上【うえ】にある時【とき】,ひる,"daytime, noon",昼,,707,e_707_hiru.mp3
+expr-708,cat-61,太【たい】陽【よう】が下【した】に入【はい】る時【とき】,ゆうがた,evening,夕方,,708,e_708_yuugata.mp3
+expr-709,cat-61,今【いま】日【にち】の朝【あさ】,けさ,this morning,今朝,,709,e_709_kesa.mp3
+expr-710,cat-61,今【いま】日【にち】の夜【よる】,こんや,tonight,今夜,,710,e_710_konya.mp3
+expr-711,cat-61,明【あす】の後【あと】の日【にち】,あさって,day after tomorrow,明後日,,711,e_711_asatte.mp3
+expr-712,cat-61,昨【きの】日【う】の前【まえ】の日【にち】,おととい,day before yesterday,一昨日,,712,e_712_ototoi.mp3
+expr-713,cat-61,今【いま】の前【まえ】の七【なな】日【にち】,せんしゅう,last week,先週,,713,e_713_senshuu.mp3
+expr-714,cat-61,今【いま】の七【なな】日【にち】,こんしゅう,this week,今週,,714,e_714_konshuu.mp3
+expr-715,cat-61,今【いま】の後【あと】の七【なな】日【にち】,らいしゅう,next week,来週,,715,e_715_raishuu.mp3
+expr-716,cat-61,今【いま】の月【つき】の前【まえ】の月【つき】,せんげつ,last month,先月,,716,e_716_sengetsu.mp3
+expr-717,cat-61,今【いま】の月【つき】,こんげつ,this month,今月,,717,e_717_kongetsu.mp3
+expr-718,cat-61,今【いま】の月【つき】の後【あと】の月【つき】,らいげつ,next month,来月,,718,e_718_raigetsu.mp3
+expr-719,cat-61,今【いま】の年【とし】の前【まえ】の年【とし】,きょねん,last year,去年,,719,e_719_kyonen.mp3
+expr-720,cat-61,今【いま】の年【とし】,ことし,this year,今年,,720,e_720_kotoshi.mp3
+expr-721,cat-61,今【いま】の年【とし】の後【あと】の年【とし】,らいねん,next year,来年,,721,e_721_rainen.mp3
+expr-722,cat-61,七【なな】日【にち】の終【お】わりの日【にち】,しゅうまつ,weekend,週末,,722,e_722_shuumatsu.mp3
+expr-723,cat-61,毎【まい】日【にち】の普【ふ】通【つう】の日【にち】,へいじつ,weekday,平日,,723,e_723_heijitsu.mp3
+expr-724,cat-61,今【いま】から前【まえ】や後【あと】まで続【つづ】く物【もの】,じかん,"time, hour",時間,,724,e_724_jikan.mp3
+expr-725,cat-61,一【いち】時【じ】間【かん】を六【ろく】十【じゅう】に切【き】った時【とき】の一【ひと】つ,ふん,minute,分,,725,e_725_fun.mp3
+expr-726,cat-61,とても短【みじか】い時【とき】の単【たん】位【い】,びょう,second,秒,,726,e_726_byou.mp3
+expr-727,cat-61,太【たい】陽【よう】が一【いち】番【ばん】高【たか】くなる前【まえ】の時【とき】,ごぜん,"AM, morning",午前,,727,e_727_gozen.mp3
+expr-728,cat-61,太【たい】陽【よう】が一【いち】番【ばん】高【たか】くなった後【あと】の時【とき】,ごご,"PM, afternoon",午後,,728,e_728_gogo.mp3
+expr-729,cat-61,太【たい】陽【よう】が一【いち】番【ばん】高【たか】くなる時【とき】,しょうご,"noon, midday",正午,,729,e_729_shougo.mp3
+expr-730,cat-61,太【たい】陽【よう】の日【にち】,にちようび,Sunday,日曜日,,730,e_730_nichiyoubi.mp3
+expr-731,cat-61,月【つき】の日【にち】,げつようび,Monday,月曜日,,731,e_731_getsuyoubi.mp3
+expr-732,cat-61,何【なに】もしなくていい日【にち】,きゅうじつ,"day off, holiday",休日,,732,e_732_kyuujitsu.mp3
+expr-733,cat-61,国【くに】が決【き】めた休【やす】む日【にち】,しゅくじつ,national holiday,祝日,,733,e_733_shukujitsu.mp3
+expr-734,cat-61,年【とし】の中【なか】で天【てん】気【き】が変【か】わる時【とき】,きせつ,season,季節,,734,e_734_kisetsu.mp3
+expr-735,cat-61,人【ひと】が生【い】きる事【こと】が始【はじ】まった日【にち】,たんじょうび,birthday,誕生日,,735,e_735_tanjoubi.mp3
+expr-736,cat-61,よく覚【おぼ】えている大【たい】切【せつ】な日【にち】,きねんび,anniversary,記念日,,736,e_736_kinenbi.mp3
+expr-737,cat-61,とても短【みじか】い時【とき】,しゅんかん,"moment, instant",瞬間,,737,e_737_shunkan.mp3
+expr-738,cat-61,始【はじ】まりから終【お】わりまでの時【とき】,きかん,"period, duration",期間,,738,e_738_kikan.mp3
+expr-739,cat-61,その事【こと】が終【お】わらなければならない時【とき】,きげん,"deadline, expiry",期限,,739,e_739_kigen.mp3
+expr-740,cat-61,これ以【い】上【じょう】後【あと】はできないという時【とき】,しめきり,deadline (submission),締め切り,,740,e_740_shimekiri.mp3
+expr-741,cat-61,今【いま】から少【すこ】し前【まえ】の時【とき】,さいきん,"recently, lately",最近,,741,e_741_saikin.mp3
+expr-742,cat-61,とても短【みじか】い時【とき】の後【あと】に,すぐ,"soon, right away",すぐ,,742,e_742_sugu.mp3
+expr-743,cat-61,少【すこ】し後【あと】の時【とき】に,やがて,"eventually, before long",やがて,,743,e_743_yagate.mp3
+expr-744,cat-61,終【お】わらない時【とき】,えいえん,"eternity, forever",永遠,,744,e_744_eien.mp3
+expr-745,cat-61,生【い】きている全【ぜん】部【ぶ】の時【とき】,いっしょう,one's whole life,一生,,745,e_745_isshou.mp3
+expr-746,cat-61,百【ひゃく】年【ねん】の時【とき】,せいき,century,世紀,,746,e_746_seiki.mp3
+expr-747,cat-61,ある長【なが】い時【とき】の事【こと】が起【お】こった時【とき】,じだい,"era, period (of history)",時代,,747,e_747_jidai.mp3
+expr-748,cat-61,とても長【なが】い時【とき】の後【あと】に,ついに,"finally, at last",ついに,,748,e_748_tsuini.mp3
+expr-749,cat-61,思【おも】っていなかった時【とき】に起【お】こる,とつぜん,"suddenly, all of a sudden",突然,,749,e_749_totsuzen.mp3
+expr-750,cat-61,長【なが】い時【とき】が終【お】わって会【あ】う,ひさしぶり,after a long time,久しぶり,,750,e_750_hisashiburi.mp3
+expr-751,cat-62,速【はや】く足【あし】で動【うご】く,はしる,run,走る,,751,e_751_hashiru.mp3
+expr-752,cat-62,速【はや】くなく足【あし】で動【うご】く,あるく,walk,歩く,,752,e_752_aruku.mp3
+expr-753,cat-62,水【みず】の中【なか】で動【うご】く,およぐ,swim,泳ぐ,,753,e_753_oyogu.mp3
+expr-754,cat-62,空【そら】を動【うご】く,とぶ,fly,飛ぶ,,754,e_754_tobu.mp3
+expr-755,cat-62,上【うえ】へ行【い】く,のぼる,climb,登る,,755,e_755_noboru.mp3
+expr-756,cat-62,下【した】へ動【うご】く,おちる,fall,落ちる,,756,e_756_ochiru.mp3
+expr-757,cat-62,下【した】へ出【で】る,おりる,get off / descend,降りる,,757,e_757_oriru.mp3
+expr-758,cat-62,上【うえ】に入【はい】る,のる,ride / board,乗る,,758,e_758_noru.mp3
+expr-759,cat-62,持【も】って行【い】く,はこぶ,carry / transport,運ぶ,,759,e_759_hakobu.mp3
+expr-760,cat-62,ある場所【ばしょ】へ行【い】かせる,おくる,send,送る,,760,e_760_okuru.mp3
+expr-761,cat-62,持【も】って来【き】て与【あた】える,とどける,deliver,届ける,,761,e_761_todokeru.mp3
+expr-762,cat-62,来【き】て手【て】に入【はい】る,とどく,arrive / reach,届く,,762,e_762_todoku.mp3
+expr-763,cat-62,持【も】って与【あた】える,わたす,hand over,渡す,,763,e_763_watasu.mp3
+expr-764,cat-62,右【みぎ】か左【ひだり】の外【そと】へ行【い】く,わたる,cross over,渡る,,764,e_764_wataru.mp3
+expr-765,cat-62,手【て】で感【かん】じる,さわる,touch,触る,,765,e_765_sawaru.mp3
+expr-766,cat-62,手【て】で動【うご】かす,おす,push,押す,,766,e_766_osu.mp3
+expr-767,cat-62,手【て】で近【ちか】くへ動【うご】かす,ひく,pull,引く,,767,e_767_hiku.mp3
+expr-768,cat-62,手【て】で空【そら】へ出【で】す,なげる,throw,投げる,,768,e_768_nageru.mp3
+expr-769,cat-62,下【した】にある物【もの】を手【て】で持【も】つ,ひろう,pick up,拾う,,769,e_769_hirou.mp3
+expr-770,cat-62,ある場所【ばしょ】に止【と】める,おく,place / put down,置く,,770,e_770_oku.mp3
+expr-771,cat-62,上【うえ】から物【もの】を止【と】める,かける,hang / apply,掛ける,,771,e_771_kakeru.mp3
+expr-772,cat-62,お金【おかね】を与【あた】える,はらう,pay,払う,,772,e_772_harau.mp3
+expr-773,cat-62,お金【おかね】をもらって物【もの】を与【あた】える,うる,sell,売る,,773,e_773_uru.mp3
+expr-774,cat-62,また返【かえ】すために与【あた】える,かす,lend,貸す,,774,e_774_kasu.mp3
+expr-775,cat-62,また返【かえ】すためにもらう,かりる,borrow,借りる,,775,e_775_kariru.mp3
+expr-776,cat-62,もらった人【ひと】に与【あた】える,かえす,return (something),返す,,776,e_776_kaesu.mp3
+expr-777,cat-62,いらない物【もの】を出【で】す,すてる,throw away,捨てる,,777,e_777_suteru.mp3
+expr-778,cat-62,多【おお】く持【も】ってくる,あつめる,gather / collect,集める,,778,e_778_atsumeru.mp3
+expr-779,cat-62,一【ひと】つの物【もの】を二【ふた】つ以上【いじょう】にする,わける,divide / separate,分ける,,779,e_779_wakeru.mp3
+expr-780,cat-62,二【ふた】つ以上【いじょう】の物【もの】を一【ひと】つにする,まぜる,mix,混ぜる,,780,e_780_mazeru.mp3
+expr-781,cat-62,一【ひと】つ一【ひと】つ前【まえ】と後【あと】に立【た】つ,ならぶ,line up,並ぶ,,781,e_781_narabu.mp3
+expr-782,cat-62,終【お】わらずに起【お】こる,つづく,continue (intrans.),続く,,782,e_782_tsuzuku.mp3
+expr-783,cat-62,終【お】わらせずにする,つづける,continue (trans.),続ける,,783,e_783_tsuzukeru.mp3
+expr-784,cat-62,一【いち】つを選【えら】ぶ,きめる,decide,決める,,784,e_784_kimeru.mp3
+expr-785,cat-62,一【いち】つに選【えら】ばれる,きまる,be decided,決まる,,785,e_785_kimaru.mp3
+expr-786,cat-62,二【に】つの物【もの】が違【ちが】うか見【み】る,くらべる,compare,比べる,,786,e_786_kuraberu.mp3
+expr-787,cat-62,いくつあるか知【し】る,かぞえる,count,数える,,787,e_787_kazoeru.mp3
+expr-788,cat-62,良【よ】いか見【み】るためにする,ためす,try / test,試す,,788,e_788_tamesu.mp3
+expr-789,cat-62,ほんとうかどうか見【み】る,たしかめる,confirm / verify,確かめる,,789,e_789_tashikameru.mp3
+expr-790,cat-62,知【し】るために見【み】る,しらべる,investigate / look up,調べる,,790,e_790_shiraberu.mp3
+expr-791,cat-62,聞【き】かれたことを言【い】う,こたえる,answer,答える,,791,e_791_kotaeru.mp3
+expr-792,cat-62,してほしいと言【い】う,たのむ,ask (a favor) / request,頼む,,792,e_792_tanomu.mp3
+expr-793,cat-62,しないと言【い】う,ことわる,refuse / decline,断る,,793,e_793_kotowaru.mp3
+expr-794,cat-62,来【き】てほしいと言【い】う,まねく,invite,招く,,794,e_794_maneku.mp3
+expr-795,cat-62,言葉【ことば】を口【くち】から出【で】す,はなす,speak / talk,話す,,795,e_795_hanasu.mp3
+expr-796,cat-62,言葉【ことば】で知【し】らせる,つたえる,convey / tell,伝える,,796,e_796_tsutaeru.mp3
+expr-797,cat-62,とても大【おお】きな音【おと】で口【くち】から言【い】う,さけぶ,shout / scream,叫ぶ,,797,e_797_sakebu.mp3
+expr-798,cat-62,名前【なまえ】を言【い】って来【く】るように言【い】う,よぶ,call (out to),呼ぶ,,798,e_798_yobu.mp3
+expr-799,cat-62,音【おと】のある言葉【ことば】を口【くち】から出【で】す,うたう,sing,歌う,,799,e_799_utau.mp3
+expr-800,cat-62,音【おと】で体【からだ】を動【うご】かす,おどる,dance,踊る,,800,e_800_odoru.mp3
+expr-801,cat-62,楽【たの】しいことをする,あそぶ,play,遊ぶ,,801,e_801_asobu.mp3
+expr-802,cat-62,お金【おかね】のためにする,はたらく,work,働く,,802,e_802_hataraku.mp3
+expr-803,cat-62,ある時【とき】まで止【と】める,やすむ,rest / take a break,休む,,803,e_803_yasumu.mp3
+expr-804,cat-62,寝【ね】るのを止【と】めて立【た】つ,おきる,wake up / get up,起きる,,804,e_804_okiru.mp3
+expr-805,cat-62,ある場所【ばしょ】に毎【まい】日【にち】いる,すむ,live (reside),住む,,805,e_805_sumu.mp3
+expr-806,cat-62,私【わたし】の家【いえ】へ行【い】く,かえる,return home,帰る,,806,e_806_kaeru.mp3
+expr-807,cat-62,ある場所【ばしょ】の中【なか】を行【い】く,とおる,pass through,通る,,807,e_807_tooru.mp3
+expr-808,cat-62,その場所【ばしょ】を出【で】る,すぎる,pass by / exceed,過ぎる,,808,e_808_sugiru.mp3
+expr-809,cat-62,とても速【はや】くする,いそぐ,hurry,急ぐ,,809,e_809_isogu.mp3
+expr-810,cat-62,怖【こわ】いものから外【そと】へ行【い】く,にげる,escape / run away,逃げる,,810,e_810_nigeru.mp3
+expr-811,cat-62,ある人【ひと】・物【もの】の後【あと】から行【い】く,おう,chase,追う,,811,e_811_ou.mp3
+expr-812,cat-62,動【うご】けないようにする,つかまえる,catch / capture,捕まえる,,812,e_812_tsukamaeru.mp3
+expr-813,cat-62,見【み】えないようにする,かくす,hide (something),隠す,,813,e_813_kakusu.mp3
+expr-814,cat-62,見【み】えるようになる,あらわれる,appear,現れる,,814,e_814_arawareru.mp3
+expr-815,cat-62,見【み】えなくなる,きえる,disappear,消える,,815,e_815_kieru.mp3
+expr-816,cat-62,もっと多【おお】くなる,ふえる,increase,増える,,816,e_816_fueru.mp3
+expr-817,cat-62,より少【すこ】しになる,へる,decrease,減る,,817,e_817_heru.mp3
+expr-818,cat-62,上【うえ】へ動【うご】く,あがる,rise / go up,上がる,,818,e_818_agaru.mp3
+expr-819,cat-62,下【した】へ動【うご】く,さがる,fall / go down,下がる,,819,e_819_sagaru.mp3
+expr-820,cat-62,ある物【もの】の外【そと】を動【うご】く,まわる,turn / go around,回る,,820,e_820_mawaru.mp3
+expr-821,cat-62,道【みち】が右【みぎ】か左【ひだり】へ変【か】わる,まがる,turn / bend,曲がる,,821,e_821_magaru.mp3
+expr-822,cat-62,体【からだ】が速【はや】く少【すこ】し動【うご】く,ふるえる,tremble / shake,震える,,822,e_822_furueru.mp3
+expr-823,cat-62,右【みぎ】と左【ひだり】に速【はや】くなく動【うご】く,ゆれる,sway / shake,揺れる,,823,e_823_yureru.mp3
+expr-824,cat-62,光【ひかり】を出【で】す,ひかる,shine / glow,光る,,824,e_824_hikaru.mp3
+expr-825,cat-62,火【ひ】になる,もえる,burn,燃える,,825,e_825_moeru.mp3
+expr-826,cat-62,水【みず】のようになる,とける,melt / dissolve,溶ける,,826,e_826_tokeru.mp3
+expr-827,cat-62,水【みず】がなくなる,かわく,dry,乾く,,827,e_827_kawaku.mp3
+expr-828,cat-62,水【みず】がつく,ぬれる,get wet,濡れる,,828,e_828_nureru.mp3
+expr-829,cat-62,悪【わる】いものがつく,よごれる,get dirty,汚れる,,829,e_829_yogoreru.mp3
+expr-830,cat-62,きれいになるようにする,みがく,polish / brush,磨く,,830,e_830_migaku.mp3
+expr-831,cat-62,物【もの】の外【そと】を全部【ぜんぶ】見【み】えないようにする,つつむ,wrap,包む,,831,e_831_tsutsumu.mp3
+expr-832,cat-62,二【に】つの物【もの】を一【いち】つに止【と】める,むすぶ,tie / bind,結ぶ,,832,e_832_musubu.mp3
+expr-833,cat-62,手【て】で目【め】に見【み】えるものを作【つく】る,えがく,draw / depict,描く,,833,e_833_egaku.mp3
+expr-834,cat-63,大【おお】きくない,ちいさい,small,小さい,,834,e_834_chiisai.mp3
+expr-835,cat-63,長【なが】くない,みじかい,short (length),短い,,835,e_835_mijikai.mp3
+expr-836,cat-63,高【たか】くない,ひくい,low / short (height),低い,,836,e_836_hikui.mp3
+expr-837,cat-63,重【おも】くない,かるい,light (weight),軽い,,837,e_837_karui.mp3
+expr-838,cat-63,強【つよ】くない,よわい,weak,弱い,,838,e_838_yowai.mp3
+expr-839,cat-63,速【はや】くない,おそい,slow / late,遅い,,839,e_839_osoi.mp3
+expr-840,cat-63,新【あたら】しくない,ふるい,old (things),古い,,840,e_840_furui.mp3
+expr-841,cat-63,年【とし】が少【すこ】ない,わかい,young,若い,,841,e_841_wakai.mp3
+expr-842,cat-63,大【おお】きな場所【ばしょ】だ,ひろい,wide / spacious,広い,,842,e_842_hiroi.mp3
+expr-843,cat-63,場所【ばしょ】が大【おお】きくない,せまい,narrow / small space,狭い,,843,e_843_semai.mp3
+expr-844,cat-63,下【した】まで長【なが】い,ふかい,deep,深い,,844,e_844_fukai.mp3
+expr-845,cat-63,下【した】まで長【なが】くない,あさい,shallow,浅い,,845,e_845_asai.mp3
+expr-846,cat-63,中【なか】まで長【なが】い,あつい,thick,厚い,,846,e_846_atsui.mp3
+expr-847,cat-63,中【なか】まで長【なが】くない,うすい,thin / light (color),薄い,,847,e_847_usui.mp3
+expr-848,cat-63,外【そと】が大【おお】きい,ふとい,thick / fat (width),太い,,848,e_848_futoi.mp3
+expr-849,cat-63,外【そと】が大【おお】きくない,ほそい,thin / slender,細い,,849,e_849_hosoi.mp3
+expr-850,cat-63,月【つき】や太陽【たいよう】のような物【もの】だ,まるい,round,丸い,,850,e_850_marui.mp3
+expr-851,cat-63,手【て】で変【か】えられない,かたい,hard / stiff,固い,,851,e_851_katai.mp3
+expr-852,cat-63,手【て】で変【か】えられる,やわらかい,soft,柔らかい,,852,e_852_yawarakai.mp3
+expr-853,cat-63,食【た】べると良【よ】いと感【かん】じる,あまい,sweet,甘い,,853,e_853_amai.mp3
+expr-854,cat-63,食【た】べると好【す】きではないと感【かん】じる,にがい,bitter,苦い,,854,e_854_nigai.mp3
+expr-855,cat-63,食【た】べると火【ひ】のように感【かん】じる,からい,spicy / hot (taste),辛い,,855,e_855_karai.mp3
+expr-856,cat-63,食【た】べると変【へん】に感【かん】じる,すっぱい,sour,酸っぱい,,856,e_856_suppai.mp3
+expr-857,cat-63,音【おと】が大【おお】きすぎる,うるさい,noisy / annoying,うるさい,,857,e_857_urusai.mp3
+expr-858,cat-63,音【おと】がない,しずか,quiet,静か,,858,e_858_shizuka.mp3
+expr-859,cat-63,良【よ】いと言【い】える,ただしい,correct / right,正しい,,859,e_859_tadashii.mp3
+expr-860,cat-63,できない事【こと】が多【おお】い,むずかしい,difficult,難しい,,860,e_860_muzukashii.mp3
+expr-861,cat-63,すぐにできる,やさしい,easy,易しい,,861,e_861_yasashii.mp3
+expr-862,cat-63,することが多【おお】すぎる,いそがしい,busy,忙しい,,862,e_862_isogashii.mp3
+expr-863,cat-63,することがない,ひま,free (time) / idle,暇,,863,e_863_hima.mp3
+expr-864,cat-63,とてもきれいだ,うつくしい,beautiful,美しい,,864,e_864_utsukushii.mp3
+expr-865,cat-63,きれいではない,みにくい,ugly,醜い,,865,e_865_minikui.mp3
+expr-866,cat-63,悪【わる】いものがある,きたない,dirty,汚い,,866,e_866_kitanai.mp3
+expr-867,cat-63,悪【わる】い空気【くうき】がある,くさい,stinky / smelly,臭い,,867,e_867_kusai.mp3
+expr-868,cat-63,体【からだ】が悪【わる】く感【かん】じる,いたい,painful,痛い,,868,e_868_itai.mp3
+expr-869,cat-63,寝【ね】たいと感【かん】じる,ねむい,sleepy,眠い,,869,e_869_nemui.mp3
+expr-870,cat-63,他【ほか】の人【ひと】に見【み】られたくないと感【かん】じる,はずかしい,embarrassed / ashamed,恥ずかしい,,870,e_870_hazukashii.mp3
+expr-871,cat-63,あまり見【み】ない物【もの】だ,めずらしい,rare / unusual,珍しい,,871,e_871_mezurashii.mp3
+expr-872,cat-63,前【まえ】のことを思【おも】って良【よ】いと感【かん】じる,なつかしい,nostalgic,懐かしい,,872,e_872_natsukashii.mp3
+expr-873,cat-63,とても良【よ】い,すばらしい,wonderful / splendid,素晴らしい,,873,e_873_subarashii.mp3
+expr-874,cat-63,良【よ】い物【もの】が多【おお】い,ゆたか,rich / abundant,豊か,,874,e_874_yutaka.mp3
+expr-875,cat-63,お金【おかね】がとても少【すこ】ない,まずしい,poor,貧しい,,875,e_875_mazushii.mp3
+expr-876,cat-63,多【おお】くの人【ひと】が知【し】っている,ゆうめい,famous,有名,,876,e_876_yuumei.mp3
+expr-877,cat-63,多【おお】くのことがある,ふくざつ,complex,複雑,,877,e_877_fukuzatsu.mp3
+expr-878,cat-63,ことが少【すこ】ない,たんじゅん,simple,単純,,878,e_878_tanjun.mp3
+expr-879,cat-63,怖【こわ】いことがない,あんぜん,safe,安全,,879,e_879_anzen.mp3
+expr-880,cat-63,悪【わる】いことが起【お】こるかもしれない,きけん,dangerous,危険,,880,e_880_kiken.mp3
+expr-881,cat-63,できる,かのう,possible,可能,,881,e_881_kanou.mp3
+expr-882,cat-63,できない,ふかのう,impossible,不可能,,882,e_882_fukanou.mp3
+expr-883,cat-63,変【へん】ではない,ふつう,normal / ordinary,普通,,883,e_883_futsuu.mp3
+expr-884,cat-63,ほかと違【ちが】う,とくべつ,special,特別,,884,e_884_tokubetsu.mp3
+expr-885,cat-63,一番良【よ】い,さいこう,best / greatest,最高,,885,e_885_saikou.mp3
+expr-886,cat-63,一番悪【わる】い,さいてい,worst / lowest,最低,,886,e_886_saitei.mp3
+expr-887,cat-63,もっと必要【ひつよう】ではない,じゅうぶん,enough / sufficient,十分,,887,e_887_juubun.mp3
+expr-888,cat-63,この事【こと】に良【よ】い,てきとう,suitable / appropriate,適当,,888,e_888_tekitou.mp3
+expr-889,cat-64,その言葉【ことば】が言【い】うこと,いみ,meaning,意味,,889,e_889_imi.mp3
+expr-890,cat-64,なぜそうなったかということ,りゆう,reason,理由,,890,e_890_riyuu.mp3
+expr-891,cat-64,どうするかということ,ほうほう,method / way,方法,,891,e_891_houhou.mp3
+expr-892,cat-64,なぜするかということ,もくてき,purpose / goal,目的,,892,e_892_mokuteki.mp3
+expr-893,cat-64,したあとに起【お】こること,けっか,result,結果,,893,e_893_kekka.mp3
+expr-894,cat-64,それが起【お】こる前【まえ】にあったもの,げんいん,cause,原因,,894,e_894_genin.mp3
+expr-895,cat-64,あることが他【ほか】のことを変【か】えること,えいきょう,influence / effect,影響,,895,e_895_eikyou.mp3
+expr-896,cat-64,二【に】つの物【もの】や人【ひと】が一【いち】つのことに入【はい】っていること,かんけい,relationship,関係,,896,e_896_kankei.mp3
+expr-897,cat-64,そうなるために必要【ひつよう】なこと,じょうけん,condition,条件,,897,e_897_jouken.mp3
+expr-898,cat-64,今【いま】どうなっているかということ,じょうたい,state / condition,状態,,898,e_898_joutai.mp3
+expr-899,cat-64,どのくらいかということ,ていど,degree / extent,程度,,899,e_899_teido.mp3
+expr-900,cat-64,どんな物【もの】かということ,しゅるい,type / kind,種類,,900,e_900_shurui.mp3
+expr-901,cat-64,悪【わる】いことで考【かんが】えなければならないこと,もんだい,problem / question,問題,,901,e_901_mondai.mp3
+expr-902,cat-64,聞【き】かれたことへの言葉【ことば】,こたえ,answer,答え,,902,e_902_kotae.mp3
+expr-903,cat-64,知【し】りたいことを聞【き】くこと,しつもん,question,質問,,903,e_903_shitsumon.mp3
+expr-904,cat-64,こういう物【もの】だということを見【み】せるもの,れい,example,例,,904,e_904_rei.mp3
+expr-905,cat-64,ある時【とき】に起【お】こること,ばあい,case / situation,場合,,905,e_905_baai.mp3
+expr-906,cat-64,できる時【とき】があること,きかい,opportunity,機会,,906,e_906_kikai.mp3
+expr-907,cat-64,起【お】こるかもしれないということ,かのうせい,possibility,可能性,,907,e_907_kanousei.mp3
+expr-908,cat-64,したことがあるということ,けいけん,experience,経験,,908,e_908_keiken.mp3
+expr-909,cat-64,前【まえ】のことを心【こころ】に持【も】っていること,きおく,memory,記憶,,909,e_909_kioku.mp3
+expr-910,cat-64,見【み】えないものを頭【あたま】の中【なか】で作【つく】ること,そうぞう,imagination,想像,,910,e_910_souzou.mp3
+expr-911,cat-64,見【み】た時【とき】に感【かん】じたこと,いんしょう,impression,印象,,911,e_911_inshou.mp3
+expr-912,cat-64,あることについて思【おも】うこと,いけん,opinion,意見,,912,e_912_iken.mp3
+expr-913,cat-64,頭【あたま】の中【なか】にあること,かんがえ,thought / idea,考え,,913,e_913_kangae.mp3
+expr-914,cat-64,心【こころ】で感【かん】じること,きもち,feeling,気持ち,,914,e_914_kimochi.mp3
+expr-915,cat-64,人【ひと】に見【み】せる体【からだ】と言葉【ことば】の動【うご】き,たいど,attitude,態度,,915,e_915_taido.mp3
+expr-916,cat-64,すること,こうどう,action / behavior,行動,,916,e_916_koudou.mp3
+expr-917,cat-64,強【つよ】くしようとすること,どりょく,effort,努力,,917,e_917_doryoku.mp3
+expr-918,cat-64,しようとしたことができたこと,せいこう,success,成功,,918,e_918_seikou.mp3
+expr-919,cat-64,しようとしたことができなかったこと,しっぱい,failure,失敗,,919,e_919_shippai.mp3
+expr-920,cat-64,変【か】わること,へんか,change,変化,,920,e_920_henka.mp3
+expr-921,cat-64,より良【よ】くなること,しんぽ,progress,進歩,,921,e_921_shinpo.mp3
+expr-922,cat-64,もっと大【おお】きくなること,はってん,development,発展,,922,e_922_hatten.mp3
+expr-923,cat-64,生【い】きていること,いのち,life,命,,923,e_923_inochi.mp3
+expr-924,cat-64,これから起【お】こることが前【まえ】に決【き】まっているという考【かんが】え,うんめい,fate / destiny,運命,,924,e_924_unmei.mp3
+expr-925,cat-64,強【つよ】く動【うご】かすことができること,ちから,power / strength,力,,925,e_925_chikara.mp3
+expr-926,cat-64,できることがあること,のうりょく,ability / capacity,能力,,926,e_926_nouryoku.mp3
+expr-927,cat-64,とても良【よ】くできること,さいのう,talent,才能,,927,e_927_sainou.mp3
+expr-928,cat-64,知【し】っていること,ちしき,knowledge,知識,,928,e_928_chishiki.mp3
+expr-929,cat-64,全部【ぜんぶ】の人【ひと】が知【し】っていること,じょうしき,common sense,常識,,929,e_929_joushiki.mp3
+expr-930,cat-64,毎【まい】日【にち】すること,しゅうかん,habit / custom,習慣,,930,e_930_shuukan.mp3
+expr-931,cat-64,他【ほか】の人【ひと】に言【い】わないこと,ひみつ,secret,秘密,,931,e_931_himitsu.mp3
+expr-932,cat-64,すると言【い】ったこと,やくそく,promise,約束,,932,e_932_yakusoku.mp3
+expr-933,cat-64,しなければならないと思【おも】うこと,せきにん,responsibility,責任,,933,e_933_sekinin.mp3
+expr-934,cat-64,しなければならないこと,ぎむ,duty / obligation,義務,,934,e_934_gimu.mp3
+expr-935,cat-64,してもいいと言【い】われていること,けんり,right (legal),権利,,935,e_935_kenri.mp3
+expr-936,cat-64,良【よ】いことをするという考【かんが】え,せいぎ,justice,正義,,936,e_936_seigi.mp3
+expr-937,cat-64,どのくらい良【よ】いかということ,かち,value / worth,価値,,937,e_937_kachi.mp3
+expr-938,cat-64,するという強【つよ】い心【こころ】,いし,will / volition,意志,,938,e_938_ishi.mp3
