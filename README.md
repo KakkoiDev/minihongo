@@ -12,12 +12,12 @@ Live at [minihongo.com](https://minihongo.com)
 
 ## Lessons
 
-| # | Lesson | What |
-|---|--------|------|
-| 2 | 言葉 | 182 core words by category |
-| 3 | 文法 | Particles, conjugation, sentence patterns |
-| 5 | 言葉作り | Compounds, circumlocution, loanwords |
-| 6 | 読み物 | Haiku, dialogs, and short stories |
+| Lesson | What |
+|--------|------|
+| Vocabulary | 182 core words by category |
+| Grammar | Particles, conjugation, sentence patterns |
+| Word Building | Compounds, circumlocution, expressions |
+| Reading | Haiku, dialogs, and short stories |
 
 ## Languages
 
@@ -30,7 +30,7 @@ Three versions of the entire site:
 ## Stack
 
 - Plain HTML + CSS, no framework
-- CSV data files generate all page content via `generate_pages.py`
+- CSV as flat-file database - normalized tables with foreign keys, versionable in git, editable in any spreadsheet. Schema and referential integrity validated with [Frictionless Data](https://framework.frictionlessdata.io/)
 - Python build script (`site/build.py`) - build-time web components with `<slot>` expansion
 - [htmz](https://leanrada.com/htmz/) for partial page loads (SPA navigation without JS framework)
 - PWA with service worker, offline support, install prompt
@@ -54,37 +54,48 @@ Requires Python 3.10+. Zero external dependencies.
 ## Dev
 
 ```
-make watch
+make serve                # build and serve (no file watching)
+make watch                # build, serve, and rebuild on file changes
+make watch PORT=8000      # custom port (default 3000)
 ```
 
-Starts a local server on port 3000 with auto-rebuild on file changes.
+`make watch` requires [entr](https://eradman.com/entrern/).
 
 ## Structure
 
 ```
 data/
-├── words.csv             # 182 base vocabulary
-├── categories.csv        # Word/section categories
-├── compounds.csv         # Real kanji compounds from the 182
-├── expressions.csv       # BYOV and common word expressions
-├── grammar.csv           # Grammar points
-├── grammar_examples.csv  # Grammar examples
-├── haiku.csv             # Haiku texts
-├── dialogs.csv           # Dialog lines
-├── stories.csv           # Short stories
-├── ui_strings.csv        # UI text (en/ja/mh)
-└── pages.csv             # Page metadata
-generate_pages.py         # CSV -> site/pages/ HTML generator
+├── datapackage.json        # Frictionless schema + FK constraints
+├── words.csv               # 182 base vocabulary
+├── categories.csv          # Hierarchical sections (self-ref parent_id)
+├── grammar.csv             # Grammar points
+├── grammar_examples.csv    # Examples per grammar point
+├── compounds.csv           # Kanji compounds from the 182
+├── expressions.csv         # Creative descriptions from base words
+├── haiku.csv, dialogs.csv, stories.csv  # Reading content
+├── ui_strings.csv          # UI text (en/ja/mh)
+└── pages.csv               # Page metadata and nav labels
+generate_pages.py           # CSV data -> site/pages/ HTML
+SCHEMA.md                   # Relational schema documentation
 site/
-├── build.py              # Static site generator
-├── components/           # Reusable HTML components
-│   └── page-layout.html  # Main layout with nav, htmz, toast system
-├── pages/                # Source pages (en, ja/, mh/)
+├── engine.py               # Template engine (for/if/set/include/filters)
+├── build.py                # Static site generator
+├── lint.py                 # Template syntax linter
+├── components/             # Build-time web components
+│   ├── page-layout.html    # Main layout with nav, htmz, toast
+│   └── grammar-point.html  # Reusable grammar card
+├── templates/              # Data-driven page templates
+│   ├── vocabulary.html     # Renders words.csv
+│   └── grammar.html        # Renders grammar.csv + examples
+├── pages/                  # Generated pages (en/, ja/, mh/)
+│   ├── index.html
+│   └── lessons/…
 ├── static/
+│   ├── app.js              # Theme, furigana, lang switch, toast, PWA
 │   └── style.css
-├── sw.js                 # Service worker
-└── manifest.json         # PWA manifest
-docs/                     # Built output (gitignored, built in CI)
+├── sw.js                   # Service worker
+└── manifest.json           # PWA manifest
+docs/                       # Built output (gitignored, built in CI)
 ```
 
 ## Claude Code Skill
@@ -96,6 +107,16 @@ This repo includes a `/minihongo` skill for [Claude Code](https://claude.com/cla
 ```
 
 The skill lives at `.claude/skills/minihongo/SKILL.md`.
+
+## References
+
+The 182-word list draws on research into minimal and constructed vocabularies:
+
+- **[Toki Pona](https://tokipona.org/)** - Sonja Lang's conlang proves ~120 root words can express any idea through compounding. Minihongo borrows this philosophy: combine primitives instead of memorizing thousands of words.
+- **[Swadesh List](https://en.wikipedia.org/wiki/Swadesh_list)** - Morris Swadesh's 100/207-word core vocabulary lists, used in historical linguistics to compare languages. Many Minihongo base words overlap with Swadesh universals (body, water, fire, eat, die, etc.).
+- **[Natural Semantic Metalanguage (NSM)](https://nsm-approach.net/)** - Anna Wierzbicka's theory that all human languages share ~65 semantic primes (I, you, want, know, good, bad, big, small...). These primes informed which abstract concepts to include.
+- **[Basic English](https://en.wikipedia.org/wiki/Basic_English)** - C.K. Ogden's 850-word simplified English (1930) showed a controlled vocabulary can cover everyday communication. Minihongo pushes further: fewer words, full grammar.
+- **[Semantic primes research](https://en.wikipedia.org/wiki/Semantic_primes)** - Cross-linguistic studies identifying concepts that exist in every known language. Used to validate that the 182 words cover universal human expression.
 
 ## Design
 
