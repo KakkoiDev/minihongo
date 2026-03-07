@@ -145,6 +145,18 @@ ruby rt {
   gap: 0.75rem;
 }
 
+/* === Lazy rendering for off-screen content === */
+.section-heading,
+.grammar-point,
+.compact-table,
+.compound-table,
+.dialog,
+.haiku,
+.story {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 500px;
+}
+
 /* === Section heading === */
 .section-heading {
   font-size: 1.4rem;
