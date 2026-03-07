@@ -106,6 +106,10 @@ nav {
   &:hover {
     background: var(--bg-raised);
   }
+
+  &.active {
+    color: var(--accent);
+  }
 }
 
 /* === Japanese text === */

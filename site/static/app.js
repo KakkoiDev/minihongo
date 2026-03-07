@@ -98,16 +98,25 @@ addEventListener('popstate', async (e) => {
 
 // -- Toggle buttons -------------------------------------------------
 
-document.getElementById('btn-theme').addEventListener('click', () => {
+const btnTheme = document.getElementById('btn-theme')
+const btnFurigana = document.getElementById('btn-furigana')
+
+btnTheme.addEventListener('click', () => {
   const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark'
   document.documentElement.dataset.theme = next
   localStorage.setItem('theme', next)
+  btnTheme.classList.toggle('active', next === 'dark')
 })
 
-document.getElementById('btn-furigana').addEventListener('click', () => {
+btnFurigana.addEventListener('click', () => {
   const on = document.documentElement.classList.toggle('no-furigana')
   localStorage.setItem('furigana', on ? '0' : '1')
+  btnFurigana.classList.toggle('active', !on)
 })
+
+// Initial active state
+btnTheme.classList.toggle('active', document.documentElement.dataset.theme === 'dark')
+btnFurigana.classList.toggle('active', !document.documentElement.classList.contains('no-furigana'))
 
 // Language switcher
 window.switchLang = (lang) => {
