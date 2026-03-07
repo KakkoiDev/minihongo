@@ -104,7 +104,7 @@ def add_category(page_id, name_mh, name_en, sort, parent_id=''):
 # -- Vocabulary ---------------------------------------------------------------
 
 def parse_vocabulary():
-    text = (SITE / 'lessons/2-vocabulary.html').read_text()
+    text = (SITE / 'lessons/vocabulary.html').read_text()
     cat_sort = 0
     word_sort = 0
     current_cat = ''
@@ -141,7 +141,7 @@ def parse_vocabulary():
 # -- Grammar ------------------------------------------------------------------
 
 def parse_grammar():
-    text = (SITE / 'lessons/3-grammar.html').read_text()
+    text = (SITE / 'lessons/grammar.html').read_text()
     cat_sort = 0
     gram_sort = 0
     gex_sort = 0
@@ -205,7 +205,7 @@ def parse_grammar():
 # -- Word Building ------------------------------------------------------------
 
 def parse_word_building():
-    text = (SITE / 'lessons/5-word-building.html').read_text()
+    text = (SITE / 'lessons/word-building.html').read_text()
     h2_sort = 0
     h3_sort = 0
     comp_sort = 0
@@ -315,7 +315,7 @@ def _parse_speaker(p_html):
 
 
 def parse_reading():
-    text = (SITE / 'lessons/6-texts-dialogs.html').read_text()
+    text = (SITE / 'lessons/texts-dialogs.html').read_text()
     h2_sort = 0
     haiku_sort = 0
     dgrp_sort = 0

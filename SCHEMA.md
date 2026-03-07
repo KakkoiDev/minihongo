@@ -16,7 +16,7 @@ CSV files validated with [Frictionless Data Framework](https://github.com/fricti
 | name_japanese | string | |
 | sort_order | integer | required |
 
-path maps page id to its file path (e.g. lessons/2-vocabulary.html).
+path maps page id to its file path (e.g. lessons/vocabulary.html).
 Values: vocabulary, grammar, word-building, reading
 
 ### categories

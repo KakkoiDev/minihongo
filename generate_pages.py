@@ -13,10 +13,10 @@ LANGS = ['en', 'ja', 'mh']
 LANG_COL = {'en': 'english', 'ja': 'japanese', 'mh': 'minihongo'}
 
 PAGE_FILES = {
-    'vocabulary': '2-vocabulary.html',
-    'grammar': '3-grammar.html',
-    'word-building': '5-word-building.html',
-    'reading': '6-texts-dialogs.html',
+    'vocabulary': 'vocabulary.html',
+    'grammar': 'grammar.html',
+    'word-building': 'word-building.html',
+    'reading': 'texts-dialogs.html',
 }
 
 WB_DESC_KEYS = {
