@@ -156,9 +156,23 @@ def extract_reading(text):
     return reading
 
 
+def furigana_to_reading(text):
+    """Replace kanji【reading】 with reading, keep everything else (punctuation, kana)."""
+    parts = []
+    last = 0
+    for m in _FURIGANA_EXTRACT_RE.finditer(text):
+        if m.start() > last:
+            parts.append(text[last:m.start()])
+        parts.append(m.group(2))
+        last = m.end()
+    if last < len(text):
+        parts.append(text[last:])
+    return ''.join(parts)
+
+
 def text_for_tts(text):
-    """Prepare text for TTS: strip furigana brackets, clean up."""
-    text = strip_furigana(text)
+    """Prepare text for TTS: replace kanji with furigana readings for correct pronunciation."""
+    text = furigana_to_reading(text)
     # Normalize haiku line separator
     text = text.replace(' / ', '、')
     return text.strip()
