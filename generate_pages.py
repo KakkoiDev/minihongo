@@ -270,7 +270,7 @@ def gen_vocabulary(categories, words, lang):
         toc.append((slug, f'{cat["sort_order"]}. {to_ruby_html(esc(toc_label))}'))
         parts.append(f'  <h2 id="{slug}" class="section-heading">{cat["sort_order"]}. {h}</h2>\n')
         parts.append('\n')
-        parts.append('  <table class="compact-table">\n')
+        parts.append('  <div class="table-scroll"><table class="compact-table">\n')
         parts.append(f'    <thead><tr><th>{th_word}</th><th>{th_meaning}</th><th>{th_example}</th></tr></thead>\n')
         parts.append('    <tbody>\n')
         for w in cat_words:
@@ -284,7 +284,7 @@ def gen_vocabulary(categories, words, lang):
             pb_e = play_btn('w', w.get('audio_example', ''))
             parts.append(f'      <tr><td lang="ja">{pb_w}{word}</td><td>{meaning}</td><td lang="ja">{pb_e}{example}</td></tr>\n')
         parts.append('    </tbody>\n')
-        parts.append('  </table>\n')
+        parts.append('  </table></div>\n')
         parts.append('\n')
 
     return wrap_page('vocabulary', ''.join(parts), lang, toc)
@@ -405,7 +405,7 @@ def _render_compound_table(parts, rows, lang):
     """2-col table: Word (with furigana) / Meaning."""
     th_word = ui('th_word', lang)
     th_meaning = ui('th_meaning', lang)
-    parts.append('  <table class="compound-table">\n')
+    parts.append('  <div class="table-scroll"><table class="compound-table">\n')
     parts.append(f'    <thead><tr><th lang="ja">{th_word}</th><th>{th_meaning}</th></tr></thead>\n')
     parts.append('    <tbody>\n')
     for r in rows:
@@ -424,7 +424,7 @@ def _render_compound_table(parts, rows, lang):
             f'</tr>\n'
         )
     parts.append('    </tbody>\n')
-    parts.append('  </table>\n')
+    parts.append('  </table></div>\n')
 
 
 def _render_common_table(parts, rows, lang, byov=False):
@@ -432,7 +432,7 @@ def _render_common_table(parts, rows, lang, byov=False):
     For mh: 1-col, only minihongo expression.
     For en/ja: 2-col, Minihongo + English/Japanese meaning."""
     th_minihongo = ui('th_minihongo', lang)
-    parts.append('<table class="compound-table">\n')
+    parts.append('<div class="table-scroll"><table class="compound-table">\n')
     if lang == 'mh':
         parts.append(f'  <thead><tr><th lang="ja">{th_minihongo}</th></tr></thead>\n')
     else:
@@ -453,7 +453,7 @@ def _render_common_table(parts, rows, lang, byov=False):
                 f'</tr>\n'
             )
     parts.append('  </tbody>\n')
-    parts.append('</table>\n')
+    parts.append('</table></div>\n')
 
 
 def _render_concept_table(parts, rows, lang):
@@ -463,7 +463,7 @@ def _render_concept_table(parts, rows, lang):
         th_word = ui('th_word', lang)
         th_meaning = ui('th_meaning', lang)
         has_defs = any(r.get('definition_minihongo') for r in rows)
-        parts.append('  <table class="compound-table">\n')
+        parts.append('  <div class="table-scroll"><table class="compound-table">\n')
         if has_defs:
             parts.append(f'    <thead><tr><th lang="ja">{th_word}</th><th>{th_meaning}</th></tr></thead>\n')
         else:
@@ -478,12 +478,12 @@ def _render_concept_table(parts, rows, lang):
             else:
                 parts.append(f'      <tr><td lang="ja">{pb}{mh}</td></tr>\n')
         parts.append('    </tbody>\n')
-        parts.append('  </table>\n')
+        parts.append('  </table></div>\n')
         return
 
     th_concept = ui('th_concept', lang)
     th_literally = ui('th_literally', lang)
-    parts.append('  <table class="compound-table">\n')
+    parts.append('  <div class="table-scroll"><table class="compound-table">\n')
     parts.append(f'    <thead><tr><th>{th_concept}</th><th lang="ja">\u8a00\u3044\u65b9</th><th>{th_literally}</th></tr></thead>\n')
     parts.append('    <tbody>\n')
     for r in rows:
@@ -497,7 +497,7 @@ def _render_concept_table(parts, rows, lang):
             f'</tr>\n'
         )
     parts.append('    </tbody>\n')
-    parts.append('  </table>\n')
+    parts.append('  </table></div>\n')
 
 
 # -- Reading ------------------------------------------------------------------
