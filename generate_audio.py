@@ -188,9 +188,18 @@ def text_for_tts(text):
         return reading
 
     text = re.sub(r'[\u4e00-\u9fff\u3400-\u4dbf]+【([^】]+)】', _replace, text)
-    # Normalize haiku line separator
-    text = text.replace(' / ', '、')
-    return text.strip()
+    # Strip quote brackets
+    text = text.replace('「', '').replace('」', '')
+    # Convert separators to pauses
+    text = re.sub(r'\s*/\s*', '。', text)
+    text = re.sub(r'\s*→\s*', '。', text)
+    # Clean double punctuation
+    text = re.sub(r'。+', '。', text)
+    # Ensure sentence ends with punctuation
+    text = text.strip()
+    if text and text[-1] not in '。！？、':
+        text += '。'
+    return text
 
 
 def to_romaji_filename(text, reading_col=''):
