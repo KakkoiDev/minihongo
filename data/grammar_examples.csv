@@ -1,5 +1,5 @@
 id,grammar_id,minihongo,english,japanese,english_litteral,sort_order,audio_file
-gex-1,gram-1,私【わたし】は 本【ほん】を 読【よ】む,I read a book. (I + book + read),私は本を読む。,,1,ge_1.mp3
+gex-1,gram-1,私【わたし】は 本【ほん】を 読【よ】む。,I read a book. (I + book + read),私は本を読む。,,1,ge_1.mp3
 gex-2,gram-2,「何【なに】を 食【た】べる？」「水【みず】。」,What will you eat? - Water.,「何を食べる？」「水。」,,2,ge_2.mp3
 gex-3,gram-3,動物【どうぶつ】がいる。本【ほん】がある。,An animal is here. A book is here.,動物がいる。本がある。,,3,ge_3.mp3
 gex-4,gram-3,私【わたし】は 本【ほん】がある。,"I have a book. (as for me, a book exists)",私は本がある。,,4,ge_4.mp3
