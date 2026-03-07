@@ -166,13 +166,28 @@ def furigana_to_reading(text):
     return re.sub(r'[\u4e00-\u9fff\u3400-\u4dbf]+【([^】]+)】', r'\1', text)
 
 
-def text_for_tts(text):
-    """Prepare text for TTS: strip furigana brackets, keep kanji for context.
+# Kanji that TTS mispronounces when converted to hiragana.
+# These stay as kanji in TTS input.
+# は readings → particle "wa" (母→はは→wawa, 入→はい→wai, 始→はじ→waji)
+# 思う → おもう → omoo
+_KEEP_KANJI = {'母', '鼻', '入', '始', '走', '思', '払', '半', '花', '歯'}
 
-    Kanji gives TTS better context for disambiguation than raw kana
-    (e.g. 入る reads as hairu, but はいる can become wairu).
+
+def text_for_tts(text):
+    """Prepare text for TTS: convert furigana to readings, keep blocklisted kanji.
+
+    Default: replace kanji with furigana readings for correct pronunciation.
+    Exception: kanji in _KEEP_KANJI stay as-is (TTS handles them better).
     """
-    text = strip_furigana(text)
+    def _replace(m):
+        kanji = m.group(0).split('【')[0]
+        reading = m.group(1)
+        # Keep kanji if any character is in the blocklist
+        if any(c in _KEEP_KANJI for c in kanji):
+            return kanji
+        return reading
+
+    text = re.sub(r'[\u4e00-\u9fff\u3400-\u4dbf]+【([^】]+)】', _replace, text)
     # Normalize haiku line separator
     text = text.replace(' / ', '、')
     return text.strip()
@@ -307,18 +322,7 @@ async def gen_words():
         word_file = f'{base}{suffix}.mp3'
         word_path = out / word_file
         if not word_path.exists():
-            bare = strip_furigana(row['minihongo'])
-            reading = extract_reading(row['minihongo'])
-            # Single/double kanji often get wrong reading (事→じ, 時→じ, 後→ご, 年→ねん)
-            # Use furigana reading for pure-kanji words, unless reading contains は
-            # (は gets misread as particle wa: 母→はは→wawa)
-            use_reading = (
-                len(bare) <= 2
-                and all('\u4e00' <= c <= '\u9fff' for c in bare)
-                and 'は' not in reading
-            )
-            word = reading if use_reading else bare
-            tts_text = word + '。'
+            tts_text = text_for_tts(row['minihongo']) + '。'
             await tts_generate(tts_text, VOICE_MALE, word_path)
             print(f'  {word_file}')
 
