@@ -123,13 +123,13 @@ const showToast = (msg, opts) => {
 
   const msgSpan = document.createElement('span')
   msgSpan.className = 'toast-msg'
-  msgSpan.textContent = msg
+  msgSpan.innerHTML = msg
   el.appendChild(msgSpan)
 
   if (opts?.actionLabel) {
     const btn = document.createElement('button')
     btn.className = 'toast-btn'
-    btn.textContent = opts.actionLabel
+    btn.innerHTML = opts.actionLabel
     btn.addEventListener('click', (e) => { e.stopPropagation(); opts.action?.() })
     el.appendChild(btn)
   }

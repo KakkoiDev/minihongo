@@ -1,7 +1,13 @@
 <page-layout>
-  <span slot="title">404 - Minihongo</span>
+  <span slot="title">404 - {{ SITE_NAME_PLAIN }}</span>
 
   <h1>404</h1>
   <p>Page not found.</p>
-  <p><a href="./">Back to Minihongo</a></p>
+
+  <ul>
+    <li><a href="./">Home</a></li>
+    {% for page in data.pages | sort: "sort_order" %}
+    <li><a href="{{page.path}}">{{page.name_english}}</a></li>
+    {% endfor %}
+  </ul>
 </page-layout>

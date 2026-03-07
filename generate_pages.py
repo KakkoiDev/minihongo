@@ -194,8 +194,15 @@ def wrap_page(page_id, content, lang, toc=None):
 
 # -- Homepage -----------------------------------------------------------------
 
+def strip_html(text):
+    """Remove HTML tags and ruby reading text from text."""
+    text = re.sub(r'<rt>[^<]*</rt>', '', text)
+    return re.sub(r'<[^>]+>', '', text)
+
+
 def gen_index(lang):
     site_name = ui('site_name', lang)
+    site_name_plain = strip_html(site_name)
     tagline = ui('home_tagline', lang)
     bullets = [ui(f'home_{i}', lang) for i in range(1, 4)]
     items = '\n'.join(f'    <li>{b}</li>' for b in bullets)
@@ -213,7 +220,7 @@ def gen_index(lang):
 
     return (
         f'<page-layout>\n'
-        f'  <span slot="title">{site_name}</span>\n'
+        f'  <span slot="title">{site_name_plain}</span>\n'
         f'\n'
         f'{h1}'
         f'  <p>{tagline}</p>\n'
