@@ -167,8 +167,12 @@ def furigana_to_reading(text):
 
 
 def text_for_tts(text):
-    """Prepare text for TTS: replace kanji with furigana readings for correct pronunciation."""
-    text = furigana_to_reading(text)
+    """Prepare text for TTS: strip furigana brackets, keep kanji for context.
+
+    Kanji gives TTS better context for disambiguation than raw kana
+    (e.g. 入る reads as hairu, but はいる can become wairu).
+    """
+    text = strip_furigana(text)
     # Normalize haiku line separator
     text = text.replace(' / ', '、')
     return text.strip()
@@ -303,7 +307,7 @@ async def gen_words():
         word_file = f'{base}{suffix}.mp3'
         word_path = out / word_file
         if not word_path.exists():
-            tts_text = text_for_tts(row['minihongo'])
+            tts_text = strip_furigana(row['minihongo'])
             await tts_generate(tts_text, VOICE_MALE, word_path)
             print(f'  {word_file}')
 
