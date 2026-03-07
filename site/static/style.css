@@ -227,6 +227,10 @@ ruby rt {
 .compact-table {
   font-size: 0.95rem;
 
+  & td, & th {
+    white-space: nowrap;
+  }
+
   & td:first-child {
     font-family: var(--jp);
   }
