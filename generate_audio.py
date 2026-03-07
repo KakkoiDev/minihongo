@@ -307,7 +307,17 @@ async def gen_words():
         word_file = f'{base}{suffix}.mp3'
         word_path = out / word_file
         if not word_path.exists():
-            tts_text = strip_furigana(row['minihongo'])
+            bare = strip_furigana(row['minihongo'])
+            reading = extract_reading(row['minihongo'])
+            # Single/double kanji often get wrong reading (事→じ, 時→じ, 後→ご, 年→ねん)
+            # Use furigana reading for pure-kanji words, unless reading contains は
+            # (は gets misread as particle wa: 母→はは→wawa)
+            use_reading = (
+                len(bare) <= 2
+                and all('\u4e00' <= c <= '\u9fff' for c in bare)
+                and 'は' not in reading
+            )
+            tts_text = (reading if use_reading else bare) + '。'
             await tts_generate(tts_text, VOICE_MALE, word_path)
             print(f'  {word_file}')
 
