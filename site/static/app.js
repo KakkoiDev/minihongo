@@ -2,6 +2,7 @@
 
 const base = document.querySelector('base').href
 const basePath = new URL(base).pathname
+const rootPath = basePath.replace(/^(\/(?:ja|mh)\/)/, '/')
 
 // -- SPA navigation -----------------------------------------------------
 
@@ -73,7 +74,7 @@ let currentAudio = null
 let currentBtn = null
 
 const playAudio = (btn) => {
-  const src = `${base}audio/${btn.dataset.audio}`
+  const src = `${rootPath}audio/${btn.dataset.audio}`
   if (currentAudio) {
     currentAudio.pause()
     currentBtn?.classList.remove('playing')
