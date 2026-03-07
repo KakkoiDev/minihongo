@@ -67,6 +67,40 @@ const bindLink = (a) => {
   a.onmouseenter = () => handleNavHover(a.href)
 }
 
+// -- Audio playback -----------------------------------------------------
+
+let currentAudio = null
+let currentBtn = null
+
+const playAudio = (btn) => {
+  const src = `${base}audio/${btn.dataset.audio}`
+  if (currentAudio) {
+    currentAudio.pause()
+    currentBtn?.classList.remove('playing')
+    if (currentBtn === btn) {
+      currentAudio = null
+      currentBtn = null
+      return
+    }
+  }
+  const audio = new Audio(src)
+  audio.addEventListener('ended', () => {
+    btn.classList.remove('playing')
+    currentAudio = null
+    currentBtn = null
+  })
+  audio.play()
+  btn.classList.add('playing')
+  currentAudio = audio
+  currentBtn = btn
+}
+
+const bindPlayButtons = () => {
+  for (const btn of document.querySelectorAll('#content .play-btn')) {
+    btn.onclick = () => playAudio(btn)
+  }
+}
+
 // Bind lesson-nav and TOC links inside #content (re-run after each swap)
 const bindContentLinks = () => {
   for (const a of document.querySelectorAll('.lesson-nav a')) {
@@ -129,41 +163,6 @@ window.switchLang = (lang) => {
 // -- Service worker -------------------------------------------------
 
 navigator.serviceWorker?.register(`${basePath}sw.js`)
-
-// -- Audio playback -----------------------------------------------------
-
-let currentAudio = null
-let currentBtn = null
-
-const playAudio = (btn) => {
-  const src = `${base}audio/${btn.dataset.audio}`
-  // Stop current if same button or different
-  if (currentAudio) {
-    currentAudio.pause()
-    currentBtn?.classList.remove('playing')
-    if (currentBtn === btn) {
-      currentAudio = null
-      currentBtn = null
-      return
-    }
-  }
-  const audio = new Audio(src)
-  audio.addEventListener('ended', () => {
-    btn.classList.remove('playing')
-    currentAudio = null
-    currentBtn = null
-  })
-  audio.play()
-  btn.classList.add('playing')
-  currentAudio = audio
-  currentBtn = btn
-}
-
-const bindPlayButtons = () => {
-  for (const btn of document.querySelectorAll('#content .play-btn')) {
-    btn.onclick = () => playAudio(btn)
-  }
-}
 
 // -- Back to top --------------------------------------------------------
 
