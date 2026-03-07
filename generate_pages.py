@@ -218,6 +218,8 @@ def gen_index(lang):
     next_label = to_ruby_html(t(first_page, 'name', lang))
     next_href = f'lessons/{PAGE_FILES[first_page["id"]]}'
 
+    onboarding = ui('home_onboarding', lang)
+
     return (
         f'<page-layout>\n'
         f'  <span slot="title">{site_name_plain}</span>\n'
@@ -227,6 +229,9 @@ def gen_index(lang):
         f'  <ul>\n'
         f'{items}\n'
         f'  </ul>\n'
+        f'  <div class="onboarding">\n'
+        f'    <p>{onboarding}</p>\n'
+        f'  </div>\n'
         f'  <nav class="lesson-nav">\n'
         f'    <span></span>\n'
         f'    <a href="{next_href}">{next_label} \u2192</a>\n'

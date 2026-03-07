@@ -5,9 +5,19 @@ const basePath = new URL(base).pathname
 
 // -- SPA navigation -----------------------------------------------------
 
+const navLinks = document.querySelectorAll('nav:not(.lesson-nav):not(.toc) a:not(.logo)')
+
 const updateTitle = () => {
   const h1 = document.querySelector('#content h1')
   document.title = `${h1?.textContent ?? 'Minihongo'} - Minihongo`
+}
+
+const updateActiveNav = () => {
+  const path = location.pathname
+  for (const a of navLinks) {
+    const href = new URL(a.href).pathname
+    a.classList.toggle('active', path === href || path === href.replace(/\.html$/, '/'))
+  }
 }
 
 // Prefetch cache: path -> Promise<Document>
@@ -30,6 +40,7 @@ const navigate = async (path) => {
     if (!newContent) throw new Error('no #content')
     document.querySelector('#content').replaceWith(newContent)
     updateTitle()
+    updateActiveNav()
     scrollTo(0, 0)
     bindContentLinks()
     return true
@@ -58,7 +69,7 @@ const bindLink = (a) => {
 
 // Bind lesson-nav and TOC links inside #content (re-run after each swap)
 const bindContentLinks = () => {
-  for (const a of document.querySelectorAll('.lesson-nav a, .toc a')) {
+  for (const a of document.querySelectorAll('.lesson-nav a')) {
     bindLink(a)
   }
   for (const a of document.querySelectorAll('#content a[href^="#"]')) {
@@ -70,12 +81,13 @@ const bindContentLinks = () => {
 }
 
 // Top nav links
-for (const a of document.querySelectorAll('nav:not(.lesson-nav):not(.toc) a:not(.logo)')) {
+for (const a of navLinks) {
   if (a.classList.contains('lang-link')) continue
   bindLink(a)
 }
 
-// Initial content links
+// Initial state
+updateActiveNav()
 bindContentLinks()
 
 // Back/forward
@@ -107,6 +119,14 @@ window.switchLang = (lang) => {
 // -- Service worker -------------------------------------------------
 
 navigator.serviceWorker?.register(`${basePath}sw.js`)
+
+// -- Back to top --------------------------------------------------------
+
+const btnTop = document.getElementById('btn-top')
+addEventListener('scroll', () => {
+  btnTop.classList.toggle('visible', scrollY > 400)
+}, { passive: true })
+btnTop.addEventListener('click', () => scrollTo({ top: 0, behavior: 'smooth' }))
 
 // -- Content integrity recovery -------------------------------------
 
