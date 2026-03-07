@@ -32,7 +32,7 @@ Three versions of the entire site:
 - Plain HTML + CSS, no framework
 - CSV as flat-file database - normalized tables with foreign keys, versionable in git, editable in any spreadsheet. Schema and referential integrity validated with [Frictionless Data](https://framework.frictionlessdata.io/)
 - Python build script (`site/build.py`) - build-time web components with `<slot>` expansion
-- [htmz](https://leanrada.com/htmz/) for partial page loads (SPA navigation without JS framework)
+- SPA navigation via fetch + DOMParser (no framework)
 - PWA with service worker, offline support, install prompt
 - GitHub Pages via GitHub Actions
 

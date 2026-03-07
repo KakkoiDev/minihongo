@@ -4,7 +4,7 @@ Minihongo static site builder.
 
 - Template engine with loops, conditionals, filters
 - Build-time web components (custom elements with slots + props)
-- htmz fragment generation for partial page loads
+- Fragment generation for SPA navigation
 - Multilingual output (en, ja, mh) from single page source
 - Zero dependencies beyond Python 3.10+
 
@@ -298,7 +298,7 @@ def resolve_includes(html):
 
 
 def extract_fragment(html):
-    """Pull out <main id="content">...</main> for htmz partial loading."""
+    """Pull out <main id="content">...</main> for SPA navigation."""
     m = re.search(r'<main\s+id="content"[^>]*>.*?</main>', html, re.DOTALL)
     return m.group(0) if m else html
 
@@ -405,7 +405,7 @@ def _build_to(OUT, base_url):
         dest.parent.mkdir(parents=True, exist_ok=True)
         dest.write_text(html)
 
-        # htmz fragment (skip 404)
+        # SPA fragment (skip 404)
         if rel.name == '404.html':
             print(f"  {rel}")
             continue

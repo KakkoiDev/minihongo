@@ -1,81 +1,67 @@
 // Minihongo app logic
-// Extracted from page-layout.html for caching via service worker
 
 const base = document.querySelector('base').href
 const basePath = new URL(base).pathname
 
-// -- Helpers --------------------------------------------------------
+// -- SPA navigation -----------------------------------------------------
 
 const updateTitle = () => {
   const h1 = document.querySelector('#content h1')
   document.title = `${h1?.textContent ?? 'Minihongo'} - Minihongo`
 }
 
-const swapContent = (nodes, target) => {
-  if (!target || !nodes.length) return false
-  target.replaceWith(...nodes)
-  updateTitle()
-  scrollTo(0, 0)
-  return true
-}
-
-// -- htmz iframe handler --------------------------------------------
-
-const onHtmzLoad = (frame) => {
+const navigate = async (path) => {
   try {
-    const { location: loc } = frame.contentWindow
-    if (loc.href === 'about:blank') return
-    setTimeout(() => {
-      try {
-        const target = document.querySelector(loc.hash || null)
-        const nodes = [...frame.contentDocument.body.childNodes]
-        if (!swapContent(nodes, target)) return
-        frame.src = 'about:blank'
-        const pagePath = loc.pathname.replace(basePath, '').replace(/^_f\//, '')
-        const pageUrl = `${base}${pagePath}`
-        if (location.href !== pageUrl) history.pushState({ path: pagePath }, '', pageUrl)
-      } catch { location.reload() }
-    })
-  } catch { /* iframe in bad state after OS freeze/resume - ignore */ }
-}
-
-// -- Back/forward navigation ----------------------------------------
-
-addEventListener('popstate', async (e) => {
-  if (!e.state?.path) return location.reload()
-  try {
-    const res = await fetch(`${base}_f/${e.state.path}`)
+    const res = await fetch(`${base}_f/${path}`)
     if (!res.ok) throw new Error(res.status)
     const html = await res.text()
     const doc = new DOMParser().parseFromString(html, 'text/html')
-    const nodes = [...doc.body.childNodes]
-    if (!swapContent(nodes, document.querySelector('#content'))) location.reload()
-  } catch { location.reload() }
-})
-
-// -- Rewrite nav links for htmz ------------------------------------
-
-for (const a of document.querySelectorAll('nav:not(.lesson-nav):not(.toc) a:not(.logo)')) {
-  if (a.classList.contains('lang-link')) continue
-  a.target = 'htmz'
-  const path = new URL(a.href).pathname.replace(basePath, '')
-  a.href = `${base}_f/${path}#content`
+    const newContent = doc.querySelector('#content')
+    if (!newContent) throw new Error('no #content')
+    const target = document.querySelector('#content')
+    target.replaceWith(newContent)
+    updateTitle()
+    scrollTo(0, 0)
+    bindContentLinks()
+    return true
+  } catch {
+    return false
+  }
 }
 
-// -- Click delegation -----------------------------------------------
-
-document.addEventListener('click', (e) => {
-  const anchor = e.target.closest('#content a[href^="#"]')
-  if (anchor) {
-    e.preventDefault()
-    document.getElementById(anchor.getAttribute('href').slice(1))?.scrollIntoView()
-    return
-  }
-  const nav = e.target.closest('.lesson-nav a')
-  if (!nav) return
+const handleNavClick = async (e, href) => {
   e.preventDefault()
-  const path = new URL(nav.href, base).pathname.replace(basePath, '')
-  document.querySelector('iframe[name=htmz]').src = `${base}_f/${path}#content`
+  const path = new URL(href, base).pathname.replace(basePath, '')
+  history.pushState({ path }, '', `${base}${path}`)
+  if (!await navigate(path)) location.reload()
+}
+
+// Bind lesson-nav and TOC links inside #content (re-run after each swap)
+const bindContentLinks = () => {
+  for (const a of document.querySelectorAll('.lesson-nav a, .toc a')) {
+    a.onclick = (e) => handleNavClick(e, a.href)
+  }
+  for (const a of document.querySelectorAll('#content a[href^="#"]')) {
+    a.onclick = (e) => {
+      e.preventDefault()
+      document.getElementById(a.getAttribute('href').slice(1))?.scrollIntoView()
+    }
+  }
+}
+
+// Top nav links
+for (const a of document.querySelectorAll('nav:not(.lesson-nav):not(.toc) a:not(.logo)')) {
+  if (a.classList.contains('lang-link')) continue
+  a.onclick = (e) => handleNavClick(e, a.href)
+}
+
+// Initial content links
+bindContentLinks()
+
+// Back/forward
+addEventListener('popstate', async (e) => {
+  if (!e.state?.path) return location.reload()
+  if (!await navigate(e.state.path)) location.reload()
 })
 
 // -- Toggle buttons -------------------------------------------------
@@ -91,7 +77,7 @@ document.getElementById('btn-furigana').addEventListener('click', () => {
   localStorage.setItem('furigana', on ? '0' : '1')
 })
 
-// Language switcher - global, called from lang switcher onchange
+// Language switcher
 window.switchLang = (lang) => {
   localStorage.setItem('lang', lang)
   const pagePath = location.pathname.replace(/^\/(ja|mh)\//, '/')
@@ -149,10 +135,6 @@ const showToast = (msg, opts) => {
   if (opts?.duration) setTimeout(dismiss, opts.duration)
 
   return { el, dismiss }
-}
-
-const clearToasts = () => {
-  for (const el of [...toastContainer.children]) el.remove()
 }
 
 // Network status toasts
