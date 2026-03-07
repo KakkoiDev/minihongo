@@ -270,7 +270,7 @@ def gen_vocabulary(categories, words, lang):
         toc.append((slug, f'{cat["sort_order"]}. {to_ruby_html(esc(toc_label))}'))
         parts.append(f'  <h2 id="{slug}" class="section-heading">{cat["sort_order"]}. {h}</h2>\n')
         parts.append('\n')
-        parts.append('  <div class="table-scroll"><table class="compact-table">\n')
+        parts.append('  <table class="compact-table">\n')
         parts.append(f'    <thead><tr><th>{th_word}</th><th>{th_meaning}</th><th>{th_example}</th></tr></thead>\n')
         parts.append('    <tbody>\n')
         for w in cat_words:
@@ -284,7 +284,7 @@ def gen_vocabulary(categories, words, lang):
             pb_e = play_btn('w', w.get('audio_example', ''))
             parts.append(f'      <tr><td lang="ja">{pb_w}{word}</td><td>{meaning}</td><td lang="ja">{pb_e}{example}</td></tr>\n')
         parts.append('    </tbody>\n')
-        parts.append('  </table></div>\n')
+        parts.append('  </table>\n')
         parts.append('\n')
 
     return wrap_page('vocabulary', ''.join(parts), lang, toc)
