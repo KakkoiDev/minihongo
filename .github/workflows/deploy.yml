@@ -27,6 +27,14 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Download audio from release
+        run: |
+          mkdir -p audio
+          gh release download audio-v1 --pattern '*.tar.gz' --dir /tmp
+          tar xzf /tmp/minihongo-audio-v1.tar.gz -C audio/
+        env:
+          GH_TOKEN: ${{ github.token }}
+
       - run: python generate_pages.py && python site/build.py
         env:
           BASE_URL: /

@@ -29,6 +29,13 @@ UI_STRINGS = {}
 PAGE_DATA = []
 
 
+def play_btn(subdir, audio_file):
+    """Generate a play button HTML if audio_file is set."""
+    if not audio_file:
+        return ''
+    return f'<button class="play-btn" data-audio="{subdir}/{audio_file}">&#9654;</button> '
+
+
 # -- Data loading -------------------------------------------------------------
 
 def load_csv(name):
@@ -273,7 +280,9 @@ def gen_vocabulary(categories, words, lang):
             else:
                 meaning = render(t(w, '', lang))
             example = to_ruby_html(w['example_minihongo'])
-            parts.append(f'      <tr><td lang="ja">{word}</td><td>{meaning}</td><td lang="ja">{example}</td></tr>\n')
+            pb_w = play_btn('w', w.get('audio_word', ''))
+            pb_e = play_btn('w', w.get('audio_example', ''))
+            parts.append(f'      <tr><td lang="ja">{pb_w}{word}</td><td>{meaning}</td><td lang="ja">{pb_e}{example}</td></tr>\n')
         parts.append('    </tbody>\n')
         parts.append('  </table>\n')
         parts.append('\n')
@@ -316,8 +325,9 @@ def gen_grammar(categories, grammar, grammar_examples, lang):
 
             for ex in by_sort(ex_by_gram.get(gp['id'], [])):
                 mh = to_ruby_html(ex['minihongo'])
+                pb = play_btn('ge', ex.get('audio_file', ''))
                 parts.append('    <div class="sentence">\n')
-                parts.append(f'      <p lang="ja">{mh}</p>\n')
+                parts.append(f'      <p lang="ja">{pb}{mh}</p>\n')
                 if lang != 'mh':
                     translated_ex = to_ruby_html(t(ex, '', lang))
                     parts.append(f'      <p>{translated_ex}</p>\n')
@@ -406,9 +416,10 @@ def _render_compound_table(parts, rows, lang):
             ))
         else:
             meaning = render(t(r, "", lang))
+        pb = play_btn('c', r.get('audio_file', ''))
         parts.append(
             f'      <tr>'
-            f'<td lang="ja">{word}</td>'
+            f'<td lang="ja">{pb}{word}</td>'
             f'<td>{meaning}</td>'
             f'</tr>\n'
         )
@@ -430,13 +441,14 @@ def _render_common_table(parts, rows, lang, byov=False):
     parts.append('  <tbody>\n')
     for r in rows:
         mh = to_ruby_html(r['minihongo'])
+        pb = play_btn('e', r.get('audio_file', ''))
         if lang == 'mh':
-            parts.append(f'    <tr><td lang="ja">{mh}</td></tr>\n')
+            parts.append(f'    <tr><td lang="ja">{pb}{mh}</td></tr>\n')
         else:
             meaning = esc(r['japanese'] if lang == 'ja' else r['english'])
             parts.append(
                 f'    <tr>'
-                f'<td lang="ja">{mh}</td>'
+                f'<td lang="ja">{pb}{mh}</td>'
                 f'<td>{meaning}</td>'
                 f'</tr>\n'
             )
@@ -459,11 +471,12 @@ def _render_concept_table(parts, rows, lang):
         parts.append('    <tbody>\n')
         for r in rows:
             mh = to_ruby_html(r['minihongo'])
+            pb = play_btn('e', r.get('audio_file', ''))
             if has_defs:
                 defn = to_ruby_html(esc(r.get('definition_minihongo', '') or ''))
-                parts.append(f'      <tr><td lang="ja">{mh}</td><td>{defn}</td></tr>\n')
+                parts.append(f'      <tr><td lang="ja">{pb}{mh}</td><td>{defn}</td></tr>\n')
             else:
-                parts.append(f'      <tr><td lang="ja">{mh}</td></tr>\n')
+                parts.append(f'      <tr><td lang="ja">{pb}{mh}</td></tr>\n')
         parts.append('    </tbody>\n')
         parts.append('  </table>\n')
         return
@@ -475,10 +488,11 @@ def _render_concept_table(parts, rows, lang):
     parts.append('    <tbody>\n')
     for r in rows:
         mh = to_ruby_html(r['minihongo'])
+        pb = play_btn('e', r.get('audio_file', ''))
         parts.append(
             f'      <tr>'
             f'<td>{esc(r["english"])}</td>'
-            f'<td lang="ja">{mh}</td>'
+            f'<td lang="ja">{pb}{mh}</td>'
             f'<td>{esc(r["english_litteral"])}</td>'
             f'</tr>\n'
         )
@@ -534,11 +548,14 @@ def gen_reading(categories, haiku, dialog_groups, dialogs, stories, lang):
             # Haiku
             for hk in by_sort(haiku_by_cat.get(cat['id'], [])):
                 mh = to_ruby_html(hk['minihongo']).replace(' / ', '<br>')
+                pb = play_btn('h', hk.get('audio_file', ''))
                 parts.append('  <div class="haiku">\n')
                 parts.append(f'    <p lang="ja">{mh}</p>\n')
                 if lang != 'mh':
                     translated_hk = to_ruby_html(t(hk, '', lang))
                     parts.append(f'    <p>{translated_hk}</p>\n')
+                if pb:
+                    parts.append(f'    {pb}\n')
                 parts.append('  </div>\n')
                 parts.append('\n')
 
@@ -549,7 +566,8 @@ def gen_reading(categories, haiku, dialog_groups, dialogs, stories, lang):
                 lines = sorted(dlg_by_grp.get(dg['id'], []),
                               key=lambda d: int(d['line_number']))
 
-                parts.append(f'<h4>{title}</h4>\n')
+                pb = play_btn('d', dg.get('audio_file', ''))
+                parts.append(f'<h4>{title} {pb}</h4>\n')
                 parts.append('<div class="dialog">\n')
                 for ln in lines:
                     speaker = to_ruby_html(ln['speaker_minihongo'])
@@ -574,7 +592,8 @@ def gen_reading(categories, haiku, dialog_groups, dialogs, stories, lang):
                 mh_paras = re.split(r'(?<=[\u3002\u300d]) ', mh_text)
                 mh_paras = [p for p in mh_paras if p.strip()]
 
-                parts.append(f'<h4>{title}</h4>\n')
+                pb = play_btn('s', st.get('audio_file', ''))
+                parts.append(f'<h4>{title} {pb}</h4>\n')
                 parts.append('<div class="story">\n')
                 for para in mh_paras:
                     parts.append(f'  <p lang="ja">{to_ruby_html(para)}</p>\n')

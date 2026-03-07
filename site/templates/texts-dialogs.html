@@ -18,7 +18,7 @@
   {% for subcat in data.categories | where: parent_id=section.id | sort: "sort_order" %}
   <h3>{{ subcat.name_minihongo | ruby }}{% if lang != "mh" %} ({{ subcat | get: CAT_NAME_COL }}){% endif %}</h3>
   {% for dg in data.dialog_groups | where: category_id=subcat.id | sort: "sort_order" %}
-<h4>{{ dg.title_minihongo | ruby }}{% if lang != "mh" %} ({{ dg | get: TITLE_COL }}){% endif %}</h4>
+<h4>{{ dg.title_minihongo | ruby }}{% if lang != "mh" %} ({{ dg | get: TITLE_COL }}){% endif %} {% if dg.audio_file %}<button class="play-btn" data-audio="d/{{ dg.audio_file }}">&#9654;</button>{% endif %}</h4>
 <div class="dialog">
   {% for dl in data.dialogs | where: dialog_group_id=dg.id | sort: "line_number" %}
   <p lang="ja"><strong>{{ dl.speaker_minihongo | ruby }}:</strong> {{ dl.minihongo | ruby }}</p>
@@ -37,7 +37,7 @@
 {% elif section.id == "cat-75" %}
 {# ── Short Stories ── #}
   {% for story in data.stories | where: category_id=section.id | sort: "sort_order" %}
-<h4>{{ story.title_minihongo | ruby }}{% if lang != "mh" %} ({{ story | get: TITLE_COL }}){% endif %}</h4>
+<h4>{{ story.title_minihongo | ruby }}{% if lang != "mh" %} ({{ story | get: TITLE_COL }}){% endif %} {% if story.audio_file %}<button class="play-btn" data-audio="s/{{ story.audio_file }}">&#9654;</button>{% endif %}</h4>
 <div class="story">
   {% for sentence in story.minihongo | split: " " %}
   <p lang="ja">{{ sentence | ruby }}</p>
@@ -58,6 +58,7 @@
   <div class="haiku">
     <p lang="ja">{{ h.minihongo | ruby | replace: " / ", "<br>" }}</p>
     {% if lang != "mh" %}<p>{{ h.english }}</p>{% endif %}
+    {% if h.audio_file %}<button class="play-btn" data-audio="h/{{ h.audio_file }}">&#9654;</button>{% endif %}
   </div>
   {% endfor %}
   {% endfor %}

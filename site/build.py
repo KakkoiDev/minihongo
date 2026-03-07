@@ -370,6 +370,12 @@ def _build_to(OUT, base_url):
     if STATIC.exists():
         shutil.copytree(STATIC, OUT / "static")
 
+    # Copy audio files if available (from generate_audio.py output or CI download)
+    audio_dir = ROOT.parent / "audio"
+    if audio_dir.exists():
+        shutil.copytree(audio_dir, OUT / "audio")
+        print(f"audio: copied from {audio_dir}")
+
     for f in ROOT.glob("*.js"):
         shutil.copy2(f, OUT / f.name)
     for f in ROOT.glob("*.json"):

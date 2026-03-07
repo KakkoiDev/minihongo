@@ -17,7 +17,7 @@
     <thead><tr><th>{{ ui.th_word }}</th><th>{{ ui.th_meaning }}</th><th>{{ ui.th_example }}</th></tr></thead>
     <tbody>
       {% for word in data.words | where: category_id=cat.id | sort: "sort_order" %}
-      <tr><td lang="ja">{{ word.minihongo | ruby }}</td><td>{{ word | get: MEANING_COL | ruby }}</td><td lang="ja">{{ word.example_minihongo | ruby }}</td></tr>
+      <tr><td lang="ja">{% if word.audio_word %}<button class="play-btn" data-audio="w/{{ word.audio_word }}">&#9654;</button> {% endif %}{{ word.minihongo | ruby }}</td><td>{{ word | get: MEANING_COL | ruby }}</td><td lang="ja">{% if word.audio_example %}<button class="play-btn" data-audio="w/{{ word.audio_example }}">&#9654;</button> {% endif %}{{ word.example_minihongo | ruby }}</td></tr>
       {% endfor %}
     </tbody>
   </table>

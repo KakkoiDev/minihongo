@@ -26,7 +26,7 @@
     <thead><tr><th lang="ja">{{ ui.th_word }}</th><th>{{ ui.th_meaning }}</th></tr></thead>
     <tbody>
       {% for comp in data.compounds | where: category_id=subcat.id | sort: "sort_order" %}
-      <tr><td lang="ja"><ruby>{{ comp.minihongo }}<rt>{{ comp.reading }}</rt></ruby></td><td>{{ comp | get: MEANING_COL | ruby }}</td></tr>
+      <tr><td lang="ja">{% if comp.audio_file %}<button class="play-btn" data-audio="c/{{ comp.audio_file }}">&#9654;</button> {% endif %}<ruby>{{ comp.minihongo }}<rt>{{ comp.reading }}</rt></ruby></td><td>{{ comp | get: MEANING_COL | ruby }}</td></tr>
       {% endfor %}
     </tbody>
   </table>
@@ -35,7 +35,7 @@
   <thead><tr><th lang="ja">{{ ui.th_minihongo }}</th></tr></thead>
   <tbody>
     {% for expr in data.expressions | where: category_id=subcat.id | sort: "sort_order" %}
-    <tr><td lang="ja">{{ expr.minihongo | ruby }}</td></tr>
+    <tr><td lang="ja">{% if expr.audio_file %}<button class="play-btn" data-audio="e/{{ expr.audio_file }}">&#9654;</button> {% endif %}{{ expr.minihongo | ruby }}</td></tr>
     {% endfor %}
   </tbody>
 </table>
@@ -44,7 +44,7 @@
   <thead><tr><th lang="ja">{{ ui.th_minihongo }}</th><th>{{ ui.th_meaning }}</th></tr></thead>
   <tbody>
     {% for expr in data.expressions | where: category_id=subcat.id | sort: "sort_order" %}
-    <tr><td lang="ja">{{ expr.minihongo | ruby }}</td><td>{{ expr | get: MEANING_COL }}</td></tr>
+    <tr><td lang="ja">{% if expr.audio_file %}<button class="play-btn" data-audio="e/{{ expr.audio_file }}">&#9654;</button> {% endif %}{{ expr.minihongo | ruby }}</td><td>{{ expr | get: MEANING_COL }}</td></tr>
     {% endfor %}
   </tbody>
 </table>

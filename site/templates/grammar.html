@@ -19,7 +19,7 @@
     <span slot="explanation">{{ gram | get: EXPLANATION_COL | ruby }}</span>
     {% for ex in data.grammar_examples | where: grammar_id=gram.id | sort: "sort_order" %}
     <div class="sentence">
-      <p lang="ja">{{ ex.minihongo | ruby }}</p>
+      <p lang="ja">{% if ex.audio_file %}<button class="play-btn" data-audio="ge/{{ ex.audio_file }}">&#9654;</button> {% endif %}{{ ex.minihongo | ruby }}</p>
       {% if TRANSLATION_COL %}<p>{{ ex | get: TRANSLATION_COL }}</p>{% endif %}
     </div>
     {% endfor %}

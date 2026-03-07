@@ -78,6 +78,7 @@ const bindContentLinks = () => {
       document.getElementById(a.getAttribute('href').slice(1))?.scrollIntoView()
     }
   }
+  bindPlayButtons()
 }
 
 // Top nav links
@@ -128,6 +129,41 @@ window.switchLang = (lang) => {
 // -- Service worker -------------------------------------------------
 
 navigator.serviceWorker?.register(`${basePath}sw.js`)
+
+// -- Audio playback -----------------------------------------------------
+
+let currentAudio = null
+let currentBtn = null
+
+const playAudio = (btn) => {
+  const src = `${base}audio/${btn.dataset.audio}`
+  // Stop current if same button or different
+  if (currentAudio) {
+    currentAudio.pause()
+    currentBtn?.classList.remove('playing')
+    if (currentBtn === btn) {
+      currentAudio = null
+      currentBtn = null
+      return
+    }
+  }
+  const audio = new Audio(src)
+  audio.addEventListener('ended', () => {
+    btn.classList.remove('playing')
+    currentAudio = null
+    currentBtn = null
+  })
+  audio.play()
+  btn.classList.add('playing')
+  currentAudio = audio
+  currentBtn = btn
+}
+
+const bindPlayButtons = () => {
+  for (const btn of document.querySelectorAll('#content .play-btn')) {
+    btn.onclick = () => playAudio(btn)
+  }
+}
 
 // -- Back to top --------------------------------------------------------
 
