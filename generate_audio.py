@@ -419,7 +419,7 @@ async def gen_expressions():
             filename = f'e_{num}.mp3'
         path = out / filename
         if not path.exists():
-            tts_text = row.get('reading', '') or text_for_tts(row['minihongo'])
+            tts_text = text_for_tts(row['minihongo'])
             await tts_generate(tts_text, VOICE_MALE, path)
             print(f'  {filename}')
         results.append((row['id'], filename))
