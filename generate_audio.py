@@ -168,8 +168,8 @@ def furigana_to_reading(text):
 
 # Kanji that TTS mispronounces when converted to hiragana.
 # These stay as kanji in TTS input.
-# は readings → particle "wa" (母→はは→wawa, 入→はい→wai, 始→はじ→waji)
-# 思う → おもう → omoo
+# は readings -> particle "wa" (母->はは->wawa, 入->はい->wai, 始->はじ->waji)
+# 思う -> おもう -> omoo
 _KEEP_KANJI = {'母', '鼻', '入', '始', '走', '思', '払', '半', '花', '歯'}
 
 
@@ -182,12 +182,15 @@ def text_for_tts(text):
     def _replace(m):
         kanji = m.group(0).split('【')[0]
         reading = m.group(1)
-        # Keep kanji if any character is in the blocklist
         if any(c in _KEEP_KANJI for c in kanji):
             return kanji
         return reading
 
     text = re.sub(r'[\u4e00-\u9fff\u3400-\u4dbf]+【([^】]+)】', _replace, text)
+    # Particle は after hiragana should be read as "wa", not "ha".
+    # All は-reading kanji (母,花,鼻,入,始,歯,半,払) are in _KEEP_KANJI,
+    # so any remaining は after a hiragana char is a particle.
+    text = re.sub(r'(?<=[ぁ-ん])は', 'わ', text)
     # Strip quote brackets
     text = text.replace('「', '').replace('」', '')
     # Convert separators to pauses
