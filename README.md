@@ -51,6 +51,29 @@ python site/build.py       # pages + components -> docs/
 
 Requires Python 3.10+. Zero external dependencies.
 
+## Audio
+
+Audio files are not in the repo. They are stored as GitHub release assets and downloaded at build time (CI) or manually (local dev).
+
+```
+make audio-download       # download audio from latest GitHub release
+make audio                # generate audio locally (requires edge-tts + ffmpeg)
+make audio-release        # package audio for upload to GitHub releases
+```
+
+**How it works:**
+1. `generate_audio.py` uses Microsoft Edge TTS to create MP3s from the minihongo text in each CSV
+2. Audio files go into `audio/` (gitignored) with subdirectories: `w/` (words), `ge/` (grammar), `c/` (compounds), `e/` (expressions), `h/` (haiku), `d/` (dialogs), `s/` (stories)
+3. `site/build.py` copies `audio/` into `docs/audio/` if the directory exists
+4. The service worker skips audio files (no caching). Play buttons are disabled when offline
+5. Audio releases are tagged `audio-vN` on GitHub. CI downloads the latest release during the Pages build
+
+**Updating audio after content changes:**
+1. Edit CSV data
+2. Delete affected files in `audio/` (the script skips existing files)
+3. Run `make audio` to regenerate
+4. Run `make audio-release` and upload with `gh release create`
+
 ## Dev
 
 ```
@@ -76,6 +99,7 @@ data/
 ├── ui_strings.csv          # UI text (en/ja/mh)
 └── pages.csv               # Page metadata and nav labels
 generate_pages.py           # CSV data -> site/pages/ HTML
+generate_audio.py           # CSV data -> audio/ MP3s (edge-tts)
 SCHEMA.md                   # Relational schema documentation
 site/
 ├── engine.py               # Template engine (for/if/set/include/filters)
@@ -95,6 +119,7 @@ site/
 │   └── style.css
 ├── sw.js                   # Service worker
 └── manifest.json           # PWA manifest
+audio/                      # TTS audio files (gitignored, from GH release)
 docs/                       # Built output (gitignored, built in CI)
 ```
 
