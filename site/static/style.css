@@ -468,6 +468,12 @@ footer {
   background: #fff;
 }
 
+.play-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
 /* In tables, reduce button size further on small screens */
 .compact-table .play-btn,
 .compound-table .play-btn {

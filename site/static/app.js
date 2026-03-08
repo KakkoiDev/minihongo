@@ -96,9 +96,16 @@ const playAudio = (btn) => {
   currentBtn = btn
 }
 
+const updatePlayButtons = () => {
+  for (const btn of document.querySelectorAll('#content .play-btn')) {
+    btn.disabled = !navigator.onLine
+  }
+}
+
 const bindPlayButtons = () => {
   for (const btn of document.querySelectorAll('#content .play-btn')) {
     btn.onclick = () => playAudio(btn)
+    btn.disabled = !navigator.onLine
   }
 }
 
@@ -226,11 +233,13 @@ const showToast = (msg, opts) => {
 let offlineToast = null
 addEventListener('offline', () => {
   offlineToast = showToast(TOAST.offline)
+  updatePlayButtons()
 })
 addEventListener('online', () => {
   offlineToast?.dismiss()
   offlineToast = null
   showToast(TOAST.online, { duration: 3000 })
+  updatePlayButtons()
 })
 if (!navigator.onLine) offlineToast = showToast(TOAST.offline)
 
