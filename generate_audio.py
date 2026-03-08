@@ -478,7 +478,8 @@ async def gen_dialogs():
         tmp_parts = []
         with tempfile.TemporaryDirectory() as tmp:
             for i, line in enumerate(lines):
-                voice = VOICE_FEMALE if line['speaker_minihongo'] == 'B' else VOICE_MALE
+                speaker = re.sub(r'【[^】]*】', '', line['speaker_minihongo'])
+                voice = VOICE_FEMALE if speaker in ('B', '母', '女') else VOICE_MALE
                 tts_text = text_for_tts(line['minihongo'])
                 part_path = Path(tmp) / f'{i:03d}.mp3'
                 await tts_generate(tts_text, voice, part_path)
