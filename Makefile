@@ -29,10 +29,12 @@ _rebuild:
 audio:
 	python3 generate_audio.py
 
-# Download audio from latest GitHub release into audio/
+# Download audio from latest audio-v* GitHub release into audio/
 audio-download:
+	$(eval TAG := $(shell gh release list --json tagName -q '[.[].tagName | select(startswith("audio-v"))] | first'))
+	@echo "Downloading audio from release: $(TAG)"
 	@mkdir -p audio
-	gh release download audio-v2 -R KakkoiDev/minihongo -p '*.tar.gz' -D /tmp --clobber
+	gh release download $(TAG) -p '*.tar.gz' -D /tmp --clobber
 	tar xzf /tmp/minihongo-audio-*.tar.gz -C audio/
 	@echo "Audio downloaded to audio/"
 
