@@ -76,18 +76,25 @@ make audio-release        # package audio for upload to GitHub releases
 
 ## Anki Deck
 
-A spaced-repetition flashcard deck for [Anki](https://apps.ankiweb.net/) with audio on every card.
+Spaced-repetition flashcard decks for [Anki](https://apps.ankiweb.net/) with audio on every card. Three language versions:
+
+| Deck | Translation language |
+|------|---------------------|
+| `minihongo-en.apkg` | English |
+| `minihongo-ja.apkg` | Japanese |
+| `minihongo-mh.apkg` | Minihongo (definitions in the 182 base words) |
 
 ```
-make anki                 # build minihongo.apkg (requires genanki + audio/)
+make anki                 # build all 3 decks (requires genanki + audio/)
 make anki-release         # build and show upload command
+python3 generate_anki.py en   # build only one language
 ```
 
-Download the latest deck from [GitHub Releases](https://github.com/KakkoiDev/minihongo/releases) (tagged `anki-vN`).
+Download from [GitHub Releases](https://github.com/KakkoiDev/minihongo/releases) (tagged `anki-vN`).
 
-**Deck structure:**
-- **Vocabulary** (182 words x 2 = 364 cards) - Recognition (JP -> EN) and Recall (EN -> JP), grouped by category
-- **Grammar** (45 cards) - Example sentence with audio -> English explanation, grouped by topic
+**Deck structure (same for each language):**
+- **Vocabulary** (182 words x 2 = 364 cards) - Recognition (JP -> translation) and Recall (translation -> JP), grouped by category
+- **Grammar** (45 cards) - Example sentence with audio -> explanation, grouped by topic
 
 Requires: `pip install genanki`
 

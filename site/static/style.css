@@ -523,6 +523,16 @@ footer {
   margin: 0.25rem 0;
 }
 
+.anki-download {
+  font-size: 0.9rem;
+  padding: 0.75rem 1.25rem;
+  background: var(--bg-raised);
+  border-radius: var(--radius);
+  margin-block: var(--s);
+}
+
+.anki-download p { margin: 0; }
+
 /* === Lang switch === */
 .lang-switch {
   appearance: base-select;

@@ -47,12 +47,11 @@ audio-release:
 
 # -- Anki -------------------------------------------------------------------
 
-# Build Anki deck (requires genanki + audio/)
+# Build Anki decks for all languages (requires genanki + audio/)
 anki:
 	python3 generate_anki.py
 
-# Upload Anki deck as a new GitHub release
+# Upload Anki decks as a new GitHub release
 anki-release: anki
-	@test -f minihongo.apkg || { echo "No minihongo.apkg. Run 'make anki' first."; exit 1; }
-	@echo "Deck: $$(du -sh minihongo.apkg | cut -f1)"
-	@echo "Upload with: gh release create anki-vN minihongo.apkg --title 'Anki vN'"
+	@echo "Decks: $$(du -sh minihongo-*.apkg | cut -f1 | paste -sd+ | bc)B total"
+	@echo "Upload with: gh release create anki-vN minihongo-*.apkg --title 'Anki vN'"
