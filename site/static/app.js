@@ -90,7 +90,11 @@ const playAudio = (btn) => {
     currentAudio = null
     currentBtn = null
   })
-  audio.play()
+  audio.play().catch(() => {
+    btn.classList.remove('playing')
+    currentAudio = null
+    currentBtn = null
+  })
   btn.classList.add('playing')
   currentAudio = audio
   currentBtn = btn
@@ -180,15 +184,40 @@ addEventListener('scroll', () => {
 }, { passive: true })
 btnTop.addEventListener('click', () => scrollTo({ top: 0, behavior: 'smooth' }))
 
-// -- Content integrity recovery -------------------------------------
+// -- Lifecycle recovery ---------------------------------------------
 
-const checkContentIntegrity = () => {
-  if (!document.querySelector('#content')?.children.length) location.reload()
+const stopAudio = () => {
+  if (currentAudio) {
+    currentAudio.pause()
+    currentBtn?.classList.remove('playing')
+    currentAudio = null
+    currentBtn = null
+  }
 }
-addEventListener('pageshow', (e) => { if (e.persisted) checkContentIntegrity() })
-addEventListener('resume', checkContentIntegrity)
+
+let hiddenAt = 0
+
 document.addEventListener('visibilitychange', () => {
-  if (document.visibilityState === 'visible') checkContentIntegrity()
+  if (document.visibilityState === 'hidden') {
+    hiddenAt = Date.now()
+    stopAudio()
+  } else {
+    prefetchCache.clear()
+    // Backgrounded > 2 min: JS state is likely stale, force clean reload
+    if (hiddenAt && Date.now() - hiddenAt > 120_000) {
+      location.reload()
+      return
+    }
+    if (!document.querySelector('#content')?.children.length) location.reload()
+  }
+})
+
+// bfcache restore or OS resume: always reload for clean state
+addEventListener('pageshow', (e) => { if (e.persisted) location.reload() })
+addEventListener('freeze', stopAudio)
+addEventListener('resume', () => {
+  prefetchCache.clear()
+  if (!document.querySelector('#content')?.children.length) location.reload()
 })
 
 // -- Toast banner system --------------------------------------------
