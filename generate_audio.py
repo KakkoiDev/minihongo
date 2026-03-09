@@ -233,6 +233,46 @@ def id_num(row_id):
     return row_id.rsplit('-', 1)[-1]
 
 
+# ── Audio normalization ──────────────────────────────────────────────
+
+TARGET_MEAN_DB = -16
+
+
+def _measure_speech_volume(path):
+    """Measure mean volume of speech content (silence trimmed)."""
+    result = subprocess.run(
+        ['ffmpeg', '-i', str(path), '-af',
+         'silenceremove=start_periods=1:start_silence=0.02:start_threshold=-60dB,'
+         'areverse,'
+         'silenceremove=start_periods=1:start_silence=0.02:start_threshold=-60dB,'
+         'areverse,'
+         'volumedetect',
+         '-f', 'null', '-'],
+        capture_output=True, text=True,
+    )
+    m = re.search(r'mean_volume:\s*([-\d.]+)', result.stderr)
+    return float(m.group(1)) if m else None
+
+
+def normalize_audio(path):
+    """Normalize audio volume based on speech content (ignoring silence)."""
+    for _ in range(2):  # two passes to converge
+        current = _measure_speech_volume(path)
+        if current is None:
+            return
+        adjust = TARGET_MEAN_DB - current
+        if abs(adjust) < 1:
+            return
+        tmp = str(path) + '.tmp.mp3'
+        subprocess.run(
+            ['ffmpeg', '-y', '-i', str(path),
+             '-af', f'volume={adjust}dB',
+             '-ar', '48000', '-c:a', 'libmp3lame', '-b:a', '128k', tmp],
+            capture_output=True, check=True,
+        )
+        os.replace(tmp, str(path))
+
+
 # ── TTS generation ──────────────────────────────────────────────────
 
 _cache = {}  # text_hash -> path (avoid re-generating identical text)
@@ -253,6 +293,15 @@ async def tts_generate(text, voice, output_path, retries=3):
         try:
             communicate = edge_tts.Communicate(text, voice)
             await communicate.save(str(output_path))
+            # Ensure consistent sample rate from edge-tts output
+            tmp = str(output_path) + '.raw.mp3'
+            subprocess.run(
+                ['ffmpeg', '-y', '-i', str(output_path),
+                 '-ar', '48000', '-c:a', 'libmp3lame', '-b:a', '128k', tmp],
+                capture_output=True, check=True,
+            )
+            os.replace(tmp, str(output_path))
+            normalize_audio(output_path)
             _cache[h] = output_path
             # Small delay to avoid rate limiting
             await asyncio.sleep(0.3)
@@ -334,7 +383,7 @@ async def gen_words():
         word_file = f'{base}{suffix}.mp3'
         word_path = out / word_file
         if not word_path.exists():
-            tts_text = text_for_tts(row['minihongo']) + '。'
+            tts_text = text_for_tts(row['minihongo'])
             await tts_generate(tts_text, VOICE_MALE, word_path)
             print(f'  {word_file}')
 
@@ -621,7 +670,17 @@ async def main():
                         help='Generate only one category')
     parser.add_argument('--db-only', action='store_true',
                         help='Only update CSV schemas, no audio generation')
+    parser.add_argument('--normalize', action='store_true',
+                        help='Normalize volume of all existing audio files')
     args = parser.parse_args()
+
+    if args.normalize:
+        files = sorted(AUDIO_OUT.rglob('*.mp3'))
+        for i, mp3 in enumerate(files, 1):
+            normalize_audio(mp3)
+            print(f'  [{i}/{len(files)}] {mp3.relative_to(AUDIO_OUT)}')
+        print(f'Normalized {len(files)} files.')
+        return
 
     if args.db_only:
         print('Updating datapackage.json...')

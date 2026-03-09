@@ -74,6 +74,23 @@ make audio-release        # package audio for upload to GitHub releases
 3. Run `make audio` to regenerate
 4. Run `make audio-release` and upload with `gh release create`
 
+## Anki Deck
+
+A spaced-repetition flashcard deck for [Anki](https://apps.ankiweb.net/) with audio on every card.
+
+```
+make anki                 # build minihongo.apkg (requires genanki + audio/)
+make anki-release         # build and show upload command
+```
+
+Download the latest deck from [GitHub Releases](https://github.com/KakkoiDev/minihongo/releases) (tagged `anki-vN`).
+
+**Deck structure:**
+- **Vocabulary** (182 words x 2 = 364 cards) - Recognition (JP -> EN) and Recall (EN -> JP), grouped by category
+- **Grammar** (45 cards) - Example sentence with audio -> English explanation, grouped by topic
+
+Requires: `pip install genanki`
+
 ## Dev
 
 ```
@@ -100,6 +117,7 @@ data/
 └── pages.csv               # Page metadata and nav labels
 generate_pages.py           # CSV data -> site/pages/ HTML
 generate_audio.py           # CSV data -> audio/ MP3s (edge-tts)
+generate_anki.py            # CSV data + audio -> minihongo.apkg
 SCHEMA.md                   # Relational schema documentation
 site/
 ├── engine.py               # Template engine (for/if/set/include/filters)

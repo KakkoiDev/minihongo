@@ -1,4 +1,4 @@
-.PHONY: build serve watch _rebuild audio audio-download audio-release
+.PHONY: build serve watch _rebuild audio audio-download audio-release anki anki-release
 
 PORT ?= 3000
 
@@ -35,7 +35,7 @@ audio-download:
 	@echo "Downloading audio from release: $(TAG)"
 	@mkdir -p audio
 	gh release download $(TAG) -p '*.tar.gz' -D /tmp --clobber
-	tar xzf /tmp/minihongo-audio-*.tar.gz -C audio/
+	tar xzf /tmp/minihongo-audio*.tar.gz -C audio/
 	@echo "Audio downloaded to audio/"
 
 # Package and upload audio as a new GitHub release
@@ -44,3 +44,15 @@ audio-release:
 	cd audio && tar czf /tmp/minihongo-audio.tar.gz .
 	@echo "Packaged $$(ls audio/**/*.mp3 | wc -l) files ($$(du -sh /tmp/minihongo-audio.tar.gz | cut -f1))"
 	@echo "Upload with: gh release create audio-vN /tmp/minihongo-audio.tar.gz --title 'Audio vN'"
+
+# -- Anki -------------------------------------------------------------------
+
+# Build Anki deck (requires genanki + audio/)
+anki:
+	python3 generate_anki.py
+
+# Upload Anki deck as a new GitHub release
+anki-release: anki
+	@test -f minihongo.apkg || { echo "No minihongo.apkg. Run 'make anki' first."; exit 1; }
+	@echo "Deck: $$(du -sh minihongo.apkg | cut -f1)"
+	@echo "Upload with: gh release create anki-vN minihongo.apkg --title 'Anki vN'"
