@@ -33,7 +33,7 @@ jobs:
           echo "Downloading audio from release: $TAG"
           mkdir -p audio
           gh release download "$TAG" --pattern '*.tar.gz' --dir /tmp
-          tar xzf /tmp/minihongo-audio-*.tar.gz -C audio/
+          tar xzf /tmp/minihongo-audio*.tar.gz -C audio/
         env:
           GH_TOKEN: ${{ github.token }}
 
