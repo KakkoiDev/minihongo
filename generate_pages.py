@@ -334,7 +334,7 @@ def gen_grammar(categories, grammar, grammar_examples, lang):
                 pb = play_btn('ge', ex.get('audio_file', ''))
                 parts.append('    <div class="sentence">\n')
                 parts.append(f'      <p lang="ja">{pb}{mh}</p>\n')
-                if lang != 'mh':
+                if lang == 'en':
                     translated_ex = to_ruby_html(t(ex, '', lang))
                     parts.append(f'      <p>{translated_ex}</p>\n')
                 parts.append('    </div>\n')
