@@ -1,5 +1,6 @@
 key,en,ja,mh
 show_readings,Furigana,ふりがな,読【よ】み
+toc_title,Contents,目次,中【なか】の事【こと】
 site_name,Minihongo,ミニ本語,ミニ本【ほん】語【ご】
 home_tagline,"182 words. Say anything.",182語で何でも言える。,"182の言【こと】葉【ば】。何【なん】でも言【い】える。"
 home_1,"From intent to thought to word. This method makes even the intent Japanese.",意図から考えへ、考えから言葉へ。この方法で意図そのものが日本語になる。,"思【おも】いから考【かんが】えへ、考【かんが】えから言【こと】葉【ば】へ。この道【みち】で思【おも】いも日本語【にほんご】になる。"
@@ -13,7 +14,7 @@ th_word,Word,言葉,言【こと】葉【ば】
 th_concept,Concept,概念,考【かんが】え
 th_literally,Literally,直訳,言【こと】葉【ば】のまま
 wb_desc_compounds,"Real Japanese words built entirely from kanji in the 182-word vocabulary.",182語の漢字だけで構成された実在の日本語。,"182の言【こと】葉【ば】の中【なか】の字【じ】で作【つく】った本当【ほんとう】の言【こと】葉【ば】。"
-wb_desc_byov,"Like Toki Pona, combine primitives to express any concept.",基本語を組み合わせてあらゆる概念を表現する。,"少【すこ】しの言【こと】葉【ば】を使【つか】って何【なん】でも言【い】える。"
+wb_desc_byov,,,
 wb_desc_common,"Real Japanese words from the top 1000 most common, expressed using only the 182 base words.",よく使う日本語を182の基本語だけで表現する。,"よく使【つか】う言【こと】葉【ば】を182の言【こと】葉【ば】だけで言【い】う。"
 th_example,Example,例文,使【つか】い方【かた】
 th_english,English,英語,英語【えいご】

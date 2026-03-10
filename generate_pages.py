@@ -21,7 +21,6 @@ PAGE_FILES = {
 
 WB_DESC_KEYS = {
     'Real Kanji Compounds': 'wb_desc_compounds',
-    'Build Your Own Vocabulary': 'wb_desc_byov',
     'Common Words in Minihongo': 'wb_desc_common',
 }
 
@@ -147,20 +146,30 @@ def wrap_page(page_id, content, lang, toc=None):
     site_name_plain = re.sub(r'<ruby>|</ruby>|<rt>[^<]*</rt>', '', ui('site_name', lang))
     site_name = ui('site_name', lang)
 
-    # TOC
+    # TOC - each entry is (slug, label) or (slug, label, children)
     toc_html = ''
     if toc:
-        items = '\n'.join(
-            f'      <li><a href="#{slug}">{label}</a></li>'
-            for slug, label in toc
-        )
-        toc_html = (
-            f'  <nav class="toc">\n'
-            f'    <ul>\n'
-            f'{items}\n'
-            f'    </ul>\n'
-            f'  </nav>\n\n'
-        )
+        lines = []
+        lines.append('  <nav class="toc">\n')
+        lines.append('    <ul>\n')
+        for entry in toc:
+            slug, label = entry[0], entry[1]
+            children = entry[2] if len(entry) > 2 else []
+            if children:
+                lines.append(f'      <li>\n')
+                lines.append(f'        <details>\n')
+                lines.append(f'          <summary><a href="#{slug}">{label}</a></summary>\n')
+                lines.append(f'          <ul>\n')
+                for cs, cl in children:
+                    lines.append(f'            <li><a href="#{cs}">{cl}</a></li>\n')
+                lines.append(f'          </ul>\n')
+                lines.append(f'        </details>\n')
+                lines.append(f'      </li>\n')
+            else:
+                lines.append(f'      <li><a href="#{slug}">{label}</a></li>\n')
+        lines.append('    </ul>\n')
+        lines.append('  </nav>\n\n')
+        toc_html = ''.join(lines)
 
     # Nav links from sorted page list
     page_ids = [p['id'] for p in PAGE_DATA]
@@ -291,6 +300,9 @@ def gen_vocabulary(categories, words, lang):
             parts.append(f'      <tr><td lang="ja">{pb_w}{word}</td><td>{meaning}</td><td lang="ja">{pb_e}{example}</td></tr>\n')
         parts.append('    </tbody>\n')
         parts.append('  </table></div>\n')
+        note = t(cat, 'note', lang)
+        if note:
+            parts.append(f'  <p class="category-note">{to_ruby_html(esc(note))}</p>\n')
         parts.append('\n')
 
     return wrap_page('vocabulary', ''.join(parts), lang, toc)
@@ -380,7 +392,15 @@ def gen_word_building(categories, compounds, expressions, lang):
         translated = t(h2, 'name', lang)
         h = bilingual(h2['name_minihongo'], translated)
         toc_label = translated or h2['name_english']
-        toc.append((slug, to_ruby_html(esc(toc_label))))
+
+        # Build h3 TOC children
+        toc_children = []
+        for h3 in children.get(h2['id'], []):
+            h3_slug = slugify(h3['name_english'])
+            h3_label = t(h3, 'name', lang) or h3['name_english']
+            toc_children.append((h3_slug, to_ruby_html(esc(h3_label))))
+
+        toc.append((slug, to_ruby_html(esc(toc_label)), toc_children))
         parts.append(f'  <h2 id="{slug}" class="section-heading">{h}</h2>\n')
 
         desc_key = WB_DESC_KEYS.get(h2['name_english'], '')
@@ -393,9 +413,10 @@ def gen_word_building(categories, compounds, expressions, lang):
         parts.append('\n')
 
         for h3 in children.get(h2['id'], []):
+            h3_slug = slugify(h3['name_english'])
             h3_translated = t(h3, 'name', lang)
             h3_heading = bilingual(h3['name_minihongo'], h3_translated)
-            parts.append(f'  <h3>{h3_heading}</h3>\n')
+            parts.append(f'  <h3 id="{h3_slug}">{h3_heading}</h3>\n')
 
             cat_compounds = by_sort(compounds_by_cat.get(h3['id'], []))
             cat_expressions = by_sort(expressions_by_cat.get(h3['id'], []))
@@ -404,10 +425,8 @@ def gen_word_building(categories, compounds, expressions, lang):
                 _render_compound_table(parts, cat_compounds, lang)
             elif cat_expressions:
                 has_japanese = any(e['japanese'] for e in cat_expressions)
-                is_byov = h2['name_english'] == 'Build Your Own Vocabulary'
                 if has_japanese:
-                    _render_common_table(parts, cat_expressions, lang,
-                                         byov=is_byov)
+                    _render_common_table(parts, cat_expressions, lang)
                 else:
                     _render_concept_table(parts, cat_expressions, lang)
 
@@ -442,7 +461,7 @@ def _render_compound_table(parts, rows, lang):
     parts.append('  </table></div>\n')
 
 
-def _render_common_table(parts, rows, lang, byov=False):
+def _render_common_table(parts, rows, lang):
     """Common words table.
     For mh: 1-col, only minihongo expression.
     For en/ja: 2-col, Minihongo + English/Japanese meaning."""
@@ -550,15 +569,23 @@ def gen_reading(categories, haiku, dialog_groups, dialogs, stories, lang):
         translated = t(h2, 'name', lang)
         h = bilingual(h2['name_minihongo'], translated)
         toc_label = translated or h2['name_english']
-        toc.append((slug, to_ruby_html(esc(toc_label))))
+
+        toc_children = []
+        for ch in children.get(h2['id'], []):
+            ch_slug = slugify(ch['name_english'])
+            ch_label = t(ch, 'name', lang) or ch['name_english']
+            toc_children.append((ch_slug, to_ruby_html(esc(ch_label))))
+
+        toc.append((slug, to_ruby_html(esc(toc_label)), toc_children))
         parts.append(f'  <h2 id="{slug}" class="section-heading">{h}</h2>\n')
         parts.append('\n')
 
         for cat in children.get(h2['id'], [h2]):
             if children.get(h2['id']):
+                sub_slug = slugify(cat['name_english'])
                 sub_translated = t(cat, 'name', lang)
                 sub_h = bilingual(cat['name_minihongo'], sub_translated)
-                parts.append(f'<h3>{sub_h}</h3>\n')
+                parts.append(f'<h3 id="{sub_slug}">{sub_h}</h3>\n')
 
             # Haiku
             for hk in by_sort(haiku_by_cat.get(cat['id'], [])):
