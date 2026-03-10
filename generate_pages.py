@@ -585,6 +585,11 @@ def gen_reading(categories, haiku, dialog_groups, dialogs, stories, lang):
             ch_slug = slugify(ch['name_english'])
             ch_label = t(ch, 'name', lang) or ch['name_english']
             toc_children.append((ch_slug, to_ruby_html(esc(ch_label))))
+        # Story titles as TOC children
+        for st in by_sort(stories_by_cat.get(h2['id'], [])):
+            st_slug = slugify(st.get('title_english') or st['id'])
+            st_label = t(st, 'title', lang) or st['title_english']
+            toc_children.append((st_slug, esc(st_label)))
 
         toc.append((slug, to_ruby_html(esc(toc_label)), toc_children))
         parts.append(f'  <h2 id="{slug}" class="section-heading">{h}</h2>\n')
@@ -637,6 +642,7 @@ def gen_reading(categories, haiku, dialog_groups, dialogs, stories, lang):
 
             # Stories
             for st in by_sort(stories_by_cat.get(cat['id'], [])):
+                st_slug = slugify(st.get('title_english') or st['id'])
                 st_translated = t(st, 'title', lang)
                 title = to_ruby_html(bilingual(st['title_minihongo'], st_translated))
 
@@ -645,7 +651,7 @@ def gen_reading(categories, haiku, dialog_groups, dialogs, stories, lang):
                 mh_paras = [p for p in mh_paras if p.strip()]
 
                 pb = play_btn('s', st.get('audio_file', ''))
-                parts.append(f'<h4>{title} {pb}</h4>\n')
+                parts.append(f'<h4 id="{st_slug}">{title} {pb}</h4>\n')
                 parts.append('<div class="story">\n')
                 for para in mh_paras:
                     parts.append(f'  <p lang="ja">{to_ruby_html(para)}</p>\n')
