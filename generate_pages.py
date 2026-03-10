@@ -150,7 +150,9 @@ def wrap_page(page_id, content, lang, toc=None):
     toc_html = ''
     if toc:
         lines = []
-        lines.append('  <nav class="toc">\n')
+        has_details = any(len(e) > 2 and e[2] for e in toc)
+        cls = 'toc toc-collapsible' if has_details else 'toc'
+        lines.append(f'  <nav class="{cls}">\n')
         lines.append('    <ul>\n')
         for entry in toc:
             slug, label = entry[0], entry[1]
@@ -282,8 +284,8 @@ def gen_vocabulary(categories, words, lang):
         translated = t(cat, 'name', lang)
         h = bilingual(cat['name_minihongo'], translated)
         toc_label = translated or cat['name_english']
-        toc.append((slug, f'{cat["sort_order"]}. {to_ruby_html(esc(toc_label))}'))
-        parts.append(f'  <h2 id="{slug}" class="section-heading">{cat["sort_order"]}. {h}</h2>\n')
+        toc.append((slug, to_ruby_html(esc(toc_label))))
+        parts.append(f'  <h2 id="{slug}" class="section-heading">{h}</h2>\n')
         parts.append('\n')
         parts.append('  <div class="table-scroll"><table class="compact-table">\n')
         parts.append(f'    <thead><tr><th>{th_word}</th><th>{th_meaning}</th><th>{th_example}</th></tr></thead>\n')
@@ -326,11 +328,19 @@ def gen_grammar(categories, grammar, grammar_examples, lang):
         translated = t(cat, 'name', lang)
         h = bilingual(cat['name_minihongo'], translated)
         toc_label = translated or cat['name_english']
-        toc.append((slug, to_ruby_html(esc(toc_label))))
+
+        toc_children = []
+        for gp in by_sort(gram_by_cat.get(cat['id'], [])):
+            gp_slug = slugify(gp.get('english') or gp['id'])
+            gp_toc_label = gp.get('english') or gp['minihongo']
+            toc_children.append((gp_slug, esc(gp_toc_label)))
+
+        toc.append((slug, to_ruby_html(esc(toc_label)), toc_children))
         parts.append(f'  <h2 id="{slug}" class="section-heading">{h}</h2>\n')
         parts.append('\n')
 
         for gp in by_sort(gram_by_cat.get(cat['id'], [])):
+            gp_slug = slugify(gp.get('english') or gp['id'])
             raw_pattern = gp['minihongo']
             if lang == 'mh':
                 # Strip romaji/english in parentheses: "は (wa)" -> "は"
@@ -346,7 +356,7 @@ def gen_grammar(categories, grammar, grammar_examples, lang):
                 else:
                     pattern = f'{pattern} ({en_name})'
             explanation = to_ruby_html(t(gp, 'explanation', lang))
-            parts.append('  <grammar-point>\n')
+            parts.append(f'  <grammar-point id="{gp_slug}">\n')
             parts.append(f'    <span slot="pattern">{pattern}</span>\n')
             parts.append(f'    <span slot="explanation">{explanation}</span>\n')
 

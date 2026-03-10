@@ -5,13 +5,13 @@
   <nav class="toc">
     <ul>
       {% for cat in cats %}
-      <li><a href="#{{ cat.name_english | slugify }}">{{ loop.index }}. {{ cat | get: CAT_NAME_COL | ruby }}</a></li>
+      <li><a href="#{{ cat.name_english | slugify }}">{{ cat | get: CAT_NAME_COL | ruby }}</a></li>
       {% endfor %}
     </ul>
   </nav>
 
   {% for cat in cats %}
-  <h2 id="{{ cat.name_english | slugify }}" class="section-heading">{{ loop.index }}. {{ cat.name_minihongo | ruby }}{% if lang != "mh" %} ({{ cat | get: CAT_NAME_COL }}){% endif %}</h2>
+  <h2 id="{{ cat.name_english | slugify }}" class="section-heading">{{ cat.name_minihongo | ruby }}{% if lang != "mh" %} ({{ cat | get: CAT_NAME_COL }}){% endif %}</h2>
 
   <table class="compact-table">
     <thead><tr><th>{{ ui.th_word }}</th><th>{{ ui.th_meaning }}</th><th>{{ ui.th_example }}</th></tr></thead>

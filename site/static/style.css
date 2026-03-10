@@ -334,9 +334,10 @@ nav.toc > ul {
   padding: 0;
 }
 nav.toc > ul > li { margin: 0.25rem 0; }
+nav.toc-collapsible > ul > li { padding-left: 1em; }
+nav.toc-collapsible > ul > li:has(details) { padding-left: 0; }
 nav.toc details summary {
   cursor: pointer;
-  font-weight: 600;
   padding: 0.1rem 0;
 }
 nav.toc details ul {
