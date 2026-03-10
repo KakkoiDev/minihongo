@@ -47,6 +47,11 @@ body {
   padding: var(--s);
   color: var(--text);
   background: var(--bg);
+  transition: opacity 0.15s;
+}
+
+body.page-exit {
+  opacity: 0;
 }
 
 a { color: var(--link); }

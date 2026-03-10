@@ -6,7 +6,7 @@ const rootPath = basePath.replace(/^(\/(?:ja|mh)\/)/, '/')
 
 // -- SPA navigation -----------------------------------------------------
 
-const navLinks = document.querySelectorAll('nav:not(.lesson-nav):not(.toc) a:not(.logo)')
+const navLinks = document.querySelectorAll('nav:not(.lesson-nav):not(.toc) a')
 
 const updateTitle = () => {
   const h1 = document.querySelector('#content h1')
@@ -50,7 +50,7 @@ const navigate = async (path) => {
   }
 }
 
-const hrefToPath = (href) => new URL(href, base).pathname.replace(basePath, '')
+const hrefToPath = (href) => new URL(href, base).pathname.replace(basePath, '') || 'index.html'
 
 const handleNavClick = async (e, href) => {
   e.preventDefault()
@@ -169,7 +169,9 @@ btnFurigana.classList.toggle('active', !document.documentElement.classList.conta
 window.switchLang = (lang) => {
   localStorage.setItem('lang', lang)
   const pagePath = location.pathname.replace(/^\/(ja|mh)\//, '/')
-  location.href = lang === 'en' ? pagePath : `/${lang}${pagePath}`
+  const dest = lang === 'en' ? pagePath : `/${lang}${pagePath}`
+  document.body.classList.add('page-exit')
+  setTimeout(() => { location.href = dest }, 150)
 }
 
 // -- Service worker -------------------------------------------------
