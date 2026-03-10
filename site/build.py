@@ -399,6 +399,10 @@ def _build_to(OUT, base_url):
     for f in ROOT.glob("*.json"):
         shutil.copy2(f, OUT / f.name)
 
+    # Read CSS for inlining (eliminates render-blocking stylesheet request)
+    css_path = STATIC / 'style.css'
+    inline_css = css_path.read_text() if css_path.exists() else ''
+
     loader = lambda path: (TEMPLATES / path).read_text()
     engine = Engine(loader=loader)
     components = load_components()
@@ -423,6 +427,13 @@ def _build_to(OUT, base_url):
         # 2. Render through template engine (resolves all {{ }} and {% %})
         ctx = build_page_context(data, ui_strings, lang, page_file, base_url, page_id_map)
         html = engine.render(html, ctx)
+
+        # 3. Inline CSS to eliminate render-blocking request
+        if inline_css:
+            html = html.replace(
+                '<link rel="stylesheet" href="/static/style.css">',
+                f'<style>{inline_css}</style>',
+            )
 
         # Full page
         dest = OUT / rel
