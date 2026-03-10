@@ -1,6 +1,14 @@
 docs/
 __pycache__/
+
+# Generated pages (generate_pages.py)
+site/pages/index.html
 site/pages/lessons/
+site/pages/ja/
+site/pages/mh/
+
+# Generated Anki decks (generate_anki.py)
+*.apkg
 
 # Knowledge / source docs
 *.md
