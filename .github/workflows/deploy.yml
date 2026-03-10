@@ -37,6 +37,18 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
 
+      - name: Download Anki decks from latest anki-v* release
+        run: |
+          TAG=$(gh release list --json tagName -q '[.[].tagName | select(startswith("anki-v"))] | first')
+          if [ -n "$TAG" ]; then
+            echo "Downloading Anki decks from release: $TAG"
+            gh release download "$TAG" --pattern '*.apkg' --dir .
+          else
+            echo "No anki-v* release found, skipping"
+          fi
+        env:
+          GH_TOKEN: ${{ github.token }}
+
       - run: python generate_pages.py && python site/build.py
         env:
           BASE_URL: /

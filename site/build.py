@@ -376,6 +376,13 @@ def _build_to(OUT, base_url):
         shutil.copytree(audio_dir, OUT / "audio")
         print(f"audio: copied from {audio_dir}")
 
+    # Copy Anki decks if available (from generate_anki.py or CI download)
+    apkg_files = sorted(ROOT.parent.glob("minihongo-*.apkg"))
+    if apkg_files:
+        for f in apkg_files:
+            shutil.copy2(f, OUT / f.name)
+        print(f"anki: copied {len(apkg_files)} deck(s)")
+
     for f in ROOT.glob("*.js"):
         shutil.copy2(f, OUT / f.name)
     for f in ROOT.glob("*.json"):

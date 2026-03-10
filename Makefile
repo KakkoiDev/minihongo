@@ -1,4 +1,4 @@
-.PHONY: build serve watch _rebuild audio audio-download audio-release anki anki-release
+.PHONY: build serve watch _rebuild audio audio-download audio-release anki anki-download anki-release
 
 PORT ?= 3000
 
@@ -46,6 +46,13 @@ audio-release:
 	@echo "Upload with: gh release create audio-vN /tmp/minihongo-audio.tar.gz --title 'Audio vN'"
 
 # -- Anki -------------------------------------------------------------------
+
+# Download Anki decks from latest anki-v* GitHub release
+anki-download:
+	$(eval TAG := $(shell gh release list --json tagName -q '[.[].tagName | select(startswith("anki-v"))] | first'))
+	@echo "Downloading Anki decks from release: $(TAG)"
+	gh release download $(TAG) -p '*.apkg' -D . --clobber
+	@echo "Anki decks downloaded"
 
 # Build Anki decks for all languages (requires genanki + audio/)
 anki:

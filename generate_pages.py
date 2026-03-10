@@ -226,6 +226,9 @@ def gen_index(lang):
     next_href = f'lessons/{PAGE_FILES[first_page["id"]]}'
 
     onboarding = ui('home_onboarding', lang)
+    anki_cta = ui('home_anki_cta', lang)
+    anki_link = ui('home_anki_link', lang)
+    anki_desc = ui('home_anki_desc', lang)
 
     return (
         f'<page-layout>\n'
@@ -238,6 +241,9 @@ def gen_index(lang):
         f'  </ul>\n'
         f'  <div class="onboarding">\n'
         f'    <p>{onboarding}</p>\n'
+        f'  </div>\n'
+        f'  <div class="anki-download">\n'
+        f'    <p>{anki_cta} <a href="/minihongo-{lang}.apkg">{anki_link}</a> - {anki_desc}</p>\n'
         f'  </div>\n'
         f'  <nav class="lesson-nav">\n'
         f'    <span></span>\n'

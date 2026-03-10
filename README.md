@@ -86,11 +86,12 @@ Spaced-repetition flashcard decks for [Anki](https://apps.ankiweb.net/) with aud
 
 ```
 make anki                 # build all 3 decks (requires genanki + audio/)
+make anki-download        # download decks from latest GitHub release
 make anki-release         # build and show upload command
 python3 generate_anki.py en   # build only one language
 ```
 
-Download from [GitHub Releases](https://github.com/KakkoiDev/minihongo/releases) (tagged `anki-vN`).
+Decks are stored as GitHub release assets (tagged `anki-vN`) and downloaded at build time (CI) or manually (`make anki-download`). `site/build.py` copies `.apkg` files into `docs/` if present.
 
 **Deck structure (same for each language):**
 - **Vocabulary** (182 words x 2 = 364 cards) - Recognition (JP -> translation) and Recall (translation -> JP), grouped by category
