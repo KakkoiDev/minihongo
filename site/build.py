@@ -127,7 +127,7 @@ def lang_switcher_html(lang):
         selected = ' selected' if l == lang else ''
         options.append(f'<option value="{l}"{selected}>{LANG_LABELS[l]}</option>')
     return (
-        f'<select class="lang-switch" onchange="switchLang(this.value)">'
+        f'<select class="lang-switch" aria-label="Language" onchange="switchLang(this.value)">'
         f'{"".join(options)}'
         f'</select>'
     )

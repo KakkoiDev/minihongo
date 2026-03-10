@@ -1,6 +1,3 @@
-/* === Font === */
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap");
-
 /* === Reset === */
 *, *::before, *::after { box-sizing: border-box; }
 
@@ -18,7 +15,7 @@
   --bg: #FFFFFF;
   --bg-raised: #F7F7F7;
   --text: #2B2B2B;
-  --text-muted: #777777;
+  --text-muted: #666666;
   --border: #E5E5E5;
   --link: #2B70C9;
 }
