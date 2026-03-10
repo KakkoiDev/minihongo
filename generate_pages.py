@@ -324,6 +324,15 @@ def gen_grammar(categories, grammar, grammar_examples, lang):
                 # Strip romaji/english in parentheses: "は (wa)" -> "は"
                 raw_pattern = re.sub(r'\s*\([A-Za-z &/\-]+\)', '', raw_pattern).strip()
             pattern = to_ruby_html(raw_pattern)
+            if lang == 'en' and gp.get('english'):
+                en_name = esc(gp['english'])
+                # Merge with existing romaji parenthetical: "は (wa)" -> "は (wa - Topic Marker)"
+                romaji_match = re.search(r'\(([A-Za-z &/\-]+)\)$', pattern)
+                if romaji_match:
+                    romaji = romaji_match.group(1)
+                    pattern = pattern[:romaji_match.start()] + f'({romaji} - {en_name})'
+                else:
+                    pattern = f'{pattern} ({en_name})'
             explanation = to_ruby_html(t(gp, 'explanation', lang))
             parts.append('  <grammar-point>\n')
             parts.append(f'    <span slot="pattern">{pattern}</span>\n')
