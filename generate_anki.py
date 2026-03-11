@@ -174,6 +174,12 @@ hr#answer { border: none; border-top: 1px solid #E5E5E5; margin: 20px 0; }
 }
 .night_mode ruby rt { color: #999999; }
 .night_mode hr#answer { border-top-color: #333333; }
+
+/* Audio replay button (desktop: .replay-button, AnkiDroid: .replaybutton) */
+.replay-button svg, .replaybutton svg { width: 32px; height: 32px; }
+.replay-button svg circle, .replaybutton svg circle { fill: #BC002D; }
+.replay-button svg path, .replaybutton svg path { stroke: #FFFFFF; fill: #FFFFFF; }
+.night_mode .replay-button svg circle, .night_mode .replaybutton svg circle { fill: #BC002D; }
 """
 
 
