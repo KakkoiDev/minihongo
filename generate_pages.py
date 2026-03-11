@@ -3,6 +3,7 @@
 import csv
 import html as html_mod
 import re
+import sys
 from pathlib import Path
 from collections import defaultdict
 
@@ -674,6 +675,18 @@ def main():
     compounds = load_csv('compounds')
     expressions = load_csv('expressions')
     haiku = load_csv('haiku')
+
+    from validate_haiku import validate_haiku
+    errors = validate_haiku()
+    if errors:
+        print("Haiku meter errors:", file=sys.stderr)
+        for e in errors:
+            print(f"  {e['id']}: {e['issue']}", file=sys.stderr)
+            if 'details' in e:
+                for line in e['details'].split('\n'):
+                    print(f"    {line.strip()}", file=sys.stderr)
+        sys.exit(1)
+
     dialog_groups = load_csv('dialog_groups')
     dialogs_data = load_csv('dialogs')
     stories = load_csv('stories')

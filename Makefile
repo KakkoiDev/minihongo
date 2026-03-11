@@ -1,4 +1,4 @@
-.PHONY: build serve watch _rebuild audio audio-download audio-release anki anki-download anki-release
+.PHONY: build serve watch _rebuild lint-haiku audio audio-download audio-release anki anki-download anki-release
 
 PORT ?= 3000
 
@@ -22,6 +22,11 @@ watch: build
 _rebuild:
 	python3 generate_pages.py
 	python3 site/build.py
+
+# -- Lint --------------------------------------------------------------------
+
+lint-haiku:
+	python3 validate_haiku.py
 
 # -- Audio -------------------------------------------------------------------
 
