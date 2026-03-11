@@ -1,5 +1,10 @@
 // Minihongo app logic
 
+// Guard: if critical DOM is missing, force clean reload
+if (!document.querySelector('base') || !document.getElementById('content')) {
+  location.reload()
+}
+
 const base = document.querySelector('base').href
 const basePath = new URL(base).pathname
 const rootPath = basePath.replace(/^(\/(?:ja|mh)\/)/, '/')

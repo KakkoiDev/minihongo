@@ -7,6 +7,9 @@
   <title><slot name="title">Minihongo</slot></title>
   <!-- Render-blocking: apply saved preferences before first paint to prevent flicker -->
   <script>
+    // Force clean reload if page was discarded by OS (PWA resume after kill)
+    if (document.wasDiscarded) location.reload()
+
     // Restore theme (dark/light) from localStorage or system preference
     const t = localStorage.getItem('theme') ??
       (matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light')
