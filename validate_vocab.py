@@ -35,7 +35,6 @@ COMPOUND_CHAR_READINGS = {
     '全部': {'全': 'ぜん', '部': 'ぶ'},
     '動物': {'動': 'どう', '物': 'ぶつ'},
     '名前': {'名': 'な', '前': 'まえ'},
-    '場所': {'場': 'ば', '所': 'しょ'},
     '太陽': {'太': 'たい', '陽': 'よう'},
     '子供': {'子': 'こ', '供': 'ども'},
     '必要': {'必': 'ひつ', '要': 'よう'},
@@ -46,9 +45,7 @@ COMPOUND_CHAR_READINGS = {
 }
 
 # Also allow standalone readings for chars that appear in compounds
-# e.g. 所【ところ】 (standalone reading, not from 場所)
 STANDALONE_CHAR_READINGS = {
-    '所': {'ところ'},
     '気': {'き'},
 }
 
