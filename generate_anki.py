@@ -175,11 +175,37 @@ hr#answer { border: none; border-top: 1px solid #E5E5E5; margin: 20px 0; }
 .night_mode ruby rt { color: #999999; }
 .night_mode hr#answer { border-top-color: #333333; }
 
-/* Audio replay button (desktop: .replay-button, AnkiDroid: .replaybutton) */
-.replay-button svg, .replaybutton svg { width: 32px; height: 32px; }
-.replay-button svg circle, .replaybutton svg circle { fill: #BC002D; }
-.replay-button svg path, .replaybutton svg path { stroke: #FFFFFF; fill: #FFFFFF; }
-.night_mode .replay-button svg circle, .night_mode .replaybutton svg circle { fill: #BC002D; }
+/* Audio replay button - match website play-btn style */
+.replay-button, .replaybutton {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border: 2px solid #E5E5E5;
+    border-radius: 0.75rem;
+    background: #FFFFFF;
+    cursor: pointer;
+    vertical-align: middle;
+    text-decoration: none;
+}
+.replay-button svg, .replaybutton svg { display: none !important; }
+.replay-button::before, .replaybutton::before {
+    content: "";
+    display: block;
+    width: 0.85rem;
+    height: 0.85rem;
+    background: #2B70C9;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 9v6h4l5 5V4L7 9H3zm13.5 3A4.5 4.5 0 0014 8.5v7a4.47 4.47 0 002.5-3.5zM14 3.23v2.06a6.51 6.51 0 010 13.42v2.06A8.51 8.51 0 0014 3.23z'/%3E%3C/svg%3E") center / contain no-repeat;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 9v6h4l5 5V4L7 9H3zm13.5 3A4.5 4.5 0 0014 8.5v7a4.47 4.47 0 002.5-3.5zM14 3.23v2.06a6.51 6.51 0 010 13.42v2.06A8.51 8.51 0 0014 3.23z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+.night_mode .replay-button, .night_mode .replaybutton {
+    border-color: #333333;
+    background: #1A1A1A;
+}
+.night_mode .replay-button::before, .night_mode .replaybutton::before {
+    background: #6DB3F2;
+}
 """
 
 
