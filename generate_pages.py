@@ -687,6 +687,15 @@ def main():
                     print(f"    {line.strip()}", file=sys.stderr)
         sys.exit(1)
 
+    from validate_vocab import build_vocab, run_validation, VALIDATE_CONTENT
+    vocab, char_readings = build_vocab()
+    vocab_errors = run_validation('content', VALIDATE_CONTENT, vocab, char_readings)
+    if vocab_errors:
+        print("Vocabulary errors:", file=sys.stderr)
+        for e in vocab_errors:
+            print(f"  {e['source']}: {e['issue']}", file=sys.stderr)
+        sys.exit(1)
+
     dialog_groups = load_csv('dialog_groups')
     dialogs_data = load_csv('dialogs')
     stories = load_csv('stories')
