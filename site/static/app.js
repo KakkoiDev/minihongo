@@ -188,38 +188,43 @@ btnTop.addEventListener('click', () => scrollTo({ top: 0, behavior: 'smooth' }))
 
 // -- Lifecycle recovery ---------------------------------------------
 
+const safeReload = () => {
+  try { location.reload() } catch { location.href = location.href }
+}
+
 const stopAudio = () => {
-  if (currentAudio) {
-    currentAudio.pause()
-    currentBtn?.classList.remove('playing')
-    currentAudio = null
-    currentBtn = null
-  }
+  try {
+    if (currentAudio) {
+      currentAudio.pause()
+      currentBtn?.classList.remove('playing')
+      currentAudio = null
+      currentBtn = null
+    }
+  } catch {}
 }
 
 let hiddenAt = 0
 
 document.addEventListener('visibilitychange', () => {
-  if (document.visibilityState === 'hidden') {
-    hiddenAt = Date.now()
-    stopAudio()
-  } else {
-    prefetchCache.clear()
-    // Backgrounded > 2 min: JS state is likely stale, force clean reload
-    if (hiddenAt && Date.now() - hiddenAt > 120_000) {
-      location.reload()
-      return
+  try {
+    if (document.visibilityState === 'hidden') {
+      hiddenAt = Date.now()
+      stopAudio()
+    } else {
+      prefetchCache.clear()
+      if (hiddenAt && Date.now() - hiddenAt > 120_000) return safeReload()
+      if (!document.querySelector('#content')?.children.length) safeReload()
     }
-    if (!document.querySelector('#content')?.children.length) location.reload()
-  }
+  } catch { safeReload() }
 })
 
-// bfcache restore or OS resume: always reload for clean state
-addEventListener('pageshow', (e) => { if (e.persisted) location.reload() })
+addEventListener('pageshow', (e) => { if (e.persisted) safeReload() })
 addEventListener('freeze', stopAudio)
 addEventListener('resume', () => {
-  prefetchCache.clear()
-  if (!document.querySelector('#content')?.children.length) location.reload()
+  try {
+    prefetchCache.clear()
+    if (!document.querySelector('#content')?.children.length) safeReload()
+  } catch { safeReload() }
 })
 
 // -- Toast banner system --------------------------------------------
