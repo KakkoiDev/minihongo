@@ -30,20 +30,41 @@ self.addEventListener('activate', (e) => {
 
 self.addEventListener('fetch', (e) => {
   if (e.request.method !== 'GET') return
-  // Audio files: skip SW entirely (let browser fetch directly)
   if (e.request.url.includes('/audio/')) return
-  e.respondWith(cacheFirst(e.request))
+  if (e.request.mode === 'navigate') {
+    e.respondWith(handleNavigate(e.request))
+  } else {
+    e.respondWith(cacheFirst(e.request))
+  }
 })
 
 // -- Caching strategy ---------------------------------------------------
 
-// Cache-first with stale-while-revalidate: serve cached immediately,
-// refresh in the background for next visit
+// Navigation requests: try cache/network, fall back to retry page
+const handleNavigate = async (request) => {
+  const cache = await caches.open(CACHE)
+  const cached = await cache.match(request)
+  if (cached) return cached
+  try {
+    const res = await fetch(request)
+    if (res.ok) cache.put(request, res.clone())
+    return res
+  } catch {
+    // Offline and cache evicted: serve a page that retries when online
+    return new Response(`<!DOCTYPE html><html><head>
+      <meta name="viewport" content="width=device-width">
+      <style>body{font-family:system-ui;display:flex;justify-content:center;align-items:center;height:100vh;margin:0;color:#666}</style>
+      </head><body><p>Offline. Retrying&hellip;</p>
+      <script>addEventListener('online',()=>location.reload());setTimeout(()=>location.reload(),3000)</script>
+      </body></html>`, { headers: { 'Content-Type': 'text/html' } })
+  }
+}
+
+// Cache-first with background revalidation for static assets
 const cacheFirst = async (request) => {
   const cache = await caches.open(CACHE)
   const cached = await cache.match(request)
 
-  // Background refresh (don't await unless no cache hit)
   const refresh = fetch(request).then((res) => {
     if (res.ok) cache.put(request, res.clone())
     return res
