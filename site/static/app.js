@@ -74,7 +74,7 @@ let currentAudio = null
 let currentBtn = null
 
 const playAudio = (btn) => {
-  const src = `${rootPath}audio/${btn.dataset.audio}`
+  const src = `${rootPath}audio/${btn.dataset.audio}?v={{CACHE_HASH}}`
   if (currentAudio) {
     currentAudio.pause()
     currentBtn?.classList.remove('playing')

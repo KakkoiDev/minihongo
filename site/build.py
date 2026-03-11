@@ -503,6 +503,10 @@ def _build_to(OUT, base_url):
     sw_text = sw_text.replace("{{PRECACHE}}", precache_js)
     sw_text = sw_text.replace("{{CACHE_HASH}}", cache_hash)
     sw.write_text(sw_text)
+
+    app_js = OUT / "static" / "app.js"
+    app_js.write_text(app_js.read_text().replace("{{CACHE_HASH}}", cache_hash))
+
     print(f"  cache: {cache_hash}")
 
     print(f"-> {OUT}/")
