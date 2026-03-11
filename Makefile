@@ -34,36 +34,38 @@ lint-haiku:
 audio:
 	python3 generate_audio.py
 
-# Download audio from latest audio-v* GitHub release into audio/
+# Download audio from GitHub release into audio/
 audio-download:
-	$(eval TAG := $(shell gh release list --json tagName -q '[.[].tagName | select(startswith("audio-v"))] | first'))
-	@echo "Downloading audio from release: $(TAG)"
 	@mkdir -p audio
-	gh release download $(TAG) -p '*.tar.gz' -D /tmp --clobber
+	gh release download audio --pattern '*.tar.gz' --dir /tmp --clobber
 	tar xzf /tmp/minihongo-audio*.tar.gz -C audio/
 	@echo "Audio downloaded to audio/"
 
-# Package and upload audio as a new GitHub release
+# Package and upload audio (single release, replaces previous)
 audio-release:
 	@test -d audio || { echo "No audio/ directory. Run 'make audio' first."; exit 1; }
 	cd audio && tar czf /tmp/minihongo-audio.tar.gz .
-	@echo "Packaged $$(ls audio/**/*.mp3 | wc -l) files ($$(du -sh /tmp/minihongo-audio.tar.gz | cut -f1))"
-	@echo "Upload with: gh release create audio-vN /tmp/minihongo-audio.tar.gz --title 'Audio vN'"
+	@echo "Packaged $$(find audio -name '*.mp3' | wc -l) files ($$(du -sh /tmp/minihongo-audio.tar.gz | cut -f1))"
+	-gh release delete audio --yes --cleanup-tag 2>/dev/null
+	gh release create audio /tmp/minihongo-audio.tar.gz \
+		--title "Audio" \
+		--notes "$$(git log -5 --oneline)"
 
 # -- Anki -------------------------------------------------------------------
 
-# Download Anki decks from latest anki-v* GitHub release
+# Download Anki decks from GitHub release
 anki-download:
-	$(eval TAG := $(shell gh release list --json tagName -q '[.[].tagName | select(startswith("anki-v"))] | first'))
-	@echo "Downloading Anki decks from release: $(TAG)"
-	gh release download $(TAG) -p '*.apkg' -D . --clobber
+	gh release download anki --pattern '*.apkg' --dir . --clobber
 	@echo "Anki decks downloaded"
 
 # Build Anki decks for all languages (requires genanki + audio/)
 anki:
 	python3 generate_anki.py
 
-# Upload Anki decks as a new GitHub release
+# Upload Anki decks (single release, replaces previous)
 anki-release: anki
 	@echo "Decks: $$(du -sh minihongo-*.apkg | cut -f1 | paste -sd+ | bc)B total"
-	@echo "Upload with: gh release create anki-vN minihongo-*.apkg --title 'Anki vN'"
+	-gh release delete anki --yes --cleanup-tag 2>/dev/null
+	gh release create anki minihongo-*.apkg \
+		--title "Anki" \
+		--notes "$$(git log -5 --oneline)"
