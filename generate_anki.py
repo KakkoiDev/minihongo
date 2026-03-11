@@ -139,7 +139,7 @@ SHARED_CSS = """
     color: #666666;
     margin-top: 10px;
 }
-.audio { margin: 10px 0; }
+.audio { margin: 10px 0; text-align: center; }
 .tags {
     display: inline-block;
     background: #F7F7F7;
@@ -180,8 +180,8 @@ hr#answer { border: none; border-top: 3px solid #BC002D; margin: 20px 0; }
     display: inline-flex !important;
     align-items: center;
     justify-content: center;
-    width: 2rem;
-    height: 2rem;
+    width: 2.5rem;
+    height: 2.5rem;
     border: 2px solid #E5E5E5;
     border-radius: 0.75rem;
     background: #FFFFFF;
@@ -193,18 +193,15 @@ hr#answer { border: none; border-top: 3px solid #BC002D; margin: 20px 0; }
 .replay-button::before, .replaybutton::before {
     content: "";
     display: block;
-    width: 0.85rem;
-    height: 0.85rem;
-    background: #2B70C9;
+    width: 1.2rem;
+    height: 1.2rem;
+    background: #BC002D;
     -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 9v6h4l5 5V4L7 9H3zm13.5 3A4.5 4.5 0 0014 8.5v7a4.47 4.47 0 002.5-3.5zM14 3.23v2.06a6.51 6.51 0 010 13.42v2.06A8.51 8.51 0 0014 3.23z'/%3E%3C/svg%3E") center / contain no-repeat;
     mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 9v6h4l5 5V4L7 9H3zm13.5 3A4.5 4.5 0 0014 8.5v7a4.47 4.47 0 002.5-3.5zM14 3.23v2.06a6.51 6.51 0 010 13.42v2.06A8.51 8.51 0 0014 3.23z'/%3E%3C/svg%3E") center / contain no-repeat;
 }
 .night_mode .replay-button, .night_mode .replaybutton {
     border-color: #333333;
     background: #1A1A1A;
-}
-.night_mode .replay-button::before, .night_mode .replaybutton::before {
-    background: #6DB3F2;
 }
 """
 
