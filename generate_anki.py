@@ -23,6 +23,7 @@ Requires: pip install genanki
 """
 
 import csv
+import hashlib
 import random
 import re
 import sys
@@ -46,9 +47,8 @@ LANGS = {
         'grammar_explanation': 'explanation_english',
         'grammar_example_translation': 'english',
         'category_name': 'name_english',
-        # Model IDs must differ per language so Anki treats them as separate models
-        'vocab_model_id': 2007392101,
-        'grammar_model_id': 2007392102,
+        'vocab_model_id': 2007390001,
+        'grammar_model_id': 2007390002,
     },
     'ja': {
         'deck_name': 'Minihongo (JA)',
@@ -59,8 +59,8 @@ LANGS = {
         'grammar_explanation': 'explanation_japanese',
         'grammar_example_translation': 'japanese',
         'category_name': 'name_japanese',
-        'vocab_model_id': 2007392111,
-        'grammar_model_id': 2007392112,
+        'vocab_model_id': 2007390011,
+        'grammar_model_id': 2007390012,
     },
     'mh': {
         'deck_name': 'Minihongo (MH)',
@@ -71,8 +71,8 @@ LANGS = {
         'grammar_explanation': 'explanation_minihongo',
         'grammar_example_translation': 'minihongo',
         'category_name': 'name_minihongo',
-        'vocab_model_id': 2007392121,
-        'grammar_model_id': 2007392122,
+        'vocab_model_id': 2007390021,
+        'grammar_model_id': 2007390022,
     },
 }
 
@@ -479,11 +479,22 @@ def build_deck(lang, categories):
 # ── Main ────────────────────────────────────────────────────────────
 
 def main():
-    langs = sys.argv[1:] if len(sys.argv) > 1 else list(LANGS.keys())
+    args = sys.argv[1:]
+    force_style = '--force-style' in args
+    langs = [a for a in args if not a.startswith('--')] or list(LANGS.keys())
+
     for lang in langs:
         if lang not in LANGS:
             print(f'Unknown language: {lang}. Choose from: {", ".join(LANGS)}')
             sys.exit(1)
+
+    if force_style:
+        # Offset model IDs by CSS hash so Anki creates new models with updated styles
+        css_hash = int(hashlib.sha256(SHARED_CSS.encode()).hexdigest()[:6], 16)
+        for cfg in LANGS.values():
+            cfg['vocab_model_id'] += css_hash
+            cfg['grammar_model_id'] += css_hash
+        print(f'--force-style: model IDs offset by {css_hash} (CSS hash)')
 
     categories = load_categories()
 
