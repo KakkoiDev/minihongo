@@ -158,7 +158,7 @@ SHARED_CSS = """
 }
 ruby { ruby-align: center; }
 ruby rt { font-size: 12px; font-weight: normal; color: #666666; }
-hr#answer { border: none; border-top: 1px solid #E5E5E5; margin: 20px 0; }
+hr#answer { border: none; border-top: 3px solid #BC002D; margin: 20px 0; }
 
 .night_mode .card {
     color: #E8E8E8;
@@ -173,7 +173,7 @@ hr#answer { border: none; border-top: 1px solid #E5E5E5; margin: 20px 0; }
     color: #999999;
 }
 .night_mode ruby rt { color: #999999; }
-.night_mode hr#answer { border-top-color: #333333; }
+.night_mode hr#answer { border-top-color: #BC002D; }
 
 /* Audio replay button - match website play-btn style */
 .replay-button, .replaybutton {
