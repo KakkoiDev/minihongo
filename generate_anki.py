@@ -97,16 +97,17 @@ def strip_furigana(text):
 
 SHARED_CSS = """
 .card {
-    font-family: "Hiragino Kaku Gothic Pro", "Noto Sans JP", "Noto Sans", sans-serif;
+    font-family: "Noto Sans JP", "Hiragino Sans", "Yu Gothic", system-ui, sans-serif;
     font-size: 20px;
     text-align: center;
-    color: #333;
-    background-color: #fafafa;
-    padding: 20px;
+    color: #2B2B2B;
+    background: #FFFFFF;
+    padding: 24px;
+    line-height: 1.7;
 }
 .card-type {
     font-size: 12px;
-    color: #999;
+    color: #666666;
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-bottom: 15px;
@@ -135,39 +136,44 @@ SHARED_CSS = """
 }
 .grammar-name {
     font-size: 14px;
-    color: #999;
+    color: #666666;
     margin-top: 10px;
 }
 .audio { margin: 10px 0; }
 .tags {
     display: inline-block;
-    background: #e0e0e0;
+    background: #F7F7F7;
     padding: 4px 12px;
-    border-radius: 12px;
+    border-radius: 0.75rem;
     font-size: 12px;
-    color: #555;
+    color: #666666;
+    border: 1px solid #E5E5E5;
     margin-top: 10px;
 }
 .hint {
     font-size: 18px;
     font-style: italic;
     margin: 10px 0;
-    opacity: 0.7;
+    color: #666666;
 }
 ruby { ruby-align: center; }
-ruby rt { font-size: 12px; font-weight: normal; color: #888; }
-hr#answer { border: none; border-top: 1px solid #ddd; margin: 20px 0; }
+ruby rt { font-size: 12px; font-weight: normal; color: #666666; }
+hr#answer { border: none; border-top: 1px solid #E5E5E5; margin: 20px 0; }
 
 .night_mode .card {
-    color: #e0e0e0;
-    background-color: #1e1e1e;
+    color: #E8E8E8;
+    background: #1A1A1A;
 }
+.night_mode .card-type,
+.night_mode .grammar-name,
+.night_mode .hint { color: #999999; }
 .night_mode .tags {
-    background: #333;
-    color: #bbb;
+    background: #252525;
+    border-color: #333333;
+    color: #999999;
 }
-.night_mode ruby rt { color: #aaa; }
-.night_mode hr#answer { border-top-color: #444; }
+.night_mode ruby rt { color: #999999; }
+.night_mode hr#answer { border-top-color: #333333; }
 """
 
 
