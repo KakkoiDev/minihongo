@@ -13,8 +13,11 @@ const PRECACHE = {{PRECACHE}}
 
 // Pre-cache all assets on install, then activate immediately
 self.addEventListener('install', (e) => {
-  e.waitUntil(caches.open(CACHE).then((c) => c.addAll(PRECACHE)))
-  self.skipWaiting()
+  e.waitUntil(
+    caches.open(CACHE)
+      .then((c) => c.addAll(PRECACHE))
+      .then(() => self.skipWaiting())
+  )
 })
 
 // Delete old caches from previous versions, then claim all clients
@@ -40,7 +43,7 @@ self.addEventListener('fetch', (e) => {
 
 // -- Caching strategy ---------------------------------------------------
 
-// Navigation requests: try cache/network, fall back to retry page
+// Navigation requests: cache -> network -> cached root -> retry page
 const handleNavigate = async (request) => {
   const cache = await caches.open(CACHE)
   const cached = await cache.match(request)
@@ -50,7 +53,10 @@ const handleNavigate = async (request) => {
     if (res.ok) cache.put(request, res.clone())
     return res
   } catch {
-    // Offline and cache evicted: serve a page that retries when online
+    // Try serving the root page from cache (SPA can route from there)
+    const root = await cache.match('/') || await cache.match('/index.html')
+    if (root) return root
+    // Last resort: minimal retry page
     return new Response(`<!DOCTYPE html><html><head>
       <meta name="viewport" content="width=device-width">
       <script>
