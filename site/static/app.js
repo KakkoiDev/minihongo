@@ -153,6 +153,7 @@ btnTheme.addEventListener('click', () => {
   document.documentElement.dataset.theme = next
   localStorage.setItem('theme', next)
   btnTheme.classList.toggle('active', next === 'dark')
+  document.querySelector('meta[name="theme-color"]').content = next === 'dark' ? '#1A1A1A' : '#FFFFFF'
 })
 
 btnFurigana.addEventListener('click', () => {
