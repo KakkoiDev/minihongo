@@ -53,7 +53,15 @@ const handleNavigate = async (request) => {
     // Offline and cache evicted: serve a page that retries when online
     return new Response(`<!DOCTYPE html><html><head>
       <meta name="viewport" content="width=device-width">
-      <style>body{font-family:system-ui;display:flex;justify-content:center;align-items:center;height:100vh;margin:0;color:#666}</style>
+      <script>
+        const d=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');
+        document.documentElement.dataset.theme=d
+      </script>
+      <style>
+        :root{--bg:#FFFFFF;--text-muted:#666666}
+        [data-theme="dark"]{--bg:#1A1A1A;--text-muted:#999999}
+        body{font-family:system-ui;display:flex;justify-content:center;align-items:center;height:100vh;margin:0;background:var(--bg);color:var(--text-muted)}
+      </style>
       </head><body><p>Offline. Retrying&hellip;</p>
       <script>addEventListener('online',()=>location.reload());setTimeout(()=>location.reload(),3000)</script>
       </body></html>`, { headers: { 'Content-Type': 'text/html' } })
