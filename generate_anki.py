@@ -189,10 +189,10 @@ hr#answer { border: none; border-top: 3px solid #BC002D; margin: 20px 0; }
     cursor: pointer;
     text-decoration: none;
 }
-.replay-button svg, .replaybutton svg { display: none !important; }
+.replay-button *, .replaybutton * { display: none !important; }
 .replay-button::before, .replaybutton::before {
     content: "";
-    display: block;
+    flex-shrink: 0;
     width: 1.2rem;
     height: 1.2rem;
     background: #2B70C9;
