@@ -47,8 +47,8 @@ LANGS = {
         'grammar_example_translation': 'english',
         'category_name': 'name_english',
         # Model IDs must differ per language so Anki treats them as separate models
-        'vocab_model_id': 2007392001,
-        'grammar_model_id': 2007392002,
+        'vocab_model_id': 2007392101,
+        'grammar_model_id': 2007392102,
     },
     'ja': {
         'deck_name': 'Minihongo (JA)',
@@ -59,8 +59,8 @@ LANGS = {
         'grammar_explanation': 'explanation_japanese',
         'grammar_example_translation': 'japanese',
         'category_name': 'name_japanese',
-        'vocab_model_id': 2007392011,
-        'grammar_model_id': 2007392012,
+        'vocab_model_id': 2007392111,
+        'grammar_model_id': 2007392112,
     },
     'mh': {
         'deck_name': 'Minihongo (MH)',
@@ -71,8 +71,8 @@ LANGS = {
         'grammar_explanation': 'explanation_minihongo',
         'grammar_example_translation': 'minihongo',
         'category_name': 'name_minihongo',
-        'vocab_model_id': 2007392021,
-        'grammar_model_id': 2007392022,
+        'vocab_model_id': 2007392121,
+        'grammar_model_id': 2007392122,
     },
 }
 
