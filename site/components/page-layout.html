@@ -7,9 +7,6 @@
   <title><slot name="title">Minihongo</slot></title>
   <!-- Render-blocking: apply saved preferences before first paint to prevent flicker -->
   <script>
-    // Force clean reload if page was discarded by OS (PWA resume after kill)
-    if (document.wasDiscarded) location.reload()
-
     // Restore theme (dark/light) from localStorage or system preference
     const t = localStorage.getItem('theme') ??
       (matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light')
@@ -21,9 +18,12 @@
     if (localStorage.getItem('furigana') === '0')
       document.documentElement.classList.add('no-furigana')
 
-    // Redirect to stored language if user is on the wrong locale path
+    // Redirect to stored language if on the wrong locale path
+    // Skip in standalone PWA - redirects break the standalone window on resume
+    const isStandalone = matchMedia('(display-mode: standalone)').matches
+      || navigator.standalone
     const savedLang = localStorage.getItem('lang')
-    if (savedLang && /^(en|ja|mh)$/.test(savedLang)) {
+    if (!isStandalone && savedLang && /^(en|ja|mh)$/.test(savedLang)) {
       const curLang = location.pathname.startsWith('/mh/') ? 'mh'
         : location.pathname.startsWith('/ja/') ? 'ja' : 'en'
       if (savedLang !== curLang) {
