@@ -152,16 +152,16 @@
 }
 
 // -- Book setup function --
-#let book(title: "", lang: "en", body) = {
+// print: true = asymmetric margins for binding, false = equal margins for screen
+#let book(title: "", lang: "en", print: false, body) = {
   set document(title: title, author: "Minihongo")
   set page(
     paper: "a5",
-    margin: (
-      top: 20mm,
-      bottom: 20mm,
-      inside: 20mm,
-      outside: 15mm,
-    ),
+    margin: if print {
+      (top: 20mm, bottom: 20mm, inside: 20mm, outside: 15mm)
+    } else {
+      (top: 18mm, bottom: 18mm, left: 18mm, right: 18mm)
+    },
     header: none,
     footer: context {
       if counter(page).get().first() > 1 {

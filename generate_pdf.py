@@ -511,7 +511,8 @@ def generate_lang(lang, categories, words, grammar, grammar_examples,
     # Preamble
     w.raw(f'#import "template.typ": *')
     w.raw()
-    w.raw(f'#show: book.with(title: "{esc(title)}", lang: "{lang}")')
+    print_str = 'true' if print_mode else 'false'
+    w.raw(f'#show: book.with(title: "{esc(title)}", lang: "{lang}", print: {print_str})')
     w.raw()
 
     if not print_mode:
