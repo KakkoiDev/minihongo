@@ -1,31 +1,34 @@
 key,en,ja,mh
 show_readings,Furigana,ふりがな,読【よ】み
 toc_title,Contents,目次,中【なか】の事【こと】
-site_name,Minihongo,ミニ本語,ミニ本【ほん】語【ご】
+site_name,Minihongo,ミニ本語,ミニ本【ほん】の言【こと】葉【ば】
 home_tagline,"182 words. Say anything.",182語で何でも言える。,"182の言【こと】葉【ば】。何【なん】でも言【い】える。"
-home_1,"From intent to thought to word. This method makes even the intent Japanese.",意図から考えへ、考えから言葉へ。この方法で意図そのものが日本語になる。,"思【おも】いから考【かんが】えへ、考【かんが】えから言【こと】葉【ば】へ。この道【みち】で思【おも】いも日本語【にほんご】になる。"
+home_1,"From intent to thought to word. This method makes even the intent Japanese.",意図から考えへ、考えから言葉へ。この方法で意図そのものが日本語になる。,"思【おも】いから考【かんが】えへ、考【かんが】えから言【こと】葉【ば】へ。この道【みち】で思【おも】いもにほんの言【こと】葉【ば】になる。"
 home_2,"182 base words + full grammar. Combine them to express any idea.",182の基本語と文法で何でも表現できる。,"182の言【こと】葉【ば】と全部【ぜんぶ】の言【こと】葉【ば】の道【みち】。一【ひと】つにして何【なん】でも言【い】える。"
 home_3,"Grow naturally. Add real vocabulary as you learn - the 182 are always your fallback.",自然に語彙を増やす。182語はいつでも使える。,"少【すこ】しから大【おお】きくなる。新【あたら】しい言【こと】葉【ば】を入【い】れていく。182はいつでも使【つか】える。"
-home_onboarding,"Start with Vocabulary to learn the 182 words, then Grammar for sentence patterns. Word Building shows how to combine words creatively. Reading lets you practice with real texts.",まず語彙で182語を覚え、次に文法で文の形を学ぶ。単語の組み立てで応用力をつけ、読解で実践する。,"言【こと】葉【ば】から始【はじ】める。182の言【こと】葉【ば】を覚【おぼ】える。次【つぎ】に言【こと】葉【ば】の道【みち】で文【ぶん】の形【かたち】を学【まな】ぶ。言【こと】葉【ば】の作【つく】り方【かた】で新【あたら】しく作【つく】る。読【よ】む事【こと】で使【つか】う。"
+home_onboarding,"Start with Vocabulary to learn the 182 words, then Grammar for sentence patterns. Word Building shows how to combine words creatively. Reading lets you practice with real texts.",まず語彙で182語を覚え、次に文法で文の形を学ぶ。単語の組み立てで応用力をつけ、読解で実践する。,"言【こと】葉【ば】から始【はじ】める。182の言【こと】葉【ば】を知【し】る。後【あと】で言【こと】葉【ば】の道【みち】で言【こと】葉【ば】の形【かたち】を知【し】る。言【こと】葉【ば】の作【つく】り方【かた】で新【あたら】しく作【つく】る。読【よ】む事【こと】で使【つか】う。"
 th_reading,Reading,読み,読【よ】み
 th_meaning,Meaning,意味,何【なに】の事【こと】
 th_parts,Parts,構成,中【なか】の言【こと】葉【ば】
 th_word,Word,言葉,言【こと】葉【ば】
 th_concept,Concept,概念,考【かんが】え
 th_literally,Literally,直訳,言【こと】葉【ば】のまま
-wb_desc_compounds,"Real Japanese words built entirely from kanji in the 182-word vocabulary.",182語の漢字だけで構成された実在の日本語。,"182の言【こと】葉【ば】の中【なか】の字【じ】で作【つく】った本当【ほんとう】の言【こと】葉【ば】。"
+wb_desc_compounds,"Real Japanese words built entirely from kanji in the 182-word vocabulary.",182語の漢字だけで構成された実在の日本語。,"182の言【こと】葉【ば】の中【なか】の書【か】いた物【もの】で作【つく】った本当【ほんとう】の言【こと】葉【ば】。"
 wb_desc_byov,,,
 wb_desc_common,"Real Japanese words from the top 1000 most common, expressed using only the 182 base words.",よく使う日本語を182の基本語だけで表現する。,"よく使【つか】う言【こと】葉【ば】を182の言【こと】葉【ば】だけで言【い】う。"
 th_example,Example,例文,使【つか】い方【かた】
-th_english,English,英語,英語【えいご】
-th_minihongo,Minihongo,ミニ本語,ミニ本【ほん】語【ご】
-wb_reading_warning,"Kanji have multiple readings. The same character can sound different in different words. Learn each compound as a whole word, not by combining individual readings.",漢字には複数の読み方がある。同じ字でも言葉によって読みが変わる。熟語を丸ごと覚えること。,"字【じ】には読【よ】み方【かた】が色々【いろいろ】ある。同【おな】じ字【じ】でも言【こと】葉【ば】によって音【おと】が変【か】わる。一【ひと】つ一【ひと】つの言【こと】葉【ば】を全部【ぜんぶ】で覚【おぼ】える。"
-home_anki_cta,Practice with flashcards:,フラッシュカードで練習:,覚【おぼ】える紙【かみ】で学【まな】ぶ:
+th_english,English,英語,English
+th_minihongo,Minihongo,ミニ本語,ミニ本【ほん】の言【こと】葉【ば】
+wb_reading_warning,"Kanji have multiple readings. The same character can sound different in different words. Learn each compound as a whole word, not by combining individual readings.",漢字には複数の読み方がある。同じ字でも言葉によって読みが変わる。熟語を丸ごと覚えること。,"書【か】いた物【もの】には読【よ】み方【かた】がいろいろある。一【ひと】つの書【か】いた物【もの】でも言【こと】葉【ば】によって音【おと】が変【か】わる。一【ひと】つ一【ひと】つの言【こと】葉【ば】を全部【ぜんぶ】で知【し】る。"
+home_anki_cta,Practice with flashcards:,フラッシュカードで練習:,Ankiで知【し】る:
 home_anki_link,Download Anki deck,Ankiデッキをダウンロード,Ankiをもらう
 home_anki_desc,"182 words + grammar with audio.",182語+文法、音声付き。,"182の言【こと】葉【ば】と言【こと】葉【ば】の道【みち】、音【おと】がある。"
+home_pdf_cta,Read the book:,本で読む:,本【ほん】で読【よ】む:
+home_pdf_link,Download PDF,PDFをダウンロード,PDFをもらう
+home_pdf_desc,All 4 lessons in one book.,4つのレッスンを1冊の本に。,4つが一【ひと】つの本【ほん】に。
 dark_mode,Dark mode,ダークモード,夜【よる】の色【いろ】
 toast_offline,You are offline. Content is cached.,オフラインです。,外【そと】に出【で】られない。中【なか】の物【もの】は使【つか】える。
 toast_online,Back online.,オンラインに戻りました。,外【そと】に出【で】られる。
-toast_install,Install Minihongo as an app,アプリとしてインストール,ミニ本【ほん】語【ご】を入【い】れる
+toast_install,Install Minihongo as an app,アプリとしてインストール,ミニ本【ほん】の言【こと】葉【ば】を入【い】れる
 toast_install_btn,Install,インストール,入【い】れる
 toast_updated,App updated.,更新されました。,新【あたら】しくなりました。

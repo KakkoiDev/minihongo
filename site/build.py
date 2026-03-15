@@ -394,6 +394,13 @@ def _build_to(OUT, base_url):
             shutil.copy2(f, OUT / f.name)
         print(f"anki: copied {len(apkg_files)} deck(s)")
 
+    # Copy PDF books if available (from generate_pdf.py or CI download)
+    pdf_files = sorted(ROOT.parent.glob("minihongo-*.pdf"))
+    if pdf_files:
+        for f in pdf_files:
+            shutil.copy2(f, OUT / f.name)
+        print(f"pdf: copied {len(pdf_files)} book(s)")
+
     for f in ROOT.glob("*.js"):
         shutil.copy2(f, OUT / f.name)
     for f in ROOT.glob("*.json"):

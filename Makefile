@@ -1,4 +1,4 @@
-.PHONY: build serve watch _rebuild lint-haiku lint-vocab audio audio-download audio-release anki anki-download anki-release
+.PHONY: build serve watch _rebuild lint-haiku lint-vocab audio audio-download audio-release anki anki-download anki-release pdf pdf-download pdf-release pdf-print
 
 PORT ?= 3000
 
@@ -71,4 +71,29 @@ anki-release: anki
 	-gh release delete anki --yes --cleanup-tag 2>/dev/null
 	gh release create anki minihongo-*.apkg \
 		--title "Anki" \
+		--notes "$$(git log -5 --oneline)"
+
+# -- PDF Books ---------------------------------------------------------------
+
+# Generate PDF books for all languages (requires typst + uv)
+pdf:
+	uv run generate_pdf.py
+
+# Generate print-ready PDFs: interior + wraparound cover (for Lulu)
+pdf-print:
+	uv run generate_pdf.py --print
+
+# Download PDF books from GitHub release
+pdf-download:
+	gh release download pdf --pattern '*.zip' --dir /tmp --clobber
+	unzip -o /tmp/minihongo-books.zip -d .
+	@echo "PDF books downloaded"
+
+# Build, zip, and upload PDFs (single release, replaces previous)
+pdf-release: pdf
+	zip minihongo-books.zip minihongo-en.pdf minihongo-ja.pdf minihongo-mh.pdf
+	@echo "Books: $$(du -sh minihongo-books.zip | cut -f1)"
+	-gh release delete pdf --yes --cleanup-tag 2>/dev/null
+	gh release create pdf minihongo-books.zip \
+		--title "PDF Books" \
 		--notes "$$(git log -5 --oneline)"

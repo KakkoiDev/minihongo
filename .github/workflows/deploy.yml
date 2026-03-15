@@ -45,6 +45,17 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
 
+      - name: Download PDF books
+        run: |
+          if gh release view pdf &>/dev/null; then
+            gh release download pdf --pattern '*.zip' --dir /tmp
+            unzip -o /tmp/minihongo-books.zip -d .
+          else
+            echo "No pdf release found, skipping"
+          fi
+        env:
+          GH_TOKEN: ${{ github.token }}
+
       - run: python generate_pages.py && python site/build.py
         env:
           BASE_URL: /

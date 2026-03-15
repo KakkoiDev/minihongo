@@ -241,6 +241,9 @@ def gen_index(lang):
     anki_cta = ui('home_anki_cta', lang)
     anki_link = ui('home_anki_link', lang)
     anki_desc = ui('home_anki_desc', lang)
+    pdf_cta = ui('home_pdf_cta', lang)
+    pdf_link = ui('home_pdf_link', lang)
+    pdf_desc = ui('home_pdf_desc', lang)
 
     return (
         f'<page-layout>\n'
@@ -256,6 +259,9 @@ def gen_index(lang):
         f'  </div>\n'
         f'  <div class="anki-download">\n'
         f'    <p>{anki_cta} <a href="/minihongo-{lang}.apkg">{anki_link}</a> - {anki_desc}</p>\n'
+        f'  </div>\n'
+        f'  <div class="anki-download">\n'
+        f'    <p>{pdf_cta} <a href="/minihongo-{lang}.pdf">{pdf_link}</a> - {pdf_desc}</p>\n'
         f'  </div>\n'
         f'  <nav class="lesson-nav">\n'
         f'    <span></span>\n'

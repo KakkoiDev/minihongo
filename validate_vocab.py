@@ -5,6 +5,7 @@ Checks:
   1. Every kanji used must appear in the base vocabulary (words.csv)
   2. Every furigana reading must match a known reading from base vocabulary
   3. No bare kanji without furigana
+  4. No banned words (non-base kana words that look valid but aren't)
 
 Exceptions:
   - compounds.csv minihongo column (real Japanese compound readings)
@@ -20,6 +21,13 @@ from collections import defaultdict
 from pathlib import Path
 
 DATA = Path('data')
+
+# Banned words: kana-only words that are NOT in the 182 base vocabulary.
+# These look like they could be valid minihongo but they aren't.
+# Add words here to prevent them from creeping back into mh content.
+BANNED_WORDS = [
+    'つなぐ',
+]
 
 # Counter readings: native readings with つ counter
 COUNTER_READINGS = {
@@ -149,6 +157,14 @@ def validate_text(text, vocab, char_readings, source):
         return []
 
     errors = []
+
+    # Check for banned words
+    for word in BANNED_WORDS:
+        if word in text:
+            errors.append({
+                'source': source,
+                'issue': f'banned word: {word}',
+            })
 
     for m in re.finditer(
         r'([\u4e00-\u9fff\u3400-\u4dbf]+)【([^】]+)】', text
