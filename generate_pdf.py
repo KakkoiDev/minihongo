@@ -62,6 +62,22 @@ def t(row, field, lang):
     return ''
 
 
+UI_STRINGS = {}
+
+
+def load_ui_strings():
+    global UI_STRINGS
+    for row in load_csv('ui_strings'):
+        UI_STRINGS[row['key']] = row
+
+
+def ui(key, lang):
+    """Get UI string for a language with fallback to English."""
+    row = UI_STRINGS.get(key, {})
+    col = LANG_COL.get(lang, 'english')
+    return to_ruby(row.get(col, '') or row.get('en', ''))
+
+
 def cat_name(cat, lang):
     """Get category name for display."""
     mh = cat.get('name_minihongo', '')
@@ -203,7 +219,7 @@ def write_vocabulary(w, categories, words, lang):
 
         # Table
         w.table_start('1fr, 1fr, 1.5fr')
-        w.raw(f'  table.header[*Word*][*Meaning*][*Example*],')
+        w.raw(f'  table.header[*{ui("th_word", lang)}*][*{ui("th_meaning", lang)}*][*{ui("th_example", lang)}*],')
         for word in cat_words:
             mh = to_ruby(word['minihongo'])
             if lang == 'mh':
@@ -285,8 +301,6 @@ def write_word_building(w, categories, compounds, expressions, lang):
 
     w.heading(1, CH_WORD_BUILDING[lang])
 
-    # UI strings for descriptions
-    ui_strings = {r['key']: r for r in load_csv('ui_strings')}
     wb_desc_keys = {
         'Real Kanji Compounds': 'wb_desc_compounds',
         'Common Words in Minihongo': 'wb_desc_common',
@@ -298,13 +312,13 @@ def write_word_building(w, categories, compounds, expressions, lang):
 
         desc_key = wb_desc_keys.get(h2['name_english'], '')
         if desc_key:
-            row = ui_strings.get(desc_key, {})
+            row = UI_STRINGS.get(desc_key, {})
             desc = row.get(lang, '') or row.get('en', '')
             if desc:
                 w.raw(f'#text(size: 9pt, fill: rgb("#666666"))[{to_ruby(desc)}]')
                 w.raw()
             if desc_key == 'wb_desc_compounds':
-                warning_row = ui_strings.get('wb_reading_warning', {})
+                warning_row = UI_STRINGS.get('wb_reading_warning', {})
                 warning = warning_row.get(lang, '') or warning_row.get('en', '')
                 if warning:
                     w.raw(f'#note-block[{to_ruby(warning)}]')
@@ -332,7 +346,7 @@ def write_word_building(w, categories, compounds, expressions, lang):
 
 def _write_compound_table(w, rows, lang):
     w.table_start('1fr, 2fr')
-    w.raw('  table.header[*Word*][*Meaning*],')
+    w.raw(f'  table.header[*{ui("th_word", lang)}*][*{ui("th_meaning", lang)}*],')
     for r in rows:
         word = f'#ruby[{esc(r["reading"])}][{esc(r["minihongo"])}]'
         if lang == 'mh':
@@ -348,14 +362,14 @@ def _write_compound_table(w, rows, lang):
 def _write_common_table(w, rows, lang):
     if lang == 'mh':
         w.table_start('1fr')
-        w.raw('  table.header[*Minihongo*],')
+        w.raw(f'  table.header[*{ui("th_minihongo", lang)}*],')
         for r in rows:
             mh = to_ruby(r['minihongo'])
             w.raw(f'  [{mh}],')
         w.table_end()
     else:
         w.table_start('1fr, 1fr')
-        w.raw('  table.header[*Minihongo*][*Meaning*],')
+        w.raw(f'  table.header[*{ui("th_minihongo", lang)}*][*{ui("th_meaning", lang)}*],')
         for r in rows:
             mh = to_ruby(r['minihongo'])
             meaning = esc(r['japanese'] if lang == 'ja' else r['english'])
@@ -368,7 +382,7 @@ def _write_concept_table(w, rows, lang):
         has_defs = any(r.get('definition_minihongo') for r in rows)
         if has_defs:
             w.table_start('1fr, 1.5fr')
-            w.raw('  table.header[*Word*][*Meaning*],')
+            w.raw(f'  table.header[*{ui("th_word", lang)}*][*{ui("th_meaning", lang)}*],')
             for r in rows:
                 mh = to_ruby(r['minihongo'])
                 defn = to_ruby(r.get('definition_minihongo', '') or '')
@@ -376,14 +390,14 @@ def _write_concept_table(w, rows, lang):
             w.table_end()
         else:
             w.table_start('1fr')
-            w.raw('  table.header[*Word*],')
+            w.raw(f'  table.header[*{ui("th_word", lang)}*],')
             for r in rows:
                 mh = to_ruby(r['minihongo'])
                 w.raw(f'  [{mh}],')
             w.table_end()
     else:
         w.table_start('1fr, 1fr, 1fr')
-        w.raw('  table.header[*Concept*][*Expression*][*Literally*],')
+        w.raw(f'  table.header[*{ui("th_concept", lang)}*][*{ui("th_minihongo", lang)}*][*{ui("th_literally", lang)}*],')
         for r in rows:
             concept = esc(r['english'])
             mh = to_ruby(r['minihongo'])
@@ -609,6 +623,7 @@ def main():
     args = parse_args()
     print_mode = args['print']
 
+    load_ui_strings()
     generate_qr_svg()
 
     categories = load_csv('categories')
