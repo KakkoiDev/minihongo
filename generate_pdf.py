@@ -430,7 +430,7 @@ def write_reading(w, categories, haiku, dialog_groups, dialogs, stories, lang):
             # Haiku
             for hk in by_sort(haiku_by_cat.get(cat['id'], [])):
                 mh_lines = to_ruby(hk['minihongo']).replace(' / ', ' \\\\ ')
-                if lang != 'mh':
+                if lang == 'en':
                     trans = to_ruby(t(hk, '', lang))
                     w.raw(f'#haiku-block[{mh_lines}][{trans}]')
                 else:
