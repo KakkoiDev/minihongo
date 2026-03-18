@@ -45,7 +45,7 @@
 #let grammar-card(pattern, explanation, examples) = {
   block(
     width: 100%,
-    inset: (left: 0.75em, top: 0.8em, bottom: 0.8em, right: 1em),
+    inset: (left: 0.75em, top: 1.1em, bottom: 0.8em, right: 1em),
     stroke: (left: 3pt + accent),
     fill: bg-raised,
     radius: 6pt,
@@ -57,14 +57,14 @@
       examples
     },
   )
-  v(0.5em)
+  v(0.75em)
 }
 
 // -- Haiku block --
 #let haiku-block(japanese, translation) = {
   block(
     width: 100%,
-    inset: 1em,
+    inset: (left: 1em, top: 1.2em, bottom: 1em, right: 1em),
     fill: bg-raised,
     radius: 6pt,
     {
@@ -76,7 +76,7 @@
       }
     },
   )
-  v(0.4em)
+  v(0.75em)
 }
 
 // -- Dialog block --
@@ -85,7 +85,7 @@
   v(0.3em)
   block(
     width: 100%,
-    inset: (left: 0.75em, top: 0.6em, bottom: 0.6em, right: 1em),
+    inset: (left: 0.75em, top: 0.9em, bottom: 0.6em, right: 1em),
     stroke: (left: 3pt + accent),
     fill: bg-raised,
     radius: 6pt,
@@ -100,7 +100,7 @@
       },
     )
   }
-  v(0.5em)
+  v(0.75em)
 }
 
 // -- Story block --
@@ -109,7 +109,7 @@
   v(0.3em)
   block(
     width: 100%,
-    inset: (left: 0.75em, top: 0.6em, bottom: 0.6em, right: 1em),
+    inset: (left: 0.75em, top: 0.9em, bottom: 0.6em, right: 1em),
     stroke: (left: 3pt + accent),
     fill: bg-raised,
     radius: 6pt,
@@ -124,7 +124,7 @@
       text(size: 9pt, fill: text-muted, translation),
     )
   }
-  v(0.5em)
+  v(0.75em)
 }
 
 // -- Rounded table wrapper --
@@ -142,13 +142,13 @@
 #let note-block(body) = {
   block(
     width: 100%,
-    inset: (left: 0.75em, top: 0.5em, bottom: 0.5em, right: 0.75em),
+    inset: (left: 0.75em, top: 0.7em, bottom: 0.5em, right: 0.75em),
     stroke: (left: 3pt + accent),
     fill: bg-raised,
     radius: 6pt,
     text(size: 9pt, fill: text-muted, body),
   )
-  v(0.4em)
+  v(0.6em)
 }
 
 // -- Book setup function --
@@ -184,16 +184,16 @@
   show heading.where(level: 1): it => {
     pagebreak(weak: true)
     text(size: 18pt, weight: "bold", fill: text-color, it.body)
-    v(1.5em)
+    v(1.8em)
   }
 
   // H2: section heading with 4px left accent border
   show heading.where(level: 2): it => {
-    v(1.5em)
+    v(2em)
     block(
       breakable: false,
-      below: 0.5em,
-      inset: (left: 0.75em, top: 0.2em, bottom: 0.2em),
+      below: 0.8em,
+      inset: (left: 0.75em, top: 0.3em, bottom: 0.2em),
       stroke: (left: 4pt + accent),
       text(size: 14pt, weight: "bold", fill: text-color, it.body),
     )
@@ -201,11 +201,11 @@
 
   // H3: sub-heading with 3px left accent border
   show heading.where(level: 3): it => {
-    v(1em)
+    v(1.5em)
     block(
       breakable: false,
-      below: 0.4em,
-      inset: (left: 0.75em, top: 0.15em, bottom: 0.15em),
+      below: 0.6em,
+      inset: (left: 0.75em, top: 0.25em, bottom: 0.15em),
       stroke: (left: 3pt + accent),
       text(size: 12pt, weight: "bold", fill: text-color, it.body),
     )
