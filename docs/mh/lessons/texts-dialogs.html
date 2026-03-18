@@ -1,0 +1,1163 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <base href="/mh/">
+  <title>読み物 - ミニ本の言葉</title>
+  <!-- Render-blocking: apply saved preferences before first paint to prevent flicker -->
+  <script>
+    // Restore theme (dark/light) from localStorage or system preference
+    const t = localStorage.getItem('theme') ??
+      (matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light')
+    document.documentElement.dataset.theme = t
+    const tc = document.querySelector('meta[name="theme-color"]')
+    if (tc) tc.content = t === 'dark' ? '#1A1A1A' : '#FFFFFF'
+
+    // Restore furigana visibility preference
+    if (localStorage.getItem('furigana') === '0')
+      document.documentElement.classList.add('no-furigana')
+
+    // Redirect to stored language if on the wrong locale path
+    // Skip in standalone PWA - redirects break the standalone window on resume
+    const isStandalone = matchMedia('(display-mode: standalone)').matches
+      || navigator.standalone
+    const savedLang = localStorage.getItem('lang')
+    if (!isStandalone && savedLang && /^(en|ja|mh)$/.test(savedLang)) {
+      const curLang = location.pathname.startsWith('/mh/') ? 'mh'
+        : location.pathname.startsWith('/ja/') ? 'ja' : 'en'
+      if (savedLang !== curLang) {
+        const pg = location.pathname.replace(/^\/(ja|mh)\//, '/')
+        location.replace(savedLang === 'en' ? pg : `/${savedLang}${pg}`)
+      }
+    }
+  </script>
+  <meta name="description" content="182の言葉だけで読む物。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <style>/* === Reset === */
+*, *::before, *::after { box-sizing: border-box; }
+
+/* === Tokens === */
+:root {
+  --sans: system-ui, -apple-system, sans-serif;
+  --jp: "Noto Sans JP", "Hiragino Sans", "Yu Gothic", sans-serif;
+  --w: 40rem;
+  --s: 1.5rem;
+  --radius: 0.75rem;
+  --shadow: 0 2px 8px rgba(0,0,0,0.06);
+  --accent: #BC002D;
+  --accent-hover: #A00025;
+
+  --bg: #FFFFFF;
+  --bg-raised: #F7F7F7;
+  --text: #2B2B2B;
+  --text-muted: #666666;
+  --border: #E5E5E5;
+  --link: #2B70C9;
+}
+
+[data-theme="dark"] {
+  --bg: #1A1A1A;
+  --bg-raised: #252525;
+  --text: #E8E8E8;
+  --text-muted: #999999;
+  --border: #333333;
+  --link: #6DB3F2;
+  --shadow: none;
+}
+
+/* === Base === */
+html {
+  font-family: var(--sans);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  hanging-punctuation: first last;
+}
+
+body {
+  max-width: var(--w);
+  margin-inline: auto;
+  padding: var(--s);
+  color: var(--text);
+  background: var(--bg);
+  transition: opacity 0.15s;
+}
+
+body.page-exit {
+  opacity: 0;
+}
+
+a { color: var(--link); }
+
+h1 {
+  font-size: 2rem;
+  line-height: 1.2;
+  margin-block: 0 var(--s);
+}
+
+/* === Nav === */
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem var(--s);
+  align-items: baseline;
+  padding-block-end: var(--s);
+  border-block-end: 3px solid var(--accent);
+  margin-block-end: calc(var(--s) * 2);
+
+  & a {
+    color: inherit;
+    text-decoration: none;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.5rem;
+
+    &:hover {
+      background: var(--bg-raised);
+    }
+
+    &.active {
+      color: var(--accent);
+    }
+
+    &.logo {
+      font-family: var(--jp);
+      font-weight: 700;
+      font-size: 1.25rem;
+      margin-inline-end: auto;
+      padding: 0;
+      &:hover { background: none; }
+    }
+  }
+}
+
+/* === Nav toggles === */
+.nav-toggle {
+  font: inherit;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  background: none;
+  border: none;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+
+  &:hover {
+    background: var(--bg-raised);
+  }
+
+  &.active {
+    color: var(--accent);
+  }
+}
+
+/* === Japanese text === */
+:lang(ja) { font-family: var(--jp); }
+
+/* === Furigana === */
+ruby rt {
+  font-size: 0.6em;
+  font-weight: normal;
+}
+
+.no-furigana rt {
+  visibility: hidden;
+}
+
+/* === Grammar point === */
+.grammar-point {
+  padding: 1.25rem;
+  padding-inline-start: calc(1.25rem - 3px);
+  border-inline-start: 3px solid var(--accent);
+  background: var(--bg-raised);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-block-end: var(--s);
+}
+
+.grammar-point__pattern {
+  font-family: var(--jp);
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-block-end: 0.25rem;
+}
+
+.grammar-point__explanation {
+  color: var(--text-muted);
+  margin-block-end: 0.75rem;
+}
+
+.grammar-point__examples {
+  display: grid;
+  gap: 0.75rem;
+}
+
+/* === Lazy rendering for off-screen content === */
+.section-heading,
+.grammar-point,
+.table-scroll,
+.dialog,
+.haiku,
+.story {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 500px;
+}
+
+/* === Section heading === */
+.section-heading {
+  font-size: 1.4rem;
+  margin-block: calc(var(--s) * 2) var(--s);
+  padding-inline-start: 0.75rem;
+  border-inline-start: 4px solid var(--accent);
+}
+
+#content h3 {
+  font-size: 1.15rem;
+  margin-block: calc(var(--s) * 1.5) var(--s);
+  padding-inline-start: 0.75rem;
+  border-inline-start: 3px solid var(--accent);
+}
+
+/* === Table scroll wrapper === */
+.table-scroll {
+  overflow-x: auto;
+  margin-block-end: var(--s);
+  border-radius: var(--radius);
+}
+
+.table-scroll > table {
+  margin-block-end: 0;
+}
+
+/* === Data table (shared by compact-table, compound-table) === */
+.compact-table,
+.compound-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-block-end: var(--s);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+
+  & td, & th {
+    padding: 0.5rem 0.75rem;
+    border-block-end: 1px solid var(--border);
+    text-align: start;
+    white-space: nowrap;
+  }
+
+  & tr:last-child td {
+    border-block-end: none;
+  }
+
+  & tr:nth-child(even) td {
+    background: var(--bg-raised);
+  }
+
+  & th {
+    font-weight: 600;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    background: var(--bg-raised);
+  }
+}
+
+.compact-table {
+  font-size: 0.95rem;
+
+  & td:first-child {
+    font-family: var(--jp);
+  }
+}
+
+/* === Lesson nav === */
+.lesson-nav {
+  display: flex;
+  justify-content: space-between;
+  margin-block-start: calc(var(--s) * 2);
+  padding-block-start: var(--s);
+  border-block-start: 1px solid var(--border);
+  border-block-end: none;
+  margin-block-end: 0;
+}
+
+/* === Dialog === */
+.dialog {
+  padding: 1.25rem;
+  padding-inline-start: calc(1.25rem - 3px);
+  border-inline-start: 3px solid var(--accent);
+  background: var(--bg-raised);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-block-end: 0.5rem;
+
+  & p { margin: 0.25rem 0; }
+}
+
+.dialog-translation {
+  padding-inline-start: var(--s);
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-block-end: var(--s);
+
+  & p { margin: 0.25rem 0; }
+}
+
+/* === Haiku === */
+.haiku {
+  text-align: center;
+  padding: 1.25rem;
+  background: var(--bg-raised);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-block-end: var(--s);
+}
+
+.haiku p:first-child {
+  font-family: var(--jp);
+  font-size: 1.35rem;
+  line-height: 2;
+  margin: 0;
+}
+
+.haiku p:last-child {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  font-style: italic;
+  margin: 0.5rem 0 0;
+}
+
+/* === Story === */
+.story {
+  padding: 1.25rem;
+  padding-inline-start: calc(1.25rem - 3px);
+  border-inline-start: 3px solid var(--accent);
+  background: var(--bg-raised);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-block-end: 0.5rem;
+
+  & p {
+    font-family: var(--jp);
+    font-size: 1.1rem;
+    line-height: 1.9;
+    margin: 0.5rem 0;
+  }
+}
+
+.story-translation {
+  padding-inline-start: var(--s);
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-block-end: var(--s);
+
+  & p { margin: 0.25rem 0; }
+}
+
+/* === TOC === */
+nav.toc {
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.5rem 1rem;
+}
+nav.toc > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+nav.toc > ul > li { margin: 0.25rem 0; }
+nav.toc-collapsible > ul > li { padding-left: 1em; }
+nav.toc-collapsible > ul > li:has(details) { padding-left: 0; }
+nav.toc details summary {
+  cursor: pointer;
+  padding: 0.1rem 0;
+}
+nav.toc details ul {
+  margin: 0.25rem 0 0.25rem 1.25rem;
+  padding: 0;
+}
+nav.toc details li { margin: 0.15rem 0; font-weight: normal; }
+
+/* === Reading warning / category note === */
+.reading-warning,
+.category-note {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  padding: 0.75rem 1rem;
+  border-inline-start: 3px solid var(--accent);
+  background: var(--bg-raised);
+  border-radius: var(--radius);
+}
+
+/* === False friends === */
+.false-friend {
+  padding: 1.25rem;
+  border: 2px solid var(--accent);
+  border-radius: var(--radius);
+  margin-block-end: var(--s);
+  background: var(--bg-raised);
+}
+
+/* === Homepage bullets === */
+main > ul > li,
+main > ol > li {
+  padding-inline-start: 0.25rem;
+  margin-block-end: 0.5rem;
+}
+
+main > ul > li::marker,
+main > ol > li::marker {
+  color: var(--accent);
+}
+
+/* === Footer === */
+footer {
+  display: flex;
+  justify-content: center;
+  gap: var(--s);
+  padding-block: calc(var(--s) * 2) var(--s);
+  margin-block-start: calc(var(--s) * 2);
+  border-block-start: 1px solid var(--border);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* === Toast (fixed top, stacking) === */
+#toast-container {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  translate: -50% 0;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  width: min(100%, var(--w));
+  pointer-events: none;
+}
+
+.toast {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  padding-inline-start: calc(1rem - 3px);
+  border-inline-start: 3px solid var(--accent);
+  background: var(--bg-raised);
+  border-radius: var(--radius);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  cursor: pointer;
+  pointer-events: auto;
+  animation: toast-in 0.3s ease-out;
+}
+
+[data-theme="dark"] .toast {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+.toast-out {
+  animation: toast-out 0.3s ease-in forwards;
+  overflow: hidden;
+}
+
+.toast-msg { flex: 1; font-size: 0.9rem; }
+
+.toast-btn {
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  background: var(--accent);
+  border: none;
+  border-radius: 1rem;
+  padding: 0.35rem 0.85rem;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.toast-btn:hover { background: var(--accent-hover); }
+
+@keyframes toast-in {
+  from { opacity: 0; translate: 0 -1rem; }
+  to   { opacity: 1; translate: 0 0; }
+}
+
+@keyframes toast-out {
+  0%   { opacity: 1; translate: 0 0; }
+  50%  { opacity: 0; translate: 0 -1rem; }
+  100% { opacity: 0; height: 0; padding-block: 0; margin-block: 0; }
+}
+
+/* === Audio play button (Duolingo-style) === */
+.play-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border: 2px solid var(--border);
+  border-radius: 0.75rem;
+  background: var(--bg);
+  color: var(--link);
+  font-size: 0;
+  cursor: pointer;
+  vertical-align: middle;
+  flex-shrink: 0;
+  padding: 0;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.play-btn::before {
+  content: "";
+  display: block;
+  width: 0.85rem;
+  height: 0.85rem;
+  background: var(--link);
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 9v6h4l5 5V4L7 9H3zm13.5 3A4.5 4.5 0 0014 8.5v7a4.47 4.47 0 002.5-3.5zM14 3.23v2.06a6.51 6.51 0 010 13.42v2.06A8.51 8.51 0 0014 3.23z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+.play-btn:hover {
+  border-color: var(--link);
+  background: var(--bg-raised);
+}
+
+.play-btn.playing {
+  border-color: var(--accent);
+  background: var(--accent);
+}
+
+.play-btn.playing::before {
+  background: #fff;
+}
+
+.play-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* In tables, reduce button size further on small screens */
+.compact-table .play-btn,
+.compound-table .play-btn {
+  margin-inline-end: 0.2rem;
+}
+
+/* === Back to top === */
+.back-to-top {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  border: none;
+  background: var(--accent);
+  color: #fff;
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+  z-index: 100;
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.back-to-top:hover {
+  background: var(--accent-hover);
+}
+
+/* === Onboarding === */
+.onboarding {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  padding: 1rem 1.25rem;
+  background: var(--bg-raised);
+  border-radius: var(--radius);
+  margin-block: var(--s);
+}
+
+.onboarding p {
+  margin: 0.25rem 0;
+}
+
+.anki-download {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  padding: 0.75rem 1.25rem;
+  background: var(--bg-raised);
+  border-radius: var(--radius);
+  margin-block: var(--s);
+}
+
+.anki-download p { margin: 0; }
+
+/* === Lang switch === */
+.lang-switch {
+  appearance: base-select;
+  font: inherit;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  background: var(--bg);
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--bg-raised);
+  }
+
+  &::picker-icon {
+    display: none;
+  }
+
+  &::after {
+    content: "";
+    display: block;
+    width: 0.5rem;
+    height: 0.35rem;
+    margin-inline-start: 0.25rem;
+    align-self: center;
+    background: var(--text-muted);
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+  }
+
+  &::picker(select) {
+    appearance: base-select;
+    background: var(--bg-raised);
+    border: none;
+    border-radius: var(--radius);
+    padding: 0.5rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  }
+
+  & option {
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--text);
+
+    &:hover {
+      background: var(--bg);
+    }
+
+    &:checked {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    &::checkmark {
+      display: none;
+    }
+  }
+}
+
+[data-theme="dark"] .lang-switch::picker(select) {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+</style>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap"></noscript>
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#1A1A1A" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="/static/logo.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/static/icon-192.png">
+</head>
+<body>
+  <nav>
+    <a href="./" class="logo" lang="ja">ミニ本語</a>
+    <a href="lessons/vocabulary.html"><ruby>言<rt>こと</rt></ruby><ruby>葉<rt>ば</rt></ruby></a>
+    <a href="lessons/grammar.html"><ruby>言<rt>こと</rt></ruby><ruby>葉<rt>ば</rt></ruby>の<ruby>道<rt>みち</rt></ruby></a>
+    <a href="lessons/word-building.html"><ruby>言<rt>こと</rt></ruby><ruby>葉<rt>ば</rt></ruby><ruby>作<rt>づく</rt></ruby>り</a>
+    <a href="lessons/texts-dialogs.html"><ruby>読<rt>よ</rt></ruby>み<ruby>物<rt>もの</rt></ruby></a>
+    <button class="nav-toggle" id="btn-furigana"><ruby>読<rt>よ</rt></ruby>み</button>
+    <button class="nav-toggle" id="btn-theme"><ruby>夜<rt>よる</rt></ruby>の<ruby>色<rt>いろ</rt></ruby></button>
+    <select class="lang-switch" aria-label="Language" onchange="switchLang(this.value)"><option value="en">English</option><option value="ja">日本語</option><option value="mh" selected>ミニ本語</option></select>
+  </nav>
+
+  <div id="toast-container"></div>
+
+  <main id="content">
+    <h1><ruby>読<rt>よ</rt></ruby>み<ruby>物<rt>もの</rt></ruby></h1>
+  <p>182の<ruby>言<rt>こと</rt></ruby><ruby>葉<rt>ば</rt></ruby>だけで<ruby>読<rt>よ</rt></ruby>む<ruby>物<rt>もの</rt></ruby>。</p>
+
+  <nav class="toc toc-collapsible">
+    <ul>
+      <li>
+        <details>
+          <summary><a href="#dialogs"><ruby>話<rt>はな</rt></ruby>し</a></summary>
+          <ul>
+            <li><a href="#daily-life-dialogs"><ruby>毎<rt>まい</rt></ruby><ruby>日<rt>にち</rt></ruby>の<ruby>話<rt>はな</rt></ruby>し</a></li>
+            <li><a href="#thinking-dialogs"><ruby>考<rt>かんが</rt></ruby>える<ruby>話<rt>はな</rt></ruby>し</a></li>
+          </ul>
+        </details>
+      </li>
+      <li><a href="#short-stories"><ruby>長<rt>なが</rt></ruby>くない<ruby>話<rt>はな</rt></ruby>し</a></li>
+      <li>
+        <details>
+          <summary><a href="#haiku"><ruby>少<rt>すこ</rt></ruby>しの<ruby>言<rt>こと</rt></ruby><ruby>葉<rt>ば</rt></ruby></a></summary>
+          <ul>
+            <li><a href="#nature"><ruby>外<rt>そと</rt></ruby>の<ruby>物<rt>もの</rt></ruby></a></li>
+            <li><a href="#daily-life"><ruby>毎<rt>まい</rt></ruby><ruby>日<rt>にち</rt></ruby></a></li>
+            <li><a href="#heart-mind"><ruby>心<rt>こころ</rt></ruby></a></li>
+            <li><a href="#seasons"><ruby>時<rt>とき</rt></ruby>の<ruby>変<rt>か</rt></ruby>わり</a></li>
+            <li><a href="#between-people"><ruby>人<rt>ひと</rt></ruby>と<ruby>人<rt>ひと</rt></ruby></a></li>
+            <li><a href="#life-death"><ruby>生<rt>い</rt></ruby>きると<ruby>死<rt>し</rt></ruby>ぬ</a></li>
+            <li><a href="#light-dark"><ruby>光<rt>ひかり</rt></ruby>と<ruby>光<rt>ひかり</rt></ruby>がない</a></li>
+            <li><a href="#words"><ruby>言<rt>こと</rt></ruby><ruby>葉<rt>ば</rt></ruby></a></li>
+          </ul>
+        </details>
+      </li>
+    </ul>
+  </nav>
+
+  <h2 id="dialogs" class="section-heading"><ruby>話<rt>はな</rt></ruby>し</h2>
+
+<h3 id="daily-life-dialogs"><ruby>毎<rt>まい</rt></ruby><ruby>日<rt>にち</rt></ruby>の<ruby>話<rt>はな</rt></ruby>し</h3>
+<h4><ruby>買<rt>か</rt></ruby>う<ruby>所<rt>ところ</rt></ruby>で <button class="play-btn" data-audio="d/d_1.mp3">&#9654;</button> </h4>
+<div class="dialog">
+  <p lang="ja"><strong>A:</strong> すみません。この<ruby>食<rt>た</rt></ruby>べ<ruby>物<rt>もの</rt></ruby>は<ruby>何<rt>なに</rt></ruby>か。</p>
+  <p lang="ja"><strong>B:</strong> これは<ruby>良<rt>よ</rt></ruby>い<ruby>食<rt>た</rt></ruby>べ<ruby>物<rt>もの</rt></ruby>だ。<ruby>水<rt>みず</rt></ruby>と<ruby>草<rt>くさ</rt></ruby>で<ruby>作<rt>つく</rt></ruby>った。</p>
+  <p lang="ja"><strong>A:</strong> これをください。<ruby>他<rt>ほか</rt></ruby>の<ruby>物<rt>もの</rt></ruby>もあるか。</p>
+  <p lang="ja"><strong>B:</strong> はい。そこに<ruby>新<rt>あたら</rt></ruby>しい<ruby>物<rt>もの</rt></ruby>がある。</p>
+  <p lang="ja"><strong>A:</strong> それも<ruby>見<rt>み</rt></ruby>てもいいか。</p>
+  <p lang="ja"><strong>B:</strong> どうぞ。<ruby>手<rt>て</rt></ruby>で<ruby>持<rt>も</rt></ruby>ってください。</p>
+  <p lang="ja"><strong>A:</strong> これを<ruby>買<rt>か</rt></ruby>う。ありがとう。</p>
+  <p lang="ja"><strong>B:</strong> ありがとう。また<ruby>来<rt>き</rt></ruby>てください。</p>
+</div>
+
+<h4><ruby>道<rt>みち</rt></ruby>で<ruby>人<rt>ひと</rt></ruby>と<ruby>会<rt>あ</rt></ruby>う <button class="play-btn" data-audio="d/d_2.mp3">&#9654;</button> </h4>
+<div class="dialog">
+  <p lang="ja"><strong>A:</strong> あ！どこに<ruby>行<rt>い</rt></ruby>く？</p>
+  <p lang="ja"><strong>B:</strong> <ruby>今<rt>いま</rt></ruby>は<ruby>海<rt>うみ</rt></ruby>に<ruby>行<rt>い</rt></ruby>く。あなたは？</p>
+  <p lang="ja"><strong>A:</strong> <ruby>私<rt>わたし</rt></ruby>は<ruby>家<rt>いえ</rt></ruby>に<ruby>来<rt>く</rt></ruby>る。<ruby>体<rt>からだ</rt></ruby>が<ruby>少<rt>すこ</rt></ruby>し<ruby>悪<rt>わる</rt></ruby>い。</p>
+  <p lang="ja"><strong>B:</strong> <ruby>体<rt>からだ</rt></ruby>が<ruby>悪<rt>わる</rt></ruby>いか？<ruby>水<rt>みず</rt></ruby>を<ruby>飲<rt>の</rt></ruby>んで、<ruby>寝<rt>ね</rt></ruby>てください。</p>
+  <p lang="ja"><strong>A:</strong> ありがとう。<ruby>海<rt>うみ</rt></ruby>の<ruby>空気<rt>くうき</rt></ruby>はとても<ruby>良<rt>よ</rt></ruby>いね。</p>
+  <p lang="ja"><strong>B:</strong> そうだね。でも<ruby>今<rt>いま</rt></ruby>は<ruby>風<rt>かぜ</rt></ruby>が<ruby>強<rt>つよ</rt></ruby>い。</p>
+  <p lang="ja"><strong>A:</strong> <ruby>良<rt>よ</rt></ruby>く<ruby>守<rt>まも</rt></ruby>ってください。また<ruby>会<rt>あ</rt></ruby>おう！</p>
+  <p lang="ja"><strong>B:</strong> はい、また<ruby>会<rt>あ</rt></ruby>おう！</p>
+</div>
+
+<h4><ruby>家<rt>いえ</rt></ruby>の<ruby>夜<rt>よる</rt></ruby>の<ruby>食<rt>た</rt></ruby>べ<ruby>物<rt>もの</rt></ruby> <button class="play-btn" data-audio="d/d_3.mp3">&#9654;</button> </h4>
+<div class="dialog">
+  <p lang="ja"><strong><ruby>母<rt>はは</rt></ruby>:</strong> <ruby>座<rt>すわ</rt></ruby>ってください。<ruby>食<rt>た</rt></ruby>べ<ruby>物<rt>もの</rt></ruby>ができた。</p>
+  <p lang="ja"><strong><ruby>子供<rt>こども</rt></ruby>:</strong> <ruby>今<rt>いま</rt></ruby>は<ruby>何<rt>なに</rt></ruby>を<ruby>食<rt>た</rt></ruby>べる？</p>
+  <p lang="ja"><strong><ruby>母<rt>はは</rt></ruby>:</strong> <ruby>草<rt>くさ</rt></ruby>と<ruby>水<rt>みず</rt></ruby>で<ruby>作<rt>つく</rt></ruby>った。<ruby>体<rt>からだ</rt></ruby>に<ruby>良<rt>よ</rt></ruby>い。</p>
+  <p lang="ja"><strong><ruby>父<rt>ちち</rt></ruby>:</strong> とても<ruby>良<rt>よ</rt></ruby>い<ruby>物<rt>もの</rt></ruby>だね。<ruby>今<rt>いま</rt></ruby>まで<ruby>体<rt>からだ</rt></ruby>がとても<ruby>重<rt>おも</rt></ruby>かった。</p>
+  <p lang="ja"><strong><ruby>子供<rt>こども</rt></ruby>:</strong> <ruby>父<rt>ちち</rt></ruby>、<ruby>今<rt>いま</rt></ruby>の<ruby>日<rt>にち</rt></ruby>は<ruby>楽<rt>たの</rt></ruby>しかったか。</p>
+  <p lang="ja"><strong><ruby>父<rt>ちち</rt></ruby>:</strong> まあまあだった。でも<ruby>家<rt>いえ</rt></ruby>に<ruby>来<rt>く</rt></ruby>ることがもっと<ruby>好<rt>す</rt></ruby>きだ。</p>
+  <p lang="ja"><strong><ruby>母<rt>はは</rt></ruby>:</strong> この<ruby>物<rt>もの</rt></ruby>を<ruby>全部<rt>ぜんぶ</rt></ruby><ruby>食<rt>た</rt></ruby>べてください。</p>
+  <p lang="ja"><strong><ruby>子供<rt>こども</rt></ruby>:</strong> はい！とても<ruby>良<rt>よ</rt></ruby>い。ありがとう、<ruby>母<rt>はは</rt></ruby>。</p>
+</div>
+
+<h4><ruby>道<rt>みち</rt></ruby>を<ruby>聞<rt>き</rt></ruby>く <button class="play-btn" data-audio="d/d_4.mp3">&#9654;</button> </h4>
+<div class="dialog">
+  <p lang="ja"><strong>A:</strong> すみません。<ruby>大<rt>おお</rt></ruby>きい<ruby>大<rt>おお</rt></ruby>きい<ruby>家<rt>いえ</rt></ruby>はどこか。</p>
+  <p lang="ja"><strong>B:</strong> ここから<ruby>近<rt>ちか</rt></ruby>くない。</p>
+  <p lang="ja"><strong>A:</strong> どう<ruby>行<rt>い</rt></ruby>ったらいいか。</p>
+  <p lang="ja"><strong>B:</strong> この<ruby>道<rt>みち</rt></ruby>を<ruby>行<rt>い</rt></ruby>ってください。<ruby>大<rt>おお</rt></ruby>きい<ruby>木<rt>き</rt></ruby>の<ruby>前<rt>まえ</rt></ruby>で<ruby>右<rt>みぎ</rt></ruby>に<ruby>入<rt>はい</rt></ruby>ってください。</p>
+  <p lang="ja"><strong>A:</strong> <ruby>木<rt>き</rt></ruby>の<ruby>前<rt>まえ</rt></ruby>で<ruby>右<rt>みぎ</rt></ruby>だね。その<ruby>後<rt>あと</rt></ruby>は？</p>
+  <p lang="ja"><strong>B:</strong> <ruby>大<rt>おお</rt></ruby>きい<ruby>家<rt>いえ</rt></ruby>を<ruby>見<rt>み</rt></ruby>ることができる。それだ。</p>
+  <p lang="ja"><strong>A:</strong> <ruby>足<rt>あし</rt></ruby>で<ruby>行<rt>い</rt></ruby>けるか。</p>
+  <p lang="ja"><strong>B:</strong> はい、<ruby>足<rt>あし</rt></ruby>で<ruby>行<rt>い</rt></ruby>ける。<ruby>近<rt>ちか</rt></ruby>くないが、<ruby>良<rt>よ</rt></ruby>い<ruby>道<rt>みち</rt></ruby>だ。</p>
+  <p lang="ja"><strong>A:</strong> ありがとう！</p>
+</div>
+
+<h4><ruby>日<rt>にち</rt></ruby>の<ruby>始<rt>はじ</rt></ruby>まり <button class="play-btn" data-audio="d/d_5.mp3">&#9654;</button> </h4>
+<div class="dialog">
+  <p lang="ja"><strong><ruby>母<rt>はは</rt></ruby>:</strong> もう<ruby>立<rt>た</rt></ruby>ってください！<ruby>日<rt>にち</rt></ruby>が<ruby>出<rt>で</rt></ruby>ている。</p>
+  <p lang="ja"><strong><ruby>子供<rt>こども</rt></ruby>:</strong> まだ<ruby>目<rt>め</rt></ruby>が<ruby>重<rt>おも</rt></ruby>い。もう<ruby>少<rt>すこ</rt></ruby>し<ruby>寝<rt>ね</rt></ruby>たい。</p>
+  <p lang="ja"><strong><ruby>母<rt>はは</rt></ruby>:</strong> いけない。<ruby>速<rt>はや</rt></ruby>く<ruby>服<rt>ふく</rt></ruby>を<ruby>着<rt>き</rt></ruby>てください。</p>
+  <p lang="ja"><strong><ruby>子供<rt>こども</rt></ruby>:</strong> はい。でも<ruby>今<rt>いま</rt></ruby>は<ruby>空<rt>そら</rt></ruby>が<ruby>明<rt>あか</rt></ruby>るくない。<ruby>雨<rt>あめ</rt></ruby>が<ruby>来<rt>く</rt></ruby>るか。</p>
+  <p lang="ja"><strong><ruby>母<rt>はは</rt></ruby>:</strong> そうだね。<ruby>外<rt>そと</rt></ruby>は<ruby>少<rt>すこ</rt></ruby>し<ruby>寒<rt>さむ</rt></ruby>いから、<ruby>良<rt>よ</rt></ruby>い<ruby>服<rt>ふく</rt></ruby>を<ruby>着<rt>き</rt></ruby>てください。</p>
+  <p lang="ja"><strong><ruby>子供<rt>こども</rt></ruby>:</strong> <ruby>今<rt>いま</rt></ruby>は<ruby>何<rt>なに</rt></ruby>を<ruby>食<rt>た</rt></ruby>べる？</p>
+  <p lang="ja"><strong><ruby>母<rt>はは</rt></ruby>:</strong> <ruby>水<rt>みず</rt></ruby>と<ruby>食<rt>た</rt></ruby>べ<ruby>物<rt>もの</rt></ruby>がある。<ruby>全部<rt>ぜんぶ</rt></ruby><ruby>食<rt>た</rt></ruby>べてください。</p>
+  <p lang="ja"><strong><ruby>子供<rt>こども</rt></ruby>:</strong> はい、<ruby>母<rt>はは</rt></ruby>。<ruby>今<rt>いま</rt></ruby>の<ruby>日<rt>にち</rt></ruby>も<ruby>楽<rt>たの</rt></ruby>しいと<ruby>思<rt>おも</rt></ruby>う！</p>
+</div>
+
+<h3 id="thinking-dialogs"><ruby>考<rt>かんが</rt></ruby>える<ruby>話<rt>はな</rt></ruby>し</h3>
+<h4><ruby>生<rt>い</rt></ruby>きるとは<ruby>何<rt>なに</rt></ruby>か <button class="play-btn" data-audio="d/d_6.mp3">&#9654;</button> </h4>
+<div class="dialog">
+  <p lang="ja"><strong>A:</strong> <ruby>石<rt>いし</rt></ruby>は<ruby>動<rt>うご</rt></ruby>かない。<ruby>草<rt>くさ</rt></ruby>は<ruby>動<rt>うご</rt></ruby>く。<ruby>何<rt>なに</rt></ruby>が<ruby>生<rt>い</rt></ruby>き<ruby>物<rt>もの</rt></ruby>を<ruby>生<rt>い</rt></ruby>きている<ruby>物<rt>もの</rt></ruby>にする？</p>
+  <p lang="ja"><strong>B:</strong> <ruby>動<rt>うご</rt></ruby>くだけじゃない。<ruby>水<rt>みず</rt></ruby>も<ruby>動<rt>うご</rt></ruby>く。<ruby>火<rt>ひ</rt></ruby>も<ruby>動<rt>うご</rt></ruby>く。でもそれは<ruby>生<rt>い</rt></ruby>きていない。</p>
+  <p lang="ja"><strong>A:</strong> じゃあ<ruby>何<rt>なに</rt></ruby>だ？<ruby>生<rt>い</rt></ruby>き<ruby>物<rt>もの</rt></ruby>には<ruby>何<rt>なに</rt></ruby>があって<ruby>石<rt>いし</rt></ruby>にはない？</p>
+  <p lang="ja"><strong>B:</strong> <ruby>生<rt>い</rt></ruby>きる<ruby>空気<rt>くうき</rt></ruby>だ。<ruby>全部<rt>ぜんぶ</rt></ruby>を<ruby>作<rt>つく</rt></ruby>った<ruby>人<rt>ひと</rt></ruby>が<ruby>生<rt>い</rt></ruby>き<ruby>物<rt>もの</rt></ruby>に<ruby>生<rt>い</rt></ruby>きる<ruby>空気<rt>くうき</rt></ruby>を<ruby>与<rt>あた</rt></ruby>えた。</p>
+  <p lang="ja"><strong>A:</strong> <ruby>生<rt>い</rt></ruby>きる<ruby>空気<rt>くうき</rt></ruby>？<ruby>私<rt>わたし</rt></ruby>たちが<ruby>飲<rt>の</rt></ruby>む<ruby>空気<rt>くうき</rt></ruby>と<ruby>違<rt>ちが</rt></ruby>わない？</p>
+  <p lang="ja"><strong>B:</strong> でも<ruby>違<rt>ちが</rt></ruby>う<ruby>空気<rt>くうき</rt></ruby>だ。それがないと<ruby>体<rt>からだ</rt></ruby>はただの<ruby>土<rt>つち</rt></ruby>と<ruby>水<rt>みず</rt></ruby>だ。</p>
+  <p lang="ja"><strong>A:</strong> <ruby>全部<rt>ぜんぶ</rt></ruby>の<ruby>生<rt>い</rt></ruby>き<ruby>物<rt>もの</rt></ruby>に<ruby>生<rt>い</rt></ruby>きる<ruby>空気<rt>くうき</rt></ruby>がある。でも<ruby>人<rt>ひと</rt></ruby>は<ruby>他<rt>ほか</rt></ruby>の<ruby>生<rt>い</rt></ruby>き<ruby>物<rt>もの</rt></ruby>と<ruby>違<rt>ちが</rt></ruby>う？</p>
+  <p lang="ja"><strong>B:</strong> そう。<ruby>全部<rt>ぜんぶ</rt></ruby>を<ruby>作<rt>つく</rt></ruby>った<ruby>人<rt>ひと</rt></ruby>は<ruby>人<rt>ひと</rt></ruby>をその<ruby>人<rt>ひと</rt></ruby>に<ruby>近<rt>ちか</rt></ruby>く<ruby>作<rt>つく</rt></ruby>った。だから<ruby>人<rt>ひと</rt></ruby>は<ruby>全部<rt>ぜんぶ</rt></ruby>の<ruby>生<rt>い</rt></ruby>き<ruby>物<rt>もの</rt></ruby>の<ruby>中<rt>なか</rt></ruby>でもっとも<ruby>大<rt>おお</rt></ruby>きい。</p>
+</div>
+
+<h4><ruby>夜<rt>よる</rt></ruby>の<ruby>光<rt>ひかり</rt></ruby> <button class="play-btn" data-audio="d/d_7.mp3">&#9654;</button> </h4>
+<div class="dialog">
+  <p lang="ja"><strong>A:</strong> <ruby>夜<rt>よる</rt></ruby>の<ruby>空<rt>そら</rt></ruby>の<ruby>光<rt>ひかり</rt></ruby>は<ruby>何<rt>なん</rt></ruby>だと<ruby>思<rt>おも</rt></ruby>う？</p>
+  <p lang="ja"><strong>B:</strong> あの<ruby>光<rt>ひかり</rt></ruby>は<ruby>全部<rt>ぜんぶ</rt></ruby>の<ruby>始<rt>はじ</rt></ruby>まりの<ruby>時<rt>とき</rt></ruby>に<ruby>空<rt>そら</rt></ruby>に<ruby>与<rt>あた</rt></ruby>えられた。</p>
+  <p lang="ja"><strong>A:</strong> <ruby>始<rt>はじ</rt></ruby>まりの<ruby>時<rt>とき</rt></ruby>に？<ruby>人<rt>ひと</rt></ruby>より<ruby>前<rt>まえ</rt></ruby>に？</p>
+  <p lang="ja"><strong>B:</strong> そう。<ruby>全部<rt>ぜんぶ</rt></ruby>を<ruby>作<rt>つく</rt></ruby>った<ruby>人<rt>ひと</rt></ruby>が<ruby>空<rt>そら</rt></ruby>と<ruby>土<rt>つち</rt></ruby>を<ruby>作<rt>つく</rt></ruby>った<ruby>後<rt>あと</rt></ruby>に<ruby>空<rt>そら</rt></ruby>に<ruby>光<rt>ひかり</rt></ruby>を<ruby>与<rt>あた</rt></ruby>えた。</p>
+  <p lang="ja"><strong>A:</strong> じゃああの<ruby>光<rt>ひかり</rt></ruby>はただの<ruby>光<rt>ひかり</rt></ruby>じゃない？</p>
+  <p lang="ja"><strong>B:</strong> <ruby>見<rt>み</rt></ruby><ruby>守<rt>まも</rt></ruby>る<ruby>物<rt>もの</rt></ruby>だ。<ruby>空<rt>そら</rt></ruby>に<ruby>与<rt>あた</rt></ruby>えられた<ruby>使<rt>つか</rt></ruby>いだ。<ruby>上<rt>うえ</rt></ruby>から<ruby>私<rt>わたし</rt></ruby>たちを<ruby>見<rt>み</rt></ruby><ruby>守<rt>まも</rt></ruby>っている。</p>
+  <p lang="ja"><strong>A:</strong> <ruby>上<rt>うえ</rt></ruby>からの<ruby>使<rt>つか</rt></ruby>い？<ruby>始<rt>はじ</rt></ruby>まりの<ruby>時<rt>とき</rt></ruby>からそこにいる？</p>
+  <p lang="ja"><strong>B:</strong> そう。<ruby>土<rt>つち</rt></ruby>と<ruby>海<rt>うみ</rt></ruby>が<ruby>作<rt>つく</rt></ruby>られた<ruby>時<rt>とき</rt></ruby>から<ruby>変<rt>か</rt></ruby>わっていない。</p>
+  <p lang="ja"><strong>A:</strong> だから<ruby>毎<rt>まい</rt></ruby><ruby>夜<rt>よる</rt></ruby><ruby>変<rt>か</rt></ruby>わらない<ruby>光<rt>ひかり</rt></ruby>がある。いつも<ruby>上<rt>うえ</rt></ruby>から<ruby>見<rt>み</rt></ruby><ruby>守<rt>まも</rt></ruby>っている。</p>
+</div>
+
+<h4>なぜ<ruby>人<rt>ひと</rt></ruby>は<ruby>戦<rt>たたか</rt></ruby>うの？ <button class="play-btn" data-audio="d/d_8.mp3">&#9654;</button> </h4>
+<div class="dialog">
+  <p lang="ja"><strong><ruby>子供<rt>こども</rt></ruby>:</strong> <ruby>父<rt>ちち</rt></ruby>さん、なぜ<ruby>人<rt>ひと</rt></ruby>は<ruby>戦<rt>たたか</rt></ruby>うの？<ruby>戦<rt>たたか</rt></ruby>うと<ruby>悲<rt>かな</rt></ruby>しいことが<ruby>起<rt>お</rt></ruby>こるのに。</p>
+  <p lang="ja"><strong><ruby>父<rt>ちち</rt></ruby>:</strong> そうだね。<ruby>人<rt>ひと</rt></ruby>は<ruby>怖<rt>こわ</rt></ruby>い<ruby>時<rt>とき</rt></ruby>に<ruby>好<rt>す</rt></ruby>きな<ruby>物<rt>もの</rt></ruby>を<ruby>守<rt>まも</rt></ruby>りたくなる。</p>
+  <p lang="ja"><strong><ruby>子供<rt>こども</rt></ruby>:</strong> でも<ruby>戦<rt>たたか</rt></ruby>って<ruby>守<rt>まも</rt></ruby>れるの？<ruby>戦<rt>たたか</rt></ruby>うともっと<ruby>悲<rt>かな</rt></ruby>しいことが<ruby>起<rt>お</rt></ruby>こる。</p>
+  <p lang="ja"><strong><ruby>父<rt>ちち</rt></ruby>:</strong> <ruby>本当<rt>ほんとう</rt></ruby>にそうだ。<ruby>全部<rt>ぜんぶ</rt></ruby>の<ruby>中<rt>なか</rt></ruby>で<ruby>一<rt>ひと</rt></ruby>つだけ<ruby>強<rt>つよ</rt></ruby>い<ruby>守<rt>まも</rt></ruby>り<ruby>方<rt>かた</rt></ruby>は<ruby>好<rt>す</rt></ruby>きでいることだ。<ruby>私<rt>わたし</rt></ruby>を<ruby>好<rt>す</rt></ruby>きなように<ruby>他<rt>ほか</rt></ruby>の<ruby>人<rt>ひと</rt></ruby>も<ruby>好<rt>す</rt></ruby>きでいること。</p>
+  <p lang="ja"><strong><ruby>子供<rt>こども</rt></ruby>:</strong> でも<ruby>悪<rt>わる</rt></ruby>い<ruby>事<rt>こと</rt></ruby>をする<ruby>人<rt>ひと</rt></ruby>は？<ruby>戦<rt>たたか</rt></ruby>いに<ruby>来<rt>く</rt></ruby>る<ruby>人<rt>ひと</rt></ruby>は？</p>
+  <p lang="ja"><strong><ruby>父<rt>ちち</rt></ruby>:</strong> その<ruby>人<rt>ひと</rt></ruby>たちもだ。<ruby>私<rt>わたし</rt></ruby>に<ruby>悪<rt>わる</rt></ruby>い<ruby>事<rt>こと</rt></ruby>をする<ruby>人<rt>ひと</rt></ruby>も<ruby>好<rt>す</rt></ruby>きでいる。それが<ruby>人<rt>ひと</rt></ruby>にできる<ruby>全部<rt>ぜんぶ</rt></ruby>の<ruby>中<rt>なか</rt></ruby>で<ruby>一<rt>ひと</rt></ruby>つだけ<ruby>強<rt>つよ</rt></ruby>い<ruby>事<rt>こと</rt></ruby>だ。</p>
+  <p lang="ja"><strong><ruby>子供<rt>こども</rt></ruby>:</strong> <ruby>私<rt>わたし</rt></ruby>に<ruby>悪<rt>わる</rt></ruby>い<ruby>事<rt>こと</rt></ruby>をする<ruby>人<rt>ひと</rt></ruby>を<ruby>好<rt>す</rt></ruby>きでいるの？それはとてもできにくいと<ruby>思<rt>おも</rt></ruby>う。</p>
+  <p lang="ja"><strong><ruby>父<rt>ちち</rt></ruby>:</strong> できにくい。でも<ruby>全部<rt>ぜんぶ</rt></ruby>を<ruby>作<rt>つく</rt></ruby>った<ruby>人<rt>ひと</rt></ruby>がそう<ruby>言<rt>い</rt></ruby>った。<ruby>私<rt>わたし</rt></ruby>を<ruby>好<rt>す</rt></ruby>きなように<ruby>他<rt>ほか</rt></ruby>の<ruby>人<rt>ひと</rt></ruby>を<ruby>好<rt>す</rt></ruby>きでいなさい。<ruby>悪<rt>わる</rt></ruby>い<ruby>事<rt>こと</rt></ruby>をする<ruby>人<rt>ひと</rt></ruby>も。</p>
+</div>
+
+<h4><ruby>人<rt>ひと</rt></ruby>だけが<ruby>持<rt>も</rt></ruby>つ<ruby>物<rt>もの</rt></ruby> <button class="play-btn" data-audio="d/d_9.mp3">&#9654;</button> </h4>
+<div class="dialog">
+  <p lang="ja"><strong>A:</strong> <ruby>動物<rt>どうぶつ</rt></ruby>も<ruby>食<rt>た</rt></ruby>べて、<ruby>飲<rt>の</rt></ruby>んで、<ruby>子供<rt>こども</rt></ruby>を<ruby>守<rt>まも</rt></ruby>る。<ruby>人<rt>ひと</rt></ruby>と<ruby>本当<rt>ほんとう</rt></ruby>に<ruby>違<rt>ちが</rt></ruby>う？</p>
+  <p lang="ja"><strong>B:</strong> <ruby>人<rt>ひと</rt></ruby>は<ruby>書<rt>か</rt></ruby>く。<ruby>会<rt>あ</rt></ruby>ったことのない<ruby>人<rt>ひと</rt></ruby>に<ruby>言葉<rt>ことば</rt></ruby>を<ruby>与<rt>あた</rt></ruby>える。<ruby>死<rt>し</rt></ruby>んだ<ruby>後<rt>あと</rt></ruby>も。</p>
+  <p lang="ja"><strong>A:</strong> それは<ruby>大<rt>おお</rt></ruby>きい。<ruby>動物<rt>どうぶつ</rt></ruby>は<ruby>今<rt>いま</rt></ruby>に<ruby>生<rt>い</rt></ruby>きる。<ruby>人<rt>ひと</rt></ruby>は<ruby>前<rt>まえ</rt></ruby>と<ruby>後<rt>あと</rt></ruby>に<ruby>生<rt>い</rt></ruby>きる。</p>
+  <p lang="ja"><strong>B:</strong> <ruby>人<rt>ひと</rt></ruby>は<ruby>動<rt>うご</rt></ruby>く<ruby>物<rt>もの</rt></ruby>も<ruby>作<rt>つく</rt></ruby>る。<ruby>手<rt>て</rt></ruby>でできないことを<ruby>動<rt>うご</rt></ruby>く<ruby>物<rt>もの</rt></ruby>でできるようにする。</p>
+  <p lang="ja"><strong>A:</strong> でも<ruby>石<rt>いし</rt></ruby>を<ruby>使<rt>つか</rt></ruby>う<ruby>動物<rt>どうぶつ</rt></ruby>もいる。<ruby>人<rt>ひと</rt></ruby>だけが<ruby>物<rt>もの</rt></ruby>を<ruby>使<rt>つか</rt></ruby>うのではない。</p>
+  <p lang="ja"><strong>B:</strong> <ruby>物<rt>もの</rt></ruby>を<ruby>使<rt>つか</rt></ruby>うことと、<ruby>物<rt>もの</rt></ruby>について<ruby>考<rt>かんが</rt></ruby>えることは<ruby>違<rt>ちが</rt></ruby>う。<ruby>人<rt>ひと</rt></ruby>は<ruby>見<rt>み</rt></ruby>えない<ruby>事<rt>こと</rt></ruby>を<ruby>考<rt>かんが</rt></ruby>える。</p>
+  <p lang="ja"><strong>A:</strong> <ruby>見<rt>み</rt></ruby>えない<ruby>事<rt>こと</rt></ruby>？　どんな<ruby>事<rt>こと</rt></ruby>？</p>
+  <p lang="ja"><strong>B:</strong> 「なぜ<ruby>生<rt>い</rt></ruby>きるのか」。<ruby>動物<rt>どうぶつ</rt></ruby>はこれを<ruby>聞<rt>き</rt></ruby>かない。<ruby>人<rt>ひと</rt></ruby>だけが<ruby>聞<rt>き</rt></ruby>く。それが<ruby>良<rt>よ</rt></ruby>いことか<ruby>悪<rt>わる</rt></ruby>いことかは、まだ<ruby>知<rt>し</rt></ruby>らない。</p>
+</div>
+
+<h4><ruby>時<rt>とき</rt></ruby>について <button class="play-btn" data-audio="d/d_10.mp3">&#9654;</button> </h4>
+<div class="dialog">
+  <p lang="ja"><strong>A:</strong> この<ruby>所<rt>ところ</rt></ruby>に<ruby>来<rt>き</rt></ruby>て、<ruby>多<rt>おお</rt></ruby>い<ruby>年<rt>とし</rt></ruby>が<ruby>終<rt>お</rt></ruby>わった。あの<ruby>木<rt>き</rt></ruby>は<ruby>前<rt>まえ</rt></ruby>に<ruby>少<rt>すこ</rt></ruby>しだった。</p>
+  <p lang="ja"><strong>B:</strong> <ruby>木<rt>き</rt></ruby>は<ruby>変<rt>か</rt></ruby>わった。でも<ruby>山<rt>やま</rt></ruby>は<ruby>変<rt>か</rt></ruby>わっていない。<ruby>時<rt>とき</rt></ruby>は<ruby>物<rt>もの</rt></ruby>によって<ruby>違<rt>ちが</rt></ruby>う。</p>
+  <p lang="ja"><strong>A:</strong> <ruby>私<rt>わたし</rt></ruby>たちも<ruby>変<rt>か</rt></ruby>わった。<ruby>体<rt>からだ</rt></ruby>が<ruby>変<rt>か</rt></ruby>わった。でも……<ruby>心<rt>こころ</rt></ruby>の<ruby>中<rt>なか</rt></ruby>はどうだろう。</p>
+  <p lang="ja"><strong>B:</strong> <ruby>子供<rt>こども</rt></ruby>の<ruby>時<rt>とき</rt></ruby>に<ruby>感<rt>かん</rt></ruby>じた<ruby>事<rt>こと</rt></ruby>は、まだ<ruby>心<rt>こころ</rt></ruby>の<ruby>中<rt>なか</rt></ruby>にある。<ruby>変<rt>か</rt></ruby>わっていない。</p>
+  <p lang="ja"><strong>A:</strong> <ruby>時<rt>とき</rt></ruby>は<ruby>前<rt>まえ</rt></ruby>に<ruby>動<rt>うご</rt></ruby>くだけ？　<ruby>前<rt>まえ</rt></ruby>に<ruby>行<rt>い</rt></ruby>くことはできない？</p>
+  <p lang="ja"><strong>B:</strong> <ruby>体<rt>からだ</rt></ruby>は<ruby>前<rt>まえ</rt></ruby>に<ruby>行<rt>い</rt></ruby>けない。でも<ruby>心<rt>こころ</rt></ruby>は<ruby>行<rt>い</rt></ruby>ける。<ruby>本<rt>ほん</rt></ruby>の<ruby>中<rt>なか</rt></ruby>で、<ruby>目<rt>め</rt></ruby>を<ruby>閉<rt>し</rt></ruby>めた<ruby>中<rt>なか</rt></ruby>で。</p>
+  <p lang="ja"><strong>A:</strong> それなら<ruby>時<rt>とき</rt></ruby>は<ruby>二<rt>ふた</rt></ruby>つある。<ruby>体<rt>からだ</rt></ruby>の<ruby>時<rt>とき</rt></ruby>と、<ruby>心<rt>こころ</rt></ruby>の<ruby>時<rt>とき</rt></ruby>と。</p>
+  <p lang="ja"><strong>B:</strong> そして<ruby>私<rt>わたし</rt></ruby>たちが<ruby>死<rt>し</rt></ruby>んだ<ruby>後<rt>あと</rt></ruby>も、あなたと<ruby>私<rt>わたし</rt></ruby>が<ruby>感<rt>かん</rt></ruby>じた<ruby>事<rt>こと</rt></ruby>は<ruby>他<rt>ほか</rt></ruby>の<ruby>人<rt>ひと</rt></ruby>の<ruby>心<rt>こころ</rt></ruby>の<ruby>中<rt>なか</rt></ruby>で<ruby>生<rt>い</rt></ruby>きるかもしれない。</p>
+</div>
+
+<h4><ruby>知<rt>し</rt></ruby>ること <button class="play-btn" data-audio="d/d_11.mp3">&#9654;</button> </h4>
+<div class="dialog">
+  <p lang="ja"><strong>A:</strong> <ruby>教<rt>おし</rt></ruby>える<ruby>人<rt>ひと</rt></ruby>、<ruby>本<rt>ほん</rt></ruby>を<ruby>読<rt>よ</rt></ruby>んだら、その<ruby>事<rt>こと</rt></ruby>を<ruby>知<rt>し</rt></ruby>っていると<ruby>言<rt>い</rt></ruby>えるか。</p>
+  <p lang="ja"><strong>B:</strong> <ruby>本<rt>ほん</rt></ruby>の<ruby>言葉<rt>ことば</rt></ruby>は<ruby>知<rt>し</rt></ruby>ることができる。でも、<ruby>本当<rt>ほんとう</rt></ruby>に<ruby>知<rt>し</rt></ruby>ることは<ruby>違<rt>ちが</rt></ruby>う。</p>
+  <p lang="ja"><strong>A:</strong> どう<ruby>違<rt>ちが</rt></ruby>うか。</p>
+  <p lang="ja"><strong>B:</strong> <ruby>手<rt>て</rt></ruby>で<ruby>作<rt>つく</rt></ruby>ったり、<ruby>体<rt>からだ</rt></ruby>で<ruby>感<rt>かん</rt></ruby>じたりしたとき、<ruby>本当<rt>ほんとう</rt></ruby>に<ruby>知<rt>し</rt></ruby>る<ruby>事<rt>こと</rt></ruby>が<ruby>始<rt>はじ</rt></ruby>まる。</p>
+  <p lang="ja"><strong>A:</strong> では、<ruby>私<rt>わたし</rt></ruby>はまだ<ruby>知<rt>し</rt></ruby>らないのか。</p>
+  <p lang="ja"><strong>B:</strong> <ruby>知<rt>し</rt></ruby>りたいと<ruby>思<rt>おも</rt></ruby>っているなら、もう<ruby>始<rt>はじ</rt></ruby>まっている。それで<ruby>良<rt>よ</rt></ruby>いと<ruby>思<rt>おも</rt></ruby>う。</p>
+  <p lang="ja"><strong>A:</strong> <ruby>知<rt>し</rt></ruby>ることは<ruby>終<rt>お</rt></ruby>わるか。</p>
+  <p lang="ja"><strong>B:</strong> <ruby>良<rt>よ</rt></ruby>い<ruby>教<rt>おし</rt></ruby>える<ruby>人<rt>ひと</rt></ruby>も、まだ<ruby>知<rt>し</rt></ruby>らない<ruby>事<rt>こと</rt></ruby>がとても<ruby>多<rt>おお</rt></ruby>いと<ruby>感<rt>かん</rt></ruby>じている。</p>
+</div>
+
+<h4><ruby>海<rt>うみ</rt></ruby>の<ruby>外<rt>そと</rt></ruby> <button class="play-btn" data-audio="d/d_12.mp3">&#9654;</button> </h4>
+<div class="dialog">
+  <p lang="ja"><strong>A:</strong> この<ruby>海<rt>うみ</rt></ruby>はとても<ruby>大<rt>おお</rt></ruby>きいね。<ruby>外<rt>そと</rt></ruby>に<ruby>何<rt>なに</rt></ruby>があるか。</p>
+  <p lang="ja"><strong>B:</strong> <ruby>他<rt>ほか</rt></ruby>の<ruby>国<rt>くに</rt></ruby>がある。でも<ruby>目<rt>め</rt></ruby>では<ruby>見<rt>み</rt></ruby>えない。</p>
+  <p lang="ja"><strong>A:</strong> その<ruby>国<rt>くに</rt></ruby>の<ruby>人<rt>ひと</rt></ruby>たちも、この<ruby>水<rt>みず</rt></ruby>を<ruby>見<rt>み</rt></ruby>ていると<ruby>思<rt>おも</rt></ruby>うか。</p>
+  <p lang="ja"><strong>B:</strong> はい、<ruby>全部<rt>ぜんぶ</rt></ruby><ruby>一<rt>ひと</rt></ruby>つの<ruby>水<rt>みず</rt></ruby>だ。<ruby>海<rt>うみ</rt></ruby>は<ruby>一<rt>ひと</rt></ruby>つだと<ruby>思<rt>おも</rt></ruby>う。</p>
+  <p lang="ja"><strong>A:</strong> <ruby>水<rt>みず</rt></ruby>の<ruby>中<rt>なか</rt></ruby>に<ruby>何<rt>なに</rt></ruby>がいるか。</p>
+  <p lang="ja"><strong>B:</strong> <ruby>動物<rt>どうぶつ</rt></ruby>が<ruby>多<rt>おお</rt></ruby>くいる。<ruby>私<rt>わたし</rt></ruby>たちが<ruby>知<rt>し</rt></ruby>らない<ruby>動物<rt>どうぶつ</rt></ruby>も、まだいると<ruby>思<rt>おも</rt></ruby>う。</p>
+  <p lang="ja"><strong>A:</strong> <ruby>海<rt>うみ</rt></ruby>は<ruby>怖<rt>こわ</rt></ruby>いか。</p>
+  <p lang="ja"><strong>B:</strong> <ruby>怖<rt>こわ</rt></ruby>い。でも<ruby>海<rt>うみ</rt></ruby>の<ruby>音<rt>おと</rt></ruby>を<ruby>聞<rt>き</rt></ruby>くと、<ruby>心<rt>こころ</rt></ruby>が<ruby>良<rt>よ</rt></ruby>くなる。</p>
+  <p lang="ja"><strong>A:</strong> <ruby>私<rt>わたし</rt></ruby>もそう<ruby>感<rt>かん</rt></ruby>じる。<ruby>大<rt>おお</rt></ruby>きい<ruby>物<rt>もの</rt></ruby>の<ruby>前<rt>まえ</rt></ruby>に<ruby>立<rt>た</rt></ruby>つと、<ruby>心<rt>こころ</rt></ruby>が<ruby>少<rt>すこ</rt></ruby>しになる。</p>
+</div>
+
+<h4><ruby>新<rt>あたら</rt></ruby>しいものと<ruby>前<rt>まえ</rt></ruby>のもの <button class="play-btn" data-audio="d/d_13.mp3">&#9654;</button> </h4>
+<div class="dialog">
+  <p lang="ja"><strong>A:</strong> この<ruby>国<rt>くに</rt></ruby>はとても<ruby>変<rt>か</rt></ruby>わったね。<ruby>前<rt>まえ</rt></ruby>は<ruby>違<rt>ちが</rt></ruby>った。</p>
+  <p lang="ja"><strong>B:</strong> はい。<ruby>新<rt>あたら</rt></ruby>しい<ruby>大<rt>おお</rt></ruby>きい<ruby>家<rt>いえ</rt></ruby>が<ruby>多<rt>おお</rt></ruby>くなった。<ruby>前<rt>まえ</rt></ruby>からある<ruby>家<rt>いえ</rt></ruby>は<ruby>少<rt>すく</rt></ruby>なくなった。</p>
+  <p lang="ja"><strong>A:</strong> <ruby>前<rt>まえ</rt></ruby>からある<ruby>道<rt>みち</rt></ruby>も<ruby>変<rt>か</rt></ruby>わった。<ruby>前<rt>まえ</rt></ruby>は<ruby>木<rt>き</rt></ruby>が<ruby>多<rt>おお</rt></ruby>かった。</p>
+  <p lang="ja"><strong>B:</strong> <ruby>新<rt>あたら</rt></ruby>しいものは<ruby>良<rt>よ</rt></ruby>いか、<ruby>悪<rt>わる</rt></ruby>いか。</p>
+  <p lang="ja"><strong>A:</strong> <ruby>新<rt>あたら</rt></ruby>しい<ruby>動<rt>うご</rt></ruby>く<ruby>物<rt>もの</rt></ruby>で、<ruby>人<rt>ひと</rt></ruby>がする<ruby>事<rt>こと</rt></ruby>が<ruby>速<rt>はや</rt></ruby>くなった。でも<ruby>前<rt>まえ</rt></ruby>にしていた<ruby>事<rt>こと</rt></ruby>を<ruby>知<rt>し</rt></ruby>っている<ruby>人<rt>ひと</rt></ruby>が<ruby>少<rt>すく</rt></ruby>なくなっている。</p>
+  <p lang="ja"><strong>B:</strong> <ruby>言葉<rt>ことば</rt></ruby>も<ruby>変<rt>か</rt></ruby>わる。<ruby>前<rt>まえ</rt></ruby>の<ruby>人<rt>ひと</rt></ruby>たちの<ruby>言葉<rt>ことば</rt></ruby>は<ruby>今<rt>いま</rt></ruby>もあるか。</p>
+  <p lang="ja"><strong>A:</strong> <ruby>本<rt>ほん</rt></ruby>の<ruby>中<rt>なか</rt></ruby>にある。でも<ruby>使<rt>つか</rt></ruby>う<ruby>人<rt>ひと</rt></ruby>は<ruby>少<rt>すこ</rt></ruby>しだけだ。</p>
+  <p lang="ja"><strong>B:</strong> <ruby>変<rt>か</rt></ruby>わらない<ruby>事<rt>こと</rt></ruby>はあるか。</p>
+  <p lang="ja"><strong>A:</strong> <ruby>山<rt>やま</rt></ruby>と<ruby>海<rt>うみ</rt></ruby>はまだ<ruby>変<rt>か</rt></ruby>わらない。<ruby>太陽<rt>たいよう</rt></ruby>も<ruby>毎<rt>まい</rt></ruby><ruby>日<rt>にち</rt></ruby><ruby>出<rt>で</rt></ruby>る。</p>
+</div>
+
+<h4><ruby>音<rt>おと</rt></ruby>と<ruby>心<rt>こころ</rt></ruby> <button class="play-btn" data-audio="d/d_14.mp3">&#9654;</button> </h4>
+<div class="dialog">
+  <p lang="ja"><strong>A:</strong> あの<ruby>人<rt>ひと</rt></ruby>が<ruby>作<rt>つく</rt></ruby>った<ruby>音<rt>おと</rt></ruby>を<ruby>聞<rt>き</rt></ruby>くと、<ruby>悲<rt>かな</rt></ruby>しくなる。なぜか。</p>
+  <p lang="ja"><strong>B:</strong> <ruby>私<rt>わたし</rt></ruby>もそう<ruby>感<rt>かん</rt></ruby>じる。その<ruby>音<rt>おと</rt></ruby>は<ruby>何<rt>なに</rt></ruby>かを<ruby>感<rt>かん</rt></ruby>じさせる。</p>
+  <p lang="ja"><strong>A:</strong> <ruby>言葉<rt>ことば</rt></ruby>は<ruby>使<rt>つか</rt></ruby>っていない。でも<ruby>心<rt>こころ</rt></ruby>に<ruby>入<rt>はい</rt></ruby>る。</p>
+  <p lang="ja"><strong>B:</strong> <ruby>言葉<rt>ことば</rt></ruby>より<ruby>前<rt>まえ</rt></ruby>に、<ruby>体<rt>からだ</rt></ruby>が<ruby>感<rt>かん</rt></ruby>じると<ruby>思<rt>おも</rt></ruby>う。<ruby>雨<rt>あめ</rt></ruby>の<ruby>音<rt>おと</rt></ruby>や<ruby>風<rt>かぜ</rt></ruby>の<ruby>音<rt>おと</rt></ruby>も、<ruby>心<rt>こころ</rt></ruby>を<ruby>動<rt>うご</rt></ruby>かす。</p>
+  <p lang="ja"><strong>A:</strong> では、<ruby>人<rt>ひと</rt></ruby>が<ruby>作<rt>つく</rt></ruby>る<ruby>音<rt>おと</rt></ruby>と<ruby>山<rt>やま</rt></ruby>や<ruby>海<rt>うみ</rt></ruby>の<ruby>音<rt>おと</rt></ruby>は<ruby>違<rt>ちが</rt></ruby>うか。</p>
+  <p lang="ja"><strong>B:</strong> <ruby>違<rt>ちが</rt></ruby>うと<ruby>思<rt>おも</rt></ruby>う。<ruby>人<rt>ひと</rt></ruby>が<ruby>作<rt>つく</rt></ruby>る<ruby>音<rt>おと</rt></ruby>の<ruby>中<rt>なか</rt></ruby>には、その<ruby>人<rt>ひと</rt></ruby>の<ruby>心<rt>こころ</rt></ruby>がある。</p>
+  <p lang="ja"><strong>A:</strong> <ruby>悲<rt>かな</rt></ruby>しい<ruby>音<rt>おと</rt></ruby>を<ruby>聞<rt>き</rt></ruby>いて、なぜ<ruby>楽<rt>たの</rt></ruby>しいと<ruby>感<rt>かん</rt></ruby>じるか。<ruby>変<rt>へん</rt></ruby>だね。</p>
+  <p lang="ja"><strong>B:</strong> <ruby>悲<rt>かな</rt></ruby>しさを<ruby>感<rt>かん</rt></ruby>じていい、と<ruby>思<rt>おも</rt></ruby>えるからかもしれない。<ruby>一<rt>ひと</rt></ruby>りじゃないと<ruby>感<rt>かん</rt></ruby>じる。</p>
+  <p lang="ja"><strong>A:</strong> その<ruby>音<rt>おと</rt></ruby>を<ruby>作<rt>つく</rt></ruby>った<ruby>人<rt>ひと</rt></ruby>も、その<ruby>悲<rt>かな</rt></ruby>しさを<ruby>知<rt>し</rt></ruby>っていたのだね。</p>
+</div>
+
+  <h2 id="short-stories" class="section-heading"><ruby>長<rt>なが</rt></ruby>くない<ruby>話<rt>はな</rt></ruby>し</h2>
+
+<h4 id="the-mountain"><ruby>山<rt>やま</rt></ruby> <button class="play-btn" data-audio="s/s_1.mp3">&#9654;</button> </h4>
+<div class="story">
+  <p lang="ja"><ruby>私<rt>わたし</rt></ruby>は<ruby>一<rt>ひと</rt></ruby>りで<ruby>山<rt>やま</rt></ruby>に<ruby>行<rt>い</rt></ruby>った。</p>
+  <p lang="ja"><ruby>道<rt>みち</rt></ruby>は<ruby>長<rt>なが</rt></ruby>くて、<ruby>石<rt>いし</rt></ruby>が<ruby>多<rt>おお</rt></ruby>かった。</p>
+  <p lang="ja"><ruby>足<rt>あし</rt></ruby>が<ruby>重<rt>おも</rt></ruby>くなった。でも<ruby>止<rt>と</rt></ruby>めなかった。</p>
+  <p lang="ja"><ruby>上<rt>うえ</rt></ruby>に<ruby>行<rt>い</rt></ruby>くと、<ruby>風<rt>かぜ</rt></ruby>が<ruby>強<rt>つよ</rt></ruby>くなった。</p>
+  <p lang="ja"><ruby>空<rt>そら</rt></ruby>はとても<ruby>明<rt>あか</rt></ruby>るくて、<ruby>太陽<rt>たいよう</rt></ruby>の<ruby>光<rt>ひかり</rt></ruby>が<ruby>全部<rt>ぜんぶ</rt></ruby>の<ruby>物<rt>もの</rt></ruby>に<ruby>入<rt>はい</rt></ruby>っていた。</p>
+  <p lang="ja"><ruby>私<rt>わたし</rt></ruby>は<ruby>座<rt>すわ</rt></ruby>って、<ruby>下<rt>した</rt></ruby>の<ruby>海<rt>うみ</rt></ruby>を<ruby>見<rt>み</rt></ruby>た。</p>
+  <p lang="ja"><ruby>家<rt>いえ</rt></ruby>のことを<ruby>思<rt>おも</rt></ruby>った。<ruby>母<rt>はは</rt></ruby>のことを<ruby>思<rt>おも</rt></ruby>った。</p>
+  <p lang="ja"><ruby>前<rt>まえ</rt></ruby>の<ruby>年<rt>とし</rt></ruby>に<ruby>悪<rt>わる</rt></ruby>いことが<ruby>多<rt>おお</rt></ruby>くあった。</p>
+  <p lang="ja">でも<ruby>今<rt>いま</rt></ruby>、<ruby>山<rt>やま</rt></ruby>の<ruby>上<rt>うえ</rt></ruby>で、その<ruby>事<rt>こと</rt></ruby>は<ruby>少<rt>すこ</rt></ruby>しになった。</p>
+  <p lang="ja"><ruby>風<rt>かぜ</rt></ruby>が<ruby>来<rt>き</rt></ruby>て、<ruby>私<rt>わたし</rt></ruby>の<ruby>体<rt>からだ</rt></ruby>に<ruby>入<rt>はい</rt></ruby>った。</p>
+  <p lang="ja"><ruby>私<rt>わたし</rt></ruby>は<ruby>目<rt>め</rt></ruby>を<ruby>閉<rt>し</rt></ruby>めた。</p>
+  <p lang="ja"><ruby>心<rt>こころ</rt></ruby>の<ruby>中<rt>なか</rt></ruby>で、<ruby>何<rt>なに</rt></ruby>かが<ruby>変<rt>か</rt></ruby>わった。</p>
+</div>
+
+<h4 id="two-countries"><ruby>二<rt>ふた</rt></ruby>つの<ruby>国<rt>くに</rt></ruby> <button class="play-btn" data-audio="s/s_2.mp3">&#9654;</button> </h4>
+<div class="story">
+  <p lang="ja">ある<ruby>国<rt>くに</rt></ruby>の<ruby>人<rt>ひと</rt></ruby>は<ruby>海<rt>うみ</rt></ruby>の<ruby>近<rt>ちか</rt></ruby>くにいた。</p>
+  <p lang="ja">もう<ruby>一<rt>ひと</rt></ruby>つの<ruby>国<rt>くに</rt></ruby>の<ruby>人<rt>ひと</rt></ruby>は<ruby>山<rt>やま</rt></ruby>の<ruby>中<rt>なか</rt></ruby>にいた。</p>
+  <p lang="ja"><ruby>海<rt>うみ</rt></ruby>の<ruby>国<rt>くに</rt></ruby>の<ruby>人<rt>ひと</rt></ruby>は<ruby>水<rt>みず</rt></ruby>を<ruby>知<rt>し</rt></ruby>っていた。<ruby>山<rt>やま</rt></ruby>の<ruby>国<rt>くに</rt></ruby>の<ruby>人<rt>ひと</rt></ruby>は<ruby>土<rt>つち</rt></ruby>と<ruby>木<rt>き</rt></ruby>を<ruby>知<rt>し</rt></ruby>っていた。</p>
+  <p lang="ja">ある<ruby>日<rt>にち</rt></ruby>、<ruby>一<rt>ひと</rt></ruby>りの<ruby>男<rt>おとこ</rt></ruby>が<ruby>山<rt>やま</rt></ruby>から<ruby>出<rt>で</rt></ruby>て、<ruby>海<rt>うみ</rt></ruby>まで<ruby>行<rt>い</rt></ruby>った。</p>
+  <p lang="ja"><ruby>海<rt>うみ</rt></ruby>で<ruby>女<rt>おんな</rt></ruby>が<ruby>水<rt>みず</rt></ruby>の<ruby>近<rt>ちか</rt></ruby>くに<ruby>座<rt>すわ</rt></ruby>っていた。</p>
+  <p lang="ja"><ruby>男<rt>おとこ</rt></ruby>は<ruby>海<rt>うみ</rt></ruby>を<ruby>見<rt>み</rt></ruby>た。<ruby>怖<rt>こわ</rt></ruby>かった。</p>
+  <p lang="ja"><ruby>女<rt>おんな</rt></ruby>は<ruby>男<rt>おとこ</rt></ruby>の<ruby>目<rt>め</rt></ruby>を<ruby>見<rt>み</rt></ruby>て、<ruby>笑<rt>わら</rt></ruby>った。</p>
+  <p lang="ja">「<ruby>怖<rt>こわ</rt></ruby>くないよ」と<ruby>女<rt>おんな</rt></ruby>は<ruby>言<rt>い</rt></ruby>った。「<ruby>入<rt>はい</rt></ruby>ってみて。」</p>
+  <p lang="ja"><ruby>男<rt>おとこ</rt></ruby>は<ruby>少<rt>すこ</rt></ruby>し<ruby>入<rt>はい</rt></ruby>った。<ruby>水<rt>みず</rt></ruby>はとても<ruby>寒<rt>さむ</rt></ruby>かった。</p>
+  <p lang="ja"><ruby>二<rt>ふた</rt></ruby>りの<ruby>言葉<rt>ことば</rt></ruby>は<ruby>違<rt>ちが</rt></ruby>った。でも<ruby>笑<rt>わら</rt></ruby>いは<ruby>違<rt>ちが</rt></ruby>わなかった。</p>
+  <p lang="ja"><ruby>夜<rt>よる</rt></ruby>、<ruby>二<rt>ふた</rt></ruby>りは<ruby>火<rt>ひ</rt></ruby>の<ruby>近<rt>ちか</rt></ruby>くに<ruby>座<rt>すわ</rt></ruby>って、<ruby>食<rt>た</rt></ruby>べ<ruby>物<rt>もの</rt></ruby>を<ruby>食<rt>た</rt></ruby>べた。</p>
+  <p lang="ja"><ruby>月<rt>つき</rt></ruby>が<ruby>空<rt>そら</rt></ruby>に<ruby>出<rt>で</rt></ruby>ていた。<ruby>二<rt>ふた</rt></ruby>つの<ruby>国<rt>くに</rt></ruby>から<ruby>見<rt>み</rt></ruby>ても、<ruby>一<rt>ひと</rt></ruby>つの<ruby>月<rt>つき</rt></ruby>だ。</p>
+</div>
+
+<h4 id="the-old-tree"><ruby>大<rt>おお</rt></ruby>きい<ruby>木<rt>き</rt></ruby> <button class="play-btn" data-audio="s/s_3.mp3">&#9654;</button> </h4>
+<div class="story">
+  <p lang="ja"><ruby>山<rt>やま</rt></ruby>の<ruby>中<rt>なか</rt></ruby>に<ruby>一<rt>ひと</rt></ruby>つの<ruby>大<rt>おお</rt></ruby>きい<ruby>木<rt>き</rt></ruby>があった。</p>
+  <p lang="ja">その<ruby>木<rt>き</rt></ruby>はとても<ruby>長<rt>なが</rt></ruby>い<ruby>時<rt>とき</rt></ruby>を<ruby>生<rt>い</rt></ruby>きていた。</p>
+  <p lang="ja"><ruby>木<rt>き</rt></ruby>は<ruby>多<rt>おお</rt></ruby>くの<ruby>雨<rt>あめ</rt></ruby>を<ruby>知<rt>し</rt></ruby>っていた。<ruby>多<rt>おお</rt></ruby>くの<ruby>風<rt>かぜ</rt></ruby>を<ruby>感<rt>かん</rt></ruby>じていた。</p>
+  <p lang="ja"><ruby>子供<rt>こども</rt></ruby>たちが<ruby>来<rt>き</rt></ruby>て、<ruby>木<rt>き</rt></ruby>の<ruby>上<rt>うえ</rt></ruby>で<ruby>楽<rt>たの</rt></ruby>しんだ。その<ruby>子供<rt>こども</rt></ruby>たちは<ruby>大<rt>おお</rt></ruby>きくなって、<ruby>出<rt>で</rt></ruby>て<ruby>行<rt>い</rt></ruby>った。</p>
+  <p lang="ja"><ruby>戦<rt>たたか</rt></ruby>いがあった。<ruby>人<rt>ひと</rt></ruby>たちは<ruby>木<rt>き</rt></ruby>の<ruby>近<rt>ちか</rt></ruby>くで<ruby>泣<rt>な</rt></ruby>いた。</p>
+  <p lang="ja"><ruby>木<rt>き</rt></ruby>は<ruby>動<rt>うご</rt></ruby>かなかった。ただ<ruby>立<rt>た</rt></ruby>っていた。</p>
+  <p lang="ja"><ruby>動物<rt>どうぶつ</rt></ruby>たちが<ruby>木<rt>き</rt></ruby>の<ruby>中<rt>なか</rt></ruby>に<ruby>入<rt>はい</rt></ruby>って、<ruby>寝<rt>ね</rt></ruby>た。</p>
+  <p lang="ja"><ruby>草<rt>くさ</rt></ruby>が<ruby>毎<rt>まい</rt></ruby><ruby>年<rt>とし</rt></ruby><ruby>木<rt>き</rt></ruby>の<ruby>近<rt>ちか</rt></ruby>くに<ruby>出<rt>で</rt></ruby>てきた。そして<ruby>終<rt>お</rt></ruby>わった。</p>
+  <p lang="ja">でも<ruby>木<rt>き</rt></ruby>はまだある。</p>
+  <p lang="ja">ある<ruby>日<rt>にち</rt></ruby>の<ruby>夜<rt>よる</rt></ruby>、<ruby>一<rt>ひと</rt></ruby>りの<ruby>女<rt>おんな</rt></ruby>が<ruby>来<rt>き</rt></ruby>た。</p>
+  <p lang="ja"><ruby>女<rt>おんな</rt></ruby>は<ruby>木<rt>き</rt></ruby>に<ruby>手<rt>て</rt></ruby>を<ruby>持<rt>も</rt></ruby>って、<ruby>何<rt>なに</rt></ruby>も<ruby>言<rt>い</rt></ruby>わなかった。</p>
+  <p lang="ja"><ruby>木<rt>き</rt></ruby>も<ruby>何<rt>なに</rt></ruby>も<ruby>言<rt>い</rt></ruby>わなかった。でも<ruby>二<rt>ふた</rt></ruby>つの<ruby>心<rt>こころ</rt></ruby>は<ruby>一<rt>ひと</rt></ruby>つになった。</p>
+</div>
+
+<h4 id="a-childs-question"><ruby>子供<rt>こども</rt></ruby>の「なぜ」 <button class="play-btn" data-audio="s/s_4.mp3">&#9654;</button> </h4>
+<div class="story">
+  <p lang="ja"><ruby>子供<rt>こども</rt></ruby>はいつも「なぜ？」と<ruby>聞<rt>き</rt></ruby>いた。</p>
+  <p lang="ja">「なぜ<ruby>空<rt>そら</rt></ruby>は<ruby>青<rt>あお</rt></ruby>いの？」と<ruby>父<rt>ちち</rt></ruby>に<ruby>聞<rt>き</rt></ruby>いた。</p>
+  <p lang="ja"><ruby>父<rt>ちち</rt></ruby>は「<ruby>光<rt>ひかり</rt></ruby>だよ」と<ruby>言<rt>い</rt></ruby>った。</p>
+  <p lang="ja">「なぜ<ruby>光<rt>ひかり</rt></ruby>は<ruby>青<rt>あお</rt></ruby>くなるの？」と<ruby>子供<rt>こども</rt></ruby>は<ruby>言<rt>い</rt></ruby>った。</p>
+  <p lang="ja"><ruby>父<rt>ちち</rt></ruby>は<ruby>考<rt>かんが</rt></ruby>えた。「<ruby>空気<rt>くうき</rt></ruby>だよ」と<ruby>言<rt>い</rt></ruby>った。</p>
+  <p lang="ja">「なぜ<ruby>空気<rt>くうき</rt></ruby>はそこにあるの？」</p>
+  <p lang="ja"><ruby>父<rt>ちち</rt></ruby>は<ruby>口<rt>くち</rt></ruby>を<ruby>閉<rt>し</rt></ruby>めた。</p>
+  <p lang="ja">「なぜ<ruby>私<rt>わたし</rt></ruby>は<ruby>生<rt>い</rt></ruby>きているの？」と<ruby>子供<rt>こども</rt></ruby>は<ruby>言<rt>い</rt></ruby>った。</p>
+  <p lang="ja"><ruby>父<rt>ちち</rt></ruby>は<ruby>子供<rt>こども</rt></ruby>を<ruby>見<rt>み</rt></ruby>た。</p>
+  <p lang="ja"><ruby>夜<rt>よる</rt></ruby>になって、<ruby>二<rt>ふた</rt></ruby>りは<ruby>外<rt>そと</rt></ruby>に<ruby>出<rt>で</rt></ruby>た。</p>
+  <p lang="ja"><ruby>空<rt>そら</rt></ruby>に<ruby>多<rt>おお</rt></ruby>くの<ruby>光<rt>ひかり</rt></ruby>があった。</p>
+  <p lang="ja"><ruby>子供<rt>こども</rt></ruby>は「きれい」と<ruby>言<rt>い</rt></ruby>った。<ruby>今<rt>いま</rt></ruby>は「なぜ」を<ruby>言<rt>い</rt></ruby>わなかった。</p>
+  <p lang="ja"><ruby>父<rt>ちち</rt></ruby>はその<ruby>事<rt>こと</rt></ruby>を<ruby>感<rt>かん</rt></ruby>じて、<ruby>笑<rt>わら</rt></ruby>った。</p>
+</div>
+
+  <h2 id="haiku" class="section-heading"><ruby>少<rt>すこ</rt></ruby>しの<ruby>言<rt>こと</rt></ruby><ruby>葉<rt>ば</rt></ruby></h2>
+
+<h3 id="nature"><ruby>外<rt>そと</rt></ruby>の<ruby>物<rt>もの</rt></ruby></h3>
+  <div class="haiku">
+    <p lang="ja"><ruby>山<rt>やま</rt></ruby>の<ruby>上<rt>うえ</rt></ruby><br><ruby>風<rt>かぜ</rt></ruby>が<ruby>来<rt>き</rt></ruby>ている<br><ruby>空<rt>そら</rt></ruby><ruby>青<rt>あお</rt></ruby>い</p>
+    <button class="play-btn" data-audio="h/h_1.mp3">&#9654;</button> 
+  </div>
+
+  <div class="haiku">
+    <p lang="ja"><ruby>雨<rt>あめ</rt></ruby>の<ruby>音<rt>おと</rt></ruby><br><ruby>外<rt>そと</rt></ruby>に<ruby>聞<rt>き</rt></ruby>こえる<br><ruby>夜<rt>よる</rt></ruby>の<ruby>道<rt>みち</rt></ruby></p>
+    <button class="play-btn" data-audio="h/h_2.mp3">&#9654;</button> 
+  </div>
+
+  <div class="haiku">
+    <p lang="ja"><ruby>海<rt>うみ</rt></ruby>の<ruby>水<rt>みず</rt></ruby><br><ruby>大<rt>おお</rt></ruby>きく<ruby>動<rt>うご</rt></ruby>く<br><ruby>白<rt>しろ</rt></ruby>い<ruby>石<rt>いし</rt></ruby></p>
+    <button class="play-btn" data-audio="h/h_3.mp3">&#9654;</button> 
+  </div>
+
+  <div class="haiku">
+    <p lang="ja"><ruby>白<rt>しろ</rt></ruby>い<ruby>月<rt>つき</rt></ruby><br><ruby>水<rt>みず</rt></ruby>の<ruby>上<rt>うえ</rt></ruby><ruby>出<rt>で</rt></ruby>る<br><ruby>夜<rt>よる</rt></ruby>の<ruby>海<rt>うみ</rt></ruby></p>
+    <button class="play-btn" data-audio="h/h_4.mp3">&#9654;</button> 
+  </div>
+
+<h3 id="daily-life"><ruby>毎<rt>まい</rt></ruby><ruby>日<rt>にち</rt></ruby></h3>
+  <div class="haiku">
+    <p lang="ja"><ruby>水<rt>みず</rt></ruby>を<ruby>飲<rt>の</rt></ruby>む<br><ruby>太陽<rt>たいよう</rt></ruby>が<ruby>出<rt>で</rt></ruby>て<br><ruby>外<rt>そと</rt></ruby>を<ruby>見<rt>み</rt></ruby>る</p>
+    <button class="play-btn" data-audio="h/h_5.mp3">&#9654;</button> 
+  </div>
+
+  <div class="haiku">
+    <p lang="ja"><ruby>食<rt>た</rt></ruby>べ<ruby>物<rt>もの</rt></ruby>を<br><ruby>子供<rt>こども</rt></ruby>と<ruby>食<rt>た</rt></ruby>べる<br><ruby>家<rt>いえ</rt></ruby>の<ruby>中<rt>なか</rt></ruby></p>
+    <button class="play-btn" data-audio="h/h_6.mp3">&#9654;</button> 
+  </div>
+
+  <div class="haiku">
+    <p lang="ja"><ruby>道<rt>みち</rt></ruby>を<ruby>行<rt>い</rt></ruby>く<br><ruby>大<rt>おお</rt></ruby>きい<ruby>木<rt>き</rt></ruby><ruby>見<rt>み</rt></ruby>る<br><ruby>風<rt>かぜ</rt></ruby>の<ruby>音<rt>おと</rt></ruby></p>
+    <button class="play-btn" data-audio="h/h_7.mp3">&#9654;</button> 
+  </div>
+
+  <div class="haiku">
+    <p lang="ja"><ruby>夜<rt>よる</rt></ruby>が<ruby>来<rt>く</rt></ruby>る<br><ruby>月<rt>つき</rt></ruby>を<ruby>見<rt>み</rt></ruby>ている<br><ruby>目<rt>め</rt></ruby>を<ruby>閉<rt>し</rt></ruby>める</p>
+    <button class="play-btn" data-audio="h/h_8.mp3">&#9654;</button> 
+  </div>
+
+<h3 id="heart-mind"><ruby>心<rt>こころ</rt></ruby></h3>
+  <div class="haiku">
+    <p lang="ja"><ruby>人<rt>ひと</rt></ruby>を<ruby>待<rt>ま</rt></ruby>つ<br><ruby>心<rt>こころ</rt></ruby>の<ruby>中<rt>なか</rt></ruby>に<br>いつもいる</p>
+    <button class="play-btn" data-audio="h/h_9.mp3">&#9654;</button> 
+  </div>
+
+  <div class="haiku">
+    <p lang="ja"><ruby>楽<rt>たの</rt></ruby>しくて<br><ruby>子供<rt>こども</rt></ruby>が<ruby>笑<rt>わら</rt></ruby>う<br><ruby>音<rt>おと</rt></ruby>を<ruby>聞<rt>き</rt></ruby>く</p>
+    <button class="play-btn" data-audio="h/h_10.mp3">&#9654;</button> 
+  </div>
+
+  <div class="haiku">
+    <p lang="ja"><ruby>泣<rt>な</rt></ruby>く<ruby>子供<rt>こども</rt></ruby><br><ruby>母<rt>はは</rt></ruby>が<ruby>手<rt>て</rt></ruby>を<ruby>持<rt>も</rt></ruby>つ<br><ruby>光<rt>ひかり</rt></ruby><ruby>見<rt>み</rt></ruby>る</p>
+    <button class="play-btn" data-audio="h/h_11.mp3">&#9654;</button> 
+  </div>
+
+  <div class="haiku">
+    <p lang="ja"><ruby>人<rt>ひと</rt></ruby>に<ruby>会<rt>あ</rt></ruby>う<br><ruby>言葉<rt>ことば</rt></ruby>を<ruby>少<rt>すこ</rt></ruby>し<br><ruby>笑<rt>わら</rt></ruby>う<ruby>人<rt>ひと</rt></ruby></p>
+    <button class="play-btn" data-audio="h/h_12.mp3">&#9654;</button> 
+  </div>
+
+<h3 id="seasons"><ruby>時<rt>とき</rt></ruby>の<ruby>変<rt>か</rt></ruby>わり</h3>
+  <div class="haiku">
+    <p lang="ja"><ruby>草<rt>くさ</rt></ruby><ruby>開<rt>ひら</rt></ruby>く<br><ruby>山<rt>やま</rt></ruby>の<ruby>風<rt>かぜ</rt></ruby><ruby>来<rt>く</rt></ruby>る<br><ruby>草<rt>くさ</rt></ruby><ruby>動<rt>うご</rt></ruby>く</p>
+    <button class="play-btn" data-audio="h/h_13.mp3">&#9654;</button> 
+  </div>
+
+  <div class="haiku">
+    <p lang="ja"><ruby>空<rt>そら</rt></ruby><ruby>暑<rt>あつ</rt></ruby>い<br><ruby>水<rt>みず</rt></ruby>を<ruby>飲<rt>の</rt></ruby>む<ruby>人<rt>ひと</rt></ruby><br><ruby>日<rt>にち</rt></ruby><ruby>終<rt>お</rt></ruby>わる</p>
+    <button class="play-btn" data-audio="h/h_14.mp3">&#9654;</button> 
+  </div>
+
+  <div class="haiku">
+    <p lang="ja"><ruby>木<rt>き</rt></ruby>が<ruby>変<rt>か</rt></ruby>わる<br><ruby>赤<rt>あか</rt></ruby>くなる<ruby>山<rt>やま</rt></ruby><br><ruby>風<rt>かぜ</rt></ruby><ruby>寒<rt>さむ</rt></ruby>い</p>
+    <button class="play-btn" data-audio="h/h_15.mp3">&#9654;</button> 
+  </div>
+
+  <div class="haiku">
+    <p lang="ja"><ruby>寒<rt>さむ</rt></ruby>い<ruby>夜<rt>よる</rt></ruby><br><ruby>火<rt>ひ</rt></ruby>に<ruby>近<rt>ちか</rt></ruby>い<ruby>人<rt>ひと</rt></ruby><br><ruby>音<rt>おと</rt></ruby>もない</p>
+    <button class="play-btn" data-audio="h/h_16.mp3">&#9654;</button> 
+  </div>
+
+<h3 id="between-people"><ruby>人<rt>ひと</rt></ruby>と<ruby>人<rt>ひと</rt></ruby></h3>
+  <div class="haiku">
+    <p lang="ja"><ruby>誰<rt>だれ</rt></ruby>か<ruby>来<rt>く</rt></ruby>る<br><ruby>知<rt>し</rt></ruby>らない<ruby>名前<rt>なまえ</rt></ruby><br><ruby>笑<rt>わら</rt></ruby>う<ruby>人<rt>ひと</rt></ruby></p>
+    <button class="play-btn" data-audio="h/h_17.mp3">&#9654;</button> 
+  </div>
+
+  <div class="haiku">
+    <p lang="ja">また<ruby>会<rt>あ</rt></ruby>おう<br>と<ruby>言<rt>い</rt></ruby>った<ruby>後<rt>あと</rt></ruby>に<br><ruby>道<rt>みち</rt></ruby><ruby>長<rt>なが</rt></ruby>い</p>
+    <button class="play-btn" data-audio="h/h_18.mp3">&#9654;</button> 
+  </div>
+
+  <div class="haiku">
+    <p lang="ja">あなた<ruby>待<rt>ま</rt></ruby>つ<br><ruby>来<rt>こ</rt></ruby>ないと<ruby>知<rt>し</rt></ruby>って<br>まだここに</p>
+    <button class="play-btn" data-audio="h/h_19.mp3">&#9654;</button> 
+  </div>
+
+  <div class="haiku">
+    <p lang="ja"><ruby>手<rt>て</rt></ruby><ruby>与<rt>あた</rt></ruby>える<br>もらう<ruby>人<rt>ひと</rt></ruby>の<ruby>目<rt>め</rt></ruby><br><ruby>光<rt>ひかり</rt></ruby><ruby>見<rt>み</rt></ruby>た</p>
+    <button class="play-btn" data-audio="h/h_20.mp3">&#9654;</button> 
+  </div>
+
+<h3 id="life-death"><ruby>生<rt>い</rt></ruby>きると<ruby>死<rt>し</rt></ruby>ぬ</h3>
+  <div class="haiku">
+    <p lang="ja"><ruby>始<rt>はじ</rt></ruby>まりの<br><ruby>少<rt>すこ</rt></ruby>しの<ruby>体<rt>からだ</rt></ruby><br><ruby>泣<rt>な</rt></ruby>いている</p>
+    <button class="play-btn" data-audio="h/h_21.mp3">&#9654;</button> 
+  </div>
+
+  <div class="haiku">
+    <p lang="ja"><ruby>生<rt>い</rt></ruby>きること<br><ruby>食<rt>た</rt></ruby>べて<ruby>動<rt>うご</rt></ruby>いて<br><ruby>来<rt>く</rt></ruby>る<ruby>日<rt>にち</rt></ruby>へ</p>
+    <button class="play-btn" data-audio="h/h_22.mp3">&#9654;</button> 
+  </div>
+
+  <div class="haiku">
+    <p lang="ja"><ruby>人<rt>ひと</rt></ruby>は<ruby>死<rt>し</rt></ruby>ぬ<br><ruby>土<rt>つち</rt></ruby>の<ruby>中<rt>なか</rt></ruby><ruby>入<rt>い</rt></ruby>る<br><ruby>草<rt>くさ</rt></ruby><ruby>生<rt>い</rt></ruby>きる</p>
+    <button class="play-btn" data-audio="h/h_23.mp3">&#9654;</button> 
+  </div>
+
+  <div class="haiku">
+    <p lang="ja"><ruby>終<rt>お</rt></ruby>わる<ruby>夜<rt>よる</rt></ruby><br><ruby>光<rt>ひかり</rt></ruby><ruby>始<rt>はじ</rt></ruby>まる<br><ruby>空<rt>そら</rt></ruby>はある</p>
+    <button class="play-btn" data-audio="h/h_24.mp3">&#9654;</button> 
+  </div>
+
+<h3 id="light-dark"><ruby>光<rt>ひかり</rt></ruby>と<ruby>光<rt>ひかり</rt></ruby>がない</h3>
+  <div class="haiku">
+    <p lang="ja"><ruby>月<rt>つき</rt></ruby>の<ruby>夜<rt>よる</rt></ruby><br><ruby>火<rt>ひ</rt></ruby>が<ruby>一<rt>ひと</rt></ruby>つある<br><ruby>誰<rt>だれ</rt></ruby>かいる</p>
+    <button class="play-btn" data-audio="h/h_25.mp3">&#9654;</button> 
+  </div>
+
+  <div class="haiku">
+    <p lang="ja"><ruby>光<rt>ひかり</rt></ruby><ruby>来<rt>く</rt></ruby>る<br><ruby>怖<rt>こわ</rt></ruby>いの<ruby>終<rt>お</rt></ruby>わる<br><ruby>目<rt>め</rt></ruby>を<ruby>開<rt>ひら</rt></ruby>く</p>
+    <button class="play-btn" data-audio="h/h_26.mp3">&#9654;</button> 
+  </div>
+
+  <div class="haiku">
+    <p lang="ja"><ruby>火<rt>ひ</rt></ruby>を<ruby>止<rt>と</rt></ruby>めて<br><ruby>光<rt>ひかり</rt></ruby>なくなる<br><ruby>体<rt>からだ</rt></ruby>だけ</p>
+    <button class="play-btn" data-audio="h/h_27.mp3">&#9654;</button> 
+  </div>
+
+  <div class="haiku">
+    <p lang="ja"><ruby>夜<rt>よる</rt></ruby>の<ruby>空<rt>そら</rt></ruby><br><ruby>月<rt>つき</rt></ruby><ruby>白<rt>しろ</rt></ruby>く<ruby>出<rt>で</rt></ruby>る<br><ruby>道<rt>みち</rt></ruby><ruby>白<rt>しろ</rt></ruby>い</p>
+    <button class="play-btn" data-audio="h/h_28.mp3">&#9654;</button> 
+  </div>
+
+<h3 id="words"><ruby>言<rt>こと</rt></ruby><ruby>葉<rt>ば</rt></ruby></h3>
+  <div class="haiku">
+    <p lang="ja"><ruby>言葉<rt>ことば</rt></ruby>ない<br><ruby>心<rt>こころ</rt></ruby>が<ruby>動<rt>うご</rt></ruby>く<br><ruby>人<rt>ひと</rt></ruby>と<ruby>人<rt>ひと</rt></ruby></p>
+    <button class="play-btn" data-audio="h/h_29.mp3">&#9654;</button> 
+  </div>
+
+  <div class="haiku">
+    <p lang="ja"><ruby>書<rt>か</rt></ruby>く<ruby>言葉<rt>ことば</rt></ruby><br><ruby>誰<rt>だれ</rt></ruby>も<ruby>読<rt>よ</rt></ruby>まない<br>まだそこに</p>
+    <button class="play-btn" data-audio="h/h_30.mp3">&#9654;</button> 
+  </div>
+
+  <div class="haiku">
+    <p lang="ja"><ruby>聞<rt>き</rt></ruby>く<ruby>言葉<rt>ことば</rt></ruby><br><ruby>知<rt>し</rt></ruby>らない<ruby>言葉<rt>ことば</rt></ruby><br><ruby>道<rt>みち</rt></ruby><ruby>開<rt>ひら</rt></ruby>く</p>
+    <button class="play-btn" data-audio="h/h_31.mp3">&#9654;</button> 
+  </div>
+
+  <div class="haiku">
+    <p lang="ja"><ruby>言<rt>い</rt></ruby>わないで<br><ruby>手<rt>て</rt></ruby>を<ruby>持<rt>も</rt></ruby>っている<br>それでいい</p>
+    <button class="play-btn" data-audio="h/h_32.mp3">&#9654;</button> 
+  </div>
+
+  <nav class="lesson-nav">
+    <a href="lessons/word-building.html">← <ruby>言<rt>こと</rt></ruby><ruby>葉<rt>ば</rt></ruby><ruby>作<rt>づく</rt></ruby>り</a>
+    <span></span>
+  </nav>
+  </main>
+
+  <button class="back-to-top" id="btn-top" aria-label="Back to top">&uarr;</button>
+
+  <footer>
+    <a href="https://github.com/KakkoiDev/minihongo">GitHub</a>
+    <span>&copy; 2026 KakkoiDev</span>
+  </footer>
+
+  <!-- Toast strings (build-time injected, needed before app.js) -->
+  <script>
+    const TOAST = {
+      offline: '<ruby>外<rt>そと</rt></ruby>に<ruby>出<rt>で</rt></ruby>られない。<ruby>中<rt>なか</rt></ruby>の<ruby>物<rt>もの</rt></ruby>は<ruby>使<rt>つか</rt></ruby>える。',
+      online: '<ruby>外<rt>そと</rt></ruby>に<ruby>出<rt>で</rt></ruby>られる。',
+      install: 'ミニ本語をもらう',
+      installBtn: 'もらう',
+      updated: '<ruby>新<rt>あたら</rt></ruby>しくなりました。'
+    }
+  </script>
+  <script src="/static/app.js" defer></script>
+</body>
+</html>
+

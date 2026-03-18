@@ -1,0 +1,26 @@
+{
+  "name": "Minihongo",
+  "short_name": "Minihongo",
+  "description": "182 words. Say anything.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#BC002D",
+  "icons": [
+    {
+      "src": "/static/icon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any"
+    },
+    {
+      "src": "/static/icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/static/icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}
