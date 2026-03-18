@@ -142,7 +142,7 @@
 #let note-block(body) = {
   block(
     width: 100%,
-    inset: (left: 0.5em, top: 0.5em, bottom: 0.5em, right: 0.75em),
+    inset: (left: 0.75em, top: 0.5em, bottom: 0.5em, right: 0.75em),
     stroke: (left: 3pt + accent),
     fill: bg-raised,
     radius: 6pt,

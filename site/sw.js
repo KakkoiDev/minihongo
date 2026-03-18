@@ -44,10 +44,16 @@ self.addEventListener('fetch', (e) => {
 // -- Caching strategy ---------------------------------------------------
 
 // Navigation requests: cache -> network -> cached root -> retry page
+// Serves cached immediately, revalidates in background for freshness
 const handleNavigate = async (request) => {
   const cache = await caches.open(CACHE)
   const cached = await cache.match(request)
-  if (cached) return cached
+  if (cached) {
+    fetch(request).then((res) => {
+      if (res.ok) cache.put(request, res.clone())
+    }).catch(() => null)
+    return cached
+  }
   try {
     const res = await fetch(request)
     if (res.ok) cache.put(request, res.clone())
