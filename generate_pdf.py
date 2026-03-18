@@ -74,8 +74,7 @@ def load_ui_strings():
 def ui(key, lang):
     """Get UI string for a language with fallback to English."""
     row = UI_STRINGS.get(key, {})
-    col = LANG_COL.get(lang, 'english')
-    return to_ruby(row.get(col, '') or row.get('en', ''))
+    return to_ruby(row.get(lang, '') or row.get('en', ''))
 
 
 def cat_name(cat, lang):
