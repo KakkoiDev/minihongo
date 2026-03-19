@@ -553,6 +553,12 @@ footer {
   margin-block: var(--s);
 
   & p { margin: 0; }
+  & p + p { margin-block-start: 0.25rem; }
+}
+
+.anki-secondary {
+  font-size: 0.85rem;
+  color: var(--text-muted);
 }
 
 /* === Onboarding === */

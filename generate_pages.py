@@ -293,14 +293,12 @@ def gen_index(lang):
         f'  </div>\n'
         f'  <div class="anki-featured">\n'
         f'    <p><a href="/{basename}-{lang}.apkg">{anki_link}</a> - {anki_desc}</p>\n'
+        f'    <p class="anki-secondary"><a href="/{basename}-{lang}.pdf">{pdf_link}</a></p>\n'
         f'  </div>\n'
         f'  <nav class="lesson-nav">\n'
         f'    <span></span>\n'
         f'    <a href="{next_href}">{next_label} \u2192</a>\n'
         f'  </nav>\n'
-        f'  <div class="anki-download">\n'
-        f'    <p><a href="/{basename}-{lang}.pdf">{pdf_link}</a></p>\n'
-        f'  </div>\n'
         f'</page-layout>\n'
     )
 
