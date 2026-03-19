@@ -308,8 +308,17 @@ addEventListener('beforeinstallprompt', (e) => {
 // Auto-reload when a new service worker takes over (fresh content available)
 const hadController = !!navigator.serviceWorker?.controller
 navigator.serviceWorker?.addEventListener('controllerchange', () => {
-  if (hadController) location.reload()
+  if (hadController) {
+    sessionStorage.setItem('sw_updated', '1')
+    location.reload()
+  }
 })
+
+// Show update toast on the fresh page after a SW-triggered reload
+if (sessionStorage.getItem('sw_updated')) {
+  sessionStorage.removeItem('sw_updated')
+  showToast(TOAST.updated, { duration: 3000 })
+}
 
 // Proactively check for SW updates when returning to the tab
 document.addEventListener('visibilitychange', () => {
