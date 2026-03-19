@@ -245,28 +245,34 @@ def gen_index(lang):
     basename = strip_html(ui('site_basename', lang))
 
     # Expression examples table with audio
+    # Tuple: (concept, minihongo, audio_dir, audio_file, literal)
+    # concept='' for mh: single-column, no translation needed
     _examples = {
         'en': [
-            ('friend',  '好【す】きな人【ひと】',                 'e', 'e_1_suhito.mp3'),
-            ('doctor',  '体【からだ】を助【たす】ける人【ひと】', 'e', 'e_5_karadatasuhito.mp3'),
-            ('freedom', '好【す】きにできる事【こと】',           'e', 'e_165_sukoto.mp3'),
+            ('friend',  '好【す】きな人【ひと】',                 'e', 'e_1_suhito.mp3',        'liked person'),
+            ('doctor',  '体【からだ】を助【たす】ける人【ひと】', 'e', 'e_5_karadatasuhito.mp3', 'body-helping person'),
+            ('freedom', '好【す】きにできる事【こと】',           'e', 'e_165_sukoto.mp3',       'able to do as liked'),
         ],
         'ja': [
-            ('友達', '好【す】きな人【ひと】',                 'e', 'e_1_suhito.mp3'),
-            ('医者', '体【からだ】を助【たす】ける人【ひと】', 'e', 'e_5_karadatasuhito.mp3'),
-            ('自由', '好【す】きにできる事【こと】',           'e', 'e_165_sukoto.mp3'),
+            ('友達', '好【す】きな人【ひと】',                 'e', 'e_1_suhito.mp3',        ''),
+            ('医者', '体【からだ】を助【たす】ける人【ひと】', 'e', 'e_5_karadatasuhito.mp3', ''),
+            ('自由', '好【す】きにできる事【こと】',           'e', 'e_165_sukoto.mp3',       ''),
         ],
         'mh': [
-            ('友達', '好【す】きな人【ひと】',                 'e', 'e_1_suhito.mp3'),
-            ('医者', '体【からだ】を助【たす】ける人【ひと】', 'e', 'e_5_karadatasuhito.mp3'),
-            ('自由', '好【す】きにできる事【こと】',           'e', 'e_165_sukoto.mp3'),
+            ('', '好【す】きな人【ひと】',                 'e', 'e_1_suhito.mp3',        ''),
+            ('', '体【からだ】を助【たす】ける人【ひと】', 'e', 'e_5_karadatasuhito.mp3', ''),
+            ('', '好【す】きにできる事【こと】',           'e', 'e_165_sukoto.mp3',       ''),
         ],
     }
     rows = ''
-    for concept, mh, audio_dir, audio_file in _examples.get(lang, _examples['en']):
+    for concept, mh, audio_dir, audio_file, lit in _examples.get(lang, _examples['en']):
         mh_html = to_ruby_html(mh)
         pb = play_btn(audio_dir, audio_file)
-        rows += f'      <tr><td lang="ja">{pb}{mh_html}</td><td>{concept}</td></tr>\n'
+        if concept:
+            lit_html = f' <span class="example-lit">{lit}</span>' if lit else ''
+            rows += f'      <tr><td lang="ja">{pb}{mh_html}</td><td>{concept}{lit_html}</td></tr>\n'
+        else:
+            rows += f'      <tr><td lang="ja">{pb}{mh_html}</td></tr>\n'
     example_table = (
         f'  <div class="table-scroll"><table class="compact-table">\n'
         f'    <tbody>\n'
