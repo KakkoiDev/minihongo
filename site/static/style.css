@@ -539,7 +539,7 @@ footer {
 
 /* === Homepage expression literal gloss === */
 .example-lit {
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   color: var(--text-muted);
 }
 
@@ -554,11 +554,7 @@ footer {
 
   & p { margin: 0; }
   & p + p { margin-block-start: 0.25rem; }
-}
-
-.anki-secondary {
-  font-size: 0.85rem;
-  color: var(--text-muted);
+  & .anki-secondary { font-size: 0.85rem; color: var(--text-muted); }
 }
 
 /* === Onboarding === */
