@@ -32,7 +32,7 @@
       }
     }
   </script>
-  <meta name="description" content="182 words. Say anything.">
+  <meta name="description" content="182 base words + 17 grammar patterns. Enough to describe any concept in Japanese.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <style>/* === Reset === */
@@ -574,6 +574,36 @@ footer {
   background: var(--accent-hover);
 }
 
+/* === Homepage expression examples === */
+.example-expressive {
+  display: grid;
+  grid-template-columns: 5.5rem 1fr;
+  row-gap: 0.6rem;
+  column-gap: 1rem;
+  align-items: baseline;
+  padding: 1rem 1.25rem;
+  background: var(--bg-raised);
+  border-radius: var(--radius);
+  border-inline-start: 3px solid var(--accent);
+  margin-block: var(--s);
+}
+
+.example-concept {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.example-phrase {
+  font-family: var(--jp);
+  font-size: 1.05rem;
+}
+
+.example-lit {
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
 /* === Onboarding === */
 .onboarding {
   font-size: 0.9rem;
@@ -687,26 +717,31 @@ footer {
   <div id="toast-container"></div>
 
   <main id="content">
-    <h1>Minihongo</h1>
-  <p>182 words. Say anything.</p>
+    <h1>Learn Japanese from 182 core words.</h1>
+  <p>182 base words + 17 grammar patterns. Enough to describe any concept in Japanese.</p>
+  <div class="example-expressive">
+    <span class="example-concept">friend</span>
+    <span class="example-phrase"><span lang="ja"><ruby>好<rt>す</rt></ruby>きな<ruby>人<rt>ひと</rt></ruby></span> <span class="example-lit">liked person</span></span>
+    <span class="example-concept">doctor</span>
+    <span class="example-phrase"><span lang="ja"><ruby>体<rt>からだ</rt></ruby>を<ruby>助<rt>たす</rt></ruby>ける<ruby>人<rt>ひと</rt></ruby></span> <span class="example-lit">body-helping person</span></span>
+    <span class="example-concept">freedom</span>
+    <span class="example-phrase"><span lang="ja"><ruby>好<rt>す</rt></ruby>きにできる<ruby>事<rt>こと</rt></ruby></span> <span class="example-lit">able to do as liked</span></span>
+  </div>
   <ul>
-    <li>From intent to thought to word. This method makes even the intent Japanese.</li>
-    <li>182 base words + full grammar. Combine them to express any idea.</li>
-    <li>Grow naturally. Add real vocabulary as you learn - the 182 are always your fallback.</li>
+    <li>182 base words - nouns, verbs, and adjectives</li>
+    <li>17 grammar patterns for full sentence structure</li>
+    <li>167 compounds built from the base 182</li>
   </ul>
   <div class="onboarding">
-    <p>Start with Vocabulary to learn the 182 words, then Grammar for sentence patterns. Word Building shows how to combine words creatively. Reading lets you practice with real texts.</p>
-  </div>
-  <div class="anki-download">
-    <p>Practice with flashcards: <a href="/minihongo-en.apkg">Download Anki deck</a> - 182 words + grammar with audio.</p>
-  </div>
-  <div class="anki-download">
-    <p>Read the book: <a href="/minihongo-en.pdf">Download PDF</a> - All 4 lessons in one book.</p>
+    <p>Not for JLPT prep or business Japanese. For you if you want to start reading and speaking fast, with a system that grows with you.</p>
   </div>
   <nav class="lesson-nav">
     <span></span>
-    <a href="lessons/vocabulary.html">Vocabulary →</a>
+    <a href="lessons/vocabulary.html">Start: Vocabulary →</a>
   </nav>
+  <div class="anki-download">
+    <p>Download: <a href="/minihongo-en.apkg">Anki deck</a> &middot; <a href="/minihongo-en.pdf">PDF book</a></p>
+  </div>
   </main>
 
   <button class="back-to-top" id="btn-top" aria-label="Back to top">&uarr;</button>

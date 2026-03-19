@@ -227,7 +227,7 @@ def gen_index(lang):
     items = '\n'.join(f'    <li>{b}</li>' for b in bullets)
 
     if lang == 'en':
-        h1 = '  <h1>Minihongo</h1>\n'
+        h1 = '  <h1>Learn Japanese from 182 core words.</h1>\n'
     elif lang == 'mh':
         h1 = '  <h1 lang="ja">ミニ<ruby>本<rt>ほん</rt></ruby><ruby>語<rt>ご</rt></ruby></h1>\n'
     else:
@@ -236,14 +236,40 @@ def gen_index(lang):
     first_page = PAGE_DATA[0]
     next_label = to_ruby_html(t(first_page, 'name', lang))
     next_href = f'lessons/{PAGE_FILES[first_page["id"]]}'
+    nav_prefix = ui('home_nav_prefix', lang)
 
     onboarding = ui('home_onboarding', lang)
-    anki_cta = ui('home_anki_cta', lang)
     anki_link = ui('home_anki_link', lang)
-    anki_desc = ui('home_anki_desc', lang)
-    pdf_cta = ui('home_pdf_cta', lang)
     pdf_link = ui('home_pdf_link', lang)
-    pdf_desc = ui('home_pdf_desc', lang)
+    basename = strip_html(ui('site_basename', lang))
+
+    # Expression examples: (concept label, minihongo expression, literal gloss)
+    _examples = {
+        'en': [
+            ('friend',  '好【す】きな人【ひと】',                    'liked person'),
+            ('doctor',  '体【からだ】を助【たす】ける人【ひと】',    'body-helping person'),
+            ('freedom', '好【す】きにできる事【こと】',              'able to do as liked'),
+        ],
+        'ja': [
+            ('友達', '好【す】きな人【ひと】',             ''),
+            ('医者', '体【からだ】を助【たす】ける人【ひと】', ''),
+            ('自由', '好【す】きにできる事【こと】',         ''),
+        ],
+        'mh': [
+            ('友達', '好【す】きな人【ひと】',             ''),
+            ('医者', '体【からだ】を助【たす】ける人【ひと】', ''),
+            ('自由', '好【す】きにできる事【こと】',         ''),
+        ],
+    }
+    ex_rows = ''
+    for concept, mh, lit in _examples.get(lang, _examples['en']):
+        mh_html = to_ruby_html(mh)
+        lit_html = f' <span class="example-lit">{lit}</span>' if lit else ''
+        ex_rows += (
+            f'    <span class="example-concept">{concept}</span>\n'
+            f'    <span class="example-phrase"><span lang="ja">{mh_html}</span>{lit_html}</span>\n'
+        )
+    example_block = f'  <div class="example-expressive">\n{ex_rows}  </div>\n'
 
     return (
         f'<page-layout>\n'
@@ -251,22 +277,21 @@ def gen_index(lang):
         f'\n'
         f'{h1}'
         f'  <p>{tagline}</p>\n'
+        f'{example_block}'
         f'  <ul>\n'
         f'{items}\n'
         f'  </ul>\n'
         f'  <div class="onboarding">\n'
         f'    <p>{onboarding}</p>\n'
         f'  </div>\n'
-        f'  <div class="anki-download">\n'
-        f'    <p>{anki_cta} <a href="/minihongo-{lang}.apkg">{anki_link}</a> - {anki_desc}</p>\n'
-        f'  </div>\n'
-        f'  <div class="anki-download">\n'
-        f'    <p>{pdf_cta} <a href="/minihongo-{lang}.pdf">{pdf_link}</a> - {pdf_desc}</p>\n'
-        f'  </div>\n'
         f'  <nav class="lesson-nav">\n'
         f'    <span></span>\n'
-        f'    <a href="{next_href}">{next_label} \u2192</a>\n'
+        f'    <a href="{next_href}">{nav_prefix + " " if nav_prefix else ""}{next_label} \u2192</a>\n'
         f'  </nav>\n'
+        f'  <div class="anki-download">\n'
+        f'    <p>Download: <a href="/{basename}-{lang}.apkg">{anki_link}</a>'
+        f' &middot; <a href="/{basename}-{lang}.pdf">{pdf_link}</a></p>\n'
+        f'  </div>\n'
         f'</page-layout>\n'
     )
 
