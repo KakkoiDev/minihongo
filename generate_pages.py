@@ -236,7 +236,7 @@ def gen_index(lang):
     first_page = PAGE_DATA[0]
     next_label = to_ruby_html(t(first_page, 'name', lang))
     next_href = f'lessons/{PAGE_FILES[first_page["id"]]}'
-    nav_prefix = ui('home_nav_prefix', lang)
+
 
     onboarding = ui('home_onboarding', lang)
     anki_link = ui('home_anki_link', lang)
@@ -290,7 +290,7 @@ def gen_index(lang):
         f'  </div>\n'
         f'  <nav class="lesson-nav">\n'
         f'    <span></span>\n'
-        f'    <a href="{next_href}">{nav_prefix + " " if nav_prefix else ""}{next_label} \u2192</a>\n'
+        f'    <a href="{next_href}">{next_label} \u2192</a>\n'
         f'  </nav>\n'
         f'  <div class="anki-download">\n'
         f'    <p><a href="/{basename}-{lang}.pdf">{pdf_link}</a></p>\n'
