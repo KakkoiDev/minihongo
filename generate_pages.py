@@ -240,36 +240,40 @@ def gen_index(lang):
 
     onboarding = ui('home_onboarding', lang)
     anki_link = ui('home_anki_link', lang)
+    anki_desc = ui('home_anki_desc', lang)
     pdf_link = ui('home_pdf_link', lang)
     basename = strip_html(ui('site_basename', lang))
 
-    # Expression examples: (concept label, minihongo expression, literal gloss)
+    # Expression examples table with audio
     _examples = {
         'en': [
-            ('friend',  '好【す】きな人【ひと】',                    'liked person'),
-            ('doctor',  '体【からだ】を助【たす】ける人【ひと】',    'body-helping person'),
-            ('freedom', '好【す】きにできる事【こと】',              'able to do as liked'),
+            ('friend',  '好【す】きな人【ひと】',                 'e', 'e_1_suhito.mp3'),
+            ('doctor',  '体【からだ】を助【たす】ける人【ひと】', 'e', 'e_5_karadatasuhito.mp3'),
+            ('freedom', '好【す】きにできる事【こと】',           'e', 'e_165_sukoto.mp3'),
         ],
         'ja': [
-            ('友達', '好【す】きな人【ひと】',             ''),
-            ('医者', '体【からだ】を助【たす】ける人【ひと】', ''),
-            ('自由', '好【す】きにできる事【こと】',         ''),
+            ('友達', '好【す】きな人【ひと】',                 'e', 'e_1_suhito.mp3'),
+            ('医者', '体【からだ】を助【たす】ける人【ひと】', 'e', 'e_5_karadatasuhito.mp3'),
+            ('自由', '好【す】きにできる事【こと】',           'e', 'e_165_sukoto.mp3'),
         ],
         'mh': [
-            ('友達', '好【す】きな人【ひと】',             ''),
-            ('医者', '体【からだ】を助【たす】ける人【ひと】', ''),
-            ('自由', '好【す】きにできる事【こと】',         ''),
+            ('友達', '好【す】きな人【ひと】',                 'e', 'e_1_suhito.mp3'),
+            ('医者', '体【からだ】を助【たす】ける人【ひと】', 'e', 'e_5_karadatasuhito.mp3'),
+            ('自由', '好【す】きにできる事【こと】',           'e', 'e_165_sukoto.mp3'),
         ],
     }
-    ex_rows = ''
-    for concept, mh, lit in _examples.get(lang, _examples['en']):
+    rows = ''
+    for concept, mh, audio_dir, audio_file in _examples.get(lang, _examples['en']):
         mh_html = to_ruby_html(mh)
-        lit_html = f' <span class="example-lit">{lit}</span>' if lit else ''
-        ex_rows += (
-            f'    <span class="example-concept">{concept}</span>\n'
-            f'    <span class="example-phrase"><span lang="ja">{mh_html}</span>{lit_html}</span>\n'
-        )
-    example_block = f'  <div class="example-expressive">\n{ex_rows}  </div>\n'
+        pb = play_btn(audio_dir, audio_file)
+        rows += f'      <tr><td lang="ja">{pb}{mh_html}</td><td>{concept}</td></tr>\n'
+    example_table = (
+        f'  <div class="table-scroll"><table class="compact-table">\n'
+        f'    <tbody>\n'
+        f'{rows}'
+        f'    </tbody>\n'
+        f'  </table></div>\n'
+    )
 
     return (
         f'<page-layout>\n'
@@ -277,20 +281,19 @@ def gen_index(lang):
         f'\n'
         f'{h1}'
         f'  <p>{tagline}</p>\n'
-        f'{example_block}'
-        f'  <ul>\n'
-        f'{items}\n'
-        f'  </ul>\n'
+        f'{example_table}'
         f'  <div class="onboarding">\n'
         f'    <p>{onboarding}</p>\n'
+        f'  </div>\n'
+        f'  <div class="anki-featured">\n'
+        f'    <p><a href="/{basename}-{lang}.apkg">{anki_link}</a> - {anki_desc}</p>\n'
         f'  </div>\n'
         f'  <nav class="lesson-nav">\n'
         f'    <span></span>\n'
         f'    <a href="{next_href}">{nav_prefix + " " if nav_prefix else ""}{next_label} \u2192</a>\n'
         f'  </nav>\n'
         f'  <div class="anki-download">\n'
-        f'    <p>Download: <a href="/{basename}-{lang}.apkg">{anki_link}</a>'
-        f' &middot; <a href="/{basename}-{lang}.pdf">{pdf_link}</a></p>\n'
+        f'    <p><a href="/{basename}-{lang}.pdf">{pdf_link}</a></p>\n'
         f'  </div>\n'
         f'</page-layout>\n'
     )

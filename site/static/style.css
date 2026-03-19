@@ -537,34 +537,16 @@ footer {
   background: var(--accent-hover);
 }
 
-/* === Homepage expression examples === */
-.example-expressive {
-  display: grid;
-  grid-template-columns: 5.5rem 1fr;
-  row-gap: 0.6rem;
-  column-gap: 1rem;
-  align-items: baseline;
-  padding: 1rem 1.25rem;
+/* === Anki featured download === */
+.anki-featured {
+  padding: 0.75rem 1.25rem;
+  padding-inline-start: calc(1.25rem - 3px);
+  border-inline-start: 3px solid var(--accent);
   background: var(--bg-raised);
   border-radius: var(--radius);
-  border-inline-start: 3px solid var(--accent);
   margin-block: var(--s);
-}
 
-.example-concept {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-}
-
-.example-phrase {
-  font-family: var(--jp);
-  font-size: 1.05rem;
-}
-
-.example-lit {
-  font-family: var(--sans);
-  font-size: 0.8rem;
-  color: var(--text-muted);
+  & p { margin: 0; }
 }
 
 /* === Onboarding === */
