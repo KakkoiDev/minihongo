@@ -35,7 +35,7 @@ Hierarchical. parent_id enables nesting (e.g. 第1 > 語順).
 
 ### words
 
-181 core vocabulary entries. Renders vocab page table rows.
+207 core vocabulary entries. Renders vocab page table rows.
 
 | Column | Type | Constraints |
 |--------|------|-------------|
@@ -98,7 +98,7 @@ english_litteral holds the parts breakdown (e.g. "大 + 人").
 
 ### expressions
 
-181→∞ creative descriptions and common words.
+207→∞ creative descriptions and common words.
 
 | Column | Type | Constraints |
 |--------|------|-------------|
@@ -110,7 +110,7 @@ english_litteral holds the parts breakdown (e.g. "大 + 人").
 | english_litteral | string | |
 | sort_order | integer | required |
 
-japanese is populated for common words (生活), empty for 181→∞ descriptions.
+japanese is populated for common words (生活), empty for 207→∞ descriptions.
 
 ### haiku
 
@@ -171,7 +171,7 @@ Full story blocks. One row per story.
 ## Relationships
 
 ```
-pages ←── categories ←──┬── words (181)
+pages ←── categories ←──┬── words (207)
                │        ├── grammar (28) ←── grammar_examples (30)
                │        ├── compounds (167)
                │        ├── expressions (938)
