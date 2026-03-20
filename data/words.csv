@@ -144,11 +144,11 @@ word-143,cat-12,近【ちか】い,near,近い,ここからそこまでが大【
 word-144,cat-12,ここ,here,ここ,私【わたし】がいるところ,,ここに座【すわ】ってください。,Please sit here.,ここに座ってください。,132,w_koko.mp3,w_koko_ex.mp3
 word-145,cat-12,そこ,there,そこ、あそこ,近【ちか】いけどここでないところ,,そこに何【なに】がある？,What is there?,そこに何がある？,133,w_soko.mp3,w_soko_ex.mp3
 word-146,cat-12,どこ,where,どこ,どのところかを聞【き】く言【こと】葉【ば】,,海【うみ】はどこ？,Where is the sea?,海はどこ？,134,w_doko.mp3,w_doko_ex.mp3
-word-147,cat-13,一【いち】,one,一,一【ひと】つだけ,,一【いち】と二【に】で三【さん】。,One and two make three.,一と二で三。,147,w_ichi.mp3,w_ichi_ex.mp3
-word-148,cat-13,二【に】,two,二,一【いち】と一【いち】,,二【に】は一【いち】の後【あと】。,Two comes after one.,二は一の後。,148,w_ni.mp3,w_ni_ex.mp3
-word-149,cat-13,三【さん】,three,三,二【に】と一【いち】,,一【いち】、二【に】、三【さん】。,"One, two, three.",一、二、三。,149,w_san.mp3,w_san_ex.mp3
-word-150,cat-13,五【ご】,five,五,三【さん】と二【に】,,三【さん】と二【に】で五【ご】。,Three and two make five.,三と二で五。,152,w_go.mp3,w_go_ex.mp3
-word-151,cat-13,十【じゅう】,ten,十,五【ご】と五【ご】,,五【ご】と五【ご】で十【じゅう】。,Five and five make ten.,五と五で十。,157,w_juu.mp3,w_juu_ex.mp3
+word-147,cat-13,一【いち】,one,一,一【ひと】つだけ,,一【ひと】りで山【やま】に行【い】った。,I went to the mountain alone.,一人で山に行った。,147,w_ichi.mp3,w_ichi_ex.mp3
+word-148,cat-13,二【に】,two,二,一【いち】と一【いち】,,手【て】は二【ふた】つある。,I have two hands.,手は二つある。,148,w_ni.mp3,w_ni_ex.mp3
+word-149,cat-13,三【さん】,three,三,二【に】と一【いち】,,三【さん】人【にん】の子供【こども】がいる。,There are three children.,三人の子供がいる。,149,w_san.mp3,w_san_ex.mp3
+word-150,cat-13,五【ご】,five,五,三【さん】と二【に】,,手【て】に五【いつ】つの指【ゆび】がある。,A hand has five fingers.,手に五本の指がある。,152,w_go.mp3,w_go_ex.mp3
+word-151,cat-13,十【じゅう】,ten,十,五【ご】と五【ご】,,十【じゅう】人【にん】で食【た】べた。,Ten people ate together.,十人で食べた。,157,w_juu.mp3,w_juu_ex.mp3
 word-152,cat-7,多【おお】い,many,多い、たくさん,少【すこ】しでない,,ここは人【ひと】が多【おお】い。,There are many people here.,ここは人が多い。,152,w_ooi.mp3,w_ooi_ex.mp3
 word-153,cat-14,全部【ぜんぶ】,all,全部、すべて,一【ひと】つもないものがない,,全部【ぜんぶ】食【た】べた。,I ate everything.,全部食べた。,153,w_zenbu.mp3,w_zenbu_ex.mp3
 word-154,cat-15,ない,"not, don't have",ない,いない。ゼロ。そこに何【なに】もない事【こと】。,,お金【かね】がない。,I have no money.,お金がない。,173,w_nai.mp3,w_nai_ex.mp3
@@ -199,10 +199,10 @@ word-199,cat-3,雲【くも】,cloud,雲,空【そら】にある白【しろ】
 word-200,cat-4,鳥【とり】,bird,鳥、鳥類,空【そら】を飛【と】ぶ動物【どうぶつ】,,鳥【とり】が空【そら】を飛【と】ぶ。,Birds fly in the sky.,鳥が空を飛ぶ。,200,w_tori.mp3,w_tori_ex.mp3
 word-201,cat-4,犬【いぬ】,dog,犬,人【ひと】と生【い】きる動物【どうぶつ】。家【いえ】にいる。,,犬【いぬ】が家【いえ】にいる。,The dog is in the house.,犬が家にいる。,201,w_inu.mp3,w_inu_ex.mp3
 word-202,cat-6,飛【と】ぶ,fly,飛ぶ、飛翔する,空【そら】の中【なか】を動【うご】く事【こと】,,鳥【とり】が飛【と】ぶ。,The bird flies.,鳥が飛ぶ。,202,w_tobu.mp3,w_tobu_ex.mp3
-word-203,cat-13,四【よん】,four,四,三【さん】と一【いち】,,三【さん】と一【いち】で四【よん】。,Three and one make four.,三と一で四。,150,w_yon.mp3,w_yon_ex.mp3
-word-204,cat-13,六【ろく】,six,六,五【ご】と一【いち】,,五【ご】と一【いち】で六【ろく】。,Five and one make six.,五と一で六。,153,w_roku.mp3,w_roku_ex.mp3
-word-205,cat-13,七【なな】,seven,七,五【ご】と二【に】,,五【ご】と二【に】で七【なな】。,Five and two make seven.,五と二で七。,154,w_nana.mp3,w_nana_ex.mp3
-word-206,cat-13,八【はち】,eight,八,五【ご】と三【さん】,,五【ご】と三【さん】で八【はち】。,Five and three make eight.,五と三で八。,155,w_hachi.mp3,w_hachi_ex.mp3
-word-207,cat-13,九【きゅう】,nine,九,十【じゅう】から一【いち】をなくしたもの,,八【はち】と一【いち】で九【きゅう】。,Eight and one make nine.,八と一で九。,156,w_kyuu.mp3,w_kyuu_ex.mp3
-word-208,cat-13,百【ひゃく】,hundred,百,十【じゅう】が十【じゅう】,,十【じゅう】が十【じゅう】で百【ひゃく】。,Ten tens make a hundred.,十が十で百。,158,w_hyaku.mp3,w_hyaku_ex.mp3
+word-203,cat-13,四【よん】,four,四,三【さん】と一【いち】,,犬【いぬ】の足【あし】は四【よん】つだ。,A dog has four legs.,犬の足は四本だ。,150,w_yon.mp3,w_yon_ex.mp3
+word-204,cat-13,六【ろく】,six,六,五【ご】と一【いち】,,六【ろく】月【がつ】は雨【あめ】が多【おお】い。,June has a lot of rain.,六月は雨が多い。,153,w_roku.mp3,w_roku_ex.mp3
+word-205,cat-13,七【なな】,seven,七,五【ご】と二【に】,,七【なな】つの色【いろ】が空【そら】に出【で】た。,Seven colors appeared in the sky.,虹が出た。,154,w_nana.mp3,w_nana_ex.mp3
+word-206,cat-13,八【はち】,eight,八,五【ご】と三【さん】,,八【はち】月【がつ】はとても暑【あつ】い。,August is very hot.,八月はとても暑い。,155,w_hachi.mp3,w_hachi_ex.mp3
+word-207,cat-13,九【きゅう】,nine,九,十【じゅう】から一【いち】をなくしたもの,,九【く】時【じ】に寝【ね】る。,I sleep at nine o'clock.,九時に寝る。,156,w_kyuu.mp3,w_kyuu_ex.mp3
+word-208,cat-13,百【ひゃく】,hundred,百,十【じゅう】が十【じゅう】,,水【みず】は百【ひゃく】五【ご】十【じゅう】だ。,The water costs 150.,水は百五十円だ。,158,w_hyaku.mp3,w_hyaku_ex.mp3
 word-209,cat-15,いいえ,no,いいえ,本当【ほんとう】でない時【とき】に言【い】う言【こと】葉【ば】,,いいえ、欲【ほ】しくない。,"No, I don't want it.",いいえ、欲しくない。,174,w_iie.mp3,w_iie_ex.mp3

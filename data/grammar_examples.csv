@@ -90,8 +90,10 @@ gex-88,gram-33,水【みず】を飲【の】まなきゃ。,I must drink water.
 gex-89,gram-33,毎【まい】日【にち】歩【ある】かなくてはいけない。,I must walk every day.,毎日歩かなくてはいけない。,,89,ge_89.mp3
 gex-90,gram-34,水【みず】を飲【の】んだほうがいい。,You should drink water.,水を飲んだほうがいい。,,90,ge_90.mp3
 gex-91,gram-34,行【い】かないほうがいい。,You shouldn't go.,行かないほうがいい。,,91,ge_91.mp3
-gex-92,gram-35,一【ひと】つください。,One please.,一つください。,,92,ge_92.mp3
-gex-93,gram-35,卵【たまご】を三【みっ】つ買【か】った。,I bought three eggs.,卵を三つ買った。,,93,ge_93.mp3
+gex-92,gram-35,卵【たまご】を三【みっ】つください。,Three eggs please.,卵を三つください。,,92,ge_92.mp3
+gex-93,gram-35,犬【いぬ】が二【ふた】つ、鳥【とり】が五【いつ】つ。,"Two dogs, five birds.",犬が二匹、鳥が五羽。,,93,ge_93.mp3
+gex-103,gram-35,卵【たまご】をやっつ買【か】った。,I bought eight eggs.,卵を八つ買った。,,103,ge_103.mp3
+gex-104,gram-35,ここからとおの山【やま】が見【み】える。,I can see ten mountains from here.,ここから十の山が見える。,,104,ge_104.mp3
 gex-94,gram-36,入【はい】らないでください。,Please don't enter.,入らないでください。,,94,ge_94.mp3
 gex-95,gram-36,手【て】で持【も】たないでください。,Please don't hold it.,手で持たないでください。,,95,ge_95.mp3
 gex-96,gram-37,二【に】十【じゅう】 = 20,Twenty = 20.,二十 = 20。,,96,ge_96.mp3
@@ -99,5 +101,7 @@ gex-97,gram-37,三【さん】百【ひゃく】五【ご】十【じゅう】 =
 gex-98,gram-38,買【か】う所【ところ】で: これをください。いくらですか。,At a shop: This please. How much is it? (polite),お店で: これをください。いくらですか。,,98,ge_98.mp3
 gex-99,gram-38,好【す】きな人【ひと】に: これ、いくら？,"To a friend: This, how much? (plain)",友達に: これ、いくら？,,99,ge_99.mp3
 gex-100,gram-38,寒【さむ】いです。,It's cold. (polite - です follows い-adjective),寒いです。,,100,ge_100.mp3
-gex-101,gram-39,よん(4)、なな(7)、きゅう(9),"4, 7, 9 - preferred daily readings",よん・なな・きゅう,,101,ge_101.mp3
-gex-102,gram-39,さんびゃく = 300、ろっぴゃく = 600,300 and 600 - sound changes with 百,さんびゃく = 300、ろっぴゃく = 600,,102,ge_102.mp3
+gex-101,gram-39,し / よん = 4。しがつ、よじ。,"4 has two readings: し and よん. しがつ (April), よじ (4 o'clock).",し / よん = 4。四月（しがつ）、四時（よじ）。,,101,ge_101.mp3
+gex-102,gram-39,しち / なな = 7。しちがつ、ななつ。,"7 has two readings: しち and なな. しちがつ (July), ななつ (7 things).",しち / なな = 7。七月（しちがつ）、七つ（ななつ）。,,102,ge_102.mp3
+gex-105,gram-39,く / きゅう = 9。九【く】月【がつ】、九【きゅう】時【じ】。,"9 has two readings: く and きゅう. 九月(くがつ), 九時(くじ).",く / きゅう = 9。九月（くがつ）、九時（くじ）。,,105,ge_105.mp3
+gex-106,gram-39,さんびゃく(300)、ろっぴゃく(600)、はっぴゃく(800)。,"百 changes sound: 300=さんびゃく, 600=ろっぴゃく, 800=はっぴゃく.",百の音が変わる: 300=さんびゃく、600=ろっぴゃく、800=はっぴゃく。,,106,ge_106.mp3
