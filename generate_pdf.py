@@ -547,7 +547,7 @@ def generate_lang(lang, categories, words, grammar, grammar_examples,
 
 def compile_typst(typ_path, pdf_path, inputs=None):
     """Compile .typ to PDF."""
-    cmd = ['typst', 'compile', '--root', '.']
+    cmd = ['typst', 'compile', '--root', '.', '--font-path', 'typst/fonts']
     for k, v in (inputs or {}).items():
         cmd.extend(['--input', f'{k}={v}'])
     cmd.extend([str(typ_path), str(pdf_path)])

@@ -30,7 +30,7 @@ expr-31,cat-39,水【みず】と土【つち】の動物【どうぶつ】,,fro
 expr-32,cat-39,夜【よる】の動物【どうぶつ】,,wolf,狼,night animal,32,e_32_yorudoubutsu.mp3
 expr-33,cat-39,強【つよ】い動物【どうぶつ】,,lion,ライオン,strong animal,33,e_33_tsuyodoubutsu.mp3
 expr-34,cat-39,とても大【おお】きい動物【どうぶつ】,,elephant,象,very big animal,34,e_34_oodoubutsu.mp3
-expr-35,cat-39,きれいな大【おお】きくない動物【どうぶつ】,,butterfly,蝶,pretty not-big animal,35,e_35_oodoubutsu.mp3
+expr-35,cat-39,きれいな小【ちい】さい動物【どうぶつ】,,butterfly,蝶,pretty not-big animal,35,e_35_oodoubutsu.mp3
 expr-36,cat-40,空【そら】の事【こと】,,weather,天気,sky matter,36,e_36_sorakoto.mp3
 expr-37,cat-40,空【そら】の白【しろ】,,cloud,雲,sky's white,37,e_37_sorashiro.mp3
 expr-38,cat-40,夜【よる】の光【ひかり】,,star,星,night light,38,e_38_yoruhikari.mp3
@@ -816,13 +816,13 @@ expr-839,cat-63,速【はや】くない,おそい,slow / late,遅い,,839,e_839
 expr-840,cat-63,新【あたら】しくない,ふるい,old (things),古い,,840,e_840_furui.mp3
 expr-841,cat-63,年【とし】が少【すこ】ない,わかい,young,若い,,841,e_841_wakai.mp3
 expr-842,cat-63,大【おお】きな所【ところ】だ,ひろい,wide / spacious,広い,,842,e_842_hiroi.mp3
-expr-843,cat-63,所【ところ】が大【おお】きくない,せまい,narrow / small space,狭い,,843,e_843_semai.mp3
+expr-843,cat-63,所【ところ】が小【ちい】さい,せまい,narrow / small space,狭い,,843,e_843_semai.mp3
 expr-844,cat-63,下【した】まで長【なが】い,ふかい,deep,深い,,844,e_844_fukai.mp3
 expr-845,cat-63,下【した】まで長【なが】くない,あさい,shallow,浅い,,845,e_845_asai.mp3
 expr-846,cat-63,中【なか】まで長【なが】い,あつい,thick,厚い,,846,e_846_atsui.mp3
 expr-847,cat-63,中【なか】まで長【なが】くない,うすい,thin / light (color),薄い,,847,e_847_usui.mp3
 expr-848,cat-63,外【そと】が大【おお】きい,ふとい,thick / fat (width),太い,,848,e_848_futoi.mp3
-expr-849,cat-63,外【そと】が大【おお】きくない,ほそい,thin / slender,細い,,849,e_849_hosoi.mp3
+expr-849,cat-63,外【そと】が小【ちい】さい,ほそい,thin / slender,細い,,849,e_849_hosoi.mp3
 expr-850,cat-63,月【つき】や太陽【たいよう】のような物【もの】だ,まるい,round,丸い,,850,e_850_marui.mp3
 expr-851,cat-63,手【て】で変【か】えられない,かたい,hard / stiff,固い,,851,e_851_katai.mp3
 expr-852,cat-63,手【て】で変【か】えられる,やわらかい,soft,柔らかい,,852,e_852_yawarakai.mp3

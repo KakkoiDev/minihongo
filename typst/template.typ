@@ -172,8 +172,9 @@
     },
   )
   set text(
-    font: ("Noto Sans", "Noto Sans JP"),
+    font: ("Noto Sans", "Noto Sans CJK JP"),
     size: 9.5pt,
+    weight: "medium",
     fill: text-color,
     lang: if lang == "mh" { "ja" } else { lang },
   )
