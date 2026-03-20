@@ -152,7 +152,7 @@ expr-150,cat-46,音【おと】を作【つく】る,,sing,歌う,make sound,150
 expr-151,cat-46,火【ひ】で食【た】べ物【もの】を作【つく】る,,cook,料理する,make food with fire,151,e_151_hitamonotsukuru.mp3
 expr-152,cat-46,人【ひと】の物【もの】を持【も】って行【い】く,,steal,盗む,take person's thing,152,e_152_hitomonomoiku.mp3
 expr-153,cat-46,水【みず】できれいにする,,wash,洗う,make clean with water,153,e_153_mizudekireinisuru.mp3
-expr-154,cat-46,壊【こわ】れた物【もの】を良【よ】くする,,repair,修理する,make broken thing good,154,e_154_kowamonoyokusuru.mp3
+expr-154,cat-46,悪【わる】くなった物【もの】を良【よ】くする,,repair,修理する,make bad thing good again,154,e_154_kowamonoyokusuru.mp3
 expr-155,cat-46,草【くさ】を土【つち】に入【い】れる,,plant,植える,put grass in earth,155,e_155_kusatsuchiireru.mp3
 expr-156,cat-46,色【いろ】で物【もの】を作【つく】る,,draw,描く,make things with color,156,e_156_iromonotsukuru.mp3
 expr-157,cat-47,生【い】きる事【こと】,,life,命,living matter,157,e_157_ikoto.mp3
@@ -655,7 +655,7 @@ expr-653,cat-59,食【た】べ物【もの】が欲【ほ】しくなる,はら
 expr-654,cat-59,飲【の】み物【もの】が欲【ほ】しくなる,のどがかわく,to get thirsty,喉が渇く,,654,e_654_nodogakawaku.mp3
 expr-655,cat-60,体【からだ】が悪【わる】い時【とき】,びょうき,"illness, disease",病気,,655,e_655_byouki.mp3
 expr-656,cat-60,体【からだ】を良【よ】くするために飲【の】む物【もの】,くすり,medicine,薬,,656,e_656_kusuri.mp3
-expr-657,cat-60,体【からだ】が壊【こわ】れた事【こと】,けが,injury,怪我,,657,e_657_kega.mp3
+expr-657,cat-60,体【からだ】が悪【わる】くなった事【こと】,けが,injury,怪我,,657,e_657_kega.mp3
 expr-658,cat-60,体【からだ】が悪【わる】く感【かん】じる,いたい,"painful, hurts",痛い,,658,e_658_itai.mp3
 expr-659,cat-60,体【からだ】がとても暑【あつ】くなる事【こと】,ねつ,fever,熱,,659,e_659_netsu.mp3
 expr-660,cat-60,体【からだ】が悪【わる】くて暑【あつ】くなる事【こと】,かぜ,cold (illness),風邪,,660,e_660_kaze.mp3

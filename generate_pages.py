@@ -227,7 +227,7 @@ def gen_index(lang):
     items = '\n'.join(f'    <li>{b}</li>' for b in bullets)
 
     if lang == 'en':
-        h1 = '  <h1>Learn Japanese from 182 core words.</h1>\n'
+        h1 = '  <h1>Learn Japanese from 206 core words.</h1>\n'
     elif lang == 'mh':
         h1 = '  <h1 lang="ja">ミニ<ruby>本<rt>ほん</rt></ruby><ruby>語<rt>ご</rt></ruby></h1>\n'
     else:
