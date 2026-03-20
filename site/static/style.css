@@ -310,7 +310,6 @@ ruby rt {
 }
 
 .story-translation {
-  padding-inline-start: var(--s);
   color: var(--text-muted);
   font-size: 0.9rem;
   margin-block-end: var(--s);
