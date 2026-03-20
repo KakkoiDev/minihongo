@@ -1,12 +1,12 @@
 # ミニ本語 Minihongo
 
-206 words. Infinite expression. Learn to express any idea in Japanese with the minimum vocabulary.
+207 words. Infinite expression. Learn to express any idea in Japanese with the minimum vocabulary.
 
 Live at [minihongo.com](https://minihongo.com)
 
 ## Goals
 
-- **Make Japanese accessible to everyone.** Even extremely busy people or those with cognitive disabilities can learn 206 words. That is enough to express any idea.
+- **Make Japanese accessible to everyone.** Even extremely busy people or those with cognitive disabilities can learn 207 words. That is enough to express any idea.
 - **Give anyone the minimum tools for self-expression.** Being able to name feelings and needs lowers aggression and frustration.
 - **Break down language barriers between communities.** Small minorities can communicate with society at large without relying on ethnic community interpreters. Shared language increases mutual understanding and reduces isolation.
 
@@ -14,7 +14,7 @@ Live at [minihongo.com](https://minihongo.com)
 
 | Lesson | What |
 |--------|------|
-| Vocabulary | 206 core words by category |
+| Vocabulary | 207 core words by category |
 | Grammar | Particles, conjugation, sentence patterns |
 | Word Building | Compounds, circumlocution, expressions |
 | Reading | Haiku, dialogs, and short stories |
@@ -25,7 +25,7 @@ Three versions of the entire site:
 
 - **English** - Standard explanations
 - **日本語** - Full Japanese translation
-- **ミニ本語** - Everything written using only the 206 base words, with furigana
+- **ミニ本語** - Everything written using only the 207 base words, with furigana
 
 ## Stack
 
@@ -82,7 +82,7 @@ Spaced-repetition flashcard decks for [Anki](https://apps.ankiweb.net/) with aud
 |------|---------------------|
 | `minihongo-en.apkg` | English |
 | `minihongo-ja.apkg` | Japanese |
-| `minihongo-mh.apkg` | Minihongo (definitions in the 206 base words) |
+| `minihongo-mh.apkg` | Minihongo (definitions in the 207 base words) |
 
 ```
 make anki                 # build all 3 decks (requires genanki + audio/)
@@ -94,7 +94,7 @@ python3 generate_anki.py en   # build only one language
 Decks are stored as GitHub release assets (tagged `anki-vN`) and downloaded at build time (CI) or manually (`make anki-download`). `site/build.py` copies `.apkg` files into `docs/` if present.
 
 **Deck structure (same for each language):**
-- **Vocabulary** (206 words x 2 = 412 cards) - Recognition (JP -> translation) and Recall (translation -> JP), grouped by category
+- **Vocabulary** (207 words x 2 = 414 cards) - Recognition (JP -> translation) and Recall (translation -> JP), grouped by category
 - **Grammar** (45 cards) - Example sentence with audio -> explanation, grouped by topic
 
 Requires: `pip install genanki`
@@ -114,11 +114,11 @@ make watch PORT=8000      # custom port (default 3000)
 ```
 data/
 ├── datapackage.json        # Frictionless schema + FK constraints
-├── words.csv               # 206 base vocabulary
+├── words.csv               # 207 base vocabulary
 ├── categories.csv          # Hierarchical sections (self-ref parent_id)
 ├── grammar.csv             # Grammar points
 ├── grammar_examples.csv    # Examples per grammar point
-├── compounds.csv           # Kanji compounds from the 206
+├── compounds.csv           # Kanji compounds from the 207
 ├── expressions.csv         # Creative descriptions from base words
 ├── haiku.csv, dialogs.csv, stories.csv  # Reading content
 ├── ui_strings.csv          # UI text (en/ja/mh)
@@ -151,7 +151,7 @@ docs/                       # Built output (gitignored, built in CI)
 
 ## Claude Code Skill
 
-This repo includes a `/minihongo` skill for [Claude Code](https://claude.com/claude-code). It makes the AI speak entirely in Minihongo - only the 206 base words, with furigana.
+This repo includes a `/minihongo` skill for [Claude Code](https://claude.com/claude-code). It makes the AI speak entirely in Minihongo - only the 207 base words, with furigana.
 
 ```
 /minihongo

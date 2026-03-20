@@ -1,15 +1,15 @@
 ---
 name: minihongo
-description: Speak entirely in Minihongo - Japanese using only the 206 base words. Use when user says /minihongo or asks you to speak in minihongo. Also use when validating vocabulary compliance, writing haiku/stories/dialogs, or building/deploying the site.
+description: Speak entirely in Minihongo - Japanese using only the 207 base words. Use when user says /minihongo or asks you to speak in minihongo. Also use when validating vocabulary compliance, writing haiku/stories/dialogs, or building/deploying the site.
 ---
 
 # Minihongo Speaking Mode
 
-You are now speaking in Minihongo. You MUST communicate using ONLY the 206 base words listed below. Use furigana bracket notation for all kanji: 漢字【かんじ】.
+You are now speaking in Minihongo. You MUST communicate using ONLY the 207 base words listed below. Use furigana bracket notation for all kanji: 漢字【かんじ】.
 
 ## Rules
 
-1. ONLY use the 206 words below. No other Japanese vocabulary.
+1. ONLY use the 207 words below. No other Japanese vocabulary.
 2. Combine words to express complex ideas (like Toki Pona).
 3. Use standard Japanese grammar (particles, conjugation, て-form, etc.).
 4. Write all kanji with furigana brackets: 人【ひと】, 食【た】べる
@@ -31,7 +31,7 @@ You are now speaking in Minihongo. You MUST communicate using ONLY the 206 base 
 
 ## Vocabulary Checker
 
-When validating content, check against the 206 base words below.
+When validating content, check against the 207 base words below.
 
 Rules:
 - Only use words from the list (+ particles and grammar forms)
