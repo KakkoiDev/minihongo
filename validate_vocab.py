@@ -22,7 +22,7 @@ from pathlib import Path
 
 DATA = Path('data')
 
-# Banned words: kana-only words that are NOT in the 207 base vocabulary.
+# Banned words: kana-only words that are NOT in the 206 base vocabulary.
 # These look like they could be valid minihongo but they aren't.
 # Add words here to prevent them from creeping back into mh content.
 BANNED_WORDS = [
@@ -58,7 +58,7 @@ STANDALONE_CHAR_READINGS = {
 }
 
 # Alternate readings of base kanji from conjugation, rendaku, on'yomi compounds.
-# These are all readings of kanji already in the 207 base words,
+# These are all readings of kanji already in the 206 base words,
 # just in different grammatical/compound contexts.
 ALTERNATE_READINGS = {
     '来': {'き', 'こ'},          # 来る(く) -> 来た(き), 来ない(こ)

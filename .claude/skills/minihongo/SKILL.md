@@ -1,15 +1,15 @@
 ---
 name: minihongo
-description: Speak entirely in Minihongo - Japanese using only the 207 base words. Use when user says /minihongo or asks you to speak in minihongo. Also use when validating vocabulary compliance, writing haiku/stories/dialogs, or building/deploying the site.
+description: Speak entirely in Minihongo - Japanese using only the 206 base words. Use when user says /minihongo or asks you to speak in minihongo. Also use when validating vocabulary compliance, writing haiku/stories/dialogs, or building/deploying the site.
 ---
 
 # Minihongo Speaking Mode
 
-You are now speaking in Minihongo. You MUST communicate using ONLY the 207 base words listed below. Use furigana bracket notation for all kanji: 漢字【かんじ】.
+You are now speaking in Minihongo. You MUST communicate using ONLY the 206 base words listed below. Use furigana bracket notation for all kanji: 漢字【かんじ】.
 
 ## Rules
 
-1. ONLY use the 207 words below. No other Japanese vocabulary.
+1. ONLY use the 206 words below. No other Japanese vocabulary.
 2. Combine words to express complex ideas (like Toki Pona).
 3. Use standard Japanese grammar (particles, conjugation, て-form, etc.).
 4. Write all kanji with furigana brackets: 人【ひと】, 食【た】べる
@@ -31,7 +31,7 @@ You are now speaking in Minihongo. You MUST communicate using ONLY the 207 base 
 
 ## Vocabulary Checker
 
-When validating content, check against the 207 base words below.
+When validating content, check against the 206 base words below.
 
 Rules:
 - Only use words from the list (+ particles and grammar forms)
@@ -68,7 +68,7 @@ docs/               Built output (GitHub Pages), gitignored
 - `make watch` - auto-rebuild on change
 - Two versions: EN (`/`) and JA (`/ja/`)
 
-## The 207 Words
+## The 206 Words
 
 ### People
 人【ひと】(person) 私【わたし】(I) あなた(you) 誰【だれ】(who) 男【おとこ】(man) 女【おんな】(woman) 子供【こども】(child) 母【はは】(mother) 父【ちち】(father)
@@ -77,7 +77,7 @@ docs/               Built output (GitHub Pages), gitignored
 物【もの】(thing) 事【こと】(matter) 何【なに】(what) 服【ふく】(clothes) 本【ほん】(book) お金【かね】(money) 肉【にく】(meat) 卵【たまご】(egg)
 
 ### Nature
-石【いし】(stone) 木【き】(tree) 土【つち】(soil) 水【みず】(water) 火【ひ】(fire) 空気【くうき】(air) 風【かぜ】(wind) 太陽【たいよう】(sun) 光【ひかり】(light) 月【つき】(moon) 空【そら】(sky) 山【やま】(mountain) 海【うみ】(sea) 雨【あめ】(rain) 草【くさ】(grass) 雲【くも】(cloud)
+石【いし】(stone) 木【き】(tree) 土【つち】(soil) 水【みず】(water) 火【ひ】(fire) 風【かぜ】(wind) 太陽【たいよう】(sun) 光【ひかり】(light) 月【つき】(moon) 空【そら】(sky) 山【やま】(mountain) 海【うみ】(sea) 雨【あめ】(rain) 草【くさ】(grass) 雲【くも】(cloud)
 
 ### Animals
 動物【どうぶつ】(animal) 魚【さかな】(fish) 鳥【とり】(bird) 犬【いぬ】(dog)

@@ -2,10 +2,10 @@ key,en,ja,mh
 show_readings,Furigana,ふりがな,読【よ】み
 toc_title,Contents,目次,中【なか】の事【こと】
 site_name,Minihongo,ミニ本語,ミニ本【ほん】の言【こと】葉【ば】
-home_tagline,"207 base words. 9 grammar lessons. Enough to describe any concept in Japanese.",207の基本語、9つの文法レッスン。どんな概念も日本語で表現できる。,"207の言【こと】葉【ば】。何【なん】でも言【い】える。"
-home_1,"207 base words - nouns, verbs, and adjectives",207の基本語（名詞・動詞・形容詞）,207の言【こと】葉【ば】
+home_tagline,"206 base words. 9 grammar lessons. Enough to describe any concept in Japanese.",206の基本語、9つの文法レッスン。どんな概念も日本語で表現できる。,"206の言【こと】葉【ば】。何【なん】でも言【い】える。"
+home_1,"206 base words - nouns, verbs, and adjectives",206の基本語（名詞・動詞・形容詞）,206の言【こと】葉【ば】
 home_2,9 grammar lessons for full sentence structure,9つの文法レッスンで完全な文を作れる,9つの言【こと】葉【ば】の使【つか】い方【かた】
-home_3,202 compounds built from the base 207,207から作る202の複合語,207から作【つく】る202の言【こと】葉【ば】
+home_3,202 compounds built from the base 206,206から作る202の複合語,206から作【つく】る202の言【こと】葉【ば】
 home_onboarding,"Not for JLPT prep or business Japanese. For you if you want to start reading and speaking fast, with a system that grows with you.",JLPTやビジネス向けではない。早く読み話したい人、成長できるシステムが欲しい人に。,"JLPTのためでない。速【はや】く話【はな】したい人【ひと】のために。"
 home_example_gloss,big + person = adult,大きい＋人＝大人,
 home_nav_prefix,Start: ,,
@@ -16,16 +16,16 @@ th_parts,Parts,構成,中【なか】の言【こと】葉【ば】
 th_word,Word,言葉,言【こと】葉【ば】
 th_concept,Concept,概念,考【かんが】え
 th_literally,Literally,直訳,言【こと】葉【ば】のまま
-wb_desc_compounds,"Real Japanese words built entirely from kanji in the 207-word vocabulary.",207語の漢字だけで構成された実在の日本語。,"207の言【こと】葉【ば】の中【なか】の書【か】いた物【もの】で作【つく】った本当【ほんとう】の言【こと】葉【ば】。"
+wb_desc_compounds,"Real Japanese words built entirely from kanji in the 206-word vocabulary.",206語の漢字だけで構成された実在の日本語。,"206の言【こと】葉【ば】の中【なか】の書【か】いた物【もの】で作【つく】った本当【ほんとう】の言【こと】葉【ば】。"
 wb_desc_byov,,,
-wb_desc_common,"Real Japanese words from the top 1000 most common, expressed using only the 207 base words.",よく使う日本語を207の基本語だけで表現する。,"よく使【つか】う言【こと】葉【ば】を207の言【こと】葉【ば】だけで言【い】う。"
+wb_desc_common,"Real Japanese words from the top 1000 most common, expressed using only the 206 base words.",よく使う日本語を206の基本語だけで表現する。,"よく使【つか】う言【こと】葉【ば】を206の言【こと】葉【ば】だけで言【い】う。"
 th_example,Example,例文,使【つか】い方【かた】
 th_english,English,英語,English
 th_minihongo,Minihongo,ミニ本語,ミニ本【ほん】の言【こと】葉【ば】
 wb_reading_warning,"Kanji have multiple readings. The same character can sound different in different words. Learn each compound as a whole word, not by combining individual readings.",漢字には複数の読み方がある。同じ字でも言葉によって読みが変わる。熟語を丸ごと覚えること。,"書【か】いた物【もの】には読【よ】み方【かた】がいろいろある。一【ひと】つの書【か】いた物【もの】でも言【こと】葉【ば】によって音【おと】が変【か】わる。一【ひと】つ一【ひと】つの言【こと】葉【ば】を全部【ぜんぶ】で知【し】る。"
 home_anki_cta,Practice with flashcards:,フラッシュカードで練習:,Ankiで知【し】る:
 home_anki_link,Anki deck,Ankiデッキ,Ankiをもらう
-home_anki_desc,"207 words + grammar with audio.",207語+文法、音声付き。,"207の言【こと】葉【ば】と使【つか】い方【かた】、音【おと】がある。"
+home_anki_desc,"206 words + grammar with audio.",206語+文法、音声付き。,"206の言【こと】葉【ば】と使【つか】い方【かた】、音【おと】がある。"
 home_pdf_cta,Read the book:,本で読む:,本【ほん】で読【よ】む:
 home_pdf_link,PDF book,PDF本,PDFをもらう
 home_pdf_desc,All 4 lessons in one book.,4つのレッスンを1冊の本に。,全部【ぜんぶ】が一【ひと】つの本【ほん】に。

@@ -29,7 +29,7 @@ BOOK_TITLES = {
     'mh': '\u30df\u30cb\u672c\u8a9e',
 }
 BOOK_TAGLINES = {
-    'en': '207 words. Say anything.',
+    'en': '206 words. Say anything.',
     'ja': '207\u8a9e\u3067\u4f55\u3067\u3082\u8a00\u3048\u308b\u3002',
     'mh': '207\u306e\u8a00\u8449\u3002\u4f55\u3067\u3082\u8a00\u3048\u308b\u3002',
 }

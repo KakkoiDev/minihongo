@@ -38,7 +38,7 @@ expr-39,cat-40,月【つき】の光【ひかり】,,moonlight,月光,moon's lig
 expr-40,cat-40,空【そら】の火【ひ】,,lightning,稲妻,sky fire,40,e_40_sorahi.mp3
 expr-41,cat-40,白【しろ】い雨【あめ】,,snow,雪,white rain,41,e_41_shiroame.mp3
 expr-42,cat-40,寒【さむ】い水【みず】,,ice,氷,cold water,42,e_42_samumizu.mp3
-expr-43,cat-40,白【しろ】い空気【くうき】,,fog,霧,white air,43,e_43_shirokuuki.mp3
+expr-43,cat-40,白【しろ】い風【かぜ】,,fog,霧,white air,43,e_43_shirokuuki.mp3
 expr-44,cat-40,強【つよ】い風【かぜ】と雨【あめ】,,storm,嵐,strong wind and rain,44,e_44_tsuyokazeame.mp3
 expr-45,cat-40,雨【あめ】の後【あと】の色【いろ】,,rainbow,虹,color after rain,45,e_45_ameatoiro.mp3
 expr-46,cat-40,土【つち】が動【うご】く事【こと】,,earthquake,地震,earth moving,46,e_46_tsuchiugokoto.mp3
@@ -453,8 +453,8 @@ expr-460,cat-55,人【ひと】に言葉【ことば】を出【だ】すこと,
 expr-461,cat-55,物【もの】を作【つく】るための知【し】ること,ぎじゅつ,technology,技術,,461,e_461_gijutsu.mp3
 expr-462,cat-55,多【おお】くの物【もの】を作【つく】ること,さんぎょう,industry,産業,,462,e_462_sangyou.mp3
 expr-463,cat-55,国【くに】と国【くに】で物【もの】を買【か】ったり与【あた】えたりすること,ぼうえき,trade / commerce,貿易,,463,e_463_boueki.mp3
-expr-464,cat-55,人【ひと】の外【そと】にある水【みず】や空気【くうき】や土【つち】,かんきょう,environment,環境,,464,e_464_kankyou.mp3
-expr-465,cat-55,水【みず】や空気【くうき】が悪【わる】くなること,おせん,pollution / contamination,汚染,,465,e_465_osen.mp3
+expr-464,cat-55,人【ひと】の外【そと】にある水【みず】や風【かぜ】や土【つち】,かんきょう,environment,環境,,464,e_464_kankyou.mp3
+expr-465,cat-55,水【みず】や風【かぜ】が悪【わる】くなること,おせん,pollution / contamination,汚染,,465,e_465_osen.mp3
 expr-466,cat-55,人【ひと】が使【つか】える物【もの】,しげん,resources,資源,,466,e_466_shigen.mp3
 expr-467,cat-55,その所【ところ】にいる人【ひと】の多【おお】さ,じんこう,population,人口,,467,e_467_jinkou.mp3
 expr-468,cat-55,ある人【ひと】を他【ほか】の人【ひと】より悪【わる】くすること,さべつ,discrimination,差別,,468,e_468_sabetsu.mp3
@@ -554,7 +554,7 @@ expr-561,cat-57,物【もの】を動【うご】かす人【ひと】,うんて
 expr-562,cat-57,動【うご】く物【もの】が止【と】まって終【お】わる所【ところ】,しゅうてん,final stop/terminus,終点,,562,e_562_shuuten.mp3
 expr-563,cat-58,空【そら】から白【しろ】くて寒【さむ】い水【みず】が来【く】ること,ゆき,snow,雪,,563,e_563_yuki.mp3
 expr-564,cat-58,寒【さむ】くなった水【みず】,こおり,ice,氷,,564,e_564_koori.mp3
-expr-565,cat-58,白【しろ】い空気【くうき】で何【なに】も見【み】えなくなること,きり,fog/mist,霧,,565,e_565_kiri.mp3
+expr-565,cat-58,白【しろ】い風【かぜ】で何【なに】も見【み】えなくなること,きり,fog/mist,霧,,565,e_565_kiri.mp3
 expr-567,cat-58,雨【あめ】の後【あと】に空【そら】に出【で】る色【いろ】の光【ひかり】,にじ,rainbow,虹,,567,e_567_niji.mp3
 expr-568,cat-58,空【そら】で大【おお】きい音【おと】と光【ひかり】が起【お】こること,かみなり,thunder/lightning,雷,,568,e_568_kaminari.mp3
 expr-569,cat-58,強【つよ】い風【かぜ】と雨【あめ】が来【く】ること,たいふう,typhoon,台風,,569,e_569_taifuu.mp3
@@ -840,7 +840,7 @@ expr-863,cat-63,することがない,ひま,free (time) / idle,暇,,863,e_863_h
 expr-864,cat-63,とてもきれいだ,うつくしい,beautiful,美しい,,864,e_864_utsukushii.mp3
 expr-865,cat-63,きれいではない,みにくい,ugly,醜い,,865,e_865_minikui.mp3
 expr-866,cat-63,悪【わる】いものがある,きたない,dirty,汚い,,866,e_866_kitanai.mp3
-expr-867,cat-63,悪【わる】い空気【くうき】がある,くさい,stinky / smelly,臭い,,867,e_867_kusai.mp3
+expr-867,cat-63,悪【わる】い風【かぜ】がある,くさい,stinky / smelly,臭い,,867,e_867_kusai.mp3
 expr-868,cat-63,体【からだ】が悪【わる】く感【かん】じる,いたい,painful,痛い,,868,e_868_itai.mp3
 expr-869,cat-63,寝【ね】たいと感【かん】じる,ねむい,sleepy,眠い,,869,e_869_nemui.mp3
 expr-870,cat-63,他【ほか】の人【ひと】に見【み】られたくないと感【かん】じる,はずかしい,embarrassed / ashamed,恥ずかしい,,870,e_870_hazukashii.mp3
