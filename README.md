@@ -95,7 +95,7 @@ Decks are stored as GitHub release assets (tagged `anki-vN`) and downloaded at b
 
 **Deck structure (same for each language):**
 - **Vocabulary** (207 words x 2 = 414 cards) - Recognition (JP -> translation) and Recall (translation -> JP), grouped by category
-- **Grammar** (45 cards) - Example sentence with audio -> explanation, grouped by topic
+- **Grammar** (106 cards) - Example sentence with audio -> explanation, grouped by topic
 
 Requires: `pip install genanki`
 
