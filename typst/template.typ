@@ -93,7 +93,7 @@
   )
   if translation-content != none {
     block(
-      inset: (left: 1.5em, top: 0.3em, bottom: 0.3em),
+      inset: (top: 0.3em, bottom: 0.3em),
       {
         set text(size: 9pt, fill: text-muted)
         translation-content
@@ -120,7 +120,7 @@
   )
   if translation != none {
     block(
-      inset: (left: 1.5em, top: 0.3em, bottom: 0.3em),
+      inset: (top: 0.3em, bottom: 0.3em),
       text(size: 9pt, fill: text-muted, translation),
     )
   }
