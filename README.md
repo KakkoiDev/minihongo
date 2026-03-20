@@ -94,7 +94,7 @@ python3 generate_anki.py en   # build only one language
 Decks are stored as GitHub release assets (tagged `anki-vN`) and downloaded at build time (CI) or manually (`make anki-download`). `site/build.py` copies `.apkg` files into `docs/` if present.
 
 **Deck structure (same for each language):**
-- **Vocabulary** (206 words x 2 = 414 cards) - Recognition (JP -> translation) and Recall (translation -> JP), grouped by category
+- **Vocabulary** (206 words x 2 = 412 cards) - Recognition (JP -> translation) and Recall (translation -> JP), grouped by category
 - **Grammar** (106 cards) - Example sentence with audio -> explanation, grouped by topic
 
 Requires: `pip install genanki`
@@ -114,7 +114,7 @@ make watch PORT=8000      # custom port (default 3000)
 ```
 data/
 ├── datapackage.json        # Frictionless schema + FK constraints
-├── words.csv               # 207 base vocabulary
+├── words.csv               # 206 base vocabulary
 ├── categories.csv          # Hierarchical sections (self-ref parent_id)
 ├── grammar.csv             # Grammar points
 ├── grammar_examples.csv    # Examples per grammar point
