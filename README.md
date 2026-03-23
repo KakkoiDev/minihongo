@@ -175,6 +175,10 @@ The vocabulary and grammar draw on research into minimal languages, linguistic u
 - **[Basic English](https://en.wikipedia.org/wiki/Basic_English)** - C.K. Ogden's 850-word simplified English (1930) showed a controlled vocabulary can cover everyday communication. Minihongo pushes further: fewer words, full grammar.
 - **[Semantic primes research](https://en.wikipedia.org/wiki/Semantic_primes)** - Cross-linguistic studies identifying concepts present in every known language.
 
+### Pattern-based Teaching
+
+- **[3 Patterns to Build Any Chinese Sentence](https://www.youtube.com/watch?v=yvBZTBaX0Is)** - Sheldon's video on three core patterns that generate 80% of Chinese sentences: STPVO word order (set the stage, then act), action chaining (stack verbs in chronological order), and tense filters (particles instead of conjugation). The same patterns apply to Japanese: verb-last word order, te-form chaining, and た/ている/ない as filters on a base verb.
+
 ### Grammar Foundations
 
 - **[Yasashii Nihongo (Easy Japanese)](https://en.wikipedia.org/wiki/Easy_Japanese)** - Government-backed simplified Japanese framework (Immigration Services Agency, Agency for Cultural Affairs, 2020). Developed by Hirosaki University Sociolinguistics Lab (1999) for foreigners and people with disabilities. Requires masu/desu register, drops keigo/passive/causative. Directly informs Minihongo's grammar design.

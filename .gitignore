@@ -15,6 +15,7 @@ site/pages/mh/
 *.md
 !README.md
 !SCHEMA.md
+!RESEARCH.md
 !.claude/skills/**/SKILL.md
 conversation-about-minihongo.html
 audio/
