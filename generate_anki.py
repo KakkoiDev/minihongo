@@ -115,7 +115,7 @@ SHARED_CSS = """
 .word {
     font-size: 32px;
     font-weight: bold;
-    margin: 20px 0;
+    margin: 20px 0 15px;
     line-height: 2;
 }
 .sentence {

@@ -1,4 +1,4 @@
-.PHONY: build serve watch _rebuild lint-haiku lint-vocab audio audio-download audio-release anki anki-download anki-release pdf pdf-download pdf-release pdf-print
+.PHONY: build serve watch _rebuild lint-haiku lint-vocab audio audio-download audio-release anki anki-download anki-release pdf pdf-download pdf-release pdf-print deploy
 
 PORT ?= 3000
 
@@ -97,3 +97,9 @@ pdf-release: pdf
 	gh release create pdf minihongo-books.zip \
 		--title "PDF Books" \
 		--notes "$$(git log -5 --oneline)"
+
+# -- Deploy ------------------------------------------------------------------
+
+deploy:
+	gh workflow run deploy.yml
+	@echo "Deploy triggered. Watch: gh run watch"
