@@ -1,4 +1,4 @@
-.PHONY: build serve watch _rebuild lint-haiku lint-vocab audio audio-download audio-release anki anki-download anki-release pdf pdf-download pdf-release pdf-print deploy
+.PHONY: build serve watch _rebuild lint-haiku lint-vocab audio audio-download audio-release anki anki-restyle anki-download anki-release pdf pdf-download pdf-release pdf-print deploy
 
 PORT ?= 3000
 
@@ -64,6 +64,15 @@ anki-download:
 # Build Anki decks for all languages (requires genanki + audio/)
 anki:
 	python3 generate_anki.py
+
+# Build with forced new model IDs and release (use when CSS changes, resets progress)
+anki-restyle:
+	python3 generate_anki.py --force-style
+	@echo "Decks: $$(du -sh minihongo-*.apkg | cut -f1 | paste -sd+ | bc)B total"
+	-gh release delete anki --yes --cleanup-tag 2>/dev/null
+	gh release create anki minihongo-*.apkg \
+		--title "Anki" \
+		--notes "$$(git log -5 --oneline)"
 
 # Upload Anki decks (single release, replaces previous)
 anki-release: anki
