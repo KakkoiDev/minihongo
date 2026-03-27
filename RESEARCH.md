@@ -411,10 +411,85 @@ The vocabulary and grammar draw on research into minimal languages, linguistic u
 
 ---
 
+## Dialogs and Stories: Expansion Plan
+
+### Current content
+
+**Daily life dialogs (5):** Shop, Meeting a friend, Family dinner, Asking directions, Morning routine
+**Philosophical dialogs (9):** What is life, Night lights, Why do people fight, What only humans have, On time, Learning, The sea, Old and new, Music and feelings
+**Stories (7):** The Mountain, Two Countries, The Old Tree, A Child's Question, The Dog and the Bird, Fish from a Far Place, The Barber
+
+### Gap analysis
+
+The balance is wrong for the target audience. 5 daily-life dialogs vs 9 philosophical ones. For refugees, minorities, and classroom use, practical situations are where the value is. The philosophical dialogs are nice reading practice but don't prepare you to navigate life in Japan.
+
+### Proposed new daily-life dialogs
+
+Priority ranked by real-world consequence (what happens if you can't communicate here):
+
+**High priority (health, safety, admin):**
+
+| Dialog | Why essential | Key phrases |
+|--------|-------------|-------------|
+| At the doctor | Describing symptoms, understanding instructions | 頭が痛い, 熱がある, いつからですか |
+| Emergency / calling for help | Giving address, describing situation | 助けてください, ここは..., 人が倒れた |
+| At the pharmacy | Asking for medicine, allergies | この薬をください, アレルギーがあります |
+| At city hall / ward office | Registration, appointments, forms | 届け出をしたい, 書き方を教えてください |
+| At the hospital reception | Checking in, insurance card, waiting | 保険証, 初めてです, 待ってください |
+
+**Medium priority (daily survival):**
+
+| Dialog | Why essential | Key phrases |
+|--------|-------------|-------------|
+| At the train station | Buying tickets, finding platforms | ...までいくらですか, 何番線ですか |
+| At a restaurant / ordering | Ordering, allergies, bill | これをください, ...が入っていますか, お会計 |
+| Introducing yourself | Name, country, where you live | ...から来ました, ...に住んでいます |
+| At the convenience store | Paying, bags, heating food | 温めますか, 袋はいりますか |
+| Phone call (appointment) | Making an appointment, confirming time | 予約をしたい, ...時はいいですか |
+
+**Lower priority (social integration):**
+
+| Dialog | Why essential | Key phrases |
+|--------|-------------|-------------|
+| Landlord / neighbor | Noise, garbage rules, broken things | ゴミの日, 水が出ない, すみません |
+| At school (parent-teacher) | Child's progress, schedule, events | 子供は元気ですか, 次の行事 |
+| At the post office | Sending packages, stamps | これを送りたい, いくらですか |
+| Job interview (simple) | Self-introduction, schedule, skills | 何ができますか, いつ働けますか |
+| At the bank | Opening account, ATM problems | 口座を開きたい, カードが出ない |
+| Weather / small talk | Basic social interaction | 今日は暑いですね, 雨が来そう |
+| Asking someone to repeat | Core survival skill | もう一度, ゆっくり, 書いてください |
+
+### Proposed new stories
+
+Stories should model real situations the target audience faces, not just literary/philosophical themes.
+
+| Story | Theme | Why useful |
+|-------|-------|-----------|
+| The new country | Arriving in Japan, first impressions, being lost | Models the refugee/immigrant experience |
+| The letter | Trying to read a letter from city hall, asking for help | Models admin/bureaucracy challenge |
+| The neighbor's dog | Meeting neighbors, building trust slowly | Models social integration |
+| Rain day at school | A child's first day, not understanding, making a friend | Models children's integration |
+| The wrong train | Getting lost on trains, asking strangers for help | Models transport navigation |
+| The phone call | Trying to make a doctor appointment by phone | Models phone anxiety |
+
+### Design principles for new content
+
+1. All content must use only the 206 base words (+ loan words section for katakana)
+2. Dialogs should be 6-10 lines (short enough to practice as a pair)
+3. Each dialog should introduce 1-2 practical patterns the learner can reuse
+4. Speakers should use polite form (ます/です) since that's the register for strangers
+5. Stories should be 8-15 sentences (readable in 2-3 minutes)
+6. Include situations where communication partially fails - models realistic experience
+
+---
+
 ## Open Questions
 
-- How to restructure minihongo's grammar section to lead with the "3 patterns" overview?
-- Should te-form chaining be split from te-form's other uses (requests, progressive, permission)?
-- Can the "Instagram filter" metaphor for conjugation be formalized into an actual teaching sequence?
-- What is the minimal set of example sentences that demonstrates all three patterns working together?
+- How to restructure minihongo's grammar section to lead with the "3 patterns" overview? (DONE)
+- Should te-form chaining be split from te-form's other uses? (DONE - split into gram-15 and gram-40)
+- Can the "Instagram filter" metaphor for conjugation be formalized into an actual teaching sequence? (DONE - intro section)
+- What is the minimal set of example sentences that demonstrates all three patterns working together? (DONE - intro worked examples)
 - How do other minimal/constructed languages (Toki Pona, Basic English, Esperanto) handle these same patterns?
+- How to organize the reading page TOC for 20+ dialogs? (category grouping by situation type)
+- Should dialogs use ます form throughout or mix registers?
+- PDF book: drop word-building section, expand dialogs and stories instead?
