@@ -912,72 +912,72 @@ expr-935,cat-64,してもいいと言【い】われていること,けんり,ri
 expr-936,cat-64,良【よ】いことをするという考【かんが】え,せいぎ,justice,正義,,936,e_936_seigi.mp3
 expr-937,cat-64,どのくらい良【よ】いかということ,かち,value / worth,価値,,937,e_937_kachi.mp3
 expr-938,cat-64,するという強【つよ】い心【こころ】,いし,will / volition,意志,,938,e_938_ishi.mp3
-expr-1001,cat-83,トイレ,,toilet / bathroom,トイレ,from French toilette,1,
-expr-1002,cat-83,エレベーター,,elevator,エレベーター,,2,
-expr-1003,cat-83,エスカレーター,,escalator,エスカレーター,,3,
-expr-1004,cat-83,ホテル,,hotel,ホテル,,4,
-expr-1005,cat-83,レストラン,,restaurant,レストラン,,5,
-expr-1006,cat-83,スーパー,,supermarket,スーパー,short for supermarket,6,
-expr-1007,cat-83,コンビニ,,convenience store,コンビニ,short for convenience store,7,
-expr-1008,cat-83,デパート,,department store,デパート,short for department store,8,
-expr-1009,cat-83,ビル,,building,ビル,short for building,9,
-expr-1010,cat-83,バス,,bus,バス,,10,
-expr-1011,cat-83,タクシー,,taxi,タクシー,,11,
-expr-1012,cat-83,フロア,,floor (of a building),フロア,,12,
-expr-1013,cat-84,コーヒー,,coffee,コーヒー,,1,
-expr-1014,cat-84,ビール,,beer,ビール,from Dutch bier,2,
-expr-1015,cat-84,ワイン,,wine,ワイン,,3,
-expr-1016,cat-84,ジュース,,juice,ジュース,,4,
-expr-1017,cat-84,ミルク,,milk,ミルク,,5,
-expr-1018,cat-84,パン,,bread,パン,from Portuguese pao,6,
-expr-1019,cat-84,バター,,butter,バター,,7,
-expr-1020,cat-84,チーズ,,cheese,チーズ,,8,
-expr-1021,cat-84,サラダ,,salad,サラダ,,9,
-expr-1022,cat-84,スープ,,soup,スープ,,10,
-expr-1023,cat-84,カレー,,curry,カレー,,11,
-expr-1024,cat-84,ケーキ,,cake,ケーキ,,12,
-expr-1025,cat-84,アイスクリーム,,ice cream,アイスクリーム,,13,
-expr-1026,cat-84,チョコレート,,chocolate,チョコレート,,14,
-expr-1027,cat-84,メニュー,,menu,メニュー,,15,
-expr-1028,cat-84,ランチ,,lunch,ランチ,,16,
-expr-1029,cat-85,レジ,,register / checkout,レジ,short for register,1,
-expr-1030,cat-85,サイズ,,size,サイズ,,2,
-expr-1031,cat-85,レシート,,receipt,レシート,,3,
-expr-1032,cat-85,カード,,card,カード,,4,
-expr-1033,cat-85,ポイント,,point(s),ポイント,,5,
-expr-1034,cat-85,セール,,sale,セール,,6,
-expr-1035,cat-85,プレゼント,,present / gift,プレゼント,,7,
-expr-1036,cat-86,テレビ,,television / TV,テレビ,,1,
-expr-1037,cat-86,テーブル,,table,テーブル,,2,
-expr-1038,cat-86,ドア,,door,ドア,,3,
-expr-1039,cat-86,ソファ,,sofa,ソファ,,4,
-expr-1040,cat-86,エアコン,,air conditioner,エアコン,short for air conditioner,5,
-expr-1041,cat-86,カメラ,,camera,カメラ,,6,
-expr-1042,cat-86,ナイフ,,knife,ナイフ,,7,
-expr-1043,cat-86,フォーク,,fork,フォーク,,8,
-expr-1044,cat-86,スプーン,,spoon,スプーン,,9,
-expr-1045,cat-86,コップ,,glass / cup,コップ,from Dutch kop,10,
-expr-1046,cat-86,ガラス,,glass (material),ガラス,from Dutch glas,11,
-expr-1047,cat-87,マスク,,mask,マスク,,1,
-expr-1048,cat-87,アレルギー,,allergy,アレルギー,from German Allergie,2,
-expr-1049,cat-87,ストレス,,stress,ストレス,,3,
-expr-1050,cat-87,ワクチン,,vaccine,ワクチン,from German Vakzin,4,
-expr-1051,cat-87,ビタミン,,vitamin,ビタミン,,5,
-expr-1052,cat-88,インターネット,,internet,インターネット,,1,
-expr-1053,cat-88,メール,,email,メール,,2,
-expr-1054,cat-88,パソコン,,personal computer,パソコン,short for personal computer,3,
-expr-1055,cat-88,スマホ,,smartphone,スマホ,short for smartphone,4,
-expr-1056,cat-88,ノート,,notebook,ノート,,5,
-expr-1057,cat-88,ペン,,pen,ペン,,6,
-expr-1058,cat-88,テスト,,test,テスト,,7,
-expr-1059,cat-88,ミーティング,,meeting,ミーティング,,8,
-expr-1060,cat-88,スケジュール,,schedule,スケジュール,,9,
-expr-1061,cat-88,コピー,,copy,コピー,,10,
-expr-1062,cat-89,マンション,,apartment (NOT mansion),マンション,looks like mansion,1,
-expr-1063,cat-89,バイキング,,buffet (NOT viking),バイキング,looks like viking,2,
-expr-1064,cat-89,コンセント,,electrical outlet (NOT consent),コンセント,looks like consent,3,
-expr-1065,cat-89,カンニング,,cheating on exam (NOT cunning),カンニング,looks like cunning,4,
-expr-1066,cat-89,スマート,,slim / slender (NOT smart),スマート,looks like smart,5,
-expr-1067,cat-89,ナイーブ,,sensitive / delicate (NOT naive),ナイーブ,looks like naive,6,
-expr-1068,cat-89,テンション,,excitement / energy (NOT tension),テンション,looks like tension,7,
-expr-1069,cat-89,クレーム,,complaint (NOT claim),クレーム,from French claim,8,
+expr-1001,cat-83,トイレ,,toilet / bathroom,トイレ,from French toilette,1,e_1001_toire.mp3
+expr-1002,cat-83,エレベーター,,elevator,エレベーター,,2,e_1002_erebeetaa.mp3
+expr-1003,cat-83,エスカレーター,,escalator,エスカレーター,,3,e_1003_esukareetaa.mp3
+expr-1004,cat-83,ホテル,,hotel,ホテル,,4,e_1004_hoteru.mp3
+expr-1005,cat-83,レストラン,,restaurant,レストラン,,5,e_1005_resutoran.mp3
+expr-1006,cat-83,スーパー,,supermarket,スーパー,short for supermarket,6,e_1006_suupaa.mp3
+expr-1007,cat-83,コンビニ,,convenience store,コンビニ,short for convenience store,7,e_1007_konbini.mp3
+expr-1008,cat-83,デパート,,department store,デパート,short for department store,8,e_1008_depaato.mp3
+expr-1009,cat-83,ビル,,building,ビル,short for building,9,e_1009_biru.mp3
+expr-1010,cat-83,バス,,bus,バス,,10,e_1010_basu.mp3
+expr-1011,cat-83,タクシー,,taxi,タクシー,,11,e_1011_takushii.mp3
+expr-1012,cat-83,フロア,,floor (of a building),フロア,,12,e_1012_furoa.mp3
+expr-1013,cat-84,コーヒー,,coffee,コーヒー,,1,e_1013_koohii.mp3
+expr-1014,cat-84,ビール,,beer,ビール,from Dutch bier,2,e_1014_biiru.mp3
+expr-1015,cat-84,ワイン,,wine,ワイン,,3,e_1015_wain.mp3
+expr-1016,cat-84,ジュース,,juice,ジュース,,4,e_1016_juusu.mp3
+expr-1017,cat-84,ミルク,,milk,ミルク,,5,e_1017_miruku.mp3
+expr-1018,cat-84,パン,,bread,パン,from Portuguese pao,6,e_1018_pan.mp3
+expr-1019,cat-84,バター,,butter,バター,,7,e_1019_bataa.mp3
+expr-1020,cat-84,チーズ,,cheese,チーズ,,8,e_1020_chiizu.mp3
+expr-1021,cat-84,サラダ,,salad,サラダ,,9,e_1021_sarada.mp3
+expr-1022,cat-84,スープ,,soup,スープ,,10,e_1022_suupu.mp3
+expr-1023,cat-84,カレー,,curry,カレー,,11,e_1023_karee.mp3
+expr-1024,cat-84,ケーキ,,cake,ケーキ,,12,e_1024_keeki.mp3
+expr-1025,cat-84,アイスクリーム,,ice cream,アイスクリーム,,13,e_1025_aisukuriimu.mp3
+expr-1026,cat-84,チョコレート,,chocolate,チョコレート,,14,e_1026_chokoreeto.mp3
+expr-1027,cat-84,メニュー,,menu,メニュー,,15,e_1027_menyuu.mp3
+expr-1028,cat-84,ランチ,,lunch,ランチ,,16,e_1028_ranchi.mp3
+expr-1029,cat-85,レジ,,register / checkout,レジ,short for register,1,e_1029_reji.mp3
+expr-1030,cat-85,サイズ,,size,サイズ,,2,e_1030_saizu.mp3
+expr-1031,cat-85,レシート,,receipt,レシート,,3,e_1031_reshiito.mp3
+expr-1032,cat-85,カード,,card,カード,,4,e_1032_kaado.mp3
+expr-1033,cat-85,ポイント,,point(s),ポイント,,5,e_1033_pointo.mp3
+expr-1034,cat-85,セール,,sale,セール,,6,e_1034_seeru.mp3
+expr-1035,cat-85,プレゼント,,present / gift,プレゼント,,7,e_1035_purezento.mp3
+expr-1036,cat-86,テレビ,,television / TV,テレビ,,1,e_1036_terebi.mp3
+expr-1037,cat-86,テーブル,,table,テーブル,,2,e_1037_teeburu.mp3
+expr-1038,cat-86,ドア,,door,ドア,,3,e_1038_doa.mp3
+expr-1039,cat-86,ソファ,,sofa,ソファ,,4,e_1039_sofuァ.mp3
+expr-1040,cat-86,エアコン,,air conditioner,エアコン,short for air conditioner,5,e_1040_eakon.mp3
+expr-1041,cat-86,カメラ,,camera,カメラ,,6,e_1041_kamera.mp3
+expr-1042,cat-86,ナイフ,,knife,ナイフ,,7,e_1042_naifu.mp3
+expr-1043,cat-86,フォーク,,fork,フォーク,,8,e_1043_fuォku.mp3
+expr-1044,cat-86,スプーン,,spoon,スプーン,,9,e_1044_supuun.mp3
+expr-1045,cat-86,コップ,,glass / cup,コップ,from Dutch kop,10,e_1045_koppu.mp3
+expr-1046,cat-86,ガラス,,glass (material),ガラス,from Dutch glas,11,e_1046_garasu.mp3
+expr-1047,cat-87,マスク,,mask,マスク,,1,e_1047_masuku.mp3
+expr-1048,cat-87,アレルギー,,allergy,アレルギー,from German Allergie,2,e_1048_arerugii.mp3
+expr-1049,cat-87,ストレス,,stress,ストレス,,3,e_1049_sutoresu.mp3
+expr-1050,cat-87,ワクチン,,vaccine,ワクチン,from German Vakzin,4,e_1050_wakuchin.mp3
+expr-1051,cat-87,ビタミン,,vitamin,ビタミン,,5,e_1051_bitamin.mp3
+expr-1052,cat-88,インターネット,,internet,インターネット,,1,e_1052_intaanetto.mp3
+expr-1053,cat-88,メール,,email,メール,,2,e_1053_meeru.mp3
+expr-1054,cat-88,パソコン,,personal computer,パソコン,short for personal computer,3,e_1054_pasokon.mp3
+expr-1055,cat-88,スマホ,,smartphone,スマホ,short for smartphone,4,e_1055_sumaho.mp3
+expr-1056,cat-88,ノート,,notebook,ノート,,5,e_1056_nooto.mp3
+expr-1057,cat-88,ペン,,pen,ペン,,6,e_1057_pen.mp3
+expr-1058,cat-88,テスト,,test,テスト,,7,e_1058_tesuto.mp3
+expr-1059,cat-88,ミーティング,,meeting,ミーティング,,8,e_1059_miiteィngu.mp3
+expr-1060,cat-88,スケジュール,,schedule,スケジュール,,9,e_1060_sukejuuru.mp3
+expr-1061,cat-88,コピー,,copy,コピー,,10,e_1061_kopii.mp3
+expr-1062,cat-89,マンション,,apartment (NOT mansion),マンション,looks like mansion,1,e_1062_manshon.mp3
+expr-1063,cat-89,バイキング,,buffet (NOT viking),バイキング,looks like viking,2,e_1063_baikingu.mp3
+expr-1064,cat-89,コンセント,,electrical outlet (NOT consent),コンセント,looks like consent,3,e_1064_konsento.mp3
+expr-1065,cat-89,カンニング,,cheating on exam (NOT cunning),カンニング,looks like cunning,4,e_1065_kanningu.mp3
+expr-1066,cat-89,スマート,,slim / slender (NOT smart),スマート,looks like smart,5,e_1066_sumaato.mp3
+expr-1067,cat-89,ナイーブ,,sensitive / delicate (NOT naive),ナイーブ,looks like naive,6,e_1067_naiibu.mp3
+expr-1068,cat-89,テンション,,excitement / energy (NOT tension),テンション,looks like tension,7,e_1068_tenshon.mp3
+expr-1069,cat-89,クレーム,,complaint (NOT claim),クレーム,from French claim,8,e_1069_kureemu.mp3
