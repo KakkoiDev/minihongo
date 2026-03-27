@@ -515,7 +515,7 @@ def write_back_cover(w):
 
 def generate_lang(lang, categories, words, grammar, grammar_examples,
                   compounds, expressions, haiku_data, dialog_groups,
-                  dialogs, stories, print_mode=False):
+                  dialogs, stories, print_mode=False, word_building=False):
     """Generate .typ file for one language."""
     w = TypstWriter(lang)
 
@@ -533,7 +533,8 @@ def generate_lang(lang, categories, words, grammar, grammar_examples,
     write_toc(w)
     write_vocabulary(w, categories, words, lang)
     write_grammar(w, categories, grammar, grammar_examples, lang)
-    write_word_building(w, categories, compounds, expressions, lang)
+    if word_building:
+        write_word_building(w, categories, compounds, expressions, lang)
     write_reading(w, categories, haiku_data, dialog_groups, dialogs, stories, lang)
     if not print_mode:
         write_back_cover(w)
@@ -597,13 +598,15 @@ def compile_cover(lang, page_count, spine_override=None):
 
 def parse_args():
     """Parse CLI arguments.
-    Usage: generate_pdf.py [--print] [--spine MM] [--lang LANG]
+    Usage: generate_pdf.py [--print] [--spine MM] [--lang LANG] [--word-building]
     """
-    args = {'print': False, 'spine': None, 'lang': None}
+    args = {'print': False, 'spine': None, 'lang': None, 'word_building': False}
     i = 1
     while i < len(sys.argv):
         if sys.argv[i] == '--print':
             args['print'] = True
+        elif sys.argv[i] == '--word-building':
+            args['word_building'] = True
         elif sys.argv[i] == '--spine' and i + 1 < len(sys.argv):
             args['spine'] = float(sys.argv[i + 1])
             i += 1
@@ -646,7 +649,7 @@ def main():
 
     ok = True
     for lang in langs:
-        typ_path = generate_lang(lang, *data_args, print_mode=print_mode)
+        typ_path = generate_lang(lang, *data_args, print_mode=print_mode, word_building=args['word_building'])
         if print_mode:
             pdf_path = Path(f'minihongo-{lang}-interior.pdf')
         else:

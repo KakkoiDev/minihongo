@@ -644,1525 +644,6 @@
 
 #pagebreak(weak: true)
 
-= Word Building
-
-== よく#ruby[つか][使]う#ruby[こと][言]#ruby[ば][葉] (Common Words in Minihongo)
-
-#text(size: 9pt, fill: rgb("#666666"))[Real Japanese words from the top 1000 most common, expressed using only the 206 base words.]
-
-=== #ruby[ひと][人] (People)
-
-#rounded-table[#table(
-  columns: (1fr, 1fr),
-  stroke: none,
-  inset: (x: 8pt, y: 6pt),
-  fill: (_, row) => if calc.even(row) { rgb("#F7F7F7") },
-  table.header[*Minihongo*][*Meaning*],
-  [#ruby[す][好]きな#ruby[ひと][人]], [friend],
-  [#ruby[ちち][父]と#ruby[はは][母]と#ruby[こども][子供]], [family],
-  [#ruby[おし][教]える#ruby[ひと][人]], [teacher],
-  [#ruby[おし][教]えてもらう#ruby[ひと][人]], [student],
-  [#ruby[からだ][体]を#ruby[たす][助]ける#ruby[ひと][人]], [doctor],
-  [#ruby[こころ][心]を#ruby[たす][助]ける#ruby[ひと][人]], [therapist],
-  [#ruby[まも][守]る#ruby[ひと][人]], [police],
-  [#ruby[たたか][戦]う#ruby[ひと][人]], [soldier],
-  [#ruby[た][食]べ#ruby[もの][物]を#ruby[つく][作]る#ruby[ひと][人]], [farmer],
-  [#ruby[ひ][火]で#ruby[た][食]べ#ruby[もの][物]を#ruby[つく][作]る#ruby[ひと][人]], [cook],
-  [#ruby[ほん][本]を#ruby[か][書]く#ruby[ひと][人]], [writer],
-  [よく#ruby[し][知]る#ruby[ひと][人]], [expert],
-  [#ruby[うえ][上]の#ruby[ひと][人]], [boss],
-  [#ruby[たす][助]ける#ruby[ひと][人]], [helper],
-  [#ruby[もの][物]を#ruby[も][持]って#ruby[い][行]く#ruby[ひと][人]], [thief],
-  [#ruby[いえ][家]が#ruby[ちか][近]い#ruby[ひと][人]], [neighbor],
-  [#ruby[ちち][父]の#ruby[ちち][父]], [grandfather],
-  [#ruby[はは][母]の#ruby[はは][母]], [grandmother],
-  [#ruby[あたら][新]しい#ruby[こども][子供]], [baby],
-  [#ruby[とし][年]が#ruby[おお][多]い#ruby[ひと][人]], [old person],
-)]
-
-=== #ruby[どうぶつ][動物] (Animals)
-
-#rounded-table[#table(
-  columns: (1fr, 1fr),
-  stroke: none,
-  inset: (x: 8pt, y: 6pt),
-  fill: (_, row) => if calc.even(row) { rgb("#F7F7F7") },
-  table.header[*Minihongo*][*Meaning*],
-  [とても#ruby[ちい][小]さい#ruby[どうぶつ][動物]], [insect],
-  [#ruby[ちい][小]さい#ruby[いえ][家]の#ruby[どうぶつ][動物]], [cat],
-  [#ruby[はや][速]い#ruby[おお][大]きい#ruby[どうぶつ][動物]], [horse],
-  [#ruby[なが][長]い#ruby[どうぶつ][動物]], [snake],
-  [#ruby[うみ][海]のとても#ruby[おお][大]きい#ruby[どうぶつ][動物]], [whale],
-  [#ruby[やま][山]の#ruby[つよ][強]い#ruby[どうぶつ][動物]], [bear],
-  [#ruby[き][木]の#ruby[どうぶつ][動物]], [monkey],
-  [#ruby[みず][水]と#ruby[つち][土]の#ruby[どうぶつ][動物]], [frog],
-  [#ruby[よる][夜]の#ruby[どうぶつ][動物]], [wolf],
-  [#ruby[つよ][強]い#ruby[どうぶつ][動物]], [lion],
-  [とても#ruby[おお][大]きい#ruby[どうぶつ][動物]], [elephant],
-  [きれいな#ruby[ちい][小]さい#ruby[どうぶつ][動物]], [butterfly],
-)]
-
-=== #ruby[そと][外]の#ruby[もの][物] (Nature)
-
-#rounded-table[#table(
-  columns: (1fr, 1fr),
-  stroke: none,
-  inset: (x: 8pt, y: 6pt),
-  fill: (_, row) => if calc.even(row) { rgb("#F7F7F7") },
-  table.header[*Minihongo*][*Meaning*],
-  [#ruby[そら][空]の#ruby[こと][事]], [weather],
-  [#ruby[そら][空]の#ruby[しろ][白]], [cloud],
-  [#ruby[よる][夜]の#ruby[ひかり][光]], [star],
-  [#ruby[つき][月]の#ruby[ひかり][光]], [moonlight],
-  [#ruby[そら][空]の#ruby[ひ][火]], [lightning],
-  [#ruby[しろ][白]い#ruby[あめ][雨]], [snow],
-  [#ruby[さむ][寒]い#ruby[みず][水]], [ice],
-  [#ruby[しろ][白]い#ruby[かぜ][風]], [fog],
-  [#ruby[つよ][強]い#ruby[かぜ][風]と#ruby[あめ][雨]], [storm],
-  [#ruby[あめ][雨]の#ruby[あと][後]の#ruby[いろ][色]], [rainbow],
-  [#ruby[つち][土]が#ruby[うご][動]く#ruby[こと][事]], [earthquake],
-  [#ruby[みず][水]が#ruby[おお][多]すぎる#ruby[こと][事]], [flood],
-  [#ruby[なが][長]い#ruby[みず][水]], [river],
-  [#ruby[おお][大]きい#ruby[みず][水]], [lake],
-  [#ruby[うみ][海]の#ruby[なか][中]の#ruby[つち][土]], [island],
-  [#ruby[き][木]が#ruby[おお][多]い#ruby[ところ][所]], [forest],
-  [#ruby[みず][水]がない#ruby[あつ][暑]い#ruby[ところ][所]], [desert],
-  [#ruby[ひ][火]の#ruby[やま][山]], [volcano],
-  [#ruby[みず][水]が#ruby[した][下]に#ruby[い][行]く#ruby[ところ][所]], [waterfall],
-  [#ruby[たいよう][太陽]が#ruby[で][出]る#ruby[とき][時]], [sunrise],
-  [#ruby[たいよう][太陽]が#ruby[はい][入]る#ruby[とき][時]], [sunset],
-)]
-
-=== #ruby[ところ][所] (Places)
-
-#rounded-table[#table(
-  columns: (1fr, 1fr),
-  stroke: none,
-  inset: (x: 8pt, y: 6pt),
-  fill: (_, row) => if calc.even(row) { rgb("#F7F7F7") },
-  table.header[*Minihongo*][*Meaning*],
-  [#ruby[いえ][家]の#ruby[なか][中]], [room],
-  [#ruby[おし][教]える#ruby[ところ][所]], [school],
-  [#ruby[か][買]う#ruby[ところ][所]], [shop],
-  [#ruby[た][食]べる#ruby[ところ][所]], [restaurant],
-  [#ruby[からだ][体]を#ruby[たす][助]ける#ruby[ところ][所]], [hospital],
-  [#ruby[ほん][本]が#ruby[おお][多]い#ruby[ところ][所]], [library],
-  [#ruby[た][食]べ#ruby[もの][物]を#ruby[つく][作]る#ruby[ところ][所]], [kitchen],
-  [#ruby[くさ][草]がある#ruby[ところ][所]], [garden],
-  [#ruby[そと][外]の#ruby[ところ][所]], [park],
-  [#ruby[ひと][人]が#ruby[おお][多]い#ruby[ところ][所]], [city],
-  [#ruby[みず][水]の#ruby[うえ][上]の#ruby[みち][道]], [bridge],
-  [#ruby[たか][高]い#ruby[ところ][所]], [tower],
-  [#ruby[で][出]られない#ruby[ところ][所]], [prison],
-  [#ruby[そら][空]に#ruby[い][行]く#ruby[ところ][所]], [airport],
-)]
-
-=== #ruby[もの][物] (Objects)
-
-#rounded-table[#table(
-  columns: (1fr, 1fr),
-  stroke: none,
-  inset: (x: 8pt, y: 6pt),
-  fill: (_, row) => if calc.even(row) { rgb("#F7F7F7") },
-  table.header[*Minihongo*][*Meaning*],
-  [#ruby[つか][使]う#ruby[もの][物]], [tool],
-  [#ruby[なか][中]に#ruby[い][入]れる#ruby[もの][物]], [box],
-  [#ruby[か][書]く#ruby[もの][物]], [paper],
-  [#ruby[き][切]る#ruby[もの][物]], [knife],
-  [#ruby[あ][開]ける#ruby[もの][物]], [key],
-  [#ruby[もの][物]を#ruby[も][持]つ#ruby[もの][物]], [bag],
-  [#ruby[あめ][雨]の#ruby[もの][物]], [umbrella],
-  [#ruby[ね][寝]る#ruby[ところ][所]], [bed],
-  [#ruby[すわ][座]る#ruby[もの][物]], [chair],
-  [#ruby[はい][入]る#ruby[ところ][所]], [door],
-  [#ruby[そと][外]を#ruby[み][見]る#ruby[ところ][所]], [window],
-  [#ruby[とき][時]を#ruby[み][見]る#ruby[もの][物]], [clock],
-  [#ruby[わたし][私]を#ruby[み][見]る#ruby[もの][物]], [mirror],
-  [#ruby[ひ][火]の#ruby[ひかり][光]], [candle],
-  [#ruby[なが][長]い#ruby[つよ][強]い#ruby[もの][物]], [rope],
-  [#ruby[かんが][考]える#ruby[もの][物]], [computer],
-  [#ruby[おと][音]で#ruby[い][言]う#ruby[もの][物]], [phone],
-  [#ruby[はや][速]く#ruby[い][行]く#ruby[もの][物]], [car],
-  [#ruby[みず][水]の#ruby[うえ][上]の#ruby[もの][物]], [boat],
-  [#ruby[そら][空]を#ruby[い][行]く#ruby[もの][物]], [airplane],
-)]
-
-=== #ruby[た][食]べ#ruby[もの][物]と#ruby[からだ][体] (Food & Body)
-
-#rounded-table[#table(
-  columns: (1fr, 1fr),
-  stroke: none,
-  inset: (x: 8pt, y: 6pt),
-  fill: (_, row) => if calc.even(row) { rgb("#F7F7F7") },
-  table.header[*Minihongo*][*Meaning*],
-  [#ruby[き][木]の#ruby[た][食]べ#ruby[もの][物]], [fruit],
-  [#ruby[くさ][草]の#ruby[た][食]べ#ruby[もの][物]], [vegetable],
-  [#ruby[しろ][白]い#ruby[どうぶつ][動物]の#ruby[みず][水]], [milk],
-  [#ruby[からだ][体]を#ruby[よ][良]くする#ruby[もの][物]], [medicine],
-  [#ruby[からだ][体]を#ruby[わる][悪]くする#ruby[もの][物]], [poison],
-  [#ruby[め][目]と#ruby[くち][口]がある#ruby[ところ][所]], [face],
-  [#ruby[からだ][体]の#ruby[なか][中]の#ruby[あか][赤]い#ruby[みず][水]], [blood],
-  [#ruby[からだ][体]が#ruby[わる][悪]い#ruby[こと][事]], [sickness],
-  [#ruby[からだ][体]が#ruby[あつ][暑]い], [fever],
-  [#ruby[わる][悪]い#ruby[かん][感]じ], [pain],
-  [#ruby[ね][寝]る#ruby[とき][時]に#ruby[み][見]る#ruby[こと][事]], [dream],
-  [#ruby[た][食]べ#ruby[もの][物]が#ruby[ほ][欲]しい], [hungry],
-  [#ruby[からだ][体]が#ruby[おも][重]い], [tired],
-)]
-
-=== #ruby[とき][時] (Time)
-
-#rounded-table[#table(
-  columns: (1fr, 1fr),
-  stroke: none,
-  inset: (x: 8pt, y: 6pt),
-  fill: (_, row) => if calc.even(row) { rgb("#F7F7F7") },
-  table.header[*Minihongo*][*Meaning*],
-  [#ruby[まえ][前]の#ruby[にち][日]], [yesterday],
-  [#ruby[あと][後]の#ruby[にち][日]], [tomorrow],
-  [#ruby[にち][日]の#ruby[なか][中]], [noon],
-  [#ruby[よる][夜]の#ruby[なか][中]], [midnight],
-  [#ruby[いま][今]の#ruby[よる][夜]], [tonight],
-  [#ruby[あつ][暑]くなる#ruby[とき][時]], [spring],
-  [#ruby[あつ][暑]い#ruby[とき][時]], [summer],
-  [#ruby[さむ][寒]くなる#ruby[とき][時]], [autumn],
-  [#ruby[さむ][寒]い#ruby[とき][時]], [winter],
-  [#ruby[お][終]わらない#ruby[とき][時]], [forever],
-  [とても#ruby[まえ][前]の#ruby[とき][時]], [ancient],
-  [#ruby[あと][後]の#ruby[とき][時]], [future],
-  [する#ruby[こと][事]がない#ruby[にち][日]], [holiday],
-)]
-
-=== どんな - 「ない」で#ruby[か][変]わる (Qualities - Negate to Get the Opposite)
-
-#rounded-table[#table(
-  columns: (1fr, 1fr),
-  stroke: none,
-  inset: (x: 8pt, y: 6pt),
-  fill: (_, row) => if calc.even(row) { rgb("#F7F7F7") },
-  table.header[*Minihongo*][*Meaning*],
-  [#ruby[なが][長]くない], [short],
-  [#ruby[たか][高]くない], [low, cheap],
-  [#ruby[おも][重]くない], [light (weight)],
-  [#ruby[つよ][強]くない], [weak],
-  [#ruby[はや][速]くない], [slow],
-  [#ruby[あたら][新]しくない], [old (thing)],
-  [きれいじゃない], [dirty],
-  [#ruby[あか][明]るくない], [dark],
-  [#ruby[おと][音]がない], [quiet],
-  [#ruby[よ][良]くない], [bad],
-  [#ruby[ひつよう][必要]じゃない], [unnecessary],
-  [できない], [impossible],
-  [#ruby[し][知]らない], [unknown],
-  [#ruby[み][見]えない], [invisible],
-  [#ruby[なか][中]に#ruby[なに][何]もない], [empty],
-  [#ruby[わる][悪]い#ruby[こと][事]が#ruby[お][起]こらない], [safe],
-  [#ruby[たの][楽]しくない], [boring],
-)]
-
-=== する#ruby[こと][事] (Actions)
-
-#rounded-table[#table(
-  columns: (1fr, 1fr),
-  stroke: none,
-  inset: (x: 8pt, y: 6pt),
-  fill: (_, row) => if calc.even(row) { rgb("#F7F7F7") },
-  table.header[*Minihongo*][*Meaning*],
-  [#ruby[はや][速]く#ruby[あし][足]で#ruby[うご][動]く], [run],
-  [#ruby[みず][水]の#ruby[なか][中]を#ruby[うご][動]く], [swim],
-  [#ruby[うえ][上]に#ruby[い][行]く], [climb],
-  [#ruby[はや][速]く#ruby[うえ][上]に#ruby[うご][動]く], [jump],
-  [#ruby[した][下]に#ruby[い][行]く], [fall],
-  [#ruby[いえ][家]に#ruby[い][行]く], [return],
-  [#ruby[なに][何]もしない], [rest],
-  [#ruby[たの][楽]しい#ruby[こと][事]をする], [play],
-  [#ruby[あたら][新]しく#ruby[し][知]る], [learn],
-  [#ruby[し][知]らなくなる], [forget],
-  [#ruby[み][見]えない#ruby[ところ][所]に#ruby[い][行]く], [hide],
-  [#ruby[おと][音]を#ruby[つく][作]る], [sing],
-  [#ruby[ひ][火]で#ruby[た][食]べ#ruby[もの][物]を#ruby[つく][作]る], [cook],
-  [#ruby[ひと][人]の#ruby[もの][物]を#ruby[も][持]って#ruby[い][行]く], [steal],
-  [#ruby[みず][水]できれいにする], [wash],
-  [#ruby[わる][悪]くなった#ruby[もの][物]を#ruby[よ][良]くする], [repair],
-  [#ruby[くさ][草]を#ruby[つち][土]に#ruby[い][入]れる], [plant],
-  [#ruby[いろ][色]で#ruby[もの][物]を#ruby[つく][作]る], [draw],
-)]
-
-=== #ruby[こころ][心]と#ruby[かんが][考]え (Abstract)
-
-#rounded-table[#table(
-  columns: (1fr, 1fr),
-  stroke: none,
-  inset: (x: 8pt, y: 6pt),
-  fill: (_, row) => if calc.even(row) { rgb("#F7F7F7") },
-  table.header[*Minihongo*][*Meaning*],
-  [#ruby[い][生]きる#ruby[こと][事]], [life],
-  [#ruby[し][死]ぬ#ruby[こと][事]], [death],
-  [#ruby[こころ][心]がとても#ruby[す][好]きな#ruby[こと][事]], [love],
-  [#ruby[おこ][怒]る#ruby[こと][事]], [anger],
-  [#ruby[こわ][怖]いと#ruby[かん][感]じる#ruby[こと][事]], [fear],
-  [#ruby[よ][良]い#ruby[こと][事]を#ruby[ま][待]つ#ruby[こと][事]], [hope],
-  [#ruby[たたか][戦]わない#ruby[こと][事]], [peace],
-  [#ruby[くに][国]と#ruby[くに][国]が#ruby[たたか][戦]う#ruby[こと][事]], [war],
-  [#ruby[す][好]きにできる#ruby[こと][事]], [freedom],
-  [#ruby[ほんとう][本当]の#ruby[こと][事]], [truth],
-  [#ruby[ほんとう][本当]じゃない#ruby[こと][事]], [lie],
-  [#ruby[あたら][新]しい#ruby[かんが][考]え], [idea],
-  [#ruby[よ][良]い#ruby[こと][事]が#ruby[お][起]こる#ruby[こと][事]], [luck],
-  [#ruby[ほか][他]の#ruby[ひと][人]が#ruby[し][知]らない#ruby[こと][事]], [secret],
-  [きれいな#ruby[おと][音]], [music],
-  [#ruby[なが][長]い#ruby[ことば][言葉]], [story],
-  [#ruby[おと][音]と#ruby[ことば][言葉]], [song],
-  [#ruby[か][書]いた#ruby[ことば][言葉]], [letter (mail)],
-  [#ruby[あた][与]える#ruby[もの][物]], [gift],
-  [#ruby[くに][国]の#ruby[ことば][言葉]], [language],
-  [#ruby[わる][悪]くした#ruby[こと][事]], [mistake],
-  [#ruby[こころ][心]が#ruby[よ][良]い#ruby[こと][事]], [happiness],
-  [#ruby[わる][悪]い#ruby[こと][事]が#ruby[お][起]こる], [danger],
-)]
-
-=== なくなった#ruby[こと][言]#ruby[ば][葉] (Removed Words as Compounds)
-
-#rounded-table[#table(
-  columns: (1fr, 1fr),
-  stroke: none,
-  inset: (x: 8pt, y: 6pt),
-  fill: (_, row) => if calc.even(row) { rgb("#F7F7F7") },
-  table.header[*Minihongo*][*Meaning*],
-  [#ruby[たいよう][太陽]が#ruby[で][出]る#ruby[とき][時]], [morning],
-  [#ruby[いま][今]の#ruby[にち][日]], [today],
-  [する#ruby[こと][事]], [work],
-  [#ruby[わる][悪]い#ruby[こと][事]], [problem],
-  [#ruby[ことば][言葉]の#ruby[こと][事]], [meaning],
-  [とても#ruby[ひつよう][必要]], [important],
-  [#ruby[わる][悪]い#ruby[こと][事]が#ruby[お][起]こる], [dangerous],
-  [#ruby[ぜんぶ][全部]の#ruby[ところ][所]], [world],
-  [#ruby[て][手]で#ruby[かん][感]じる], [touch],
-)]
-
-=== #ruby[まい][毎]#ruby[にち][日]の#ruby[こと][事] (Daily Life & Routines)
-
-#rounded-table[#table(
-  columns: (1fr, 1fr),
-  stroke: none,
-  inset: (x: 8pt, y: 6pt),
-  fill: (_, row) => if calc.even(row) { rgb("#F7F7F7") },
-  table.header[*Minihongo*][*Meaning*],
-  [#ruby[まい][毎]#ruby[にち][日]する#ruby[こと][事]], [daily life, living],
-  [#ruby[そと][外]にいる#ruby[ひと][人]と#ruby[ことば][言葉]を#ruby[つか][使]う#ruby[もの][物]], [telephone, phone call],
-  [#ruby[み][見]た#ruby[もの][物]を#ruby[か][書]いた#ruby[もの][物]], [photograph, photo],
-  [#ruby[ひと][人]が#ruby[うご][動]く#ruby[こと][事]を#ruby[み][見]る#ruby[もの][物]], [movie, film],
-  [きれいな#ruby[おと][音]], [music],
-  [#ruby[まい][毎]#ruby[にち][日]#ruby[か][書]く#ruby[ほん][本]], [newspaper],
-  [#ruby[おお][多]い#ruby[こと][事]を#ruby[か][書]いた#ruby[ほん][本]], [magazine],
-  [#ruby[ひと][人]に#ruby[か][書]く#ruby[ことば][言葉]], [letter, written letter],
-  [#ruby[も][持]つ#ruby[もの][物]], [luggage, baggage, package],
-  [#ruby[いえ][家]を#ruby[あ][開]ける#ruby[もの][物]], [key, lock],
-  [#ruby[いえ][家]の#ruby[なか][中]に#ruby[そと][外]の#ruby[ひかり][光]が#ruby[はい][入]る#ruby[ところ][所]], [window],
-  [#ruby[いえ][家]の#ruby[みぎ][右]と#ruby[ひだり][左]にある#ruby[もの][物]], [wall],
-  [#ruby[いえ][家]の#ruby[なか][中]の#ruby[した][下]], [floor],
-  [#ruby[いえ][家]の#ruby[うえ][上]にある#ruby[もの][物]], [roof],
-  [#ruby[た][食]べる#ruby[もの][物]を#ruby[つく][作]る#ruby[ところ][所]], [kitchen],
-  [#ruby[からだ][体]を#ruby[みず][水]できれいにする#ruby[ところ][所]], [bath, bathtub],
-  [#ruby[いえ][家]の#ruby[なか][中]の#ruby[ところ][所]], [room],
-  [#ruby[ところ][所]をきれいにする#ruby[こと][事]], [cleaning, sweeping],
-  [#ruby[ふく][服]を#ruby[みず][水]できれいにする#ruby[こと][事]], [laundry, washing clothes],
-  [#ruby[た][食]べる#ruby[もの][物]を#ruby[つく][作]る#ruby[こと][事]], [cooking, cuisine],
-  [#ruby[もの][物]を#ruby[か][買]う#ruby[こと][事]], [shopping],
-  [#ruby[そと][外]を#ruby[うご][動]いていく#ruby[こと][事]], [walk, stroll],
-  [#ruby[まえ][前]にする#ruby[こと][事]], [preparation, getting ready],
-  [#ruby[はじ][始]まる#ruby[まえ][前]にする#ruby[こと][事]], [preparation, arrangement],
-  [#ruby[ひと][人]に「する」と#ruby[い][言]う#ruby[こと][事]], [promise, appointment],
-  [#ruby[あと][後]にする#ruby[こと][事]], [schedule, plan],
-  [#ruby[す][好]きでする#ruby[こと][事]], [hobby, interest],
-  [#ruby[よ][良]くなるために#ruby[なに][何]かを#ruby[おお][多]くする#ruby[こと][事]], [practice, training],
-  [#ruby[し][知]るために#ruby[よ][読]んだり#ruby[き][聞]いたりする#ruby[こと][事]], [study, studying],
-  [#ruby[いえ][家]で#ruby[よ][読]んだり#ruby[か][書]いたりする#ruby[こと][事]], [homework],
-  [#ruby[し][知]りたい#ruby[こと][事]を#ruby[き][聞]く#ruby[ことば][言葉]], [question],
-  [#ruby[き][聞]かれた#ruby[こと][事]を#ruby[い][言]う#ruby[こと][事]], [answer, response],
-  [#ruby[ひと][人]の#ruby[ことば][言葉]に#ruby[い][言]う#ruby[こと][事]], [reply, response],
-  [#ruby[あ][会]った#ruby[とき][時]に#ruby[い][言]う#ruby[ことば][言葉]], [greeting],
-  [#ruby[ひと][人]に#ruby[し][知]らせる#ruby[こと][事]], [contact, communication],
-  [#ruby[ひと][人]と#ruby[かんが][考]える#ruby[こと][事]], [consultation, discussion],
-  [#ruby[ひと][人]や#ruby[もの][物]の#ruby[こと][事]を#ruby[ほか][他]の#ruby[ひと][人]に#ruby[おし][教]える#ruby[こと][事]], [introduction, referral],
-  [#ruby[ひと][人]に「#ruby[き][来]てください」と#ruby[い][言]う#ruby[こと][事]], [invitation],
-  [#ruby[まえ][前]にした#ruby[こと][事]], [experience],
-  [#ruby[あと][後]にする#ruby[こと][事]を#ruby[かんが][考]える#ruby[こと][事]], [plan, project],
-  [よく#ruby[み][見]てほしい#ruby[こと][事]], [caution, attention, warning],
-  [「これをください」と#ruby[い][言]う#ruby[こと][事]], [order (food, goods)],
-  [#ruby[もの][物]を#ruby[か][買]うお#ruby[おかね][金]], [price, cost],
-  [お#ruby[おかね][金]が#ruby[すこ][少]しで#ruby[よ][良]くなる#ruby[こと][事]], [discount],
-  [お#ruby[おかね][金]がない#ruby[こと][事]], [free of charge],
-  [#ruby[へん][変]ではない], [ordinary, normal, usual],
-  [#ruby[ほか][他]と#ruby[ちが][違]う#ruby[よ][良]い#ruby[こと][事]], [special, particular],
-  [とても#ruby[ひつよう][必要]な], [important, precious, valued],
-  [だれでもできる], [easy, simple],
-  [#ruby[おお][多]くの#ruby[こと][事]が#ruby[なか][中]にある], [complex, complicated],
-  [よく#ruby[つか][使]える#ruby[よ][良]い], [convenient, handy],
-  [よく#ruby[つか][使]えない#ruby[わる][悪]い], [inconvenient],
-  [#ruby[ひと][人]に#ruby[よ][良]い#ruby[ことば][言葉]を#ruby[つか][使]う], [polite, careful, thorough],
-  [その#ruby[とき][時]に#ruby[よ][良]い], [suitable, appropriate; casual],
-  [したい#ruby[こと][事]ができる], [freedom, liberty],
-  [#ruby[ほか][他]の#ruby[くに][国]や#ruby[ところ][所]に#ruby[い][行]く#ruby[こと][事]], [travel, trip],
-  [#ruby[そら][空]の#ruby[いま][今]の#ruby[こと][事]], [weather],
-  [#ruby[とし][年]の#ruby[なか][中]の#ruby[とき][時]], [season],
-)]
-
-=== する#ruby[こと][事]と#ruby[し][知]る#ruby[こと][事] (Work & School)
-
-#rounded-table[#table(
-  columns: (1fr, 1fr),
-  stroke: none,
-  inset: (x: 8pt, y: 6pt),
-  fill: (_, row) => if calc.even(row) { rgb("#F7F7F7") },
-  table.header[*Minihongo*][*Meaning*],
-  [する#ruby[こと][事]], [work, job, occupation],
-  [する#ruby[こと][事]をする#ruby[ところ][所]], [company, business],
-  [する#ruby[こと][事]の#ruby[ところ][所]で#ruby[ひと][一]つだけ#ruby[うえ][上]の#ruby[ひと][人]], [company president, CEO],
-  [する#ruby[こと][事]の#ruby[ところ][所]でする#ruby[こと][事]をする#ruby[ひと][人]], [company employee],
-  [する#ruby[こと][事]の#ruby[ところ][所]の#ruby[なか][中]の#ruby[おお][大]きい#ruby[ところ][所]の#ruby[うえ][上]の#ruby[ひと][人]], [department head, director],
-  [する#ruby[こと][事]で#ruby[うえ][上]にいる#ruby[ひと][人]], [superior, boss],
-  [する#ruby[こと][事]で#ruby[した][下]にいる#ruby[ひと][人]], [subordinate, staff under one],
-  [する#ruby[こと][事]の#ruby[ところ][所]でする#ruby[こと][事]をする#ruby[ほか][他]の#ruby[ひと][人]], [colleague, coworker],
-  [#ruby[く][来]る#ruby[ひと][人]], [customer, guest, visitor],
-  [#ruby[おお][多]くの#ruby[ひと][人]が#ruby[き][来]て#ruby[かんが][考]える#ruby[こと][事]], [meeting, conference],
-  [する#ruby[こと][事]に#ruby[つか][使]う#ruby[か][書]いた#ruby[もの][物]], [materials, documents, data],
-  [した#ruby[こと][事]を#ruby[うえ][上]の#ruby[ひと][人]に#ruby[い][言]う#ruby[こと][事]], [report, notification],
-  [#ruby[し][知]らない#ruby[ひと][人]に#ruby[ことば][言葉]で#ruby[おし][教]える#ruby[こと][事]], [explanation, description],
-  [#ruby[ひと][人]と#ruby[ちが][違]う#ruby[かんが][考]えを#ruby[い][言]う#ruby[こと][事]], [debate, argument, discussion],
-  [#ruby[ひと][人]と「する」と#ruby[か][書]いた#ruby[もの][物]], [contract, agreement],
-  [する#ruby[こと][事]をしてもらうお#ruby[かね][金]], [salary, wages, pay],
-  [#ruby[とき][時]が#ruby[お][終]わった#ruby[あと][後]もする#ruby[こと][事]], [overtime work],
-  [する#ruby[こと][事]で#ruby[ほか][他]の#ruby[ところ][所]に#ruby[い][行]く#ruby[こと][事]], [business trip],
-  [する#ruby[こと][事]を#ruby[ちが][違]う#ruby[もの][物]に#ruby[か][変]える#ruby[こと][事]], [job change, career change],
-  [する#ruby[こと][事]を#ruby[お][終]わらせる#ruby[こと][事]], [retirement, resignation],
-  [はじめてする#ruby[こと][事]を#ruby[はじ][始]める#ruby[こと][事]], [getting a job, employment],
-  [する#ruby[こと][事]のために#ruby[あ][会]って#ruby[ことば][言葉]を#ruby[つか][使]う#ruby[こと][事]], [job interview],
-  [#ruby[し][知]っているかを#ruby[み][見]る#ruby[こと][事]], [exam, test],
-  [#ruby[し][知]っている#ruby[こと][事]を#ruby[み][見]た#ruby[とき][時]の#ruby[よ][良]さ], [grades, results, performance],
-  [#ruby[おし][教]える#ruby[ところ][所]が#ruby[お][終]わる#ruby[こと][事]], [graduation],
-  [#ruby[おし][教]える#ruby[ところ][所]に#ruby[はい][入]る#ruby[こと][事]], [school enrollment, starting school],
-  [#ruby[おし][教]える#ruby[ところ][所]で#ruby[おし][教]えてもらう#ruby[こと][事]], [class, lesson, lecture],
-  [#ruby[おし][教]える#ruby[ところ][所]], [classroom],
-  [#ruby[おし][教]える#ruby[ところ][所]], [school],
-  [#ruby[おお][大]きい#ruby[おし][教]える#ruby[ところ][所]], [university, college],
-  [まだ#ruby[し][知]らない#ruby[こと][事]を#ruby[さが][探]す#ruby[こと][事]], [research, study, investigation],
-  [#ruby[し][知]るために#ruby[もの][物]を#ruby[つか][使]ってみる#ruby[こと][事]], [experiment, test],
-  [#ruby[もの][物]を#ruby[つく][作]ったり#ruby[つか][使]ったりできる#ruby[こと][事]], [technology, technique, skill],
-  [できる#ruby[こと][事]], [ability, capability, talent],
-  [#ruby[よ][良]くなるためにとても#ruby[つよ][強]くする#ruby[こと][事]], [effort, hard work],
-  [したい#ruby[こと][事]ができた#ruby[こと][事]], [success, achievement],
-  [したい#ruby[こと][事]ができなかった#ruby[こと][事]], [failure, mistake],
-  [した#ruby[あと][後]に#ruby[お][起]こる#ruby[こと][事]], [result, outcome],
-  [したい#ruby[こと][事]の#ruby[ところ][所]], [goal, target, objective],
-  [なぜかの#ruby[こと][事]], [reason, cause],
-  [どうするかの#ruby[こと][事]], [method, way, means],
-  [#ruby[よ][良]くない#ruby[こと][事]が#ruby[お][起]こっている], [problem, question, issue],
-  [#ruby[わる][悪]い#ruby[こと][事]を#ruby[よ][良]くする#ruby[こと][事]], [solution, resolution],
-  [しなければならない#ruby[こと][事]], [responsibility, duty],
-  [しなければならない#ruby[こと][事]と、してはいけない#ruby[こと][事]], [rule, regulation],
-  [「していい」と#ruby[い][言]う#ruby[こと][事]], [permission, approval],
-  [しなければならない#ruby[こと][事]], [assignment, task, challenge],
-  [#ruby[よ][良]いか#ruby[わる][悪]いかを#ruby[み][見]る#ruby[こと][事]], [evaluation, assessment, rating],
-  [#ruby[おお][多]くの#ruby[ひと][人]に#ruby[い][言]う#ruby[こと][事]], [presentation, announcement],
-  [#ruby[わたし][私]が#ruby[おも][思]う#ruby[こと][事]], [opinion, view],
-  [#ruby[おし][教]える#ruby[ひと][人]], [teacher, instructor],
-  [#ruby[おし][教]える#ruby[ところ][所]で#ruby[おし][教]えてもらう#ruby[こども][子供]], [student (K-12), pupil],
-)]
-
-=== いくつと#ruby[い][言]い#ruby[かた][方] (Numbers & Counting)
-
-#rounded-table[#table(
-  columns: (1fr, 1fr),
-  stroke: none,
-  inset: (x: 8pt, y: 6pt),
-  fill: (_, row) => if calc.even(row) { rgb("#F7F7F7") },
-  table.header[*Minihongo*][*Meaning*],
-  [#ruby[じゅう][十]が#ruby[じゅう][十]], [hundred (100)],
-  [#ruby[じゅう][十]の#ruby[じゅう][十]が#ruby[じゅう][十]], [thousand (1,000)],
-  [#ruby[じゅう][十]の#ruby[じゅう][十]の#ruby[じゅう][十]が#ruby[じゅう][十]], [ten-thousand (10,000)],
-  [#ruby[ひと][一]つの#ruby[もの][物]を#ruby[ふた][二]つに#ruby[き][切]った#ruby[ひと][一]つ], [half],
-  [もう#ruby[ひと][一]つ#ruby[おお][多]い#ruby[こと][事]], [double, times (multiplier)],
-  [その#ruby[もの][物]の#ruby[なまえ][名前]になる#ruby[おお][多]さ], [number (as identifier)],
-  [いくつあるかを#ruby[い][言]う#ruby[もの][物]], [number, count, quantity],
-  [#ruby[なに][何]かをした#ruby[おお][多]さ], [time(s), occurrence (counter)],
-  [#ruby[なに][何]かが#ruby[お][起]こった#ruby[おお][多]さ], [degree, time(s), occasion],
-  [#ruby[ほん][本]の#ruby[なか][中]のような#ruby[もの][物]の#ruby[おお][多]さを#ruby[い][言]う#ruby[ことば][言葉]], [flat things counter (sheets, cards)],
-  [#ruby[なが][長]い#ruby[もの][物]の#ruby[おお][多]さを#ruby[い][言]う#ruby[ことば][言葉]], [long thin things counter (pens, bottles)],
-  [#ruby[もの][物]の#ruby[おお][多]さを#ruby[い][言]う#ruby[ことば][言葉]], [small objects counter (pieces)],
-  [#ruby[どうぶつ][動物]の#ruby[おお][多]さを#ruby[い][言]う#ruby[ことば][言葉]], [small animals counter],
-  [#ruby[うご][動]く#ruby[もの][物]の#ruby[おお][多]さを#ruby[い][言]う#ruby[ことば][言葉]], [machines/vehicles counter],
-  [#ruby[の][飲]む#ruby[もの][物]の#ruby[おお][多]さを#ruby[い][言]う#ruby[ことば][言葉]], [cups/bowls counter (drinks)],
-  [#ruby[ほん][本]の#ruby[おお][多]さを#ruby[い][言]う#ruby[ことば][言葉]], [bound books counter],
-  [#ruby[あし][足]に#ruby[き][着]る#ruby[もの][物]の#ruby[おお][多]さを#ruby[い][言]う#ruby[ことば][言葉]], [pairs of footwear counter],
-  [#ruby[からだ][体]に#ruby[き][着]る#ruby[もの][物]の#ruby[おお][多]さを#ruby[い][言]う#ruby[ことば][言葉]], [clothing items counter],
-  [#ruby[じゅう][十]の#ruby[なか][中]の#ruby[ひと][一]つ], [ten percent unit, proportion],
-  [#ruby[まえ][前]からいくつ#ruby[め][目]かを#ruby[い][言]う#ruby[ことば][言葉]], [number in sequence, rank],
-  [#ruby[ぜんぶ][全部]の#ruby[なか][中]で#ruby[ひと][一]つだけ#ruby[まえ][前]], [first, number one],
-  [#ruby[ぜんぶ][全部]の#ruby[なか][中]で#ruby[ひと][一]つだけ#ruby[まえ][前]の#ruby[とき][時]], [first, beginning],
-  [#ruby[ぜんぶ][全部]の#ruby[なか][中]で#ruby[ひと][一]つだけ#ruby[あと][後]の#ruby[とき][時]], [last, final],
-  [#ruby[ぜんぶ][全部]の#ruby[おお][多]さ], [total, sum],
-  [#ruby[ぜんぶ][全部]を#ruby[ひと][一]つにした#ruby[おお][多]さ], [average, mean],
-)]
-
-=== #ruby[ひと][人]と#ruby[ひと][人] (People & Relationships)
-
-#rounded-table[#table(
-  columns: (1fr, 1fr),
-  stroke: none,
-  inset: (x: 8pt, y: 6pt),
-  fill: (_, row) => if calc.even(row) { rgb("#F7F7F7") },
-  table.header[*Minihongo*][*Meaning*],
-  [#ruby[いえ][家]の#ruby[ひと][人]たち], [family],
-  [#ruby[おとこ][男]の#ruby[うえ][上]の#ruby[こども][子供]], [older brother],
-  [#ruby[おとこ][男]の#ruby[した][下]の#ruby[こども][子供]], [younger brother],
-  [#ruby[おんな][女]の#ruby[うえ][上]の#ruby[こども][子供]], [older sister],
-  [#ruby[おんな][女]の#ruby[した][下]の#ruby[こども][子供]], [younger sister],
-  [#ruby[おんな][女]の#ruby[ひと][人]の#ruby[おとこ][男]], [husband],
-  [#ruby[おとこ][男]の#ruby[ひと][人]の#ruby[おんな][女]], [wife],
-  [#ruby[わたし][私]の#ruby[おとこ][男]の#ruby[こども][子供]], [son],
-  [#ruby[わたし][私]の#ruby[おんな][女]の#ruby[こども][子供]], [daughter],
-  [#ruby[こども][子供]の#ruby[ちち][父]または#ruby[はは][母]], [parent],
-  [#ruby[ちち][父]の#ruby[ちち][父]], [grandfather],
-  [#ruby[ちち][父]の#ruby[はは][母]], [grandmother],
-  [#ruby[こども][子供]の#ruby[こども][子供]], [grandchild],
-  [よく#ruby[あ][会]う#ruby[す][好]きな#ruby[ひと][人]], [friend],
-  [とても#ruby[す][好]きな#ruby[ひと][人]], [romantic partner],
-  [あの#ruby[おとこ][男]の#ruby[ひと][人]], [he / boyfriend],
-  [あの#ruby[おんな][女]の#ruby[ひと][人]], [she / girlfriend],
-  [#ruby[まえ][前]からいる#ruby[ひと][人]], [senior / upperclassman],
-  [#ruby[あと][後]から#ruby[き][来]た#ruby[ひと][人]], [junior / underclassman],
-  [よく#ruby[あ][会]う#ruby[ひと][人]たち], [companion / fellow member],
-  [#ruby[ちか][近]くにいる#ruby[ひと][人]], [neighbor],
-  [#ruby[あ][会]っている#ruby[ひと][人]], [partner / opponent],
-  [#ruby[ぜんぶ][全部]の#ruby[ひと][人]], [everyone],
-  [まだ#ruby[おお][大]きくなっていない#ruby[こども][子供]], [baby],
-  [#ruby[とし][年]が#ruby[すこ][少]しの#ruby[ひと][人]], [young person],
-  [#ruby[とし][年]が#ruby[おお][多]い#ruby[ひと][人]], [elderly person],
-  [#ruby[おお][大]きくなった#ruby[ひと][人]], [adult],
-  [#ruby[おし][教]える#ruby[ひと][人]], [teacher],
-  [#ruby[からだ][体]を#ruby[たす][助]ける#ruby[ひと][人]], [doctor],
-  [#ruby[わる][悪]いことをする#ruby[ひと][人]を#ruby[と][止]める#ruby[ひと][人]], [police],
-  [#ruby[たたか][戦]う#ruby[ひと][人]], [soldier],
-  [#ruby[くに][国]で#ruby[たか][高]い#ruby[ひと][人]], [king],
-  [とても#ruby[つよ][強]い#ruby[うえ][上]にいる#ruby[ひと][人]], [god / deity],
-  [その#ruby[くに][国]にいる#ruby[ひと][人]], [citizen],
-  [その#ruby[くに][国]の#ruby[ぜんぶ][全部]の#ruby[ひと][人]], [nationals / people of a country],
-  [#ruby[たたか][戦]う#ruby[わる][悪]い#ruby[ひと][人]], [enemy],
-  [よく#ruby[たす][助]けてくれる#ruby[ひと][人]], [ally],
-  [#ruby[わる][悪]いことをされた#ruby[ひと][人]], [victim],
-  [#ruby[わる][悪]いことをした#ruby[ひと][人]], [criminal / culprit],
-  [#ruby[そと][外]の#ruby[くに][国]から#ruby[き][来]た#ruby[ひと][人]], [foreigner],
-  [その#ruby[ところ][所]を#ruby[み][見]に#ruby[き][来]た#ruby[ひと][人]], [tourist],
-  [#ruby[うご][動]く#ruby[もの][物]の#ruby[なか][中]にいる#ruby[ひと][人]], [passenger],
-  [#ruby[からだ][体]が#ruby[わる][悪]い#ruby[ひと][人]], [patient (medical)],
-  [#ruby[えら][選]ばれた#ruby[ひと][人]], [athlete / player],
-  [#ruby[くち][口]から#ruby[おと][音]を#ruby[だ][出]す#ruby[ひと][人]], [singer],
-  [#ruby[ほん][本]を#ruby[つく][作]る#ruby[ひと][人]], [author / writer],
-  [きれいな#ruby[もの][物]を#ruby[つく][作]る#ruby[ひと][人]], [painter / artist],
-  [#ruby[うえ][上]にいる#ruby[ひと][人]], [boss / superior],
-  [#ruby[した][下]にいる#ruby[ひと][人]], [subordinate],
-  [#ruby[き][来]た#ruby[ひと][人]], [customer / guest],
-)]
-
-=== #ruby[こころ][心]の#ruby[かん][感]じ (Emotions & Personality)
-
-#rounded-table[#table(
-  columns: (1fr, 1fr),
-  stroke: none,
-  inset: (x: 8pt, y: 6pt),
-  fill: (_, row) => if calc.even(row) { rgb("#F7F7F7") },
-  table.header[*Minihongo*][*Meaning*],
-  [#ruby[よ][良]いことがあった#ruby[こころ][心]], [happy / glad],
-  [#ruby[ひと][一]りで#ruby[かな][悲]しい], [lonely],
-  [#ruby[ひと][人]に#ruby[み][見]られたくない#ruby[こころ][心]], [embarrassed / shy],
-  [#ruby[からだ][体]も#ruby[こころ][心]もとても#ruby[わる][悪]い], [painful / agonizing],
-  [とても#ruby[かな][悲]しくて#ruby[わる][悪]い], [hard / tough / painful],
-  [#ruby[ひと][人]に#ruby[よ][良]くする#ruby[こころ][心]がある], [kind / gentle],
-  [とても#ruby[つよ][強]くて#ruby[わる][悪]いことを#ruby[と][止]める], [strict / harsh],
-  [#ruby[へん][変]なことをしない#ruby[よ][良]い#ruby[こころ][心]], [honest / obedient],
-  [#ruby[よ][良]くしようと#ruby[かんが][考]える#ruby[ひと][人]], [serious / diligent],
-  [#ruby[からだ][体]も#ruby[こころ][心]も#ruby[よ][良]い], [energetic / well],
-  [#ruby[よ][良]いことが#ruby[おお][多]くある#ruby[こころ][心]], [happiness / fortune],
-  [これから#ruby[わる][悪]いことが#ruby[く][来]るかもしれないと#ruby[おも][思]う#ruby[こころ][心]], [anxiety / unease],
-  [#ruby[わる][悪]いことが#ruby[お][起]こるかもと#ruby[かんが][考]える], [worry / concern],
-  [#ruby[こわ][怖]くて#ruby[からだ][体]が#ruby[うご][動]きにくい], [nervousness / tension],
-  [#ruby[こころ][心]が#ruby[おお][大]きく#ruby[うご][動]く], [being moved / deeply touched],
-  [ありがとうと#ruby[おも][思]う#ruby[こころ][心]], [gratitude / thanks],
-  [#ruby[まえ][前]にしたことが#ruby[わる][悪]かったと#ruby[おも][思]う], [regret],
-  [#ruby[わたし][私]は#ruby[よ][良]いと#ruby[おも][思]う#ruby[つよ][強]い#ruby[こころ][心]], [self-confidence],
-  [#ruby[よ][良]いことが#ruby[く][来]ると#ruby[おも][思]って#ruby[ま][待]つ], [expectation / anticipation],
-  [#ruby[よ][良]いことが#ruby[お][起]こってほしいと#ruby[おも][思]う], [hope / wish],
-  [#ruby[よ][良]いことはないと#ruby[おも][思]う], [despair],
-  [もっと#ruby[し][知]りたいと#ruby[おも][思]う#ruby[こころ][心]], [interest / curiosity],
-  [#ruby[たの][楽]しいことが#ruby[なに][何]もない], [boredom],
-  [#ruby[し][知]らなかったことが#ruby[お][起]こって#ruby[かん][感]じる], [to be surprised],
-  [どうすればいいか#ruby[おも][思]えなくて#ruby[わる][悪]い], [to be troubled],
-  [どれを#ruby[えら][選]ぶかと#ruby[かんが][考]えて#ruby[と][止]まる], [to hesitate / be lost],
-  [#ruby[はや][速]くしなければと#ruby[おも][思]って#ruby[こわ][怖]い], [to be impatient / flustered],
-  [#ruby[わる][悪]くても#ruby[と][止]まらずにいること], [endurance / patience],
-  [#ruby[わる][悪]いことをした#ruby[ひと][人]を#ruby[よ][良]いと#ruby[い][言]う], [to forgive / permit],
-  [#ruby[ほんとう][本当]だと#ruby[おも][思]う], [to believe / trust],
-  [#ruby[ほんとう][本当]かどうかと#ruby[おも][思]う], [to doubt / suspect],
-  [とても#ruby[よ][良]い#ruby[ひと][人]だと#ruby[おも][思]う], [respect],
-  [とても#ruby[わる][悪]い#ruby[ひと][人]だと#ruby[おも][思]う], [contempt / scorn],
-  [#ruby[かな][悲]しい#ruby[ひと][人]の#ruby[こころ][心]を#ruby[かん][感]じる], [sympathy / compassion],
-  [#ruby[ほか][他]の#ruby[ひと][人]が#ruby[も][持]っているものを#ruby[ほ][欲]しいと#ruby[おも][思]う], [jealousy / envy],
-  [#ruby[わる][悪]いことをされてまだ#ruby[おこ][怒]る], [to resent / bear a grudge],
-  [あの#ruby[ひと][人]のようになりたいと#ruby[おも][思]う], [to admire / yearn for],
-  [もう#ruby[よ][良]いと#ruby[かん][感]じる], [satisfaction / contentment],
-  [まだ#ruby[よ][良]くないと#ruby[おも][思]う], [dissatisfaction / discontent],
-  [#ruby[ひと][一]りしかいなくて#ruby[かな][悲]しい], [loneliness / isolation],
-  [#ruby[こわ][怖]くても#ruby[まえ][前]に#ruby[い][行]く#ruby[つよ][強]い#ruby[こころ][心]], [courage / bravery],
-  [#ruby[わたし][私]は#ruby[よ][良]いと#ruby[かん][感]じる#ruby[つよ][強]い#ruby[こころ][心]], [pride],
-  [ある#ruby[ひと][人]がとても#ruby[す][好]きになる#ruby[こころ][心]], [romantic love / crush],
-  [ある#ruby[ひと][人]をとても#ruby[よ][良]くしたい#ruby[つよ][強]い#ruby[こころ][心]], [love],
-  [#ruby[わる][悪]いことが#ruby[お][起]こって#ruby[おこ][怒]る#ruby[こころ][心]], [anger],
-  [#ruby[よ][良]いことが#ruby[お][起]こって#ruby[わら][笑]いたい#ruby[こころ][心]], [joy / delight],
-  [#ruby[し][知]らなかったことを#ruby[み][見]たり#ruby[き][聞]いたりした#ruby[こころ][心]], [surprise / astonishment],
-  [とても#ruby[こわ][怖]い#ruby[こころ][心]], [fear / terror],
-  [#ruby[おこ][怒]らないで#ruby[よ][良]く#ruby[かんが][考]える], [calm / composed],
-  [#ruby[ほか][他]の#ruby[ひと][人]の#ruby[よ][良]いものを#ruby[ほ][欲]しいと#ruby[おも][思]う], [to envy],
-)]
-
-=== #ruby[ひと][人]の#ruby[なか][中] (Society & Culture)
-
-#rounded-table[#table(
-  columns: (1fr, 1fr),
-  stroke: none,
-  inset: (x: 8pt, y: 6pt),
-  fill: (_, row) => if calc.even(row) { rgb("#F7F7F7") },
-  table.header[*Minihongo*][*Meaning*],
-  [#ruby[ひと][人]たちがいる#ruby[ところ][所]], [society],
-  [#ruby[くに][国]をどうするかを#ruby[えら][選]ぶこと], [politics],
-  [お#ruby[おかね][金]と#ruby[もの][物]の#ruby[うご][動]き], [economy],
-  [#ruby[くに][国]の#ruby[ひと][人]がしなければならないこと], [law],
-  [#ruby[ひと][人]がしてもいいこと], [rights],
-  [#ruby[ひと][人]がしなければならないこと], [duty / obligation],
-  [したいことができること], [freedom / liberty],
-  [#ruby[たたか][戦]いがない#ruby[よ][良]い#ruby[とき][時]], [peace],
-  [#ruby[くに][国]と#ruby[くに][国]が#ruby[たたか][戦]うこと], [war],
-  [#ruby[くに][国]のために#ruby[たたか][戦]う#ruby[ひと][人]たち], [military / army],
-  [#ruby[くに][国]を#ruby[うご][動]かす#ruby[ひと][人]たち], [government],
-  [#ruby[くに][国]を#ruby[うご][動]かす#ruby[ひと][人]を#ruby[えら][選]ぶこと], [election],
-  [#ruby[くに][国]に#ruby[あた][与]えるお#ruby[おかね][金]], [tax],
-  [#ruby[まえ][前]に#ruby[お][起]こったこと], [history],
-  [その#ruby[くに][国]の#ruby[ひと][人]たちがすること], [culture],
-  [#ruby[ひと][人]の#ruby[うえ][上]にいる#ruby[つよ][強]い#ruby[もの][物]を#ruby[おも][思]うこと], [religion],
-  [#ruby[ひと][人]に#ruby[おし][教]えること], [education],
-  [#ruby[もの][物]がどうなっているかを#ruby[し][知]ること], [science],
-  [きれいな#ruby[もの][物]を#ruby[つく][作]ること], [art],
-  [#ruby[ことば][言葉]で#ruby[つく][作]った#ruby[ほん][本]], [literature],
-  [なぜ#ruby[い][生]きるかを#ruby[かんが][考]えること], [philosophy],
-  [#ruby[まえ][前]からある#ruby[こと][事]], [tradition],
-  [#ruby[ぜんぶ][全部]の#ruby[ひと][人]で#ruby[たの][楽]しくする#ruby[にち][日]], [festival],
-  [#ruby[ひと][人]たちが#ruby[まえ][前]からする#ruby[こと][事]], [ritual / ceremony],
-  [#ruby[おとこ][男]と#ruby[おんな][女]が#ruby[いえ][家]の#ruby[ひと][人]になること], [marriage],
-  [#ruby[し][死]んだ#ruby[ひと][人]のためにする#ruby[こと][事]], [funeral],
-  [#ruby[わる][悪]いことが#ruby[お][起]こった#ruby[こと][事]], [incident / case],
-  [#ruby[おも][思]わないで#ruby[わる][悪]いことが#ruby[お][起]こること], [accident],
-  [#ruby[ひと][人]がしてはいけない#ruby[わる][悪]いこと], [crime],
-  [#ruby[わる][悪]いことをしたかどうかを#ruby[ひと][人]が#ruby[い][言]うこと], [trial / court],
-  [#ruby[わる][悪]いことをした#ruby[ひと][人]に#ruby[あた][与]える#ruby[わる][悪]いこと], [punishment / penalty],
-  [#ruby[まい][毎]#ruby[にち][日]の#ruby[こと][事]が#ruby[か][書]いてある#ruby[ほん][本]], [newspaper],
-  [#ruby[おお][多]くの#ruby[ひと][人]に#ruby[おと][音]や#ruby[ひかり][光]で#ruby[ことば][言葉]を#ruby[だ][出]すこと], [broadcast],
-  [#ruby[もの][物]を#ruby[か][買]ってほしいと#ruby[い][言]うこと], [advertisement],
-  [#ruby[ひと][人]に#ruby[し][知]らせること], [information],
-  [#ruby[ひと][人]に#ruby[ことば][言葉]を#ruby[だ][出]すこと], [communication],
-  [#ruby[もの][物]を#ruby[つく][作]るための#ruby[し][知]ること], [technology],
-  [#ruby[おお][多]くの#ruby[もの][物]を#ruby[つく][作]ること], [industry],
-  [#ruby[くに][国]と#ruby[くに][国]で#ruby[もの][物]を#ruby[か][買]ったり#ruby[あた][与]えたりすること], [trade / commerce],
-  [#ruby[ひと][人]の#ruby[そと][外]にある#ruby[みず][水]や#ruby[かぜ][風]や#ruby[つち][土]], [environment],
-  [#ruby[みず][水]や#ruby[かぜ][風]が#ruby[わる][悪]くなること], [pollution / contamination],
-  [#ruby[ひと][人]が#ruby[つか][使]える#ruby[もの][物]], [resources],
-  [その#ruby[ところ][所]にいる#ruby[ひと][人]の#ruby[おお][多]さ], [population],
-  [ある#ruby[ひと][人]を#ruby[ほか][他]の#ruby[ひと][人]より#ruby[わる][悪]くすること], [discrimination],
-  [#ruby[ぜんぶ][全部]の#ruby[ひと][人]が#ruby[よ][良]いとすること], [equality],
-  [#ruby[ぜんぶ][全部]の#ruby[ひと][人]が#ruby[くに][国]のことを#ruby[えら][選]べること], [democracy],
-  [#ruby[くに][国]のやることを#ruby[おお][大]きく#ruby[か][変]えること], [revolution],
-  [#ruby[ほか][他]の#ruby[くに][国]が#ruby[も][持]っている#ruby[ところ][所]], [colony],
-  [#ruby[ほか][他]の#ruby[くに][国]に#ruby[い][行]ってそこにいる#ruby[ひと][人]], [immigrant / migration],
-  [#ruby[こわ][怖]いので#ruby[くに][国]から#ruby[で][出]た#ruby[ひと][人]], [refugee],
-)]
-
-=== #ruby[ところ][所]と#ruby[おお][大]きい#ruby[もの][物] (Places & Buildings)
-
-#rounded-table[#table(
-  columns: (1fr, 1fr),
-  stroke: none,
-  inset: (x: 8pt, y: 6pt),
-  fill: (_, row) => if calc.even(row) { rgb("#F7F7F7") },
-  table.header[*Minihongo*][*Meaning*],
-  [#ruby[おお][多]くの#ruby[ひと][人]がいる#ruby[ところ][所]], [town],
-  [とても#ruby[おお][多]くの#ruby[ひと][人]がいる#ruby[おお][大]きい#ruby[ところ][所]], [city],
-  [#ruby[ひと][人]が#ruby[すこ][少]しだけいる#ruby[ところ][所]], [village],
-  [#ruby[ひと][人]が#ruby[く][来]る#ruby[もの][物]を#ruby[ま][待]つ#ruby[ところ][所]], [station],
-  [#ruby[もの][物]を#ruby[か][買]う#ruby[ところ][所]], [shop/store],
-  [#ruby[からだ][体]が#ruby[わる][悪]い#ruby[ひと][人]を#ruby[たす][助]ける#ruby[ところ][所]], [hospital],
-  [お#ruby[おかね][金]を#ruby[まも][守]る#ruby[ところ][所]], [bank],
-  [#ruby[か][書]いた#ruby[もの][物]を#ruby[ほか][他]の#ruby[ひと][人]に#ruby[あた][与]える#ruby[ところ][所]], [post office],
-  [#ruby[ほん][本]を#ruby[よ][読]む#ruby[ところ][所]], [library],
-  [きれいな#ruby[もの][物]を#ruby[み][見]る#ruby[ところ][所]], [art museum],
-  [#ruby[くに][国]の#ruby[もの][物]を#ruby[み][見]る#ruby[ところ][所]], [museum],
-  [#ruby[ひと][人]が#ruby[み][見]せる#ruby[こと][事]をする#ruby[ところ][所]], [theater],
-  [#ruby[おお][大]きい#ruby[ひかり][光]の#ruby[もの][物]を#ruby[み][見]る#ruby[ところ][所]], [cinema/movie theater],
-  [#ruby[そと][外]で#ruby[たの][楽]しくいられる#ruby[ところ][所]], [park],
-  [#ruby[おお][多]くの#ruby[ひと][人]が#ruby[く][来]る#ruby[そと][外]の#ruby[ところ][所]], [plaza/square],
-  [#ruby[みず][水]の#ruby[うえ][上]を#ruby[い][行]く#ruby[みち][道]], [bridge],
-  [#ruby[たか][高]くて#ruby[なが][長]い#ruby[もの][物]], [tower],
-  [#ruby[つよ][強]い#ruby[ひと][人]が#ruby[まも][守]る#ruby[おお][大]きい#ruby[いえ][家]], [castle],
-  [#ruby[ひと][人]が#ruby[こころ][心]の#ruby[こと][事]を#ruby[かんが][考]える#ruby[ところ][所]], [Buddhist temple],
-  [この#ruby[くに][国]の#ruby[こころ][心]に#ruby[い][言]う#ruby[ところ][所]], [Shinto shrine],
-  [#ruby[ひと][人]が#ruby[こころ][心]に#ruby[よ][良]いことを#ruby[き][聞]く#ruby[ところ][所]], [church],
-  [#ruby[もの][物]を#ruby[つく][作]る#ruby[ところ][所]], [factory],
-  [#ruby[もの][物]を#ruby[なか][中]に#ruby[い][入]れて#ruby[まも][守]る#ruby[ところ][所]], [warehouse],
-  [#ruby[うみ][海]を#ruby[うご][動]く#ruby[もの][物]が#ruby[く][来]る#ruby[ところ][所]], [harbor/port],
-  [#ruby[そら][空]を#ruby[うご][動]く#ruby[もの][物]が#ruby[で][出]る#ruby[ところ][所]], [airport],
-  [#ruby[もの][物]が#ruby[はや][速]く#ruby[うご][動]く#ruby[みち][道]], [road],
-  [#ruby[みち][道]と#ruby[みち][道]が#ruby[あ][会]う#ruby[ところ][所]], [intersection],
-  [#ruby[あか][赤]と#ruby[あお][青]の#ruby[ひかり][光]で#ruby[うご][動]くのを#ruby[と][止]める#ruby[もの][物]], [traffic light],
-  [#ruby[うえ][上]に#ruby[い][行]くための#ruby[みち][道]], [stairs],
-  [#ruby[なか][中]に#ruby[はい][入]るための#ruby[ところ][所]], [entrance],
-  [#ruby[そと][外]に#ruby[で][出]るための#ruby[ところ][所]], [exit],
-  [#ruby[いえ][家]にあって#ruby[そと][外]が#ruby[み][見]えるもの], [window],
-  [#ruby[あ][開]いたり#ruby[し][閉]めたりする#ruby[もの][物]], [door],
-  [#ruby[そと][外]と#ruby[なか][中]の#ruby[い][入]り#ruby[ぐち][口]にある#ruby[おお][大]きい#ruby[もの][物]], [gate],
-  [#ruby[いえ][家]の#ruby[いち][一]ばん#ruby[うえ][上]にある#ruby[もの][物]], [roof],
-  [#ruby[いえ][家]の#ruby[そと][外]にある#ruby[いし][石]や#ruby[き][木]でできた#ruby[もの][物]], [wall],
-  [#ruby[いえ][家]の#ruby[なか][中]で#ruby[あし][足]が#ruby[うえ][上]にある#ruby[した][下]の#ruby[もの][物]], [floor],
-  [#ruby[いえ][家]の#ruby[なか][中]の#ruby[いち][一]ばん#ruby[うえ][上]], [ceiling],
-  [#ruby[いえ][家]の#ruby[そと][外]にある#ruby[くさ][草]の#ruby[ところ][所]], [garden/yard],
-  [#ruby[いえ][家]の#ruby[なか][中]で#ruby[た][食]べ#ruby[もの][物]を#ruby[つく][作]る#ruby[ところ][所]], [kitchen],
-  [#ruby[いえ][家]の#ruby[なか][中]で#ruby[ひと][人]が#ruby[たの][楽]しくいる#ruby[ところ][所]], [living room],
-  [#ruby[いえ][家]の#ruby[なか][中]で#ruby[ね][寝]る#ruby[ところ][所]], [bedroom],
-  [#ruby[つち][土]の#ruby[した][下]], [underground/basement],
-  [#ruby[つち][土]の#ruby[うえ][上]], [above ground],
-  [#ruby[うみ][海]の#ruby[なか][中]にある#ruby[つち][土]の#ruby[ところ][所]], [island],
-  [#ruby[みず][水]がなくて#ruby[あつ][暑]い#ruby[ところ][所]], [desert],
-  [#ruby[き][木]が#ruby[おお][多]くある#ruby[ところ][所]], [forest],
-  [#ruby[やま][山]と#ruby[やま][山]の#ruby[した][下]にある#ruby[ところ][所]], [valley],
-  [#ruby[やま][山]から#ruby[うみ][海]へ#ruby[みず][水]が#ruby[うご][動]く#ruby[みち][道]], [river],
-)]
-
-=== #ruby[うご][動]く#ruby[もの][物]と#ruby[い][行]く#ruby[こと][事] (Transport & Travel)
-
-#rounded-table[#table(
-  columns: (1fr, 1fr),
-  stroke: none,
-  inset: (x: 8pt, y: 6pt),
-  fill: (_, row) => if calc.even(row) { rgb("#F7F7F7") },
-  table.header[*Minihongo*][*Meaning*],
-  [#ruby[みち][道]を#ruby[はや][速]く#ruby[うご][動]く#ruby[もの][物]], [car],
-  [#ruby[みち][道]の#ruby[うえ][上]を#ruby[うご][動]く#ruby[なが][長]い#ruby[もの][物]], [train],
-  [#ruby[おお][多]くの#ruby[ひと][人]が#ruby[なか][中]に#ruby[はい][入]る#ruby[おお][大]きい#ruby[もの][物]], [bus],
-  [#ruby[そら][空]を#ruby[うご][動]く#ruby[もの][物]], [airplane],
-  [#ruby[うみ][海]を#ruby[うご][動]く#ruby[もの][物]], [ship/boat],
-  [#ruby[あし][足]を#ruby[つか][使]って#ruby[うご][動]かす#ruby[もの][物]], [bicycle],
-  [お#ruby[おかね][金]を#ruby[あた][与]えて#ruby[なか][中]に#ruby[はい][入]る#ruby[もの][物]], [taxi],
-  [#ruby[おも][重]い#ruby[もの][物]を#ruby[も][持]って#ruby[うご][動]く#ruby[おお][大]きい#ruby[もの][物]], [truck],
-  [#ruby[はや][速]く#ruby[うご][動]ける#ruby[おお][大]きい#ruby[みち][道]], [highway/expressway],
-  [#ruby[なが][長]い#ruby[もの][物]が#ruby[うご][動]く#ruby[みち][道]], [railway system],
-  [#ruby[なが][長]い#ruby[もの][物]が#ruby[うえ][上]を#ruby[うご][動]く#ruby[みち][道]], [railroad tracks],
-  [#ruby[もの][物]を#ruby[うご][動]かすこと], [driving],
-  [#ruby[ところ][所]を#ruby[で][出]ること], [departure],
-  [#ruby[ところ][所]に#ruby[く][来]ること], [arrival],
-  [#ruby[ほか][他]の#ruby[ところ][所]に#ruby[い][行]くこと], [travel/trip],
-  [#ruby[ほか][他]の#ruby[ところ][所]を#ruby[み][見]ること], [sightseeing],
-  [#ruby[みち][道]や#ruby[ところ][所]を#ruby[おし][教]えること], [guidance/guide],
-  [#ruby[ところ][所]を#ruby[か][書]いた#ruby[もの][物]], [map],
-  [#ruby[なか][中]に#ruby[はい][入]るために#ruby[か][買]う#ruby[もの][物]], [ticket],
-  [#ruby[ほか][他]の#ruby[くに][国]に#ruby[い][行]くときに#ruby[ひつよう][必要]な#ruby[ほん][本]], [passport],
-  [#ruby[い][行]く#ruby[とき][時]に#ruby[も][持]って#ruby[い][行]く#ruby[もの][物]], [luggage/baggage],
-  [#ruby[すわ][座]る#ruby[ところ][所]], [seat],
-  [どのくらい#ruby[はや][速]いかということ], [speed],
-  [#ruby[ふた][二]つの#ruby[ところ][所]がどのくらい#ruby[とお][遠]いか], [distance],
-  [どちらに#ruby[い][行]くかということ], [direction],
-  [#ruby[みち][道]を#ruby[ひと][人]や#ruby[もの][物]が#ruby[うご][動]くこと], [traffic/transportation],
-  [#ruby[もの][物]が#ruby[うご][動]けなくなること], [traffic jam],
-  [#ruby[わる][悪]いことが#ruby[お][起]こること], [accident],
-  [#ruby[なか][中]に#ruby[はい][入]るために#ruby[あた][与]えるお#ruby[おかね][金]], [fare],
-  [#ruby[い][行]くだけで#ruby[こ][来]ない#ruby[みち][道]], [one-way],
-  [#ruby[い][行]って#ruby[く][来]ること], [round trip],
-  [#ruby[い][行]きたい#ruby[ところ][所]], [destination],
-  [#ruby[ほか][他]の#ruby[くに][国]], [foreign country],
-  [もとの#ruby[くに][国]に#ruby[く][来]ること], [returning to home country],
-  [#ruby[みち][道]が#ruby[み][見]えなくなった#ruby[こども][子供]], [lost child],
-  [#ruby[はじ][始]まりと#ruby[お][終]わりの#ruby[まえ][前]], [on the way/midway],
-  [#ruby[もの][物]の#ruby[なか][中]に#ruby[はい][入]る#ruby[ひと][人]], [passenger],
-  [#ruby[もの][物]を#ruby[うご][動]かす#ruby[ひと][人]], [driver],
-  [#ruby[うご][動]く#ruby[もの][物]が#ruby[と][止]まって#ruby[お][終]わる#ruby[ところ][所]], [final stop/terminus],
-)]
-
-=== #ruby[そと][外]と#ruby[そら][空] (Nature & Weather)
-
-#rounded-table[#table(
-  columns: (1fr, 1fr),
-  stroke: none,
-  inset: (x: 8pt, y: 6pt),
-  fill: (_, row) => if calc.even(row) { rgb("#F7F7F7") },
-  table.header[*Minihongo*][*Meaning*],
-  [#ruby[そら][空]から#ruby[しろ][白]くて#ruby[さむ][寒]い#ruby[みず][水]が#ruby[く][来]ること], [snow],
-  [#ruby[さむ][寒]くなった#ruby[みず][水]], [ice],
-  [#ruby[しろ][白]い#ruby[かぜ][風]で#ruby[なに][何]も#ruby[み][見]えなくなること], [fog/mist],
-  [#ruby[あめ][雨]の#ruby[あと][後]に#ruby[そら][空]に#ruby[で][出]る#ruby[いろ][色]の#ruby[ひかり][光]], [rainbow],
-  [#ruby[そら][空]で#ruby[おお][大]きい#ruby[おと][音]と#ruby[ひかり][光]が#ruby[お][起]こること], [thunder/lightning],
-  [#ruby[つよ][強]い#ruby[かぜ][風]と#ruby[あめ][雨]が#ruby[く][来]ること], [typhoon],
-  [#ruby[つち][土]が#ruby[うご][動]くこと], [earthquake],
-  [#ruby[みず][水]が#ruby[おお][多]くなって#ruby[ところ][所]が#ruby[みず][水]の#ruby[なか][中]に#ruby[はい][入]ること], [flood],
-  [#ruby[そと][外]で#ruby[お][起]こる#ruby[わる][悪]いこと], [disaster],
-  [#ruby[やま][山]や#ruby[つち][土]の#ruby[なか][中]にある#ruby[おお][大]きい#ruby[みず][水]], [lake],
-  [#ruby[やま][山]や#ruby[つち][土]の#ruby[なか][中]にある#ruby[みず][水]], [pond],
-  [#ruby[たか][高]い#ruby[ところ][所]から#ruby[みず][水]が#ruby[した][下]に#ruby[で][出]てくること], [waterfall],
-  [#ruby[つち][土]の#ruby[なか][中]から#ruby[みず][水]が#ruby[で][出]てくる#ruby[ところ][所]], [spring/fountain],
-  [#ruby[き][木]が#ruby[おお][多]くある#ruby[ところ][所]], [grove/woodland],
-  [#ruby[た][食]べ#ruby[もの][物]を#ruby[つく][作]る#ruby[つち][土]の#ruby[ところ][所]], [field/farmland],
-  [#ruby[みず][水]を#ruby[つか][使]って#ruby[た][食]べ#ruby[もの][物]を#ruby[つく][作]る#ruby[ところ][所]], [rice paddy],
-  [#ruby[うみ][海]や#ruby[やま][山]にある#ruby[いし][石]でできた#ruby[もの][物]], [sand],
-  [#ruby[くさ][草]や#ruby[き][木]にある#ruby[いろ][色]のある#ruby[もの][物]], [flower],
-  [#ruby[しろ][白]や#ruby[あか][赤]の#ruby[いろ][色]の#ruby[き][木]の#ruby[もの][物]], [cherry blossom],
-  [#ruby[き][木]の#ruby[みどり][緑]の#ruby[もの][物]], [leaf],
-  [#ruby[き][木]や#ruby[くさ][草]の#ruby[つち][土]の#ruby[なか][中]にある#ruby[もの][物]], [root],
-  [#ruby[くさ][草]や#ruby[き][木]になる#ruby[まえ][前]の#ruby[もの][物]], [seed],
-  [#ruby[き][木]にある#ruby[た][食]べられる#ruby[もの][物]], [fruit/berry],
-  [#ruby[あし][足]が#ruby[おお][多]い#ruby[どうぶつ][動物]], [insect/bug],
-  [#ruby[いえ][家]にいる#ruby[どうぶつ][動物]], [cat],
-  [#ruby[おお][大]きくて#ruby[つよ][強]い#ruby[どうぶつ][動物]で#ruby[ひと][人]が#ruby[うえ][上]に#ruby[すわ][座]るもの], [horse],
-  [#ruby[しろ][白]と#ruby[くろ][黒]の#ruby[おお][大]きい#ruby[どうぶつ][動物]], [cow],
-  [#ruby[あし][足]がなくて#ruby[なが][長]い#ruby[どうぶつ][動物]], [snake],
-  [#ruby[おお][大]きくて#ruby[つよ][強]くて#ruby[こわ][怖]い#ruby[どうぶつ][動物]], [bear],
-  [#ruby[そら][空]を#ruby[うご][動]く#ruby[どうぶつ][動物]が#ruby[つか][使]う#ruby[もの][物]], [feather/wing],
-  [#ruby[とし][年]の#ruby[なか][中]で#ruby[あつ][暑]さや#ruby[さむ][寒]さが#ruby[か][変]わる#ruby[とき][時]], [season],
-  [#ruby[さむ][寒]い#ruby[とき][時]の#ruby[あと][後]で#ruby[あつ][暑]くなる#ruby[まえ][前]の#ruby[とき][時]], [spring],
-  [#ruby[とし][年]で#ruby[いち][一]ばん#ruby[あつ][暑]い#ruby[とき][時]], [summer],
-  [#ruby[あつ][暑]い#ruby[とき][時]の#ruby[あと][後]で#ruby[さむ][寒]くなる#ruby[まえ][前]の#ruby[とき][時]], [autumn/fall],
-  [#ruby[とし][年]で#ruby[いち][一]ばん#ruby[さむ][寒]い#ruby[とき][時]], [winter],
-  [#ruby[たいよう][太陽]が#ruby[そら][空]に#ruby[で][出]てくること], [sunrise],
-  [#ruby[たいよう][太陽]が#ruby[した][下]に#ruby[はい][入]ること], [sunset],
-  [#ruby[たいよう][太陽]が#ruby[で][出]てきた#ruby[あと][後]の#ruby[とき][時]], [morning],
-  [#ruby[うみ][海]の#ruby[みず][水]が#ruby[うえ][上]に#ruby[く][来]たり#ruby[した][下]に#ruby[い][行]ったりすること], [tide],
-  [#ruby[うみ][海]の#ruby[みず][水]が#ruby[うご][動]くこと], [wave],
-)]
-
-=== #ruby[た][食]べ#ruby[もの][物]と#ruby[の][飲]み#ruby[もの][物] (Food & Drink)
-
-#rounded-table[#table(
-  columns: (1fr, 1fr),
-  stroke: none,
-  inset: (x: 8pt, y: 6pt),
-  fill: (_, row) => if calc.even(row) { rgb("#F7F7F7") },
-  table.header[*Minihongo*][*Meaning*],
-  [#ruby[ひ][火]で#ruby[つく][作]った#ruby[た][食]べ#ruby[もの][物]], [cooking, dish],
-  [#ruby[た][食]べる#ruby[こと][事]], [meal],
-  [#ruby[にち][日]の#ruby[はじ][始]まりに#ruby[た][食]べる#ruby[もの][物]], [breakfast],
-  [#ruby[にち][日]の#ruby[なか][中]の#ruby[とき][時]に#ruby[た][食]べる#ruby[もの][物]], [lunch],
-  [#ruby[よる][夜]に#ruby[た][食]べる#ruby[もの][物]], [dinner],
-  [#ruby[そと][外]で#ruby[た][食]べるために#ruby[つく][作]った#ruby[た][食]べ#ruby[もの][物]], [packed lunch],
-  [#ruby[こども][子供]が#ruby[す][好]きな#ruby[た][食]べ#ruby[もの][物]], [sweets, snacks],
-  [#ruby[くさ][草]から#ruby[つく][作]った#ruby[しろ][白]い#ruby[た][食]べ#ruby[もの][物]], [bread],
-  [#ruby[に][日]ほんで#ruby[おお][多]く#ruby[た][食]べる#ruby[しろ][白]い#ruby[た][食]べ#ruby[もの][物]], [rice (uncooked)],
-  [#ruby[みず][水]で#ruby[つく][作]った#ruby[しろ][白]い#ruby[くさ][草]の#ruby[た][食]べ#ruby[もの][物]], [cooked rice, meal],
-  [#ruby[つち][土]から#ruby[で][出]る#ruby[た][食]べる#ruby[くさ][草]], [vegetables],
-  [#ruby[き][木]からもらう#ruby[た][食]べ#ruby[もの][物]], [fruit],
-  [#ruby[うみ][海]の#ruby[みず][水]から#ruby[つく][作]る#ruby[しろ][白]い#ruby[もの][物]], [salt],
-  [#ruby[た][食]べ#ruby[もの][物]を#ruby[よ][良]い#ruby[かん][感]じにする#ruby[しろ][白]い#ruby[もの][物]], [sugar],
-  [#ruby[くろ][黒]い#ruby[いろ][色]の#ruby[た][食]べ#ruby[もの][物]に#ruby[つか][使]う#ruby[みず][水]], [soy sauce],
-  [#ruby[くち][口]で#ruby[かん][感]じる#ruby[こと][事]], [taste, flavor],
-  [#ruby[はな][鼻]で#ruby[かん][感]じる#ruby[こと][事]], [smell, scent],
-  [#ruby[の][飲]むと#ruby[からだ][体]が#ruby[へん][変]になる#ruby[みず][水]], [alcohol, sake],
-  [#ruby[くさ][草]から#ruby[つく][作]った#ruby[の][飲]み#ruby[もの][物]], [tea],
-  [#ruby[き][木]の#ruby[た][食]べ#ruby[もの][物]から#ruby[で][出]る#ruby[みず][水]], [juice],
-  [#ruby[どう][動]#ruby[ぶつ][物]の#ruby[からだ][体]から#ruby[で][出]る#ruby[しろ][白]い#ruby[の][飲]み#ruby[もの][物]], [milk],
-  [#ruby[くろ][黒]い#ruby[の][飲]み#ruby[もの][物]], [coffee],
-  [#ruby[た][食]べ#ruby[もの][物]を#ruby[うえ][上]に#ruby[い][入]れる#ruby[もの][物]], [plate, dish],
-  [#ruby[た][食]べる#ruby[とき][時]に#ruby[つか][使]う#ruby[に][二]#ruby[ほん][本]の#ruby[き][木]], [chopsticks],
-  [#ruby[の][飲]み#ruby[もの][物]を#ruby[い][入]れる#ruby[もの][物]], [cup, glass],
-  [#ruby[みず][水]や#ruby[の][飲]み#ruby[もの][物]を#ruby[い][入]れる#ruby[もの][物]], [bottle],
-  [#ruby[ひ][火]で#ruby[た][食]べ#ruby[もの][物]を#ruby[つく][作]る#ruby[もの][物]], [pot, pan],
-  [#ruby[た][食]べ#ruby[もの][物]を#ruby[き][切]る#ruby[もの][物]], [kitchen knife],
-  [#ruby[た][食]べ#ruby[もの][物]を#ruby[さむ][寒]くして#ruby[い][入]れる#ruby[もの][物]], [refrigerator],
-  [とても#ruby[さむ][寒]くなった#ruby[みず][水]], [ice],
-  [#ruby[た][食]べ#ruby[もの][物]を#ruby[ひ][火]で#ruby[つく][作]る#ruby[とき][時]に#ruby[つか][使]う#ruby[もの][物]], [oil],
-  [#ruby[みず][水]で#ruby[つく][作]った#ruby[あつ][暑]い#ruby[た][食]べ#ruby[もの][物]], [soup],
-  [#ruby[き][切]った#ruby[くさ][草]の#ruby[た][食]べ#ruby[もの][物]], [salad],
-  [#ruby[た][食]べて#ruby[くち][口]で#ruby[よ][良]い#ruby[かん][感]じ], [sweet],
-  [#ruby[た][食]べて#ruby[くち][口]で#ruby[わる][悪]い#ruby[かん][感]じ], [bitter],
-  [#ruby[くち][口]に#ruby[つよ][強]い#ruby[かん][感]じがする#ruby[た][食]べ#ruby[もの][物]の#ruby[こと][事]], [spicy, hot],
-  [#ruby[くち][口]がとても#ruby[へん][変]に#ruby[かん][感]じる#ruby[た][食]べ#ruby[もの][物]の#ruby[こと][事]], [sour],
-  [#ruby[た][食]べ#ruby[もの][物]が#ruby[くち][口]で#ruby[よ][良]い#ruby[かん][感]じがする], [delicious],
-  [#ruby[た][食]べ#ruby[もの][物]の#ruby[くち][口]の#ruby[かん][感]じが#ruby[わる][悪]い], [bad-tasting],
-  [#ruby[ひ][火]で#ruby[た][食]べ#ruby[もの][物]を#ruby[つく][作]る], [to grill, to bake],
-  [#ruby[みず][水]と#ruby[ひ][火]で#ruby[た][食]べ#ruby[もの][物]を#ruby[つく][作]る], [to boil, to simmer],
-  [#ruby[あつ][暑]い#ruby[みず][水]のような#ruby[もの][物]で#ruby[た][食]べ#ruby[もの][物]を#ruby[つく][作]る], [to deep-fry],
-  [#ruby[た][食]べ#ruby[もの][物]が#ruby[ほ][欲]しくなる], [to get hungry],
-  [#ruby[の][飲]み#ruby[もの][物]が#ruby[ほ][欲]しくなる], [to get thirsty],
-)]
-
-=== #ruby[からだ][体]と#ruby[よ][良]い#ruby[からだ][体] (Body & Health)
-
-#rounded-table[#table(
-  columns: (1fr, 1fr),
-  stroke: none,
-  inset: (x: 8pt, y: 6pt),
-  fill: (_, row) => if calc.even(row) { rgb("#F7F7F7") },
-  table.header[*Minihongo*][*Meaning*],
-  [#ruby[からだ][体]が#ruby[わる][悪]い#ruby[とき][時]], [illness, disease],
-  [#ruby[からだ][体]を#ruby[よ][良]くするために#ruby[の][飲]む#ruby[もの][物]], [medicine],
-  [#ruby[からだ][体]が#ruby[わる][悪]くなった#ruby[こと][事]], [injury],
-  [#ruby[からだ][体]が#ruby[わる][悪]く#ruby[かん][感]じる], [painful, hurts],
-  [#ruby[からだ][体]がとても#ruby[あつ][暑]くなる#ruby[こと][事]], [fever],
-  [#ruby[からだ][体]が#ruby[わる][悪]くて#ruby[あつ][暑]くなる#ruby[こと][事]], [cold (illness)],
-  [#ruby[くち][口]から#ruby[つよ][強]く#ruby[くう][空]#ruby[き][気]が#ruby[で][出]る#ruby[こと][事]], [cough],
-  [#ruby[からだ][体]を#ruby[うご][動]かす#ruby[もの][物]], [muscle],
-  [#ruby[くち][口]の#ruby[なか][中]で#ruby[た][食]べ#ruby[もの][物]を#ruby[き][切]る#ruby[しろ][白]い#ruby[もの][物]], [tooth, teeth],
-  [#ruby[て][手]や#ruby[あし][足]の#ruby[お][終]わりの#ruby[なが][長]い#ruby[ところ][所]], [finger, toe],
-  [#ruby[あたま][頭]の#ruby[した][下]、#ruby[て][手]の#ruby[うえ][上]にある#ruby[からだ][体]の#ruby[ところ][所]], [shoulder],
-  [#ruby[からだ][体]の#ruby[なか][中]ほどにある#ruby[ところ][所]], [lower back, hips],
-  [#ruby[からだ][体]の#ruby[うし][後]ろにある#ruby[ところ][所]], [back (of body)],
-  [#ruby[あたま][頭]と#ruby[からだ][体]の#ruby[なか][中]の#ruby[ところ][所]], [neck],
-  [#ruby[からだ][体]の#ruby[まえ][前]の#ruby[うえ][上]の#ruby[ところ][所]], [chest],
-  [#ruby[からだ][体]の#ruby[まえ][前]の#ruby[なか][中]ほどの#ruby[ところ][所]], [abdomen, belly],
-  [#ruby[あたま][頭]の#ruby[まえ][前]の#ruby[ところ][所]], [face],
-  [#ruby[て][手]や#ruby[あし][足]の#ruby[お][終]わりにある#ruby[つよ][強]い#ruby[もの][物]], [nail (finger/toe)],
-  [#ruby[くち][口]の#ruby[そと][外]の#ruby[あか][赤]い#ruby[ところ][所]], [lips],
-  [#ruby[くち][口]の#ruby[なか][中]で#ruby[た][食]べ#ruby[もの][物]を#ruby[かん][感]じる#ruby[もの][物]], [tongue],
-  [#ruby[かな][悲]しい#ruby[とき][時]に#ruby[め][目]から#ruby[で][出]る#ruby[みず][水]], [tears],
-  [#ruby[あつ][暑]い#ruby[とき][時]に#ruby[からだ][体]から#ruby[で][出]る#ruby[みず][水]], [sweat, perspiration],
-  [#ruby[くち][口]から#ruby[で][出]る#ruby[おと][音]], [voice],
-  [#ruby[くち][口]や#ruby[はな][鼻]から#ruby[で][出]る#ruby[くう][空]#ruby[き][気]], [breath],
-  [#ruby[くう][空]#ruby[き][気]を#ruby[からだ][体]の#ruby[なか][中]に#ruby[い][入]れたり#ruby[だ][出]したりする#ruby[こと][事]], [breathing, respiration],
-  [#ruby[からだ][体]の#ruby[なか][中]の#ruby[あか][赤]い#ruby[みず][水]が#ruby[うご][動]く#ruby[おと][音]], [pulse],
-  [#ruby[からだ][体]が#ruby[よ][良]い#ruby[とき][時]], [health],
-  [#ruby[からだ][体]も#ruby[こころ][心]も#ruby[よ][良]い#ruby[とき][時]], [energetic, healthy],
-  [#ruby[からだ][体]や#ruby[こころ][心]が#ruby[うご][動]けなくなる], [to get tired],
-  [#ruby[ね][寝]たいと#ruby[かん][感]じる], [sleepy],
-  [#ruby[ね][寝]ている#ruby[とき][時]から#ruby[で][出]る], [to wake up],
-  [#ruby[からだ][体]の#ruby[わる][悪]い#ruby[ひと][人]を#ruby[たす][助]ける#ruby[ひと][人]], [doctor, physician],
-  [#ruby[からだ][体]の#ruby[わる][悪]い#ruby[ひと][人]を#ruby[たす][助]ける#ruby[ひと][人]], [nurse],
-  [#ruby[からだ][体]を#ruby[き][切]って#ruby[なか][中]を#ruby[よ][良]くする#ruby[こと][事]], [surgery, operation],
-  [#ruby[からだ][体]の#ruby[なか][中]に#ruby[もの][物]を#ruby[い][入]れる#ruby[こと][事]], [injection, shot],
-  [#ruby[からだ][体]がとても#ruby[わる][悪]くて#ruby[いえ][家]を#ruby[で][出]てどこかに#ruby[はい][入]る#ruby[こと][事]], [hospitalization],
-  [#ruby[からだ][体]が#ruby[よ][良]くなって#ruby[で][出]る#ruby[こと][事]], [hospital discharge],
-  [#ruby[からだ][体]の#ruby[なか][中]を#ruby[み][見]る#ruby[こと][事]], [examination, test],
-  [#ruby[からだ][体]が#ruby[わる][悪]い#ruby[とき][時]に#ruby[で][出]る#ruby[へん][変]な#ruby[こと][事]], [symptom],
-  [#ruby[からだ][体]が#ruby[わる][悪]い#ruby[とき][時]から#ruby[よ][良]くなる], [to heal, to recover],
-  [#ruby[からだ][体]を#ruby[よ][良]くする#ruby[こと][事]], [to cure, to fix],
-  [#ruby[からだ][体]が#ruby[おお][大]きく#ruby[おも][重]くなる], [to gain weight],
-  [#ruby[からだ][体]が#ruby[おも][重]くなくなる], [to lose weight],
-  [#ruby[おんな][女]の#ruby[からだ][体]の#ruby[なか][中]に#ruby[こども][子供]がいる#ruby[とき][時]], [pregnancy],
-  [#ruby[からだ][体]から#ruby[こ][子]#ruby[ども][供]が#ruby[で][出]る#ruby[こと][事]], [childbirth],
-  [ある#ruby[もの][物]に#ruby[からだ][体]が#ruby[わる][悪]く#ruby[か][変]わる#ruby[こと][事]], [allergy],
-  [#ruby[からだ][体]が#ruby[き][切]れた#ruby[ところ][所]], [wound, scar],
-)]
-
-=== #ruby[とき][時]の#ruby[こと][言]#ruby[ば][葉] (Time Expressions)
-
-#rounded-table[#table(
-  columns: (1fr, 1fr),
-  stroke: none,
-  inset: (x: 8pt, y: 6pt),
-  fill: (_, row) => if calc.even(row) { rgb("#F7F7F7") },
-  table.header[*Minihongo*][*Meaning*],
-  [#ruby[たい][太]#ruby[よう][陽]が#ruby[で][出]てくる#ruby[とき][時]], [morning],
-  [#ruby[たい][太]#ruby[よう][陽]が#ruby[うえ][上]にある#ruby[とき][時]], [daytime, noon],
-  [#ruby[たい][太]#ruby[よう][陽]が#ruby[した][下]に#ruby[はい][入]る#ruby[とき][時]], [evening],
-  [#ruby[いま][今]の#ruby[にち][日]の#ruby[はじ][始]まりの#ruby[とき][時]], [this morning],
-  [#ruby[いま][今]#ruby[にち][日]の#ruby[よる][夜]], [tonight],
-  [#ruby[あす][明]の#ruby[あと][後]の#ruby[にち][日]], [day after tomorrow],
-  [#ruby[まえ][前]の#ruby[まえ][前]の#ruby[にち][日]], [day before yesterday],
-  [#ruby[いま][今]より#ruby[すこ][少]し#ruby[まえ][前]の#ruby[とき][時]], [last week],
-  [#ruby[いま][今]の#ruby[ちか][近]くの#ruby[にち][日]の#ruby[とき][時]], [this week],
-  [#ruby[いま][今]より#ruby[すこ][少]し#ruby[あと][後]の#ruby[とき][時]], [next week],
-  [#ruby[いま][今]の#ruby[つき][月]の#ruby[まえ][前]の#ruby[つき][月]], [last month],
-  [#ruby[いま][今]の#ruby[つき][月]], [this month],
-  [#ruby[いま][今]の#ruby[つき][月]の#ruby[あと][後]の#ruby[つき][月]], [next month],
-  [#ruby[いま][今]の#ruby[とし][年]の#ruby[まえ][前]の#ruby[とし][年]], [last year],
-  [#ruby[いま][今]の#ruby[とし][年]], [this year],
-  [#ruby[いま][今]の#ruby[とし][年]の#ruby[あと][後]の#ruby[とし][年]], [next year],
-  [#ruby[にち][日]のまとまりの#ruby[お][終]わりの#ruby[にち][日]], [weekend],
-  [#ruby[まい][毎]#ruby[にち][日]のいつもの#ruby[にち][日]], [weekday],
-  [#ruby[いま][今]から#ruby[まえ][前]や#ruby[あと][後]まで#ruby[と][止]まらない#ruby[もの][物]], [time, hour],
-  [#ruby[いち][一]の#ruby[とき][時]を#ruby[おお][多]く#ruby[き][切]った#ruby[ひと][一]つ], [minute],
-  [とても#ruby[すこ][少]しの#ruby[とき][時]], [second],
-  [#ruby[たい][太]#ruby[よう][陽]が#ruby[たか][高]くなる#ruby[まえ][前]の#ruby[とき][時]], [AM, morning],
-  [#ruby[たい][太]#ruby[よう][陽]が#ruby[たか][高]くなった#ruby[あと][後]の#ruby[とき][時]], [PM, afternoon],
-  [#ruby[たい][太]#ruby[よう][陽]が#ruby[ひと][一]つだけ#ruby[たか][高]い#ruby[とき][時]], [noon, midday],
-  [#ruby[たい][太]#ruby[よう][陽]の#ruby[にち][日]], [Sunday],
-  [#ruby[つき][月]の#ruby[にち][日]], [Monday],
-  [#ruby[なに][何]もしなくていい#ruby[にち][日]], [day off, holiday],
-  [#ruby[くに][国]が#ruby[えら][選]んだ#ruby[なに][何]もしない#ruby[にち][日]], [national holiday],
-  [#ruby[とし][年]の#ruby[なか][中]で#ruby[そら][空]が#ruby[か][変]わる#ruby[とき][時]], [season],
-  [#ruby[ひと][人]が#ruby[い][生]きる#ruby[こと][事]が#ruby[はじ][始]まった#ruby[にち][日]], [birthday],
-  [よく#ruby[おも][思]い#ruby[だ][出]す#ruby[ひつよう][必要]な#ruby[にち][日]], [anniversary],
-  [とても#ruby[すこ][少]しの#ruby[とき][時]], [moment, instant],
-  [#ruby[はじ][始]まりから#ruby[お][終]わりまでの#ruby[とき][時]], [period, duration],
-  [その#ruby[こと][事]が#ruby[お][終]わらなければならない#ruby[とき][時]], [deadline, expiry],
-  [これより#ruby[あと][後]はできないという#ruby[とき][時]], [deadline (submission)],
-  [#ruby[いま][今]から#ruby[すこ][少]し#ruby[まえ][前]の#ruby[とき][時]], [recently, lately],
-  [とても#ruby[すこ][少]しの#ruby[とき][時]の#ruby[あと][後]に], [soon, right away],
-  [#ruby[すこ][少]し#ruby[あと][後]の#ruby[とき][時]に], [eventually, before long],
-  [#ruby[お][終]わらない#ruby[とき][時]], [eternity, forever],
-  [#ruby[い][生]きている#ruby[ぜん][全]#ruby[ぶ][部]の#ruby[とき][時]], [one's whole life],
-  [#ruby[じゅう][十]の#ruby[じゅう][十]の#ruby[とし][年]の#ruby[とき][時]], [century],
-  [ある#ruby[なが][長]い#ruby[とき][時]の#ruby[こと][事]が#ruby[お][起]こった#ruby[とき][時]], [era, period (of history)],
-  [とても#ruby[なが][長]い#ruby[とき][時]の#ruby[あと][後]に], [finally, at last],
-  [#ruby[おも][思]っていなかった#ruby[とき][時]に#ruby[お][起]こる], [suddenly, all of a sudden],
-  [#ruby[なが][長]い#ruby[とき][時]が#ruby[お][終]わって#ruby[あ][会]う], [after a long time],
-)]
-
-=== する#ruby[こと][事] (Verbs not in base)
-
-#rounded-table[#table(
-  columns: (1fr, 1fr),
-  stroke: none,
-  inset: (x: 8pt, y: 6pt),
-  fill: (_, row) => if calc.even(row) { rgb("#F7F7F7") },
-  table.header[*Minihongo*][*Meaning*],
-  [#ruby[はや][速]く#ruby[あし][足]で#ruby[うご][動]く], [run],
-  [#ruby[みず][水]の#ruby[なか][中]で#ruby[うご][動]く], [swim],
-  [#ruby[うえ][上]へ#ruby[い][行]く], [climb],
-  [#ruby[した][下]へ#ruby[うご][動]く], [fall],
-  [#ruby[した][下]へ#ruby[で][出]る], [get off / descend],
-  [#ruby[うえ][上]に#ruby[はい][入]る], [ride / board],
-  [#ruby[も][持]って#ruby[い][行]く], [carry / transport],
-  [ある#ruby[ところ][所]へ#ruby[い][行]かせる], [send],
-  [#ruby[も][持]って#ruby[き][来]て#ruby[あた][与]える], [deliver],
-  [#ruby[き][来]て#ruby[て][手]に#ruby[はい][入]る], [arrive / reach],
-  [#ruby[も][持]って#ruby[あた][与]える], [hand over],
-  [#ruby[みぎ][右]か#ruby[ひだり][左]の#ruby[そと][外]へ#ruby[い][行]く], [cross over],
-  [#ruby[て][手]で#ruby[かん][感]じる], [touch],
-  [#ruby[て][手]で#ruby[うご][動]かす], [push],
-  [#ruby[て][手]で#ruby[ちか][近]くへ#ruby[うご][動]かす], [pull],
-  [#ruby[て][手]で#ruby[そら][空]へ#ruby[で][出]す], [throw],
-  [#ruby[した][下]にある#ruby[もの][物]を#ruby[て][手]で#ruby[も][持]つ], [pick up],
-  [ある#ruby[ところ][所]に#ruby[と][止]める], [place / put down],
-  [#ruby[うえ][上]から#ruby[もの][物]を#ruby[と][止]める], [hang / apply],
-  [お#ruby[おかね][金]を#ruby[あた][与]える], [pay],
-  [お#ruby[おかね][金]をもらって#ruby[もの][物]を#ruby[あた][与]える], [sell],
-  [また#ruby[も][持]って#ruby[く][来]るために#ruby[あた][与]える], [lend],
-  [#ruby[あと][後]で#ruby[あた][与]えるためにもらう], [borrow],
-  [もらった#ruby[ひと][人]に#ruby[あた][与]える], [return (something)],
-  [いらない#ruby[もの][物]を#ruby[で][出]す], [throw away],
-  [#ruby[おお][多]く#ruby[も][持]ってくる], [gather / collect],
-  [#ruby[ひと][一]つの#ruby[もの][物]を#ruby[ふた][二]つより#ruby[おお][多]くにする], [divide / separate],
-  [#ruby[ふた][二]つより#ruby[おお][多]くの#ruby[もの][物]を#ruby[ひと][一]つにする], [mix],
-  [#ruby[ひと][一]つ#ruby[ひと][一]つ#ruby[まえ][前]と#ruby[あと][後]に#ruby[た][立]つ], [line up],
-  [#ruby[お][終]わらずに#ruby[お][起]こる], [continue (intrans.)],
-  [#ruby[お][終]わらせずにする], [continue (trans.)],
-  [#ruby[ひと][一]つを#ruby[えら][選]ぶ], [decide],
-  [#ruby[ひと][一]つに#ruby[えら][選]ばれる], [be decided],
-  [#ruby[ふた][二]つの#ruby[もの][物]が#ruby[ちが][違]うか#ruby[み][見]る], [compare],
-  [いくつあるか#ruby[し][知]る], [count],
-  [#ruby[よ][良]いか#ruby[み][見]るためにする], [try / test],
-  [ほんとうかどうか#ruby[み][見]る], [confirm / verify],
-  [#ruby[し][知]るために#ruby[み][見]る], [investigate / look up],
-  [#ruby[き][聞]かれたことを#ruby[い][言]う], [answer],
-  [してほしいと#ruby[い][言]う], [ask (a favor) / request],
-  [しないと#ruby[い][言]う], [refuse / decline],
-  [#ruby[き][来]てほしいと#ruby[い][言]う], [invite],
-  [#ruby[ことば][言葉]で#ruby[し][知]らせる], [convey / tell],
-  [とても#ruby[おお][大]きな#ruby[おと][音]で#ruby[くち][口]から#ruby[い][言]う], [shout / scream],
-  [#ruby[なまえ][名前]を#ruby[い][言]って#ruby[く][来]るように#ruby[い][言]う], [call (out to)],
-  [#ruby[おと][音]のある#ruby[ことば][言葉]を#ruby[くち][口]から#ruby[で][出]す], [sing],
-  [#ruby[おと][音]で#ruby[からだ][体]を#ruby[うご][動]かす], [dance],
-  [#ruby[たの][楽]しいことをする], [play],
-  [お#ruby[おかね][金]のためにする], [work],
-  [ある#ruby[とき][時]まで#ruby[と][止]める], [rest / take a break],
-  [#ruby[ね][寝]るのを#ruby[と][止]めて#ruby[た][立]つ], [wake up / get up],
-  [ある#ruby[ところ][所]に#ruby[まい][毎]#ruby[にち][日]いる], [live (reside)],
-  [#ruby[わたし][私]の#ruby[いえ][家]へ#ruby[い][行]く], [return home],
-  [ある#ruby[ところ][所]の#ruby[なか][中]を#ruby[い][行]く], [pass through],
-  [その#ruby[ところ][所]を#ruby[で][出]る], [pass by / exceed],
-  [とても#ruby[はや][速]くする], [hurry],
-  [#ruby[こわ][怖]いものから#ruby[そと][外]へ#ruby[い][行]く], [escape / run away],
-  [ある#ruby[ひと][人]・#ruby[もの][物]の#ruby[あと][後]から#ruby[い][行]く], [chase],
-  [#ruby[うご][動]けないようにする], [catch / capture],
-  [#ruby[み][見]えないようにする], [hide (something)],
-  [#ruby[み][見]えるようになる], [appear],
-  [#ruby[み][見]えなくなる], [disappear],
-  [もっと#ruby[おお][多]くなる], [increase],
-  [より#ruby[すこ][少]しになる], [decrease],
-  [#ruby[うえ][上]へ#ruby[うご][動]く], [rise / go up],
-  [#ruby[した][下]へ#ruby[うご][動]く], [fall / go down],
-  [ある#ruby[もの][物]の#ruby[そと][外]を#ruby[うご][動]く], [turn / go around],
-  [#ruby[みち][道]が#ruby[みぎ][右]か#ruby[ひだり][左]へ#ruby[か][変]わる], [turn / bend],
-  [#ruby[からだ][体]が#ruby[はや][速]く#ruby[すこ][少]し#ruby[うご][動]く], [tremble / shake],
-  [#ruby[みぎ][右]と#ruby[ひだり][左]に#ruby[はや][速]くなく#ruby[うご][動]く], [sway / shake],
-  [#ruby[ひかり][光]を#ruby[で][出]す], [shine / glow],
-  [#ruby[ひ][火]になる], [burn],
-  [#ruby[みず][水]のようになる], [melt / dissolve],
-  [#ruby[みず][水]がなくなる], [dry],
-  [#ruby[みず][水]がつく], [get wet],
-  [#ruby[わる][悪]いものがつく], [get dirty],
-  [きれいになるようにする], [polish / brush],
-  [#ruby[もの][物]の#ruby[そと][外]を#ruby[ぜんぶ][全部]#ruby[み][見]えないようにする], [wrap],
-  [#ruby[ふた][二]つの#ruby[もの][物]を#ruby[ひと][一]つに#ruby[と][止]める], [tie / bind],
-  [#ruby[て][手]で#ruby[め][目]に#ruby[み][見]えるものを#ruby[つく][作]る], [draw / depict],
-)]
-
-=== どんな (Adjectives not in base)
-
-#rounded-table[#table(
-  columns: (1fr, 1fr),
-  stroke: none,
-  inset: (x: 8pt, y: 6pt),
-  fill: (_, row) => if calc.even(row) { rgb("#F7F7F7") },
-  table.header[*Minihongo*][*Meaning*],
-  [#ruby[なが][長]くない], [short (length)],
-  [#ruby[たか][高]くない], [low / short (height)],
-  [#ruby[おも][重]くない], [light (weight)],
-  [#ruby[つよ][強]くない], [weak],
-  [#ruby[はや][速]くない], [slow / late],
-  [#ruby[あたら][新]しくない], [old (things)],
-  [#ruby[とし][年]が#ruby[すこ][少]ない], [young],
-  [#ruby[おお][大]きな#ruby[ところ][所]だ], [wide / spacious],
-  [#ruby[ところ][所]が#ruby[ちい][小]さい], [narrow / small space],
-  [#ruby[した][下]まで#ruby[なが][長]い], [deep],
-  [#ruby[した][下]まで#ruby[なが][長]くない], [shallow],
-  [#ruby[なか][中]まで#ruby[なが][長]い], [thick],
-  [#ruby[なか][中]まで#ruby[なが][長]くない], [thin / light (color)],
-  [#ruby[そと][外]が#ruby[おお][大]きい], [thick / fat (width)],
-  [#ruby[そと][外]が#ruby[ちい][小]さい], [thin / slender],
-  [#ruby[つき][月]や#ruby[たいよう][太陽]のような#ruby[もの][物]だ], [round],
-  [#ruby[て][手]で#ruby[か][変]えられない], [hard / stiff],
-  [#ruby[て][手]で#ruby[か][変]えられる], [soft],
-  [#ruby[た][食]べると#ruby[よ][良]いと#ruby[かん][感]じる], [sweet],
-  [#ruby[た][食]べると#ruby[す][好]きではないと#ruby[かん][感]じる], [bitter],
-  [#ruby[た][食]べると#ruby[ひ][火]のように#ruby[かん][感]じる], [spicy / hot (taste)],
-  [#ruby[た][食]べると#ruby[へん][変]に#ruby[かん][感]じる], [sour],
-  [#ruby[おと][音]が#ruby[おお][大]きすぎる], [noisy / annoying],
-  [#ruby[おと][音]がない], [quiet],
-  [#ruby[よ][良]いと#ruby[い][言]える], [correct / right],
-  [できない#ruby[こと][事]が#ruby[おお][多]い], [difficult],
-  [すぐにできる], [easy],
-  [することが#ruby[おお][多]すぎる], [busy],
-  [することがない], [free (time) / idle],
-  [とてもきれいだ], [beautiful],
-  [きれいではない], [ugly],
-  [#ruby[わる][悪]いものがある], [dirty],
-  [#ruby[わる][悪]い#ruby[かぜ][風]がある], [stinky / smelly],
-  [#ruby[からだ][体]が#ruby[わる][悪]く#ruby[かん][感]じる], [painful],
-  [#ruby[ね][寝]たいと#ruby[かん][感]じる], [sleepy],
-  [#ruby[ほか][他]の#ruby[ひと][人]に#ruby[み][見]られたくないと#ruby[かん][感]じる], [embarrassed / ashamed],
-  [あまり#ruby[み][見]ない#ruby[もの][物]だ], [rare / unusual],
-  [#ruby[まえ][前]のことを#ruby[おも][思]って#ruby[よ][良]いと#ruby[かん][感]じる], [nostalgic],
-  [とても#ruby[よ][良]い], [wonderful / splendid],
-  [#ruby[よ][良]い#ruby[もの][物]が#ruby[おお][多]い], [rich / abundant],
-  [お#ruby[おかね][金]がとても#ruby[すこ][少]ない], [poor],
-  [#ruby[おお][多]くの#ruby[ひと][人]が#ruby[し][知]っている], [famous],
-  [#ruby[おお][多]くのことがある], [complex],
-  [ことが#ruby[すこ][少]ない], [simple],
-  [#ruby[こわ][怖]いことがない], [safe],
-  [#ruby[わる][悪]いことが#ruby[お][起]こるかもしれない], [dangerous],
-  [できる], [possible],
-  [できない], [impossible],
-  [#ruby[へん][変]ではない], [normal / ordinary],
-  [ほかと#ruby[ちが][違]う], [special],
-  [#ruby[ぜんぶ][全部]で#ruby[ひと][一]つだけ#ruby[よ][良]い], [best / greatest],
-  [#ruby[ぜんぶ][全部]で#ruby[ひと][一]つだけ#ruby[わる][悪]い], [worst / lowest],
-  [もっと#ruby[ひつよう][必要]ではない], [enough / sufficient],
-  [この#ruby[こと][事]に#ruby[よ][良]い], [suitable / appropriate],
-)]
-
-=== #ruby[かんが][考]えの#ruby[こと][事] (Abstract Concepts)
-
-#rounded-table[#table(
-  columns: (1fr, 1fr),
-  stroke: none,
-  inset: (x: 8pt, y: 6pt),
-  fill: (_, row) => if calc.even(row) { rgb("#F7F7F7") },
-  table.header[*Minihongo*][*Meaning*],
-  [その#ruby[ことば][言葉]が#ruby[い][言]うこと], [meaning],
-  [なぜそうなったかということ], [reason],
-  [どうするかということ], [method / way],
-  [なぜするかということ], [purpose / goal],
-  [したあとに#ruby[お][起]こること], [result],
-  [それが#ruby[お][起]こる#ruby[まえ][前]にあったもの], [cause],
-  [あることが#ruby[ほか][他]のことを#ruby[か][変]えること], [influence / effect],
-  [#ruby[ふた][二]つの#ruby[もの][物]や#ruby[ひと][人]が#ruby[ひと][一]つのことに#ruby[はい][入]っていること], [relationship],
-  [そうなるために#ruby[ひつよう][必要]なこと], [condition],
-  [#ruby[いま][今]どうなっているかということ], [state / condition],
-  [どのくらいかということ], [degree / extent],
-  [どんな#ruby[もの][物]かということ], [type / kind],
-  [#ruby[わる][悪]いことで#ruby[かんが][考]えなければならないこと], [problem / question],
-  [#ruby[き][聞]かれたことへの#ruby[ことば][言葉]], [answer],
-  [#ruby[し][知]りたいことを#ruby[き][聞]くこと], [question],
-  [こういう#ruby[もの][物]だということを#ruby[み][見]せるもの], [example],
-  [ある#ruby[とき][時]に#ruby[お][起]こること], [case / situation],
-  [できる#ruby[とき][時]があること], [opportunity],
-  [#ruby[お][起]こるかもしれないということ], [possibility],
-  [したことがあるということ], [experience],
-  [#ruby[まえ][前]のことを#ruby[こころ][心]に#ruby[も][持]っていること], [memory],
-  [#ruby[み][見]えないものを#ruby[あたま][頭]の#ruby[なか][中]で#ruby[つく][作]ること], [imagination],
-  [#ruby[み][見]た#ruby[とき][時]に#ruby[かん][感]じたこと], [impression],
-  [あることについて#ruby[おも][思]うこと], [opinion],
-  [#ruby[あたま][頭]の#ruby[なか][中]にあること], [thought / idea],
-  [#ruby[こころ][心]で#ruby[かん][感]じること], [feeling],
-  [#ruby[ひと][人]に#ruby[み][見]せる#ruby[からだ][体]と#ruby[ことば][言葉]の#ruby[うご][動]き], [attitude],
-  [すること], [action / behavior],
-  [#ruby[つよ][強]くしようとすること], [effort],
-  [しようとしたことができたこと], [success],
-  [しようとしたことができなかったこと], [failure],
-  [#ruby[か][変]わること], [change],
-  [より#ruby[よ][良]くなること], [progress],
-  [もっと#ruby[おお][大]きくなること], [development],
-  [#ruby[い][生]きていること], [life],
-  [これから#ruby[お][起]こる#ruby[こと][事]が#ruby[まえ][前]に#ruby[えら][選]ばれているという#ruby[かんが][考]え], [fate / destiny],
-  [#ruby[つよ][強]く#ruby[うご][動]かすことができること], [power / strength],
-  [できることがあること], [ability / capacity],
-  [とても#ruby[よ][良]くできること], [talent],
-  [#ruby[し][知]っていること], [knowledge],
-  [#ruby[ぜんぶ][全部]の#ruby[ひと][人]が#ruby[し][知]っていること], [common sense],
-  [#ruby[まい][毎]#ruby[にち][日]すること], [habit / custom],
-  [#ruby[ほか][他]の#ruby[ひと][人]に#ruby[い][言]わないこと], [secret],
-  [すると#ruby[い][言]ったこと], [promise],
-  [しなければならないと#ruby[おも][思]うこと], [responsibility],
-  [しなければならないこと], [duty / obligation],
-  [してもいいと#ruby[い][言]われていること], [right (legal)],
-  [#ruby[よ][良]いことをするという#ruby[かんが][考]え], [justice],
-  [どのくらい#ruby[よ][良]いかということ], [value / worth],
-  [するという#ruby[つよ][強]い#ruby[こころ][心]], [will / volition],
-)]
-
-== #ruby[か][書]いた#ruby[もの][物]を#ruby[ひと][一]つにする (Real Kanji Compounds)
-
-#text(size: 9pt, fill: rgb("#666666"))[Real Japanese words built entirely from kanji in the 206-word vocabulary.]
-
-#note-block[Kanji have multiple readings. The same character can sound different in different words. Learn each compound as a whole word, not by combining individual readings.]
-
-=== #ruby[ひと][人] (People)
-
-#rounded-table[#table(
-  columns: (1fr, 2fr),
-  stroke: none,
-  inset: (x: 8pt, y: 6pt),
-  fill: (_, row) => if calc.even(row) { rgb("#F7F7F7") },
-  table.header[*Word*][*Meaning*],
-  [#ruby[おとな][大人]], [adult],
-  [#ruby[ひとり][一人]], [one person, alone],
-  [#ruby[ふたり][二人]], [two people],
-  [#ruby[だんじょ][男女]], [men and women],
-  [#ruby[だんし][男子]], [boy, male],
-  [#ruby[じょし][女子]], [girl, female],
-  [#ruby[ふぼ][父母]], [parents],
-  [#ruby[ふし][父子]], [father and child],
-  [#ruby[ぼし][母子]], [mother and child],
-  [#ruby[ちょうなん][長男]], [eldest son],
-  [#ruby[ちょうじょ][長女]], [eldest daughter],
-  [#ruby[しんじん][新人]], [newcomer],
-  [#ruby[ほんにん][本人]], [the person in question],
-  [#ruby[たにん][他人]], [stranger, others],
-  [#ruby[ちじん][知人]], [acquaintance],
-  [#ruby[めいじん][名人]], [master, expert],
-  [#ruby[あくにん][悪人]], [villain],
-  [#ruby[へんじん][変人]], [eccentric],
-  [#ruby[せいねん][青年]], [young man],
-  [#ruby[じんせい][人生]], [human life],
-  [#ruby[じんぶつ][人物]], [person, character],
-  [#ruby[じんこう][人口]], [population],
-  [#ruby[ひとで][人手]], [workforce, help],
-  [#ruby[ひとめ][人目]], [public gaze],
-  [#ruby[にほんじん][日本人]], [Japanese person],
-  [#ruby[がいこくじん][外国人]], [foreigner],
-  [#ruby[こつにく][骨肉]], [blood relations, flesh and bone],
-  [#ruby[ふくしん][腹心]], [trusted confidant, right-hand person],
-)]
-
-=== #ruby[そと][外]の#ruby[もの][物] (Nature & Geography)
-
-#rounded-table[#table(
-  columns: (1fr, 2fr),
-  stroke: none,
-  inset: (x: 8pt, y: 6pt),
-  fill: (_, row) => if calc.even(row) { rgb("#F7F7F7") },
-  table.header[*Word*][*Meaning*],
-  [#ruby[おおぞら][大空]], [vast sky],
-  [#ruby[あおぞら][青空]], [blue sky],
-  [#ruby[たいぼく][大木]], [large tree],
-  [#ruby[こだち][木立]], [grove of trees],
-  [#ruby[かざん][火山]], [volcano],
-  [#ruby[こうざん][高山]], [high mountain],
-  [#ruby[やまみち][山道]], [mountain path],
-  [#ruby[さんちゅう][山中]], [in the mountains],
-  [#ruby[やまぐち][山口]], [mountain entrance],
-  [#ruby[ちかみち][近道]], [shortcut],
-  [#ruby[こくどう][国道]], [national highway],
-  [#ruby[すいどう][水道]], [water supply],
-  [#ruby[すいちゅう][水中]], [underwater],
-  [#ruby[かいすい][海水]], [seawater],
-  [#ruby[かいじょう][海上]], [on the sea],
-  [#ruby[たいかい][大海]], [great ocean],
-  [#ruby[おおあめ][大雨]], [heavy rain],
-  [#ruby[おおみず][大水]], [flood],
-  [#ruby[たいか][大火]], [great fire],
-  [#ruby[かこう][火口]], [volcanic crater],
-  [#ruby[きょうふう][強風]], [strong wind],
-  [#ruby[きんざん][金山]], [gold mine],
-  [#ruby[えんそく][遠足]], [excursion, field trip],
-  [#ruby[ほどう][歩道]], [sidewalk],
-  [#ruby[はくちょう][白鳥]], [swan],
-  [#ruby[こいぬ][小犬]], [puppy],
-  [#ruby[こざかな][小魚]], [small fish],
-  [#ruby[あまぐも][雨雲]], [rain cloud],
-  [#ruby[みずどり][水鳥]], [waterbird],
-)]
-
-=== #ruby[そら][空]と#ruby[とき][時] (Sky & Time)
-
-#rounded-table[#table(
-  columns: (1fr, 2fr),
-  stroke: none,
-  inset: (x: 8pt, y: 6pt),
-  fill: (_, row) => if calc.even(row) { rgb("#F7F7F7") },
-  table.header[*Word*][*Meaning*],
-  [#ruby[にっこう][日光]], [sunlight],
-  [#ruby[げっこう][月光]], [moonlight],
-  [#ruby[つきよ][月夜]], [moonlit night],
-  [#ruby[しんげつ][新月]], [new moon],
-  [#ruby[つきひ][月日]], [time, the days],
-  [#ruby[きょう][今日]], [today],
-  [#ruby[あした][明日]], [tomorrow],
-  [#ruby[ぜんじつ][前日]], [the day before],
-  [#ruby[ごじつ][後日]], [another day, later],
-  [#ruby[まいにち][毎日]], [every day],
-  [#ruby[まいつき][毎月]], [every month],
-  [#ruby[まいとし][毎年]], [every year],
-  [#ruby[しんねん][新年]], [new year],
-  [#ruby[ながねん][長年]], [long years],
-  [#ruby[ねんじゅう][年中]], [all year round],
-  [#ruby[としうえ][年上]], [older (in age)],
-  [#ruby[としした][年下]], [younger (in age)],
-  [#ruby[ねんきん][年金]], [pension],
-  [#ruby[にっちゅう][日中]], [daytime],
-  [#ruby[いちにち][一日]], [one day],
-  [#ruby[どうじ][同時]], [simultaneous, at the same time],
-  [#ruby[ひゃくねん][百年]], [century],
-  [#ruby[ひゃくにち][百日]], [one hundred days],
-)]
-
-=== #ruby[からだ][体] (Body)
-
-#rounded-table[#table(
-  columns: (1fr, 2fr),
-  stroke: none,
-  inset: (x: 8pt, y: 6pt),
-  fill: (_, row) => if calc.even(row) { rgb("#F7F7F7") },
-  table.header[*Word*][*Meaning*],
-  [#ruby[てあし][手足]], [hands and feet],
-  [#ruby[みぎて][右手]], [right hand],
-  [#ruby[ひだりて][左手]], [left hand],
-  [#ruby[みぎあし][右足]], [right foot],
-  [#ruby[ひだりあし][左足]], [left foot],
-  [#ruby[じもく][耳目]], [attention, eyes and ears],
-  [#ruby[めうえ][目上]], [superior, elder],
-  [#ruby[めした][目下]], [subordinate],
-  [#ruby[もくぜん][目前]], [before one's eyes],
-  [#ruby[あしおと][足音]], [footsteps],
-  [#ruby[ぜんたい][全体]], [the whole],
-  [#ruby[だいたい][大体]], [roughly, mostly],
-  [#ruby[いったい][一体]], [what on earth],
-  [#ruby[しゅっけつ][出血]], [bleeding],
-  [#ruby[ひにく][皮肉]], [sarcasm, irony],
-  [#ruby[しらが][白髪]], [white hair, gray hair],
-  [#ruby[けんし][犬歯]], [canine tooth],
-)]
-
-=== #ruby[もの][物] (Things)
-
-#rounded-table[#table(
-  columns: (1fr, 2fr),
-  stroke: none,
-  inset: (x: 8pt, y: 6pt),
-  fill: (_, row) => if calc.even(row) { rgb("#F7F7F7") },
-  table.header[*Word*][*Meaning*],
-  [#ruby[ほんもの][本物]], [genuine article],
-  [#ruby[こうぶつ][好物]], [favorite food],
-  [#ruby[めいぶつ][名物]], [local specialty],
-  [#ruby[しょもつ][書物]], [book, writings],
-  [#ruby[しょくもつ][食物]], [food],
-  [#ruby[さくもつ][作物]], [crops],
-  [#ruby[せいぶつ][生物]], [living thing],
-  [#ruby[ふうぶつ][風物]], [scenery, seasonal sights],
-  [#ruby[かなもの][金物]], [hardware, metalware],
-  [#ruby[きもの][着物]], [kimono],
-  [#ruby[のみもの][飲み物]], [drink, beverage],
-  [#ruby[かいもの][買い物]], [shopping],
-  [#ruby[よみもの][読み物]], [reading material],
-  [#ruby[もちもの][持ち物]], [belongings],
-  [#ruby[ものおと][物音]], [sound (of something)],
-  [#ruby[けんぶつ][見物]], [sightseeing],
-  [#ruby[きんぎょ][金魚]], [goldfish],
-  [#ruby[とりにく][鳥肉]], [chicken (meat)],
-  [#ruby[ぎょにく][魚肉]], [fish meat],
-  [#ruby[にくしょく][肉食]], [meat-eating, carnivorous],
-  [#ruby[なまたまご][生卵]], [raw egg],
-)]
-
-=== #ruby[て][手] (Hand Compounds)
-
-#rounded-table[#table(
-  columns: (1fr, 2fr),
-  stroke: none,
-  inset: (x: 8pt, y: 6pt),
-  fill: (_, row) => if calc.even(row) { rgb("#F7F7F7") },
-  table.header[*Word*][*Meaning*],
-  [#ruby[てほん][手本]], [model, example],
-  [#ruby[てまえ][手前]], [this side of, before],
-  [#ruby[じょうず][上手]], [skilled, good at],
-  [#ruby[へた][下手]], [clumsy, bad at],
-  [#ruby[きって][切手]], [postage stamp],
-  [#ruby[にゅうしゅ][入手]], [obtaining],
-  [#ruby[せんしゅ][選手]], [player, athlete],
-  [#ruby[じょしゅ][助手]], [assistant],
-  [#ruby[ちゃくしゅ][着手]], [start, embark on],
-)]
-
-=== #ruby[はい][入]ると#ruby[で][出]る (In & Out)
-
-#rounded-table[#table(
-  columns: (1fr, 2fr),
-  stroke: none,
-  inset: (x: 8pt, y: 6pt),
-  fill: (_, row) => if calc.even(row) { rgb("#F7F7F7") },
-  table.header[*Word*][*Meaning*],
-  [#ruby[いりぐち][入口]], [entrance],
-  [#ruby[でぐち][出口]], [exit],
-  [#ruby[でいり][出入]], [going in and out],
-  [#ruby[にゅうきん][入金]], [payment, deposit],
-  [#ruby[しゅっきん][出金]], [withdrawal],
-  [#ruby[がいしゅつ][外出]], [going out],
-  [#ruby[しんにゅう][新入]], [newly entered],
-  [#ruby[たちいり][立入]], [entering (as in 立入禁止)],
-)]
-
-=== #ruby[ほん][本]と#ruby[か][書]く (Books & Writing)
-
-#rounded-table[#table(
-  columns: (1fr, 2fr),
-  stroke: none,
-  inset: (x: 8pt, y: 6pt),
-  fill: (_, row) => if calc.even(row) { rgb("#F7F7F7") },
-  table.header[*Word*][*Meaning*],
-  [#ruby[にほん][日本]], [Japan],
-  [#ruby[ほんみょう][本名]], [real name],
-  [#ruby[ほんしん][本心]], [true feelings],
-  [#ruby[みほん][見本]], [sample],
-  [#ruby[きょうほん][教本]], [textbook],
-  [#ruby[とくほん][読本]], [reader, study book],
-  [#ruby[どくしょ][読書]], [reading],
-  [#ruby[おんどく][音読]], [reading aloud],
-  [#ruby[しんぶん][新聞]], [newspaper],
-  [#ruby[かいわ][会話]], [conversation],
-)]
-
-=== #ruby[くに][国] (Country & State)
-
-#rounded-table[#table(
-  columns: (1fr, 2fr),
-  stroke: none,
-  inset: (x: 8pt, y: 6pt),
-  fill: (_, row) => if calc.even(row) { rgb("#F7F7F7") },
-  table.header[*Word*][*Meaning*],
-  [#ruby[がいこく][外国]], [foreign country],
-  [#ruby[たいこく][大国]], [great power],
-  [#ruby[ぜんこく][全国]], [nationwide],
-  [#ruby[こくりつ][国立]], [national (institution)],
-  [#ruby[こくがい][国外]], [outside the country],
-  [#ruby[こくめい][国名]], [country name],
-  [#ruby[かいがい][海外]], [overseas],
-)]
-
-=== #ruby[こころ][心]と#ruby[かん][感]じ (Mind & Feeling)
-
-#rounded-table[#table(
-  columns: (1fr, 2fr),
-  stroke: none,
-  inset: (x: 8pt, y: 6pt),
-  fill: (_, row) => if calc.even(row) { rgb("#F7F7F7") },
-  table.header[*Word*][*Meaning*],
-  [#ruby[ちゅうしん][中心]], [center, core],
-  [#ruby[かんしん][感心]], [admiration],
-  [#ruby[かんどう][感動]], [being moved/impressed],
-  [#ruby[きもち][気持ち]], [feeling],
-  [#ruby[おもいで][思い出]], [memory],
-  [#ruby[どうかん][同感]], [agreement, sympathy],
-)]
-
-=== #ruby[うご][動]くと#ruby[か][変]わる (Movement & Change)
-
-#rounded-table[#table(
-  columns: (1fr, 2fr),
-  stroke: none,
-  inset: (x: 8pt, y: 6pt),
-  fill: (_, row) => if calc.even(row) { rgb("#F7F7F7") },
-  table.header[*Word*][*Meaning*],
-  [#ruby[どうさ][動作]], [movement, action],
-  [#ruby[へんどう][変動]], [fluctuation],
-  [#ruby[かいし][開始]], [start, commencement],
-  [#ruby[かいへい][開閉]], [opening and closing],
-  [#ruby[しじゅう][始終]], [from start to finish],
-  [#ruby[せいし][生死]], [life and death],
-  [#ruby[できごと][出来事]], [event, occurrence],
-  [#ruby[ひこう][飛行]], [flight, aviation],
-  [#ruby[どうこう][同行]], [going together, accompanying],
-)]
-
-=== #ruby[おお][大]きい (Big Compounds)
-
-#rounded-table[#table(
-  columns: (1fr, 2fr),
-  stroke: none,
-  inset: (x: 8pt, y: 6pt),
-  fill: (_, row) => if calc.even(row) { rgb("#F7F7F7") },
-  table.header[*Word*][*Meaning*],
-  [#ruby[だいじ][大事]], [important, precious],
-  [#ruby[たいせつ][大切]], [important, dear],
-  [#ruby[たいへん][大変]], [terrible / very],
-  [#ruby[たいきん][大金]], [large sum of money],
-  [#ruby[おおや][大家]], [landlord],
-  [#ruby[たいし][大使]], [ambassador],
-)]
-
-=== #ruby[ほか][他] (Other)
-
-#rounded-table[#table(
-  columns: (1fr, 2fr),
-  stroke: none,
-  inset: (x: 8pt, y: 6pt),
-  fill: (_, row) => if calc.even(row) { rgb("#F7F7F7") },
-  table.header[*Word*][*Meaning*],
-  [#ruby[しょくじ][食事]], [meal],
-  [#ruby[かじ][火事]], [fire (disaster)],
-  [#ruby[ちじ][知事]], [governor],
-  [#ruby[きんいろ][金色]], [gold color],
-  [#ruby[みずいろ][水色]], [light blue],
-  [#ruby[ねいろ][音色]], [tone, timbre],
-  [#ruby[もくめ][木目]], [wood grain],
-  [#ruby[めいもく][名目]], [nominal, in name only],
-  [#ruby[めいはく][明白]], [obvious, clear],
-  [#ruby[たしょう][多少]], [more or less],
-  [#ruby[がいけん][外見]], [appearance],
-  [#ruby[うわぎ][上着]], [jacket, outer wear],
-  [#ruby[したぎ][下着]], [underwear],
-  [#ruby[あまおと][雨音]], [sound of rain],
-  [#ruby[いっしょう][一生]], [lifetime],
-  [#ruby[せいぜん][生前]], [while alive],
-  [#ruby[ひとめ][一目]], [a glance],
-  [#ruby[ひとこと][一言]], [one word],
-  [#ruby[あたまきん][頭金]], [down payment],
-  [#ruby[ことり][小鳥]], [small bird],
-  [#ruby[こいし][小石]], [pebble],
-  [#ruby[こみち][小道]], [path],
-  [#ruby[こさめ][小雨]], [light rain],
-  [#ruby[うんかい][雲海]], [sea of clouds],
-  [#ruby[ひゃくにん][百人]], [a hundred people],
-  [#ruby[こびと][小人]], [small person, dwarf],
-  [#ruby[すいぶん][水分]], [moisture, water content],
-  [#ruby[たぶん][多分]], [probably, perhaps],
-  [#ruby[じゅうぶん][十分]], [enough, sufficient],
-)]
-
-#pagebreak(weak: true)
-
 = Reading
 
 == #ruby[はな][話]し (Dialogs)
@@ -2250,6 +731,202 @@
 #block(inset: (top: 0.05em, bottom: 0.05em))[*Child:* What are we eating now?]
 #block(inset: (top: 0.05em, bottom: 0.05em))[*Mother:* There's water and food. Please eat all of it.]
 #block(inset: (top: 0.05em, bottom: 0.05em))[*Child:* Yes, Mother. I think this day will be fun too!]]
+
+=== #ruby[からだ][体]と#ruby[たす][助]ける (Health & Emergencies)
+
+#dialog-block[#ruby[からだ][体]が#ruby[わる][悪]い#ruby[とき][時] (At the Doctor)][#block(inset: (top: 0.1em, bottom: 0.1em))[*#ruby[わたし][私]:* すみません。#ruby[からだ][体]が#ruby[わる][悪]いです。]
+#block(inset: (top: 0.1em, bottom: 0.1em))[*#ruby[からだ][体]を#ruby[たす][助]ける#ruby[ひと][人]:* どこが#ruby[わる][悪]いですか。]
+#block(inset: (top: 0.1em, bottom: 0.1em))[*#ruby[わたし][私]:* #ruby[あたま][頭]が#ruby[わる][悪]い#ruby[かん][感]じです。#ruby[からだ][体]も#ruby[あつ][暑]いです。]
+#block(inset: (top: 0.1em, bottom: 0.1em))[*#ruby[からだ][体]を#ruby[たす][助]ける#ruby[ひと][人]:* いつから#ruby[わる][悪]いですか。]
+#block(inset: (top: 0.1em, bottom: 0.1em))[*#ruby[わたし][私]:* #ruby[まえ][前]の#ruby[にち][日]からです。#ruby[よる][夜]も#ruby[ね][寝]られませんでした。]
+#block(inset: (top: 0.1em, bottom: 0.1em))[*#ruby[からだ][体]を#ruby[たす][助]ける#ruby[ひと][人]:* #ruby[くち][口]を#ruby[あ][開]けてください。#ruby[からだ][体]を#ruby[み][見]ます。]
+#block(inset: (top: 0.1em, bottom: 0.1em))[*#ruby[からだ][体]を#ruby[たす][助]ける#ruby[ひと][人]:* #ruby[からだ][体]を#ruby[よ][良]くする#ruby[もの][物]を#ruby[の][飲]んでください。よく#ruby[ね][寝]てください。]
+#block(inset: (top: 0.1em, bottom: 0.1em))[*#ruby[からだ][体]を#ruby[たす][助]ける#ruby[ひと][人]:* #ruby[みっ][三]つの#ruby[にち][日]の#ruby[あと][後]に#ruby[よ][良]くならないなら、また#ruby[き][来]てください。]
+#block(inset: (top: 0.1em, bottom: 0.1em))[*#ruby[わたし][私]:* #ruby[わ][分]かりました。ありがとうございます。]][#block(inset: (top: 0.05em, bottom: 0.05em))[*Patient:* Excuse me. I feel unwell.]
+#block(inset: (top: 0.05em, bottom: 0.05em))[*Doctor:* Where does it feel bad?]
+#block(inset: (top: 0.05em, bottom: 0.05em))[*Patient:* My head hurts. My body is also hot.]
+#block(inset: (top: 0.05em, bottom: 0.05em))[*Doctor:* Since when have you felt bad?]
+#block(inset: (top: 0.05em, bottom: 0.05em))[*Patient:* Since yesterday. I couldn't sleep last night either.]
+#block(inset: (top: 0.05em, bottom: 0.05em))[*Doctor:* Please open your mouth. I will examine you.]
+#block(inset: (top: 0.05em, bottom: 0.05em))[*Doctor:* Please take medicine. Please sleep well.]
+#block(inset: (top: 0.05em, bottom: 0.05em))[*Doctor:* If you don't feel better in three days, please come back.]
+#block(inset: (top: 0.05em, bottom: 0.05em))[*Patient:* I understand. Thank you very much.]]
+
+#dialog-block[#ruby[からだ][体]を#ruby[よ][良]くする#ruby[もの][物]を#ruby[か][買]う (At the Pharmacy)][#block(inset: (top: 0.1em, bottom: 0.1em))[*#ruby[わたし][私]:* すみません。#ruby[からだ][体]を#ruby[よ][良]くする#ruby[もの][物]が#ruby[ほ][欲]しいです。]
+#block(inset: (top: 0.1em, bottom: 0.1em))[*#ruby[みせ][店]の#ruby[ひと][人]:* どこが#ruby[わる][悪]いですか。]
+#block(inset: (top: 0.1em, bottom: 0.1em))[*#ruby[わたし][私]:* #ruby[はら][腹]が#ruby[わる][悪]い#ruby[かん][感]じです。#ruby[た][食]べた#ruby[あと][後]に#ruby[わる][悪]くなります。]
+#block(inset: (top: 0.1em, bottom: 0.1em))[*#ruby[みせ][店]の#ruby[ひと][人]:* #ruby[た][食]べ#ruby[もの][物]で#ruby[からだ][体]が#ruby[わる][悪]くなる#ruby[こと][事]はありますか。]
+#block(inset: (top: 0.1em, bottom: 0.1em))[*#ruby[わたし][私]:* いいえ、ないです。]
+#block(inset: (top: 0.1em, bottom: 0.1em))[*#ruby[みせ][店]の#ruby[ひと][人]:* これが#ruby[よ][良]いと#ruby[おも][思]います。#ruby[まい][毎]#ruby[にち][日]、#ruby[た][食]べた#ruby[あと][後]に#ruby[ひと][一]つ#ruby[の][飲]んでください。]
+#block(inset: (top: 0.1em, bottom: 0.1em))[*#ruby[わたし][私]:* #ruby[わ][分]かりました。いくらですか。]
+#block(inset: (top: 0.1em, bottom: 0.1em))[*#ruby[みせ][店]の#ruby[ひと][人]:* #ruby[ご][五]#ruby[ひゃく][百]です。#ruby[よ][良]くならないなら、#ruby[からだ][体]を#ruby[たす][助]ける#ruby[ひと][人]に#ruby[あ][会]ってください。]][#block(inset: (top: 0.05em, bottom: 0.05em))[*Customer:* Excuse me. I would like some medicine.]
+#block(inset: (top: 0.05em, bottom: 0.05em))[*Staff:* What's wrong?]
+#block(inset: (top: 0.05em, bottom: 0.05em))[*Customer:* My stomach hurts. It gets bad after eating.]
+#block(inset: (top: 0.05em, bottom: 0.05em))[*Staff:* Does any food make you feel bad?]
+#block(inset: (top: 0.05em, bottom: 0.05em))[*Customer:* No, I don't.]
+#block(inset: (top: 0.05em, bottom: 0.05em))[*Staff:* I think this is good. Please take one after each meal.]
+#block(inset: (top: 0.05em, bottom: 0.05em))[*Customer:* I understand. How much is it?]
+#block(inset: (top: 0.05em, bottom: 0.05em))[*Staff:* It's five hundred. If it doesn't get better, please see a doctor.]]
+
+#dialog-block[#ruby[たす][助]けてください (Emergency - Asking for Help)][#block(inset: (top: 0.1em, bottom: 0.1em))[*A:* すみません！#ruby[たす][助]けてください！]
+#block(inset: (top: 0.1em, bottom: 0.1em))[*B:* どうしましたか。]
+#block(inset: (top: 0.1em, bottom: 0.1em))[*A:* あの#ruby[ひと][人]が#ruby[した][下]に#ruby[い][行]きました。#ruby[あし][足]が#ruby[わる][悪]いと#ruby[おも][思]います。#ruby[うご][動]けません。]
+#block(inset: (top: 0.1em, bottom: 0.1em))[*B:* どこですか。]
+#block(inset: (top: 0.1em, bottom: 0.1em))[*A:* あの#ruby[おお][大]きい#ruby[いえ][家]の#ruby[まえ][前]です。#ruby[みち][道]の#ruby[うえ][上]にいます。]
+#block(inset: (top: 0.1em, bottom: 0.1em))[*B:* #ruby[わ][分]かりました。#ruby[たす][助]ける#ruby[ひと][人]に#ruby[い][言]います。#ruby[ま][待]ってください。]
+#block(inset: (top: 0.1em, bottom: 0.1em))[*A:* ありがとうございます。あの#ruby[ひと][人]の#ruby[ちか][近]くにいてください。]
+#block(inset: (top: 0.1em, bottom: 0.1em))[*B:* はい。#ruby[みず][水]を#ruby[あた][与]えましょう。#ruby[からだ][体]を#ruby[うご][動]かさないでください。]][#block(inset: (top: 0.05em, bottom: 0.05em))[*A:* Excuse me! Please help!]
+#block(inset: (top: 0.05em, bottom: 0.05em))[*B:* What happened?]
+#block(inset: (top: 0.05em, bottom: 0.05em))[*A:* That person fell down. I think their leg is hurt. They can't move.]
+#block(inset: (top: 0.05em, bottom: 0.05em))[*B:* Where are they?]
+#block(inset: (top: 0.05em, bottom: 0.05em))[*A:* In front of that big building. They are on the road.]
+#block(inset: (top: 0.05em, bottom: 0.05em))[*B:* I understand. I will call for help. Please wait.]
+#block(inset: (top: 0.05em, bottom: 0.05em))[*A:* Thank you. Please stay near that person.]
+#block(inset: (top: 0.05em, bottom: 0.05em))[*B:* Yes. Let's give them water. Please don't move their body.]]
+
+=== #ruby[ところ][所]で#ruby[はな][話]す (At Places)
+
+#dialog-block[えきで (At the Train Station)][#block(inset: (top: 0.1em, bottom: 0.1em))[*A:* すみません。ここから#ruby[うみ][海]のえきまで#ruby[い][行]きたいです。]
+#block(inset: (top: 0.1em, bottom: 0.1em))[*えきの#ruby[ひと][人]:* #ruby[に][二]#ruby[ひゃく][百]です。]
+#block(inset: (top: 0.1em, bottom: 0.1em))[*A:* #ruby[ひと][一]つください。#ruby[なん][何]#ruby[ばん][番]の#ruby[ところ][所]から#ruby[で][出]ますか。]
+#block(inset: (top: 0.1em, bottom: 0.1em))[*えきの#ruby[ひと][人]:* #ruby[さん][三]#ruby[ばん][番]です。#ruby[うえ][上]に#ruby[い][行]ってください。]
+#block(inset: (top: 0.1em, bottom: 0.1em))[*A:* いつ#ruby[き][来]ますか。]
+#block(inset: (top: 0.1em, bottom: 0.1em))[*えきの#ruby[ひと][人]:* #ruby[じゅう][十]#ruby[ご][五]の#ruby[あと][後]です。]
+#block(inset: (top: 0.1em, bottom: 0.1em))[*A:* #ruby[うみ][海]のえきまでどのくらいですか。]
+#block(inset: (top: 0.1em, bottom: 0.1em))[*えきの#ruby[ひと][人]:* #ruby[に][二]#ruby[じゅう][十]ぐらいです。#ruby[みっ][三]つ#ruby[め][目]のえきで#ruby[で][出]てください。]][#block(inset: (top: 0.05em, bottom: 0.05em))[*A:* Excuse me. I want to go from here to the sea station.]
+#block(inset: (top: 0.05em, bottom: 0.05em))[*Staff:* A ticket is two hundred.]
+#block(inset: (top: 0.05em, bottom: 0.05em))[*A:* One please. What platform does it leave from?]
+#block(inset: (top: 0.05em, bottom: 0.05em))[*Staff:* Number three. Please go up.]
+#block(inset: (top: 0.05em, bottom: 0.05em))[*A:* When does it come?]
+#block(inset: (top: 0.05em, bottom: 0.05em))[*Staff:* In fifteen minutes.]
+#block(inset: (top: 0.05em, bottom: 0.05em))[*A:* How long to the sea station?]
+#block(inset: (top: 0.05em, bottom: 0.05em))[*Staff:* About twenty minutes. Get off at the third station.]]
+
+#dialog-block[#ruby[た][食]べる#ruby[ところ][所]で (At a Restaurant)][#block(inset: (top: 0.1em, bottom: 0.1em))[*#ruby[みせ][店]の#ruby[ひと][人]:* #ruby[なん][何]#ruby[にん][人]ですか。]
+#block(inset: (top: 0.1em, bottom: 0.1em))[*A:* #ruby[ふた][二]りの#ruby[ひと][人]です。]
+#block(inset: (top: 0.1em, bottom: 0.1em))[*#ruby[みせ][店]の#ruby[ひと][人]:* どうぞ、こちらに#ruby[すわ][座]ってください。]
+#block(inset: (top: 0.1em, bottom: 0.1em))[*A:* すみません。この#ruby[た][食]べ#ruby[もの][物]の#ruby[なか][中]に#ruby[なに][何]がありますか。]
+#block(inset: (top: 0.1em, bottom: 0.1em))[*#ruby[みせ][店]の#ruby[ひと][人]:* #ruby[くさ][草]と#ruby[にく][肉]です。#ruby[からだ][体]が#ruby[わる][悪]くなる#ruby[た][食]べ#ruby[もの][物]はありますか。]
+#block(inset: (top: 0.1em, bottom: 0.1em))[*A:* はい。#ruby[たまご][卵]で#ruby[からだ][体]が#ruby[わる][悪]くなります。]
+#block(inset: (top: 0.1em, bottom: 0.1em))[*#ruby[みせ][店]の#ruby[ひと][人]:* #ruby[わ][分]かりました。この#ruby[た][食]べ#ruby[もの][物]には#ruby[たまご][卵]は#ruby[はい][入]っていません。]
+#block(inset: (top: 0.1em, bottom: 0.1em))[*A:* では、これをください。]
+#block(inset: (top: 0.1em, bottom: 0.1em))[*A:* すみません。お#ruby[かね][金]を#ruby[ぜんぶ][全部]ください。]][#block(inset: (top: 0.05em, bottom: 0.05em))[*Staff:* How many people?]
+#block(inset: (top: 0.05em, bottom: 0.05em))[*A:* Two people.]
+#block(inset: (top: 0.05em, bottom: 0.05em))[*Staff:* Please, sit here.]
+#block(inset: (top: 0.05em, bottom: 0.05em))[*A:* Excuse me. What is in this dish?]
+#block(inset: (top: 0.05em, bottom: 0.05em))[*Staff:* Vegetables and meat. Do you have any food allergies?]
+#block(inset: (top: 0.05em, bottom: 0.05em))[*A:* Yes. Eggs make me feel bad.]
+#block(inset: (top: 0.05em, bottom: 0.05em))[*Staff:* I understand. This dish has no eggs.]
+#block(inset: (top: 0.05em, bottom: 0.05em))[*A:* Then I'll have this.]
+#block(inset: (top: 0.05em, bottom: 0.05em))[*A:* Excuse me. The bill please.]]
+
+#dialog-block[コンビニで (At the Convenience Store)][#block(inset: (top: 0.1em, bottom: 0.1em))[*#ruby[みせ][店]の#ruby[ひと][人]:* いらっしゃいませ。]
+#block(inset: (top: 0.1em, bottom: 0.1em))[*A:* すみません。この#ruby[た][食]べ#ruby[もの][物]を#ruby[あつ][暑]くしてください。]
+#block(inset: (top: 0.1em, bottom: 0.1em))[*#ruby[みせ][店]の#ruby[ひと][人]:* はい。#ruby[すこ][少]し#ruby[ま][待]ってください。#ruby[い][入]れる#ruby[もの][物]は#ruby[ひつよう][必要]ですか。]
+#block(inset: (top: 0.1em, bottom: 0.1em))[*A:* はい、ください。]
+#block(inset: (top: 0.1em, bottom: 0.1em))[*#ruby[みせ][店]の#ruby[ひと][人]:* #ruby[ほか][他]に#ruby[ほ][欲]しい#ruby[もの][物]はありますか。]
+#block(inset: (top: 0.1em, bottom: 0.1em))[*A:* この#ruby[の][飲]み#ruby[もの][物]もください。]
+#block(inset: (top: 0.1em, bottom: 0.1em))[*#ruby[みせ][店]の#ruby[ひと][人]:* #ruby[ぜんぶ][全部]で#ruby[さん][三]#ruby[びゃく][百]#ruby[ご][五]#ruby[じゅう][十]です。]
+#block(inset: (top: 0.1em, bottom: 0.1em))[*A:* カードで#ruby[よ][良]いですか。]
+#block(inset: (top: 0.1em, bottom: 0.1em))[*#ruby[みせ][店]の#ruby[ひと][人]:* はい。ありがとうございます。]][#block(inset: (top: 0.05em, bottom: 0.05em))[*Staff:* Welcome.]
+#block(inset: (top: 0.05em, bottom: 0.05em))[*A:* Excuse me. Please heat this food.]
+#block(inset: (top: 0.05em, bottom: 0.05em))[*Staff:* Yes. Please wait. Do you need a bag?]
+#block(inset: (top: 0.05em, bottom: 0.05em))[*A:* Yes please.]
+#block(inset: (top: 0.05em, bottom: 0.05em))[*Staff:* Anything else?]
+#block(inset: (top: 0.05em, bottom: 0.05em))[*A:* This drink too please.]
+#block(inset: (top: 0.05em, bottom: 0.05em))[*Staff:* The total is three hundred fifty.]
+#block(inset: (top: 0.05em, bottom: 0.05em))[*A:* Is card okay?]
+#block(inset: (top: 0.05em, bottom: 0.05em))[*Staff:* Yes. Thank you.]]
+
+#dialog-block[#ruby[おと][音]で#ruby[い][言]う#ruby[もの][物]で#ruby[ひと][人]に#ruby[い][言]う (Making a Phone Appointment)][#block(inset: (top: 0.1em, bottom: 0.1em))[*A:* もしもし。#ruby[からだ][体]を#ruby[たす][助]ける#ruby[ところ][所]ですか。]
+#block(inset: (top: 0.1em, bottom: 0.1em))[*#ruby[からだ][体]を#ruby[たす][助]ける#ruby[ところ][所]の#ruby[ひと][人]:* はい。#ruby[なに][何]のためですか。]
+#block(inset: (top: 0.1em, bottom: 0.1em))[*A:* #ruby[からだ][体]を#ruby[たす][助]ける#ruby[ひと][人]に#ruby[あ][会]いたいです。いつが#ruby[よ][良]いですか。]
+#block(inset: (top: 0.1em, bottom: 0.1em))[*#ruby[からだ][体]を#ruby[たす][助]ける#ruby[ところ][所]の#ruby[ひと][人]:* #ruby[あと][後]の#ruby[にち][日]の#ruby[じゅう][十]の#ruby[とき][時]はどうですか。]
+#block(inset: (top: 0.1em, bottom: 0.1em))[*A:* #ruby[よ][良]いです。#ruby[わたし][私]の#ruby[なまえ][名前]はたなかです。]
+#block(inset: (top: 0.1em, bottom: 0.1em))[*#ruby[からだ][体]を#ruby[たす][助]ける#ruby[ところ][所]の#ruby[ひと][人]:* たなかさんですね。#ruby[あと][後]の#ruby[にち][日]の#ruby[じゅう][十]の#ruby[とき][時]です。#ruby[ま][待]っています。]][#block(inset: (top: 0.05em, bottom: 0.05em))[*A:* Hello. Is this the clinic?]
+#block(inset: (top: 0.05em, bottom: 0.05em))[*Receptionist:* Yes. What is it for?]
+#block(inset: (top: 0.05em, bottom: 0.05em))[*A:* I would like to see a doctor. When is good?]
+#block(inset: (top: 0.05em, bottom: 0.05em))[*Receptionist:* How about tomorrow at ten?]
+#block(inset: (top: 0.05em, bottom: 0.05em))[*A:* That's good. My name is Tanaka.]
+#block(inset: (top: 0.05em, bottom: 0.05em))[*Receptionist:* Tanaka-san. Tomorrow at ten. We'll be expecting you.]]
+
+#dialog-block[#ruby[き][来]た#ruby[こと][事]を#ruby[か][書]く#ruby[ところ][所]をする#ruby[ところ][所]で (At City Hall)][#block(inset: (top: 0.1em, bottom: 0.1em))[*A:* すみません。ここに#ruby[き][来]た#ruby[こと][事]を#ruby[か][書]きたいです。]
+#block(inset: (top: 0.1em, bottom: 0.1em))[*#ruby[ところ][所]の#ruby[ひと][人]:* #ruby[わ][分]かりました。あなたが#ruby[だれ][誰]かを#ruby[み][見]せる#ruby[もの][物]が#ruby[ひつよう][必要]です。]
+#block(inset: (top: 0.1em, bottom: 0.1em))[*#ruby[ところ][所]の#ruby[ひと][人]:* #ruby[ほか][他]の#ruby[くに][国]の#ruby[ひと][人]なら、#ruby[くに][国]に#ruby[い][行]く#ruby[ほん][本]も#ruby[ひつよう][必要]です。]
+#block(inset: (top: 0.1em, bottom: 0.1em))[*A:* はい。これです。どうぞ。]
+#block(inset: (top: 0.1em, bottom: 0.1em))[*#ruby[ところ][所]の#ruby[ひと][人]:* ありがとうございます。この#ruby[か][書]く#ruby[もの][物]に#ruby[なまえ][名前]と#ruby[いえ][家]の#ruby[ところ][所]を#ruby[か][書]いてください。]
+#block(inset: (top: 0.1em, bottom: 0.1em))[*A:* #ruby[か][書]き#ruby[かた][方]が#ruby[わ][分]かりません。#ruby[おし][教]えてもらえますか。]
+#block(inset: (top: 0.1em, bottom: 0.1em))[*#ruby[ところ][所]の#ruby[ひと][人]:* はい。ここに#ruby[なまえ][名前]。ここに#ruby[いえ][家]の#ruby[ところ][所]を#ruby[か][書]いてください。]
+#block(inset: (top: 0.1em, bottom: 0.1em))[*A:* ありがとうございます。どこに#ruby[だ][出]しますか。]
+#block(inset: (top: 0.1em, bottom: 0.1em))[*#ruby[ところ][所]の#ruby[ひと][人]:* #ruby[に][二]#ruby[ばん][番]の#ruby[ところ][所]に#ruby[も][持]って#ruby[い][行]ってください。]][#block(inset: (top: 0.05em, bottom: 0.05em))[*A:* Excuse me. I want to register my address.]
+#block(inset: (top: 0.05em, bottom: 0.05em))[*Staff:* I see. You need identification.]
+#block(inset: (top: 0.05em, bottom: 0.05em))[*Staff:* If you are from another country, you also need your passport.]
+#block(inset: (top: 0.05em, bottom: 0.05em))[*A:* Yes. Here it is.]
+#block(inset: (top: 0.05em, bottom: 0.05em))[*Staff:* Thank you. Please write your name and address on this form.]
+#block(inset: (top: 0.05em, bottom: 0.05em))[*A:* I don't know how to fill this in. Can you help me?]
+#block(inset: (top: 0.05em, bottom: 0.05em))[*Staff:* Yes. Write your name here, and your address here.]
+#block(inset: (top: 0.05em, bottom: 0.05em))[*A:* Thank you. Where do I submit it?]
+#block(inset: (top: 0.05em, bottom: 0.05em))[*Staff:* Please take it to counter number two.]]
+
+=== #ruby[ひと][人]と#ruby[ひと][人] (Social)
+
+#dialog-block[#ruby[わたし][私]の#ruby[こと][事]を#ruby[い][言]う (Introducing Yourself)][#block(inset: (top: 0.1em, bottom: 0.1em))[*A:* こんにちは。ここに#ruby[あたら][新]しく#ruby[き][来]ました。#ruby[わたし][私]はたなかです。]
+#block(inset: (top: 0.1em, bottom: 0.1em))[*B:* こんにちは。#ruby[わたし][私]はやまもとです。#ruby[いえ][家]が#ruby[ちか][近]い#ruby[ひと][人]です。]
+#block(inset: (top: 0.1em, bottom: 0.1em))[*A:* よろしくください。#ruby[わたし][私]は#ruby[ほか][他]の#ruby[くに][国]から#ruby[き][来]ました。]
+#block(inset: (top: 0.1em, bottom: 0.1em))[*B:* そうですか。この#ruby[くに][国]の#ruby[ことば][言葉]がとても#ruby[よ][良]いですね。]
+#block(inset: (top: 0.1em, bottom: 0.1em))[*A:* ありがとうございます。まだ#ruby[すこ][少]しだけです。]
+#block(inset: (top: 0.1em, bottom: 0.1em))[*B:* #ruby[なに][何]か#ruby[わ][分]からない#ruby[こと][事]があったら、#ruby[い][言]ってください。]
+#block(inset: (top: 0.1em, bottom: 0.1em))[*A:* ありがとうございます。とても#ruby[たす][助]かります。]][#block(inset: (top: 0.05em, bottom: 0.05em))[*A:* Hello. I just moved here. I'm Tanaka.]
+#block(inset: (top: 0.05em, bottom: 0.05em))[*B:* Hello. I'm Yamamoto. I'm your neighbor.]
+#block(inset: (top: 0.05em, bottom: 0.05em))[*A:* Nice to meet you. I came from another country.]
+#block(inset: (top: 0.05em, bottom: 0.05em))[*B:* Is that so? Your Japanese is very good.]
+#block(inset: (top: 0.05em, bottom: 0.05em))[*A:* Thank you. I only know a little.]
+#block(inset: (top: 0.05em, bottom: 0.05em))[*B:* If there's anything you don't understand, please tell me.]
+#block(inset: (top: 0.05em, bottom: 0.05em))[*A:* Thank you. That helps a lot.]]
+
+#dialog-block[もう#ruby[ひと][一]つください (Asking Someone to Repeat)][#block(inset: (top: 0.1em, bottom: 0.1em))[*A:* すみません。#ruby[いま][今]の#ruby[ことば][言葉]が#ruby[わ][分]かりませんでした。]
+#block(inset: (top: 0.1em, bottom: 0.1em))[*B:* すみません。もう#ruby[ひと][一]つ#ruby[い][言]いましょうか。]
+#block(inset: (top: 0.1em, bottom: 0.1em))[*A:* はい。もう#ruby[すこ][少]し#ruby[はや][速]くなく#ruby[い][言]ってください。]
+#block(inset: (top: 0.1em, bottom: 0.1em))[*B:* この#ruby[みち][道]を#ruby[い][行]って、#ruby[おお][大]きい#ruby[き][木]の#ruby[まえ][前]で#ruby[みぎ][右]です。]
+#block(inset: (top: 0.1em, bottom: 0.1em))[*A:* #ruby[みち][道]を#ruby[い][行]って……#ruby[みぎ][右]。すみません、#ruby[か][書]いてもらえますか。]
+#block(inset: (top: 0.1em, bottom: 0.1em))[*B:* はい。ここに#ruby[か][書]きます。これで#ruby[わ][分]かりますか。]
+#block(inset: (top: 0.1em, bottom: 0.1em))[*A:* はい！#ruby[か][書]いた#ruby[もの][物]は#ruby[わ][分]かります。ありがとうございます。]][#block(inset: (top: 0.05em, bottom: 0.05em))[*A:* Excuse me. I didn't understand what you just said.]
+#block(inset: (top: 0.05em, bottom: 0.05em))[*B:* Sorry. Shall I say it again?]
+#block(inset: (top: 0.05em, bottom: 0.05em))[*A:* Yes. Please say it more slowly.]
+#block(inset: (top: 0.05em, bottom: 0.05em))[*B:* Go along this road, and turn right at the big tree.]
+#block(inset: (top: 0.05em, bottom: 0.05em))[*A:* Go along the road... right. Sorry, could you write it down?]
+#block(inset: (top: 0.05em, bottom: 0.05em))[*B:* Yes. I'll write it here. Can you understand this?]
+#block(inset: (top: 0.05em, bottom: 0.05em))[*A:* Yes! I can understand the writing. Thank you.]]
+
+#dialog-block[#ruby[いえ][家]が#ruby[ちか][近]い#ruby[ひと][人] (The Neighbor)][#block(inset: (top: 0.1em, bottom: 0.1em))[*A:* すみません。この#ruby[もの][物]は#ruby[いま][今]の#ruby[にち][日]に#ruby[そと][外]に#ruby[だ][出]してもいいですか。]
+#block(inset: (top: 0.1em, bottom: 0.1em))[*B:* いいえ。#ruby[いま][今]の#ruby[にち][日]は#ruby[ちが][違]います。]
+#block(inset: (top: 0.1em, bottom: 0.1em))[*A:* そうですか。いつが#ruby[よ][良]いですか。]
+#block(inset: (top: 0.1em, bottom: 0.1em))[*B:* この#ruby[もの][物]はげつの#ruby[にち][日]ときんの#ruby[にち][日]に#ruby[だ][出]します。]
+#block(inset: (top: 0.1em, bottom: 0.1em))[*A:* #ruby[か][書]く#ruby[もの][物]はいつですか。]
+#block(inset: (top: 0.1em, bottom: 0.1em))[*B:* #ruby[か][書]く#ruby[もの][物]はすいの#ruby[にち][日]です。#ruby[にち][日]の#ruby[なか][中]の#ruby[まえ][前]に#ruby[だ][出]してください。]
+#block(inset: (top: 0.1em, bottom: 0.1em))[*A:* #ruby[わ][分]かりました。ありがとうございます。]
+#block(inset: (top: 0.1em, bottom: 0.1em))[*B:* #ruby[わ][分]からない#ruby[こと][事]があったら、#ruby[き][聞]いてください。]][#block(inset: (top: 0.05em, bottom: 0.05em))[*A:* Excuse me. Can I put this out today?]
+#block(inset: (top: 0.05em, bottom: 0.05em))[*B:* No. Today is not the right day.]
+#block(inset: (top: 0.05em, bottom: 0.05em))[*A:* I see. When is good?]
+#block(inset: (top: 0.05em, bottom: 0.05em))[*B:* This goes out on Monday and Friday.]
+#block(inset: (top: 0.05em, bottom: 0.05em))[*A:* When is paper?]
+#block(inset: (top: 0.05em, bottom: 0.05em))[*B:* Paper is on Wednesday. Please put it out in the morning.]
+#block(inset: (top: 0.05em, bottom: 0.05em))[*A:* I understand. Thank you.]
+#block(inset: (top: 0.05em, bottom: 0.05em))[*B:* If you don't understand something, please ask.]]
+
+#dialog-block[#ruby[そら][空]の#ruby[こと][事]の#ruby[はなし][話] (Weather Small Talk)][#block(inset: (top: 0.1em, bottom: 0.1em))[*A:* #ruby[いま][今]の#ruby[にち][日]は#ruby[そら][空]がとてもきれいですね。]
+#block(inset: (top: 0.1em, bottom: 0.1em))[*B:* そうですね。#ruby[たいよう][太陽]が#ruby[で][出]ていて、#ruby[かぜ][風]も#ruby[よ][良]いです。]
+#block(inset: (top: 0.1em, bottom: 0.1em))[*A:* でも#ruby[あと][後]から#ruby[あめ][雨]が#ruby[く][来]ると#ruby[き][聞]きました。]
+#block(inset: (top: 0.1em, bottom: 0.1em))[*B:* #ruby[ほんとう][本当]ですか。#ruby[あめ][雨]の#ruby[もの][物]を#ruby[も][持]った#ruby[ほう][方]がいいですね。]
+#block(inset: (top: 0.1em, bottom: 0.1em))[*A:* #ruby[いま][今]の#ruby[にち][日]は#ruby[なに][何]をしますか。]
+#block(inset: (top: 0.1em, bottom: 0.1em))[*B:* #ruby[あめ][雨]の#ruby[まえ][前]に#ruby[そと][外]を#ruby[ある][歩]きたいです。]
+#block(inset: (top: 0.1em, bottom: 0.1em))[*A:* #ruby[よ][良]いですね。#ruby[よ][良]い#ruby[にち][日]にしましょう。]][#block(inset: (top: 0.05em, bottom: 0.05em))[*A:* The sky is very beautiful today.]
+#block(inset: (top: 0.05em, bottom: 0.05em))[*B:* Yes. The sun is out, and the wind is nice.]
+#block(inset: (top: 0.05em, bottom: 0.05em))[*A:* But I heard it will rain later.]
+#block(inset: (top: 0.05em, bottom: 0.05em))[*B:* Really? We should bring an umbrella.]
+#block(inset: (top: 0.05em, bottom: 0.05em))[*A:* What are you doing today?]
+#block(inset: (top: 0.05em, bottom: 0.05em))[*B:* I want to walk outside before the rain.]
+#block(inset: (top: 0.05em, bottom: 0.05em))[*A:* That's nice. Let's make it a good day.]]
 
 === #ruby[かんが][考]える#ruby[はな][話]し (Thinking Dialogs)
 
