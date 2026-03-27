@@ -137,7 +137,7 @@ def get_page(page_id):
     return None
 
 
-def wrap_page(page_id, content, lang, toc=None):
+def wrap_page(page_id, content, lang, toc=None, pre_toc=''):
     """Wrap section content in page-layout template."""
     page = get_page(page_id)
     title_raw = t(page, 'name', lang)
@@ -201,6 +201,7 @@ def wrap_page(page_id, content, lang, toc=None):
         f'  <h1>{title}</h1>\n'
         f'  <p>{desc}</p>\n'
         f'\n'
+        f'{pre_toc}'
         f'{toc_html}'
         f'{content}'
         f'  <nav class="lesson-nav">\n'
@@ -360,18 +361,53 @@ def gen_grammar(categories, grammar, grammar_examples, lang):
     for e in grammar_examples:
         ex_by_gram[e['grammar_id']].append(e)
 
-    # 3-patterns intro
+    # 3-patterns intro (rendered before TOC via pre_toc)
     toc = []
     parts = []
-    parts.append('  <div class="grammar-intro">\n')
-    for i in range(1, 4):
-        label = ui(f'grammar_pattern_{i}', lang)
-        desc = ui(f'grammar_intro_{i}', lang)
-        parts.append(f'    <div class="grammar-intro__pattern">\n')
-        parts.append(f'      <strong>{label}</strong>\n')
-        parts.append(f'      <span>{desc}</span>\n')
-        parts.append(f'    </div>\n')
-    parts.append('  </div>\n\n')
+    intro = []
+    intro.append('  <div class="grammar-intro">\n')
+
+    # Pattern 1: Set the Stage
+    p1_label = ui('grammar_pattern_1', lang)
+    intro.append(f'    <div class="grammar-intro__pattern">\n')
+    intro.append(f'      <h3>{p1_label}</h3>\n')
+    intro.append(f'      <div class="grammar-intro__example" lang="ja">\n')
+    intro.append(f'        <span class="grammar-intro__slot">{to_ruby_html("私【わたし】は")}<em>{ui("grammar_slot_who", lang)}</em></span>\n')
+    intro.append(f'        <span class="grammar-intro__slot">{to_ruby_html("昨日【きのう】")}<em>{ui("grammar_slot_when", lang)}</em></span>\n')
+    intro.append(f'        <span class="grammar-intro__slot">{to_ruby_html("家【いえ】で")}<em>{ui("grammar_slot_where", lang)}</em></span>\n')
+    intro.append(f'        <span class="grammar-intro__slot">{to_ruby_html("本【ほん】を")}<em>{ui("grammar_slot_what", lang)}</em></span>\n')
+    intro.append(f'        <span class="grammar-intro__slot">{to_ruby_html("読【よ】んだ。")}<em>{ui("grammar_slot_action", lang)}</em></span>\n')
+    intro.append(f'      </div>\n')
+    intro.append(f'      <p class="grammar-intro__links">{ui("grammar_intro_1_links", lang)}</p>\n')
+    intro.append(f'    </div>\n')
+
+    # Pattern 2: Chain Actions
+    p2_label = ui('grammar_pattern_2', lang)
+    intro.append(f'    <div class="grammar-intro__pattern">\n')
+    intro.append(f'      <h3>{p2_label}</h3>\n')
+    intro.append(f'      <div class="grammar-intro__example" lang="ja">\n')
+    intro.append(f'        <span class="grammar-intro__slot">{to_ruby_html("家【いえ】に帰【かえ】って")}<em>1</em></span>\n')
+    intro.append(f'        <span class="grammar-intro__slot">{to_ruby_html("本【ほん】を読【よ】んで")}<em>2</em></span>\n')
+    intro.append(f'        <span class="grammar-intro__slot">{to_ruby_html("寝【ね】た。")}<em>3</em></span>\n')
+    intro.append(f'      </div>\n')
+    intro.append(f'      <p class="grammar-intro__links">{ui("grammar_intro_2_links", lang)}</p>\n')
+    intro.append(f'    </div>\n')
+
+    # Pattern 3: Apply Filters
+    p3_label = ui('grammar_pattern_3', lang)
+    intro.append(f'    <div class="grammar-intro__pattern">\n')
+    intro.append(f'      <h3>{p3_label}</h3>\n')
+    intro.append(f'      <div class="grammar-intro__example" lang="ja">\n')
+    intro.append(f'        <span class="grammar-intro__slot">{to_ruby_html("読【よ】む")}<em>{ui("grammar_filter_base", lang)}</em></span>\n')
+    intro.append(f'        <span class="grammar-intro__slot">{to_ruby_html("読【よ】んだ")}<em>{ui("grammar_filter_done", lang)}</em></span>\n')
+    intro.append(f'        <span class="grammar-intro__slot">{to_ruby_html("読【よ】まない")}<em>{ui("grammar_filter_not", lang)}</em></span>\n')
+    intro.append(f'        <span class="grammar-intro__slot">{to_ruby_html("読【よ】みます")}<em>{ui("grammar_filter_polite", lang)}</em></span>\n')
+    intro.append(f'      </div>\n')
+    intro.append(f'      <p class="grammar-intro__links">{ui("grammar_intro_3_links", lang)}</p>\n')
+    intro.append(f'    </div>\n')
+
+    intro.append('  </div>\n\n')
+    intro_html = ''.join(intro)
 
     for cat in cats:
         slug = slugify(cat['name_english'])
@@ -425,7 +461,7 @@ def gen_grammar(categories, grammar, grammar_examples, lang):
             parts.append('  </grammar-point>\n')
             parts.append('\n')
 
-    return wrap_page('grammar', ''.join(parts), lang, toc)
+    return wrap_page('grammar', ''.join(parts), lang, toc, pre_toc=intro_html)
 
 
 # -- Word Building ------------------------------------------------------------

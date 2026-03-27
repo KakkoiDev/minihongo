@@ -29,12 +29,21 @@ home_anki_desc,"206 words + grammar with audio.",206語+文法、音声付き。
 home_pdf_cta,Read the book:,本で読む:,本【ほん】で読【よ】む:
 home_pdf_link,PDF book,PDF本,PDFをもらう
 home_pdf_desc,All 4 lessons in one book.,4つのレッスンを1冊の本に。,全部【ぜんぶ】が一【ひと】つの本【ほん】に。
-grammar_intro_1,"Set the stage: [who] [when] [where] [what] then [action]. Verb always last. Particles mark each slot.",場を作る: [誰] [いつ] [どこ] [何] → [動詞]。動詞は常に最後。助詞が各位置を示す。,場【ば】を作【つく】る: [誰【だれ】] [いつ] [どこ] [何【なに】] → [する事【こと】]。する事【こと】がいつも終【お】わりに来【く】る。
-grammar_intro_2,"Chain actions: list them in the order they happen. No ""to"" or ""by"" needed. Just stack verbs with te-form.",する事をつなげる: 本当の順に並べるだけ。「to」「by」は不要。て形でつなぐ。,する事【こと】を一【ひと】つにする: 本当【ほんとう】の順【じゅん】に言【い】う。ての方【かた】で一【ひと】つにする。
-grammar_intro_3,"Apply filters: change verb meaning without changing the verb. た (done) / ない (not) / ている (now) / ます (polite).",フィルターをかける: 動詞を変えずに意味を変える。た(完了) / ない(否定) / ている(進行) / ます(丁寧)。,やり方【かた】を変【か】える: する事【こと】はそのまま。た(終【お】わった) / ない(しない) / ている(今【いま】) / ます(良【よ】い言【い】い方【かた】)。
-grammar_pattern_1,Set the stage,場を作る,場【ば】を作【つく】る
+grammar_pattern_1,Set the stage,場を作る,所【ところ】を作【つく】る
 grammar_pattern_2,Chain actions,動作をつなぐ,する事【こと】を一【ひと】つにする
 grammar_pattern_3,Apply filters,フィルターをかける,やり方【かた】を変【か】える
+grammar_slot_who,who,誰,誰【だれ】
+grammar_slot_when,when,いつ,いつ
+grammar_slot_where,where,どこ,どこ
+grammar_slot_what,what,何,何【なに】
+grammar_slot_action,action,動作,する事【こと】
+grammar_filter_base,read,読む,読【よ】む
+grammar_filter_done,done,完了,終【お】わった
+grammar_filter_not,not,否定,しない
+grammar_filter_polite,polite,丁寧,ます
+grammar_intro_1_links,"Five slots. Verb always last. <a href=""#word-order"">Word Order</a> <a href=""#topic-marker"">は</a> <a href=""#object-marker"">を</a> <a href=""#direction-time-location"">に</a> <a href=""#location-of-action-means"">で</a>","5つの枠。動詞は常に最後。 <a href=""#word-order"">語順</a> <a href=""#topic-marker"">は</a> <a href=""#object-marker"">を</a> <a href=""#direction-time-location"">に</a> <a href=""#location-of-action-means"">で</a>","五【いつ】つの入【い】れる所【ところ】。する事【こと】がいつも終【お】わり。 <a href=""#word-order"">言【こと】葉【ば】の来【く】る所【ところ】</a> <a href=""#topic-marker"">は</a> <a href=""#object-marker"">を</a> <a href=""#direction-time-location"">に</a> <a href=""#location-of-action-means"">で</a>"
+grammar_intro_2_links,"Stack verbs in order. No ""to"" or ""by."" <a href=""#te-form-action-chaining"">Te-form</a>","動詞を順に並べるだけ。 <a href=""#te-form-action-chaining"">て形</a>","する事【こと】をそのまま言【い】う。 <a href=""#te-form-action-chaining"">ての方【かた】</a>"
+grammar_intro_3_links,"Same verb, different filters. <a href=""#four-forms"">Four Forms</a> <a href=""#polite-form"">ます</a>","同じ動詞、違うフィルター。 <a href=""#four-forms"">四つの活用形</a> <a href=""#polite-form"">ます</a>","同【おな】じする事【こと】、違【ちが】うやり方【かた】。 <a href=""#four-forms"">四【よっ】つの方【かた】</a> <a href=""#polite-form"">ます</a>"
 dark_mode,Dark mode,ダークモード,夜【よる】の色【いろ】
 toast_offline,You are offline. Content is cached.,オフラインです。,外【そと】に出【で】られない。中【なか】の物【もの】は使【つか】える。
 toast_online,Back online.,オンラインに戻りました。,外【そと】に出【で】られる。

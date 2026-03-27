@@ -130,26 +130,61 @@ ruby rt {
 /* === Grammar intro (3 patterns) === */
 .grammar-intro {
   display: grid;
-  gap: 0.75rem;
+  gap: var(--s);
   margin-block-end: calc(var(--s) * 2);
 }
 
 .grammar-intro__pattern {
-  display: flex;
-  gap: 0.75rem;
-  align-items: baseline;
-  padding: 0.75rem 1rem;
+  padding: 1rem 1.25rem;
   background: var(--bg-raised);
   border-radius: var(--radius);
+  border-inline-start: 3px solid var(--accent);
 }
 
-.grammar-intro__pattern strong {
-  white-space: nowrap;
+.grammar-intro__pattern h3 {
   color: var(--accent);
+  font-size: 1rem;
+  margin: 0 0 0.5rem;
 }
 
-.grammar-intro__pattern span {
+.grammar-intro__example {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.75rem;
+  margin-block-end: 0.5rem;
+  font-family: var(--jp);
+  font-size: 1.15rem;
+}
+
+.grammar-intro__slot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+}
+
+.grammar-intro__slot em {
+  font-style: normal;
+  font-size: 0.7rem;
+  font-family: inherit;
   color: var(--text-muted);
+  letter-spacing: 0.02em;
+}
+
+.grammar-intro__links {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.grammar-intro__links a {
+  color: var(--accent);
+  text-decoration: none;
+  margin-inline-start: 0.25rem;
+}
+
+.grammar-intro__links a:hover {
+  text-decoration: underline;
 }
 
 /* === Grammar point === */
