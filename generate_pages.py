@@ -23,6 +23,7 @@ PAGE_FILES = {
 WB_DESC_KEYS = {
     'Real Kanji Compounds': 'wb_desc_compounds',
     'Common Words in Minihongo': 'wb_desc_common',
+    'Loan Words': 'wb_desc_loanwords',
 }
 
 UI_STRINGS = {}
