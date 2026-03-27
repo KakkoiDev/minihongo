@@ -283,11 +283,26 @@ def expand(html, components):
         filled = fill_slots(template, slots)
 
         # Forward id/class from custom element to component root element
-        for attr in ('id', 'class'):
-            if attr in props:
+        if 'id' in props:
+            filled = re.sub(
+                r'^(\s*<\w+)',
+                rf'\1 id="{props["id"]}"',
+                filled,
+                count=1,
+            )
+        if 'class' in props:
+            # Merge into existing class attribute if present
+            if re.search(r'^(\s*<\w+[^>]*)\bclass="', filled):
+                filled = re.sub(
+                    r'^(\s*<\w+[^>]*\bclass="[^"]*)',
+                    rf'\1 {props["class"]}',
+                    filled,
+                    count=1,
+                )
+            else:
                 filled = re.sub(
                     r'^(\s*<\w+)',
-                    rf'\1 {attr}="{props[attr]}"',
+                    rf'\1 class="{props["class"]}"',
                     filled,
                     count=1,
                 )
