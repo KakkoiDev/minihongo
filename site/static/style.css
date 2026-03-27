@@ -392,6 +392,7 @@ ruby rt {
   color: var(--text-muted);
   font-size: 0.9rem;
   margin-block-end: var(--s);
+  padding-inline-start: 1.25rem;
 
   & p { margin: 0.25rem 0; }
 }
