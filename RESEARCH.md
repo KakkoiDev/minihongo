@@ -223,6 +223,48 @@ All researchers converge on the same thesis:
 
 ---
 
+## References
+
+The vocabulary and grammar draw on research into minimal languages, linguistic universals, and simplified communication systems.
+
+### Vocabulary Foundations
+
+- **[Swadesh List](https://en.wikipedia.org/wiki/Swadesh_list)** - Morris Swadesh's 100/207-word core vocabulary lists, used in historical linguistics to compare languages. The 100-word list defines concepts found in every natural language (body, water, fire, eat, die, stone, mountain, etc.). Used to validate base word coverage and identify practical gaps.
+- **[Natural Semantic Metalanguage (NSM)](https://nsm-approach.net/)** - Anna Wierzbicka and Cliff Goddard's theory identifying ~65 semantic primes: concepts proven irreducible across 30+ languages. NSM Chart v20 (May 2022). Key insight: some concepts (SMALL, SAME, MAYBE) genuinely cannot be decomposed into other words. Used to ensure the vocabulary has no structural holes.
+  - [NSM Semantic Primes Chart v20](https://nsm-approach.net/wp-content/uploads/2022/05/Chart-of-NSM-Semantic-Primes_English_v20_May-2022.pdf)
+  - [150 Canonical Sentences v7](https://intranet.secure.griffith.edu.au/__data/assets/pdf_file/0018/346032/150_NSM_CanonicalSentences_v5_05_2017.pdf)
+  - Goddard & Wierzbicka 2014, *Studies in Language*
+  - Goddard & Wierzbicka 2018, *Meaning and Universal Grammar* Vol. 1-2, Benjamins
+- **[Toki Pona](https://tokipona.org/)** - Sonja Lang's conlang proves ~120 root words can express any idea through compounding. Validates the core philosophy: combine primitives instead of memorizing thousands of words.
+- **[Basic English](https://en.wikipedia.org/wiki/Basic_English)** - C.K. Ogden's 850-word simplified English (1930) showed a controlled vocabulary can cover everyday communication. Minihongo pushes further: fewer words, full grammar.
+- **[Semantic primes research](https://en.wikipedia.org/wiki/Semantic_primes)** - Cross-linguistic studies identifying concepts present in every known language.
+
+### Grammar Foundations
+
+- **[Yasashii Nihongo (Easy Japanese)](https://en.wikipedia.org/wiki/Easy_Japanese)** - Government-backed simplified Japanese framework (Immigration Services Agency, Agency for Cultural Affairs, 2020). Developed by Hirosaki University Sociolinguistics Lab (1999) for foreigners and people with disabilities. Requires masu/desu register, drops keigo/passive/causative. Directly informs Minihongo's grammar design.
+  - [Hirosaki University Yasashii Nihongo research](https://pmc.ncbi.nlm.nih.gov/articles/PMC8063522/)
+  - [Yasashii Nihongo in disaster communication](https://qz.com/1587361/how-yasashii-nihongo-or-easy-japanese-keeps-foreigners-safe)
+- **[Greenberg's Linguistic Universals](https://en.wikipedia.org/wiki/Linguistic_universal)** - Joseph Greenberg's 45 universals (1963) identify grammatical features present across all/most languages. Confirmed: predication, negation, questioning, modification are absolute universals. Tense marking and passive voice are NOT universal.
+- **[WALS - World Atlas of Language Structures](https://wals.info/)** - Survey of 2,500+ languages confirming typological patterns. Used to validate which grammar features are truly universal vs culturally specific.
+- **[JLPT N5 Grammar](https://jlptsensei.com/jlpt-n5-grammar-list/)** - The most basic level of the Japanese Language Proficiency Test (~130 grammar points). Used as a practical benchmark for what grammar enables daily communication in Japan.
+  - [Bunpro N5 Grammar Deck](https://bunpro.jp/decks/nn10ai/Bunpro-N5-Grammar)
+- **NSM Universal Syntax** - NSM identifies 10 universal syntactic frame types (predication, complementation, causation, conditional, temporal, locative, possession, existence, negation, evaluation). Used to verify Minihongo's grammar covers the universal baseline.
+
+### Number Systems
+
+- **[Piraha anumeracy](https://news.mit.edu/2008/language-0624)** - Frank et al. (2008). Piraha speakers have zero exact number words and cannot learn counting, proving exact number is a cultural technology enabled by language.
+- **[Munduruku arithmetic](https://www.science.org/doi/abs/10.1126/science.1102085)** - Pica et al. (2004). Munduruku speakers (words for 1-4 only) can do approximate but not exact arithmetic above 4-5.
+- **[WALS Chapter 131: Numeral Bases](https://wals.info/chapter/131)** - Survey of 196 languages showing 10% have restricted number systems (not reliably past ~20).
+- **Esperanto number system** - 12 root morphemes (0-9, 10, 100, 1000) generate any number via multiplicative-additive rules. Model for minimal productive number systems.
+
+### Textbook References
+
+- **Genki I & II** (Banno et al., Japan Times) - Grammar progression used as practical benchmark
+- **Minna no Nihongo I** (3A Corporation) - Alternative grammar progression comparison
+- **[Tae Kim's Guide to Japanese Grammar](https://www.guidetojapanese.org/)** - Essential grammar reference
+
+---
+
 ## Open Questions
 
 - How to restructure minihongo's grammar section to lead with the "3 patterns" overview?
