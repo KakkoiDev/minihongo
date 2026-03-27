@@ -418,8 +418,10 @@ def gen_grammar(categories, grammar, grammar_examples, lang):
         toc_children = []
         for gp in by_sort(gram_by_cat.get(cat['id'], [])):
             gp_slug = slugify(gp.get('english') or gp['id'])
-            gp_toc_label = gp.get('english') or gp['minihongo']
-            toc_children.append((gp_slug, esc(gp_toc_label)))
+            gp_toc_label = esc(gp.get('english') or gp['minihongo'])
+            if gp.get('core', '').strip().lower() == 'yes':
+                gp_toc_label += ' <span class="toc-core">core</span>'
+            toc_children.append((gp_slug, gp_toc_label))
 
         toc.append((slug, to_ruby_html(esc(toc_label)), toc_children))
         parts.append(f'  <h2 id="{slug}" class="section-heading">{h}</h2>\n')

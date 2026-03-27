@@ -421,6 +421,19 @@ nav.toc details ul {
 }
 nav.toc details li { margin: 0.15rem 0; font-weight: normal; }
 
+.toc-core {
+  font-size: 0.6rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: 0.25rem;
+  padding: 0 0.25rem;
+  margin-inline-start: 0.3rem;
+  vertical-align: middle;
+}
+
 /* === Reading warning / category note === */
 .reading-warning,
 .category-note {
