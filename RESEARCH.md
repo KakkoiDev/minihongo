@@ -223,6 +223,152 @@ All researchers converge on the same thesis:
 
 ---
 
+## Katakana Loan Words (Gairaigo) Research
+
+Loan words are "free vocabulary" for speakers of the source language. Research into which ones are most useful for minihongo's target audience (refugees, minorities, people with cognitive disabilities navigating daily life in Japan).
+
+### Gairaigo in Japanese: Scale and Proportion
+
+| Metric | Value |
+|--------|-------|
+| Gairaigo % of newspaper vocabulary | ~10-12% |
+| Gairaigo % of magazine vocabulary | ~13-15% |
+| Gairaigo % of spoken vocabulary | ~6-8% |
+| Katakana loan words in top 1000 Japanese words | ~50-80 (5-8%) |
+| JLPT N5 katakana loan words | ~40-50 |
+| Total JLPT N5-N1 katakana loan words | ~500-700 |
+| English-origin % of all gairaigo | ~80-90% |
+| German-origin % | ~3-5% |
+| French-origin % | ~3-5% |
+| Portuguese/Dutch-origin % | ~2-3% |
+| Wasei-eigo (Japanese-coined "English") % of gairaigo | ~10-15% |
+
+Source: NINJAL (National Institute for Japanese Language and Linguistics), BCCWJ corpus studies, Irwin 2011.
+
+### Highest-Frequency Gairaigo (BCCWJ corpus ranking)
+
+Words that appear in the top 500 most common Japanese words overall:
+
+テレビ, ニュース, システム, グループ, メンバー, プログラム, サービス, ページ, テーマ, データ, レベル, プロジェクト, メートル, センター, エネルギー, コンピュータ, ドル, パーセント, リスト, ポイント
+
+Note: these are high-frequency in written Japanese (newspapers, books). Daily spoken frequency skews toward more concrete words.
+
+### Categorization by Where You'll Encounter Them
+
+**Signs and buildings:**
+トイレ, エレベーター, エスカレーター, ホテル, レストラン, スーパー, コンビニ, デパート, ビル, フロア, ロビー, フロント
+
+**Transport:**
+バス, タクシー, ホーム (platform), ターミナル, ガソリンスタンド, レンタカー
+
+**Food and menus:**
+コーヒー, ビール, ワイン, ジュース, ミルク, パン, バター, チーズ, サラダ, スープ, ステーキ, ハンバーグ, カレー, ピザ, パスタ, ケーキ, アイスクリーム, チョコレート, メニュー, ランチ, セット, テイクアウト, デザート
+
+**Shopping:**
+サイズ, レジ, セール, レシート, クレジットカード, ポイント, プレゼント
+
+**Technology:**
+インターネット, メール, パソコン, スマホ, アプリ, パスワード, データ, コピー, プリンター
+
+**Health:**
+マスク, アレルギー, ストレス, ワクチン, ビタミン, カロリー
+
+**Work/school:**
+テスト, クラス, ノート, ペン, オフィス, ビジネス, ミーティング, スケジュール
+
+**Daily objects:**
+テレビ, テーブル, ドア, ソファ, カーテン, エアコン, カメラ, ナイフ, フォーク, スプーン
+
+**Accommodation:**
+チェックイン, チェックアウト, シングル, ダブル, ルーム, キー, タオル, シャワー
+
+### International Comprehension Tiers
+
+**Tier 1: Internationally recognizable** (cognates in many language families):
+テレビ, ラジオ, バス, タクシー, ホテル, レストラン, コーヒー, チョコレート, カメラ, インターネット, コンピュータ, ビール, ワイン, サラダ, ピザ, パスタ, スポーツ, ビタミン, エネルギー, バランス
+
+**Tier 2: Recognizable mainly to English speakers:**
+ニュース, サービス, システム, メンバー, レベル, データ, コスト, リスク, ストレス, チャンス, トラブル, ゲーム, テスト, チーム, ミーティング, スケジュール
+
+**Tier 3: Non-English origin** (surprising to English speakers):
+
+| Word | Actual origin | Meaning |
+|------|---------------|---------|
+| パン | Portuguese (pao) | bread |
+| テーマ | German (Thema) | theme |
+| アルバイト | German (Arbeit) | part-time job |
+| エネルギー | German (Energie) | energy |
+| アレルギー | German (Allergie) | allergy |
+| ズボン | French (jupon) | trousers |
+| アンケート | French (enquete) | survey |
+| トイレ | French (toilette) | toilet |
+| コップ | Dutch (kop) | glass/cup |
+| ガラス | Dutch (glas) | glass (material) |
+| ゴム | Dutch (gom) | rubber |
+| ビール | Dutch/German (bier) | beer |
+| ワクチン | German (Vakzin) | vaccine |
+
+### Wasei-Eigo: False Friends
+
+Japanese-coined English-like words that DON'T mean what they look like:
+
+| Word | Looks like | Actually means |
+|------|-----------|----------------|
+| マンション | mansion | apartment/condo |
+| サラリーマン | salary man | office worker |
+| バイキング | viking | buffet |
+| クレーム | claim | complaint |
+| コンセント | consent | electrical outlet |
+| カンニング | cunning | cheating (on exam) |
+| スマート | smart | slim/slender |
+| ナイーブ | naive | sensitive/delicate |
+| テンション | tension | excitement/energy |
+| ワンピース | one piece | dress |
+| パンツ | pants | underwear (usually) |
+
+These should be explicitly flagged or excluded from a "words you already know" section.
+
+### Shortened Forms (Unique to Japanese)
+
+| Short form | Full form | Meaning |
+|-----------|-----------|---------|
+| コンビニ | convenience store | convenience store |
+| パソコン | personal computer | PC |
+| スマホ | smartphone | smartphone |
+| リモコン | remote control | remote |
+| エアコン | air conditioner | AC |
+| デパート | department store | department store |
+| アニメ | animation | anime |
+| アルバイト/バイト | Arbeit | part-time job |
+
+Not deducible from English. Must be learned as vocabulary.
+
+### Recommendation for Minihongo
+
+**Approach:** Add a "Loan Words" section as bonus vocabulary (not counted in the 206 base words). Framed as "words you may already know" rather than "words you must learn."
+
+**Structure:**
+1. Tier 1 (~20-25 words) - "Internationally recognized" - truly free vocabulary for most learners
+2. Daily life essentials (~30-40 words) - organized by where you'll encounter them (signs, menus, shops)
+3. False friends (~10-15 words) - explicitly flagged to prevent confusion
+4. Shortened forms (~8-10 words) - essential Japan-specific vocabulary
+
+**Total:** ~60-80 words, presented as bonus/reference, not as memorization targets.
+
+**Also serves as:** Natural introduction to katakana reading. You learn the script by reading words you already know.
+
+### Sources
+
+- **BCCWJ (Balanced Corpus of Contemporary Written Japanese)** - NINJAL's 100M+ word corpus. Primary source for modern Japanese word frequency. chunagon.ninjal.ac.jp
+- **Irwin, Mark (2011)** - *Loanwords in Japanese*. John Benjamins Publishing.
+- **Stanlaw, James (2004)** - *Japanese English: Language and Culture Contact*. Hong Kong University Press.
+- **Daulton, Frank (2008)** - *Japan's Built-in Lexicon of English-based Loanwords*. Multilingual Matters.
+- **Loveday, Leo (1996)** - *Language Contact in Japan*. Oxford University Press.
+- **NINJAL Gairaigo Reports** - Attitude surveys on gairaigo comprehension.
+- **JLPT N5-N1 vocabulary lists** - Japan Foundation.
+
+---
+
 ## References
 
 The vocabulary and grammar draw on research into minimal languages, linguistic universals, and simplified communication systems.
