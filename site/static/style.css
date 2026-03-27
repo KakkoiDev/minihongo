@@ -127,6 +127,31 @@ ruby rt {
   visibility: hidden;
 }
 
+/* === Grammar intro (3 patterns) === */
+.grammar-intro {
+  display: grid;
+  gap: 0.75rem;
+  margin-block-end: calc(var(--s) * 2);
+}
+
+.grammar-intro__pattern {
+  display: flex;
+  gap: 0.75rem;
+  align-items: baseline;
+  padding: 0.75rem 1rem;
+  background: var(--bg-raised);
+  border-radius: var(--radius);
+}
+
+.grammar-intro__pattern strong {
+  white-space: nowrap;
+  color: var(--accent);
+}
+
+.grammar-intro__pattern span {
+  color: var(--text-muted);
+}
+
 /* === Grammar point === */
 .grammar-point {
   padding: 1.25rem;
@@ -136,6 +161,25 @@ ruby rt {
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   margin-block-end: var(--s);
+}
+
+.grammar-point.core {
+  border-inline-start-width: 5px;
+}
+
+.grammar-point.core .grammar-point__pattern::after {
+  content: "core";
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: 0.25rem;
+  padding: 0.1rem 0.35rem;
+  margin-inline-start: 0.5rem;
+  vertical-align: middle;
+  font-family: inherit;
 }
 
 .grammar-point__pattern {

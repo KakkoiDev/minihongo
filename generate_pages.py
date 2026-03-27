@@ -360,8 +360,19 @@ def gen_grammar(categories, grammar, grammar_examples, lang):
     for e in grammar_examples:
         ex_by_gram[e['grammar_id']].append(e)
 
+    # 3-patterns intro
     toc = []
     parts = []
+    parts.append('  <div class="grammar-intro">\n')
+    for i in range(1, 4):
+        label = ui(f'grammar_pattern_{i}', lang)
+        desc = ui(f'grammar_intro_{i}', lang)
+        parts.append(f'    <div class="grammar-intro__pattern">\n')
+        parts.append(f'      <strong>{label}</strong>\n')
+        parts.append(f'      <span>{desc}</span>\n')
+        parts.append(f'    </div>\n')
+    parts.append('  </div>\n\n')
+
     for cat in cats:
         slug = slugify(cat['name_english'])
         translated = t(cat, 'name', lang)
@@ -395,7 +406,9 @@ def gen_grammar(categories, grammar, grammar_examples, lang):
                 else:
                     pattern = f'{pattern} ({en_name})'
             explanation = to_ruby_html(t(gp, 'explanation', lang))
-            parts.append(f'  <grammar-point id="{gp_slug}">\n')
+            is_core = gp.get('core', '').strip().lower() == 'yes'
+            tag = f'  <grammar-point id="{gp_slug}" class="core">\n' if is_core else f'  <grammar-point id="{gp_slug}">\n'
+            parts.append(tag)
             parts.append(f'    <span slot="pattern">{pattern}</span>\n')
             parts.append(f'    <span slot="explanation">{explanation}</span>\n')
 

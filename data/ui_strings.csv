@@ -29,6 +29,12 @@ home_anki_desc,"206 words + grammar with audio.",206語+文法、音声付き。
 home_pdf_cta,Read the book:,本で読む:,本【ほん】で読【よ】む:
 home_pdf_link,PDF book,PDF本,PDFをもらう
 home_pdf_desc,All 4 lessons in one book.,4つのレッスンを1冊の本に。,全部【ぜんぶ】が一【ひと】つの本【ほん】に。
+grammar_intro_1,"Set the stage: [who] [when] [where] [what] then [action]. Verb always last. Particles mark each slot.",場を作る: [誰] [いつ] [どこ] [何] → [動詞]。動詞は常に最後。助詞が各位置を示す。,場【ば】を作【つく】る: [誰【だれ】] [いつ] [どこ] [何【なに】] → [する事【こと】]。する事【こと】がいつも終【お】わりに来【く】る。
+grammar_intro_2,"Chain actions: list them in the order they happen. No ""to"" or ""by"" needed. Just stack verbs with te-form.",する事をつなげる: 本当の順に並べるだけ。「to」「by」は不要。て形でつなぐ。,する事【こと】を一【ひと】つにする: 本当【ほんとう】の順【じゅん】に言【い】う。ての方【かた】で一【ひと】つにする。
+grammar_intro_3,"Apply filters: change verb meaning without changing the verb. た (done) / ない (not) / ている (now) / ます (polite).",フィルターをかける: 動詞を変えずに意味を変える。た(完了) / ない(否定) / ている(進行) / ます(丁寧)。,やり方【かた】を変【か】える: する事【こと】はそのまま。た(終【お】わった) / ない(しない) / ている(今【いま】) / ます(良【よ】い言【い】い方【かた】)。
+grammar_pattern_1,Set the stage,場を作る,場【ば】を作【つく】る
+grammar_pattern_2,Chain actions,動作をつなぐ,する事【こと】を一【ひと】つにする
+grammar_pattern_3,Apply filters,フィルターをかける,やり方【かた】を変【か】える
 dark_mode,Dark mode,ダークモード,夜【よる】の色【いろ】
 toast_offline,You are offline. Content is cached.,オフラインです。,外【そと】に出【で】られない。中【なか】の物【もの】は使【つか】える。
 toast_online,Back online.,オンラインに戻りました。,外【そと】に出【で】られる。

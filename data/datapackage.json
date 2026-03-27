@@ -108,6 +108,18 @@
             "constraints": {
               "required": true
             }
+          },
+          {
+            "name": "note_minihongo",
+            "type": "string"
+          },
+          {
+            "name": "note_english",
+            "type": "string"
+          },
+          {
+            "name": "note_japanese",
+            "type": "string"
           }
         ],
         "primaryKey": "id",
@@ -267,6 +279,10 @@
             "constraints": {
               "required": true
             }
+          },
+          {
+            "name": "core",
+            "type": "string"
           }
         ],
         "primaryKey": "id",

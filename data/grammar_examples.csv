@@ -31,10 +31,10 @@ gex-79,gram-15,飲【の】む → 飲【の】んで,Drink → drinking (te-for
 gex-80,gram-15,待【ま】つ → 待【ま】って,Wait → waiting (te-form).,待つ → 待って,,30,ge_80.mp3
 gex-81,gram-15,食【た】べる → 食【た】べて,Eat → eating (te-form).,食べる → 食べて,,31,ge_81.mp3
 gex-28,gram-15,書【か】いて 読【よ】んで 寝【ね】た。,"Wrote, read, slept. (one tense at the end)",書いて読んで寝た。,,32,ge_28.mp3
-gex-29,gram-15,待【ま】ってください。,Please wait.,待ってください。/ 今読んでいる。,,33,ge_29.mp3
-gex-30,gram-15,今【いま】 読【よ】んでいる。,I am reading now.,,,34,ge_30.mp3
-gex-31,gram-15,座【すわ】ってもいい？,May I sit?,座ってもいい？,,35,ge_31.mp3
-gex-32,gram-15,入【はい】ってはいけない。,Must not enter.,入ってはいけない。,,36,ge_32.mp3
+gex-29,gram-40,待【ま】ってください。,Please wait.,待ってください。,,33,ge_29.mp3
+gex-30,gram-40,今【いま】 読【よ】んでいる。,I am reading now.,今読んでいる。,,34,ge_30.mp3
+gex-31,gram-40,座【すわ】ってもいい？,May I sit?,座ってもいい？,,35,ge_31.mp3
+gex-32,gram-40,入【はい】ってはいけない。,Must not enter.,入ってはいけない。,,36,ge_32.mp3
 gex-33,gram-16,書【か】く → 書【か】ける,Write → can write.,書く → 書ける,,37,ge_33.mp3
 gex-34,gram-16,見【み】る → 見【み】られる,See → can see.,見る → 見られる,,38,ge_34.mp3
 gex-35,gram-16,する → できる,Do → can do.,する → できる,,39,ge_35.mp3
