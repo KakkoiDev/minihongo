@@ -124,3 +124,26 @@ Building more content before feedback is building in the dark.
 | Website (everything) | Both | Done |
 
 Everything is built. The question is not what to build next. The question is what to ship first, and to whom.
+
+---
+
+## Resolution (2026-03-30)
+
+The dilemma was a framing error. The 12 daily-life dialogs were already written using 206-word circumlocutions. They were never "beyond 206" - they were the strongest proof that the system works.
+
+The few remaining leaks (えき, コンビニ, カード, abbreviated day names, 番) were replaced with pure 206-word alternatives:
+
+| Concept | Was | Now (206 words) |
+|---|---|---|
+| Station | えき | 人が来る物を待つ所 |
+| Convenience store | コンビニ | 買う所 |
+| Card (payment) | カード | お金の小さい物 |
+| Monday | げつの日 | 月の日 |
+| Wednesday | すいの日 | 水の日 |
+| Friday | きんの日 | お金の日 |
+| Platform number | 番 | つ目 (ordinal) |
+| Welcome greeting | いらっしゃいませ | 来てくれてありがとう |
+
+The daily-life dialogs moved from Extension to Core. The 206-word claim is now fully intact across all content.
+
+Kanji compounds and loan words archived to ARCHIVE-LOANWORDS-COMPOUNDS.md for reference.
