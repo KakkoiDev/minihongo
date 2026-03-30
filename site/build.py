@@ -38,6 +38,7 @@ HTML_LANGS = {'en': 'en', 'ja': 'ja', 'mh': 'ja'}
 LANG_LABELS = {'en': 'English', 'ja': '日本語', 'mh': 'ミニ本語'}
 BASE_URLS = {'en': '/', 'ja': '/ja/', 'mh': '/mh/'}
 
+SITE_URL = os.environ.get("SITE_URL", "https://minihongo.com")
 STATIC_DESCS = {'_404': 'Page not found.'}
 
 MEANING_COL_MAP = {'en': 'english', 'ja': 'japanese', 'mh': 'definition_minihongo'}
@@ -189,6 +190,10 @@ def build_page_context(data, ui_strings, lang, page_file, base_url, page_id_map)
         'SPEAKER_COL': SPEAKER_COL_MAP[lang],
         'TITLE_COL': TITLE_COL_MAP[lang],
         'COPYRIGHT_YEAR': str(datetime.now().year),
+        # Canonical + hreflang
+        'CANONICAL_URL': f'{SITE_URL}/{BASE_URLS[lang].lstrip("/")}{page_file.replace("index.html", "")}',
+        'HREFLANG_EN': f'{SITE_URL}/{page_file.replace("index.html", "")}',
+        'HREFLANG_JA': f'{SITE_URL}/ja/{page_file.replace("index.html", "")}',
         # Toast strings
         'TOAST_OFFLINE': ui_str(ui_strings, 'toast_offline', lang),
         'TOAST_ONLINE': ui_str(ui_strings, 'toast_online', lang),
