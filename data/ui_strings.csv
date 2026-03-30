@@ -38,7 +38,7 @@ grammar_slot_when,when,いつ,いつ
 grammar_slot_where,where,どこ,どこ
 grammar_slot_what,what,何,何【なに】
 grammar_slot_action,action,動作,する事【こと】
-grammar_filter_base,read,読む,読【よ】む
+grammar_filter_base,do,読む,読【よ】む
 grammar_filter_done,done,完了,終【お】わった
 grammar_filter_not,not,否定,しない
 grammar_filter_polite,polite,丁寧,ます
