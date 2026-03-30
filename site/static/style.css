@@ -160,6 +160,9 @@ ruby rt {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.grammar-intro__slot > span {
   white-space: nowrap;
 }
 
