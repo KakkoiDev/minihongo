@@ -517,7 +517,7 @@ def gen_word_building(categories, compounds, expressions, lang):
             h3_slug = slugify(h3['name_english'])
             h3_translated = t(h3, 'name', lang)
             h3_heading = bilingual(h3['name_minihongo'], h3_translated)
-            parts.append(f'  <h3 id="{h3_slug}">{h3_heading}</h3>\n')
+            parts.append(f'  <h3 id="{h3_slug}" class="section-heading">{h3_heading}</h3>\n')
 
             cat_compounds = by_sort(compounds_by_cat.get(h3['id'], []))
             cat_expressions = by_sort(expressions_by_cat.get(h3['id'], []))
@@ -686,7 +686,7 @@ def gen_reading(categories, haiku, dialog_groups, dialogs, stories, lang):
                 sub_slug = slugify(cat['name_english'])
                 sub_translated = t(cat, 'name', lang)
                 sub_h = bilingual(cat['name_minihongo'], sub_translated)
-                parts.append(f'<h3 id="{sub_slug}">{sub_h}</h3>\n')
+                parts.append(f'<h3 id="{sub_slug}" class="section-heading">{sub_h}</h3>\n')
 
             # Haiku
             for hk in by_sort(haiku_by_cat.get(cat['id'], [])):
