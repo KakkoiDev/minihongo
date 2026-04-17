@@ -220,6 +220,9 @@ def build_page_context(data, ui_strings, lang, page_file, base_url, page_id_map)
         'CONTACT_BODY_LABEL': ui_str(ui_strings, 'contact_body_label', lang),
         'CONTACT_SEND': ui_str(ui_strings, 'contact_send', lang),
         'CONTACT_CANCEL': ui_str(ui_strings, 'contact_cancel', lang),
+        'CONTACT_SEND_VIA_LABEL': ui_str(ui_strings, 'contact_send_via_label', lang),
+        'CONTACT_EMAIL': ui_str(ui_strings, 'contact_email', lang),
+        'CONTACT_GITHUB': ui_str(ui_strings, 'contact_github', lang),
         # UI strings (full dict for template access)
         'ui': {k: ui_str(ui_strings, k, lang) for k in ui_strings},
     }

@@ -62,5 +62,8 @@ contact_feedback,Feedback,意見,思【おも】う事【こと】
 contact_bug,Bug,バグ,変【へん】な事【こと】
 contact_title_label,Title,タイトル,名前【なまえ】
 contact_body_label,Details,詳細,書【か】く事【こと】
-contact_send,Open on GitHub,GitHubで開く,GitHubに行【い】く
+contact_send,Send,送る,出【だ】す
 contact_cancel,Cancel,キャンセル,止【と】める
+contact_send_via_label,Send via,送信方法,どこに
+contact_email,Email,メール,メール
+contact_github,GitHub,GitHub,GitHub

@@ -86,6 +86,17 @@
           <span>{{CONTACT_BUG}}</span>
         </label>
       </fieldset>
+      <fieldset class="contact-type">
+        <legend>{{CONTACT_SEND_VIA_LABEL}}</legend>
+        <label class="contact-type-option">
+          <input type="radio" name="channel" value="email" checked>
+          <span>{{CONTACT_EMAIL}}</span>
+        </label>
+        <label class="contact-type-option">
+          <input type="radio" name="channel" value="github">
+          <span>{{CONTACT_GITHUB}}</span>
+        </label>
+      </fieldset>
       <label class="contact-field">
         <span>{{CONTACT_TITLE_LABEL}}</span>
         <input type="text" name="title" required maxlength="120">

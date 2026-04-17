@@ -213,14 +213,23 @@ contactForm?.addEventListener('submit', (e) => {
   e.preventDefault()
   const data = new FormData(contactForm)
   const type = data.get('type') || 'feedback'
+  const channel = data.get('channel') || 'email'
   const title = (data.get('title') || '').toString().trim()
   const body = (data.get('body') || '').toString().trim()
   if (!title || !body) return
-  const url = 'https://github.com/KakkoiDev/minihongo/issues/new'
-    + `?title=${encodeURIComponent(title)}`
-    + `&body=${encodeURIComponent(body)}`
-    + `&labels=${encodeURIComponent(type)}`
-  window.open(url, '_blank', 'noopener')
+  if (channel === 'github') {
+    const url = 'https://github.com/KakkoiDev/minihongo/issues/new'
+      + `?title=${encodeURIComponent(title)}`
+      + `&body=${encodeURIComponent(body)}`
+      + `&labels=${encodeURIComponent(type)}`
+    window.open(url, '_blank', 'noopener')
+  } else {
+    const subject = `[${type}] ${title}`
+    const mailto = 'mailto:contact@kakkoi.dev'
+      + `?subject=${encodeURIComponent(subject)}`
+      + `&body=${encodeURIComponent(body)}`
+    window.location.href = mailto
+  }
   contactForm.reset()
   contactDialog.close()
 })
