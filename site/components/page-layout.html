@@ -68,15 +68,23 @@
 
   <button class="back-to-top" id="btn-top" aria-label="Back to top">&uarr;</button>
 
-  <button class="contact-author" id="btn-contact" aria-label="{{CONTACT_LABEL}}">&#9993;</button>
+  <button class="contact-author" id="btn-contact" aria-label="{{CONTACT_LABEL}}">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 2H4a2 2 0 0 0-2 2v18l4-4h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2z"/></svg>
+  </button>
 
   <dialog class="contact-dialog" id="contact-dialog">
     <form id="contact-form" method="dialog">
       <h2>{{CONTACT_HEADING}}</h2>
       <fieldset class="contact-type">
         <legend>{{CONTACT_TYPE_LABEL}}</legend>
-        <label><input type="radio" name="type" value="feedback" checked> {{CONTACT_FEEDBACK}}</label>
-        <label><input type="radio" name="type" value="bug"> {{CONTACT_BUG}}</label>
+        <label class="contact-type-option">
+          <input type="radio" name="type" value="feedback" checked>
+          <span>{{CONTACT_FEEDBACK}}</span>
+        </label>
+        <label class="contact-type-option">
+          <input type="radio" name="type" value="bug">
+          <span>{{CONTACT_BUG}}</span>
+        </label>
       </fieldset>
       <label class="contact-field">
         <span>{{CONTACT_TITLE_LABEL}}</span>
