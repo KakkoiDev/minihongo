@@ -17,6 +17,7 @@ PAGE_FILES = {
     'vocabulary': 'vocabulary.html',
     'grammar': 'grammar.html',
     'word-building': 'word-building.html',
+    'going-further': 'going-further.html',
     'reading': 'texts-dialogs.html',
 }
 
@@ -536,6 +537,87 @@ def gen_word_building(categories, compounds, expressions, lang):
     return wrap_page('word-building', ''.join(parts), lang, toc)
 
 
+# -- Going Further ------------------------------------------------------------
+
+def gen_going_further(categories, compounds, expressions, lang):
+    compounds_by_cat = defaultdict(list)
+    for c in compounds:
+        compounds_by_cat[c['category_id']].append(c)
+    expressions_by_cat = defaultdict(list)
+    for e in expressions:
+        expressions_by_cat[e['category_id']].append(e)
+
+    h2_cats = by_sort([c for c in categories
+                       if c['page_id'] == 'going-further' and not c['parent_id']])
+    children = defaultdict(list)
+    for c in categories:
+        if c['page_id'] == 'going-further' and c['parent_id']:
+            children[c['parent_id']].append(c)
+    for k in children:
+        children[k] = by_sort(children[k])
+
+    intro_html = (
+        f'  <p>{ui("gf_intro_p1", lang)}</p>\n'
+        f'  <p>{ui("gf_intro_p2", lang)}</p>\n\n'
+    )
+
+    immerse_slug = 'live-in-the-language'
+
+    toc = []
+    parts = []
+    for h2 in h2_cats:
+        slug = slugify(h2['name_english'])
+        translated = t(h2, 'name', lang)
+        h = bilingual(h2['name_minihongo'], translated)
+        toc_label = translated or h2['name_english']
+
+        toc_children = []
+        for h3 in children.get(h2['id'], []):
+            h3_slug = slugify(h3['name_english'])
+            h3_label = t(h3, 'name', lang) or h3['name_english']
+            toc_children.append((h3_slug, to_ruby_html(esc(h3_label))))
+
+        toc.append((slug, to_ruby_html(esc(toc_label)), toc_children))
+        parts.append(f'  <h2 id="{slug}" class="section-heading">{h}</h2>\n')
+
+        desc_key = WB_DESC_KEYS.get(h2['name_english'], '')
+        if desc_key:
+            desc = ui(desc_key, lang)
+            parts.append(f'  <p>{desc}</p>\n')
+            if desc_key == 'wb_desc_compounds':
+                warning = ui('wb_reading_warning', lang)
+                parts.append(f'  <p class="reading-warning">{warning}</p>\n')
+        parts.append('\n')
+
+        for h3 in children.get(h2['id'], []):
+            h3_slug = slugify(h3['name_english'])
+            h3_translated = t(h3, 'name', lang)
+            h3_heading = bilingual(h3['name_minihongo'], h3_translated)
+            parts.append(f'  <h3 id="{h3_slug}">{h3_heading}</h3>\n')
+
+            cat_compounds = by_sort(compounds_by_cat.get(h3['id'], []))
+            cat_expressions = by_sort(expressions_by_cat.get(h3['id'], []))
+
+            if cat_compounds:
+                _render_compound_table(parts, cat_compounds, lang)
+            elif cat_expressions:
+                has_japanese = any(e['japanese'] for e in cat_expressions)
+                if has_japanese:
+                    _render_common_table(parts, cat_expressions, lang)
+                else:
+                    _render_concept_table(parts, cat_expressions, lang)
+
+            parts.append('\n')
+
+    immerse_heading = ui('gf_immerse_heading', lang)
+    immerse_body = ui('gf_immerse_body', lang)
+    toc.append((immerse_slug, immerse_heading))
+    parts.append(f'  <h2 id="{immerse_slug}" class="section-heading">{immerse_heading}</h2>\n')
+    parts.append(f'  <p>{immerse_body}</p>\n\n')
+
+    return wrap_page('going-further', ''.join(parts), lang, toc, pre_toc=intro_html)
+
+
 def _render_compound_table(parts, rows, lang):
     """2-col table: Word (with furigana) / Meaning."""
     th_word = ui('th_word', lang)
@@ -809,6 +891,7 @@ def main():
             ('vocabulary', gen_vocabulary(categories, words, lang)),
             ('grammar', gen_grammar(categories, grammar, grammar_examples, lang)),
             ('word-building', gen_word_building(categories, compounds, expressions, lang)),
+            ('going-further', gen_going_further(categories, compounds, expressions, lang)),
             ('reading', gen_reading(categories, haiku, dialog_groups, dialogs_data, stories, lang)),
         ]
 
