@@ -55,3 +55,12 @@ gf_intro_p1,"Minihongo lets you go from thought to Japanese sentence without tra
 gf_intro_p2,"The journey doesn't end here. From this base, you can practice, pick up new words as you meet them, and learn new grammar patterns naturally.",ここで終わりではない。この基礎から、練習し、出会う言葉を覚え、新しい文法を自然に身につけていける。,"ここで終【お】わりではない。この始【はじ】めの言【こと】葉【ば】から、練習【れんしゅう】して、会【あ】う言【こと】葉【ば】を覚【おぼ】えて、新【あたら】しい使【つか】い方【かた】を学【まな】べる。"
 gf_immerse_heading,Live in the Language,言葉の中で生きる,言【こと】葉【ば】の中【なか】で生【い】きる
 gf_immerse_body,"To keep growing, consume native content: movies, books, music, conversations. Every real encounter teaches you something no textbook can.","成長し続けるには、本物の日本語に触れること。映画、本、音楽、会話。本物との出会いはすべて、教科書では学べないことを教えてくれる。","大【おお】きくなり続【つづ】けるには、本当【ほんとう】の日本【にほん】の言【こと】葉【ば】に会【あ】うこと。見【み】る物【もの】、読【よ】む物【もの】、聞【き】く物【もの】、話【はな】す事【こと】。本当【ほんとう】との出会【であ】いは、本【ほん】で学【まな】べない事【こと】を教【おし】えてくれる。"
+contact_label,Contact the author,作者に連絡,作【つく】った人【ひと】に言【い】う
+contact_heading,Contact the author,作者に連絡,作【つく】った人【ひと】に言【い】う
+contact_type_label,Type,種類,何【なに】
+contact_feedback,Feedback,意見,思【おも】う事【こと】
+contact_bug,Bug,バグ,おかしい事【こと】
+contact_title_label,Title,タイトル,名前【なまえ】
+contact_body_label,Details,詳細,くわしく
+contact_send,Open on GitHub,GitHubで開く,GitHubで開【ひら】く
+contact_cancel,Cancel,キャンセル,やめる

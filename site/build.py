@@ -141,6 +141,15 @@ def build_page_context(data, ui_strings, lang, page_file, base_url, page_id_map)
     labels = build_nav_labels(data, lang)
     lang_base = BASE_URLS[lang] if base_url == "/" else base_url
 
+    def ui_plain(key):
+        """Get UI string as plain text (no ruby, no brackets) for HTML attributes."""
+        row = ui_strings.get(key, {})
+        for l in [lang, 'en', 'mh']:
+            val = row.get(l, '').strip()
+            if val:
+                return strip_fg(val)
+        return key
+
     # Page-specific names from pages.csv
     page_id = page_id_map.get(page_file)
     page_name = ''
@@ -201,6 +210,16 @@ def build_page_context(data, ui_strings, lang, page_file, base_url, page_id_map)
         'TOAST_INSTALL': ui_str(ui_strings, 'toast_install', lang),
         'TOAST_INSTALL_BTN': ui_str(ui_strings, 'toast_install_btn', lang),
         'TOAST_UPDATED': ui_str(ui_strings, 'toast_updated', lang),
+        # Contact author dialog
+        'CONTACT_LABEL': ui_plain('contact_label'),
+        'CONTACT_HEADING': ui_str(ui_strings, 'contact_heading', lang),
+        'CONTACT_TYPE_LABEL': ui_str(ui_strings, 'contact_type_label', lang),
+        'CONTACT_FEEDBACK': ui_str(ui_strings, 'contact_feedback', lang),
+        'CONTACT_BUG': ui_str(ui_strings, 'contact_bug', lang),
+        'CONTACT_TITLE_LABEL': ui_str(ui_strings, 'contact_title_label', lang),
+        'CONTACT_BODY_LABEL': ui_str(ui_strings, 'contact_body_label', lang),
+        'CONTACT_SEND': ui_str(ui_strings, 'contact_send', lang),
+        'CONTACT_CANCEL': ui_str(ui_strings, 'contact_cancel', lang),
         # UI strings (full dict for template access)
         'ui': {k: ui_str(ui_strings, k, lang) for k in ui_strings},
     }

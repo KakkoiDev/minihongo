@@ -631,6 +631,136 @@ footer {
   background: var(--accent-hover);
 }
 
+/* === Contact author === */
+.contact-author {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  border: none;
+  background: var(--accent);
+  color: #fff;
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s;
+  z-index: 100;
+}
+
+.contact-author:hover {
+  background: var(--accent-hover);
+}
+
+.contact-dialog {
+  max-width: min(30rem, calc(100vw - 2rem));
+  width: 100%;
+  padding: 1.5rem;
+  padding-inline-start: calc(1.5rem - 3px);
+  border: none;
+  border-inline-start: 3px solid var(--accent);
+  border-radius: var(--radius);
+  background: var(--bg-raised);
+  color: var(--text);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+}
+
+.contact-dialog::backdrop {
+  background: rgba(0,0,0,0.35);
+}
+
+.contact-dialog h2 {
+  font-size: 1.15rem;
+  margin: 0 0 1rem;
+}
+
+.contact-dialog form {
+  display: grid;
+  gap: 1rem;
+}
+
+.contact-type {
+  border: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.contact-type legend {
+  padding: 0;
+  margin-block-end: 0.35rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.contact-type label {
+  display: inline-flex;
+  gap: 0.4rem;
+  align-items: center;
+  cursor: pointer;
+}
+
+.contact-field {
+  display: grid;
+  gap: 0.3rem;
+}
+
+.contact-field span {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.contact-field input,
+.contact-field textarea {
+  font: inherit;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  background: var(--bg);
+  color: var(--text);
+  resize: vertical;
+}
+
+.contact-field input:focus,
+.contact-field textarea:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.contact-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.contact-cancel,
+.contact-send {
+  font: inherit;
+  padding: 0.45rem 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+}
+
+.contact-send {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+.contact-send:hover {
+  background: var(--accent-hover);
+}
+
+.contact-cancel:hover {
+  background: var(--bg-raised);
+}
+
 /* === Homepage expression literal gloss === */
 .example-lit {
   font-size: 0.85rem;

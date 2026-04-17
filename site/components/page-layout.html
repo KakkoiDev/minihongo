@@ -68,6 +68,31 @@
 
   <button class="back-to-top" id="btn-top" aria-label="Back to top">&uarr;</button>
 
+  <button class="contact-author" id="btn-contact" aria-label="{{CONTACT_LABEL}}">&#9993;</button>
+
+  <dialog class="contact-dialog" id="contact-dialog">
+    <form id="contact-form" method="dialog">
+      <h2>{{CONTACT_HEADING}}</h2>
+      <fieldset class="contact-type">
+        <legend>{{CONTACT_TYPE_LABEL}}</legend>
+        <label><input type="radio" name="type" value="feedback" checked> {{CONTACT_FEEDBACK}}</label>
+        <label><input type="radio" name="type" value="bug"> {{CONTACT_BUG}}</label>
+      </fieldset>
+      <label class="contact-field">
+        <span>{{CONTACT_TITLE_LABEL}}</span>
+        <input type="text" name="title" required maxlength="120">
+      </label>
+      <label class="contact-field">
+        <span>{{CONTACT_BODY_LABEL}}</span>
+        <textarea name="body" required rows="6" maxlength="4000"></textarea>
+      </label>
+      <div class="contact-actions">
+        <button type="button" class="contact-cancel">{{CONTACT_CANCEL}}</button>
+        <button type="submit" class="contact-send">{{CONTACT_SEND}}</button>
+      </div>
+    </form>
+  </dialog>
+
   <footer>
     <a href="https://github.com/KakkoiDev/minihongo">GitHub</a>
     <span>&copy; {{COPYRIGHT_YEAR}} KakkoiDev</span>

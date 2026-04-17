@@ -192,6 +192,39 @@ addEventListener('scroll', () => {
 }, { passive: true })
 btnTop.addEventListener('click', () => scrollTo({ top: 0, behavior: 'smooth' }))
 
+// -- Contact author dialog ----------------------------------------------
+
+const btnContact = document.getElementById('btn-contact')
+const contactDialog = document.getElementById('contact-dialog')
+const contactForm = document.getElementById('contact-form')
+
+btnContact?.addEventListener('click', () => contactDialog.showModal())
+
+// Close on backdrop click (native <dialog> doesn't do this by default)
+contactDialog?.addEventListener('click', (e) => {
+  if (e.target === contactDialog) contactDialog.close()
+})
+
+contactDialog?.querySelector('.contact-cancel')?.addEventListener('click', () => {
+  contactDialog.close()
+})
+
+contactForm?.addEventListener('submit', (e) => {
+  e.preventDefault()
+  const data = new FormData(contactForm)
+  const type = data.get('type') || 'feedback'
+  const title = (data.get('title') || '').toString().trim()
+  const body = (data.get('body') || '').toString().trim()
+  if (!title || !body) return
+  const url = 'https://github.com/KakkoiDev/minihongo/issues/new'
+    + `?title=${encodeURIComponent(title)}`
+    + `&body=${encodeURIComponent(body)}`
+    + `&labels=${encodeURIComponent(type)}`
+  window.open(url, '_blank', 'noopener')
+  contactForm.reset()
+  contactDialog.close()
+})
+
 // -- Lifecycle recovery ---------------------------------------------
 
 const safeReload = () => {
