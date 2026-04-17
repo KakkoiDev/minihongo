@@ -372,7 +372,7 @@ def gen_grammar(categories, grammar, grammar_examples, lang):
     # Pattern 1: Set the Stage
     p1_label = ui('grammar_pattern_1', lang)
     intro.append(f'    <div class="grammar-intro__pattern">\n')
-    intro.append(f'      <h3>{p1_label}</h3>\n')
+    intro.append(f'      <h3>{p1_label} {play_btn("gi", "gi_1.mp3")}</h3>\n')
     intro.append(f'      <div class="grammar-intro__example" lang="ja">\n')
     intro.append(f'        <span class="grammar-intro__slot"><span>{to_ruby_html("私【わたし】は")}</span><em>{ui("grammar_slot_who", lang)}</em></span>\n')
     intro.append(f'        <span class="grammar-intro__slot"><span>{to_ruby_html("昨日【きのう】")}</span><em>{ui("grammar_slot_when", lang)}</em></span>\n')
@@ -386,7 +386,7 @@ def gen_grammar(categories, grammar, grammar_examples, lang):
     # Pattern 2: Chain Actions
     p2_label = ui('grammar_pattern_2', lang)
     intro.append(f'    <div class="grammar-intro__pattern">\n')
-    intro.append(f'      <h3>{p2_label}</h3>\n')
+    intro.append(f'      <h3>{p2_label} {play_btn("gi", "gi_2.mp3")}</h3>\n')
     intro.append(f'      <div class="grammar-intro__example" lang="ja">\n')
     intro.append(f'        <span class="grammar-intro__slot"><span>{to_ruby_html("家【いえ】に帰【かえ】って")}</span><em>1</em></span>\n')
     intro.append(f'        <span class="grammar-intro__slot"><span>{to_ruby_html("本【ほん】を読【よ】んで")}</span><em>2</em></span>\n')
@@ -398,7 +398,7 @@ def gen_grammar(categories, grammar, grammar_examples, lang):
     # Pattern 3: Apply Filters
     p3_label = ui('grammar_pattern_3', lang)
     intro.append(f'    <div class="grammar-intro__pattern">\n')
-    intro.append(f'      <h3>{p3_label}</h3>\n')
+    intro.append(f'      <h3>{p3_label} {play_btn("gi", "gi_3.mp3")}</h3>\n')
     intro.append(f'      <div class="grammar-intro__example" lang="ja">\n')
     intro.append(f'        <span class="grammar-intro__slot"><span>{to_ruby_html("読【よ】む")}</span><em>{ui("grammar_filter_base", lang)}</em></span>\n')
     intro.append(f'        <span class="grammar-intro__slot"><span>{to_ruby_html("読【よ】んだ")}</span><em>{ui("grammar_filter_done", lang)}</em></span>\n')

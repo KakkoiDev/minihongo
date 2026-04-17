@@ -196,8 +196,11 @@ def text_for_tts(text):
     # Convert separators to pauses
     text = re.sub(r'\s*/\s*', '。', text)
     text = re.sub(r'\s*→\s*', '。', text)
+    # Remaining inner whitespace becomes a short pause (Japanese comma)
+    text = re.sub(r'\s+', '、', text.strip())
     # Clean double punctuation
     text = re.sub(r'。+', '。', text)
+    text = re.sub(r'、+', '、', text)
     # Ensure sentence ends with punctuation
     text = text.strip()
     if text and text[-1] not in '。！？、':
@@ -543,6 +546,30 @@ async def gen_dialogs():
     return results
 
 
+GRAMMAR_INTRO_EXAMPLES = [
+    ('gi_1', '私【わたし】は 昨日【きのう】 家【いえ】で 本【ほん】を 読【よ】んだ。'),
+    ('gi_2', '家【いえ】に帰【かえ】って 本【ほん】を読【よ】んで 寝【ね】た。'),
+    ('gi_3', '読【よ】む 読【よ】んだ 読【よ】まない 読【よ】みます。'),
+]
+
+
+async def gen_grammar_intro():
+    """Generate audio for the 3 grammar intro patterns (slot examples)."""
+    out = AUDIO_OUT / 'gi'
+    out.mkdir(parents=True, exist_ok=True)
+    results = []
+    for audio_id, raw in GRAMMAR_INTRO_EXAMPLES:
+        filename = f'{audio_id}.mp3'
+        path = out / filename
+        if path.exists():
+            results.append((audio_id, filename))
+            continue
+        await tts_generate(text_for_tts(raw), VOICE_MALE, path)
+        print(f'  {filename}')
+        results.append((audio_id, filename))
+    return results
+
+
 async def gen_stories():
     """Generate merged audio per story."""
     stories = load_csv('stories')
@@ -665,7 +692,7 @@ def update_datapackage():
 async def main():
     import argparse
     parser = argparse.ArgumentParser(description='Generate TTS audio for minihongo')
-    parser.add_argument('--only', choices=['words', 'grammar', 'compounds',
+    parser.add_argument('--only', choices=['words', 'grammar', 'grammar_intro', 'compounds',
                                            'expressions', 'haiku', 'dialogs', 'stories'],
                         help='Generate only one category')
     parser.add_argument('--db-only', action='store_true',
@@ -693,6 +720,7 @@ async def main():
     tasks = {
         'words': (gen_words, lambda r: update_words_csv(r)),
         'grammar': (gen_grammar_examples, lambda r: update_csv('grammar_examples', r)),
+        'grammar_intro': (gen_grammar_intro, lambda r: None),
         'compounds': (gen_compounds, lambda r: update_csv('compounds', r)),
         'expressions': (gen_expressions, lambda r: update_csv('expressions', r)),
         'haiku': (gen_haiku, lambda r: update_csv('haiku', r)),
