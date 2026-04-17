@@ -19,5 +19,6 @@ site/pages/mh/
 !DILEMMA.md
 !ARCHIVE-LOANWORDS-COMPOUNDS.md
 !.claude/skills/**/SKILL.md
+!.github/ISSUE_TEMPLATE/*.md
 conversation-about-minihongo.html
 audio/
