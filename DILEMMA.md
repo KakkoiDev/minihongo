@@ -144,6 +144,6 @@ The few remaining leaks (えき, コンビニ, カード, abbreviated day names,
 | Platform number | 番 | つ目 (ordinal) |
 | Welcome greeting | いらっしゃいませ | 来てくれてありがとう |
 
-The daily-life dialogs moved from Extension to Core. The 206-word claim is now fully intact across all content.
+The daily-life dialogs moved from Extension to Core. The 206-word claim holds across all CSV content and the generated site. The PDF books are generated artifacts - rebuild them (`make pdf`) after any vocabulary change so the shipped files match.
 
 Kanji compounds and loan words archived to ARCHIVE-LOANWORDS-COMPOUNDS.md for reference.

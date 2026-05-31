@@ -25,7 +25,7 @@ Three versions of the entire site:
 
 - **English** - Standard explanations
 - **日本語** - Full Japanese translation
-- **ミニ本語** - Everything written using only the 206 base words, with furigana
+- **ミニ本語** - Everything built from the 206 base words, with furigana
 
 ## Stack
 
@@ -151,7 +151,7 @@ docs/                       # Built output (gitignored, built in CI)
 
 ## Claude Code Skill
 
-This repo includes a `/minihongo` skill for [Claude Code](https://claude.com/claude-code). It makes the AI speak entirely in Minihongo - only the 206 base words, with furigana.
+This repo includes a `/minihongo` skill for [Claude Code](https://claude.com/claude-code). It makes the AI speak entirely in Minihongo - built from the 206 base words, with furigana.
 
 ```
 /minihongo
