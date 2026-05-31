@@ -126,13 +126,13 @@ dlg-206,dgrp-15,7,体【からだ】を助【たす】ける人【ひと】,Doct
 dlg-207,dgrp-15,8,体【からだ】を助【たす】ける人【ひと】,Doctor,医者,"三【みっ】つの日【にち】の後【あと】に良【よ】くならないなら、また来【き】てください。","If you don't feel better in three days, please come back.",三日後に良くならなかったら、また来てください。
 dlg-208,dgrp-15,9,私【わたし】,Patient,患者,分【わ】かりました。ありがとうございます。,I understand. Thank you very much.,分かりました。ありがとうございます。
 dlg-209,dgrp-16,1,私【わたし】,Customer,客,すみません。体【からだ】を良【よ】くする物【もの】が欲【ほ】しいです。,Excuse me. I would like some medicine.,すみません。薬が欲しいのですが。
-dlg-210,dgrp-16,2,店【みせ】の人【ひと】,Staff,店員,どこが悪【わる】いですか。,What's wrong?,どこが悪いですか。
+dlg-210,dgrp-16,2,買【か】う所【ところ】の人【ひと】,Staff,店員,どこが悪【わる】いですか。,What's wrong?,どこが悪いですか。
 dlg-211,dgrp-16,3,私【わたし】,Customer,客,腹【はら】が悪【わる】い感【かん】じです。食【た】べた後【あと】に悪【わる】くなります。,My stomach hurts. It gets bad after eating.,お腹が痛いです。食べた後に痛くなります。
-dlg-212,dgrp-16,4,店【みせ】の人【ひと】,Staff,店員,食【た】べ物【もの】で体【からだ】が悪【わる】くなる事【こと】はありますか。,Does any food make you feel bad?,食べ物でアレルギーが出ることはありますか。
+dlg-212,dgrp-16,4,買【か】う所【ところ】の人【ひと】,Staff,店員,食【た】べ物【もの】で体【からだ】が悪【わる】くなる事【こと】はありますか。,Does any food make you feel bad?,食べ物でアレルギーが出ることはありますか。
 dlg-213,dgrp-16,5,私【わたし】,Customer,客,いいえ、ないです。,"No, I don't.",いいえ、ありません。
-dlg-214,dgrp-16,6,店【みせ】の人【ひと】,Staff,店員,"これが良【よ】いと思【おも】います。毎【まい】日【にち】、食【た】べた後【あと】に一【ひと】つ飲【の】んでください。","I think this is good. Please take one after each meal.",これが良いと思います。毎日、食後に一つ飲んでください。
+dlg-214,dgrp-16,6,買【か】う所【ところ】の人【ひと】,Staff,店員,"これが良【よ】いと思【おも】います。毎【まい】日【にち】、食【た】べた後【あと】に一【ひと】つ飲【の】んでください。","I think this is good. Please take one after each meal.",これが良いと思います。毎日、食後に一つ飲んでください。
 dlg-215,dgrp-16,7,私【わたし】,Customer,客,分【わ】かりました。いくらですか。,I understand. How much is it?,分かりました。いくらですか。
-dlg-216,dgrp-16,8,店【みせ】の人【ひと】,Staff,店員,"五【ご】百【ひゃく】です。良【よ】くならないなら、体【からだ】を助【たす】ける人【ひと】に会【あ】ってください。","It's five hundred. If it doesn't get better, please see a doctor.",五百円です。良くならなければ、医者に行ってください。
+dlg-216,dgrp-16,8,買【か】う所【ところ】の人【ひと】,Staff,店員,"五【ご】百【ひゃく】です。良【よ】くならないなら、体【からだ】を助【たす】ける人【ひと】に会【あ】ってください。","It's five hundred. If it doesn't get better, please see a doctor.",五百円です。良くならなければ、医者に行ってください。
 dlg-217,dgrp-17,1,A,A,A,すみません！助【たす】けてください！,Excuse me! Please help!,すみません！助けてください！
 dlg-218,dgrp-17,2,B,B,B,どうしましたか。,What happened?,どうしましたか。
 dlg-219,dgrp-17,3,A,A,A,あの人【ひと】が下【した】に行【い】きました。足【あし】が悪【わる】いと思【おも】います。動【うご】けません。,That person fell down. I think their leg is hurt. They can't move.,あの人が倒れました。足を怪我したと思います。動けません。
@@ -149,24 +149,24 @@ dlg-229,dgrp-18,5,A,A,A,いつ来【き】ますか。,When does it come?,いつ
 dlg-230,dgrp-18,6,所【ところ】の人【ひと】,Staff,駅員,十【じゅう】五【ご】の後【あと】です。,In fifteen minutes.,十五分後です。
 dlg-231,dgrp-18,7,A,A,A,海【うみ】の所【ところ】までどのくらいですか。,How long to the sea station?,海の駅までどのくらいですか。
 dlg-232,dgrp-18,8,所【ところ】の人【ひと】,Staff,駅員,二【に】十【じゅう】ぐらいです。三【みっ】つ目【め】の所【ところ】で出【で】てください。,About twenty minutes. Get off at the third stop.,二十分くらいです。三つ目の駅で降りてください。
-dlg-233,dgrp-19,1,店【みせ】の人【ひと】,Staff,店員,何【なん】人【にん】ですか。,How many people?,何名様ですか。
+dlg-233,dgrp-19,1,買【か】う所【ところ】の人【ひと】,Staff,店員,何【なん】人【にん】ですか。,How many people?,何名様ですか。
 dlg-234,dgrp-19,2,A,A,A,二【ふた】りの人【ひと】です。,Two people.,二人です。
-dlg-235,dgrp-19,3,店【みせ】の人【ひと】,Staff,店員,"どうぞ、こちらに座【すわ】ってください。","Please, sit here.",どうぞ、こちらにお座りください。
+dlg-235,dgrp-19,3,買【か】う所【ところ】の人【ひと】,Staff,店員,"どうぞ、こちらに座【すわ】ってください。","Please, sit here.",どうぞ、こちらにお座りください。
 dlg-236,dgrp-19,4,A,A,A,すみません。この食【た】べ物【もの】の中【なか】に何【なに】がありますか。,Excuse me. What is in this dish?,すみません。この料理の中に何が入っていますか。
-dlg-237,dgrp-19,5,店【みせ】の人【ひと】,Staff,店員,草【くさ】と肉【にく】です。体【からだ】が悪【わる】くなる食【た】べ物【もの】はありますか。,Vegetables and meat. Do you have any food allergies?,野菜とお肉です。アレルギーはありますか。
+dlg-237,dgrp-19,5,買【か】う所【ところ】の人【ひと】,Staff,店員,草【くさ】と肉【にく】です。体【からだ】が悪【わる】くなる食【た】べ物【もの】はありますか。,Vegetables and meat. Do you have any food allergies?,野菜とお肉です。アレルギーはありますか。
 dlg-238,dgrp-19,6,A,A,A,はい。卵【たまご】で体【からだ】が悪【わる】くなります。,Yes. Eggs make me feel bad.,はい。卵でアレルギーが出ます。
-dlg-239,dgrp-19,7,店【みせ】の人【ひと】,Staff,店員,分【わ】かりました。この食【た】べ物【もの】には卵【たまご】は入【はい】っていません。,I understand. This dish has no eggs.,分かりました。この料理には卵は入っていません。
+dlg-239,dgrp-19,7,買【か】う所【ところ】の人【ひと】,Staff,店員,分【わ】かりました。この食【た】べ物【もの】には卵【たまご】は入【はい】っていません。,I understand. This dish has no eggs.,分かりました。この料理には卵は入っていません。
 dlg-240,dgrp-19,8,A,A,A,では、これをください。,Then I'll have this.,では、これをください。
 dlg-241,dgrp-19,9,A,A,A,すみません。お金【かね】を全部【ぜんぶ】ください。,Excuse me. The bill please.,すみません。お会計をお願いします。
-dlg-242,dgrp-20,1,店【みせ】の人【ひと】,Staff,店員,来【き】てくれてありがとう。,Welcome.,いらっしゃいませ。
+dlg-242,dgrp-20,1,買【か】う所【ところ】の人【ひと】,Staff,店員,来【き】てくれてありがとう。,Welcome.,いらっしゃいませ。
 dlg-243,dgrp-20,2,A,A,A,すみません。この食【た】べ物【もの】を暑【あつ】くしてください。,Excuse me. Please heat this food.,すみません。これを温めてください。
-dlg-244,dgrp-20,3,店【みせ】の人【ひと】,Staff,店員,はい。少【すこ】し待【ま】ってください。入【い】れる物【もの】は必要【ひつよう】ですか。,Yes. Please wait. Do you need a bag?,はい。少々お待ちください。袋は必要ですか。
+dlg-244,dgrp-20,3,買【か】う所【ところ】の人【ひと】,Staff,店員,はい。少【すこ】し待【ま】ってください。入【い】れる物【もの】は必要【ひつよう】ですか。,Yes. Please wait. Do you need a bag?,はい。少々お待ちください。袋は必要ですか。
 dlg-245,dgrp-20,4,A,A,A,はい、ください。,Yes please.,はい、お願いします。
-dlg-246,dgrp-20,5,店【みせ】の人【ひと】,Staff,店員,他【ほか】に欲【ほ】しい物【もの】はありますか。,Anything else?,他に欲しい物はありますか。
+dlg-246,dgrp-20,5,買【か】う所【ところ】の人【ひと】,Staff,店員,他【ほか】に欲【ほ】しい物【もの】はありますか。,Anything else?,他に欲しい物はありますか。
 dlg-247,dgrp-20,6,A,A,A,この飲【の】み物【もの】もください。,This drink too please.,この飲み物もください。
-dlg-248,dgrp-20,7,店【みせ】の人【ひと】,Staff,店員,全部【ぜんぶ】で三【さん】百【びゃく】五【ご】十【じゅう】です。,The total is three hundred fifty.,全部で三百五十円です。
+dlg-248,dgrp-20,7,買【か】う所【ところ】の人【ひと】,Staff,店員,全部【ぜんぶ】で三【さん】百【びゃく】五【ご】十【じゅう】です。,The total is three hundred fifty.,全部で三百五十円です。
 dlg-249,dgrp-20,8,A,A,A,お金【かね】の小【ちい】さい物【もの】で良【よ】いですか。,Is card okay?,カードで大丈夫ですか。
-dlg-250,dgrp-20,9,店【みせ】の人【ひと】,Staff,店員,はい。ありがとうございます。,Yes. Thank you.,はい。ありがとうございます。
+dlg-250,dgrp-20,9,買【か】う所【ところ】の人【ひと】,Staff,店員,はい。ありがとうございます。,Yes. Thank you.,はい。ありがとうございます。
 dlg-251,dgrp-21,1,A,A,A,もしもし。体【からだ】を助【たす】ける所【ところ】ですか。,Hello. Is this the clinic?,もしもし。病院ですか。
 dlg-252,dgrp-21,2,体【からだ】を助【たす】ける所【ところ】の人【ひと】,Receptionist,受付,はい。何【なに】のためですか。,Yes. What is it for?,はい。どうされましたか。
 dlg-253,dgrp-21,3,A,A,A,体【からだ】を助【たす】ける人【ひと】に会【あ】いたいです。いつが良【よ】いですか。,I would like to see a doctor. When is good?,医者に会いたいです。いつが良いですか。
