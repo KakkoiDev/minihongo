@@ -2,7 +2,7 @@
 
 PORT ?= 3000
 
-build:
+build: lint-vocab
 	python3 generate_pages.py
 	python3 site/build.py
 
@@ -86,11 +86,11 @@ anki-release: anki
 
 # Generate PDF books for all languages (requires typst + uv)
 pdf:
-	uv run generate_pdf.py
+	uv run generate_pdf.py --word-building
 
 # Generate print-ready PDFs: interior + wraparound cover (for Lulu)
 pdf-print:
-	uv run generate_pdf.py --print
+	uv run generate_pdf.py --print --word-building
 
 # Download PDF books from GitHub release
 pdf-download:
