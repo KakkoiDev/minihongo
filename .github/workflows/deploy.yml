@@ -56,6 +56,9 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
 
+      - name: Validate vocabulary
+        run: python validate_vocab.py
+
       - run: python generate_pages.py && python site/build.py
         env:
           BASE_URL: /

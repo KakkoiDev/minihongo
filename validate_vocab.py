@@ -280,34 +280,68 @@ def run_validation(label, file_columns, vocab, char_readings):
     return errors
 
 
+# Word-count claims in prose must match the real vocab size, or a claim has drifted
+# (e.g. the books said "182 base words" after the list grew to 206). Patterns target
+# unambiguous base-vocabulary mentions, not the 202-compounds count.
+COUNT_CLAIM_PATTERNS = [
+    re.compile(r'(\d+)\s+base words'),     # en: "206 base words"
+    re.compile(r'(\d+)-word vocabulary'),  # en: "206-word vocabulary"
+    re.compile(r'(\d+)\s*の基本語'),        # ja: "206の基本語"
+    re.compile(r'(\d+)\s*語の漢字'),        # ja: "206語の漢字"
+]
+
+
+def check_count_claims(expected):
+    """Verify every base-word-count claim in prose equals the real vocab size."""
+    errors = []
+    for csv_name in ('ui_strings', 'pages'):
+        for row in load_csv(csv_name):
+            row_id = row.get('id', row.get('key', '?'))
+            for col, text in row.items():
+                if not text:
+                    continue
+                for pat in COUNT_CLAIM_PATTERNS:
+                    for m in pat.finditer(text):
+                        n = int(m.group(1))
+                        if n != expected:
+                            errors.append({
+                                'source': f'{csv_name}:{row_id}:{col}',
+                                'issue': f'word-count claim says {n}, words.csv has {expected}',
+                            })
+    return errors
+
+
 def main():
     vocab, char_readings = build_vocab()
-    print(f'Base vocabulary: {len(vocab)} entries, {len(char_readings)} unique kanji')
+    word_count = len(load_csv('words'))
+    print(
+        f'Base vocabulary: {len(vocab)} kanji entries, '
+        f'{len(char_readings)} unique kanji, {word_count} words'
+    )
     print()
 
     content_errors = run_validation('content', VALIDATE_CONTENT, vocab, char_readings)
     meta_errors = run_validation('metadata', VALIDATE_META, vocab, char_readings)
+    count_errors = check_count_claims(word_count)
 
-    if not content_errors and not meta_errors:
+    if not content_errors and not meta_errors and not count_errors:
         print('All vocabulary valid - OK')
         return 0
 
     exit_code = 0
-
-    if content_errors:
-        print(f'{len(content_errors)} content issues (FAIL):\n')
-        for e in content_errors:
+    for label, errs in (
+        ('content', content_errors),
+        ('metadata', meta_errors),
+        ('word-count claim', count_errors),
+    ):
+        if not errs:
+            continue
+        print(f'{len(errs)} {label} issues (FAIL):\n')
+        for e in errs:
             print(f'  {e["source"]}')
             print(f'    {e["issue"]}')
             print()
         exit_code = 1
-
-    if meta_errors:
-        print(f'{len(meta_errors)} metadata issues (WARN):\n')
-        for e in meta_errors:
-            print(f'  {e["source"]}')
-            print(f'    {e["issue"]}')
-            print()
 
     return exit_code
 
