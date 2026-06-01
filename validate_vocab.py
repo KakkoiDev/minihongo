@@ -315,25 +315,38 @@ def check_count_claims(expected):
 # ── Artifact freshness ──────────────────────────────────────────────
 # Anki decks and PDF books are built locally and uploaded to GitHub releases via
 # `make anki-release` / `make pdf-release`. deploy.yml DOWNLOADS those releases as-is
-# and never rebuilds them, so when a source CSV changes without a matching re-release
+# and never rebuilds them, so when a build input changes without a matching re-release
 # the published artifact silently goes stale - exactly how the books drifted to
 # "182 base words" while words.csv already held 206.
 #
-# Each release writes a sha256 manifest of the CSVs it was built from; this recomputes
-# them and reports divergence. Keep `sources` in sync with the load_csv() calls in
-# generate_anki.py / generate_pdf.py. The manifest is `sha256sum -c` compatible.
+# `sources` lists every input that determines an artifact's output: the data CSVs AND
+# the build logic (generator script, and for the PDF the imported typst template). A
+# change to any of them means the published artifact may no longer match. Each release
+# writes a sha256 manifest of these; this recomputes them and reports divergence
+# (sha256sum -c compatible). Keep in sync with the load_csv()/import lines in the
+# generators. Excluded by design (environmental or separately released, not authored
+# layout): audio/*.mp3 (own release), print-only covers, fonts, the Makefile build
+# flags, the typst compiler + pinned @preview packages.
 ARTIFACT_SOURCES = {
     'anki': {
         'manifest': '.anki-manifest',
         'rebuild': 'make anki-release',
-        'sources': ['categories', 'grammar', 'grammar_examples', 'words'],
+        'sources': [
+            'data/categories.csv', 'data/grammar.csv',
+            'data/grammar_examples.csv', 'data/words.csv',
+            'generate_anki.py',
+        ],
     },
     'pdf': {
         'manifest': '.pdf-manifest',
         'rebuild': 'make pdf-release',
-        'sources': ['categories', 'compounds', 'dialog_groups', 'dialogs',
-                    'expressions', 'grammar', 'grammar_examples', 'haiku',
-                    'stories', 'ui_strings', 'words'],
+        'sources': [
+            'data/categories.csv', 'data/compounds.csv', 'data/dialog_groups.csv',
+            'data/dialogs.csv', 'data/expressions.csv', 'data/grammar.csv',
+            'data/grammar_examples.csv', 'data/haiku.csv', 'data/stories.csv',
+            'data/ui_strings.csv', 'data/words.csv',
+            'generate_pdf.py', 'typst/template.typ',
+        ],
     },
 }
 
@@ -347,15 +360,14 @@ def _sha256(path):
 
 
 def write_manifest(artifact):
-    """Record sha256 of an artifact's source CSVs (sha256sum -c compatible)."""
+    """Record sha256 of an artifact's build inputs (sha256sum -c compatible)."""
     cfg = ARTIFACT_SOURCES.get(artifact)
     if not cfg:
         print(f'unknown artifact: {artifact} (known: {", ".join(ARTIFACT_SOURCES)})')
         return 2
-    lines = [f'{_sha256(DATA / f"{n}.csv")}  {DATA / f"{n}.csv"}'
-             for n in sorted(cfg['sources'])]
+    lines = [f'{_sha256(p)}  {p}' for p in sorted(cfg['sources'])]
     Path(cfg['manifest']).write_text('\n'.join(lines) + '\n', encoding='utf-8')
-    print(f'wrote {cfg["manifest"]} ({len(lines)} sources)')
+    print(f'wrote {cfg["manifest"]} ({len(lines)} inputs)')
     return 0
 
 
