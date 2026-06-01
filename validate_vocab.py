@@ -15,6 +15,7 @@ Exceptions:
 """
 
 import csv
+import hashlib
 import re
 import sys
 from collections import defaultdict
@@ -311,6 +312,101 @@ def check_count_claims(expected):
     return errors
 
 
+# ── Artifact freshness ──────────────────────────────────────────────
+# Anki decks and PDF books are built locally and uploaded to GitHub releases via
+# `make anki-release` / `make pdf-release`. deploy.yml DOWNLOADS those releases as-is
+# and never rebuilds them, so when a source CSV changes without a matching re-release
+# the published artifact silently goes stale - exactly how the books drifted to
+# "182 base words" while words.csv already held 206.
+#
+# Each release writes a sha256 manifest of the CSVs it was built from; this recomputes
+# them and reports divergence. Keep `sources` in sync with the load_csv() calls in
+# generate_anki.py / generate_pdf.py. The manifest is `sha256sum -c` compatible.
+ARTIFACT_SOURCES = {
+    'anki': {
+        'manifest': '.anki-manifest',
+        'rebuild': 'make anki-release',
+        'sources': ['categories', 'grammar', 'grammar_examples', 'words'],
+    },
+    'pdf': {
+        'manifest': '.pdf-manifest',
+        'rebuild': 'make pdf-release',
+        'sources': ['categories', 'compounds', 'dialog_groups', 'dialogs',
+                    'expressions', 'grammar', 'grammar_examples', 'haiku',
+                    'stories', 'ui_strings', 'words'],
+    },
+}
+
+
+def _sha256(path):
+    h = hashlib.sha256()
+    with open(path, 'rb') as f:
+        for chunk in iter(lambda: f.read(65536), b''):
+            h.update(chunk)
+    return h.hexdigest()
+
+
+def write_manifest(artifact):
+    """Record sha256 of an artifact's source CSVs (sha256sum -c compatible)."""
+    cfg = ARTIFACT_SOURCES.get(artifact)
+    if not cfg:
+        print(f'unknown artifact: {artifact} (known: {", ".join(ARTIFACT_SOURCES)})')
+        return 2
+    lines = [f'{_sha256(DATA / f"{n}.csv")}  {DATA / f"{n}.csv"}'
+             for n in sorted(cfg['sources'])]
+    Path(cfg['manifest']).write_text('\n'.join(lines) + '\n', encoding='utf-8')
+    print(f'wrote {cfg["manifest"]} ({len(lines)} sources)')
+    return 0
+
+
+def check_artifact_freshness():
+    """Compare each artifact's recorded source hashes against the current CSVs.
+
+    Returns per-artifact dicts: {artifact, status, detail, rebuild} where status is
+    'fresh', 'stale', or 'untracked' (no manifest written yet).
+    """
+    results = []
+    for artifact, cfg in ARTIFACT_SOURCES.items():
+        manifest = Path(cfg['manifest'])
+        if not manifest.exists():
+            results.append({'artifact': artifact, 'status': 'untracked',
+                            'detail': [], 'rebuild': cfg['rebuild']})
+            continue
+        drift = []
+        for line in manifest.read_text(encoding='utf-8').splitlines():
+            line = line.strip()
+            if not line:
+                continue
+            recorded, _, path = line.partition('  ')
+            p = Path(path)
+            if not p.exists():
+                drift.append(f'{path} (missing)')
+            elif _sha256(p) != recorded:
+                drift.append(f'{path} (changed)')
+        results.append({'artifact': artifact,
+                        'status': 'stale' if drift else 'fresh',
+                        'detail': drift, 'rebuild': cfg['rebuild']})
+    return results
+
+
+def report_freshness(strict=False):
+    """Print published-artifact freshness. Returns 1 if strict and any are stale."""
+    any_stale = False
+    for r in check_artifact_freshness():
+        if r['status'] == 'fresh':
+            print(f'  {r["artifact"]}: current')
+        elif r['status'] == 'untracked':
+            print(f'  {r["artifact"]}: untracked (no manifest) - run `{r["rebuild"]}`')
+        else:
+            any_stale = True
+            print(f'  {r["artifact"]}: STALE - {len(r["detail"])} source(s) changed '
+                  'since last release')
+            for d in r['detail']:
+                print(f'      {d}')
+            print(f'    published artifact is out of date; run `{r["rebuild"]}`')
+    return 1 if (strict and any_stale) else 0
+
+
 def main():
     vocab, char_readings = build_vocab()
     word_count = len(load_csv('words'))
@@ -324,27 +420,39 @@ def main():
     meta_errors = run_validation('metadata', VALIDATE_META, vocab, char_readings)
     count_errors = check_count_claims(word_count)
 
+    exit_code = 0
     if not content_errors and not meta_errors and not count_errors:
         print('All vocabulary valid - OK')
-        return 0
+    else:
+        for label, errs in (
+            ('content', content_errors),
+            ('metadata', meta_errors),
+            ('word-count claim', count_errors),
+        ):
+            if not errs:
+                continue
+            print(f'{len(errs)} {label} issues (FAIL):\n')
+            for e in errs:
+                print(f'  {e["source"]}')
+                print(f'    {e["issue"]}')
+                print()
+            exit_code = 1
 
-    exit_code = 0
-    for label, errs in (
-        ('content', content_errors),
-        ('metadata', meta_errors),
-        ('word-count claim', count_errors),
-    ):
-        if not errs:
-            continue
-        print(f'{len(errs)} {label} issues (FAIL):\n')
-        for e in errs:
-            print(f'  {e["source"]}')
-            print(f'    {e["issue"]}')
-            print()
-        exit_code = 1
+    print()
+    print('Artifact freshness:')
+    report_freshness(strict=False)  # warn-only; does not block the lint
 
     return exit_code
 
 
 if __name__ == '__main__':
+    argv = sys.argv[1:]
+    if argv[:1] == ['--write-manifest']:
+        if len(argv) < 2:
+            print('usage: validate_vocab.py --write-manifest <anki|pdf>')
+            sys.exit(2)
+        sys.exit(write_manifest(argv[1]))
+    if argv[:1] == ['--check-freshness']:
+        print('Artifact freshness:')
+        sys.exit(report_freshness(strict=True))
     sys.exit(main())

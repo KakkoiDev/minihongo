@@ -1,4 +1,4 @@
-.PHONY: build serve watch _rebuild lint-haiku lint-vocab audio audio-download audio-release anki anki-restyle anki-download anki-release pdf pdf-download pdf-release pdf-print deploy
+.PHONY: build serve watch _rebuild lint-haiku lint-vocab freshness audio audio-download audio-release anki anki-restyle anki-download anki-release pdf pdf-download pdf-release pdf-print deploy
 
 PORT ?= 3000
 
@@ -30,6 +30,11 @@ lint-haiku:
 
 lint-vocab:
 	python3 validate_vocab.py
+
+# Fail if a published release (Anki/PDF) no longer matches its source CSVs.
+# validate_vocab.py also reports this non-fatally on every build.
+freshness:
+	python3 validate_vocab.py --check-freshness
 
 # -- Audio -------------------------------------------------------------------
 
@@ -73,6 +78,7 @@ anki-restyle:
 	gh release create anki minihongo-*.apkg \
 		--title "Anki" \
 		--notes "$$(git log -5 --oneline)"
+	python3 validate_vocab.py --write-manifest anki
 
 # Upload Anki decks (single release, replaces previous)
 anki-release: anki
@@ -81,6 +87,7 @@ anki-release: anki
 	gh release create anki minihongo-*.apkg \
 		--title "Anki" \
 		--notes "$$(git log -5 --oneline)"
+	python3 validate_vocab.py --write-manifest anki
 
 # -- PDF Books ---------------------------------------------------------------
 
@@ -106,6 +113,7 @@ pdf-release: pdf
 	gh release create pdf minihongo-books.zip \
 		--title "PDF Books" \
 		--notes "$$(git log -5 --oneline)"
+	python3 validate_vocab.py --write-manifest pdf
 
 # -- Deploy ------------------------------------------------------------------
 
