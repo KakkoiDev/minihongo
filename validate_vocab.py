@@ -313,42 +313,51 @@ def check_count_claims(expected):
 
 
 # ── Artifact freshness ──────────────────────────────────────────────
-# Anki decks and PDF books are built locally and uploaded to GitHub releases via
-# `make anki-release` / `make pdf-release`. deploy.yml DOWNLOADS those releases as-is
-# and never rebuilds them, so when a build input changes without a matching re-release
-# the published artifact silently goes stale - exactly how the books drifted to
-# "182 base words" while words.csv already held 206.
+# Anki decks, PDF books and audio are built locally and uploaded to GitHub releases
+# via `make {anki,pdf,audio}-release`. deploy.yml DOWNLOADS those releases as-is and
+# never rebuilds them, so when a build input changes without a matching re-release the
+# published artifact silently goes stale - exactly how the books drifted to "182 base
+# words" while words.csv already held 206.
 #
-# `sources` lists every input that determines an artifact's output: the data CSVs AND
-# the build logic (generator script, and for the PDF the imported typst template). A
-# change to any of them means the published artifact may no longer match. Each release
-# writes a sha256 manifest of these; this recomputes them and reports divergence
-# (sha256sum -c compatible). Keep in sync with the load_csv()/import lines in the
-# generators. Excluded by design (environmental or separately released, not authored
-# layout): audio/*.mp3 (own release), print-only covers, fonts, the Makefile build
-# flags, the typst compiler + pinned @preview packages.
+# An artifact's build inputs are: its generator script(s), every CSV those scripts
+# load via load_csv() (DERIVED by resolve_sources, so adding a load_csv() call can't
+# silently leave an input unguarded), and any non-CSV `extra` (e.g. the imported typst
+# template). Each release writes a sha256 manifest of these; check_artifact_freshness
+# recomputes them and reports divergence (sha256sum -c compatible). Excluded by design
+# (environmental or separately tracked): audio/*.mp3 blobs, print-only covers, fonts,
+# the typst compiler + pinned @preview packages.
 ARTIFACT_SOURCES = {
     'anki': {
         'manifest': '.anki-manifest',
         'rebuild': 'make anki-release',
-        'sources': [
-            'data/categories.csv', 'data/grammar.csv',
-            'data/grammar_examples.csv', 'data/words.csv',
-            'generate_anki.py',
-        ],
+        'generators': ['generate_anki.py'],
+        'extra': [],
     },
     'pdf': {
         'manifest': '.pdf-manifest',
         'rebuild': 'make pdf-release',
-        'sources': [
-            'data/categories.csv', 'data/compounds.csv', 'data/dialog_groups.csv',
-            'data/dialogs.csv', 'data/expressions.csv', 'data/grammar.csv',
-            'data/grammar_examples.csv', 'data/haiku.csv', 'data/stories.csv',
-            'data/ui_strings.csv', 'data/words.csv',
-            'generate_pdf.py', 'typst/template.typ',
-        ],
+        'generators': ['generate_pdf.py'],
+        'extra': ['typst/template.typ'],
+    },
+    'audio': {
+        'manifest': '.audio-manifest',
+        'rebuild': 'make audio-release',
+        'generators': ['generate_audio.py'],
+        'extra': [],
     },
 }
+
+# Literal load_csv('name') calls; dynamic names (load_csv(var)) are not detected.
+LOAD_CSV_RE = re.compile(r"""load_csv\(\s*['"]([a-z_]+)['"]""")
+
+
+def resolve_sources(cfg):
+    """An artifact's full input set: generator scripts + the CSVs they load + extras."""
+    paths = set(cfg['generators']) | set(cfg['extra'])
+    for gen in cfg['generators']:
+        for name in LOAD_CSV_RE.findall(Path(gen).read_text(encoding='utf-8')):
+            paths.add(str(DATA / f'{name}.csv'))
+    return sorted(paths)
 
 
 def _sha256(path):
@@ -365,7 +374,7 @@ def write_manifest(artifact):
     if not cfg:
         print(f'unknown artifact: {artifact} (known: {", ".join(ARTIFACT_SOURCES)})')
         return 2
-    lines = [f'{_sha256(p)}  {p}' for p in sorted(cfg['sources'])]
+    lines = [f'{_sha256(p)}  {p}' for p in resolve_sources(cfg)]
     Path(cfg['manifest']).write_text('\n'.join(lines) + '\n', encoding='utf-8')
     print(f'wrote {cfg["manifest"]} ({len(lines)} inputs)')
     return 0

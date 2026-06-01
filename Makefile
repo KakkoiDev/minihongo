@@ -54,10 +54,8 @@ audio-release:
 	@test -d audio || { echo "No audio/ directory. Run 'make audio' first."; exit 1; }
 	cd audio && tar czf /tmp/minihongo-audio.tar.gz .
 	@echo "Packaged $$(find audio -name '*.mp3' | wc -l) files ($$(du -sh /tmp/minihongo-audio.tar.gz | cut -f1))"
-	-gh release delete audio --yes --cleanup-tag 2>/dev/null
-	gh release create audio /tmp/minihongo-audio.tar.gz \
-		--title "Audio" \
-		--notes "$$(git log -5 --oneline)"
+	sh scripts/publish-release.sh audio "Audio" /tmp/minihongo-audio.tar.gz
+	python3 validate_vocab.py --write-manifest audio
 
 # -- Anki -------------------------------------------------------------------
 
@@ -74,30 +72,25 @@ anki:
 anki-restyle:
 	python3 generate_anki.py --force-style
 	@echo "Decks: $$(du -sh minihongo-*.apkg | cut -f1 | paste -sd+ | bc)B total"
-	-gh release delete anki --yes --cleanup-tag 2>/dev/null
-	gh release create anki minihongo-*.apkg \
-		--title "Anki" \
-		--notes "$$(git log -5 --oneline)"
+	sh scripts/publish-release.sh anki "Anki" minihongo-*.apkg
 	python3 validate_vocab.py --write-manifest anki
 
 # Upload Anki decks (single release, replaces previous)
 anki-release: anki
 	@echo "Decks: $$(du -sh minihongo-*.apkg | cut -f1 | paste -sd+ | bc)B total"
-	-gh release delete anki --yes --cleanup-tag 2>/dev/null
-	gh release create anki minihongo-*.apkg \
-		--title "Anki" \
-		--notes "$$(git log -5 --oneline)"
+	sh scripts/publish-release.sh anki "Anki" minihongo-*.apkg
 	python3 validate_vocab.py --write-manifest anki
 
 # -- PDF Books ---------------------------------------------------------------
 
 # Generate PDF books for all languages (requires typst + uv)
+# Word Building chapter is on by default (WORD_BUILDING in generate_pdf.py)
 pdf:
-	uv run generate_pdf.py --word-building
+	uv run generate_pdf.py
 
 # Generate print-ready PDFs: interior + wraparound cover (for Lulu)
 pdf-print:
-	uv run generate_pdf.py --print --word-building
+	uv run generate_pdf.py --print
 
 # Download PDF books from GitHub release
 pdf-download:
@@ -109,10 +102,7 @@ pdf-download:
 pdf-release: pdf
 	zip minihongo-books.zip minihongo-en.pdf minihongo-ja.pdf minihongo-mh.pdf
 	@echo "Books: $$(du -sh minihongo-books.zip | cut -f1)"
-	-gh release delete pdf --yes --cleanup-tag 2>/dev/null
-	gh release create pdf minihongo-books.zip \
-		--title "PDF Books" \
-		--notes "$$(git log -5 --oneline)"
+	sh scripts/publish-release.sh pdf "PDF Books" minihongo-books.zip
 	python3 validate_vocab.py --write-manifest pdf
 
 # -- Deploy ------------------------------------------------------------------

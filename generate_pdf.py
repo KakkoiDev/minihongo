@@ -15,6 +15,12 @@ DATA = Path('data')
 TYPST_DIR = Path('typst')
 LOGO = Path('site/static/logo.svg')
 
+# Build config, kept here (not as a Makefile flag) so the freshness guard, which hashes
+# this file, catches any change. The published books include the Word Building chapter;
+# dropping it should be a tracked edit, not an untracked invocation tweak that silently
+# ships a 3-lesson book. `--no-word-building` overrides for ad-hoc 3-lesson builds.
+WORD_BUILDING = True
+
 LANGS = ['en', 'ja', 'mh']
 LANG_COL = {'en': 'english', 'ja': 'japanese', 'mh': 'minihongo'}
 MEANING_COL = {'en': 'english', 'ja': 'japanese', 'mh': 'definition_minihongo'}
@@ -598,15 +604,18 @@ def compile_cover(lang, page_count, spine_override=None):
 
 def parse_args():
     """Parse CLI arguments.
-    Usage: generate_pdf.py [--print] [--spine MM] [--lang LANG] [--word-building]
+    Usage: generate_pdf.py [--print] [--spine MM] [--lang LANG] [--no-word-building]
+    Word Building defaults to the tracked WORD_BUILDING constant.
     """
-    args = {'print': False, 'spine': None, 'lang': None, 'word_building': False}
+    args = {'print': False, 'spine': None, 'lang': None, 'word_building': WORD_BUILDING}
     i = 1
     while i < len(sys.argv):
         if sys.argv[i] == '--print':
             args['print'] = True
         elif sys.argv[i] == '--word-building':
             args['word_building'] = True
+        elif sys.argv[i] == '--no-word-building':
+            args['word_building'] = False
         elif sys.argv[i] == '--spine' and i + 1 < len(sys.argv):
             args['spine'] = float(sys.argv[i + 1])
             i += 1
