@@ -34,11 +34,23 @@ BOOK_TITLES = {
     'ja': '\u30df\u30cb\u672c\u8a9e',
     'mh': '\u30df\u30cb\u672c\u8a9e',
 }
-BOOK_TAGLINES = {
-    'en': '206 words. Say anything.',
-    'ja': '207\u8a9e\u3067\u4f55\u3067\u3082\u8a00\u3048\u308b\u3002',
-    'mh': '207\u306e\u8a00\u8449\u3002\u4f55\u3067\u3082\u8a00\u3048\u308b\u3002',
+# Taglines interpolate the live word count so they cannot drift from words.csv
+# (which read 206 while ja/mh still said 207). The number is correct by
+# construction - there is no literal count to keep in sync.
+BOOK_TAGLINE_TEMPLATES = {
+    'en': '{n} words. Say anything.',
+    'ja': '{n}\u8a9e\u3067\u4f55\u3067\u3082\u8a00\u3048\u308b\u3002',
+    'mh': '{n}\u306e\u8a00\u8449\u3002\u4f55\u3067\u3082\u8a00\u3048\u308b\u3002',
 }
+
+
+def word_count():
+    """Number of base words; single source for any count claim in the books."""
+    return len(load_csv('words'))
+
+
+def book_tagline(lang):
+    return BOOK_TAGLINE_TEMPLATES[lang].format(n=word_count())
 
 # Chapter titles per language
 CH_VOCABULARY = {'en': 'Vocabulary', 'ja': '\u8a9e\u5f59', 'mh': '\u8a00\u8449'}
@@ -189,7 +201,7 @@ class TypstWriter:
 
 def write_cover(w, lang):
     title = BOOK_TITLES[lang]
-    tagline = BOOK_TAGLINES[lang]
+    tagline = book_tagline(lang)
     w.raw(f'#cover-page("{esc(title)}", "{esc(tagline)}", "/site/static/logo.svg")')
     w.raw('#pagebreak()')
     w.raw()
@@ -590,7 +602,7 @@ def spine_width_mm(page_count, paper_weight=0.0025):
 def compile_cover(lang, page_count, spine_override=None):
     """Compile wraparound cover PDF (back + spine + front) for Lulu."""
     title = BOOK_TITLES[lang]
-    tagline = BOOK_TAGLINES[lang]
+    tagline = book_tagline(lang)
     spine_mm = spine_override if spine_override else spine_width_mm(page_count)
     inputs = {
         'title': title,

@@ -2,7 +2,7 @@
 
 #show: book.with(title: "ミニ本語", lang: "ja", print: false)
 
-#cover-page("ミニ本語", "207語で何でも言える。", "/site/static/logo.svg")
+#cover-page("ミニ本語", "206語で何でも言える。", "/site/static/logo.svg")
 #pagebreak()
 
 #outline(title: none, indent: 1.5em, depth: 3)
