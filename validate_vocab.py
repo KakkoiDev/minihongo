@@ -289,6 +289,12 @@ COUNT_CLAIM_PATTERNS = [
     re.compile(r'(\d+)-word vocabulary'),  # en: "206-word vocabulary"
     re.compile(r'(\d+)\s*の基本語'),        # ja: "206の基本語"
     re.compile(r'(\d+)\s*語の漢字'),        # ja: "206語の漢字"
+    # Tagline formats. These were unguarded, which is how a book tagline drifted to
+    # 207 unnoticed. The books now interpolate the count, but the site copies live in
+    # ui_strings/pages as plain text and still need checking.
+    re.compile(r'(\d+)\s+words\b'),        # en tagline: "206 words. Say anything."
+    re.compile(r'(\d+)\s*語'),             # ja tagline: "206語で何でも言える。"
+    re.compile(r'(\d+)\s*の言葉'),          # mh tagline: "206の言葉。何でも言える。"
 ]
 
 
