@@ -22,3 +22,11 @@ site/pages/mh/
 !.github/ISSUE_TEMPLATE/*.md
 conversation-about-minihongo.html
 audio/
+
+# Local npm tooling (web-bot screenshots) and generated book artifacts
+node_modules/
+package.json
+package-lock.json
+.web-bot/
+*.pdf
+*.zip
