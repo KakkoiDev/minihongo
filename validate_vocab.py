@@ -23,11 +23,21 @@ from pathlib import Path
 
 DATA = Path('data')
 
-# Banned words: kana-only words that are NOT in the 206 base vocabulary.
+# Banned words: kana-only words that are NOT in the base vocabulary.
 # These look like they could be valid minihongo but they aren't.
 # Add words here to prevent them from creeping back into mh content.
+#
+# This list is the only kana-word guard: kanji are validated against the
+# vocabulary, but kana-only words pass unchecked (full coverage would need a
+# tokenizer dependency like fugashi). When a leak ships, fix it and ban it here.
 BANNED_WORDS = [
     'つなぐ',
+    'ございます',  # ありがとうございます leaked into 9 dialog lines; mh uses ありがとう
+    'けど',        # taught form is でも
+    'ちょっと',    # taught form is 少し
+    'たくさん',    # taught form is 多い
+    'いっぱい',
+    'やっぱり',
 ]
 
 # Counter readings: native readings with つ counter
@@ -92,7 +102,8 @@ ALTERNATE_READINGS = {
     '九': {'く', 'ここの'},       # 九(きゅう) -> 九月(く), 九つ(ここの)
     '十': {'とお'},               # 十(じゅう) -> 十(とお) counter form
     '百': {'びゃく', 'ぴゃく'},   # 百(ひゃく) -> 三百(びゃく), 六百(ぴゃく)
-    '分': {'ぶん'},               # 分(わ) -> 多分(ぶん), 十分(ぶん), 水分(ぶん)
+    '分': {'ぶん', 'ふん', 'ぷん'},  # 分(わ) -> 多分(ぶん); clock minutes 五分(ふん), 三分(ぷん)
+    '時': {'じ'},                 # 時(とき) -> 三時(じ) clock hours
     '光': {'ひか'},               # 光(ひかり) -> 光る(ひか) verb stem
     '年': {'ねん'},               # 年(とし) -> 百年(ひゃくねん) on'yomi
 }
@@ -302,7 +313,7 @@ COUNT_CLAIM_PATTERNS = [
 # Tracked docs that state the current word count. RESEARCH.md and DILEMMA.md are
 # excluded: they discuss comparative and tiered counts (Toki Pona's 120 words,
 # "~60-80 words" loanword tiers) that legitimately differ from the vocab size.
-COUNT_CLAIM_DOCS = ['README.md']
+COUNT_CLAIM_DOCS = ['README.md', '.claude/skills/minihongo/SKILL.md']
 
 
 def check_count_claims(expected):

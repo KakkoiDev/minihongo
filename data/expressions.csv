@@ -290,8 +290,6 @@ expr-297,cat-51,私【わたし】が思【おも】う事【こと】,いけん
 expr-298,cat-51,教【おし】える人【ひと】,せんせい,"teacher, instructor",先生,,298,e_298_sensei.mp3
 expr-299,cat-51,教【おし】える所【ところ】で教【おし】えてもらう子供【こども】,せいと,"student (K-12), pupil",生徒,,299,e_299_seito.mp3
 expr-300,cat-52,十【じゅう】が十【じゅう】,ひゃく,hundred (100),百,,300,e_300_hyaku.mp3
-expr-301,cat-52,十【じゅう】の十【じゅう】が十【じゅう】,せん,"thousand (1,000)",千,,301,e_301_sen.mp3
-expr-302,cat-52,十【じゅう】の十【じゅう】の十【じゅう】が十【じゅう】,まん,"ten-thousand (10,000)",万,,302,e_302_man.mp3
 expr-303,cat-52,一【ひと】つの物【もの】を二【ふた】つに切【き】った一【ひと】つ,はんぶん,half,半分,,303,e_303_hanbun.mp3
 expr-304,cat-52,もう一【ひと】つ多【おお】い事【こと】,ばい,"double, times (multiplier)",倍,,304,e_304_bai.mp3
 expr-305,cat-52,その物【もの】の名前【なまえ】になる多【おお】さ,ばんごう,number (as identifier),番号,,305,e_305_bangou.mp3
@@ -364,7 +362,6 @@ expr-371,cat-53,きれいな物【もの】を作【つく】る人【ひと】,
 expr-372,cat-53,上【うえ】にいる人【ひと】,じょうし,boss / superior,上司,,372,e_372_joushi.mp3
 expr-373,cat-53,下【した】にいる人【ひと】,ぶか,subordinate,部下,,373,e_373_buka.mp3
 expr-374,cat-53,来【き】た人【ひと】,きゃく,customer / guest,客,,374,e_374_kyaku.mp3
-expr-375,cat-54,良【よ】いことがあった心【こころ】,うれしい,happy / glad,嬉しい,,375,e_375_ureshii.mp3
 expr-376,cat-54,一【ひと】りで悲【かな】しい,さびしい,lonely,寂しい,,376,e_376_sabishii.mp3
 expr-377,cat-54,人【ひと】に見【み】られたくない心【こころ】,はずかしい,embarrassed / shy,恥ずかしい,,377,e_377_hazukashii.mp3
 expr-378,cat-54,体【からだ】も心【こころ】もとても悪【わる】い,くるしい,painful / agonizing,苦しい,,378,e_378_kurushii.mp3
@@ -639,7 +636,6 @@ expr-654,cat-59,飲【の】み物【もの】が欲【ほ】しくなる,のど
 expr-655,cat-60,体【からだ】が悪【わる】い時【とき】,びょうき,"illness, disease",病気,,655,e_655_byouki.mp3
 expr-656,cat-60,体【からだ】を良【よ】くするために飲【の】む物【もの】,くすり,medicine,薬,,656,e_656_kusuri.mp3
 expr-657,cat-60,体【からだ】が悪【わる】くなった事【こと】,けが,injury,怪我,,657,e_657_kega.mp3
-expr-658,cat-60,体【からだ】が悪【わる】く感【かん】じる,いたい,"painful, hurts",痛い,,658,e_658_itai.mp3
 expr-659,cat-60,体【からだ】がとても暑【あつ】くなる事【こと】,ねつ,fever,熱,,659,e_659_netsu.mp3
 expr-660,cat-60,体【からだ】が悪【わる】くて暑【あつ】くなる事【こと】,かぜ,cold (illness),風邪,,660,e_660_kaze.mp3
 expr-661,cat-60,口【くち】から強【つよ】く空【くう】気【き】が出【で】る事【こと】,せき,cough,咳,,661,e_661_seki.mp3
@@ -841,7 +837,6 @@ expr-864,cat-63,とてもきれいだ,うつくしい,beautiful,美しい,,864,e
 expr-865,cat-63,きれいではない,みにくい,ugly,醜い,,865,e_865_minikui.mp3
 expr-866,cat-63,悪【わる】いものがある,きたない,dirty,汚い,,866,e_866_kitanai.mp3
 expr-867,cat-63,悪【わる】い風【かぜ】がある,くさい,stinky / smelly,臭い,,867,e_867_kusai.mp3
-expr-868,cat-63,体【からだ】が悪【わる】く感【かん】じる,いたい,painful,痛い,,868,e_868_itai.mp3
 expr-869,cat-63,寝【ね】たいと感【かん】じる,ねむい,sleepy,眠い,,869,e_869_nemui.mp3
 expr-870,cat-63,他【ほか】の人【ひと】に見【み】られたくないと感【かん】じる,はずかしい,embarrassed / ashamed,恥ずかしい,,870,e_870_hazukashii.mp3
 expr-871,cat-63,あまり見【み】ない物【もの】だ,めずらしい,rare / unusual,珍しい,,871,e_871_mezurashii.mp3
