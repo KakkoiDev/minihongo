@@ -59,7 +59,17 @@ jobs:
       - name: Validate vocabulary
         run: python validate_vocab.py
 
-      - run: python generate_pages.py && python site/build.py
+      - name: Validate haiku meter
+        run: python validate_haiku.py
+
+      - name: Generate pages
+        run: python generate_pages.py
+
+      - name: Lint templates and generated pages
+        run: python site/lint.py
+
+      - name: Build site
+        run: python site/build.py
         env:
           BASE_URL: /
 
