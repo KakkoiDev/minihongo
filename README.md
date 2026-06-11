@@ -170,3 +170,8 @@ See [RESEARCH.md](RESEARCH.md) for full references, pattern-based teaching resea
 - Furigana toggle (CSS-based ruby visibility)
 - Mobile-responsive, single-column layout
 - Toast banners for offline/install/update notifications
+
+## License
+
+- **Code** (build scripts, site engine, validators): [MIT](LICENSE)
+- **Content** (`data/*.csv` and the generated site content, books, decks, audio): [CC BY-SA 4.0](LICENSE-CONTENT)
