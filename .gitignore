@@ -11,6 +11,19 @@ site/pages/mh/
 # Generated Anki decks (generate_anki.py)
 *.apkg
 
+# Generated PDF books (generate_pdf.py) - sources and outputs
+minihongo-*.pdf
+minihongo-books.zip
+typst/minihongo-*.typ
+
+# Local tooling debris (puppeteer/web-bot sessions, dev server)
+node_modules/
+package.json
+package-lock.json
+.web-bot/
+test-pdf-*.png
+.server.pid
+
 # Knowledge / source docs
 *.md
 !README.md
