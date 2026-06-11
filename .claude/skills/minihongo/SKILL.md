@@ -1,18 +1,18 @@
 ---
 name: minihongo
-description: Speak entirely in Minihongo - Japanese using only the 206 base words. Use when user says /minihongo or asks you to speak in minihongo. Also use when validating vocabulary compliance, writing haiku/stories/dialogs, or building/deploying the site.
+description: Speak entirely in Minihongo - Japanese using only the 223 base words. Use when user says /minihongo or asks you to speak in minihongo. Also use when validating vocabulary compliance, writing haiku/stories/dialogs, or building/deploying the site.
 ---
 
 # Minihongo Skill
 
-206 words. Infinite expression. A minimal Japanese vocabulary system.
+223 words. Infinite expression. A minimal Japanese vocabulary system.
 
 ## Speaking Mode
 
-When practicing minihongo conversation, you MUST communicate using ONLY the 206 base words listed below. Use furigana bracket notation for all kanji: 漢字【かんじ】.
+When practicing minihongo conversation, you MUST communicate using ONLY the 223 base words listed below. Use furigana bracket notation for all kanji: 漢字【かんじ】.
 
 Rules:
-1. ONLY use the 206 words below. No other Japanese vocabulary.
+1. ONLY use the 223 words below. No other Japanese vocabulary.
 2. Combine words to express complex ideas (like Toki Pona).
 3. Use standard Japanese grammar (particles, conjugation, て-form, etc.).
 4. Write all kanji with furigana brackets: 人【ひと】, 食【た】べる
@@ -42,13 +42,13 @@ ln -sf "$(pwd)/.claude/skills/minihongo" ~/.claude/skills/minihongo
 
 ```
 data/               CSV data (source of truth)
-  words.csv         206 base words
-  grammar.csv       40 grammar points
+  words.csv         223 base words
+  grammar.csv       43 grammar points
   compounds.csv     202 compound words
-  expressions.csv   982 expressions
+  expressions.csv   977 expressions
   haiku.csv         40 haiku
-  stories.csv       7 short stories
-  dialogs.csv       212 dialog lines
+  stories.csv       17 short stories
+  dialogs.csv       213 dialog lines
   dialog_groups.csv Dialog groupings
   categories.csv    Category tree
   pages.csv         Page definitions (EN/JA/MH descriptions)
@@ -82,10 +82,10 @@ docs/               Built output (GitHub Pages), gitignored
 
 ## Vocabulary Checker
 
-When validating content, check against `data/words.csv` (206 base words).
+When validating content, check against `data/words.csv` (223 base words).
 
 Rules:
-- Only use words from the 206-word list (+ particles and grammar forms)
+- Only use words from the 223-word list (+ particles and grammar forms)
 - Grammar must be modern (no classical forms)
 - Compounds from `data/compounds.csv` are allowed (built from base words)
 - Loanwords in katakana are allowed per lesson rules
@@ -116,7 +116,7 @@ Haiku categories (under cat-78): Nature, Daily Life, Heart, Seasons, Between Peo
 - `data/` CSVs are the source of truth, HTML pages render from them
 - Outputs: website (docs/), Anki decks (.apkg), PDF books (.pdf), audio (.mp3)
 
-## Grammar Reference (40 points)
+## Grammar Reference (43 points)
 
 Core patterns from `data/grammar.csv`:
 - Word order: verb last, particles mark roles
@@ -132,9 +132,13 @@ Core patterns from `data/grammar.csv`:
 - と思う/と言う for quotation
 - か/ね/よ sentence enders
 - Question words + も/でも = pronouns
-- Numbers and counting (cat-81)
+- Numbers and counting (cat-81), incl. 千/万 and clock time 〜時/〜分
+- Giving/receiving: あげる (outward), くれる (inward), もらう; て-form + くれる/もらう for favors
+- んです for explaining reasons
 
-## The 206 Words
+## The Base Words
+
+All 223 base words:
 
 ### People
 人【ひと】(person) 私【わたし】(I) あなた(you) 誰【だれ】(who) 男【おとこ】(man) 女【おんな】(woman) 子供【こども】(child) 母【はは】(mother) 父【ちち】(father)
@@ -152,7 +156,7 @@ Core patterns from `data/grammar.csv`:
 体【からだ】(body) 頭【あたま】(head) 手【て】(hand) 足【あし】(foot) 目【め】(eye) 口【くち】(mouth) 耳【みみ】(ear) 鼻【はな】(nose) 心【こころ】(heart/mind) 歯【は】(tooth) 血【ち】(blood) 骨【ほね】(bone) 腹【はら】(belly) 髪【かみ】(hair) 皮【かわ】(skin)
 
 ### Verbs
-する(do) いる(exist-animate) ある(exist/have) なる(become) できる(can) 起【お】こる(happen) 行【い】く(go) 来【く】る(come) 動【うご】く(move) 入【はい】る(enter) 出【で】る(exit) 止【と】める(stop) 作【つく】る(make) 使【つか】う(use) 切【き】る(cut) 食【た】べる(eat) 飲【の】む(drink) 寝【ね】る(sleep) 着【き】る(wear) 座【すわ】る(sit) 立【た】つ(stand) 生【い】きる(live) 死【し】ぬ(die) 始【はじ】まる(begin) 終【お】わる(end) 開【あ】く(open) 閉【し】める(close) 変【か】わる(change) 与【あた】える(give) もらう(receive) 持【も】つ(hold) 会【あ】う(meet) 待【ま】つ(wait) 助【たす】ける(help) 守【まも】る(protect) 戦【たたか】う(fight) 選【えら】ぶ(choose) 探【さが】す(search) 買【か】う(buy) 言【い】う(say) 書【か】く(write) 読【よ】む(read) 教【おし】える(teach) 考【かんが】える(think) 笑【わら】う(laugh) 泣【な】く(cry) 分【わ】かる(understand) 話【はな】す(talk) 歩【ある】く(walk) 飛【と】ぶ(fly)
+する(do) いる(exist-animate) ある(exist/have) なる(become) できる(can) 起【お】こる(happen) 行【い】く(go) 来【く】る(come) 動【うご】く(move) 入【はい】る(enter) 出【で】る(exit) 止【と】める(stop) 作【つく】る(make) 使【つか】う(use) 切【き】る(cut) 食【た】べる(eat) 飲【の】む(drink) 寝【ね】る(sleep) 着【き】る(wear) 座【すわ】る(sit) 立【た】つ(stand) 生【い】きる(live) 死【し】ぬ(die) 始【はじ】まる(begin) 終【お】わる(end) 開【あ】く(open) 閉【し】める(close) 変【か】わる(change) 与【あた】える(give/bestow) あげる(give to someone) くれる(give to me) もらう(receive) 持【も】つ(hold) 会【あ】う(meet) 待【ま】つ(wait) 助【たす】ける(help) 守【まも】る(protect) 戦【たたか】う(fight) 選【えら】ぶ(choose) 探【さが】す(search) 買【か】う(buy) 言【い】う(say) 書【か】く(write) 読【よ】む(read) 教【おし】える(teach) 考【かんが】える(think) 笑【わら】う(laugh) 泣【な】く(cry) 分【わ】かる(understand) 話【はな】す(talk) 歩【ある】く(walk) 飛【と】ぶ(fly)
 
 ### Qualities
 良【よ】い(good) 悪【わる】い(bad) 大【おお】きい(big) 小【ちい】さい(small) 長【なが】い(long) 高【たか】い(tall/expensive) 重【おも】い(heavy) 変【へん】(strange) きれい(clean/pretty) 強【つよ】い(strong) 楽【たの】しい(fun) 違【ちが】う(different) 同【おな】じ(same) 他【ほか】(other) 新【あたら】しい(new) 速【はや】い(fast) 多【おお】い(many) 暑【あつ】い(hot) 寒【さむ】い(cold) 本当【ほんとう】(true)
@@ -161,7 +165,7 @@ Core patterns from `data/grammar.csv`:
 色【いろ】(color) 白【しろ】(white) 黒【くろ】(black) 赤【あか】(red) 青【あお】(blue) 黄色【きいろ】(yellow) 緑【みどり】(green) 明【あか】るい(bright)
 
 ### Mental & Senses
-知【し】る(know) 感【かん】じる(feel) 見【み】る(see) 聞【き】く(hear) 思【おも】う(think/opinion) 欲【ほ】しい(want) 必要【ひつよう】(necessary) 好【す】き(like) 怖【こわ】い(scary) 悲【かな】しい(sad) 怒【おこ】る(angry)
+知【し】る(know) 感【かん】じる(feel) 見【み】る(see) 聞【き】く(hear) 思【おも】う(think/opinion) 欲【ほ】しい(want) 必要【ひつよう】(necessary) 好【す】き(like) 怖【こわ】い(scary) 悲【かな】しい(sad) 怒【おこ】る(angry) 痛【いた】い(painful) うれしい(glad)
 
 ### Communication
 言葉【ことば】(word) 名前【なまえ】(name) 音【おと】(sound)
@@ -176,7 +180,10 @@ Core patterns from `data/grammar.csv`:
 全部【ぜんぶ】(all) と(and) または(or) でも(but) から(from/because) まで(until) なら(if) だけ(only) も(also) もっと(more) もう(already) まだ(still) とても(very) 少【すこ】し(a little) 方【かた】(way/method) たぶん(maybe)
 
 ### Responses & Questions
-ない(not) はい(yes) いいえ(no) すみません(excuse me) ありがとう(thank you) ください(please) どう(how) いつ(when) なぜ(why) これ(this) それ(that) この(this+noun) その(that+noun)
+ない(not) はい(yes) いいえ(no) すみません(excuse me) ありがとう(thank you) ください(please) どう(how) いつ(when) なぜ(why) いくら(how much) これ(this) それ(that) この(this+noun) その(that+noun)
 
 ### Numbers
-一【いち】(one) 二【に】(two) 三【さん】(three) 四【よん】(four) 五【ご】(five) 六【ろく】(six) 七【なな】(seven) 八【はち】(eight) 九【きゅう】(nine) 十【じゅう】(ten) 百【ひゃく】(hundred)
+一【いち】(one) 二【に】(two) 三【さん】(three) 四【よん】(four) 五【ご】(five) 六【ろく】(six) 七【なな】(seven) 八【はち】(eight) 九【きゅう】(nine) 十【じゅう】(ten) 百【ひゃく】(hundred) 千【せん】(thousand) 万【まん】(ten thousand) 円【えん】(yen)
+
+### Greetings
+おはよう(good morning) こんにちは(hello) こんばんは(good evening) さようなら(goodbye) おやすみ(good night) お願【ねが】いします(please) 大丈夫【だいじょうぶ】(okay) いただきます(before eating) ごちそうさま(after eating)
