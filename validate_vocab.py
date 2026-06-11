@@ -295,7 +295,14 @@ COUNT_CLAIM_PATTERNS = [
     re.compile(r'(\d+)\s+words\b'),        # en tagline: "206 words. Say anything."
     re.compile(r'(\d+)\s*語'),             # ja tagline: "206語で何でも言える。"
     re.compile(r'(\d+)\s*の言葉'),          # mh tagline: "206の言葉。何でも言える。"
+    re.compile(r'(\d+)\s+core words'),     # README: "206 core words by category"
+    re.compile(r'(\d+)\s+base vocabulary'),  # README: "words.csv  # 206 base vocabulary"
 ]
+
+# Tracked docs that state the current word count. RESEARCH.md and DILEMMA.md are
+# excluded: they discuss comparative and tiered counts (Toki Pona's 120 words,
+# "~60-80 words" loanword tiers) that legitimately differ from the vocab size.
+COUNT_CLAIM_DOCS = ['README.md']
 
 
 def check_count_claims(expected):
@@ -315,6 +322,26 @@ def check_count_claims(expected):
                                 'source': f'{csv_name}:{row_id}:{col}',
                                 'issue': f'word-count claim says {n}, words.csv has {expected}',
                             })
+    return errors
+
+
+def check_doc_count_claims(expected):
+    """Verify base-word-count claims in tracked markdown docs."""
+    errors = []
+    for doc in COUNT_CLAIM_DOCS:
+        path = Path(doc)
+        if not path.exists():
+            continue
+        lines = path.read_text(encoding='utf-8').splitlines()
+        for lineno, line in enumerate(lines, 1):
+            for pat in COUNT_CLAIM_PATTERNS:
+                for m in pat.finditer(line):
+                    n = int(m.group(1))
+                    if n != expected:
+                        errors.append({
+                            'source': f'{doc}:{lineno}',
+                            'issue': f'word-count claim says {n}, words.csv has {expected}',
+                        })
     return errors
 
 
@@ -445,7 +472,7 @@ def main():
 
     content_errors = run_validation('content', VALIDATE_CONTENT, vocab, char_readings)
     meta_errors = run_validation('metadata', VALIDATE_META, vocab, char_readings)
-    count_errors = check_count_claims(word_count)
+    count_errors = check_count_claims(word_count) + check_doc_count_claims(word_count)
 
     exit_code = 0
     if not content_errors and not meta_errors and not count_errors:
