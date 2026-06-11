@@ -49,6 +49,8 @@ const navigate = async (path) => {
     updateActiveNav()
     scrollTo(0, 0)
     bindContentLinks()
+    // SPA swap: count.js only sees the initial load
+    window.goatcounter?.count({ path: location.pathname })
     return true
   } catch {
     return false
@@ -179,6 +181,15 @@ window.switchLang = (lang) => {
   document.body.classList.add('page-exit')
   setTimeout(() => { location.href = dest }, 150)
 }
+
+// -- Download tracking ----------------------------------------------
+
+// Delegated so it survives #content swaps
+document.addEventListener('click', (e) => {
+  const a = e.target.closest?.('a')
+  if (!a || !/\.(apkg|pdf|zip)$/.test(a.pathname)) return
+  window.goatcounter?.count({ path: a.pathname, title: 'download', event: true })
+})
 
 // -- Service worker -------------------------------------------------
 
