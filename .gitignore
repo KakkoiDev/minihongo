@@ -28,6 +28,7 @@ test-pdf-*.png
 *.md
 !README.md
 !SCHEMA.md
+!DECISIONS.md
 !RESEARCH.md
 !DILEMMA.md
 !ARCHIVE-LOANWORDS-COMPOUNDS.md
