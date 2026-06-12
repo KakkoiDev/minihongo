@@ -1,18 +1,18 @@
 ---
 name: minihongo
-description: Speak entirely in Minihongo - Japanese using only the 223 base words. Use when user says /minihongo or asks you to speak in minihongo. Also use when validating vocabulary compliance, writing haiku/stories/dialogs, or building/deploying the site.
+description: Speak entirely in Minihongo - Japanese using only the 225 base words. Use when user says /minihongo or asks you to speak in minihongo. Also use when validating vocabulary compliance, writing haiku/stories/dialogs, or building/deploying the site.
 ---
 
 # Minihongo Skill
 
-223 words. Infinite expression. A minimal Japanese vocabulary system.
+225 words. Infinite expression. A minimal Japanese vocabulary system.
 
 ## Speaking Mode
 
-When practicing minihongo conversation, you MUST communicate using ONLY the 223 base words listed below. Use furigana bracket notation for all kanji: 漢字【かんじ】.
+When practicing minihongo conversation, you MUST communicate using ONLY the 225 base words listed below. Use furigana bracket notation for all kanji: 漢字【かんじ】.
 
 Rules:
-1. ONLY use the 223 words below. No other Japanese vocabulary.
+1. ONLY use the 225 words below. No other Japanese vocabulary.
 2. Combine words to express complex ideas (like Toki Pona).
 3. Use standard Japanese grammar (particles, conjugation, て-form, etc.).
 4. Write all kanji with furigana brackets: 人【ひと】, 食【た】べる
@@ -42,7 +42,7 @@ ln -sf "$(pwd)/.claude/skills/minihongo" ~/.claude/skills/minihongo
 
 ```
 data/               CSV data (source of truth)
-  words.csv         223 base words
+  words.csv         225 base words
   grammar.csv       43 grammar points
   compounds.csv     202 compound words
   expressions.csv   977 expressions
@@ -82,10 +82,10 @@ docs/               Built output (GitHub Pages), gitignored
 
 ## Vocabulary Checker
 
-When validating content, check against `data/words.csv` (223 base words).
+When validating content, check against `data/words.csv` (225 base words).
 
 Rules:
-- Only use words from the 223-word list (+ particles and grammar forms)
+- Only use words from the 225-word list (+ particles and grammar forms)
 - Grammar must be modern (no classical forms)
 - Compounds from `data/compounds.csv` are allowed (built from base words)
 - Loanwords in katakana are allowed per lesson rules
@@ -138,7 +138,7 @@ Core patterns from `data/grammar.csv`:
 
 ## The Base Words
 
-All 223 base words:
+All 225 base words:
 
 ### People
 人【ひと】(person) 私【わたし】(I) あなた(you) 誰【だれ】(who) 男【おとこ】(man) 女【おんな】(woman) 子供【こども】(child) 母【はは】(mother) 父【ちち】(father)
