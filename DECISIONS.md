@@ -2,6 +2,27 @@
 
 Intent and rationale for content/system changes. Newest first. Each entry: what changed, why, what was rejected.
 
+## 2026-06-12 (round 2): いくつ/また, dialog naturalness, icons, contact instrumentation
+
+### Words +2 (223 -> 225) - and a stopping rule
+
+- **いくつ**: named three categories and four grammar points without being taught. **また**: shipped in dlg-8/15/16. Both are the いくら leak class - kana words the validator cannot see. Adding them legalizes existing content.
+- **Stopping rule adopted**: vocabulary grows only when the content itself proves the need (a leak) or circumlocution is harmful (safety). Assessed and REJECTED: どれ (pointing + これ/それ covers it), あれ/あの/あそこ (the 2-way demonstrative system is a deliberate design - word-145 maps あそこ onto そこ), 帰る (家に行く), 元気 (体が良い). The remaining fluency gap is not vocabulary; it is production practice and listening volume.
+
+### Dialog naturalness fixes (commit 3ebb2f6)
+
+Direction error (dlg-11 来る->行く), register mixing (dlg-14 だね+です in one line; dlg-15/16 会おう -> 会いましょう), mh/en/ja semantic misalignment (dlg-26/32 far vs not-close), untaught grammar removed (conjunctive が -> でも; もっとも -> 一番), dgrp-24 title (もう一つください means "one more object", not "say it again"), dlg-275 awkward 速くなく -> taught 速く言わないでください pattern.
+
+**Scope honesty**: a planned 3-agent full-content naturalness review died on the org API spend limit. The dialog pass above was done inline from full text; stories and examples got mechanical leak-guarding but NOT a line-by-line native-quality read. The native-speaker review remains the open quality gate.
+
+### Floating buttons (commit c283005)
+
+Filled fat arrow + filled bubble replaced with a matched-weight stroke pair: chevron (top), outlined bubble with question mark (contact). The question-mark-in-bubble keeps the "message the author" affordance; a bare ? would read as help/FAQ. Contact button KEPT: it is the only learner-feedback channel for a product with no validated users yet. Submits now emit GoatCounter events (contact-<type>-<channel>) so removal can be decided on data later.
+
+### Going Further audit verdict
+
+Keeps its place: it is the honest answer to "what happens after the core", and the within-system (word-building) vs beyond-system (going-further) split is principled. Weaknesses logged for future work: nothing on the learning path links into it; the ja nav label 次へ reads like a pagination button; 202 compounds render as undifferentiated tables with no "learn these 20 first" tiering; the immerse section names no concrete graded native content.
+
 ## 2026-06-12: Vocabulary 206 -> 223, grammar 40 -> 43, stories 7 -> 17
 
 **Goal (user):** "Easy to be fluent, like a child. I want to be able to say anything. For real."
