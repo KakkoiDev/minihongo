@@ -228,6 +228,7 @@ contactForm?.addEventListener('submit', (e) => {
   const title = (data.get('title') || '').toString().trim()
   const body = (data.get('body') || '').toString().trim()
   if (!title || !body) return
+  window.goatcounter?.count({ path: `contact-${type}-${channel}`, title: 'contact', event: true })
   if (channel === 'github') {
     const url = 'https://github.com/KakkoiDev/minihongo/issues/new'
       + `?title=${encodeURIComponent(title)}`
