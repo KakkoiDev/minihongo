@@ -4,6 +4,9 @@ Intent and rationale for content/system changes. Newest first. Each entry: what 
 
 ## 2026-06-13: voice tutor deferred; Going Further tuned
 
+### Contact icon - question mark removed
+Dropped the question-mark glyph added in round 2 (c283005); kept the outlined speech bubble. The bubble alone reads as "message" and stays cleaner; the `?` leaned toward a help/FAQ meaning the button isn't. (Supersedes the round-2 description of a question-mark-in-bubble.)
+
 ### Voice tutor - DEFERRED (not killed)
 Considered an offline AI voice conversation tutor (edge-tts/KokoroTTS for speech, BYOK frontier model, importable dataset packs). Deferred on judgment:
 - **Offline conflicts with tutor-quality correction.** TTS is the solved/easy part; the hard parts are ASR (learner Japanese is the worst case for recognition) and an LLM brain good enough to judge and correct - which offline means a multi-GB local model the mission audience's devices can't run. Offline and quality pull apart; the frontier key is the real quality path.
