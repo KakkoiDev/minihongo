@@ -2,6 +2,27 @@
 
 Intent and rationale for content/system changes. Newest first. Each entry: what changed, why, what was rejected.
 
+## 2026-06-13: voice tutor deferred; Going Further tuned
+
+### Voice tutor - DEFERRED (not killed)
+Considered an offline AI voice conversation tutor (edge-tts/KokoroTTS for speech, BYOK frontier model, importable dataset packs). Deferred on judgment:
+- **Offline conflicts with tutor-quality correction.** TTS is the solved/easy part; the hard parts are ASR (learner Japanese is the worst case for recognition) and an LLM brain good enough to judge and correct - which offline means a multi-GB local model the mission audience's devices can't run. Offline and quality pull apart; the frontier key is the real quality path.
+- **ASR throws away pronunciation** - the one thing voice practice is for. A conversation-loop tutor structurally can't hear pitch/mora errors.
+- **No traffic, core claim unvalidated.** Building a 3-6 month voice AI is the maximal-cost bet at peak uncertainty. The `/minihongo` skill is already a working text tutor; prove the teach/correct loop there first.
+- **What would flip it**: real users asking for speaking practice; the text loop validated; or an explicit pivot to it as a passion build where "users" isn't the metric.
+- If revived: separate repo (a voice AI violates the site's zero-dep/static virtue); minihongo's `datapackage.json` is already an import-ready dataset; build against it concretely before any plugin abstraction (nihongo-it is hypothetical - YAGNI). Highest-value voice feature that IS offline-friendly: pronunciation feedback against the existing reference audio (pitch/timing compare, no LLM/ASR).
+
+### Going Further page - audit correction + two fixes
+Re-inspected against `generate_pages.py`; two earlier audit findings collapsed:
+- "Nothing links into it" was **wrong** - the lesson chain (vocabulary -> grammar -> word-building -> reading -> going-further) already routes in, all three languages, via the prev/next `lesson-nav`.
+- "Undifferentiated compound tables" was **overstated** - 202 compounds are already grouped into 13 categories.
+
+So the honest call was to do less than the audit implied. Two surviving fixes:
+1. **ja label 次へ -> さらに先へ** (`pages.csv`). 次へ read as a pagination button in the persistent top nav; en/mh already read as destinations. One cell, fixes nav + next-link + title together.
+2. **Concretized the "Live in the Language" off-ramp** (`ui_strings.csv` gf_immerse_body). Was vague ("movies, books, music"); now names durable, free-leaning content - NHK NEWS WEB EASY, children's picture books, Tadoku free graded readers, shows with JP subtitles. **mh column stays vocabulary-pure** (validator-enforced): it names the one concrete in-vocab item (子供の本) and keeps the rest general - brand names aren't expressible in 225 words, which is the boundary page's whole point.
+
+Rejected: hand-tiering 202 compounds ("learn these 20 first") - subjective, no traffic to guide it, low confidence; adding inbound links - already exist.
+
 ## 2026-06-12 (round 2): いくつ/また, dialog naturalness, icons, contact instrumentation
 
 ### Words +2 (223 -> 225) - and a stopping rule
