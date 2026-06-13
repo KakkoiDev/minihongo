@@ -371,6 +371,11 @@ def build_vocab_decks(categories, lang_cfg):
             translation = get_field(w, lang_cfg['word_translation'], ruby=is_jp)
             example_html = to_ruby_html(w['example_minihongo']) if w.get('example_minihongo') else ''
             example_trans = get_field(w, lang_cfg['example_translation'], ruby=is_jp)
+            # JA/MH render the example "translation" as the same Japanese sentence; blank it
+            # when identical to the example (modulo furigana), keeping only genuine
+            # differences (e.g. natural phrasing vs a minihongo circumlocution). EN untouched.
+            if is_jp and strip_furigana(w.get(lang_cfg['example_translation'], '')) == strip_furigana(w.get('example_minihongo', '')):
+                example_trans = ''
 
             note = genanki.Note(
                 model=model,
@@ -430,6 +435,10 @@ def build_grammar_decks(categories, lang_cfg):
 
             grammar_name = get_field(g, lang_cfg['grammar_name'], ruby=is_jp)
             ex_trans = get_field(ex, lang_cfg['grammar_example_translation'], ruby=is_jp)
+            # Same dedup as vocab: blank the example translation when it is just the
+            # example sentence again (JA/MH), keeping only genuine differences.
+            if is_jp and strip_furigana(ex.get(lang_cfg['grammar_example_translation'], '')) == strip_furigana(ex.get('minihongo', '')):
+                ex_trans = ''
             explanation = get_field(g, lang_cfg['grammar_explanation'], ruby=is_jp)
 
             note = genanki.Note(

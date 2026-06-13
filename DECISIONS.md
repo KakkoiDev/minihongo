@@ -2,6 +2,14 @@
 
 Intent and rationale for content/system changes. Newest first. Each entry: what changed, why, what was rejected.
 
+## 2026-06-14: Anki decks - drop the redundant example "translation" on JA/MH
+
+The JA and MH cards showed the example sentence twice. Cause: one card template serves all three decks, and its example-translation slot is a real translation only for EN. For JA it rendered the same sentence with furigana stripped; for MH it was the byte-identical minihongo example.
+
+Fix (`generate_anki.py`, vocab + grammar builders): blank the example translation when it equals the example sentence modulo furigana - for JA/MH only (`is_jp`); EN untouched. Effect - vocab: MH 225/225 suppressed, JA 212 suppressed / **13 kept**; grammar: MH 139/139, JA 82 suppressed / **57 kept**. The kept cases are the genuine differences worth teaching - natural phrasing vs a minihongo circumlocution (大きい家 -> 建物, 所 -> 場所, たぶん雨が来る -> 雨が降る). Word-level gloss and the rest of the card unchanged. Card counts unchanged (a field is blanked, no notes removed).
+
+Open question this sharpens: after the fix, JA vocab cards differ from EN only by the gloss language plus 13 example contrasts. Whether JA earns a separate deck at all is still unresolved. Decks need `make anki-release` to ship the change.
+
 ## 2026-06-13: voice tutor deferred; Going Further tuned
 
 ### Contact icon - question mark removed
