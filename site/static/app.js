@@ -13,9 +13,19 @@ const rootPath = basePath.replace(/^(\/(?:ja|mh)\/)/, '/')
 
 const navLinks = document.querySelectorAll('nav:not(.lesson-nav):not(.toc) a')
 
+// Server-rendered <title> is "<page> - <site name>" (localized, furigana-free).
+// Capture the " - <site name>" suffix once; SPA navigation replaces only the page part.
+const TITLE_SUFFIX = document.title.includes(' - ')
+  ? document.title.slice(document.title.indexOf(' - '))
+  : ` - ${document.title}`
+
 const updateTitle = () => {
   const h1 = document.querySelector('#content h1')
-  document.title = `${h1?.textContent ?? 'Minihongo'} - Minihongo`
+  if (!h1) return
+  // h1.textContent folds in <rt> furigana (言葉 + ことば -> 言葉ことば); strip rt first.
+  const clone = h1.cloneNode(true)
+  clone.querySelectorAll('rt').forEach(rt => rt.remove())
+  document.title = `${clone.textContent.trim()}${TITLE_SUFFIX}`
 }
 
 const updateActiveNav = () => {
