@@ -1,5 +1,5 @@
 id,category_id,minihongo,english,japanese,definition_minihongo,english_litteral,example_minihongo,example_english,example_japanese,sort_order,audio_word,audio_example
-word-1,cat-1,人【ひと】,"person, people",人間、ひと,考【かんが】える事【こと】ができる生【い】き物【もの】,,あの人【ひと】は誰【だれ】？,Who is that person?,あの人は誰？,1,w_hito.mp3,w_hito_ex.mp3
+word-1,cat-1,人【ひと】,"person, people",人間、ひと,言【こと】葉【ば】を使【つか】う生【い】き物【もの】,,あの人【ひと】は誰【だれ】？,Who is that person?,あの人は誰？,1,w_hito.mp3,w_hito_ex.mp3
 word-2,cat-1,私【わたし】,"I, me",自分、わたくし,今【いま】言【い】っている人【ひと】,,私【わたし】は人【ひと】だ。,I am a person.,私は人だ。,2,w_watashi.mp3,w_watashi_ex.mp3
 word-3,cat-1,あなた,you,あなた、相手,聞【き】いている人【ひと】,,あなたは誰【だれ】？,Who are you?,あなたは誰？,3,w_anata.mp3,w_anata_ex.mp3
 word-4,cat-1,誰【だれ】,who,誰、何者,どの人【ひと】かを聞【き】く言【こと】葉【ば】,,誰【だれ】が来【く】る？,Who is coming?,誰が来る？,4,w_dare.mp3,w_dare_ex.mp3
