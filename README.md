@@ -96,8 +96,25 @@ Decks are stored as GitHub release assets (tagged `anki-vN`) and downloaded at b
 **Deck structure (same for each language):**
 - **Vocabulary** (225 words x 2 = 446 cards) - Recognition (JP -> translation) and Recall (translation -> JP), grouped by category
 - **Grammar** (~140 cards) - Example sentence with audio -> explanation, grouped by topic
+- **Listening** (43 cards) - Whole dialog/story audio -> transcript and translation
+
+A separate optional expressions deck (`minihongo-{en,ja}-expressions.apkg`, 977 cards) keeps its ~35MB of audio out of the core download. No MH version - front and back would be identical.
 
 Requires: `pip install genanki`
+
+## Measurement
+
+The goal is fluency for daily life, so the funnel is measured against it (GoatCounter, aggregate-only, no accounts). Review monthly:
+
+1. Visits and per-lesson pageviews - do learners get past Vocabulary?
+2. `download` events - Anki/PDF adoption
+3. `audio-*` events - is listening content used at all?
+4. `quiz-*-done` events - do learners practice or only read?
+5. `cando-*` events - self-reported real-life milestones (one per item, ever)
+6. `cando-complete` - a learner claims all 15 daily-life can-dos
+7. `ai-prompt-copy` - demand signal for a real conversation tutor
+
+The other half of measurement is qualitative: the NGO loop in OUTREACH.md.
 
 ## Dev
 

@@ -261,6 +261,7 @@ VALIDATE_CONTENT = {
     'dialogs': ['minihongo'],
     'dialog_groups': ['title_minihongo'],
     'stories': ['minihongo', 'title_minihongo'],
+    'candos': ['minihongo'],
     # compounds: only definition_minihongo (minihongo col uses real Japanese)
     'compounds': ['definition_minihongo'],
 }

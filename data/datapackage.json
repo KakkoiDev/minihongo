@@ -1,798 +1,859 @@
 {
-  "name": "minihongo-content",
-  "resources": [
-    {
-      "name": "pages",
-      "path": "pages.csv",
-      "schema": {
-        "fields": [
-          {
-            "name": "id",
-            "type": "string",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "path",
-            "type": "string",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "name_minihongo",
-            "type": "string",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "name_english",
-            "type": "string",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "name_japanese",
-            "type": "string"
-          },
-          {
-            "name": "desc_en",
-            "type": "string"
-          },
-          {
-            "name": "desc_ja",
-            "type": "string"
-          },
-          {
-            "name": "desc_mh",
-            "type": "string"
-          },
-          {
-            "name": "sort_order",
-            "type": "integer",
-            "constraints": {
-              "required": true
-            }
-          }
-        ],
-        "primaryKey": "id"
+ "name": "minihongo-content",
+ "resources": [
+  {
+   "name": "pages",
+   "path": "pages.csv",
+   "schema": {
+    "fields": [
+     {
+      "name": "id",
+      "type": "string",
+      "constraints": {
+       "required": true
       }
-    },
-    {
-      "name": "categories",
-      "path": "categories.csv",
-      "schema": {
-        "fields": [
-          {
-            "name": "id",
-            "type": "string",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "parent_id",
-            "type": "string"
-          },
-          {
-            "name": "page_id",
-            "type": "string",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "name_minihongo",
-            "type": "string",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "name_english",
-            "type": "string",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "name_japanese",
-            "type": "string"
-          },
-          {
-            "name": "sort_order",
-            "type": "integer",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "note_minihongo",
-            "type": "string"
-          },
-          {
-            "name": "note_english",
-            "type": "string"
-          },
-          {
-            "name": "note_japanese",
-            "type": "string"
-          }
-        ],
-        "primaryKey": "id",
-        "foreignKeys": [
-          {
-            "fields": [
-              "page_id"
-            ],
-            "reference": {
-              "resource": "pages",
-              "fields": [
-                "id"
-              ]
-            }
-          }
-        ]
+     },
+     {
+      "name": "path",
+      "type": "string",
+      "constraints": {
+       "required": true
       }
-    },
-    {
-      "name": "words",
-      "path": "words.csv",
-      "schema": {
-        "fields": [
-          {
-            "name": "id",
-            "type": "string",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "category_id",
-            "type": "string",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "minihongo",
-            "type": "string",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "english",
-            "type": "string"
-          },
-          {
-            "name": "japanese",
-            "type": "string"
-          },
-          {
-            "name": "definition_minihongo",
-            "type": "string"
-          },
-          {
-            "name": "english_litteral",
-            "type": "string"
-          },
-          {
-            "name": "example_minihongo",
-            "type": "string"
-          },
-          {
-            "name": "example_english",
-            "type": "string"
-          },
-          {
-            "name": "example_japanese",
-            "type": "string"
-          },
-          {
-            "name": "sort_order",
-            "type": "integer",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "audio_word",
-            "type": "string"
-          },
-          {
-            "name": "audio_example",
-            "type": "string"
-          }
-        ],
-        "primaryKey": "id",
-        "foreignKeys": [
-          {
-            "fields": [
-              "category_id"
-            ],
-            "reference": {
-              "resource": "categories",
-              "fields": [
-                "id"
-              ]
-            }
-          }
-        ]
+     },
+     {
+      "name": "name_minihongo",
+      "type": "string",
+      "constraints": {
+       "required": true
       }
-    },
-    {
-      "name": "grammar",
-      "path": "grammar.csv",
-      "schema": {
-        "fields": [
-          {
-            "name": "id",
-            "type": "string",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "category_id",
-            "type": "string",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "minihongo",
-            "type": "string",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "english",
-            "type": "string"
-          },
-          {
-            "name": "japanese",
-            "type": "string"
-          },
-          {
-            "name": "explanation_minihongo",
-            "type": "string"
-          },
-          {
-            "name": "explanation_english",
-            "type": "string",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "explanation_japanese",
-            "type": "string"
-          },
-          {
-            "name": "sort_order",
-            "type": "integer",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "core",
-            "type": "string"
-          }
-        ],
-        "primaryKey": "id",
-        "foreignKeys": [
-          {
-            "fields": [
-              "category_id"
-            ],
-            "reference": {
-              "resource": "categories",
-              "fields": [
-                "id"
-              ]
-            }
-          }
-        ]
+     },
+     {
+      "name": "name_english",
+      "type": "string",
+      "constraints": {
+       "required": true
       }
-    },
-    {
-      "name": "grammar_examples",
-      "path": "grammar_examples.csv",
-      "schema": {
-        "fields": [
-          {
-            "name": "id",
-            "type": "string",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "grammar_id",
-            "type": "string",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "minihongo",
-            "type": "string",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "english",
-            "type": "string"
-          },
-          {
-            "name": "japanese",
-            "type": "string"
-          },
-          {
-            "name": "english_litteral",
-            "type": "string"
-          },
-          {
-            "name": "sort_order",
-            "type": "integer",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "audio_file",
-            "type": "string"
-          }
-        ],
-        "primaryKey": "id",
-        "foreignKeys": [
-          {
-            "fields": [
-              "grammar_id"
-            ],
-            "reference": {
-              "resource": "grammar",
-              "fields": [
-                "id"
-              ]
-            }
-          }
-        ]
+     },
+     {
+      "name": "name_japanese",
+      "type": "string"
+     },
+     {
+      "name": "desc_en",
+      "type": "string"
+     },
+     {
+      "name": "desc_ja",
+      "type": "string"
+     },
+     {
+      "name": "desc_mh",
+      "type": "string"
+     },
+     {
+      "name": "sort_order",
+      "type": "integer",
+      "constraints": {
+       "required": true
       }
-    },
-    {
-      "name": "compounds",
-      "path": "compounds.csv",
-      "schema": {
-        "fields": [
-          {
-            "name": "id",
-            "type": "string",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "category_id",
-            "type": "string",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "minihongo",
-            "type": "string",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "reading",
-            "type": "string"
-          },
-          {
-            "name": "english",
-            "type": "string"
-          },
-          {
-            "name": "japanese",
-            "type": "string"
-          },
-          {
-            "name": "english_litteral",
-            "type": "string"
-          },
-          {
-            "name": "definition_minihongo",
-            "type": "string"
-          },
-          {
-            "name": "sort_order",
-            "type": "integer",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "audio_file",
-            "type": "string"
-          }
-        ],
-        "primaryKey": "id",
-        "foreignKeys": [
-          {
-            "fields": [
-              "category_id"
-            ],
-            "reference": {
-              "resource": "categories",
-              "fields": [
-                "id"
-              ]
-            }
-          }
-        ]
+     }
+    ],
+    "primaryKey": "id"
+   }
+  },
+  {
+   "name": "categories",
+   "path": "categories.csv",
+   "schema": {
+    "fields": [
+     {
+      "name": "id",
+      "type": "string",
+      "constraints": {
+       "required": true
       }
-    },
-    {
-      "name": "expressions",
-      "path": "expressions.csv",
-      "schema": {
-        "fields": [
-          {
-            "name": "id",
-            "type": "string",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "category_id",
-            "type": "string",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "minihongo",
-            "type": "string",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "reading",
-            "type": "string"
-          },
-          {
-            "name": "english",
-            "type": "string"
-          },
-          {
-            "name": "japanese",
-            "type": "string"
-          },
-          {
-            "name": "english_litteral",
-            "type": "string"
-          },
-          {
-            "name": "sort_order",
-            "type": "integer",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "audio_file",
-            "type": "string"
-          }
-        ],
-        "primaryKey": "id",
-        "foreignKeys": [
-          {
-            "fields": [
-              "category_id"
-            ],
-            "reference": {
-              "resource": "categories",
-              "fields": [
-                "id"
-              ]
-            }
-          }
-        ]
+     },
+     {
+      "name": "parent_id",
+      "type": "string"
+     },
+     {
+      "name": "page_id",
+      "type": "string",
+      "constraints": {
+       "required": true
       }
-    },
-    {
-      "name": "haiku",
-      "path": "haiku.csv",
-      "schema": {
-        "fields": [
-          {
-            "name": "id",
-            "type": "string",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "category_id",
-            "type": "string",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "minihongo",
-            "type": "string",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "english",
-            "type": "string"
-          },
-          {
-            "name": "japanese",
-            "type": "string"
-          },
-          {
-            "name": "sort_order",
-            "type": "integer",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "audio_file",
-            "type": "string"
-          }
-        ],
-        "primaryKey": "id",
-        "foreignKeys": [
-          {
-            "fields": [
-              "category_id"
-            ],
-            "reference": {
-              "resource": "categories",
-              "fields": [
-                "id"
-              ]
-            }
-          }
-        ]
+     },
+     {
+      "name": "name_minihongo",
+      "type": "string",
+      "constraints": {
+       "required": true
       }
-    },
-    {
-      "name": "dialog_groups",
-      "path": "dialog_groups.csv",
-      "schema": {
-        "fields": [
-          {
-            "name": "id",
-            "type": "string",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "category_id",
-            "type": "string",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "title_minihongo",
-            "type": "string",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "title_english",
-            "type": "string",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "title_japanese",
-            "type": "string"
-          },
-          {
-            "name": "sort_order",
-            "type": "integer",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "audio_file",
-            "type": "string"
-          }
-        ],
-        "primaryKey": "id",
-        "foreignKeys": [
-          {
-            "fields": [
-              "category_id"
-            ],
-            "reference": {
-              "resource": "categories",
-              "fields": [
-                "id"
-              ]
-            }
-          }
-        ]
+     },
+     {
+      "name": "name_english",
+      "type": "string",
+      "constraints": {
+       "required": true
       }
-    },
-    {
-      "name": "dialogs",
-      "path": "dialogs.csv",
-      "schema": {
-        "fields": [
-          {
-            "name": "id",
-            "type": "string",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "dialog_group_id",
-            "type": "string",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "line_number",
-            "type": "integer",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "speaker_minihongo",
-            "type": "string",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "speaker_english",
-            "type": "string",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "speaker_japanese",
-            "type": "string"
-          },
-          {
-            "name": "minihongo",
-            "type": "string",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "english",
-            "type": "string"
-          },
-          {
-            "name": "japanese",
-            "type": "string"
-          }
-        ],
-        "primaryKey": "id",
-        "foreignKeys": [
-          {
-            "fields": [
-              "dialog_group_id"
-            ],
-            "reference": {
-              "resource": "dialog_groups",
-              "fields": [
-                "id"
-              ]
-            }
-          }
-        ]
+     },
+     {
+      "name": "name_japanese",
+      "type": "string"
+     },
+     {
+      "name": "sort_order",
+      "type": "integer",
+      "constraints": {
+       "required": true
       }
-    },
-    {
-      "name": "stories",
-      "path": "stories.csv",
-      "schema": {
-        "fields": [
-          {
-            "name": "id",
-            "type": "string",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "category_id",
-            "type": "string",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "title_minihongo",
-            "type": "string",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "title_english",
-            "type": "string",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "title_japanese",
-            "type": "string"
-          },
-          {
-            "name": "minihongo",
-            "type": "string",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "english",
-            "type": "string"
-          },
-          {
-            "name": "japanese",
-            "type": "string"
-          },
-          {
-            "name": "sort_order",
-            "type": "integer",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "audio_file",
-            "type": "string"
-          }
-        ],
-        "primaryKey": "id",
-        "foreignKeys": [
-          {
-            "fields": [
-              "category_id"
-            ],
-            "reference": {
-              "resource": "categories",
-              "fields": [
-                "id"
-              ]
-            }
-          }
-        ]
+     },
+     {
+      "name": "note_minihongo",
+      "type": "string"
+     },
+     {
+      "name": "note_english",
+      "type": "string"
+     },
+     {
+      "name": "note_japanese",
+      "type": "string"
+     }
+    ],
+    "primaryKey": "id",
+    "foreignKeys": [
+     {
+      "fields": [
+       "page_id"
+      ],
+      "reference": {
+       "resource": "pages",
+       "fields": [
+        "id"
+       ]
       }
-    }
-  ]
+     }
+    ]
+   }
+  },
+  {
+   "name": "words",
+   "path": "words.csv",
+   "schema": {
+    "fields": [
+     {
+      "name": "id",
+      "type": "string",
+      "constraints": {
+       "required": true
+      }
+     },
+     {
+      "name": "category_id",
+      "type": "string",
+      "constraints": {
+       "required": true
+      }
+     },
+     {
+      "name": "minihongo",
+      "type": "string",
+      "constraints": {
+       "required": true
+      }
+     },
+     {
+      "name": "english",
+      "type": "string"
+     },
+     {
+      "name": "japanese",
+      "type": "string"
+     },
+     {
+      "name": "definition_minihongo",
+      "type": "string"
+     },
+     {
+      "name": "english_litteral",
+      "type": "string"
+     },
+     {
+      "name": "example_minihongo",
+      "type": "string"
+     },
+     {
+      "name": "example_english",
+      "type": "string"
+     },
+     {
+      "name": "example_japanese",
+      "type": "string"
+     },
+     {
+      "name": "sort_order",
+      "type": "integer",
+      "constraints": {
+       "required": true
+      }
+     },
+     {
+      "name": "audio_word",
+      "type": "string"
+     },
+     {
+      "name": "audio_example",
+      "type": "string"
+     }
+    ],
+    "primaryKey": "id",
+    "foreignKeys": [
+     {
+      "fields": [
+       "category_id"
+      ],
+      "reference": {
+       "resource": "categories",
+       "fields": [
+        "id"
+       ]
+      }
+     }
+    ]
+   }
+  },
+  {
+   "name": "grammar",
+   "path": "grammar.csv",
+   "schema": {
+    "fields": [
+     {
+      "name": "id",
+      "type": "string",
+      "constraints": {
+       "required": true
+      }
+     },
+     {
+      "name": "category_id",
+      "type": "string",
+      "constraints": {
+       "required": true
+      }
+     },
+     {
+      "name": "minihongo",
+      "type": "string",
+      "constraints": {
+       "required": true
+      }
+     },
+     {
+      "name": "english",
+      "type": "string"
+     },
+     {
+      "name": "japanese",
+      "type": "string"
+     },
+     {
+      "name": "explanation_minihongo",
+      "type": "string"
+     },
+     {
+      "name": "explanation_english",
+      "type": "string",
+      "constraints": {
+       "required": true
+      }
+     },
+     {
+      "name": "explanation_japanese",
+      "type": "string"
+     },
+     {
+      "name": "sort_order",
+      "type": "integer",
+      "constraints": {
+       "required": true
+      }
+     },
+     {
+      "name": "core",
+      "type": "string"
+     }
+    ],
+    "primaryKey": "id",
+    "foreignKeys": [
+     {
+      "fields": [
+       "category_id"
+      ],
+      "reference": {
+       "resource": "categories",
+       "fields": [
+        "id"
+       ]
+      }
+     }
+    ]
+   }
+  },
+  {
+   "name": "grammar_examples",
+   "path": "grammar_examples.csv",
+   "schema": {
+    "fields": [
+     {
+      "name": "id",
+      "type": "string",
+      "constraints": {
+       "required": true
+      }
+     },
+     {
+      "name": "grammar_id",
+      "type": "string",
+      "constraints": {
+       "required": true
+      }
+     },
+     {
+      "name": "minihongo",
+      "type": "string",
+      "constraints": {
+       "required": true
+      }
+     },
+     {
+      "name": "english",
+      "type": "string"
+     },
+     {
+      "name": "japanese",
+      "type": "string"
+     },
+     {
+      "name": "english_litteral",
+      "type": "string"
+     },
+     {
+      "name": "sort_order",
+      "type": "integer",
+      "constraints": {
+       "required": true
+      }
+     },
+     {
+      "name": "audio_file",
+      "type": "string"
+     }
+    ],
+    "primaryKey": "id",
+    "foreignKeys": [
+     {
+      "fields": [
+       "grammar_id"
+      ],
+      "reference": {
+       "resource": "grammar",
+       "fields": [
+        "id"
+       ]
+      }
+     }
+    ]
+   }
+  },
+  {
+   "name": "compounds",
+   "path": "compounds.csv",
+   "schema": {
+    "fields": [
+     {
+      "name": "id",
+      "type": "string",
+      "constraints": {
+       "required": true
+      }
+     },
+     {
+      "name": "category_id",
+      "type": "string",
+      "constraints": {
+       "required": true
+      }
+     },
+     {
+      "name": "minihongo",
+      "type": "string",
+      "constraints": {
+       "required": true
+      }
+     },
+     {
+      "name": "reading",
+      "type": "string"
+     },
+     {
+      "name": "english",
+      "type": "string"
+     },
+     {
+      "name": "japanese",
+      "type": "string"
+     },
+     {
+      "name": "english_litteral",
+      "type": "string"
+     },
+     {
+      "name": "definition_minihongo",
+      "type": "string"
+     },
+     {
+      "name": "sort_order",
+      "type": "integer",
+      "constraints": {
+       "required": true
+      }
+     },
+     {
+      "name": "audio_file",
+      "type": "string"
+     }
+    ],
+    "primaryKey": "id",
+    "foreignKeys": [
+     {
+      "fields": [
+       "category_id"
+      ],
+      "reference": {
+       "resource": "categories",
+       "fields": [
+        "id"
+       ]
+      }
+     }
+    ]
+   }
+  },
+  {
+   "name": "expressions",
+   "path": "expressions.csv",
+   "schema": {
+    "fields": [
+     {
+      "name": "id",
+      "type": "string",
+      "constraints": {
+       "required": true
+      }
+     },
+     {
+      "name": "category_id",
+      "type": "string",
+      "constraints": {
+       "required": true
+      }
+     },
+     {
+      "name": "minihongo",
+      "type": "string",
+      "constraints": {
+       "required": true
+      }
+     },
+     {
+      "name": "reading",
+      "type": "string"
+     },
+     {
+      "name": "english",
+      "type": "string"
+     },
+     {
+      "name": "japanese",
+      "type": "string"
+     },
+     {
+      "name": "english_litteral",
+      "type": "string"
+     },
+     {
+      "name": "sort_order",
+      "type": "integer",
+      "constraints": {
+       "required": true
+      }
+     },
+     {
+      "name": "audio_file",
+      "type": "string"
+     }
+    ],
+    "primaryKey": "id",
+    "foreignKeys": [
+     {
+      "fields": [
+       "category_id"
+      ],
+      "reference": {
+       "resource": "categories",
+       "fields": [
+        "id"
+       ]
+      }
+     }
+    ]
+   }
+  },
+  {
+   "name": "haiku",
+   "path": "haiku.csv",
+   "schema": {
+    "fields": [
+     {
+      "name": "id",
+      "type": "string",
+      "constraints": {
+       "required": true
+      }
+     },
+     {
+      "name": "category_id",
+      "type": "string",
+      "constraints": {
+       "required": true
+      }
+     },
+     {
+      "name": "minihongo",
+      "type": "string",
+      "constraints": {
+       "required": true
+      }
+     },
+     {
+      "name": "english",
+      "type": "string"
+     },
+     {
+      "name": "japanese",
+      "type": "string"
+     },
+     {
+      "name": "sort_order",
+      "type": "integer",
+      "constraints": {
+       "required": true
+      }
+     },
+     {
+      "name": "audio_file",
+      "type": "string"
+     }
+    ],
+    "primaryKey": "id",
+    "foreignKeys": [
+     {
+      "fields": [
+       "category_id"
+      ],
+      "reference": {
+       "resource": "categories",
+       "fields": [
+        "id"
+       ]
+      }
+     }
+    ]
+   }
+  },
+  {
+   "name": "dialog_groups",
+   "path": "dialog_groups.csv",
+   "schema": {
+    "fields": [
+     {
+      "name": "id",
+      "type": "string",
+      "constraints": {
+       "required": true
+      }
+     },
+     {
+      "name": "category_id",
+      "type": "string",
+      "constraints": {
+       "required": true
+      }
+     },
+     {
+      "name": "title_minihongo",
+      "type": "string",
+      "constraints": {
+       "required": true
+      }
+     },
+     {
+      "name": "title_english",
+      "type": "string",
+      "constraints": {
+       "required": true
+      }
+     },
+     {
+      "name": "title_japanese",
+      "type": "string"
+     },
+     {
+      "name": "sort_order",
+      "type": "integer",
+      "constraints": {
+       "required": true
+      }
+     },
+     {
+      "name": "audio_file",
+      "type": "string"
+     }
+    ],
+    "primaryKey": "id",
+    "foreignKeys": [
+     {
+      "fields": [
+       "category_id"
+      ],
+      "reference": {
+       "resource": "categories",
+       "fields": [
+        "id"
+       ]
+      }
+     }
+    ]
+   }
+  },
+  {
+   "name": "dialogs",
+   "path": "dialogs.csv",
+   "schema": {
+    "fields": [
+     {
+      "name": "id",
+      "type": "string",
+      "constraints": {
+       "required": true
+      }
+     },
+     {
+      "name": "dialog_group_id",
+      "type": "string",
+      "constraints": {
+       "required": true
+      }
+     },
+     {
+      "name": "line_number",
+      "type": "integer",
+      "constraints": {
+       "required": true
+      }
+     },
+     {
+      "name": "speaker_minihongo",
+      "type": "string",
+      "constraints": {
+       "required": true
+      }
+     },
+     {
+      "name": "speaker_english",
+      "type": "string",
+      "constraints": {
+       "required": true
+      }
+     },
+     {
+      "name": "speaker_japanese",
+      "type": "string"
+     },
+     {
+      "name": "minihongo",
+      "type": "string",
+      "constraints": {
+       "required": true
+      }
+     },
+     {
+      "name": "english",
+      "type": "string"
+     },
+     {
+      "name": "japanese",
+      "type": "string"
+     }
+    ],
+    "primaryKey": "id",
+    "foreignKeys": [
+     {
+      "fields": [
+       "dialog_group_id"
+      ],
+      "reference": {
+       "resource": "dialog_groups",
+       "fields": [
+        "id"
+       ]
+      }
+     }
+    ]
+   }
+  },
+  {
+   "name": "stories",
+   "path": "stories.csv",
+   "schema": {
+    "fields": [
+     {
+      "name": "id",
+      "type": "string",
+      "constraints": {
+       "required": true
+      }
+     },
+     {
+      "name": "category_id",
+      "type": "string",
+      "constraints": {
+       "required": true
+      }
+     },
+     {
+      "name": "title_minihongo",
+      "type": "string",
+      "constraints": {
+       "required": true
+      }
+     },
+     {
+      "name": "title_english",
+      "type": "string",
+      "constraints": {
+       "required": true
+      }
+     },
+     {
+      "name": "title_japanese",
+      "type": "string"
+     },
+     {
+      "name": "minihongo",
+      "type": "string",
+      "constraints": {
+       "required": true
+      }
+     },
+     {
+      "name": "english",
+      "type": "string"
+     },
+     {
+      "name": "japanese",
+      "type": "string"
+     },
+     {
+      "name": "sort_order",
+      "type": "integer",
+      "constraints": {
+       "required": true
+      }
+     },
+     {
+      "name": "audio_file",
+      "type": "string"
+     }
+    ],
+    "primaryKey": "id",
+    "foreignKeys": [
+     {
+      "fields": [
+       "category_id"
+      ],
+      "reference": {
+       "resource": "categories",
+       "fields": [
+        "id"
+       ]
+      }
+     }
+    ]
+   }
+  },
+  {
+   "name": "candos",
+   "path": "candos.csv",
+   "schema": {
+    "fields": [
+     {
+      "name": "id",
+      "type": "string",
+      "constraints": {
+       "required": true
+      }
+     },
+     {
+      "name": "dialog_group_id",
+      "type": "string"
+     },
+     {
+      "name": "english",
+      "type": "string",
+      "constraints": {
+       "required": true
+      }
+     },
+     {
+      "name": "japanese",
+      "type": "string",
+      "constraints": {
+       "required": true
+      }
+     },
+     {
+      "name": "minihongo",
+      "type": "string",
+      "constraints": {
+       "required": true
+      }
+     },
+     {
+      "name": "sort_order",
+      "type": "integer",
+      "constraints": {
+       "required": true
+      }
+     }
+    ],
+    "primaryKey": "id",
+    "foreignKeys": [
+     {
+      "fields": [
+       "dialog_group_id"
+      ],
+      "reference": {
+       "resource": "dialog_groups",
+       "fields": [
+        "id"
+       ]
+      }
+     }
+    ]
+   }
+  }
+ ]
 }

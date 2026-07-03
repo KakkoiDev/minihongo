@@ -127,6 +127,89 @@ nav {
   display: list-item;
 }
 
+/* === Practice page === */
+.cando-list {
+  display: grid;
+  gap: 0.6rem;
+  margin-block: 1rem;
+}
+
+.cando {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  cursor: pointer;
+}
+
+.cando input { flex-shrink: 0; }
+
+.cando-trans {
+  color: var(--text-muted);
+  font-size: 0.9em;
+}
+
+.cando-link {
+  font-size: 0.85em;
+  white-space: nowrap;
+}
+
+.cando-hint {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.quiz-section { margin-block: 1.5rem; }
+
+.quiz-opts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-block: 0.5rem;
+}
+
+.quiz-opt {
+  font: inherit;
+  font-family: var(--jp);
+  padding: 0.4rem 0.9rem;
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  background: none;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.quiz-opt:hover { background: var(--bg-raised); }
+.quiz-item.answered .quiz-opt { cursor: default; }
+.quiz-opt.right { border-color: #2E7D32; }
+.quiz-opt.wrong { border-color: var(--accent); }
+
+.quiz-answer { color: var(--text-muted); }
+
+.ai-prompt-box pre {
+  white-space: pre-wrap;
+  font-size: 0.8rem;
+  max-height: 20rem;
+  overflow: auto;
+  background: var(--bg-raised);
+  padding: 1rem;
+  border-radius: var(--radius);
+}
+
+.ai-prompt-box summary { cursor: pointer; }
+
+#copy-prompt {
+  font: inherit;
+  padding: 0.4rem 0.9rem;
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  background: none;
+  color: var(--text);
+  cursor: pointer;
+  margin-block: 0.5rem;
+}
+
+#copy-prompt:hover { background: var(--bg-raised); }
+
 /* === Japanese text === */
 :lang(ja) { font-family: var(--jp); }
 

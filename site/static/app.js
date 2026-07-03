@@ -104,6 +104,12 @@ const playAudio = (btn) => {
   }
   const audio = new Audio(src)
   audio.playbackRate = slowAudio ? 0.75 : 1
+  // One aggregate event per content type per session: is listening content used at all?
+  const sub = btn.dataset.audio.split('/')[0]
+  if (!sessionStorage.getItem(`audio-evt-${sub}`)) {
+    sessionStorage.setItem(`audio-evt-${sub}`, '1')
+    window.goatcounter?.count({ path: `audio-${sub}`, title: 'audio', event: true })
+  }
   audio.addEventListener('ended', () => {
     btn.classList.remove('playing')
     currentAudio = null
@@ -140,6 +146,13 @@ const applyListenFirst = () => {
   }
 }
 
+// Practice page: restore can-do checkbox state from localStorage
+const restoreCandos = () => {
+  for (const cb of document.querySelectorAll('#content .cando-check')) {
+    cb.checked = localStorage.getItem(`cando:${cb.dataset.id}`) === '1'
+  }
+}
+
 // Bind lesson-nav and TOC links inside #content (re-run after each swap)
 const bindContentLinks = () => {
   for (const a of document.querySelectorAll('.lesson-nav a')) {
@@ -153,6 +166,7 @@ const bindContentLinks = () => {
   }
   bindPlayButtons()
   applyListenFirst()
+  restoreCandos()
 }
 
 // Top nav links
@@ -220,6 +234,56 @@ window.switchLang = (lang) => {
   document.body.classList.add('page-exit')
   setTimeout(() => { location.href = dest }, 150)
 }
+
+// -- Practice page (delegated so it survives #content swaps) ---------
+
+document.addEventListener('change', (e) => {
+  const cb = e.target.closest?.('.cando-check')
+  if (!cb) return
+  const id = cb.dataset.id
+  localStorage.setItem(`cando:${id}`, cb.checked ? '1' : '0')
+  if (!cb.checked) return
+  // Aggregate milestone signal, once per item ever, anonymous
+  if (!localStorage.getItem(`cando-sent:${id}`)) {
+    localStorage.setItem(`cando-sent:${id}`, '1')
+    window.goatcounter?.count({ path: `cando-${id}`, title: 'cando', event: true })
+  }
+  const all = document.querySelectorAll('#content .cando-check')
+  if (all.length && [...all].every(c => c.checked)
+      && !localStorage.getItem('cando-complete-sent')) {
+    localStorage.setItem('cando-complete-sent', '1')
+    window.goatcounter?.count({ path: 'cando-complete', title: 'cando', event: true })
+  }
+})
+
+document.addEventListener('click', (e) => {
+  const opt = e.target.closest?.('.quiz-opt')
+  if (opt) {
+    const item = opt.closest('.quiz-item')
+    if (item.classList.contains('answered')) return
+    item.classList.add('answered')
+    opt.classList.add(opt.dataset.correct === '1' ? 'right' : 'wrong')
+    item.querySelector('.quiz-opt[data-correct="1"]').classList.add('right')
+    const answer = item.querySelector('.quiz-answer')
+    if (answer) answer.hidden = false
+    const section = item.closest('.quiz-section')
+    if (section && section.querySelectorAll('.quiz-item.answered').length
+        === Number(section.dataset.total)) {
+      window.goatcounter?.count({ path: `quiz-${section.dataset.cando}-done`, title: 'quiz', event: true })
+    }
+    return
+  }
+  const copy = e.target.closest?.('#copy-prompt')
+  if (copy) {
+    const text = document.getElementById('ai-prompt')?.textContent || ''
+    navigator.clipboard?.writeText(text).then(() => {
+      const label = copy.textContent
+      copy.textContent = copy.dataset.copied
+      setTimeout(() => { copy.textContent = label }, 2000)
+    })
+    window.goatcounter?.count({ path: 'ai-prompt-copy', title: 'ai', event: true })
+  }
+})
 
 // -- Download tracking ----------------------------------------------
 

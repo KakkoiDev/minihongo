@@ -71,3 +71,14 @@ contact_github,GitHub,GitHub,GitHub
 slow_audio,Slow audio,ゆっくり再生,速【はや】くない音【おと】
 listen_first,Listen first,先に聞く,耳【みみ】から
 show_text,Show text,本文を見る,言葉【ことば】を見【み】る
+practice_intro,"Real life is the test. Check off only what you have actually done in Japan, in Japanese.",実際に日本語でやってみたことだけをチェックしましょう。,外【そと】で本当【ほんとう】にした事【こと】だけを見【み】てください。
+practice_cando_heading,Can you do it in real life?,実生活でできますか,外【そと】でできますか
+practice_cando_hint,Your checks are saved in this browser only. No account.,チェックはこのブラウザにだけ保存されます。,これはあなたの考【かんが】える物【もの】の中【なか】だけにある。
+practice_see_dialog,See the dialog →,対話を見る →,話【はなし】を見【み】る →
+practice_quiz_heading,Quiz yourself,クイズ,少【すこ】し考【かんが】える
+practice_quiz_grammar,Grammar,文法,言【こと】葉【ば】の使【つか】い方【かた】
+practice_ai_heading,Practice conversation with an AI,AIと会話練習,考【かんが】える物【もの】と話【はな】す
+practice_ai_body,"Copy this prompt into ChatGPT, Claude, or Gemini, then start with こんにちは. The AI speaks only minihongo and corrects you gently.",このプロンプトをChatGPT・Claude・Geminiなどに貼り付けて、「こんにちは」から始めましょう。AIはミニ本語だけで話します。,この言葉【ことば】を考【かんが】える物【もの】にあげて、「こんにちは」と言【い】ってください。
+practice_ai_show,Show prompt,プロンプトを表示,言葉【ことば】を見【み】る
+practice_ai_copy,Copy prompt,プロンプトをコピー,言葉【ことば】をもらう
+practice_ai_copied,Copied!,コピーしました,もらいました

@@ -1,0 +1,16 @@
+id,dialog_group_id,english,japanese,minihongo,sort_order
+cando-1,dgrp-23,I can introduce myself,自己紹介ができる,私【わたし】の名前【なまえ】と国【くに】を言【い】う事【こと】ができる。,1
+cando-2,dgrp-20,I can buy things at a shop,店で買い物ができる,買【か】う所【ところ】で物【もの】を買【か】う事【こと】ができる。,2
+cando-3,dgrp-19,I can order at a restaurant,レストランで注文できる,食【た】べる所【ところ】で「これをください」と言【い】う事【こと】ができる。,3
+cando-4,dgrp-4,I can ask for directions,道を尋ねられる,「どこですか」と聞【き】いて、分【わ】かる事【こと】ができる。,4
+cando-5,dgrp-18,I can buy a ticket and take the train,切符を買って電車に乗れる,中【なか】に入【はい】るために買【か】う物【もの】を買【か】って、行【い】く事【こと】ができる。,5
+cando-6,dgrp-15,I can describe pain to a doctor,医者に痛みを伝えられる,体【からだ】を助【たす】ける人【ひと】に「ここが痛【いた】い」と言【い】う事【こと】ができる。,6
+cando-7,dgrp-16,I can buy medicine at a pharmacy,薬局で薬を買える,体【からだ】を良【よ】くする物【もの】を買【か】う事【こと】ができる。,7
+cando-8,dgrp-17,I can ask for help in an emergency,緊急時に助けを求められる,悪【わる】い事【こと】が起【お】こった時【とき】、「助【たす】けてください」と言【い】う事【こと】ができる。,8
+cando-9,dgrp-21,I can make an appointment by phone,電話で予約できる,音【おと】で言【い】う物【もの】で、会【あ】う日【にち】と時【とき】を言【い】う事【こと】ができる。,9
+cando-10,dgrp-22,I can register my address at city hall,市役所で住所を届け出られる,国【くに】の事【こと】をする所【ところ】で、家【いえ】の事【こと】を言【い】う事【こと】ができる。,10
+cando-11,dgrp-24,I can ask someone to repeat or slow down,聞き返すことができる,分【わ】からない時【とき】、「また言【い】ってください」と言【い】う事【こと】ができる。,11
+cando-12,dgrp-25,I can greet my neighbors,近所の人に挨拶できる,近【ちか】くの家【いえ】の人【ひと】に「こんにちは」と言【い】う事【こと】ができる。,12
+cando-13,dgrp-26,I can make small talk about the weather,天気の話ができる,「暑【あつ】いですね」と言【い】って、少【すこ】し話【はな】す事【こと】ができる。,13
+cando-14,,I can understand and say prices in yen,円の値段が分かって言える,「三【さん】百【びゃく】円【えん】」のお金【かね】の言葉【ことば】が分【わ】かって、言【い】う事【こと】ができる。,14
+cando-15,,I can tell the time,時刻が言える,「今【いま】、三【さん】時【じ】です」と言【い】う事【こと】ができる。,15
