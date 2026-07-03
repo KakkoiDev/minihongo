@@ -247,6 +247,13 @@ def gen_index(lang):
     anki_desc = ui('home_anki_desc', lang)
     pdf_link = ui('home_pdf_link', lang)
     basename = strip_html(ui('site_basename', lang))
+    # Expressions deck exists for en/ja only (mh front and back would be identical)
+    expressions_link = ''
+    if lang != 'mh':
+        expressions_link = (
+            f' · <a href="/{basename}-{lang}-expressions.apkg">'
+            f'{ui("home_expressions_link", lang)}</a>'
+        )
 
     # Expression examples table with audio
     # Tuple: (concept, minihongo, audio_dir, audio_file, literal)
@@ -297,7 +304,7 @@ def gen_index(lang):
         f'  </div>\n'
         f'  <div class="anki-featured">\n'
         f'    <p><a href="/{basename}-{lang}.apkg">{anki_link}</a> - {anki_desc}</p>\n'
-        f'    <p class="anki-secondary"><a href="/{basename}-{lang}.pdf">{pdf_link}</a></p>\n'
+        f'    <p class="anki-secondary"><a href="/{basename}-{lang}.pdf">{pdf_link}</a>{expressions_link}</p>\n'
         f'  </div>\n'
         f'  <nav class="lesson-nav">\n'
         f'    <span></span>\n'

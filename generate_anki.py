@@ -11,13 +11,22 @@ Deck hierarchy (same for each language):
   ├── 01 Vocabulary
   │   ├── 01 Pronouns & People
   │   └── ...
-  └── 02 Grammar
-      ├── 01 Sentence Structure
-      └── ...
+  ├── 02 Grammar
+  │   ├── 01 Sentence Structure
+  │   └── ...
+  └── 03 Listening
+      ├── 01 Dialogs
+      └── 02 Stories
+
+Expressions ship as a separate optional deck (minihongo-{lang}-expressions.apkg,
+EN/JA only - the MH front and back would be identical). Kept out of the main
+deck so its ~40MB of audio does not triple the core download.
 
 Card types:
   Vocabulary - double card (recognition + recall), audio on all Japanese
   Grammar    - example sentence with audio -> explanation
+  Listening  - audio only -> title, transcript, translation
+  Expression - circumlocution with audio -> meaning
 
 Requires: pip install genanki
 """
@@ -47,8 +56,13 @@ LANGS = {
         'grammar_explanation': 'explanation_english',
         'grammar_example_translation': 'english',
         'category_name': 'name_english',
+        'reading_translation': 'english',
+        'expression_meaning': 'english',
+        'expressions_output': 'minihongo-en-expressions.apkg',
         'vocab_model_id': 2007390001,
         'grammar_model_id': 2007390002,
+        'listening_model_id': 2007390003,
+        'expression_model_id': 2007390004,
     },
     'ja': {
         'deck_name': 'Minihongo (JA)',
@@ -59,8 +73,13 @@ LANGS = {
         'grammar_explanation': 'explanation_japanese',
         'grammar_example_translation': 'japanese',
         'category_name': 'name_japanese',
+        'reading_translation': 'japanese',
+        'expression_meaning': 'japanese',
+        'expressions_output': 'minihongo-ja-expressions.apkg',
         'vocab_model_id': 2007390011,
         'grammar_model_id': 2007390012,
+        'listening_model_id': 2007390013,
+        'expression_model_id': 2007390014,
     },
     'mh': {
         'deck_name': 'Minihongo (MH)',
@@ -71,8 +90,15 @@ LANGS = {
         'grammar_explanation': 'explanation_minihongo',
         'grammar_example_translation': 'minihongo',
         'category_name': 'name_minihongo',
+        # MH deck: no separate translation exists (it would repeat the transcript),
+        # and an expression card's front and back would be identical - skip.
+        'reading_translation': '',
+        'expression_meaning': '',
+        'expressions_output': '',
         'vocab_model_id': 2007390021,
         'grammar_model_id': 2007390022,
+        'listening_model_id': 2007390023,
+        'expression_model_id': 2007390024,
     },
 }
 
@@ -302,6 +328,74 @@ def create_grammar_model(lang_cfg):
     )
 
 
+def create_listening_model(lang_cfg):
+    """Listening card: audio only -> title, transcript, translation."""
+    return genanki.Model(
+        lang_cfg['listening_model_id'],
+        f'Minihongo Listening ({lang_cfg["deck_name"]})',
+        fields=[
+            {'name': 'Title'},
+            {'name': 'TitleTranslation'},
+            {'name': 'Transcript'},
+            {'name': 'Translation'},
+            {'name': 'Audio'},
+            {'name': 'Category'},
+        ],
+        templates=[
+            {
+                'name': 'Listening',
+                'qfmt': '''
+<div class="card-type">Listening</div>
+<div class="audio">{{Audio}}</div>
+''',
+                'afmt': '''
+<div class="card-type">Listening</div>
+<div class="audio">{{Audio}}</div>
+<hr id="answer">
+<div class="word">{{Title}}</div>
+{{#TitleTranslation}}<div class="grammar-name">{{TitleTranslation}}</div>{{/TitleTranslation}}
+<div class="explanation">{{Transcript}}</div>
+{{#Translation}}<div class="explanation">{{Translation}}</div>{{/Translation}}
+''',
+            },
+        ],
+        css=SHARED_CSS,
+    )
+
+
+def create_expression_model(lang_cfg):
+    """Expression card: circumlocution with audio -> meaning."""
+    return genanki.Model(
+        lang_cfg['expression_model_id'],
+        f'Minihongo Expression ({lang_cfg["deck_name"]})',
+        fields=[
+            {'name': 'Expression'},
+            {'name': 'Meaning'},
+            {'name': 'Audio'},
+            {'name': 'Category'},
+        ],
+        templates=[
+            {
+                'name': 'Expression',
+                'qfmt': '''
+<div class="card-type">Expression</div>
+<div class="sentence">{{Expression}}</div>
+<div class="audio">{{Audio}}</div>
+''',
+                'afmt': '''
+<div class="card-type">Expression</div>
+<div class="sentence">{{Expression}}</div>
+<div class="audio">{{Audio}}</div>
+<hr id="answer">
+<div class="translation">{{Meaning}}</div>
+<div class="tags">{{Category}}</div>
+''',
+            },
+        ],
+        css=SHARED_CSS,
+    )
+
+
 # ── Data loading ────────────────────────────────────────────────────
 
 def load_csv(name):
@@ -460,6 +554,139 @@ def build_grammar_decks(categories, lang_cfg):
     return decks, media
 
 
+def build_listening_decks(lang_cfg):
+    """Build listening subdecks: whole dialogs and stories, audio-first."""
+    dialog_groups = load_csv('dialog_groups')
+    dialogs = load_csv('dialogs')
+    stories = load_csv('stories')
+    model = create_listening_model(lang_cfg)
+    media = []
+    missing = []
+    trans_col = lang_cfg['reading_translation']
+
+    lines_by_grp = {}
+    for d in dialogs:
+        lines_by_grp.setdefault(d['dialog_group_id'], []).append(d)
+
+    def make_deck(label, idx):
+        name = f"{lang_cfg['deck_name']}::03 Listening::{idx:02d} {label}"
+        return genanki.Deck(random.randint(10**9, 10**10 - 1), name)
+
+    dialog_deck = make_deck('Dialogs', 1)
+    for dg in sorted(dialog_groups, key=lambda r: int(r['sort_order'])):
+        ref, path = audio_ref('d', dg.get('audio_file', ''))
+        if not path:
+            missing.append(f"dialogs/{dg['id']}: audio/d/{dg.get('audio_file', '?')}")
+            continue
+        media.append(path)
+        lines = sorted(lines_by_grp.get(dg['id'], []),
+                       key=lambda d: int(d['line_number']))
+        transcript = ''.join(
+            f'<p><strong>{to_ruby_html(ln["speaker_minihongo"])}:</strong> '
+            f'{to_ruby_html(ln["minihongo"])}</p>'
+            for ln in lines
+        )
+        translation = ''
+        if trans_col:
+            translation = ''.join(
+                f'<p><strong>{ln.get("speaker_" + trans_col, "")}:</strong> '
+                f'{ln.get(trans_col, "")}</p>'
+                for ln in lines
+            )
+        dialog_deck.add_note(genanki.Note(
+            model=model,
+            fields=[
+                to_ruby_html(dg['title_minihongo']),
+                dg.get(f'title_{trans_col}', '') if trans_col else '',
+                transcript,
+                translation,
+                ref,
+                'Dialogs',
+            ],
+            tags=['Listening', 'Dialogs'],
+        ))
+
+    story_deck = make_deck('Stories', 2)
+    for st in sorted(stories, key=lambda r: int(r['sort_order'])):
+        ref, path = audio_ref('s', st.get('audio_file', ''))
+        if not path:
+            missing.append(f"stories/{st['id']}: audio/s/{st.get('audio_file', '?')}")
+            continue
+        media.append(path)
+        paras = [p for p in re.split(r'(?<=[。」]) ', st['minihongo']) if p.strip()]
+        transcript = ''.join(f'<p>{to_ruby_html(p)}</p>' for p in paras)
+        translation = st.get(trans_col, '') if trans_col else ''
+        story_deck.add_note(genanki.Note(
+            model=model,
+            fields=[
+                to_ruby_html(st['title_minihongo']),
+                st.get(f'title_{trans_col}', '') if trans_col else '',
+                transcript,
+                translation,
+                ref,
+                'Stories',
+            ],
+            tags=['Listening', 'Stories'],
+        ))
+
+    # A listening card without audio is an empty front - refuse to ship it.
+    if missing:
+        print('Listening deck: missing audio files (run `make audio-download`):',
+              file=sys.stderr)
+        for m in missing:
+            print(f'  {m}', file=sys.stderr)
+        sys.exit(1)
+
+    return [dialog_deck, story_deck], media
+
+
+def build_expression_decks(categories, lang_cfg):
+    """Build expression subdecks grouped by category. One direction only."""
+    meaning_col = lang_cfg['expression_meaning']
+    if not meaning_col:
+        return [], []
+
+    expressions = load_csv('expressions')
+    model = create_expression_model(lang_cfg)
+    decks = []
+    media = []
+    cat_name_col = lang_cfg['category_name']
+    is_jp = meaning_col == 'japanese'
+
+    by_cat = {}
+    for e in expressions:
+        by_cat.setdefault(e['category_id'], []).append(e)
+
+    expr_cats = sorted(
+        [c for c in categories.values() if c['id'] in by_cat],
+        key=lambda c: int(c['sort_order']),
+    )
+
+    for idx, cat in enumerate(expr_cats, 1):
+        cat_label = strip_furigana(cat[cat_name_col]) if is_jp else cat[cat_name_col]
+        name = f"{lang_cfg['deck_name']} Expressions::{idx:02d} {cat_label}"
+        deck = genanki.Deck(random.randint(10**9, 10**10 - 1), name)
+
+        for e in sorted(by_cat[cat['id']], key=lambda r: int(r['sort_order'])):
+            ref, path = audio_ref('e', e.get('audio_file', ''))
+            if path:
+                media.append(path)
+            deck.add_note(genanki.Note(
+                model=model,
+                fields=[
+                    to_ruby_html(e['minihongo']),
+                    e.get(meaning_col, ''),
+                    ref,
+                    cat_label,
+                ],
+                tags=[cat_label.replace(' ', '_')],
+            ))
+
+        decks.append(deck)
+
+    return decks, media
+
+
 def build_deck(lang, categories):
     """Build a complete deck for one language."""
     lang_cfg = LANGS[lang]
@@ -470,17 +697,32 @@ def build_deck(lang, categories):
     grammar_decks, grammar_media = build_grammar_decks(categories, lang_cfg)
     grammar_cards = sum(len(d.notes) for d in grammar_decks)
 
-    all_decks = vocab_decks + grammar_decks
-    all_media = vocab_media + grammar_media
+    listening_decks, listening_media = build_listening_decks(lang_cfg)
+    listening_cards = sum(len(d.notes) for d in listening_decks)
+
+    all_decks = vocab_decks + grammar_decks + listening_decks
+    all_media = vocab_media + grammar_media + listening_media
 
     output = Path(lang_cfg['output'])
     package = genanki.Package(all_decks)
     package.media_files = all_media
     package.write_to_file(str(output))
 
-    print(f'  Vocab:   {len(vocab_decks)} subdecks, {vocab_cards} cards')
-    print(f'  Grammar: {len(grammar_decks)} subdecks, {grammar_cards} cards')
-    print(f'  Audio:   {len(all_media)} files -> {output}')
+    print(f'  Vocab:      {len(vocab_decks)} subdecks, {vocab_cards} cards')
+    print(f'  Grammar:    {len(grammar_decks)} subdecks, {grammar_cards} cards')
+    print(f'  Listening:  {len(listening_decks)} subdecks, {listening_cards} cards')
+    print(f'  Audio:      {len(all_media)} files -> {output}')
+
+    # Expressions: separate optional deck, EN/JA only
+    if lang_cfg['expressions_output']:
+        expression_decks, expression_media = build_expression_decks(categories, lang_cfg)
+        expression_cards = sum(len(d.notes) for d in expression_decks)
+        expr_output = Path(lang_cfg['expressions_output'])
+        expr_package = genanki.Package(expression_decks)
+        expr_package.media_files = expression_media
+        expr_package.write_to_file(str(expr_output))
+        print(f'  Expression: {len(expression_decks)} subdecks, {expression_cards} cards, '
+              f'{len(expression_media)} audio -> {expr_output}')
 
     return output
 
@@ -503,6 +745,8 @@ def main():
         for cfg in LANGS.values():
             cfg['vocab_model_id'] += css_hash
             cfg['grammar_model_id'] += css_hash
+            cfg['listening_model_id'] += css_hash
+            cfg['expression_model_id'] += css_hash
         print(f'--force-style: model IDs offset by {css_hash} (CSS hash)')
 
     categories = load_categories()
