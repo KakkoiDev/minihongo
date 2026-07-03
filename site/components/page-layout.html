@@ -17,6 +17,10 @@
     if (localStorage.getItem('furigana') === '0')
       document.documentElement.classList.add('no-furigana')
 
+    // Restore listen-first mode
+    if (localStorage.getItem('listen_first') === '1')
+      document.documentElement.classList.add('listen-first')
+
     // Redirect to stored language if on the wrong locale path
     // Skip in standalone PWA - redirects break the standalone window on resume
     const isStandalone = matchMedia('(display-mode: standalone)').matches
@@ -55,6 +59,8 @@
     <a href="lessons/word-building.html">{{NAV_WORD_BUILDING}}</a>
     <a href="lessons/texts-dialogs.html">{{NAV_READING}}</a>
     <a href="lessons/going-further.html">{{NAV_GOING_FURTHER}}</a>
+    <button class="nav-toggle" id="btn-listen">{{LISTEN_FIRST_LABEL}}</button>
+    <button class="nav-toggle" id="btn-speed">{{SLOW_AUDIO_LABEL}}</button>
     <button class="nav-toggle" id="btn-furigana">{{FURIGANA_LABEL}}</button>
     <button class="nav-toggle" id="btn-theme">{{DARK_MODE_LABEL}}</button>
     {{LANG_SWITCHER}}

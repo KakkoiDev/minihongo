@@ -114,6 +114,19 @@ nav {
   }
 }
 
+/* === Listen-first mode === */
+.reading-text > summary {
+  display: none;
+  cursor: pointer;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  padding-block: 0.25rem;
+}
+
+.listen-first .reading-text > summary {
+  display: list-item;
+}
+
 /* === Japanese text === */
 :lang(ja) { font-family: var(--jp); }
 

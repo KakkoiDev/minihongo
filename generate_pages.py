@@ -794,6 +794,7 @@ def gen_reading(categories, haiku, dialog_groups, dialogs, stories, lang):
 
                 pb = play_btn('d', dg.get('audio_file', ''))
                 parts.append(f'<h4>{title} {pb}</h4>\n')
+                parts.append(f'<details class="reading-text" open><summary>{ui("show_text", lang)}</summary>\n')
                 parts.append('<div class="dialog">\n')
                 for ln in lines:
                     speaker = to_ruby_html(ln['speaker_minihongo'])
@@ -807,6 +808,7 @@ def gen_reading(categories, haiku, dialog_groups, dialogs, stories, lang):
                         body = to_ruby_html(t(ln, '', lang))
                         parts.append(f'  <p><strong>{speaker}:</strong> {body}</p>\n')
                     parts.append('</div>\n')
+                parts.append('</details>\n')
                 parts.append('\n')
 
             # Stories
@@ -821,6 +823,7 @@ def gen_reading(categories, haiku, dialog_groups, dialogs, stories, lang):
 
                 pb = play_btn('s', st.get('audio_file', ''))
                 parts.append(f'<h4 id="{st_slug}">{title} {pb}</h4>\n')
+                parts.append(f'<details class="reading-text" open><summary>{ui("show_text", lang)}</summary>\n')
                 parts.append('<div class="story">\n')
                 for para in mh_paras:
                     parts.append(f'  <p lang="ja">{to_ruby_html(para)}</p>\n')
@@ -830,6 +833,7 @@ def gen_reading(categories, haiku, dialog_groups, dialogs, stories, lang):
                     parts.append('<div class="story-translation">\n')
                     parts.append(f'  <p>{translated_story}</p>\n')
                     parts.append('</div>\n')
+                parts.append('</details>\n')
                 parts.append('\n')
 
     return wrap_page('reading', ''.join(parts), lang, toc)

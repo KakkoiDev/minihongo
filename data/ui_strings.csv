@@ -67,3 +67,6 @@ contact_cancel,Cancel,キャンセル,止【と】める
 contact_send_via_label,Send via,送信方法,どこに
 contact_email,Email,メール,メール
 contact_github,GitHub,GitHub,GitHub
+slow_audio,Slow audio,ゆっくり再生,速【はや】くない音【おと】
+listen_first,Listen first,先に聞く,耳【みみ】から
+show_text,Show text,本文を見る,言葉【ことば】を見【み】る

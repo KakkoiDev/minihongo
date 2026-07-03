@@ -89,6 +89,7 @@ const bindLink = (a) => {
 
 let currentAudio = null
 let currentBtn = null
+let slowAudio = localStorage.getItem('slow_audio') === '1'
 
 const playAudio = (btn) => {
   const src = `${rootPath}audio/${btn.dataset.audio}?v={{CACHE_HASH}}`
@@ -102,6 +103,7 @@ const playAudio = (btn) => {
     }
   }
   const audio = new Audio(src)
+  audio.playbackRate = slowAudio ? 0.75 : 1
   audio.addEventListener('ended', () => {
     btn.classList.remove('playing')
     currentAudio = null
@@ -130,6 +132,14 @@ const bindPlayButtons = () => {
   }
 }
 
+// Listen-first mode: text hides behind a summary until revealed
+const applyListenFirst = () => {
+  const on = document.documentElement.classList.contains('listen-first')
+  for (const d of document.querySelectorAll('#content details.reading-text')) {
+    d.open = !on
+  }
+}
+
 // Bind lesson-nav and TOC links inside #content (re-run after each swap)
 const bindContentLinks = () => {
   for (const a of document.querySelectorAll('.lesson-nav a')) {
@@ -142,6 +152,7 @@ const bindContentLinks = () => {
     }
   }
   bindPlayButtons()
+  applyListenFirst()
 }
 
 // Top nav links
@@ -164,6 +175,8 @@ addEventListener('popstate', async (e) => {
 
 const btnTheme = document.getElementById('btn-theme')
 const btnFurigana = document.getElementById('btn-furigana')
+const btnSpeed = document.getElementById('btn-speed')
+const btnListen = document.getElementById('btn-listen')
 
 btnTheme.addEventListener('click', () => {
   const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark'
@@ -179,9 +192,25 @@ btnFurigana.addEventListener('click', () => {
   btnFurigana.classList.toggle('active', !on)
 })
 
+btnSpeed.addEventListener('click', () => {
+  slowAudio = !slowAudio
+  localStorage.setItem('slow_audio', slowAudio ? '1' : '0')
+  btnSpeed.classList.toggle('active', slowAudio)
+  if (currentAudio) currentAudio.playbackRate = slowAudio ? 0.75 : 1
+})
+
+btnListen.addEventListener('click', () => {
+  const on = document.documentElement.classList.toggle('listen-first')
+  localStorage.setItem('listen_first', on ? '1' : '0')
+  btnListen.classList.toggle('active', on)
+  applyListenFirst()
+})
+
 // Initial active state
 btnTheme.classList.toggle('active', document.documentElement.dataset.theme === 'dark')
 btnFurigana.classList.toggle('active', !document.documentElement.classList.contains('no-furigana'))
+btnSpeed.classList.toggle('active', slowAudio)
+btnListen.classList.toggle('active', document.documentElement.classList.contains('listen-first'))
 
 // Language switcher
 window.switchLang = (lang) => {
