@@ -190,7 +190,6 @@ def build_page_context(data, ui_strings, lang, page_file, base_url, page_id_map)
         'FURIGANA_LABEL': ui_str(ui_strings, 'show_readings', lang),
         'DARK_MODE_LABEL': ui_str(ui_strings, 'dark_mode', lang),
         'SLOW_AUDIO_LABEL': ui_str(ui_strings, 'slow_audio', lang),
-        'LISTEN_FIRST_LABEL': ui_str(ui_strings, 'listen_first', lang),
         'LANG_SWITCHER': lang_switcher_html(lang),
         'META_DESCRIPTION': build_meta_desc(data, ui_strings, page_file, lang, page_id_map),
         'PAGE_NAME': page_name,

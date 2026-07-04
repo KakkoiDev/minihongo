@@ -846,7 +846,11 @@ def gen_reading(categories, haiku, dialog_groups, dialogs, stories, lang):
                 parts.append('</details>\n')
                 parts.append('\n')
 
-    return wrap_page('reading', ''.join(parts), lang, toc)
+    listen_toggle = (
+        f'  <p><button class="nav-toggle listen-toggle" id="btn-listen">'
+        f'{ui("listen_first", lang)}</button></p>\n\n'
+    )
+    return wrap_page('reading', ''.join(parts), lang, toc, pre_toc=listen_toggle)
 
 
 # -- Practice -----------------------------------------------------------------

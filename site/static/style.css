@@ -115,6 +115,11 @@ nav {
 }
 
 /* === Listen-first mode === */
+/* The toggle sits in page content, not the nav bar - give it a visible surface */
+.listen-toggle {
+  background: var(--bg-raised);
+}
+
 .reading-text > summary {
   display: none;
   cursor: pointer;

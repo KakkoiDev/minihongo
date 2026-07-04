@@ -138,11 +138,22 @@ const bindPlayButtons = () => {
   }
 }
 
-// Listen-first mode: text hides behind a summary until revealed
+// Listen-first mode: text hides behind a summary until revealed.
+// The toggle lives inside the Reading page content (the only page with
+// reading-text), so it must be rebound after every SPA swap.
 const applyListenFirst = () => {
   const on = document.documentElement.classList.contains('listen-first')
   for (const d of document.querySelectorAll('#content details.reading-text')) {
     d.open = !on
+  }
+  const btn = document.getElementById('btn-listen')
+  if (btn) {
+    btn.classList.toggle('active', on)
+    btn.onclick = () => {
+      const next = document.documentElement.classList.toggle('listen-first')
+      localStorage.setItem('listen_first', next ? '1' : '0')
+      applyListenFirst()
+    }
   }
 }
 
@@ -190,7 +201,6 @@ addEventListener('popstate', async (e) => {
 const btnTheme = document.getElementById('btn-theme')
 const btnFurigana = document.getElementById('btn-furigana')
 const btnSpeed = document.getElementById('btn-speed')
-const btnListen = document.getElementById('btn-listen')
 
 btnTheme.addEventListener('click', () => {
   const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark'
@@ -213,18 +223,10 @@ btnSpeed.addEventListener('click', () => {
   if (currentAudio) currentAudio.playbackRate = slowAudio ? 0.75 : 1
 })
 
-btnListen.addEventListener('click', () => {
-  const on = document.documentElement.classList.toggle('listen-first')
-  localStorage.setItem('listen_first', on ? '1' : '0')
-  btnListen.classList.toggle('active', on)
-  applyListenFirst()
-})
-
 // Initial active state
 btnTheme.classList.toggle('active', document.documentElement.dataset.theme === 'dark')
 btnFurigana.classList.toggle('active', !document.documentElement.classList.contains('no-furigana'))
 btnSpeed.classList.toggle('active', slowAudio)
-btnListen.classList.toggle('active', document.documentElement.classList.contains('listen-first'))
 
 // Language switcher
 window.switchLang = (lang) => {
