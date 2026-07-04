@@ -141,12 +141,52 @@ nav {
 
 .cando {
   display: flex;
-  align-items: baseline;
+  align-items: flex-start;
   gap: 0.6rem;
   cursor: pointer;
+  line-height: 1.5;
 }
 
-.cando input { flex-shrink: 0; }
+.cando-check {
+  appearance: none;
+  -webkit-appearance: none;
+  flex-shrink: 0;
+  width: 1.35rem;
+  height: 1.35rem;
+  margin: 0;
+  margin-block-start: 0.1rem;
+  display: grid;
+  place-content: center;
+  background: var(--bg);
+  border: 2px solid var(--border);
+  border-radius: 0.4rem;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.cando-check::after {
+  content: "";
+  width: 0.8rem;
+  height: 0.8rem;
+  background: #fff;
+  transform: scale(0);
+  transition: transform 0.15s;
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+
+.cando-check:hover { border-color: var(--accent); }
+
+.cando-check:checked {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.cando-check:checked::after { transform: scale(1); }
+
+.cando-check:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
 
 .cando-trans {
   color: var(--text-muted);
