@@ -73,7 +73,7 @@ cat-85,cat-82,going-further,買【か】う事【こと】,Shopping,買い物,3,
 cat-86,cat-82,going-further,毎【まい】日【にち】の物【もの】,Daily Objects,日常の物,4,,,
 cat-87,cat-82,going-further,体【からだ】,Health,健康,5,,,
 cat-88,cat-82,going-further,する事【こと】と知【し】る事【こと】,Work & School,仕事と学校,6,,,
-cat-89,cat-82,going-further,気【き】をつける言【こと】葉【ば】,False Friends,和製英語,7,,,
+cat-89,cat-82,going-further,気【き】をつける言【こと】葉【ば】,False Friends,和製英語,10,,,
 cat-76,,reading,話【はな】し,Dialogs,対話,1,,,
 cat-73,cat-76,reading,毎【まい】日【にち】の話【はな】し,Daily Life Dialogs,日常の対話,1,,,
 cat-90,cat-76,reading,体【からだ】と助【たす】ける,Health & Emergencies,健康と緊急,2,,,
@@ -94,3 +94,6 @@ cat-95,,understanding,見【み】る言【こと】葉【ば】,Signs,看板・
 cat-96,,understanding,買【か】う所【ところ】の人【ひと】の言【こと】葉【ば】,What the Clerk Says,店員の言葉,2,聞【き】く事【こと】だけで大丈夫【だいじょうぶ】。言【い】うのは、あなたの225の言【こと】葉【ば】で。,You answer with your own 225 words - you only need to understand the question.,答えるのは自分の225語でいい。質問が分かれば十分。
 cat-97,,understanding,聞【き】く言【こと】葉【ば】,Announcements,アナウンス,3,本当【ほんとう】の音【おと】は速【はや】い。だから、ここの音【おと】も速【はや】い。,"These arrive as sound at native speed, so the audio here is natural speed too.",アナウンスは実際の速さで流れる。だから音声も自然な速さのまま。
 cat-98,,understanding,書【か】く物【もの】の言【こと】葉【ば】,Forms & Documents,書類の言葉,4,,,
+cat-90,cat-82,going-further,体【からだ】を動【うご】かす事【こと】,Leisure & Sports,遊びとスポーツ,7,,,
+cat-91,cat-82,going-further,新【あたら】しい物【もの】,Technology & Media,ネットとメディア,8,,,
+cat-92,cat-82,going-further,よく使【つか】う言【こと】葉【ば】,Everyday Extras,よく使う言葉,9,,,

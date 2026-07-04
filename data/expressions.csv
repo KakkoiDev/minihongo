@@ -976,3 +976,85 @@ expr-1066,cat-89,スマート,,slim / slender (NOT smart),スマート,looks lik
 expr-1067,cat-89,ナイーブ,,sensitive / delicate (NOT naive),ナイーブ,looks like naive,6,e_1067_naiibu.mp3
 expr-1068,cat-89,テンション,,excitement / energy (NOT tension),テンション,looks like tension,7,e_1068_tenshon.mp3
 expr-1069,cat-89,クレーム,,complaint (NOT claim),クレーム,from French claim,8,e_1069_kureemu.mp3
+expr-1070,cat-84,ピザ,,pizza,ピザ,,17,e_1070_piza.mp3
+expr-1071,cat-84,ハンバーガー,,hamburger,ハンバーガー,,18,e_1071_hanbaagaa.mp3
+expr-1072,cat-84,サンドイッチ,,sandwich,サンドイッチ,,19,e_1072_sandoicchi.mp3
+expr-1073,cat-84,トマト,,tomato,トマト,,20,e_1073_tomato.mp3
+expr-1074,cat-84,バナナ,,banana,バナナ,,21,e_1074_banana.mp3
+expr-1075,cat-84,レモン,,lemon,レモン,,22,e_1075_remon.mp3
+expr-1076,cat-84,オレンジ,,orange,オレンジ,,23,e_1076_orenji.mp3
+expr-1077,cat-84,メロン,,melon,メロン,,24,e_1077_meron.mp3
+expr-1078,cat-84,ヨーグルト,,yogurt,ヨーグルト,,25,e_1078_yooguruto.mp3
+expr-1079,cat-84,ステーキ,,steak,ステーキ,,26,e_1079_suteeki.mp3
+expr-1080,cat-84,トースト,,toast,トースト,,27,e_1080_toosuto.mp3
+expr-1081,cat-84,ジャム,,jam,ジャム,,28,e_1081_jamu.mp3
+expr-1082,cat-84,ソース,,sauce,ソース,,29,e_1082_soosu.mp3
+expr-1083,cat-84,パスタ,,pasta,パスタ,,30,e_1083_pasuta.mp3
+expr-1084,cat-84,ポテト,,potato / fries,ポテト,,31,e_1084_poteto.mp3
+expr-1085,cat-84,コーラ,,cola,コーラ,,32,e_1085_koora.mp3
+expr-1086,cat-84,デザート,,dessert,デザート,,33,e_1086_dezaato.mp3
+expr-1087,cat-84,フルーツ,,fruit,フルーツ,,34,e_1087_furuutsu.mp3
+expr-1088,cat-84,ドーナツ,,donut,ドーナツ,,35,e_1088_doonatsu.mp3
+expr-1089,cat-84,ポップコーン,,popcorn,ポップコーン,,36,e_1089_poppukoon.mp3
+expr-1090,cat-86,ベッド,,bed,ベッド,,12,e_1090_beddo.mp3
+expr-1091,cat-86,シャワー,,shower,シャワー,,13,e_1091_shawaa.mp3
+expr-1092,cat-86,タオル,,towel,タオル,,14,e_1092_taoru.mp3
+expr-1093,cat-86,カーテン,,curtain,カーテン,,15,e_1093_kaaten.mp3
+expr-1094,cat-86,ライト,,light,ライト,,16,e_1094_raito.mp3
+expr-1095,cat-86,キー,,key,キー,,17,e_1095_kii.mp3
+expr-1096,cat-86,ボタン,,button,ボタン,,18,e_1096_botan.mp3
+expr-1097,cat-86,バッグ,,bag,バッグ,,19,e_1097_baggu.mp3
+expr-1098,cat-86,ポケット,,pocket,ポケット,,20,e_1098_poketto.mp3
+expr-1099,cat-86,ベルト,,belt,ベルト,,21,e_1099_beruto.mp3
+expr-1100,cat-86,シャツ,,shirt,シャツ,,22,e_1100_shatsu.mp3
+expr-1101,cat-86,Tシャツ,,T-shirt,Tシャツ,,23,e_1101_tshatsu.mp3
+expr-1102,cat-86,ジャケット,,jacket,ジャケット,,24,e_1102_jaketto.mp3
+expr-1103,cat-86,コート,,coat,コート,,25,e_1103_kooto.mp3
+expr-1104,cat-86,スーツ,,suit,スーツ,,26,e_1104_suutsu.mp3
+expr-1105,cat-86,サンダル,,sandals,サンダル,,27,e_1105_sandaru.mp3
+expr-1106,cat-86,カレンダー,,calendar,カレンダー,,28,e_1106_karendaa.mp3
+expr-1107,cat-86,スタンプ,,stamp / sticker,スタンプ,,29,e_1107_sutanpu.mp3
+expr-1108,cat-86,セーター,,sweater,セーター,,30,e_1108_seetaa.mp3
+expr-1109,cat-83,オフィス,,office,オフィス,,13,e_1109_ofuィsu.mp3
+expr-1110,cat-83,カフェ,,cafe,カフェ,,14,e_1110_kafuェ.mp3
+expr-1111,cat-83,バー,,bar,バー,,15,e_1111_baa.mp3
+expr-1112,cat-83,タイヤ,,tire,タイヤ,,16,e_1112_taiya.mp3
+expr-1113,cat-83,ドライブ,,a drive,ドライブ,,17,e_1113_doraibu.mp3
+expr-1114,cat-83,ガソリン,,gasoline,ガソリン,,18,e_1114_gasorin.mp3
+expr-1115,cat-88,ビジネス,,business,ビジネス,,11,e_1115_bijinesu.mp3
+expr-1116,cat-88,チーム,,team,チーム,,12,e_1116_chiimu.mp3
+expr-1117,cat-88,メンバー,,member,メンバー,,13,e_1117_menbaa.mp3
+expr-1118,cat-88,レポート,,report,レポート,,14,e_1118_repooto.mp3
+expr-1119,cat-88,バイト,,part-time job,バイト,from German Arbeit; not from English,15,e_1119_baito.mp3
+expr-1120,cat-89,サービス,,free / on the house (NOT service),サービス,looks like service,9,e_1120_saabisu.mp3
+expr-1121,cat-89,バイク,,motorcycle (NOT bicycle),バイク,looks like bike,10,e_1121_baiku.mp3
+expr-1122,cat-90,スポーツ,,sports,スポーツ,,1,e_1122_supootsu.mp3
+expr-1123,cat-90,ゲーム,,game,ゲーム,,2,e_1123_geemu.mp3
+expr-1124,cat-90,サッカー,,soccer,サッカー,,3,e_1124_sakkaa.mp3
+expr-1125,cat-90,テニス,,tennis,テニス,,4,e_1125_tenisu.mp3
+expr-1126,cat-90,ダンス,,dance,ダンス,,5,e_1126_dansu.mp3
+expr-1127,cat-90,コンサート,,concert,コンサート,,6,e_1127_konsaato.mp3
+expr-1128,cat-90,パーティー,,party,パーティー,,7,e_1128_paateィ.mp3
+expr-1129,cat-90,プール,,pool,プール,,8,e_1129_puuru.mp3
+expr-1130,cat-90,ジム,,gym,ジム,,9,e_1130_jimu.mp3
+expr-1131,cat-90,ボール,,ball,ボール,,10,e_1131_booru.mp3
+expr-1132,cat-90,チケット,,ticket,チケット,,11,e_1132_chiketto.mp3
+expr-1133,cat-90,カラオケ,,karaoke,カラオケ,,12,e_1133_karaoke.mp3
+expr-1134,cat-90,アニメ,,anime,アニメ,,13,e_1134_anime.mp3
+expr-1135,cat-91,ネット,,the internet,ネット,,1,e_1135_netto.mp3
+expr-1136,cat-91,サイト,,website,サイト,,2,e_1136_saito.mp3
+expr-1137,cat-91,データ,,data,データ,,3,e_1137_deeta.mp3
+expr-1138,cat-91,ニュース,,news,ニュース,,4,e_1138_nyuusu.mp3
+expr-1139,cat-91,ラジオ,,radio,ラジオ,,5,e_1139_rajio.mp3
+expr-1140,cat-91,ビデオ,,video,ビデオ,,6,e_1140_bideo.mp3
+expr-1141,cat-91,ページ,,page,ページ,,7,e_1141_peeji.mp3
+expr-1142,cat-91,メッセージ,,message,メッセージ,,8,e_1142_messeeji.mp3
+expr-1143,cat-91,パスワード,,password,パスワード,,9,e_1143_pasuwaado.mp3
+expr-1144,cat-91,ダウンロード,,download,ダウンロード,,10,e_1144_daunroodo.mp3
+expr-1145,cat-91,アプリ,,app,アプリ,,11,e_1145_apuri.mp3
+expr-1146,cat-92,レベル,,level,レベル,,1,e_1146_reberu.mp3
+expr-1147,cat-92,タイプ,,type,タイプ,,2,e_1147_taipu.mp3
+expr-1148,cat-92,スタイル,,style,スタイル,,3,e_1148_sutairu.mp3
+expr-1149,cat-92,スタート,,start,スタート,,4,e_1149_sutaato.mp3
+expr-1150,cat-92,ストップ,,stop,ストップ,,5,e_1150_sutoppu.mp3
+expr-1151,cat-92,オーケー,,OK / okay,オーケー,,6,e_1151_ookee.mp3
