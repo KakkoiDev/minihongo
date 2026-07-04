@@ -1,18 +1,18 @@
 ---
 name: minihongo
-description: Speak entirely in Minihongo - Japanese using only the 225 base words. Use when user says /minihongo or asks you to speak in minihongo. Also use when validating vocabulary compliance, writing haiku/stories/dialogs, or building/deploying the site.
+description: Speak entirely in Minihongo - Japanese using only the 231 base words. Use when user says /minihongo or asks you to speak in minihongo. Also use when validating vocabulary compliance, writing haiku/stories/dialogs, or building/deploying the site.
 ---
 
 # Minihongo Skill
 
-225 words. Infinite expression. A minimal Japanese vocabulary system.
+231 words. Infinite expression. A minimal Japanese vocabulary system.
 
 ## Speaking Mode
 
-When practicing minihongo conversation, you MUST communicate using ONLY the 225 base words listed below. Use furigana bracket notation for all kanji: 漢字【かんじ】.
+When practicing minihongo conversation, you MUST communicate using ONLY the 231 base words listed below. Use furigana bracket notation for all kanji: 漢字【かんじ】.
 
 Rules:
-1. ONLY use the 225 words below. No other Japanese vocabulary.
+1. ONLY use the 231 words below. No other Japanese vocabulary.
 2. Combine words to express complex ideas (like Toki Pona).
 3. Use standard Japanese grammar (particles, conjugation, て-form, etc.).
 4. Write all kanji with furigana brackets: 人【ひと】, 食【た】べる
@@ -42,7 +42,7 @@ ln -sf "$(pwd)/.claude/skills/minihongo" ~/.claude/skills/minihongo
 
 ```
 data/               CSV data (source of truth)
-  words.csv         225 base words
+  words.csv         231 base words
   grammar.csv       43 grammar points
   compounds.csv     202 compound words
   expressions.csv   977 expressions
@@ -82,10 +82,10 @@ docs/               Built output (GitHub Pages), gitignored
 
 ## Vocabulary Checker
 
-When validating content, check against `data/words.csv` (225 base words).
+When validating content, check against `data/words.csv` (231 base words).
 
 Rules:
-- Only use words from the 225-word list (+ particles and grammar forms)
+- Only use words from the 231-word list (+ particles and grammar forms)
 - Grammar must be modern (no classical forms)
 - Compounds from `data/compounds.csv` are allowed (built from base words)
 - Loanwords in katakana are allowed per lesson rules
@@ -138,19 +138,19 @@ Core patterns from `data/grammar.csv`:
 
 ## The Base Words
 
-All 225 base words:
+All 231 base words:
 
 ### People
 人【ひと】(person) 私【わたし】(I) あなた(you) 誰【だれ】(who) 男【おとこ】(man) 女【おんな】(woman) 子供【こども】(child) 母【はは】(mother) 父【ちち】(father)
 
 ### Things & Food
-物【もの】(thing) 事【こと】(matter) 何【なに】(what) 服【ふく】(clothes) 本【ほん】(book) お金【かね】(money) 肉【にく】(meat) 卵【たまご】(egg)
+物【もの】(thing) 事【こと】(matter) 何【なに】(what) 服【ふく】(clothes) 本【ほん】(book) お金【かね】(money) 肉【にく】(meat) 卵【たまご】(egg) 薬【くすり】(medicine)
 
 ### Nature
-石【いし】(stone) 木【き】(tree) 土【つち】(soil) 水【みず】(water) 火【ひ】(fire) 風【かぜ】(wind) 太陽【たいよう】(sun) 光【ひかり】(light) 月【つき】(moon) 空【そら】(sky) 山【やま】(mountain) 海【うみ】(sea) 雨【あめ】(rain) 草【くさ】(grass) 雲【くも】(cloud)
+石【いし】(stone) 木【き】(tree) 土【つち】(soil) 水【みず】(water) 火【ひ】(fire) 風【かぜ】(wind) 太陽【たいよう】(sun) 光【ひかり】(light) 月【つき】(moon) 空【そら】(sky) 山【やま】(mountain) 海【うみ】(sea) 雨【あめ】(rain) 草【くさ】(grass) 雲【くも】(cloud) 花【はな】(flower) 星【ほし】(star)
 
 ### Animals
-動物【どうぶつ】(animal) 魚【さかな】(fish) 鳥【とり】(bird) 犬【いぬ】(dog)
+動物【どうぶつ】(animal) 魚【さかな】(fish) 鳥【とり】(bird) 犬【いぬ】(dog) 猫【ねこ】(cat) 馬【うま】(horse)
 
 ### Body
 体【からだ】(body) 頭【あたま】(head) 手【て】(hand) 足【あし】(foot) 目【め】(eye) 口【くち】(mouth) 耳【みみ】(ear) 鼻【はな】(nose) 心【こころ】(heart/mind) 歯【は】(tooth) 血【ち】(blood) 骨【ほね】(bone) 腹【はら】(belly) 髪【かみ】(hair) 皮【かわ】(skin)
@@ -165,7 +165,7 @@ All 225 base words:
 色【いろ】(color) 白【しろ】(white) 黒【くろ】(black) 赤【あか】(red) 青【あお】(blue) 黄色【きいろ】(yellow) 緑【みどり】(green) 明【あか】るい(bright)
 
 ### Mental & Senses
-知【し】る(know) 感【かん】じる(feel) 見【み】る(see) 聞【き】く(hear) 思【おも】う(think/opinion) 欲【ほ】しい(want) 必要【ひつよう】(necessary) 好【す】き(like) 怖【こわ】い(scary) 悲【かな】しい(sad) 怒【おこ】る(angry) 痛【いた】い(painful) うれしい(glad)
+知【し】る(know) 感【かん】じる(feel) 見【み】る(see) 聞【き】く(hear) 思【おも】う(think/opinion) 欲【ほ】しい(want) 必要【ひつよう】(necessary) 好【す】き(like) 怖【こわ】い(scary) 悲【かな】しい(sad) 怒【おこ】る(angry) 痛【いた】い(painful) うれしい(glad) 夢【ゆめ】(dream)
 
 ### Communication
 言葉【ことば】(word) 名前【なまえ】(name) 音【おと】(sound)
