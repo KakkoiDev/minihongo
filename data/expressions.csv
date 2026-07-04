@@ -1058,3 +1058,10 @@ expr-1148,cat-92,スタイル,,style,スタイル,,3,e_1148_sutairu.mp3
 expr-1149,cat-92,スタート,,start,スタート,,4,e_1149_sutaato.mp3
 expr-1150,cat-92,ストップ,,stop,ストップ,,5,e_1150_sutoppu.mp3
 expr-1151,cat-92,オーケー,,OK / okay,オーケー,,6,e_1151_ookee.mp3
+expr-1152,cat-89,ストーブ,,heater (NOT stove),ストーブ,looks like stove,11,e_1152_sutoobu.mp3
+expr-1153,cat-89,ハンドル,,steering wheel (NOT handle),ハンドル,looks like handle,12,e_1153_handoru.mp3
+expr-1154,cat-89,サイン,,signature / autograph (NOT sign),サイン,looks like sign,13,e_1154_sain.mp3
+expr-1155,cat-89,マフラー,,scarf (NOT muffler),マフラー,looks like muffler,14,e_1155_mafuraa.mp3
+expr-1156,cat-89,トランプ,,playing cards (NOT trump),トランプ,looks like trump,15,e_1156_toranpu.mp3
+expr-1157,cat-89,クーラー,,air conditioner (NOT cooler),クーラー,looks like cooler,16,e_1157_kuuraa.mp3
+expr-1158,cat-89,フリー,,available / not busy (NOT free of charge),フリー,looks like free,17,e_1158_furii.mp3
