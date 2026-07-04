@@ -100,7 +100,7 @@ Decks are stored as GitHub release assets (tagged `anki-vN`) and downloaded at b
 - **Grammar** (~140 cards) - Example sentence with audio -> explanation, grouped by topic
 - **Listening** (43 cards) - Whole dialog/story audio -> transcript and translation
 
-A separate optional expressions deck (`minihongo-{en,ja}-expressions.apkg`, 977 cards) keeps its ~35MB of audio out of the core download. No MH version - front and back would be identical.
+Anki ships only the core course above. An expressions deck (`minihongo-{en,ja}-expressions.apkg`) was built previously but is now **frozen** - a grab-bag of circumlocutions, loanwords, and false friends with no single job. It is no longer built (see `BUILD_EXPRESSION_DECKS` in `generate_anki.py`); the last-released assets remain downloadable but are not updated. Advanced vocabulary lives on the Going Further web page, not in Anki.
 
 Requires: `pip install genanki`
 

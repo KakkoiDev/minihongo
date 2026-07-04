@@ -64,6 +64,11 @@ anki-download:
 	gh release download anki --pattern '*.apkg' --dir . --clobber
 	@echo "Anki decks downloaded"
 
+# Core decks only. The expressions deck is FROZEN (see BUILD_EXPRESSION_DECKS in
+# generate_anki.py) - release targets list the 3 core decks explicitly so a stale
+# on-disk minihongo-*-expressions.apkg can never be re-globbed and re-uploaded.
+CORE_DECKS = minihongo-en.apkg minihongo-ja.apkg minihongo-mh.apkg
+
 # Build Anki decks for all languages (requires genanki + audio/)
 anki:
 	python3 generate_anki.py
@@ -71,14 +76,14 @@ anki:
 # Build with forced new model IDs and release (use when CSS changes, resets progress)
 anki-restyle:
 	python3 generate_anki.py --force-style
-	@echo "Decks: $$(du -sh minihongo-*.apkg | cut -f1 | paste -sd+ | bc)B total"
-	sh scripts/publish-release.sh anki "Anki" minihongo-*.apkg
+	@echo "Decks: $$(du -sh $(CORE_DECKS) | cut -f1 | paste -sd+ | bc)B total"
+	sh scripts/publish-release.sh anki "Anki" $(CORE_DECKS)
 	python3 validate_vocab.py --write-manifest anki
 
 # Upload Anki decks (single release, replaces previous)
 anki-release: anki
-	@echo "Decks: $$(du -sh minihongo-*.apkg | cut -f1 | paste -sd+ | bc)B total"
-	sh scripts/publish-release.sh anki "Anki" minihongo-*.apkg
+	@echo "Decks: $$(du -sh $(CORE_DECKS) | cut -f1 | paste -sd+ | bc)B total"
+	sh scripts/publish-release.sh anki "Anki" $(CORE_DECKS)
 	python3 validate_vocab.py --write-manifest anki
 
 # -- PDF Books ---------------------------------------------------------------

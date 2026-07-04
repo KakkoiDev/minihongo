@@ -45,6 +45,14 @@ import genanki
 DATA = Path('data')
 AUDIO = Path('audio')
 
+# FROZEN (2026-07): the optional expressions deck (minihongo-{en,ja}-expressions.apkg)
+# is no longer built. It was an over-eager grab-bag - base-word circumlocutions +
+# loanwords + false friends under one vague label, with no single job. Anki now ships
+# ONLY the core course: vocabulary + grammar + listening. build_expression_decks and
+# the LANGS 'expressions_output' entries are kept for reference but are not invoked.
+# Previously-released expressions .apkg assets stay on GitHub as-is (frozen, not removed).
+BUILD_EXPRESSION_DECKS = False
+
 # Language config: translation column mappings
 LANGS = {
     'en': {
@@ -713,8 +721,8 @@ def build_deck(lang, categories):
     print(f'  Listening:  {len(listening_decks)} subdecks, {listening_cards} cards')
     print(f'  Audio:      {len(all_media)} files -> {output}')
 
-    # Expressions: separate optional deck, EN/JA only
-    if lang_cfg['expressions_output']:
+    # Expressions: FROZEN - not built. See BUILD_EXPRESSION_DECKS at top of file.
+    if BUILD_EXPRESSION_DECKS and lang_cfg['expressions_output']:
         expression_decks, expression_media = build_expression_decks(categories, lang_cfg)
         expression_cards = sum(len(d.notes) for d in expression_decks)
         expr_output = Path(lang_cfg['expressions_output'])
@@ -723,6 +731,8 @@ def build_deck(lang, categories):
         expr_package.write_to_file(str(expr_output))
         print(f'  Expression: {len(expression_decks)} subdecks, {expression_cards} cards, '
               f'{len(expression_media)} audio -> {expr_output}')
+    elif lang_cfg['expressions_output']:
+        print('  Expression: FROZEN - deck not built (BUILD_EXPRESSION_DECKS=False)')
 
     return output
 
