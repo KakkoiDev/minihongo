@@ -186,6 +186,7 @@ def build_page_context(data, ui_strings, lang, page_file, base_url, page_id_map)
         'NAV_GOING_FURTHER': labels.get('going-further', 'Going Further'),
         'NAV_READING': labels.get('reading', 'Reading'),
         'NAV_PRACTICE': labels.get('practice', 'Practice'),
+        'NAV_UNDERSTANDING': labels.get('understanding', 'Understanding Japan'),
         'FURIGANA_LABEL': ui_str(ui_strings, 'show_readings', lang),
         'DARK_MODE_LABEL': ui_str(ui_strings, 'dark_mode', lang),
         'SLOW_AUDIO_LABEL': ui_str(ui_strings, 'slow_audio', lang),

@@ -21,6 +21,7 @@ PAGE_FILES = {
     'going-further': 'going-further.html',
     'reading': 'texts-dialogs.html',
     'practice': 'practice.html',
+    'understanding': 'understanding.html',
 }
 
 WB_DESC_KEYS = {
@@ -99,7 +100,7 @@ def page_desc(page_row, lang):
 def to_ruby_html(text):
     """Convert bracket notation 人【ひと】 to <ruby>人<rt>ひと</rt></ruby>."""
     return re.sub(
-        r'([\u4e00-\u9fff]+)【([^】]+)】',
+        r'([\u4e00-\u9fff々]+)【([^】]+)】',
         r'<ruby>\1<rt>\2</rt></ruby>',
         text,
     )
@@ -1027,6 +1028,73 @@ def gen_practice(candos, dialog_groups, dialogs, words, grammar, grammar_example
     return wrap_page('practice', ''.join(parts), lang, toc)
 
 
+# -- Understanding Japan page ---------------------------------------------------
+
+def gen_understanding(categories, comprehension, lang):
+    items_by_cat = defaultdict(list)
+    for r in comprehension:
+        items_by_cat[r['category_id']].append(r)
+
+    cats = by_sort([c for c in categories
+                    if c['page_id'] == 'understanding' and not c['parent_id']])
+
+    intro_html = (
+        f'  <p>{ui("understanding_intro", lang)}</p>\n'
+        f'  <p>{ui("understanding_rules", lang)}</p>\n\n'
+    )
+
+    th_jp = ui('th_real_japanese', lang)
+    th_gloss = ui('th_it_means', lang)
+    th_en = ui('th_english', lang)
+    th_where = ui('th_where', lang)
+
+    toc = []
+    parts = []
+    for cat in cats:
+        slug = slugify(cat['name_english'])
+        translated = t(cat, 'name', lang)
+        toc.append((slug, to_ruby_html(esc(translated or cat['name_english']))))
+        heading = bilingual(cat['name_minihongo'], translated)
+        parts.append(f'  <h2 id="{slug}" class="section-heading">{heading}</h2>\n')
+
+        note = t(cat, 'note', lang)
+        if note:
+            parts.append(f'  <p class="category-note">{to_ruby_html(esc(note))}</p>\n')
+
+        parts.append('  <div class="table-scroll"><table class="compound-table">\n')
+        if lang == 'en':
+            parts.append(f'    <thead><tr><th lang="ja">{th_jp}</th><th>{th_en}</th>'
+                         f'<th lang="ja">{th_gloss}</th><th>{th_where}</th></tr></thead>\n')
+        elif lang == 'ja':
+            parts.append(f'    <thead><tr><th lang="ja">{th_jp}</th>'
+                         f'<th lang="ja">{th_gloss}</th><th lang="ja">{th_where}</th></tr></thead>\n')
+        else:
+            parts.append(f'    <thead><tr><th lang="ja">{th_jp}</th>'
+                         f'<th lang="ja">{th_gloss}</th></tr></thead>\n')
+        parts.append('    <tbody>\n')
+
+        # Real-Japanese rows: explicit columns only. t() would fall back to
+        # the japanese column, i.e. return the item itself as its ja meaning.
+        for r in by_sort(items_by_cat.get(cat['id'], [])):
+            pb = play_btn('u', r.get('audio_file', ''))
+            jp = render(r['japanese'])
+            gloss = render(r['minihongo'])
+            if lang == 'en':
+                cells = (f'<td lang="ja">{pb}{jp}</td><td>{esc(r["english"])}</td>'
+                         f'<td lang="ja">{gloss}</td><td>{esc(r["where_english"])}</td>')
+            elif lang == 'ja':
+                cells = (f'<td lang="ja">{pb}{jp}</td><td lang="ja">{gloss}</td>'
+                         f'<td lang="ja">{esc(r["where_japanese"])}</td>')
+            else:
+                cells = f'<td lang="ja">{pb}{jp}</td><td lang="ja">{gloss}</td>'
+            parts.append(f'      <tr>{cells}</tr>\n')
+
+        parts.append('    </tbody>\n')
+        parts.append('  </table></div>\n\n')
+
+    return wrap_page('understanding', ''.join(parts), lang, toc, pre_toc=intro_html)
+
+
 # -- Main ---------------------------------------------------------------------
 
 def main():
@@ -1065,6 +1133,7 @@ def main():
     dialogs_data = load_csv('dialogs')
     stories = load_csv('stories')
     candos = load_csv('candos')
+    comprehension = load_csv('comprehension')
 
     for lang in LANGS:
         if lang == 'en':
@@ -1088,6 +1157,7 @@ def main():
             ('going-further', gen_going_further(categories, compounds, expressions, lang)),
             ('reading', gen_reading(categories, haiku, dialog_groups, dialogs_data, stories, lang)),
             ('practice', gen_practice(candos, dialog_groups, dialogs_data, words, grammar, grammar_examples, lang)),
+            ('understanding', gen_understanding(categories, comprehension, lang)),
         ]
 
         for page_id, html in pages:

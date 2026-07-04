@@ -854,6 +854,86 @@
           }
         ]
       }
+    },
+    {
+      "name": "comprehension",
+      "path": "comprehension.csv",
+      "schema": {
+        "fields": [
+          {
+            "name": "id",
+            "type": "string",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "category_id",
+            "type": "string",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "japanese",
+            "type": "string",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "english",
+            "type": "string",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "minihongo",
+            "type": "string",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "where_english",
+            "type": "string"
+          },
+          {
+            "name": "where_japanese",
+            "type": "string"
+          },
+          {
+            "name": "tts_text",
+            "type": "string"
+          },
+          {
+            "name": "sort_order",
+            "type": "integer",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "audio_file",
+            "type": "string"
+          }
+        ],
+        "primaryKey": "id",
+        "foreignKeys": [
+          {
+            "fields": [
+              "category_id"
+            ],
+            "reference": {
+              "resource": "categories",
+              "fields": [
+                "id"
+              ]
+            }
+          }
+        ]
+      }
     }
   ]
 }

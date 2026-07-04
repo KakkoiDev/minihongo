@@ -264,6 +264,8 @@ VALIDATE_CONTENT = {
     'candos': ['minihongo'],
     # compounds: only definition_minihongo (minihongo col uses real Japanese)
     'compounds': ['definition_minihongo'],
+    # comprehension: only the gloss (japanese/tts_text cols use real Japanese)
+    'comprehension': ['minihongo'],
 }
 
 # Metadata columns (categories, UI, pages) - validate separately, less strict

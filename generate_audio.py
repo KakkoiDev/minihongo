@@ -3,7 +3,7 @@
 
 Voices:
   - ja-JP-KeitaNeural (male) - words, grammar, compounds, expressions, stories, haiku
-  - ja-JP-NanamiNeural (female) - dialog speaker B lines
+  - ja-JP-NanamiNeural (female) - dialog speaker B lines, clerk/announcement comprehension
 
 Output:
   audio/
@@ -14,6 +14,7 @@ Output:
     h/       haiku (h_{id_num}.mp3) - one per haiku
     d/       dialogs (d_{group_id}.mp3) - merged per group
     s/       stories (s_{id_num}.mp3) - merged per story
+    u/       comprehension (u_{id_num}_{romaji}.mp3)
 
 Requires: pip install edge-tts
 Requires: ffmpeg (for merging dialog/story audio)
@@ -186,7 +187,7 @@ def text_for_tts(text):
             return kanji
         return reading
 
-    text = re.sub(r'[\u4e00-\u9fff\u3400-\u4dbf]+【([^】]+)】', _replace, text)
+    text = re.sub(r'[\u4e00-\u9fff\u3400-\u4dbf々]+【([^】]+)】', _replace, text)
     # Particle は after hiragana should be read as "wa", not "ha".
     # All は-reading kanji (母,花,鼻,入,始,歯,半,払) are in _KEEP_KANJI,
     # so any remaining は after a hiragana char is a particle.
@@ -603,6 +604,40 @@ async def gen_stories():
     return results
 
 
+async def gen_comprehension():
+    """Generate audio for comprehension items (real Japanese, natural speed).
+
+    Clerk phrases and announcements use the female voice - that is what
+    they sound like in real Japan. tts_text overrides the bracket-notation
+    pipeline for rows TTS would mangle (○○ placeholders, ・ alternatives).
+    """
+    rows = load_csv('comprehension')
+    out = AUDIO_OUT / 'u'
+    out.mkdir(parents=True, exist_ok=True)
+
+    female_cats = {'cat-96', 'cat-97'}
+    results = []
+    for row in rows:
+        num = id_num(row['id'])
+        romaji = to_romaji_filename(re.sub(r'[○〇]', '', row['japanese']))
+        filename = f'u_{num}_{romaji}.mp3'
+        if len(filename) > 80:
+            filename = f'u_{num}.mp3'
+        path = out / filename
+        if not path.exists():
+            tts_text = row.get('tts_text', '').strip()
+            if tts_text:
+                if tts_text[-1] not in '。！？':
+                    tts_text += '。'
+            else:
+                tts_text = text_for_tts(row['japanese'])
+            voice = VOICE_FEMALE if row['category_id'] in female_cats else VOICE_MALE
+            await tts_generate(tts_text, voice, path)
+            print(f'  {filename}')
+        results.append((row['id'], filename))
+    return results
+
+
 # ── DB update ───────────────────────────────────────────────────────
 
 def update_csv(name, results, id_field='id', audio_field='audio_file'):
@@ -678,7 +713,7 @@ def update_datapackage():
             if 'audio_example' not in field_names:
                 fields.append(audio_example)
         elif res['name'] in ('grammar_examples', 'compounds', 'expressions',
-                              'haiku', 'dialog_groups', 'stories'):
+                              'haiku', 'dialog_groups', 'stories', 'comprehension'):
             if 'audio_file' not in field_names:
                 fields.append(audio_field)
 
@@ -693,7 +728,8 @@ async def main():
     import argparse
     parser = argparse.ArgumentParser(description='Generate TTS audio for minihongo')
     parser.add_argument('--only', choices=['words', 'grammar', 'grammar_intro', 'compounds',
-                                           'expressions', 'haiku', 'dialogs', 'stories'],
+                                           'expressions', 'haiku', 'dialogs', 'stories',
+                                           'comprehension'],
                         help='Generate only one category')
     parser.add_argument('--db-only', action='store_true',
                         help='Only update CSV schemas, no audio generation')
@@ -726,6 +762,7 @@ async def main():
         'haiku': (gen_haiku, lambda r: update_csv('haiku', r)),
         'dialogs': (gen_dialogs, lambda r: update_csv('dialog_groups', r)),
         'stories': (gen_stories, lambda r: update_csv('stories', r)),
+        'comprehension': (gen_comprehension, lambda r: update_csv('comprehension', r)),
     }
 
     to_run = [args.only] if args.only else list(tasks.keys())

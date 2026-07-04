@@ -82,3 +82,8 @@ practice_ai_body,"Copy this prompt into ChatGPT, Claude, or Gemini, then start w
 practice_ai_show,Show prompt,プロンプトを表示,言葉【ことば】を見【み】る
 practice_ai_copy,Copy prompt,プロンプトをコピー,言葉【ことば】をもらう
 practice_ai_copied,Copied!,コピーしました,もらいました
+understanding_intro,"Japan will not speak minihongo back to you. The clerk speaks keigo, the signs use kanji you were never taught, the train announces itself in full Japanese. This page is the other half of living here: words you never need to say - only to recognize when Japan says them at you.",日本はミニ本語で話しかけてはくれない。店員は敬語、看板は習っていない漢字、電車は本物の日本語でアナウンスする。ここにあるのは、言う必要のない言葉。向こうから来たときに分かればいい。,日本【にほん】はあなたの言【こと】葉【ば】で話【はな】さない。でも大丈夫【だいじょうぶ】。ここの言【こと】葉【ば】は、言【い】わない言【こと】葉【ば】。聞【き】いて、見【み】て、分【わ】かるだけ。
+understanding_rules,"Recognize only - never say. Your speaking vocabulary stays the 225 words, and every meaning below is explained using only those words.",覚えるのは「分かる」ためだけ。話すのは今までどおり225語。下の意味もすべて225語だけで書いてある。,言【い】うのは、いつもの225の言【こと】葉【ば】だけ。下【した】の「何【なに】の事【こと】」も、全部【ぜんぶ】その言【こと】葉【ば】で書【か】いてある。
+th_real_japanese,Real Japanese,日本語,日本【にほん】の言【こと】葉【ば】
+th_it_means,It means,意味,何【なに】の事【こと】
+th_where,Where you meet it,どこで,

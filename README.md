@@ -18,6 +18,8 @@ Live at [minihongo.com](https://minihongo.com)
 | Grammar | Particles, conjugation, sentence patterns |
 | Word Building | Compounds, circumlocution, expressions |
 | Reading | Haiku, dialogs, and short stories |
+| Practice | Real-life can-do checklist, quizzes, AI conversation prompt |
+| Understanding Japan | Real Japanese to recognize, never say: signs, clerk phrases, announcements, forms |
 
 ## Languages
 
@@ -137,6 +139,7 @@ data/
 ├── grammar_examples.csv    # Examples per grammar point
 ├── compounds.csv           # Kanji compounds from the base words
 ├── expressions.csv         # Creative descriptions from base words
+├── comprehension.csv       # Understanding Japan - receptive-only real Japanese
 ├── haiku.csv, dialogs.csv, stories.csv  # Reading content
 ├── ui_strings.csv          # UI text (en/ja/mh)
 └── pages.csv               # Page metadata and nav labels
