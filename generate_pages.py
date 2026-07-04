@@ -550,13 +550,37 @@ def gen_word_building(categories, compounds, expressions, lang):
 
 # -- Going Further ------------------------------------------------------------
 
-def gen_going_further(categories, compounds, expressions, lang):
+def _render_advanced_table(parts, rows, lang):
+    """Advanced vocab: real Japanese word (with furigana) + English meaning.
+    ja page shows the word alone (native speakers need no gloss); en/mh add English."""
+    th_word = ui('th_word', lang)
+    parts.append('  <div class="table-scroll"><table class="compound-table">\n')
+    if lang == 'ja':
+        parts.append(f'    <thead><tr><th lang="ja">{th_word}</th></tr></thead>\n')
+    else:
+        th_english = ui('th_english', lang)
+        parts.append(f'    <thead><tr><th lang="ja">{th_word}</th><th>{th_english}</th></tr></thead>\n')
+    parts.append('    <tbody>\n')
+    for r in rows:
+        pb = play_btn('a', r.get('audio_file', ''))
+        word = to_ruby_html(r['japanese'])
+        if lang == 'ja':
+            parts.append(f'      <tr><td lang="ja">{pb}{word}</td></tr>\n')
+        else:
+            parts.append(f'      <tr><td lang="ja">{pb}{word}</td><td>{esc(r["english"])}</td></tr>\n')
+    parts.append('    </tbody>\n  </table></div>\n')
+
+
+def gen_going_further(categories, compounds, expressions, advanced, lang):
     compounds_by_cat = defaultdict(list)
     for c in compounds:
         compounds_by_cat[c['category_id']].append(c)
     expressions_by_cat = defaultdict(list)
     for e in expressions:
         expressions_by_cat[e['category_id']].append(e)
+    advanced_by_cat = defaultdict(list)
+    for a in advanced:
+        advanced_by_cat[a['category_id']].append(a)
 
     h2_cats = by_sort([c for c in categories
                        if c['page_id'] == 'going-further' and not c['parent_id']])
@@ -598,6 +622,10 @@ def gen_going_further(categories, compounds, expressions, lang):
             if desc_key == 'wb_desc_compounds':
                 warning = ui('wb_reading_warning', lang)
                 parts.append(f'  <p class="reading-warning">{warning}</p>\n')
+        else:
+            h2_note = t(h2, 'note', lang)
+            if h2_note:
+                parts.append(f'  <p>{to_ruby_html(esc(h2_note))}</p>\n')
         parts.append('\n')
 
         for h3 in children.get(h2['id'], []):
@@ -608,6 +636,7 @@ def gen_going_further(categories, compounds, expressions, lang):
 
             cat_compounds = by_sort(compounds_by_cat.get(h3['id'], []))
             cat_expressions = by_sort(expressions_by_cat.get(h3['id'], []))
+            cat_advanced = by_sort(advanced_by_cat.get(h3['id'], []))
 
             if cat_compounds:
                 _render_compound_table(parts, cat_compounds, lang)
@@ -617,6 +646,8 @@ def gen_going_further(categories, compounds, expressions, lang):
                     _render_common_table(parts, cat_expressions, lang)
                 else:
                     _render_concept_table(parts, cat_expressions, lang)
+            elif cat_advanced:
+                _render_advanced_table(parts, cat_advanced, lang)
 
             parts.append('\n')
 
@@ -1138,6 +1169,7 @@ def main():
     stories = load_csv('stories')
     candos = load_csv('candos')
     comprehension = load_csv('comprehension')
+    advanced = load_csv('advanced')
 
     for lang in LANGS:
         if lang == 'en':
@@ -1158,7 +1190,7 @@ def main():
             ('vocabulary', gen_vocabulary(categories, words, lang)),
             ('grammar', gen_grammar(categories, grammar, grammar_examples, lang)),
             ('word-building', gen_word_building(categories, compounds, expressions, lang)),
-            ('going-further', gen_going_further(categories, compounds, expressions, lang)),
+            ('going-further', gen_going_further(categories, compounds, expressions, advanced, lang)),
             ('reading', gen_reading(categories, haiku, dialog_groups, dialogs_data, stories, lang)),
             ('practice', gen_practice(candos, dialog_groups, dialogs_data, words, grammar, grammar_examples, lang)),
             ('understanding', gen_understanding(categories, comprehension, lang)),

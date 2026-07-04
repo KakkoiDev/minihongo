@@ -15,6 +15,7 @@ Output:
     d/       dialogs (d_{group_id}.mp3) - merged per group
     s/       stories (s_{id_num}.mp3) - merged per story
     u/       comprehension (u_{id_num}_{romaji}.mp3)
+    a/       advanced vocab (a_{id_num}_{romaji}.mp3)
 
 Requires: pip install edge-tts
 Requires: ffmpeg (for merging dialog/story audio)
@@ -638,6 +639,27 @@ async def gen_comprehension():
     return results
 
 
+async def gen_advanced():
+    """Generate audio for advanced vocab (real Japanese, single male voice)."""
+    rows = load_csv('advanced')
+    out = AUDIO_OUT / 'a'
+    out.mkdir(parents=True, exist_ok=True)
+
+    results = []
+    for row in rows:
+        num = id_num(row['id'])
+        romaji = to_romaji_filename(row['japanese'], row.get('reading', ''))
+        filename = f'a_{num}_{romaji}.mp3'
+        if len(filename) > 80:
+            filename = f'a_{num}.mp3'
+        path = out / filename
+        if not path.exists():
+            await tts_generate(text_for_tts(row['japanese']), VOICE_MALE, path)
+            print(f'  {filename}')
+        results.append((row['id'], filename))
+    return results
+
+
 # ── DB update ───────────────────────────────────────────────────────
 
 def update_csv(name, results, id_field='id', audio_field='audio_file'):
@@ -713,7 +735,8 @@ def update_datapackage():
             if 'audio_example' not in field_names:
                 fields.append(audio_example)
         elif res['name'] in ('grammar_examples', 'compounds', 'expressions',
-                              'haiku', 'dialog_groups', 'stories', 'comprehension'):
+                              'haiku', 'dialog_groups', 'stories', 'comprehension',
+                              'advanced'):
             if 'audio_file' not in field_names:
                 fields.append(audio_field)
 
@@ -729,7 +752,7 @@ async def main():
     parser = argparse.ArgumentParser(description='Generate TTS audio for minihongo')
     parser.add_argument('--only', choices=['words', 'grammar', 'grammar_intro', 'compounds',
                                            'expressions', 'haiku', 'dialogs', 'stories',
-                                           'comprehension'],
+                                           'comprehension', 'advanced'],
                         help='Generate only one category')
     parser.add_argument('--db-only', action='store_true',
                         help='Only update CSV schemas, no audio generation')
@@ -763,6 +786,7 @@ async def main():
         'dialogs': (gen_dialogs, lambda r: update_csv('dialog_groups', r)),
         'stories': (gen_stories, lambda r: update_csv('stories', r)),
         'comprehension': (gen_comprehension, lambda r: update_csv('comprehension', r)),
+        'advanced': (gen_advanced, lambda r: update_csv('advanced', r)),
     }
 
     to_run = [args.only] if args.only else list(tasks.keys())

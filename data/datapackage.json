@@ -934,6 +934,71 @@
           }
         ]
       }
+    },
+    {
+      "name": "advanced",
+      "path": "advanced.csv",
+      "schema": {
+        "fields": [
+          {
+            "name": "id",
+            "type": "string",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "category_id",
+            "type": "string",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "japanese",
+            "type": "string",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "reading",
+            "type": "string"
+          },
+          {
+            "name": "english",
+            "type": "string",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "sort_order",
+            "type": "integer",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "audio_file",
+            "type": "string"
+          }
+        ],
+        "primaryKey": "id",
+        "foreignKeys": [
+          {
+            "fields": [
+              "category_id"
+            ],
+            "reference": {
+              "resource": "categories",
+              "fields": [
+                "id"
+              ]
+            }
+          }
+        ]
+      }
     }
   ]
 }
