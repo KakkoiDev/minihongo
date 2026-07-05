@@ -147,3 +147,9 @@ The few remaining leaks (えき, コンビニ, カード, abbreviated day names,
 The daily-life dialogs moved from Extension to Core. The 206-word claim holds across all CSV content and the generated site. The PDF books are generated artifacts - rebuild them (`make pdf`) after any vocabulary change so the shipped files match.
 
 Kanji compounds and loan words archived to ARCHIVE-LOANWORDS-COMPOUNDS.md for reference.
+
+---
+
+## Amendment (2026-07-05)
+
+The resolution above was reversed in practice during the Jul 3-4 content burst (loanwords back in expressions.csv, plus Understanding Japan and Advanced Vocabulary tiers) without being recorded here. The replacement position - a three-layer identity with the productive claim scoped strictly to the 231-word core - is recorded in DECISIONS.md (2026-07-05: Honest tiering). This file stays as the history of the original dilemma; the layer boundary it asked for now exists, drawn between productive and receptive rather than between core and archive.

@@ -2,6 +2,19 @@
 
 Intent and rationale for content/system changes. Newest first. Each entry: what changed, why, what was rejected.
 
+## 2026-07-05: Honest tiering - the 2026-03-30 "archive loanwords" resolution is superseded
+
+The Jul 3-4 burst re-added loanwords (82 katakana + 7 false friends into expressions.csv) and added two real-Japanese tiers (Understanding Japan, 121 receptive-only items; Advanced Vocabulary, 151 words), reversing the DILEMMA.md resolution without recording it. This entry records it, and names the identity going forward:
+
+- **Productive core**: 231 words, closed. Every speaking claim stays scoped to this. The books and Anki decks ship the core only.
+- **Receptive layer**: Understanding Japan. Recognize only, never say; glosses written in core words.
+- **Exit ramp**: Going Further (compounds, loanwords, advanced). Explicitly labeled "beyond the core"; advanced words now cross-link to their Word Building circumlocutions so the tiers read as one progression.
+
+Messaging updated to match (homepage tagline, README table, outreach cover note). Count-claim lint extended to OUTREACH.md and generate_pages.py after two "225" claims drifted outside the fence.
+
+- **Rejected**: re-archiving the new tiers to honor the March resolution. The receptive/productive boundary is principled and the NGO audience needs the practical layer; deleting curated content to preserve a slogan serves the slogan, not the learner.
+- **Rule going forward**: no further content tiers until the OUTREACH.md shipment produces feedback. The March deferral ("measure before restructuring") was ignored once; it still applies.
+
 ## 2026-06-14: Anki decks - drop the redundant example "translation" on JA/MH
 
 The JA and MH cards showed the example sentence twice. Cause: one card template serves all three decks, and its example-translation slot is a real translation only for EN. For JA it rendered the same sentence with furigana stripped; for MH it was the byte-identical minihongo example.
