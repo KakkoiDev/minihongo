@@ -32,11 +32,12 @@ import sys
 import tempfile
 from pathlib import Path
 
+from mh_common import DATA, load_csv, strip_furigana
+
 # ── Config ──────────────────────────────────────────────────────────
 
 VOICE_MALE = 'ja-JP-KeitaNeural'
 VOICE_FEMALE = 'ja-JP-NanamiNeural'
-DATA = Path('data')
 AUDIO_OUT = Path('audio')
 SILENCE_MS = 600  # silence between merged segments
 
@@ -129,13 +130,7 @@ def kana_to_romaji(text):
 
 # ── Text processing ─────────────────────────────────────────────────
 
-_FURIGANA_RE = re.compile(r'【[^】]+】')
 _FURIGANA_EXTRACT_RE = re.compile(r'([^【]*)【([^】]+)】')
-
-
-def strip_furigana(text):
-    """Remove bracket furigana, leaving kanji for TTS engine."""
-    return _FURIGANA_RE.sub('', text)
 
 
 def extract_reading(text):
@@ -227,11 +222,6 @@ def to_romaji_filename(text, reading_col=''):
 
 
 # ── CSV helpers ──────────────────────────────────────────────────────
-
-def load_csv(name):
-    with open(DATA / f'{name}.csv', newline='', encoding='utf-8') as f:
-        return list(csv.DictReader(f))
-
 
 def id_num(row_id):
     """Extract numeric part: 'word-42' -> '42'."""

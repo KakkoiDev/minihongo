@@ -4,14 +4,14 @@
 # dependencies = ["segno"]
 # ///
 """Generate Typst source files and compile to PDF for each language."""
-import csv
 import re
 import subprocess
 import sys
 from collections import defaultdict
 from pathlib import Path
 
-DATA = Path('data')
+from mh_common import LANGS, LANG_COL, load_csv, strip_furigana
+
 TYPST_DIR = Path('typst')
 LOGO = Path('site/static/logo.svg')
 
@@ -21,8 +21,6 @@ LOGO = Path('site/static/logo.svg')
 # ships a 3-lesson book. `--no-word-building` overrides for ad-hoc 3-lesson builds.
 WORD_BUILDING = True
 
-LANGS = ['en', 'ja', 'mh']
-LANG_COL = {'en': 'english', 'ja': 'japanese', 'mh': 'minihongo'}
 MEANING_COL = {'en': 'english', 'ja': 'japanese', 'mh': 'definition_minihongo'}
 TITLE_COL = {'en': 'title_english', 'ja': 'title_japanese', 'mh': 'title_minihongo'}
 EXPLANATION_COL = {'en': 'explanation_english', 'ja': 'explanation_japanese', 'mh': 'explanation_minihongo'}
@@ -59,11 +57,6 @@ CH_WORD_BUILDING = {'en': 'Word Building', 'ja': '\u9020\u8a9e', 'mh': '\u8a00\u
 CH_READING = {'en': 'Reading', 'ja': '\u8aad\u307f\u7269', 'mh': '\u8aad\u307f\u7269'}
 
 FURIGANA_RE = re.compile(r'([\u4e00-\u9fff]+)\u3010([^\u3011]+)\u3011')
-
-
-def load_csv(name):
-    with open(DATA / f'{name}.csv', encoding='utf-8') as f:
-        return list(csv.DictReader(f))
 
 
 def by_sort(rows):
@@ -139,13 +132,6 @@ def to_ruby(text):
         last = m.end()
     parts.append(esc(text[last:]))
     return ''.join(parts)
-
-
-def strip_furigana(text):
-    """Remove furigana brackets, keep kanji."""
-    if not text:
-        return ''
-    return FURIGANA_RE.sub(r'\1', text)
 
 
 def generate_qr_svg():

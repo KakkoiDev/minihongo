@@ -14,14 +14,13 @@ Exceptions:
   - Category/UI metadata fields (name_minihongo, note_minihongo, etc.)
 """
 
-import csv
 import hashlib
 import re
 import sys
 from collections import defaultdict
 from pathlib import Path
 
-DATA = Path('data')
+from mh_common import DATA, load_csv
 
 # Banned words: kana-only words that are NOT in the base vocabulary.
 # These look like they could be valid minihongo but they aren't.
@@ -107,11 +106,6 @@ ALTERNATE_READINGS = {
     '光': {'ひか'},               # 光(ひかり) -> 光る(ひか) verb stem
     '年': {'ねん'},               # 年(とし) -> 百年(ひゃくねん) on'yomi
 }
-
-
-def load_csv(name):
-    with open(DATA / f'{name}.csv', newline='', encoding='utf-8') as f:
-        return list(csv.DictReader(f))
 
 
 def build_vocab():
@@ -386,19 +380,19 @@ ARTIFACT_SOURCES = {
     'anki': {
         'manifest': '.anki-manifest',
         'rebuild': 'make anki-release',
-        'generators': ['generate_anki.py'],
+        'generators': ['generate_anki.py', 'mh_common.py'],
         'extra': [],
     },
     'pdf': {
         'manifest': '.pdf-manifest',
         'rebuild': 'make pdf-release',
-        'generators': ['generate_pdf.py'],
+        'generators': ['generate_pdf.py', 'mh_common.py'],
         'extra': ['typst/template.typ'],
     },
     'audio': {
         'manifest': '.audio-manifest',
         'rebuild': 'make audio-release',
-        'generators': ['generate_audio.py'],
+        'generators': ['generate_audio.py', 'mh_common.py'],
         'extra': [],
     },
 }

@@ -31,7 +31,6 @@ Card types:
 Requires: pip install genanki
 """
 
-import csv
 import hashlib
 import random
 import re
@@ -40,9 +39,10 @@ from pathlib import Path
 
 import genanki
 
+from mh_common import DATA, load_csv, strip_furigana
+
 # ── Config ──────────────────────────────────────────────────────────
 
-DATA = Path('data')
 AUDIO = Path('audio')
 
 # FROZEN (2026-07): the optional expressions deck (minihongo-{en,ja}-expressions.apkg)
@@ -120,11 +120,6 @@ def to_ruby_html(text):
         r'<ruby>\1<rt>\2</rt></ruby>',
         text,
     )
-
-
-def strip_furigana(text):
-    """Remove furigana brackets: 漢字【かんじ】 -> 漢字."""
-    return re.sub(r'【[^】]+】', '', text)
 
 
 # ── Card models ─────────────────────────────────────────────────────
@@ -405,10 +400,6 @@ def create_expression_model(lang_cfg):
 
 
 # ── Data loading ────────────────────────────────────────────────────
-
-def load_csv(name):
-    with open(DATA / f'{name}.csv', newline='', encoding='utf-8') as f:
-        return list(csv.DictReader(f))
 
 
 def load_categories():

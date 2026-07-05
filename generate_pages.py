@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 """Generate lesson HTML pages from CSV data for all languages."""
-import csv
 import hashlib
 import html as html_mod
 import re
@@ -8,11 +7,9 @@ import sys
 from pathlib import Path
 from collections import defaultdict
 
-DATA = Path('data')
-PAGES_OUT = Path('site/pages')
+from mh_common import LANGS, LANG_COL, load_csv, strip_furigana
 
-LANGS = ['en', 'ja', 'mh']
-LANG_COL = {'en': 'english', 'ja': 'japanese', 'mh': 'minihongo'}
+PAGES_OUT = Path('site/pages')
 
 PAGE_FILES = {
     'vocabulary': 'vocabulary.html',
@@ -42,12 +39,6 @@ def play_btn(subdir, audio_file):
 
 
 # -- Data loading -------------------------------------------------------------
-
-def load_csv(name):
-    """Read data/{name}.csv into list of dicts."""
-    with open(DATA / f'{name}.csv', encoding='utf-8') as f:
-        return list(csv.DictReader(f))
-
 
 def load_ui_strings():
     global UI_STRINGS
@@ -104,11 +95,6 @@ def to_ruby_html(text):
         r'<ruby>\1<rt>\2</rt></ruby>',
         text,
     )
-
-
-def strip_ruby(text):
-    """Remove bracket furigana: 人【ひと】 -> 人."""
-    return re.sub(r'【[^】]+】', '', text)
 
 
 def esc(text):
@@ -564,7 +550,7 @@ def _render_advanced_table(parts, rows, lang, mh_for_target):
     for r in rows:
         pb = play_btn('a', r.get('audio_file', ''))
         word = to_ruby_html(r['japanese'])
-        expr = mh_for_target.get(strip_ruby(r['japanese']))
+        expr = mh_for_target.get(strip_furigana(r['japanese']))
         mh_cell = ''
         if expr:
             mh_cell = f'{play_btn("e", expr.get("audio_file", ""))}{to_ruby_html(expr["minihongo"])}'
