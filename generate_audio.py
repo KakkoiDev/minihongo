@@ -682,7 +682,7 @@ def update_csv(name, results, id_field='id', audio_field='audio_file'):
             row[audio_field] = ''
 
     with open(path, 'w', newline='', encoding='utf-8') as f:
-        writer = csv.DictWriter(f, fieldnames=fieldnames)
+        writer = csv.DictWriter(f, fieldnames=fieldnames, lineterminator='\n')
         writer.writeheader()
         writer.writerows(rows)
 
@@ -710,7 +710,7 @@ def update_words_csv(results):
             row.setdefault('audio_example', '')
 
     with open(path, 'w', newline='', encoding='utf-8') as f:
-        writer = csv.DictWriter(f, fieldnames=fieldnames)
+        writer = csv.DictWriter(f, fieldnames=fieldnames, lineterminator='\n')
         writer.writeheader()
         writer.writerows(rows)
 
