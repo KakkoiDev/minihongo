@@ -51,6 +51,25 @@
             "type": "string"
           },
           {
+            "name": "gloss_en",
+            "type": "string"
+          },
+          {
+            "name": "gloss_ja",
+            "type": "string"
+          },
+          {
+            "name": "gloss_mh",
+            "type": "string"
+          },
+          {
+            "name": "nav_group",
+            "type": "string",
+            "constraints": {
+              "enum": ["core", "beyond"]
+            }
+          },
+          {
             "name": "sort_order",
             "type": "integer",
             "constraints": {

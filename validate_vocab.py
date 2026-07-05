@@ -273,7 +273,7 @@ VALIDATE_CONTENT = {
 # Metadata columns (categories, UI, pages) - validate separately, less strict
 VALIDATE_META = {
     'categories': ['name_minihongo', 'note_minihongo'],
-    'pages': ['name_minihongo'],
+    'pages': ['name_minihongo', 'desc_mh', 'gloss_mh'],
     'ui_strings': ['mh'],
     'dialogs': ['speaker_minihongo'],
 }
