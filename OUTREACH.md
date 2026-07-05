@@ -43,14 +43,14 @@ Starting points for finding them: municipal international associations (国際�
 
 Hello,
 
-This is Minihongo: a free Japanese textbook built on 225 words. The idea: a learner masters a small, closed vocabulary plus minimal grammar, and expresses everything by combining words - "hospital" is 体を助ける所, "the place that helps bodies". It is designed for learners with very little time, and for volunteers with no teaching training: everything fits in this one printable book.
+This is Minihongo: a free Japanese textbook built on 231 words. The idea: a learner masters a small, closed vocabulary plus minimal grammar, and expresses everything by combining words - "hospital" is 体を助ける所, "the place that helps bodies". It is designed for learners with very little time, and for volunteers with no teaching training: everything fits in this one printable book.
 
 I am looking for honest feedback from people who actually teach. If you can try any part of this with one or two students, I want to know two things:
 
 1. Can your students make sentences with this?
 2. What situation came up that this didn't cover?
 
-Rough notes by email are perfect. Everything is free, no account, no strings: the site (with audio and flashcards) is at minihongo.com, and this book is the same content on paper.
+Rough notes by email are perfect. Everything is free, no account, no strings: this book is the speaking core on paper, and the site at minihongo.com adds audio, flashcards, and recognition-only material for real-life Japan (signs, announcements, what the clerk says).
 
 Thank you,
 Cyril - contact@kakkoi.dev

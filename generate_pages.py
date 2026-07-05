@@ -1036,7 +1036,7 @@ def gen_practice(candos, dialog_groups, dialogs, words, grammar, grammar_example
     word_list = ', '.join(f'{w["minihongo"]} ({w["english"]})' for w in by_sort(words))
     prompt = (
         'You are my Japanese conversation partner for Minihongo practice.\n'
-        'Minihongo is Japanese restricted to 225 base words plus standard grammar '
+        f'Minihongo is Japanese restricted to {len(words)} base words plus standard grammar '
         '(particles, verb conjugation, te-form, polite ます/です).\n'
         '\n'
         'Rules:\n'
@@ -1049,7 +1049,7 @@ def gen_practice(candos, dialog_groups, dialogs, words, grammar, grammar_example
         '5. Use ます/です politeness. Modern grammar only.\n'
         '6. Start now: greet me and ask one simple question.\n'
         '\n'
-        f'The 225 words: {word_list}'
+        f'The {len(words)} words: {word_list}'
     )
     parts.append('  <details class="ai-prompt-box">\n')
     parts.append(f'    <summary>{ui("practice_ai_show", lang)}</summary>\n')

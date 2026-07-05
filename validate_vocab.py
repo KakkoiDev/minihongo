@@ -313,10 +313,17 @@ COUNT_CLAIM_PATTERNS = [
     re.compile(r'(\d+)\s+base vocabulary'),  # README: "words.csv  # 206 base vocabulary"
 ]
 
-# Tracked docs that state the current word count. RESEARCH.md and DILEMMA.md are
+# Tracked files that state the current word count. RESEARCH.md and DILEMMA.md are
 # excluded: they discuss comparative and tiered counts (Toki Pona's 120 words,
 # "~60-80 words" loanword tiers) that legitimately differ from the vocab size.
-COUNT_CLAIM_DOCS = ['README.md', '.claude/skills/minihongo/SKILL.md']
+# generate_pages.py is scanned as text: the AI-partner prompt once hardcoded
+# "225 base words" in a string literal while interpolating 231 words below it.
+COUNT_CLAIM_DOCS = [
+    'README.md',
+    '.claude/skills/minihongo/SKILL.md',
+    'OUTREACH.md',
+    'generate_pages.py',
+]
 
 
 def check_count_claims(expected):
