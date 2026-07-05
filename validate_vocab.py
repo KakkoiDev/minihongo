@@ -266,6 +266,8 @@ VALIDATE_CONTENT = {
     'compounds': ['definition_minihongo'],
     # comprehension: only the gloss (japanese/tts_text cols use real Japanese)
     'comprehension': ['minihongo'],
+    # advanced: exempt on purpose - every column (japanese/reading/english) is
+    # real Japanese or English by design; there is no minihongo column to check
 }
 
 # Metadata columns (categories, UI, pages) - validate separately, less strict
@@ -524,7 +526,7 @@ if __name__ == '__main__':
     argv = sys.argv[1:]
     if argv[:1] == ['--write-manifest']:
         if len(argv) < 2:
-            print('usage: validate_vocab.py --write-manifest <anki|pdf>')
+            print('usage: validate_vocab.py --write-manifest <anki|pdf|audio>')
             sys.exit(2)
         sys.exit(write_manifest(argv[1]))
     if argv[:1] == ['--check-freshness']:
