@@ -49,12 +49,12 @@ AUDIO = Path('audio')
 # is no longer built. It was an over-eager grab-bag - base-word circumlocutions +
 # loanwords + false friends under one vague label, with no single job. Anki now ships
 # ONLY the core course: vocabulary + grammar + listening. build_expression_decks and
-# the LANGS 'expressions_output' entries are kept for reference but are not invoked.
+# the DECKS 'expressions_output' entries are kept for reference but are not invoked.
 # Previously-released expressions .apkg assets stay on GitHub as-is (frozen, not removed).
 BUILD_EXPRESSION_DECKS = False
 
 # Language config: translation column mappings
-LANGS = {
+DECKS = {
     'en': {
         'deck_name': 'Minihongo (EN)',
         'output': 'minihongo-en.apkg',
@@ -688,7 +688,7 @@ def build_expression_decks(categories, lang_cfg):
 
 def build_deck(lang, categories):
     """Build a complete deck for one language."""
-    lang_cfg = LANGS[lang]
+    lang_cfg = DECKS[lang]
 
     vocab_decks, vocab_media = build_vocab_decks(categories, lang_cfg)
     vocab_cards = sum(len(d.notes) * 2 for d in vocab_decks)
@@ -733,17 +733,17 @@ def build_deck(lang, categories):
 def main():
     args = sys.argv[1:]
     force_style = '--force-style' in args
-    langs = [a for a in args if not a.startswith('--')] or list(LANGS.keys())
+    langs = [a for a in args if not a.startswith('--')] or list(DECKS.keys())
 
     for lang in langs:
-        if lang not in LANGS:
-            print(f'Unknown language: {lang}. Choose from: {", ".join(LANGS)}')
+        if lang not in DECKS:
+            print(f'Unknown language: {lang}. Choose from: {", ".join(DECKS)}')
             sys.exit(1)
 
     if force_style:
         # Offset model IDs by CSS hash so Anki creates new models with updated styles
         css_hash = int(hashlib.sha256(SHARED_CSS.encode()).hexdigest()[:6], 16)
-        for cfg in LANGS.values():
+        for cfg in DECKS.values():
             cfg['vocab_model_id'] += css_hash
             cfg['grammar_model_id'] += css_hash
             cfg['listening_model_id'] += css_hash
@@ -753,7 +753,7 @@ def main():
     categories = load_categories()
 
     for lang in langs:
-        print(f'\n[{lang}] {LANGS[lang]["deck_name"]}')
+        print(f'\n[{lang}] {DECKS[lang]["deck_name"]}')
         build_deck(lang, categories)
 
     print('\nDone.')
