@@ -1,6 +1,6 @@
 # ミニ本語 Minihongo
 
-231 words. Infinite expression. Learn to express any idea in Japanese with the minimum vocabulary.
+231 words. Infinite expression. Learn to express any idea in Japanese with the minimum vocabulary - then recognize the real Japanese that answers back.
 
 Live at [minihongo.com](https://minihongo.com)
 
@@ -16,10 +16,11 @@ Live at [minihongo.com](https://minihongo.com)
 |--------|------|
 | Vocabulary | 231 core words by category |
 | Grammar | Particles, conjugation, sentence patterns |
-| Word Building | Compounds, circumlocution, expressions |
+| Word Building | Circumlocution: common words expressed with the core vocabulary |
 | Reading | Haiku, dialogs, and short stories |
 | Practice | Real-life can-do checklist, quizzes, AI conversation prompt |
 | Understanding Japan | Real Japanese to recognize, never say: signs, clerk phrases, announcements, forms |
+| Going Further | Beyond the core: real kanji compounds, katakana loanwords, advanced vocabulary, immersion |
 
 ## Languages
 
