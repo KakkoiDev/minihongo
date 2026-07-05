@@ -106,6 +106,11 @@ def to_ruby_html(text):
     )
 
 
+def strip_ruby(text):
+    """Remove bracket furigana: 人【ひと】 -> 人."""
+    return re.sub(r'【[^】]+】', '', text)
+
+
 def esc(text):
     """Escape HTML special characters in text content."""
     return html_mod.escape(text, quote=False)
@@ -550,24 +555,30 @@ def gen_word_building(categories, compounds, expressions, lang):
 
 # -- Going Further ------------------------------------------------------------
 
-def _render_advanced_table(parts, rows, lang):
-    """Advanced vocab: real Japanese word (with furigana) + English meaning.
-    ja page shows the word alone (native speakers need no gloss); en/mh add English."""
+def _render_advanced_table(parts, rows, lang, mh_for_target):
+    """Advanced vocab: real Japanese word (with furigana) + English meaning,
+    plus the Word Building circumlocution when the core already covers the word.
+    ja page shows no English gloss (native speakers need none)."""
     th_word = ui('th_word', lang)
+    th_in_mh = ui('th_in_minihongo', lang)
     parts.append('  <div class="table-scroll"><table class="compound-table">\n')
     if lang == 'ja':
-        parts.append(f'    <thead><tr><th lang="ja">{th_word}</th></tr></thead>\n')
+        parts.append(f'    <thead><tr><th lang="ja">{th_word}</th><th lang="ja">{th_in_mh}</th></tr></thead>\n')
     else:
         th_english = ui('th_english', lang)
-        parts.append(f'    <thead><tr><th lang="ja">{th_word}</th><th>{th_english}</th></tr></thead>\n')
+        parts.append(f'    <thead><tr><th lang="ja">{th_word}</th><th>{th_english}</th><th lang="ja">{th_in_mh}</th></tr></thead>\n')
     parts.append('    <tbody>\n')
     for r in rows:
         pb = play_btn('a', r.get('audio_file', ''))
         word = to_ruby_html(r['japanese'])
+        expr = mh_for_target.get(strip_ruby(r['japanese']))
+        mh_cell = ''
+        if expr:
+            mh_cell = f'{play_btn("e", expr.get("audio_file", ""))}{to_ruby_html(expr["minihongo"])}'
         if lang == 'ja':
-            parts.append(f'      <tr><td lang="ja">{pb}{word}</td></tr>\n')
+            parts.append(f'      <tr><td lang="ja">{pb}{word}</td><td lang="ja">{mh_cell}</td></tr>\n')
         else:
-            parts.append(f'      <tr><td lang="ja">{pb}{word}</td><td>{esc(r["english"])}</td></tr>\n')
+            parts.append(f'      <tr><td lang="ja">{pb}{word}</td><td>{esc(r["english"])}</td><td lang="ja">{mh_cell}</td></tr>\n')
     parts.append('    </tbody>\n  </table></div>\n')
 
 
@@ -581,6 +592,11 @@ def gen_going_further(categories, compounds, expressions, advanced, lang):
     advanced_by_cat = defaultdict(list)
     for a in advanced:
         advanced_by_cat[a['category_id']].append(a)
+
+    mh_for_target = {}
+    for e in by_sort(expressions):
+        if e['japanese']:
+            mh_for_target.setdefault(e['japanese'], e)
 
     h2_cats = by_sort([c for c in categories
                        if c['page_id'] == 'going-further' and not c['parent_id']])
@@ -647,7 +663,7 @@ def gen_going_further(categories, compounds, expressions, advanced, lang):
                 else:
                     _render_concept_table(parts, cat_expressions, lang)
             elif cat_advanced:
-                _render_advanced_table(parts, cat_advanced, lang)
+                _render_advanced_table(parts, cat_advanced, lang, mh_for_target)
 
             parts.append('\n')
 
