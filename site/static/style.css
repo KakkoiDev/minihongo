@@ -94,6 +94,58 @@ nav {
   }
 }
 
+/* === Top nav ===
+   Two rows: utility bar (logo + settings), then lesson tabs.
+   Each tab is a name plus a one-line gloss saying what the page is for. */
+nav.top {
+  display: block;
+}
+
+.nav-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem;
+  margin-block-end: 0.75rem;
+}
+
+.nav-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 0.25rem;
+}
+
+.nav-tabs a {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  padding: 0.3rem 0.6rem;
+}
+
+.tab-gloss {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+/* Core course on the first row, beyond-the-core tabs on their own row */
+.nav-tabs + .nav-tabs {
+  margin-block-start: 0.35rem;
+  padding-block-start: 0.35rem;
+  border-block-start: 1px solid var(--border);
+}
+
+.nav-tabs a.active {
+  background: var(--bg-raised);
+}
+
+nav.top a:focus-visible,
+.nav-toggle:focus-visible,
+.lang-switch:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
 /* === Nav toggles === */
 .nav-toggle {
   font: inherit;

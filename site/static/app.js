@@ -32,7 +32,10 @@ const updateActiveNav = () => {
   const path = location.pathname
   for (const a of navLinks) {
     const href = new URL(a.href).pathname
-    a.classList.toggle('active', path === href || path === href.replace(/\.html$/, '/'))
+    const on = path === href || path === href.replace(/\.html$/, '/')
+    a.classList.toggle('active', on)
+    if (on) a.setAttribute('aria-current', 'page')
+    else a.removeAttribute('aria-current')
   }
 }
 

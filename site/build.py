@@ -90,21 +90,6 @@ def build_page_id_map(data):
     return m
 
 
-def build_nav_labels(data, lang):
-    """Build nav label dict from pages.csv for a language."""
-    ruby = BUILTIN_FILTERS['ruby']
-    col = LANG_COL[lang]
-    labels = {}
-    for p in sorted(data.get('pages', []), key=lambda r: int(r['sort_order'])):
-        name = p.get(f'name_{col}', '').strip()
-        if not name:
-            name = p.get('name_english', '').strip()
-        if not name:
-            name = p.get('name_minihongo', '').strip()
-        labels[p['id']] = ruby(name)
-    return labels
-
-
 def build_meta_desc(data, ui_strings, page_file, lang, page_id_map):
     """Get meta description for a page file."""
     page_id = page_id_map.get(page_file)
@@ -138,7 +123,6 @@ def build_page_context(data, ui_strings, lang, page_file, base_url, page_id_map)
     """Build the full template context for a page."""
     ruby = BUILTIN_FILTERS['ruby']
     strip_fg = BUILTIN_FILTERS['strip_furigana']
-    labels = build_nav_labels(data, lang)
     lang_base = BASE_URLS[lang] if base_url == "/" else base_url
 
     def ui_plain(key):
@@ -180,13 +164,10 @@ def build_page_context(data, ui_strings, lang, page_file, base_url, page_id_map)
         # Layout variables
         'BASE_URL': lang_base,
         'HTML_LANG': HTML_LANGS[lang],
-        'NAV_VOCABULARY': labels.get('vocabulary', 'Vocabulary'),
-        'NAV_GRAMMAR': labels.get('grammar', 'Grammar'),
-        'NAV_WORD_BUILDING': labels.get('word-building', 'Word Building'),
-        'NAV_GOING_FURTHER': labels.get('going-further', 'Going Further'),
-        'NAV_READING': labels.get('reading', 'Reading'),
-        'NAV_PRACTICE': labels.get('practice', 'Practice'),
-        'NAV_UNDERSTANDING': labels.get('understanding', 'Understanding Japan'),
+        # Nav tabs are looped in page-layout.html from data.pages; these pick the
+        # language column for each tab's name, gloss and title attribute
+        'GLOSS_COL': f'gloss_{lang}',
+        'DESC_COL': f'desc_{lang}',
         'FURIGANA_LABEL': ui_str(ui_strings, 'show_readings', lang),
         'DARK_MODE_LABEL': ui_str(ui_strings, 'dark_mode', lang),
         'SLOW_AUDIO_LABEL': ui_str(ui_strings, 'slow_audio', lang),

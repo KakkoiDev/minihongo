@@ -52,19 +52,30 @@
   <link rel="apple-touch-icon" href="/static/icon-192.png">
 </head>
 <body>
-  <nav>
-    <a href="./" class="logo" lang="ja">ミニ本語</a>
-    <a href="lessons/vocabulary.html">{{NAV_VOCABULARY}}</a>
-    <a href="lessons/grammar.html">{{NAV_GRAMMAR}}</a>
-    <a href="lessons/word-building.html">{{NAV_WORD_BUILDING}}</a>
-    <a href="lessons/texts-dialogs.html">{{NAV_READING}}</a>
-    <a href="lessons/practice.html">{{NAV_PRACTICE}}</a>
-    <a href="lessons/understanding.html">{{NAV_UNDERSTANDING}}</a>
-    <a href="lessons/going-further.html">{{NAV_GOING_FURTHER}}</a>
-    <button class="nav-toggle" id="btn-speed">{{SLOW_AUDIO_LABEL}}</button>
-    <button class="nav-toggle" id="btn-furigana">{{FURIGANA_LABEL}}</button>
-    <button class="nav-toggle" id="btn-theme">{{DARK_MODE_LABEL}}</button>
-    {{LANG_SWITCHER}}
+  <nav class="top">
+    <div class="nav-bar">
+      <a href="./" class="logo" lang="ja">ミニ本語</a>
+      <button class="nav-toggle" id="btn-speed">{{SLOW_AUDIO_LABEL}}</button>
+      <button class="nav-toggle" id="btn-furigana">{{FURIGANA_LABEL}}</button>
+      <button class="nav-toggle" id="btn-theme">{{DARK_MODE_LABEL}}</button>
+      {{LANG_SWITCHER}}
+    </div>
+    <div class="nav-tabs">
+      {% for p in data.pages | where: nav_group="core" | sort: "sort_order" %}
+      <a href="{{ p.path }}" title="{{ p | get: DESC_COL | strip_furigana }}">
+        <span class="tab-name">{{ p | get: CAT_NAME_COL | ruby }}</span>
+        <span class="tab-gloss">{{ p | get: GLOSS_COL | ruby }}</span>
+      </a>
+      {% endfor %}
+    </div>
+    <div class="nav-tabs">
+      {% for p in data.pages | where: nav_group="beyond" | sort: "sort_order" %}
+      <a href="{{ p.path }}" title="{{ p | get: DESC_COL | strip_furigana }}">
+        <span class="tab-name">{{ p | get: CAT_NAME_COL | ruby }}</span>
+        <span class="tab-gloss">{{ p | get: GLOSS_COL | ruby }}</span>
+      </a>
+      {% endfor %}
+    </div>
   </nav>
 
   <div id="toast-container"></div>
