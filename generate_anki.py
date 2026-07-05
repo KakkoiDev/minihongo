@@ -18,15 +18,15 @@ Deck hierarchy (same for each language):
       ├── 01 Dialogs
       └── 02 Stories
 
-Expressions ship as a separate optional deck (minihongo-{lang}-expressions.apkg,
-EN/JA only - the MH front and back would be identical). Kept out of the main
-deck so its ~40MB of audio does not triple the core download.
+Anki ships only this core course. An expressions deck existed once and was
+frozen, then removed (2026-07): an over-eager grab-bag with no single job.
+Last-released expressions .apkg assets stay on GitHub as-is; the build code
+lives in git history if it is ever wanted back.
 
 Card types:
   Vocabulary - double card (recognition + recall), audio on all Japanese
   Grammar    - example sentence with audio -> explanation
   Listening  - audio only -> title, transcript, translation
-  Expression - circumlocution with audio -> meaning
 
 Requires: pip install genanki
 """
@@ -45,14 +45,6 @@ from mh_common import DATA, load_csv, strip_furigana
 
 AUDIO = Path('audio')
 
-# FROZEN (2026-07): the optional expressions deck (minihongo-{en,ja}-expressions.apkg)
-# is no longer built. It was an over-eager grab-bag - base-word circumlocutions +
-# loanwords + false friends under one vague label, with no single job. Anki now ships
-# ONLY the core course: vocabulary + grammar + listening. build_expression_decks and
-# the DECKS 'expressions_output' entries are kept for reference but are not invoked.
-# Previously-released expressions .apkg assets stay on GitHub as-is (frozen, not removed).
-BUILD_EXPRESSION_DECKS = False
-
 # Language config: translation column mappings
 DECKS = {
     'en': {
@@ -65,12 +57,9 @@ DECKS = {
         'grammar_example_translation': 'english',
         'category_name': 'name_english',
         'reading_translation': 'english',
-        'expression_meaning': 'english',
-        'expressions_output': 'minihongo-en-expressions.apkg',
         'vocab_model_id': 2007390001,
         'grammar_model_id': 2007390002,
         'listening_model_id': 2007390003,
-        'expression_model_id': 2007390004,
     },
     'ja': {
         'deck_name': 'Minihongo (JA)',
@@ -82,12 +71,9 @@ DECKS = {
         'grammar_example_translation': 'japanese',
         'category_name': 'name_japanese',
         'reading_translation': 'japanese',
-        'expression_meaning': 'japanese',
-        'expressions_output': 'minihongo-ja-expressions.apkg',
         'vocab_model_id': 2007390011,
         'grammar_model_id': 2007390012,
         'listening_model_id': 2007390013,
-        'expression_model_id': 2007390014,
     },
     'mh': {
         'deck_name': 'Minihongo (MH)',
@@ -98,15 +84,11 @@ DECKS = {
         'grammar_explanation': 'explanation_minihongo',
         'grammar_example_translation': 'minihongo',
         'category_name': 'name_minihongo',
-        # MH deck: no separate translation exists (it would repeat the transcript),
-        # and an expression card's front and back would be identical - skip.
+        # MH deck: no separate reading translation - it would repeat the transcript
         'reading_translation': '',
-        'expression_meaning': '',
-        'expressions_output': '',
         'vocab_model_id': 2007390021,
         'grammar_model_id': 2007390022,
         'listening_model_id': 2007390023,
-        'expression_model_id': 2007390024,
     },
 }
 
@@ -366,39 +348,6 @@ def create_listening_model(lang_cfg):
     )
 
 
-def create_expression_model(lang_cfg):
-    """Expression card: circumlocution with audio -> meaning."""
-    return genanki.Model(
-        lang_cfg['expression_model_id'],
-        f'Minihongo Expression ({lang_cfg["deck_name"]})',
-        fields=[
-            {'name': 'Expression'},
-            {'name': 'Meaning'},
-            {'name': 'Audio'},
-            {'name': 'Category'},
-        ],
-        templates=[
-            {
-                'name': 'Expression',
-                'qfmt': '''
-<div class="card-type">Expression</div>
-<div class="sentence">{{Expression}}</div>
-<div class="audio">{{Audio}}</div>
-''',
-                'afmt': '''
-<div class="card-type">Expression</div>
-<div class="sentence">{{Expression}}</div>
-<div class="audio">{{Audio}}</div>
-<hr id="answer">
-<div class="translation">{{Meaning}}</div>
-<div class="tags">{{Category}}</div>
-''',
-            },
-        ],
-        css=SHARED_CSS,
-    )
-
-
 # ── Data loading ────────────────────────────────────────────────────
 
 
@@ -639,53 +588,6 @@ def build_listening_decks(lang_cfg):
     return [dialog_deck, story_deck], media
 
 
-def build_expression_decks(categories, lang_cfg):
-    """Build expression subdecks grouped by category. One direction only."""
-    meaning_col = lang_cfg['expression_meaning']
-    if not meaning_col:
-        return [], []
-
-    expressions = load_csv('expressions')
-    model = create_expression_model(lang_cfg)
-    decks = []
-    media = []
-    cat_name_col = lang_cfg['category_name']
-    is_jp = meaning_col == 'japanese'
-
-    by_cat = {}
-    for e in expressions:
-        by_cat.setdefault(e['category_id'], []).append(e)
-
-    expr_cats = sorted(
-        [c for c in categories.values() if c['id'] in by_cat],
-        key=lambda c: int(c['sort_order']),
-    )
-
-    for idx, cat in enumerate(expr_cats, 1):
-        cat_label = strip_furigana(cat[cat_name_col]) if is_jp else cat[cat_name_col]
-        name = f"{lang_cfg['deck_name']} Expressions::{idx:02d} {cat_label}"
-        deck = genanki.Deck(random.randint(10**9, 10**10 - 1), name)
-
-        for e in sorted(by_cat[cat['id']], key=lambda r: int(r['sort_order'])):
-            ref, path = audio_ref('e', e.get('audio_file', ''))
-            if path:
-                media.append(path)
-            deck.add_note(genanki.Note(
-                model=model,
-                fields=[
-                    to_ruby_html(e['minihongo']),
-                    e.get(meaning_col, ''),
-                    ref,
-                    cat_label,
-                ],
-                tags=[cat_label.replace(' ', '_')],
-            ))
-
-        decks.append(deck)
-
-    return decks, media
-
-
 def build_deck(lang, categories):
     """Build a complete deck for one language."""
     lang_cfg = DECKS[lang]
@@ -712,19 +614,6 @@ def build_deck(lang, categories):
     print(f'  Listening:  {len(listening_decks)} subdecks, {listening_cards} cards')
     print(f'  Audio:      {len(all_media)} files -> {output}')
 
-    # Expressions: FROZEN - not built. See BUILD_EXPRESSION_DECKS at top of file.
-    if BUILD_EXPRESSION_DECKS and lang_cfg['expressions_output']:
-        expression_decks, expression_media = build_expression_decks(categories, lang_cfg)
-        expression_cards = sum(len(d.notes) for d in expression_decks)
-        expr_output = Path(lang_cfg['expressions_output'])
-        expr_package = genanki.Package(expression_decks)
-        expr_package.media_files = expression_media
-        expr_package.write_to_file(str(expr_output))
-        print(f'  Expression: {len(expression_decks)} subdecks, {expression_cards} cards, '
-              f'{len(expression_media)} audio -> {expr_output}')
-    elif lang_cfg['expressions_output']:
-        print('  Expression: FROZEN - deck not built (BUILD_EXPRESSION_DECKS=False)')
-
     return output
 
 
@@ -747,7 +636,6 @@ def main():
             cfg['vocab_model_id'] += css_hash
             cfg['grammar_model_id'] += css_hash
             cfg['listening_model_id'] += css_hash
-            cfg['expression_model_id'] += css_hash
         print(f'--force-style: model IDs offset by {css_hash} (CSS hash)')
 
     categories = load_categories()
