@@ -31,13 +31,13 @@ Card types:
 Requires: pip install genanki
 """
 
-import hashlib
-import random
 import re
 import sys
 from pathlib import Path
 
 import genanki
+import jpanki
+from jpanki import furigana, ids, theme
 
 from mh_common import DATA, load_csv, strip_furigana
 
@@ -48,6 +48,7 @@ AUDIO = Path('audio')
 # Language config: translation column mappings
 DECKS = {
     'en': {
+        'code': 'en',
         'deck_name': 'Minihongo (EN)',
         'output': 'minihongo-en.apkg',
         'word_translation': 'english',
@@ -62,6 +63,7 @@ DECKS = {
         'listening_model_id': 2007390003,
     },
     'ja': {
+        'code': 'ja',
         'deck_name': 'Minihongo (JA)',
         'output': 'minihongo-ja.apkg',
         'word_translation': 'japanese',
@@ -76,6 +78,7 @@ DECKS = {
         'listening_model_id': 2007390013,
     },
     'mh': {
+        'code': 'mh',
         'deck_name': 'Minihongo (MH)',
         'output': 'minihongo-mh.apkg',
         'word_translation': 'definition_minihongo',
@@ -95,50 +98,29 @@ DECKS = {
 # ── Furigana helpers ────────────────────────────────────────────────
 
 
-def to_ruby_html(text):
-    """Convert 漢字【かんじ】 to <ruby>漢字<rt>かんじ</rt></ruby>."""
-    return re.sub(
-        r'([\u4e00-\u9fff\u3400-\u4dbf]+)【([^】]+)】',
-        r'<ruby>\1<rt>\2</rt></ruby>',
-        text,
-    )
+# jpanki owns the 漢字【かな】 notation now. Its character class additionally
+# covers 々, which this copy omitted — so 徐々【じょじょ】 previously kept its
+# literal brackets instead of taking ruby. No Anki-consumed CSV contains that
+# case today, so no published card changes; see jpanki's golden-file tests.
+to_ruby_html = furigana.to_ruby
 
 
 # ── Card models ─────────────────────────────────────────────────────
 
-SHARED_CSS = """
-.card {
-    font-family: "Noto Sans JP", "Hiragino Sans", "Yu Gothic", system-ui, sans-serif;
-    font-size: 20px;
-    text-align: center;
-    color: #2B2B2B;
-    background: #FFFFFF;
-    padding: 24px;
-    line-height: 1.7;
-}
-.card-type {
-    font-size: 12px;
-    color: #666666;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 15px;
-}
-.word {
-    font-size: 32px;
-    font-weight: bold;
-    margin: 20px 0 15px;
-    line-height: 2;
-}
-.sentence {
-    font-size: 22px;
-    margin: 15px 0;
-    line-height: 1.8;
-}
-.translation {
-    font-size: 22px;
-    margin: 15px 0;
-    line-height: 1.6;
-}
+def build_css():
+    """The shared design system, plus minihongo's own components.
+
+    The layers come from jpanki; the grammar-explanation and pattern-name
+    styling below is specific to this project's Grammar cards and stays here.
+    """
+    return theme.compose(
+        theme.base(),
+        theme.headword(),
+        theme.chip('.tags'),
+        theme.ruby(),
+        theme.replay(),
+        theme.night(muted_selectors=('.card-type', '.grammar-name', '.hint')),
+        extra="""
 .explanation {
     font-size: 18px;
     margin: 15px 0;
@@ -150,71 +132,11 @@ SHARED_CSS = """
     color: #666666;
     margin-top: 10px;
 }
-.audio { margin: 10px 0; text-align: center; }
-.tags {
-    display: inline-block;
-    background: #F7F7F7;
-    padding: 4px 12px;
-    border-radius: 0.75rem;
-    font-size: 12px;
-    color: #666666;
-    border: 1px solid #E5E5E5;
-    margin-top: 10px;
-}
-.hint {
-    font-size: 18px;
-    font-style: italic;
-    margin: 10px 0;
-    color: #666666;
-}
-ruby { ruby-align: center; }
-ruby rt { font-size: 12px; font-weight: normal; color: #666666; }
-hr#answer { border: none; border-top: 3px solid #BC002D; margin: 20px 0; }
+""",
+    )
 
-.night_mode .card {
-    color: #E8E8E8;
-    background: #1A1A1A;
-}
-.night_mode .card-type,
-.night_mode .grammar-name,
-.night_mode .hint { color: #999999; }
-.night_mode .tags {
-    background: #252525;
-    border-color: #333333;
-    color: #999999;
-}
-.night_mode ruby rt { color: #999999; }
-.night_mode hr#answer { border-top-color: #BC002D; }
 
-/* Audio replay button - match website play-btn style */
-.replay-button, .replaybutton {
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
-    width: 2.5rem;
-    height: 2.5rem;
-    margin: 0 auto;
-    border: 2px solid #E5E5E5;
-    border-radius: 0.75rem;
-    background: #FFFFFF;
-    cursor: pointer;
-    text-decoration: none;
-}
-.replay-button *, .replaybutton * { display: none !important; }
-.replay-button::before, .replaybutton::before {
-    content: "";
-    flex-shrink: 0;
-    width: 1.2rem;
-    height: 1.2rem;
-    background: #2B70C9;
-    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 9v6h4l5 5V4L7 9H3zm13.5 3A4.5 4.5 0 0014 8.5v7a4.47 4.47 0 002.5-3.5zM14 3.23v2.06a6.51 6.51 0 010 13.42v2.06A8.51 8.51 0 0014 3.23z'/%3E%3C/svg%3E") center / contain no-repeat;
-    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 9v6h4l5 5V4L7 9H3zm13.5 3A4.5 4.5 0 0014 8.5v7a4.47 4.47 0 002.5-3.5zM14 3.23v2.06a6.51 6.51 0 010 13.42v2.06A8.51 8.51 0 0014 3.23z'/%3E%3C/svg%3E") center / contain no-repeat;
-}
-.night_mode .replay-button, .night_mode .replaybutton {
-    border-color: #333333;
-    background: #1A1A1A;
-}
-"""
+SHARED_CSS = build_css()
 
 
 def create_vocab_model(lang_cfg):
@@ -358,14 +280,33 @@ def load_categories():
 
 # ── Deck building ───────────────────────────────────────────────────
 
-def audio_ref(subdir, filename):
-    """Return [sound:file] ref and absolute path, or empty if missing."""
+# Deck IDs used to be random.randint(10**9, 10**10 - 1), minted afresh on every
+# build, so rebuilding identical content produced 28 of 29 different decks and
+# `make anki` was never idempotent. They are derived from a registered base now.
+# Anki merges decks by name on import, so nothing published depends on the old
+# random values.
+_DECK_ID_BASE = ids.for_deck('minihongo').deck_base_id
+_LANG_OFFSET = {'en': 0, 'ja': 60, 'mh': 120}
+
+
+def deck_id(lang, kind, index):
+    """A stable deck ID: language, then card kind, then position within it."""
+    kind_offset = {'vocab': 0, 'grammar': 20, 'listening': 40}[kind]
+    return _DECK_ID_BASE + _LANG_OFFSET[lang] + kind_offset + index
+
+def audio_ref(subdir, filename, require=False):
+    """Return [sound:file] ref and absolute path, or empty if missing.
+
+    Delegates to jpanki.sound_ref, which carries the same silent-degrade
+    behaviour plus the option to refuse — used by the Listening deck, whose
+    cards have nothing on the front but audio.
+    """
     if not filename:
+        if require:
+            raise FileNotFoundError('listening card with no audio filename')
         return '', None
-    path = AUDIO / subdir / filename
-    if not path.exists():
-        return '', None
-    return f'[sound:{filename}]', str(path)
+    value, path = jpanki.sound_ref(AUDIO / subdir / filename, require=require)
+    return value, str(path) if path else None
 
 
 def get_field(row, col, ruby=False):
@@ -400,7 +341,7 @@ def build_vocab_decks(categories, lang_cfg):
         sort = int(cat['sort_order'])
         cat_label = strip_furigana(cat[cat_name_col]) if is_jp else cat[cat_name_col]
         name = f"{lang_cfg['deck_name']}::01 Vocabulary::{sort:02d} {cat_label}"
-        deck = genanki.Deck(random.randint(10**9, 10**10 - 1), name)
+        deck = genanki.Deck(deck_id(lang_cfg['code'], 'vocab', sort), name)
 
         for w in sorted(cat_words, key=lambda r: int(r['sort_order'])):
             word_ref, word_path = audio_ref('w', w.get('audio_word', ''))
@@ -468,7 +409,7 @@ def build_grammar_decks(categories, lang_cfg):
 
         cat_label = strip_furigana(cat[cat_name_col]) if is_jp else cat[cat_name_col]
         name = f"{lang_cfg['deck_name']}::02 Grammar::{idx:02d} {cat_label}"
-        deck = genanki.Deck(random.randint(10**9, 10**10 - 1), name)
+        deck = genanki.Deck(deck_id(lang_cfg['code'], 'grammar', idx), name)
 
         for g, ex in sorted(items, key=lambda x: int(x[1]['sort_order'])):
             ex_ref, ex_path = audio_ref('ge', ex.get('audio_file', ''))
@@ -518,7 +459,7 @@ def build_listening_decks(lang_cfg):
 
     def make_deck(label, idx):
         name = f"{lang_cfg['deck_name']}::03 Listening::{idx:02d} {label}"
-        return genanki.Deck(random.randint(10**9, 10**10 - 1), name)
+        return genanki.Deck(deck_id(lang_cfg['code'], 'listening', idx), name)
 
     dialog_deck = make_deck('Dialogs', 1)
     for dg in sorted(dialog_groups, key=lambda r: int(r['sort_order'])):
@@ -631,7 +572,7 @@ def main():
 
     if force_style:
         # Offset model IDs by CSS hash so Anki creates new models with updated styles
-        css_hash = int(hashlib.sha256(SHARED_CSS.encode()).hexdigest()[:6], 16)
+        css_hash = jpanki.force_style(0, SHARED_CSS)
         for cfg in DECKS.values():
             cfg['vocab_model_id'] += css_hash
             cfg['grammar_model_id'] += css_hash

@@ -1,0 +1,29 @@
+[project]
+# Scoped to the *artifact generators* only — the Anki, audio and PDF builds.
+#
+# The site build (`make build`, `make dev`, everything under site/) remains
+# stdlib-only and is deliberately not covered here: that guarantee is what keeps
+# it deployable from a bare Python. The artifact generators never had it —
+# generate_anki.py has always needed genanki and generate_audio.py edge-tts,
+# both installed by hand until now. This file just writes that down.
+#
+# See DECISIONS.md.
+name = "minihongo-artifacts"
+version = "0.1.0"
+description = "Dependencies for minihongo's Anki, audio and PDF generators"
+requires-python = ">=3.11"
+dependencies = [
+    "jpanki[audio]",
+    "genanki>=0.13.1",
+    "edge-tts>=6.1.0",
+]
+
+[dependency-groups]
+dev = ["pytest>=8.0"]
+
+[tool.uv.sources]
+jpanki = { path = "../jpanki", editable = true }
+
+[tool.uv]
+# Nothing here is importable as a package; these are scripts run from the root.
+package = false

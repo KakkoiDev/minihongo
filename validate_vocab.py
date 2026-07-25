@@ -376,12 +376,15 @@ def check_doc_count_claims(expected):
 # recomputes them and reports divergence (sha256sum -c compatible). Excluded by design
 # (environmental or separately tracked): audio/*.mp3 blobs, print-only covers, fonts,
 # the typst compiler + pinned @preview packages.
+# The artifact generators now share code with jpanki, so the pinned library
+# version is a build input too: a jpanki upgrade can change how cards render, and
+# a manifest that only hashed CSVs would call a stale deck fresh.
 ARTIFACT_SOURCES = {
     'anki': {
         'manifest': '.anki-manifest',
         'rebuild': 'make anki-release',
         'generators': ['generate_anki.py', 'mh_common.py'],
-        'extra': [],
+        'extra': ['uv.lock'],
     },
     'pdf': {
         'manifest': '.pdf-manifest',

@@ -2,6 +2,48 @@
 
 Intent and rationale for content/system changes. Newest first. Each entry: what changed, why, what was rejected.
 
+## 2026-07-25: Artifact generators build on jpanki; the site build stays stdlib-only
+
+The Anki, audio and PDF generators shared their mechanics with nihongo-it-anki
+by coincidence rather than by code: the same `漢字【かな】` notation, the same
+Edge TTS voices, the same card CSS down to the `#BC002D` divider and the
+replay-button SVG mask, and the same trick of offsetting a model ID by a hash of
+its CSS. Two implementations, drifting. They now come from `jpanki`.
+
+Two defects fell out of the extraction:
+
+- **Deck IDs were random.** `random.randint(10**9, 10**10 - 1)`, minted on every
+  build, so rebuilding identical content produced 28 of 29 different decks and
+  `make anki` was never idempotent. They derive from a registered base now
+  (2007391000), and a rebuild is byte-stable. Nothing published depended on the
+  old values, because Anki merges decks by name on import.
+- **The ruby regex omitted 々**, so `徐々【じょじょ】` would have kept its literal
+  brackets. No Anki-consumed CSV contains that case, so no published card
+  changes; the one occurrence is in `comprehension.csv`, which the deck build
+  does not read.
+
+A `pyproject.toml` arrives, scoped to the artifact generators. **The site build's
+stdlib-only guarantee is unchanged and now enforced**: `make build` runs
+`python3 generate_pages.py`, so `mh_common.py` must not import jpanki, and it
+does not — its `strip_furigana` stays a separate stdlib implementation.
+`tests/test_shared_with_jpanki.py` asserts the two agree across the whole corpus
+and that `generate_pages.py` still imports under a bare interpreter.
+
+- **Rejected**: delegating `mh_common.strip_furigana` to jpanki. It reads as the
+  obvious de-duplication, but mh_common is on the site build's import path, so it
+  would have made the site depend on genanki's dependency tree to render HTML.
+  A tested duplicate is the cheaper trade.
+- **Rejected for now**: switching note GUIDs to a stable business key. genanki's
+  default hashes every field, so correcting one typo in an English gloss creates
+  a note Anki has never seen and silently resets that card's review history.
+  Fixing it is right, but it costs a **one-time** reset for existing users, so it
+  needs a decision and a migration map rather than a quiet commit. Deck IDs were
+  safe to fix immediately; GUIDs are not. See jpanki's `note_guid`.
+- **Deferred**: porting `generate_audio.py`'s ten `gen_*` orchestrators onto
+  `jpanki.tts`. jpanki's primitives were extracted *from* this file, so they are
+  already equivalent; rewriting 797 lines of working orchestration would risk
+  regressions that only a full 2270-clip regeneration could detect.
+
 ## 2026-07-05: Honest tiering - the 2026-03-30 "archive loanwords" resolution is superseded
 
 The Jul 3-4 burst re-added loanwords (82 katakana + 7 false friends into expressions.csv) and added two real-Japanese tiers (Understanding Japan, 121 receptive-only items; Advanced Vocabulary, 151 words), reversing the DILEMMA.md resolution without recording it. This entry records it, and names the identity going forward:
