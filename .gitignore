@@ -27,6 +27,7 @@ test-pdf-*.png
 !DILEMMA.md
 !OUTREACH.md
 !ARCHIVE-LOANWORDS-COMPOUNDS.md
+!PLAN.md
 !.claude/skills/**/SKILL.md
 !.github/ISSUE_TEMPLATE/*.md
 conversation-about-minihongo.html
