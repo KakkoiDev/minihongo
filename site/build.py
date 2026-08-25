@@ -72,10 +72,11 @@ def load_ui_strings(data):
 # ── Template context builders ──────────────────────────────────────
 
 def ui_str(ui_strings, key, lang):
-    """Get UI string with fallback: lang -> en -> mh. Applies ruby conversion."""
+    """Get a UI string without leaking English onto Japanese pages."""
     ruby = BUILTIN_FILTERS['ruby']
     row = ui_strings.get(key, {})
-    for l in [lang, 'en', 'mh']:
+    fallbacks = [lang, 'mh'] if lang == 'ja' else [lang, 'en', 'mh']
+    for l in fallbacks:
         val = row.get(l, '').strip()
         if val:
             return ruby(val)
@@ -99,7 +100,9 @@ def build_meta_desc(data, ui_strings, page_file, lang, page_id_map):
         col = {'en': 'desc_en', 'ja': 'desc_ja', 'mh': 'desc_mh'}[lang]
         for p in data.get('pages', []):
             if p['id'] == page_id:
-                val = p.get(col, '').strip() or p.get('desc_en', '').strip()
+                val = p.get(col, '').strip()
+                if not val and lang != 'ja':
+                    val = p.get('desc_en', '').strip()
                 return re.sub(r'【[^】]+】', '', val)
     # Homepage fallback
     desc = ui_str(ui_strings, 'home_tagline', lang)
@@ -143,10 +146,14 @@ def build_page_context(data, ui_strings, lang, page_file, base_url, page_id_map)
         col = LANG_COL[lang]
         for p in data.get('pages', []):
             if p['id'] == page_id:
-                raw = p.get(f'name_{col}', '') or p.get('name_english', '')
+                raw = p.get(f'name_{col}', '')
+                if not raw and lang != 'ja':
+                    raw = p.get('name_english', '')
                 page_name = ruby(raw)
                 page_name_plain = strip_fg(raw)
-                desc_raw = p.get(f'desc_{lang}', '') or p.get('desc_en', '')
+                desc_raw = p.get(f'desc_{lang}', '')
+                if not desc_raw and lang != 'ja':
+                    desc_raw = p.get('desc_en', '')
                 page_desc = ruby(desc_raw)
                 break
 

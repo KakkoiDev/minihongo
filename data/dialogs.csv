@@ -211,3 +211,27 @@ dlg-291,dgrp-26,4,B,B,B,本当【ほんとう】ですか。雨【あめ】の�
 dlg-292,dgrp-26,5,A,A,A,今【いま】の日【にち】は何【なに】をしますか。,What are you doing today?,今日は何をしますか。
 dlg-293,dgrp-26,6,B,B,B,雨【あめ】の前【まえ】に外【そと】を歩【ある】きたいです。,I want to walk outside before the rain.,雨の前に外を歩きたいです。
 dlg-294,dgrp-26,7,A,A,A,良【よ】いですね。良【よ】い日【にち】にしましょう。,That's nice. Let's make it a good day.,いいですね。良い一日にしましょう。
+dlg-301,dgrp-27,1,A,A,A,前【まえ】の日【にち】は何【なに】をしましたか。,What did you do yesterday?,昨日は何をしましたか。
+dlg-302,dgrp-27,2,B,B,B,バグを探【さが】して、テストを作【つく】りました。,I found the bug and wrote tests.,バグを調べて、テストを作りました。
+dlg-303,dgrp-27,3,A,A,A,今【いま】の日【にち】は何【なに】をしますか。,What will you do today?,今日は何をしますか。
+dlg-304,dgrp-27,4,B,B,B,コードを書【か】いて、レビューをお願【ねが】いします。,I will write code and ask for review.,コードを書いて、レビューをお願いします。
+dlg-305,dgrp-28,1,A,A,A,サーバーが止【と】まっています。,The server is down.,サーバーが停止しています。
+dlg-306,dgrp-28,2,B,B,B,いつからですか。,Since when?,いつからですか。
+dlg-307,dgrp-28,3,A,A,A,十【じゅう】分【ぷん】前【まえ】からです。,For ten minutes.,10分前からです。
+dlg-308,dgrp-28,4,B,B,B,今【いま】、前【まえ】の物【もの】にします。,I am rolling back now.,今、ロールバックします。
+dlg-309,dgrp-29,1,A,A,A,この物【もの】はどう動【うご】きますか。,How does this system work?,これはどう動きますか。
+dlg-310,dgrp-29,2,B,B,B,始【はじ】めにデータがサーバーに入【はい】ります。,First data enters the server.,最初にデータがサーバーに入ります。
+dlg-311,dgrp-29,3,B,B,B,それからデータベースに書【か】きます。,Then it writes to the database.,それからデータベースに書き込みます。
+dlg-312,dgrp-29,4,A,A,A,なぜ二【ふた】つの所【ところ】を使【つか】いますか。,Why do we use two places?,なぜ二つの場所を使いますか。
+dlg-313,dgrp-30,1,A,A,A,今【いま】からデモを始【はじ】めます。,I will start the demo now.,これからデモを始めます。
+dlg-314,dgrp-30,2,A,A,A,これを使【つか】うと、何【なに】が起【お】こるか見【み】てください。,Watch what happens when I use this.,これを使うと何が起きるか見てください。
+dlg-315,dgrp-30,3,B,B,B,新【あたら】しい物【もの】がすぐ見【み】えます。,The new item appears immediately.,新しいものがすぐに表示されます。
+dlg-316,dgrp-30,4,A,A,A,前【まえ】より速【はや】くなりました。,It is faster than before.,以前より速くなりました。
+dlg-317,dgrp-31,1,A,A,A,どのタスクを始【はじ】めにしますか。,Which task should we do first?,どのタスクを優先しますか。
+dlg-318,dgrp-31,2,B,B,B,このバグを始【はじ】めにする必要【ひつよう】があります。,We need to do this bug first.,このバグを先に直す必要があります。
+dlg-319,dgrp-31,3,A,A,A,いつまでにできますか。,When can it be done?,いつまでにできますか。
+dlg-320,dgrp-31,4,B,B,B,たぶん明【あす】までにできます。,Probably by tomorrow.,たぶん明日までにできます。
+dlg-321,dgrp-32,1,A,A,A,このタスクは何【なに】のためですか。,What is this task for?,このタスクは何のためですか。
+dlg-322,dgrp-32,2,B,B,B,使【つか】う人【ひと】が速【はや】く探【さが】すためです。,So users can search faster.,利用者が速く検索できるようにするためです。
+dlg-323,dgrp-32,3,A,A,A,どの時【とき】に必要【ひつよう】ですか。,In which case is it needed?,どの場合に必要ですか。
+dlg-324,dgrp-32,4,B,B,B,物【もの】が多【おお】い時【とき】に必要【ひつよう】です。,It is needed when there are many items.,項目が多い時に必要です。

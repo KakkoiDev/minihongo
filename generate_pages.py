@@ -19,6 +19,7 @@ PAGE_FILES = {
     'reading': 'texts-dialogs.html',
     'practice': 'practice.html',
     'understanding': 'understanding.html',
+    'engineering': 'engineering.html',
 }
 
 WB_DESC_KEYS = {
@@ -65,8 +66,10 @@ def ui(key, lang):
 
 
 def t(row, field, lang):
-    """Get translated field with fallback: lang -> en -> mh."""
-    for l in [LANG_COL[lang], 'english', 'minihongo']:
+    """Get a translated field without leaking English onto Japanese pages."""
+    fallbacks = ([LANG_COL[lang], 'minihongo'] if lang == 'ja'
+                 else [LANG_COL[lang], 'english', 'minihongo'])
+    for l in fallbacks:
         col = f'{field}_{l}' if field else l
         val = row.get(col, '').strip()
         if val:
@@ -80,8 +83,9 @@ def render(text):
 
 
 def page_desc(page_row, lang):
-    """Get page description with fallback: lang -> en -> mh."""
-    for l in [lang, 'en', 'mh']:
+    """Get a page description without leaking English onto Japanese pages."""
+    fallbacks = [lang, 'mh'] if lang == 'ja' else [lang, 'en', 'mh']
+    for l in fallbacks:
         val = page_row.get(f'desc_{l}', '').strip()
         if val:
             return to_ruby_html(val)
@@ -1125,6 +1129,77 @@ def gen_understanding(categories, comprehension, lang):
     return wrap_page('understanding', ''.join(parts), lang, toc, pre_toc=intro_html)
 
 
+def gen_engineering(categories, expressions, dialog_groups, dialogs, candos, words, lang):
+    """Build the unlinked, indexable engineering field guide."""
+    children = defaultdict(list)
+    expressions_by_cat = defaultdict(list)
+    lines_by_group = defaultdict(list)
+    for category in categories:
+        if category['page_id'] == 'engineering' and category['parent_id']:
+            children[category['parent_id']].append(category)
+    for row in expressions:
+        expressions_by_cat[row['category_id']].append(row)
+    for row in dialogs:
+        lines_by_group[row['dialog_group_id']].append(row)
+
+    roots = by_sort([c for c in categories
+                     if c['page_id'] == 'engineering' and not c['parent_id']])
+    toc, parts = [], [f'  <p>{ui("engineering_intro", lang)}</p>\n\n']
+    for root in roots[:2]:
+        root_slug = slugify(root['name_english'])
+        root_label = t(root, 'name', lang)
+        toc_children = []
+        for category in by_sort(children[root['id']]):
+            slug = f'eng-{slugify(category["name_english"])}'
+            label = t(category, 'name', lang)
+            toc_children.append((slug, to_ruby_html(esc(label))))
+        toc.append((root_slug, to_ruby_html(esc(root_label)), toc_children))
+        parts.append(f'  <h2 id="{root_slug}" class="section-heading">{bilingual(root["name_minihongo"], root_label)}</h2>\n')
+        for category in by_sort(children[root['id']]):
+            slug = f'eng-{slugify(category["name_english"])}'
+            label = t(category, 'name', lang)
+            parts.append(f'  <h3 id="{slug}">{bilingual(category["name_minihongo"], label)}</h3>\n')
+            _render_common_table(parts, by_sort(expressions_by_cat[category['id']]), lang)
+
+    eng_groups = by_sort([g for g in dialog_groups if g['category_id'] == 'cat-124'])
+    toc.append(('engineering-dialogs', ui('engineering_dialog_heading', lang), []))
+    parts.append(f'  <h2 id="engineering-dialogs" class="section-heading">{ui("engineering_dialog_heading", lang)}</h2>\n')
+    for group in eng_groups:
+        title = bilingual(group['title_minihongo'], t(group, 'title', lang))
+        parts.append(f'  <section class="dialog"><h3>{title}</h3>\n')
+        for line in sorted(lines_by_group[group['id']], key=lambda r: int(r['line_number'])):
+            translated = line.get({'en': 'english', 'ja': 'japanese', 'mh': ''}[lang], '')
+            parts.append(f'    <p><strong>{render(t(line, "speaker", lang))}:</strong> <span lang="ja">{to_ruby_html(line["minihongo"])}</span>')
+            if translated:
+                parts.append(f' <span class="dialog-trans">{esc(translated)}</span>')
+            parts.append('</p>\n')
+        parts.append('  </section>\n')
+
+    eng_candos = [c for c in candos if c['id'].startswith('cando-eng-')]
+    toc.append(('engineering-candos', ui('engineering_cando_heading', lang), []))
+    parts.append(f'  <h2 id="engineering-candos" class="section-heading">{ui("engineering_cando_heading", lang)}</h2>\n  <div class="cando-list">\n')
+    for c in by_sort(eng_candos):
+        translated = c.get({'en': 'english', 'ja': 'japanese', 'mh': ''}[lang], '')
+        trans = f' <span class="cando-trans">{esc(translated)}</span>' if translated else ''
+        parts.append(f'    <label class="cando"><input type="checkbox" class="cando-check" data-id="{c["id"]}"> <span lang="ja">{to_ruby_html(c["minihongo"])}</span>{trans}</label>\n')
+    parts.append('  </div>\n')
+
+    loanwords = [strip_furigana(e['minihongo']) for e in expressions
+                 if e['category_id'] in {'cat-120', 'cat-121', 'cat-122', 'cat-123'}]
+    word_list = '、'.join(strip_furigana(w['minihongo']) for w in by_sort(words))
+    prompts = {
+        'en': 'You are a Japanese engineering colleague. Speak only Japanese, using the Minihongo core list and the engineering loanwords below. Keep replies short. Correct an out-of-list word by offering a natural core-word explanation or an allowed loanword. Practice standups, incidents, demos, planning, requirements, debugging, reviews, pipelines, deploys, and rollbacks.',
+        'ja': 'あなたは日本人のエンジニアです。下のミニ本語の基本語とエンジニア向け外来語だけを使い、日本語で短く返事してください。リスト外の語が出たら、自然な基本語での言い換えか、許可された外来語を示してください。朝会、障害対応、デモ、計画、要件確認、デバッグ、レビュー、パイプライン、デプロイ、ロールバックを練習します。',
+        'mh': 'あなたは日本【にほん】の作【つく】る人【ひと】です。下【した】の言【こと】葉【ば】だけで、短【みじか】く話【はな】してください。外【そと】の言【こと】葉【ば】を私【わたし】が言【い】った時【とき】は、下【した】の言【こと】葉【ば】で言【い】う方【かた】を教【おし】えてください。',
+    }
+    prompt = f'{prompts[lang]}\n\nCore: {word_list}\n\nLoanwords: {"、".join(loanwords)}'
+    toc.append(('engineering-ai', ui('engineering_ai_heading', lang), []))
+    parts.append(f'  <h2 id="engineering-ai" class="section-heading">{ui("engineering_ai_heading", lang)}</h2>\n')
+    parts.append(f'  <p>{ui("engineering_ai_body", lang)}</p>\n  <details class="ai-prompt-box"><summary>{ui("practice_ai_show", lang)}</summary><pre id="ai-prompt">{esc(prompt)}</pre></details>\n')
+    parts.append(f'  <button id="copy-prompt" data-copied="{strip_html(ui("practice_ai_copied", lang))}">{ui("practice_ai_copy", lang)}</button>\n')
+    return wrap_page('engineering', ''.join(parts), lang, toc)
+
+
 # -- Main ---------------------------------------------------------------------
 
 def main():
@@ -1189,6 +1264,7 @@ def main():
             ('reading', gen_reading(categories, haiku, dialog_groups, dialogs_data, stories, lang)),
             ('practice', gen_practice(candos, dialog_groups, dialogs_data, words, grammar, grammar_examples, lang)),
             ('understanding', gen_understanding(categories, comprehension, lang)),
+            ('engineering', gen_engineering(categories, expressions, dialog_groups, dialogs_data, candos, words, lang)),
         ]
 
         for page_id, html in pages:

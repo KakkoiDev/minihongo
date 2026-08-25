@@ -25,3 +25,9 @@ dgrp-23,cat-92,私【わたし】の事【こと】を言【い】う,Introducin
 dgrp-24,cat-92,もう一【ひと】つ言【い】ってください,Asking Someone to Repeat,もう一度お願いします,24,d_24.mp3
 dgrp-25,cat-92,家【いえ】が近【ちか】い人【ひと】,The Neighbor,隣の人,25,d_25.mp3
 dgrp-26,cat-92,空【そら】の事【こと】の話【はなし】,Weather Small Talk,天気の話,26,d_26.mp3
+dgrp-27,cat-124,毎【まい】日【にち】の話【はなし】,Daily Standup,デイリースタンドアップ,1,
+dgrp-28,cat-124,止【と】まった時【とき】,Incident Report,障害報告,2,
+dgrp-29,cat-124,どう動【うご】くか,System Explanation,システム説明,3,
+dgrp-30,cat-124,見【み】せる時【とき】,Technical Demo,技術デモ,4,
+dgrp-31,cat-124,する事【こと】を考【かんが】える,Task Planning,タスク計画,5,
+dgrp-32,cat-124,何【なに】が必要【ひつよう】か,Requirement Clarification,要件確認,6,

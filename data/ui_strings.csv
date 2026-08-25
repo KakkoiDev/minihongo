@@ -84,6 +84,13 @@ practice_ai_copy,Copy prompt,プロンプトをコピー,言葉【ことば】�
 practice_ai_copied,Copied!,コピーしました,もらいました
 understanding_intro,"Japan will not speak minihongo back to you. The clerk speaks keigo, the signs use kanji you were never taught, the train announces itself in full Japanese. This page is the other half of living here: words you never need to say - only to recognize when Japan says them at you.",日本はミニ本語で話しかけてはくれない。店員は敬語、看板は習っていない漢字、電車は本物の日本語でアナウンスする。ここにあるのは、言う必要のない言葉。向こうから来たときに分かればいい。,日本【にほん】はあなたの言【こと】葉【ば】で話【はな】さない。でも大丈夫【だいじょうぶ】。ここの言【こと】葉【ば】は、言【い】わない言【こと】葉【ば】。聞【き】いて、見【み】て、分【わ】かるだけ。
 understanding_rules,"Recognize only - never say. Your speaking vocabulary stays the 231 words, and every meaning below is explained using only those words.",覚えるのは「分かる」ためだけ。話すのは今までどおり231語。下の意味もすべて231語だけで書いてある。,言【い】うのは、いつもの231の言【こと】葉【ば】だけ。下【した】の「何【なに】の事【こと】」も、全部【ぜんぶ】その言【こと】葉【ば】で書【か】いてある。
+engineering_intro,"Use the core words for flexible explanations and the loanwords your team actually says. The page is deliberately separate from the core course.",基本語で柔軟に説明し、現場で実際に使う外来語はそのまま使います。このページはコア講座とは別です。,知【し】っている言【こと】葉【ば】で話【はな】す。他【ほか】の国【くに】から来【き】た言【こと】葉【ば】は、そのまま言【い】う。この所【ところ】は始【はじ】めに知【し】る物【もの】の外【そと】にある。
+engineering_circ_heading,Circumlocutions,基本語での言い換え,知【し】っている言【こと】葉【ば】で言【い】う
+engineering_loan_heading,Loanwords engineers say,現場で使う外来語,そのまま言【い】う言【こと】葉【ば】
+engineering_dialog_heading,Team dialogs,チームの対話,作【つく】る人【ひと】の話【はなし】
+engineering_cando_heading,Engineering can-dos,エンジニア向けCan-do,できる事【こと】
+engineering_ai_heading,Practice with an AI colleague,AIの同僚と練習,考【かんが】える物【もの】と話【はな】す
+engineering_ai_body,"Copy the prompt and practice a real engineering situation.",プロンプトをコピーして、実際の開発場面を練習してください。,下【した】の言【こと】葉【ば】をもらって、本当【ほんとう】にある話【はなし】をしてみる。
 th_real_japanese,Real Japanese,日本語,日本【にほん】の言【こと】葉【ば】
 th_it_means,It means,意味,何【なに】の事【こと】
 th_where,Where you meet it,どこで,

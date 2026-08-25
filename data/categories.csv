@@ -94,9 +94,9 @@ cat-95,,understanding,見【み】る言【こと】葉【ば】,Signs,看板・
 cat-96,,understanding,買【か】う所【ところ】の人【ひと】の言【こと】葉【ば】,What the Clerk Says,店員の言葉,2,聞【き】く事【こと】だけで大丈夫【だいじょうぶ】。言【い】うのは、あなたの231の言【こと】葉【ば】で。,You answer with your own 231 words - you only need to understand the question.,答えるのは自分の231語でいい。質問が分かれば十分。
 cat-97,,understanding,聞【き】く言【こと】葉【ば】,Announcements,アナウンス,3,本当【ほんとう】の音【おと】は速【はや】い。だから、ここの音【おと】も速【はや】い。,"These arrive as sound at native speed, so the audio here is natural speed too.",アナウンスは実際の速さで流れる。だから音声も自然な速さのまま。
 cat-98,,understanding,書【か】く物【もの】の言【こと】葉【ば】,Forms & Documents,書類の言葉,4,,,
-cat-90,cat-82,going-further,体【からだ】を動【うご】かす事【こと】,Leisure & Sports,遊びとスポーツ,7,,,
-cat-91,cat-82,going-further,新【あたら】しい物【もの】,Technology & Media,ネットとメディア,8,,,
-cat-92,cat-82,going-further,よく使【つか】う言【こと】葉【ば】,Everyday Extras,よく使う言葉,9,,,
+cat-112,cat-82,going-further,体【からだ】を動【うご】かす事【こと】,Leisure & Sports,遊びとスポーツ,7,,,
+cat-125,cat-82,going-further,新【あたら】しい物【もの】,Technology & Media,ネットとメディア,8,,,
+cat-126,cat-82,going-further,よく使【つか】う言【こと】葉【ば】,Everyday Extras,よく使う言葉,9,,,
 cat-99,,going-further,本当【ほんとう】の日本【にほん】の言【こと】葉【ば】,Advanced Vocabulary,上級の語彙,4,231の言【こと】葉【ば】の外【そと】。本当【ほんとう】の日本【にほん】の言【こと】葉【ば】を、ここで少【すこ】しずつ見【み】る。,Beyond the core: real Japanese words to graduate on when you are ready to move past minihongo.,基本語の外側。ミニ本語を卒業して本当の日本語へ進むための語彙。
 cat-100,cat-99,going-further,家【いえ】の人【ひと】,Family & People,家族と人,1,,,
 cat-101,cat-99,going-further,毎【まい】日【にち】する事【こと】,Jobs,仕事,2,,,
@@ -110,3 +110,15 @@ cat-108,cat-99,going-further,見【み】えない事【こと】,Society & Abst
 cat-109,cat-99,going-further,見【み】る物【もの】と聞【き】く物【もの】,Art & Media,芸術とメディア,10,,,
 cat-110,cat-99,going-further,動物【どうぶつ】,Animals,動物,11,,,
 cat-111,cat-99,going-further,物【もの】は何【なに】か,Materials & Measure,材料と測定,12,,,
+cat-113,,engineering,知【し】っている言【こと】葉【ば】で言【い】う,Circumlocutions,基本語での言い換え,1,,,
+cat-114,cat-113,engineering,どう動【うご】くか,How it behaves,動作と挙動,1,,,
+cat-115,cat-113,engineering,何【なに】をするか,What we do,作業と操作,2,,,
+cat-116,cat-113,engineering,どこにあるか,Where it is,場所と接続先,3,,,
+cat-117,cat-113,engineering,人【ひと】と時【とき】,People and time,人と時間,4,,,
+cat-118,cat-113,engineering,悪【わる】い事【こと】を話【はな】す,Talking about a problem,問題の説明,5,,,
+cat-119,,engineering,そのまま言【い】う言【こと】葉【ば】,Engineering loanwords,エンジニアの外来語,2,,,
+cat-120,cat-119,engineering,作【つく】る物【もの】,Code and structure,コードと構成,1,,,
+cat-121,cat-119,engineering,作【つく】って外【そと】に出【だ】す,Build and delivery,ビルドとデリバリー,2,,,
+cat-122,cat-119,engineering,悪【わる】い事【こと】を見【み】る,Operations and incidents,運用と障害,3,,,
+cat-123,cat-119,engineering,する事【こと】を考【かんが】える,Planning and teamwork,計画とチーム作業,4,,,
+cat-124,,engineering,作【つく】る人【ひと】の話【はなし】,Team dialogs,チームの対話,3,,,

@@ -59,6 +59,9 @@ jobs:
       - name: Validate vocabulary
         run: python validate_vocab.py
 
+      - name: Validate CSV schema and generated documentation
+        run: uv run validate_schema.py
+
       - name: Enforce release artifact freshness
         run: python validate_vocab.py --check-freshness
 
@@ -70,6 +73,9 @@ jobs:
 
       - name: Lint templates and generated pages
         run: python site/lint.py
+
+      - name: Check templates without writing output
+        run: python site/build.py --check
 
       - name: Build site
         run: python site/build.py

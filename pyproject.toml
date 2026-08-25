@@ -16,6 +16,7 @@ dependencies = [
     "jpanki[audio]",
     "genanki>=0.13.1",
     "edge-tts>=6.1.0",
+    "frictionless>=5.18.1",
 ]
 
 [dependency-groups]

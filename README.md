@@ -2,6 +2,9 @@
 
 231 words. Infinite expression. Learn to express any idea in Japanese with the minimum vocabulary - then recognize the real Japanese that answers back.
 
+**Prerequisite:** learn hiragana and katakana first. Minihongo teaches the
+smallest useful speaking vocabulary, not the kana writing systems.
+
 Live at [minihongo.com](https://minihongo.com)
 
 ## Goals
@@ -97,7 +100,7 @@ python3 generate_anki.py en   # build only one language
 Decks are stored as GitHub release assets (tagged `anki-vN`) and downloaded at build time (CI) or manually (`make anki-download`). `site/build.py` copies `.apkg` files into `docs/` if present.
 
 **Deck structure (same for each language):**
-- **Vocabulary** (231 words x 2 = 446 cards) - Recognition (JP -> translation) and Recall (translation -> JP), grouped by category
+- **Vocabulary** (231 words x 2 = 462 cards) - Recognition (JP -> translation) and Recall (translation -> JP), grouped by category
 - **Grammar** (~140 cards) - Example sentence with audio -> explanation, grouped by topic
 - **Listening** (43 cards) - Whole dialog/story audio -> transcript and translation
 

@@ -14,3 +14,9 @@ cando-12,dgrp-25,I can greet my neighbors,近所の人に挨拶できる,近【�
 cando-13,dgrp-26,I can make small talk about the weather,天気の話ができる,「暑【あつ】いですね」と言【い】って、少【すこ】し話【はな】す事【こと】ができる。,13
 cando-14,,I can understand and say prices in yen,円の値段が分かって言える,「三【さん】百【びゃく】円【えん】」のお金【かね】の言葉【ことば】が分【わ】かって、言【い】う事【こと】ができる。,14
 cando-15,,I can tell the time,時刻が言える,「今【いま】、三【さん】時【じ】です」と言【い】う事【こと】ができる。,15
+cando-eng-1,dgrp-27,I can give a standup update,朝会で進捗を共有できる,前【まえ】の日【にち】と今【いま】の日【にち】にする事【こと】を話【はな】す事【こと】ができる。,101
+cando-eng-2,dgrp-28,I can report an incident,障害を報告できる,何【なに】がいつから止【と】まったか言【い】う事【こと】ができる。,102
+cando-eng-3,dgrp-29,I can explain a system,システムの仕組みを説明できる,物【もの】がどこからどこまで動【うご】くか話【はな】す事【こと】ができる。,103
+cando-eng-4,dgrp-30,I can run a technical demo,技術デモができる,前【まえ】と後【あと】に何【なに】が起【お】こるか見【み】せる事【こと】ができる。,104
+cando-eng-5,dgrp-31,I can plan a task,タスクを計画できる,始【はじ】めにする事【こと】と必要【ひつよう】な時【とき】を話【はな】す事【こと】ができる。,105
+cando-eng-6,dgrp-32,I can clarify a requirement,要件を確認できる,何【なに】のためか、どの時【とき】に必要【ひつよう】か聞【き】く事【こと】ができる。,106

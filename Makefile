@@ -1,9 +1,15 @@
-.PHONY: build serve watch _rebuild lint-haiku lint-vocab freshness audio audio-download audio-release anki anki-restyle anki-download anki-release pdf pdf-download pdf-release pdf-print deploy
+.PHONY: build check serve watch _rebuild lint-haiku lint-vocab lint-schema freshness audio audio-download audio-release anki anki-restyle anki-download anki-release pdf pdf-download pdf-release pdf-print deploy
 
 PORT ?= 3000
 
 build: lint-vocab
 	python3 generate_pages.py
+	python3 site/build.py
+
+check: lint-vocab lint-haiku lint-schema
+	python3 generate_pages.py
+	python3 site/lint.py
+	python3 site/build.py --check
 	python3 site/build.py
 
 serve: build
@@ -30,6 +36,9 @@ lint-haiku:
 
 lint-vocab:
 	python3 validate_vocab.py
+
+lint-schema:
+	uv run validate_schema.py
 
 # Fail if a published release (Anki/PDF) no longer matches its source CSVs.
 # validate_vocab.py also reports this non-fatally on every build.
