@@ -246,6 +246,8 @@ def gen_index(lang):
 
 
     onboarding = ui('home_onboarding', lang)
+    prerequisite_raw = UI_STRINGS.get('home_prerequisite', {}).get(lang, '').strip()
+    prerequisite = to_ruby_html(prerequisite_raw) if prerequisite_raw else ''
     anki_link = ui('home_anki_link', lang)
     anki_desc = ui('home_anki_desc', lang)
     pdf_link = ui('home_pdf_link', lang)
@@ -297,7 +299,8 @@ def gen_index(lang):
         f'{example_table}'
         f'  <div class="onboarding">\n'
         f'    <p>{onboarding}</p>\n'
-        f'  </div>\n'
+        + (f'    <p class="prerequisite">{prerequisite}</p>\n' if prerequisite else '')
+        + f'  </div>\n'
         f'  <div class="anki-featured">\n'
         f'    <p><a href="/{basename}-{lang}.apkg">{anki_link}</a> - {anki_desc}</p>\n'
         f'    <p class="anki-secondary"><a href="/{basename}-{lang}.pdf">{pdf_link}</a></p>\n'
