@@ -427,9 +427,9 @@ def gen_grammar(categories, grammar, grammar_examples, lang):
         toc_children = []
         for gp in by_sort(gram_by_cat.get(cat['id'], [])):
             gp_slug = slugify(gp.get('english') or gp['id'])
-            gp_toc_label = esc(gp.get('english') or gp['minihongo'])
+            gp_toc_label = esc(t(gp, '', lang) or eng_fallback(gp, lang, key='minihongo'))
             if gp.get('core', '').strip().lower() == 'yes':
-                gp_toc_label += ' <span class="toc-core">core</span>'
+                gp_toc_label += f' <span class="toc-core">{ui("grammar_toc_core", lang)}</span>'
             toc_children.append((gp_slug, gp_toc_label))
 
         toc.append((slug, to_ruby_html(esc(toc_label)), toc_children))
