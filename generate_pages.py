@@ -708,7 +708,10 @@ def _render_common_table(parts, rows, lang):
         if lang == 'mh':
             parts.append(f'    <tr><td lang="ja">{pb}{mh}</td></tr>\n')
         else:
-            meaning = esc(r['japanese'] if lang == 'ja' else r['english'])
+            if lang == 'ja' and r.get('reading'):
+                meaning = f'<ruby>{esc(r["japanese"])}<rt>{esc(r["reading"])}</rt></ruby>'
+            else:
+                meaning = esc(r['japanese'] if lang == 'ja' else r['english'])
             parts.append(
                 f'    <tr>'
                 f'<td lang="ja">{pb}{mh}</td>'
