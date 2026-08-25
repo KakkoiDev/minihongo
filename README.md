@@ -102,7 +102,7 @@ Decks are stored as GitHub release assets (tagged `anki-vN`) and downloaded at b
 **Deck structure (same for each language):**
 - **Vocabulary** (231 words x 2 = 462 cards) - Recognition (JP -> translation) and Recall (translation -> JP), grouped by category
 - **Grammar** (~140 cards) - Example sentence with audio -> explanation, grouped by topic
-- **Listening** (43 cards) - Whole dialog/story audio -> transcript and translation
+- **Listening** (49 cards) - Whole dialog/story audio -> transcript and translation
 
 Anki ships only the core course above. An expressions deck (`minihongo-{en,ja}-expressions.apkg`) was built previously but is now **retired** - a grab-bag of circumlocutions, loanwords, and false friends with no single job. Its build code was removed (it lives in git history); the last-released assets remain downloadable but are not updated. Advanced vocabulary lives on the Going Further web page, not in Anki.
 
