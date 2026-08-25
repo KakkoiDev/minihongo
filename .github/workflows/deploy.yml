@@ -27,6 +27,8 @@ jobs:
         with:
           python-version: "3.12"
 
+      - uses: astral-sh/setup-uv@v3
+
       - name: Download audio
         run: |
           mkdir -p audio
