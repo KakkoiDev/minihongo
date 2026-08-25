@@ -76,6 +76,9 @@ jobs:
       - name: Lint templates and generated pages
         run: python site/lint.py
 
+      - name: Check for English leaking onto ja pages
+        run: python validate_no_english_leak.py
+
       - name: Check templates without writing output
         run: python site/build.py --check
 

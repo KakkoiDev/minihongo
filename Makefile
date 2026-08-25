@@ -9,6 +9,7 @@ build: lint-vocab
 check: lint-vocab lint-haiku lint-schema
 	python3 generate_pages.py
 	python3 site/lint.py
+	python3 validate_no_english_leak.py
 	python3 site/build.py --check
 	python3 site/build.py
 
