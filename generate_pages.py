@@ -77,6 +77,11 @@ def t(row, field, lang):
     return ''
 
 
+def eng_fallback(row, lang, key='name_english'):
+    """English fallback for a label, suppressed on the ja site so nothing English leaks."""
+    return '' if lang == 'ja' else row[key]
+
+
 def render(text):
     """Escape HTML then convert bracket notation to ruby. Safe for plain text."""
     return to_ruby_html(esc(text))
@@ -324,7 +329,7 @@ def gen_vocabulary(categories, words, lang):
         slug = slugify(cat['name_english'])
         translated = t(cat, 'name', lang)
         h = bilingual(cat['name_minihongo'], translated)
-        toc_label = translated or cat['name_english']
+        toc_label = translated or eng_fallback(cat, lang)
         toc.append((slug, to_ruby_html(esc(toc_label))))
         parts.append(f'  <h2 id="{slug}" class="section-heading">{h}</h2>\n')
         parts.append('\n')
@@ -414,7 +419,7 @@ def gen_grammar(categories, grammar, grammar_examples, lang):
         slug = slugify(cat['name_english'])
         translated = t(cat, 'name', lang)
         h = bilingual(cat['name_minihongo'], translated)
-        toc_label = translated or cat['name_english']
+        toc_label = translated or eng_fallback(cat, lang)
 
         toc_children = []
         for gp in by_sort(gram_by_cat.get(cat['id'], [])):
@@ -492,13 +497,13 @@ def gen_word_building(categories, compounds, expressions, lang):
         slug = slugify(h2['name_english'])
         translated = t(h2, 'name', lang)
         h = bilingual(h2['name_minihongo'], translated)
-        toc_label = translated or h2['name_english']
+        toc_label = translated or eng_fallback(h2, lang)
 
         # Build h3 TOC children
         toc_children = []
         for h3 in children.get(h2['id'], []):
             h3_slug = slugify(h3['name_english'])
-            h3_label = t(h3, 'name', lang) or h3['name_english']
+            h3_label = t(h3, 'name', lang) or eng_fallback(h3, lang)
             toc_children.append((h3_slug, to_ruby_html(esc(h3_label))))
 
         toc.append((slug, to_ruby_html(esc(toc_label)), toc_children))
@@ -603,12 +608,12 @@ def gen_going_further(categories, compounds, expressions, advanced, lang):
         slug = slugify(h2['name_english'])
         translated = t(h2, 'name', lang)
         h = bilingual(h2['name_minihongo'], translated)
-        toc_label = translated or h2['name_english']
+        toc_label = translated or eng_fallback(h2, lang)
 
         toc_children = []
         for h3 in children.get(h2['id'], []):
             h3_slug = slugify(h3['name_english'])
-            h3_label = t(h3, 'name', lang) or h3['name_english']
+            h3_label = t(h3, 'name', lang) or eng_fallback(h3, lang)
             toc_children.append((h3_slug, to_ruby_html(esc(h3_label))))
 
         toc.append((slug, to_ruby_html(esc(toc_label)), toc_children))
@@ -792,12 +797,12 @@ def gen_reading(categories, haiku, dialog_groups, dialogs, stories, lang):
         slug = slugify(h2['name_english'])
         translated = t(h2, 'name', lang)
         h = bilingual(h2['name_minihongo'], translated)
-        toc_label = translated or h2['name_english']
+        toc_label = translated or eng_fallback(h2, lang)
 
         toc_children = []
         for ch in children.get(h2['id'], []):
             ch_slug = slugify(ch['name_english'])
-            ch_label = t(ch, 'name', lang) or ch['name_english']
+            ch_label = t(ch, 'name', lang) or eng_fallback(ch, lang)
             toc_children.append((ch_slug, to_ruby_html(esc(ch_label))))
 
         toc.append((slug, to_ruby_html(esc(toc_label)), toc_children))
@@ -1087,7 +1092,7 @@ def gen_understanding(categories, comprehension, lang):
     for cat in cats:
         slug = slugify(cat['name_english'])
         translated = t(cat, 'name', lang)
-        toc.append((slug, to_ruby_html(esc(translated or cat['name_english']))))
+        toc.append((slug, to_ruby_html(esc(translated or eng_fallback(cat, lang)))))
         heading = bilingual(cat['name_minihongo'], translated)
         parts.append(f'  <h2 id="{slug}" class="section-heading">{heading}</h2>\n')
 
