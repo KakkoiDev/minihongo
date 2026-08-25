@@ -1,4 +1,4 @@
-.PHONY: build check serve watch _rebuild lint-haiku lint-vocab lint-schema freshness audio audio-download audio-release anki anki-restyle anki-download anki-release pdf pdf-download pdf-release pdf-print deploy
+.PHONY: build check serve watch _rebuild lint-haiku lint-vocab lint-schema lint-audio-hash freshness audio audio-download audio-release anki anki-restyle anki-download anki-release pdf pdf-download pdf-release pdf-print deploy
 
 PORT ?= 3000
 
@@ -6,7 +6,7 @@ build: lint-vocab
 	python3 generate_pages.py
 	python3 site/build.py
 
-check: lint-vocab lint-haiku lint-schema
+check: lint-vocab lint-haiku lint-schema lint-audio-hash
 	python3 generate_pages.py
 	python3 site/lint.py
 	python3 validate_no_english_leak.py
@@ -41,6 +41,12 @@ lint-vocab:
 lint-schema:
 	uv run validate_schema.py
 
+# Fail if a row's text changed since its audio was generated (ID-keyed audio
+# filenames - grammar_examples/haiku/stories/dialog_groups - don't change on
+# their own when the text does; see validate_audio_text_hash.py).
+lint-audio-hash:
+	python3 validate_audio_text_hash.py
+
 # Fail if a published release (Anki/PDF) no longer matches its source CSVs.
 # validate_vocab.py also reports this non-fatally on every build.
 freshness:
@@ -51,6 +57,7 @@ freshness:
 # Generate all audio (requires edge-tts + ffmpeg)
 audio:
 	python3 generate_audio.py
+	python3 validate_audio_text_hash.py --write
 
 # Download audio from GitHub release into audio/
 audio-download:

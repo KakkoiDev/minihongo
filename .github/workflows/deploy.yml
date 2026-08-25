@@ -67,6 +67,9 @@ jobs:
       - name: Enforce release artifact freshness
         run: python validate_vocab.py --check-freshness
 
+      - name: Check audio text hasn't drifted from its audio
+        run: python validate_audio_text_hash.py
+
       - name: Validate haiku meter
         run: python validate_haiku.py
 
