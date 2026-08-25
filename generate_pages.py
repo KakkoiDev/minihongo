@@ -1044,23 +1044,51 @@ def gen_practice(candos, dialog_groups, dialogs, words, grammar, grammar_example
     parts.append(f'  <h2 id="ai-partner" class="section-heading">{ui("practice_ai_heading", lang)}</h2>\n')
     parts.append(f'  <p>{ui("practice_ai_body", lang)}</p>\n')
     word_list = ', '.join(f'{w["minihongo"]} ({w["english"]})' for w in by_sort(words))
-    prompt = (
-        'You are my Japanese conversation partner for Minihongo practice.\n'
-        f'Minihongo is Japanese restricted to {len(words)} base words plus standard grammar '
-        '(particles, verb conjugation, te-form, polite ます/です).\n'
-        '\n'
-        'Rules:\n'
-        '1. Reply ONLY in Japanese, using ONLY the words below. Express any other idea '
-        'by combining them, like 体を助ける所 for hospital.\n'
-        '2. Write every kanji with its reading in brackets: 人【ひと】.\n'
-        '3. Keep replies to one or two short sentences.\n'
-        '4. If I use a word outside the list, gently show me how to say it with these '
-        'words, then continue.\n'
-        '5. Use ます/です politeness. Modern grammar only.\n'
-        '6. Start now: greet me and ask one simple question.\n'
-        '\n'
-        f'The {len(words)} words: {word_list}'
-    )
+    prompts = {
+        'en': (
+            'You are my Japanese conversation partner for Minihongo practice.\n'
+            f'Minihongo is Japanese restricted to {len(words)} base words plus standard grammar '
+            '(particles, verb conjugation, te-form, polite ます/です).\n'
+            '\n'
+            'Rules:\n'
+            '1. Reply ONLY in Japanese, using ONLY the words below. Express any other idea '
+            'by combining them, like 体を助ける所 for hospital.\n'
+            '2. Write every kanji with its reading in brackets: 人【ひと】.\n'
+            '3. Keep replies to one or two short sentences.\n'
+            '4. If I use a word outside the list, gently show me how to say it with these '
+            'words, then continue.\n'
+            '5. Use ます/です politeness. Modern grammar only.\n'
+            '6. Start now: greet me and ask one simple question.\n'
+            '\n'
+            f'The {len(words)} words: {word_list}'
+        ),
+        'ja': (
+            'あなたは私のミニ本語練習のための日本語会話パートナーです。\n'
+            f'ミニ本語は{len(words)}個の基本語と標準的な文法'
+            '（助詞、活用、て形、丁寧なます・です）に限定した日本語です。\n'
+            '\n'
+            'ルール：\n'
+            '1. 日本語のみで、下の語だけを使って返事してください。他の考えはそれらを組み合わせて '
+            '表現してください（例：病院は「体を助ける所」）。\n'
+            '2. 漢字には必ず読みを【】で書いてください：人【ひと】。\n'
+            '3. 返事は一、二文の短い文にしてください。\n'
+            '4. リスト外の語を私が使ったら、その語をこれらの語でどう言うか優しく教えてから '
+            '続けてください。\n'
+            '5. ます・です体を使い、現代の文法のみにしてください。\n'
+            '6. 今すぐ始めてください：挨拶して、簡単な質問を一つしてください。\n'
+            '\n'
+            f'{len(words)}個の語：{word_list}'
+        ),
+        'mh': (
+            'あなたは私【わたし】と話【はな】す人【ひと】です。\n'
+            '下【した】の言【こと】葉【ば】だけで、短【みじか】く話【はな】してください。\n'
+            '外【そと】の言【こと】葉【ば】を私【わたし】が言【い】った時【とき】は、'
+            '下【した】の言【こと】葉【ば】で言【い】う方【かた】を教【おし】えてください。\n'
+            '\n'
+            f'言【こと】葉【ば】：{word_list}'
+        ),
+    }
+    prompt = prompts[lang]
     parts.append('  <details class="ai-prompt-box">\n')
     parts.append(f'    <summary>{ui("practice_ai_show", lang)}</summary>\n')
     parts.append(f'    <pre id="ai-prompt">{esc(prompt)}</pre>\n')
