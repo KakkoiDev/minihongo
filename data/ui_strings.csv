@@ -81,6 +81,7 @@ practice_quiz_heading,Quiz yourself,クイズ,少【すこ】し考【かんが�
 practice_quiz_grammar,Grammar,文法,言【こと】葉【ば】の使【つか】い方【かた】
 practice_ai_heading,Practice conversation with an AI,AIと会話練習,考【かんが】える物【もの】と話【はな】す
 practice_ai_body,"Copy this prompt into ChatGPT, Claude, or Gemini, then start with こんにちは. The AI speaks only minihongo and corrects you gently.",このプロンプトをChatGPT・Claude・Geminiなどに貼り付けて、「こんにちは」から始めましょう。AIはミニ本語だけで話します。,この言葉【ことば】を考【かんが】える物【もの】にあげて、「こんにちは」と言【い】ってください。
+practice_kaiwa_link,"Want to speak instead of type? Try <a href=""/kaiwa/"">Kaiwa mode</a> - a spoken conversation practice page, right in your browser, with your own AI provider key.","話して練習したい方は、<a href=""/kaiwa/"">Kaiwaモード</a>をお試しください。ブラウザだけで動く音声会話練習ページです（英語表示、自分のAIキーが必要です）。","口【くち】で話【はな】す<a href=""/kaiwa/"">Kaiwa</a>もあります。"
 practice_ai_show,Show prompt,プロンプトを表示,言葉【ことば】を見【み】る
 practice_ai_copy,Copy prompt,プロンプトをコピー,言葉【ことば】をもらう
 practice_ai_copied,Copied!,コピーしました,もらいました

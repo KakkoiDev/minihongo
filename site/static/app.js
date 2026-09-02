@@ -198,7 +198,11 @@ const bindContentLinks = () => {
 
 // Top nav links
 for (const a of navLinks) {
-  if (a.classList.contains('lang-link')) continue
+  // cross-locale: links to a page that only exists at the English root
+  // (e.g. Kaiwa), regardless of which locale is currently active. Left as
+  // a plain link - the SPA router derives paths relative to the current
+  // locale's base, which would mangle a link that deliberately escapes it.
+  if (a.classList.contains('lang-link') || a.classList.contains('cross-locale')) continue
   bindLink(a)
 }
 
