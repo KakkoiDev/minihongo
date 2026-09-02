@@ -170,13 +170,36 @@ const restoreCandos = () => {
 // Kaiwa page: needs its own script since SPA-swapped content never runs
 // inline <script> tags. Loaded once, then just re-invoked on every swap
 // (initKaiwaPage no-ops if #kaiwa-app is already bound).
+let kaiwaLoadPromise = null
+
 const initKaiwa = () => {
-  if (!document.getElementById('kaiwa-app')) return
+  const root = document.getElementById('kaiwa-app')
+  if (!root) return
   if (window.initKaiwaPage) {
     window.initKaiwaPage()
     return
   }
-  import(`${rootPath}static/kaiwa.js`).then(() => window.initKaiwaPage())
+
+  // The Kaiwa UI depends on both provider adapters. Load them before kaiwa.js;
+  // otherwise its initial render throws before the Start handler is bound.
+  if (!kaiwaLoadPromise) {
+    kaiwaLoadPromise = Promise.all([
+      import(`${rootPath}static/kaiwa-provider-anthropic.js`),
+      import(`${rootPath}static/kaiwa-provider-openai.js`),
+    ])
+      .then(() => import(`${rootPath}static/kaiwa.js`))
+      .catch(err => {
+        console.error('Could not load Kaiwa scripts', err)
+        kaiwaLoadPromise = null
+        throw err
+      })
+  }
+
+  kaiwaLoadPromise
+    .then(() => window.initKaiwaPage())
+    .catch(() => {
+      root.innerHTML = '<p class="kaiwa-error">Could not load Kaiwa. Check your connection and reload.</p>'
+    })
 }
 
 // Bind lesson-nav and TOC links inside #content (re-run after each swap)
