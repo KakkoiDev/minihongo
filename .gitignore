@@ -28,6 +28,7 @@ test-pdf-*.png
 !OUTREACH.md
 !ARCHIVE-LOANWORDS-COMPOUNDS.md
 !PLAN.md
+!KAIWA-SPEC.md
 !.claude/skills/**/SKILL.md
 !.github/ISSUE_TEMPLATE/*.md
 conversation-about-minihongo.html
