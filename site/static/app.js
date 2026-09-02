@@ -167,6 +167,18 @@ const restoreCandos = () => {
   }
 }
 
+// Kaiwa page: needs its own script since SPA-swapped content never runs
+// inline <script> tags. Loaded once, then just re-invoked on every swap
+// (initKaiwaPage no-ops if #kaiwa-app is already bound).
+const initKaiwa = () => {
+  if (!document.getElementById('kaiwa-app')) return
+  if (window.initKaiwaPage) {
+    window.initKaiwaPage()
+    return
+  }
+  import(`${rootPath}static/kaiwa.js`).then(() => window.initKaiwaPage())
+}
+
 // Bind lesson-nav and TOC links inside #content (re-run after each swap)
 const bindContentLinks = () => {
   for (const a of document.querySelectorAll('.lesson-nav a')) {
@@ -181,6 +193,7 @@ const bindContentLinks = () => {
   bindPlayButtons()
   applyListenFirst()
   restoreCandos()
+  initKaiwa()
 }
 
 // Top nav links

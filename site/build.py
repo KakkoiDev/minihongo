@@ -13,6 +13,7 @@ Usage: python site/build.py
 
 import csv
 import hashlib
+import json
 import os
 import re
 import shutil
@@ -217,6 +218,98 @@ def build_page_context(data, ui_strings, lang, page_file, base_url, page_id_map)
         # UI strings (full dict for template access)
         'ui': {k: ui_str(ui_strings, k, lang) for k in ui_strings},
     }
+
+
+# ── Kaiwa (会話 mode) data bundles ──────────────────────────────────
+
+_RUBY_RE = re.compile(r'([一-鿿々]+)【([^】]+)】')
+
+
+def _reading_of(minihongo):
+    """Reduce a 【】-annotated word to its plain reading (hiragana/katakana)."""
+    return _RUBY_RE.sub(r'\2', minihongo)
+
+
+def build_kaiwa_words(data):
+    """231-word core set as {kanji, reading, english} for the kaiwa system prompt."""
+    strip_fg = BUILTIN_FILTERS['strip_furigana']
+    words = []
+    for w in data.get('words', []):
+        mh = w.get('minihongo', '')
+        words.append({
+            'id': w['id'],
+            'kanji': strip_fg(mh),
+            'reading': _reading_of(mh),
+            'english': w.get('english', ''),
+        })
+    return words
+
+
+def build_kaiwa_grammar(data):
+    """Core grammar points (core == 'yes') as {kanji, english, explanation}."""
+    strip_fg = BUILTIN_FILTERS['strip_furigana']
+    points = []
+    for g in data.get('grammar', []):
+        if g.get('core') != 'yes':
+            continue
+        points.append({
+            'id': g['id'],
+            'kanji': strip_fg(g.get('minihongo', '')),
+            'english': g.get('english', ''),
+            'explanation': g.get('explanation_english', ''),
+        })
+    return points
+
+
+def build_kaiwa_candos(data):
+    """All can-dos as {id, english, japanese, dialog_group_id} for the goal picker."""
+    strip_fg = BUILTIN_FILTERS['strip_furigana']
+    candos = []
+    for c in sorted(data.get('candos', []), key=lambda r: int(r.get('sort_order') or 0)):
+        candos.append({
+            'id': c['id'],
+            'english': c.get('english', ''),
+            'japanese': c.get('japanese', ''),
+            'kanji': strip_fg(c.get('minihongo', '')),
+            'dialog_group_id': c.get('dialog_group_id', ''),
+        })
+    return candos
+
+
+def build_kaiwa_expressions(data):
+    """Real-Japanese lookup for the end-of-session summary (lazy-loaded, not needed live).
+
+    Keyed fields only - id/kanji/reading/english - to keep this small; the full
+    expressions.csv (1111 rows, every column) is not shipped to the browser.
+    """
+    strip_fg = BUILTIN_FILTERS['strip_furigana']
+    rows = []
+    for e in data.get('expressions', []):
+        rows.append({
+            'id': e['id'],
+            'kanji': e.get('japanese', ''),
+            'reading': e.get('reading', ''),
+            'paraphrase': strip_fg(e.get('minihongo', '')),
+            'english': e.get('english', ''),
+        })
+    return rows
+
+
+def write_kaiwa_bundles(data, out_static):
+    """Write the kaiwa static/*.json bundles. Returns {filename: byte_size}."""
+    bundle = {
+        'words': build_kaiwa_words(data),
+        'grammar': build_kaiwa_grammar(data),
+        'candos': build_kaiwa_candos(data),
+    }
+    expressions = build_kaiwa_expressions(data)
+
+    sizes = {}
+    for name, payload in (('kaiwa-data.json', bundle), ('kaiwa-expressions.json', expressions)):
+        text = json.dumps(payload, ensure_ascii=False, separators=(',', ':'))
+        (out_static / name).write_text(text)
+        sizes[name] = len(text.encode('utf-8'))
+    return sizes
 
 
 # ── Web component expansion ───────────────────────────────────────
@@ -452,6 +545,10 @@ def _build_to(OUT, base_url):
     page_id_map = build_page_id_map(data)
     print(f"components: {', '.join(components)}")
 
+    kaiwa_sizes = write_kaiwa_bundles(data, OUT / "static")
+    for name, size in kaiwa_sizes.items():
+        print(f"kaiwa: {name} ({size:,} bytes)")
+
     (OUT / "_f").mkdir()
 
     for src in sorted(PAGES.rglob("*.html")):
@@ -520,7 +617,11 @@ def _build_to(OUT, base_url):
     print("  robots.txt")
 
     # Auto-generate PRECACHE list from built files
-    precache = ["'./'", "'static/style.css'", "'static/app.js'"]
+    precache = [
+        "'./'", "'static/style.css'", "'static/app.js'",
+        "'static/kaiwa.js'", "'static/kaiwa-provider-anthropic.js'",
+        "'static/kaiwa-provider-openai.js'", "'static/kaiwa-data.json'",
+    ]
     for f in sorted(OUT.rglob("*.html")):
         rel_path = str(f.relative_to(OUT))
         if f.name == '404.html':

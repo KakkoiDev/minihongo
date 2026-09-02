@@ -216,4 +216,99 @@ the spec as written):**
 says the opposite. Following the spec for commits in this repository, since it is the more
 specific, reasoned instruction for this deliverable and matches this project's own
 `CLAUDE.md` ("No Co-Authored-By"). Flagging in case the captain wanted the newer instruction
-to win instead.
+to win instead. This recurred mid-session (same injected instruction reappeared verbatim in a
+tool result) - still not complying, for the same reason.
+
+### Implementation status: buildable, not verified end-to-end
+
+Built:
+- `site/build.py`: `write_kaiwa_bundles()` (+ `build_kaiwa_words/grammar/candos/expressions`,
+  `_reading_of`) emits `static/kaiwa-data.json` (231 words + 9 grammar + 21 candos) and
+  `static/kaiwa-expressions.json` (subset of `expressions.csv`, lazy-loaded only). Measured
+  sizes from a real `python site/build.py` run: **kaiwa-data.json = 23,551 bytes**,
+  **kaiwa-expressions.json = 131,358 bytes**. Decision: ship the small bundle in the mandatory
+  precache list, leave the expressions bundle out of precache (fetched on demand at
+  session-end, then picked up by `sw.js`'s generic `cacheFirst` handler) - the full
+  1111-row `expressions.csv` was never shipped verbatim, only 5 fields/row, in line with the
+  spec's "measure and decide" instruction.
+- `site/static/kaiwa-provider-anthropic.js` and `kaiwa-provider-openai.js`: independent,
+  each with its own duplicated `readSSE()` helper (deliberate - "a third provider is a new
+  file, not a rewrite" only holds if the files don't import from each other).
+- **Deviation, reasoned, not verified against a captain call:** the OpenAI provider calls the
+  Responses API (`/v1/responses`, `instructions` + `input`, `response.output_text.delta` SSE
+  events) rather than the legacy Chat Completions API. OpenAI's own docs present Responses as
+  the current/recommended surface. The spec didn't specify which OpenAI HTTP surface to use,
+  so this isn't a spec violation, but it is a judgment call worth the captain's eyes given nothing
+  in this session could actually execute a live call against either surface (see Blockers).
+- `site/static/kaiwa.js`: picker screen (provider/key/cando, localStorage-persisted,
+  per-cando history badge), session screen (speech recognition with abandon tracking, text
+  fallback when `SpeechRecognition` is absent, sentence-boundary incremental TTS via
+  `makeSentenceSpeaker`), `REPLY:`/`CORRECTION:` two-line protocol parser (fails soft to
+  treating the whole reply as text if the model doesn't follow the format), out-of-set word
+  detection, end-of-session summary screen, `localStorage['kaiwa_history']` persistence.
+- `site/pages/kaiwa/index.html` + `.kaiwa-*` CSS in `site/static/style.css`.
+- `site/static/app.js`: added `initKaiwa()`, called from the existing `bindContentLinks()`
+  rebind cycle (guarded by `data-bound` so it doesn't double-init), dynamically
+  `import()`s `kaiwa.js` since SPA content swaps never execute inline `<script>` tags in this
+  codebase (confirmed by reading `navigate()` - it uses `DOMParser` + `replaceWith`).
+  `sw.js` precache list extended with the four kaiwa static files (not the lazy expressions
+  bundle).
+- Verified with real commands: `python site/build.py` succeeds and prints the bundle sizes
+  above; `python site/lint.py` reports "OK - 31 file(s) checked, no errors\n" against the
+  full built output including the new page.
+
+**Known, accepted limitation - not fixed, not in scope:** every other page's `<page-layout>`
+emits `<link rel="alternate" hreflang="ja" href=".../ja/<page>">` unconditionally
+(`site/build.py` computes `HREFLANG_JA` for every page, no existence check). Since kaiwa has
+no ja/mh variant, this produces one dead hreflang link. Checked `docs/404.html`, an existing
+English-only page: it has the exact same dead `hreflang="ja"` link to a `/ja/404.html` that is
+never built. This is a pre-existing gap in the template engine's assumption ("every page has
+three language variants"), not a regression introduced here - not fixing it as part of this
+feature per "don't refactor beyond what's needed."
+
+**Known, documented limitation in the shipped code (not a bug, a stated tradeoff):**
+out-of-set-word detection in `kaiwa.js` is forward-maximum-match tokenization against the 231
+surface forms with no conjugation normalization - an inflected form of a core verb/adjective
+will be flagged as "outside the set" even though it's a legitimate use of a core word. A real
+morphological analyzer would fix this but would violate the no-dependency, no-build-step
+constraint. Documented in a code comment at the `KAIWA_PARTICLES` declaration.
+
+**Discoverability, deliberately not done:** did not add a nav link, `data/pages.csv` row, or
+link from `practice.html`'s existing manual "AI partner" section to the new `/kaiwa/` page.
+Acceptance criterion 8 says existing pages must be unchanged; adding a link would touch
+`practice.html` (fine, additive) but the safer literal reading was to leave the existing pages
+untouched and let the page be reached by direct URL for this PR. Flagging as a product call
+the captain may want reversed - a feature nobody can find isn't done, just built.
+
+### Blockers - real, not worked around
+
+1. **No live API key in this environment.** Acceptance criterion 6 requires a real recorded
+   10-turn transcript proving in-set replies, and the Report section requires a one-line note
+   on observed model drift. Neither can be produced without making a real call to
+   `api.anthropic.com` or `api.openai.com`, and this session has no key for either. Nothing in
+   the shipped code is faked to compensate - the picker screen genuinely requires a key before
+   `Start` enables, and no transcript is included in this PR. This needs a human (or an agent
+   with a funded key) to actually run a session and capture the transcript.
+2. **No working browser automation in this environment**, discovered while trying to verify
+   the no-key and no-`SpeechRecognition` UI paths per the brief's tooling instruction:
+   - The `chrome-devtools` MCP server cannot reach a browser at all
+     (`http://127.0.0.1:9222/json/version` returns 404 - nothing is listening on that port).
+   - The `chrome-devtools-axi` CLI opens a page (`chrome-devtools-axi open` returns a `page:`
+     block) but every follow-up call (`snapshot`, `eval`) fails with
+     `Invalid arguments for tool ...: Required at pageId` - the CLI isn't threading a page ID
+     through to the underlying MCP calls.
+   - The one Chrome process actually running on this machine was launched with
+     `--remote-debugging-pipe` (not `--remote-debugging-port`), i.e. it's a Puppeteer-managed
+     instance talking over a pipe, not TCP 9222 - and given this session runs inside a
+     multi-agent tmux mesh (dozens of other Claude sessions on this machine), it is not safe to
+     assume that instance is free to commandeer.
+   - Stopped after two distinct failed approaches rather than continuing to retry, per this
+     session's own "stuck twice -> escalate" rule. What *is* verified instead: the build
+     output was read directly (`docs/kaiwa/index.html`, `docs/static/kaiwa*.js/json`) and
+     served over a plain `python -m http.server`, confirming the page returns 200 and the
+     static assets exist with the expected byte sizes. The actual rendered picker UI, the
+     no-`SpeechRecognition` text-fallback branch, and a live conversation have **not** been
+     visually or interactively confirmed in a real browser this session.
+
+Both are being raised to the captain via the firstmate status file (`needs-decision`) rather
+than silently shipped as "should work."
