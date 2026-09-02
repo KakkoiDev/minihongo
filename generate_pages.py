@@ -48,7 +48,11 @@ def load_ui_strings():
 
 def load_page_data():
     global PAGE_DATA
-    PAGE_DATA = sorted(load_csv('pages'), key=lambda r: int(r['sort_order']))
+    # Only the lesson pages this script builds - pages.csv can also carry rows
+    # for pages built elsewhere (e.g. kaiwa, built by site/build.py) that have
+    # no place in this file's linear prev/next lesson sequence.
+    lesson_rows = [r for r in load_csv('pages') if r['id'] in PAGE_FILES]
+    PAGE_DATA = sorted(lesson_rows, key=lambda r: int(r['sort_order']))
 
 
 # -- Helpers ------------------------------------------------------------------
@@ -1042,6 +1046,7 @@ def gen_practice(candos, dialog_groups, dialogs, words, grammar, grammar_example
     # AI conversation partner: copyable prompt, word list interpolated from words.csv
     toc.append(('ai-partner', ui('practice_ai_heading', lang), []))
     parts.append(f'  <h2 id="ai-partner" class="section-heading">{ui("practice_ai_heading", lang)}</h2>\n')
+    parts.append(f'  <p>{ui("practice_kaiwa_link", lang)}</p>\n')
     parts.append(f'  <p>{ui("practice_ai_body", lang)}</p>\n')
     word_list = ', '.join(f'{w["minihongo"]} ({w["english"]})' for w in by_sort(words))
     prompts = {
