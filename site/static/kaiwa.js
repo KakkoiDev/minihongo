@@ -302,6 +302,12 @@ function startSession(root, data, opts) {
       return
     }
 
+    if (!full.trim()) {
+      statusEl.textContent = 'The AI returned an empty response. Please retry.'
+      micBtn.disabled = false
+      textInput.disabled = false
+      return
+    }
     speakAsItStreams(full) // flush any trailing fragment
     const { reply, correction } = parseModelTurn(full)
     appendBubble('assistant', reply)
@@ -413,6 +419,10 @@ function startSession(root, data, opts) {
       })
     } catch (err) {
       statusEl.textContent = err.message || 'Could not reach the provider to start.'
+      return
+    }
+    if (!full.trim()) {
+      statusEl.textContent = 'The AI returned an empty response. Please start again.'
       return
     }
     speakAsItStreams(full)
