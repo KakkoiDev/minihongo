@@ -3,7 +3,11 @@
 // whenever #kaiwa-app is present - see app.js for why this can't just be a
 // <script> tag in the page (SPA nav swaps #content without executing scripts).
 
-const KAIWA_KEY_STORAGE = { anthropic: 'kaiwa_key_anthropic', openai: 'kaiwa_key_openai' }
+const KAIWA_KEY_STORAGE = {
+  anthropic: 'kaiwa_key_anthropic',
+  openai: 'kaiwa_key_openai',
+  deepseek: 'kaiwa_key_deepseek',
+}
 const KAIWA_PROVIDER_STORAGE = 'kaiwa_provider'
 const KAIWA_HISTORY_STORAGE = 'kaiwa_history'
 
@@ -81,10 +85,15 @@ function renderPicker(root, data) {
     </label>
   `).join('')
 
-  const providerRadios = ['anthropic', 'openai'].map(id => `
+  const providerLabels = {
+    anthropic: 'Anthropic (Claude Haiku 4.5)',
+    openai: 'OpenAI (GPT-5.6 Luna)',
+    deepseek: 'DeepSeek (V4 Flash)',
+  }
+  const providerRadios = Object.keys(providerLabels).map(id => `
     <label class="kaiwa-provider-opt">
       <input type="radio" name="kaiwa-provider" value="${id}" ${id === savedProvider ? 'checked' : ''}>
-      <span>${id === 'anthropic' ? 'Anthropic (Claude Haiku 4.5)' : 'OpenAI (GPT-5.6 Luna)'}</span>
+      <span>${providerLabels[id]}</span>
     </label>
   `).join('')
 
