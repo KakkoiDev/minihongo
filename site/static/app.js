@@ -180,12 +180,13 @@ const initKaiwa = () => {
     return
   }
 
-  // The Kaiwa UI depends on both provider adapters. Load them before kaiwa.js;
+  // The Kaiwa UI depends on all provider adapters. Load them before kaiwa.js;
   // otherwise its initial render throws before the Start handler is bound.
   if (!kaiwaLoadPromise) {
     kaiwaLoadPromise = Promise.all([
       import(`${rootPath}static/kaiwa-provider-anthropic.js?v={{CACHE_HASH}}`),
       import(`${rootPath}static/kaiwa-provider-openai.js?v={{CACHE_HASH}}`),
+      import(`${rootPath}static/kaiwa-provider-deepseek.js?v={{CACHE_HASH}}`),
     ])
       .then(() => import(`${rootPath}static/kaiwa.js?v={{CACHE_HASH}}`))
       .catch(err => {
