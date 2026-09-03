@@ -36,12 +36,24 @@ window.KaiwaProviders.openai = {
       throw new Error(await describeError(res))
     }
 
-    return readSSE(res, (evt) => {
+    const text = await readSSE(res, (evt) => {
       if (evt.type === 'response.output_text.delta' && typeof evt.delta === 'string') {
         return evt.delta
       }
       return null
-    }, onDelta)
+    }, onDelta, (evt) => {
+      if (evt.type !== 'response.completed') return null
+      return evt.response?.output
+        ?.flatMap(item => item.content || [])
+        .filter(part => part.type === 'output_text')
+        .map(part => part.text || '')
+        .join('') || null
+    })
+
+    if (!text.trim()) {
+      throw new Error('OpenAI returned an empty response. Please try again.')
+    }
+    return text
   },
 }
 
@@ -60,11 +72,12 @@ async function describeError(res) {
 
 // Shared shape with the Anthropic provider's SSE reader, duplicated rather
 // than imported so each provider file stays a self-contained drop-in.
-async function readSSE(res, extract, onDelta) {
+async function readSSE(res, extract, onDelta, extractFinal) {
   const reader = res.body.getReader()
   const decoder = new TextDecoder()
   let buf = ''
   let text = ''
+  let finalText = ''
   while (true) {
     const { done, value } = await reader.read()
     if (done) break
@@ -77,6 +90,8 @@ async function readSSE(res, extract, onDelta) {
       if (!data || data === '[DONE]') continue
       let evt
       try { evt = JSON.parse(data) } catch { continue }
+      const completed = extractFinal?.(evt)
+      if (completed) finalText = completed
       const delta = extract(evt)
       if (delta) {
         text += delta
@@ -84,5 +99,6 @@ async function readSSE(res, extract, onDelta) {
       }
     }
   }
-  return text
+  if (!text && finalText) onDelta?.(finalText, finalText)
+  return text || finalText
 }
