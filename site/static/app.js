@@ -184,10 +184,10 @@ const initKaiwa = () => {
   // otherwise its initial render throws before the Start handler is bound.
   if (!kaiwaLoadPromise) {
     kaiwaLoadPromise = Promise.all([
-      import(`${rootPath}static/kaiwa-provider-anthropic.js`),
-      import(`${rootPath}static/kaiwa-provider-openai.js`),
+      import(`${rootPath}static/kaiwa-provider-anthropic.js?v={{CACHE_HASH}}`),
+      import(`${rootPath}static/kaiwa-provider-openai.js?v={{CACHE_HASH}}`),
     ])
-      .then(() => import(`${rootPath}static/kaiwa.js`))
+      .then(() => import(`${rootPath}static/kaiwa.js?v={{CACHE_HASH}}`))
       .catch(err => {
         console.error('Could not load Kaiwa scripts', err)
         kaiwaLoadPromise = null
@@ -341,7 +341,7 @@ document.addEventListener('click', (e) => {
 
 // -- Service worker -------------------------------------------------
 
-navigator.serviceWorker?.register(`${basePath}sw.js`)
+navigator.serviceWorker?.register(`${basePath}sw.js?v={{CACHE_HASH}}`, { updateViaCache: 'none' })
 
 // -- Back to top --------------------------------------------------------
 
