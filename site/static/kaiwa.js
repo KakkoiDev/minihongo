@@ -12,14 +12,14 @@ let kaiwaExpressions = null // lazy-loaded only for the end-of-session summary
 
 async function fetchKaiwaData() {
   if (kaiwaData) return kaiwaData
-  const res = await fetch('/static/kaiwa-data.json')
+  const res = await fetch('/static/kaiwa-data.json?v={{CACHE_HASH}}')
   kaiwaData = await res.json()
   return kaiwaData
 }
 
 async function fetchKaiwaExpressions() {
   if (kaiwaExpressions) return kaiwaExpressions
-  const res = await fetch('/static/kaiwa-expressions.json')
+  const res = await fetch('/static/kaiwa-expressions.json?v={{CACHE_HASH}}')
   kaiwaExpressions = await res.json()
   return kaiwaExpressions
 }
