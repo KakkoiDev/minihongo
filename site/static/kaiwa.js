@@ -67,6 +67,7 @@ function candoBadge(history, candoId) {
 function renderPicker(root, data) {
   const history = loadHistory()
   const savedProvider = localStorage.getItem(KAIWA_PROVIDER_STORAGE) || 'anthropic'
+  const savedKey = localStorage.getItem(KAIWA_KEY_STORAGE[savedProvider]) || ''
   const hasRecognition = !!(window.SpeechRecognition || window.webkitSpeechRecognition)
 
   const candoOptions = data.candos.map(c => `
@@ -103,21 +104,37 @@ function renderPicker(root, data) {
         recognition works; it never reaches the AI provider.
       </p>
 
-      <fieldset class="kaiwa-field">
-        <legend>AI provider</legend>
-        ${providerRadios}
-      </fieldset>
+      <details class="kaiwa-details" id="kaiwa-provider-details" ${savedKey ? '' : 'open'}>
+        <summary>AI provider and API key</summary>
+        <div class="kaiwa-details-body">
+          <fieldset class="kaiwa-field">
+            <legend>AI provider</legend>
+            ${providerRadios}
+          </fieldset>
 
-      <label class="kaiwa-field">
-        <span>API key</span>
-        <input type="password" id="kaiwa-api-key" autocomplete="off" spellcheck="false">
-      </label>
-      <p class="kaiwa-key-hint" id="kaiwa-key-hint"></p>
+          <label class="kaiwa-field">
+            <span>API key</span>
+            <input type="password" id="kaiwa-api-key" autocomplete="off" spellcheck="false">
+          </label>
+          <p class="kaiwa-key-hint" id="kaiwa-key-hint"></p>
+        </div>
+      </details>
 
-      <fieldset class="kaiwa-field">
-        <legend>Pick a goal</legend>
-        <div class="kaiwa-cando-list">${candoOptions}</div>
-      </fieldset>
+      <details class="kaiwa-details" id="kaiwa-goal-details">
+        <summary>Pick a goal <span class="kaiwa-optional">optional</span></summary>
+        <div class="kaiwa-details-body">
+          <div class="kaiwa-cando-list">
+            <label class="kaiwa-cando">
+              <input type="radio" name="kaiwa-cando" value="" checked>
+              <span class="kaiwa-cando-text">
+                <strong>Free conversation</strong>
+                <span>No specific goal</span>
+              </span>
+            </label>
+            ${candoOptions}
+          </div>
+        </div>
+      </details>
 
       <button id="kaiwa-start" class="kaiwa-primary" disabled>Start</button>
       <p class="kaiwa-status" id="kaiwa-setup-status"></p>
@@ -128,6 +145,7 @@ function renderPicker(root, data) {
   const startBtn = root.querySelector('#kaiwa-start')
   const statusEl = root.querySelector('#kaiwa-setup-status')
   const keyHint = root.querySelector('#kaiwa-key-hint')
+  const providerDetails = root.querySelector('#kaiwa-provider-details')
 
   const currentProvider = () => root.querySelector('input[name="kaiwa-provider"]:checked').value
 
@@ -135,14 +153,14 @@ function renderPicker(root, data) {
     const providerId = currentProvider()
     const provider = window.KaiwaProviders[providerId]
     keyInput.value = localStorage.getItem(KAIWA_KEY_STORAGE[providerId]) || ''
+    if (!keyInput.value) providerDetails.open = true
     keyInput.placeholder = provider.keyHint
     keyHint.innerHTML = `Get a key at <a href="${provider.keyHelpUrl}" target="_blank" rel="noopener">${provider.keyHelpUrl}</a>`
     validate()
   }
 
   const validate = () => {
-    const cando = root.querySelector('input[name="kaiwa-cando"]:checked')
-    startBtn.disabled = !(cando && keyInput.value.trim())
+    startBtn.disabled = !keyInput.value.trim()
   }
 
   root.querySelectorAll('input[name="kaiwa-provider"]').forEach(r => r.addEventListener('change', refreshKeyField))
@@ -154,7 +172,8 @@ function renderPicker(root, data) {
   startBtn.addEventListener('click', () => {
     const providerId = currentProvider()
     const apiKey = keyInput.value.trim()
-    const cando = data.candos.find(c => c.id === root.querySelector('input[name="kaiwa-cando"]:checked').value)
+    const selectedGoal = root.querySelector('input[name="kaiwa-cando"]:checked')?.value || ''
+    const cando = selectedGoal ? data.candos.find(c => c.id === selectedGoal) : null
     if (!apiKey) {
       statusEl.textContent = 'Enter an API key to start.'
       return
@@ -187,8 +206,10 @@ RULES (follow every one, every turn):
 4. End nearly every turn with a question, so the user has to respond.
 5. Do NOT correct the user's Japanese inside your reply. That breaks the flow this exercise
    exists to build. Instead, produce a silent correction on a separate line (see FORMAT).
-6. Hold the whole conversation around this one goal: "${cando.english}" (${cando.japanese}).
-   Stay on topic; don't wander to unrelated small talk for more than a line.
+6. ${cando
+    ? `Hold the whole conversation around this one goal: "${cando.english}" (${cando.japanese}).
+   Stay on topic; don't wander to unrelated small talk for more than a line.`
+    : 'Have a natural, general conversation. Let the user choose and change the topic.'}
 
 FORMAT - reply with exactly two lines, nothing else:
 REPLY: <your one or two Japanese sentences, spoken aloud to the user>
@@ -214,7 +235,10 @@ function startSession(root, data, opts) {
 
   root.innerHTML = `
     <div class="kaiwa-session">
-      <p class="kaiwa-goal"><strong>${escapeHtml(opts.cando.english)}</strong> - <span lang="ja">${escapeHtml(opts.cando.japanese)}</span></p>
+      <p class="kaiwa-goal">${opts.cando
+        ? `<strong>${escapeHtml(opts.cando.english)}</strong> - <span lang="ja">${escapeHtml(opts.cando.japanese)}</span>`
+        : '<strong>Free conversation</strong> - <span lang="ja">自由会話</span>'
+      }</p>
       <div class="kaiwa-transcript" id="kaiwa-transcript" aria-live="polite"></div>
       <p class="kaiwa-live" id="kaiwa-live"></p>
       <div class="kaiwa-controls">
@@ -528,7 +552,7 @@ async function finishSession(root, session) {
     englishSwitchCount: session.englishSwitchCount,
     correctionsCount: session.corrections.length,
   }
-  saveSessionSummary(session.cando.id, summary)
+  if (session.cando) saveSessionSummary(session.cando.id, summary)
 
   const sentenceRows = session.transcript
     .filter(t => t.role === 'user')
