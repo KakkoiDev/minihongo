@@ -1120,6 +1120,43 @@ footer {
   padding: 0.75rem 1rem;
 }
 
+.kaiwa-details {
+  margin: 1rem 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-raised);
+}
+
+.kaiwa-details > summary {
+  padding: 0.8rem 1rem;
+  cursor: pointer;
+  font-weight: 700;
+  list-style-position: inside;
+}
+
+.kaiwa-details[open] > summary {
+  border-bottom: 1px solid var(--border);
+}
+
+.kaiwa-details-body {
+  padding: 1rem;
+}
+
+.kaiwa-details-body .kaiwa-field {
+  margin: 0 0 1rem;
+}
+
+.kaiwa-details-body .kaiwa-key-hint {
+  margin-bottom: 0;
+}
+
+.kaiwa-optional {
+  margin-left: 0.35rem;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+
 .kaiwa-field {
   display: grid;
   gap: 0.5rem;
