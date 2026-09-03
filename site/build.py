@@ -657,8 +657,11 @@ def _build_to(OUT, base_url):
         if asset == sw:
             continue
         text = asset.read_text()
-        if "{{CACHE_HASH}}" in text:
-            asset.write_text(text.replace("{{CACHE_HASH}}", cache_hash))
+        if "{{CACHE_HASH}}" in text or "__CACHE_HASH__" in text:
+            asset.write_text(
+                text.replace("{{CACHE_HASH}}", cache_hash)
+                    .replace("__CACHE_HASH__", cache_hash)
+            )
 
     print(f"  cache: {cache_hash}")
 
