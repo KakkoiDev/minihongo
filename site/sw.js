@@ -34,8 +34,18 @@ self.addEventListener('activate', (e) => {
 self.addEventListener('fetch', (e) => {
   if (e.request.method !== 'GET') return
   if (e.request.url.includes('/audio/')) return
+
+  const url = new URL(e.request.url)
+  const needsFreshCode = url.origin === self.location.origin && (
+    e.request.destination === 'script'
+    || e.request.destination === 'style'
+    || url.pathname.endsWith('.json')
+  )
+
   if (e.request.mode === 'navigate') {
     e.respondWith(handleNavigate(e.request))
+  } else if (needsFreshCode) {
+    e.respondWith(networkFirst(e.request))
   } else {
     e.respondWith(cacheFirst(e.request))
   }
@@ -47,18 +57,13 @@ self.addEventListener('fetch', (e) => {
 // Serves cached immediately, revalidates in background for freshness
 const handleNavigate = async (request) => {
   const cache = await caches.open(CACHE)
-  const cached = await cache.match(request)
-  if (cached) {
-    fetch(request).then((res) => {
-      if (res.ok) cache.put(request, res.clone())
-    }).catch(() => null)
-    return cached
-  }
   try {
     const res = await fetch(request)
     if (res.ok) cache.put(request, res.clone())
     return res
   } catch {
+    const cached = await cache.match(request)
+    if (cached) return cached
     // Try serving the root page from cache (SPA can route from there)
     const root = await cache.match('/') || await cache.match('/index.html')
     if (root) return root
@@ -77,6 +82,17 @@ const handleNavigate = async (request) => {
       </head><body><p>Offline. Retrying&hellip;</p>
       <script>addEventListener('online',()=>location.reload());setTimeout(()=>location.reload(),3000)</script>
       </body></html>`, { headers: { 'Content-Type': 'text/html' } })
+  }
+}
+
+const networkFirst = async (request) => {
+  const cache = await caches.open(CACHE)
+  try {
+    const res = await fetch(request)
+    if (res.ok) cache.put(request, res.clone())
+    return res
+  } catch {
+    return await cache.match(request) ?? new Response('Offline', { status: 503 })
   }
 }
 
