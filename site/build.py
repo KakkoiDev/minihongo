@@ -646,8 +646,19 @@ def _build_to(OUT, base_url):
     sw_text = sw_text.replace("{{CACHE_HASH}}", cache_hash)
     sw.write_text(sw_text)
 
-    app_js = OUT / "static" / "app.js"
-    app_js.write_text(app_js.read_text().replace("{{CACHE_HASH}}", cache_hash))
+    # Version every browser entry point and dynamically loaded Kaiwa asset.
+    # A stable URL lets an older service worker keep serving obsolete code
+    # after a successful deploy.
+    versioned_files = [
+        *OUT.rglob("*.html"),
+        *OUT.rglob("*.js"),
+    ]
+    for asset in versioned_files:
+        if asset == sw:
+            continue
+        text = asset.read_text()
+        if "{{CACHE_HASH}}" in text:
+            asset.write_text(text.replace("{{CACHE_HASH}}", cache_hash))
 
     print(f"  cache: {cache_hash}")
 
