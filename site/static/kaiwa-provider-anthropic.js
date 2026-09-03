@@ -31,12 +31,22 @@ window.KaiwaProviders.anthropic = {
       throw new Error(await describeError(res))
     }
 
-    return readSSE(res, (evt) => {
+    const text = await readSSE(res, (evt) => {
       if (evt.type === 'content_block_delta' && evt.delta?.type === 'text_delta') {
         return evt.delta.text
       }
+      // Normally text arrives as deltas, but accept providers/proxies that put
+      // an initial text chunk in the content-block start event.
+      if (evt.type === 'content_block_start' && evt.content_block?.type === 'text') {
+        return evt.content_block.text || null
+      }
       return null
     }, onDelta)
+
+    if (!text.trim()) {
+      throw new Error('Anthropic returned an empty response. Please try again.')
+    }
+    return text
   },
 }
 
