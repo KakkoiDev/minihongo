@@ -28,6 +28,12 @@ window.KaiwaProviders.openai = {
             ? { role: 'assistant', type: 'message', content: [{ type: 'output_text', text: m.content }] }
             : { role: 'user', content: m.content }
         )),
+        // This is a latency-sensitive voice UI. Luna supports reasoning.effort
+        // "none"; avoiding hidden reasoning also ensures the output budget is
+        // available for the short visible reply.
+        reasoning: { effort: 'none' },
+        max_output_tokens: 512,
+        store: false,
         stream: true,
       }),
     })
@@ -40,8 +46,24 @@ window.KaiwaProviders.openai = {
       if (evt.type === 'response.output_text.delta' && typeof evt.delta === 'string') {
         return evt.delta
       }
+      // Some successful streams can reach the final text event without the
+      // browser observing every delta (for example after a mobile connection
+      // pause). Use the done event as a full-text fallback.
+      if (evt.type === 'response.output_text.done' && typeof evt.text === 'string') {
+        return { final: evt.text }
+      }
+      if (evt.type === 'response.refusal.done') {
+        throw new Error(`OpenAI refused the request: ${evt.refusal || 'no reason provided'}`)
+      }
       return null
     }, onDelta, (evt) => {
+      if (evt.type === 'response.failed') {
+        throw new Error(`OpenAI response failed: ${evt.response?.error?.message || 'unknown error'}`)
+      }
+      if (evt.type === 'response.incomplete') {
+        const reason = evt.response?.incomplete_details?.reason || 'unknown reason'
+        throw new Error(`OpenAI response was incomplete: ${reason}`)
+      }
       if (evt.type !== 'response.completed') return null
       return evt.response?.output
         ?.flatMap(item => item.content || [])
@@ -93,12 +115,16 @@ async function readSSE(res, extract, onDelta, extractFinal) {
       const completed = extractFinal?.(evt)
       if (completed) finalText = completed
       const delta = extract(evt)
-      if (delta) {
+      if (delta?.final) {
+        finalText = delta.final
+      } else if (delta) {
         text += delta
         onDelta?.(delta, text)
       }
     }
   }
-  if (!text && finalText) onDelta?.(finalText, finalText)
-  return text || finalText
+  // A final text event is authoritative and can repair a stream where one or
+  // more deltas were missed. Avoid duplicating text when both paths agree.
+  if (finalText && finalText !== text) onDelta?.(finalText, finalText)
+  return finalText || text
 }
