@@ -1228,19 +1228,10 @@ def gen_engineering(categories, expressions, dialog_groups, dialogs, candos, wor
         parts.append(f'    <label class="cando"><input type="checkbox" class="cando-check" data-id="{c["id"]}"> <span lang="ja">{to_ruby_html(c["minihongo"])}</span>{trans}</label>\n')
     parts.append('  </div>\n')
 
-    loanwords = [strip_furigana(e['minihongo']) for e in expressions
-                 if e['category_id'] in {'cat-120', 'cat-121', 'cat-122', 'cat-123'}]
-    word_list = '、'.join(strip_furigana(w['minihongo']) for w in by_sort(words))
-    prompts = {
-        'en': 'You are a Japanese engineering colleague. Speak only Japanese, using the Minihongo core list and the engineering loanwords below. Keep replies short. Correct an out-of-list word by offering a natural core-word explanation or an allowed loanword. Practice standups, incidents, demos, planning, requirements, debugging, reviews, pipelines, deploys, and rollbacks.',
-        'ja': 'あなたは日本人のエンジニアです。下のミニ本語の基本語とエンジニア向け外来語だけを使い、日本語で短く返事してください。リスト外の語が出たら、自然な基本語での言い換えか、許可された外来語を示してください。朝会、障害対応、デモ、計画、要件確認、デバッグ、レビュー、パイプライン、デプロイ、ロールバックを練習します。',
-        'mh': 'あなたは日本【にほん】の作【つく】る人【ひと】です。下【した】の言【こと】葉【ば】だけで、短【みじか】く話【はな】してください。外【そと】の言【こと】葉【ば】を私【わたし】が言【い】った時【とき】は、下【した】の言【こと】葉【ば】で言【い】う方【かた】を教【おし】えてください。',
-    }
-    prompt = f'{prompts[lang]}\n\nCore: {word_list}\n\nLoanwords: {"、".join(loanwords)}'
     toc.append(('engineering-ai', ui('engineering_ai_heading', lang), []))
     parts.append(f'  <h2 id="engineering-ai" class="section-heading">{ui("engineering_ai_heading", lang)}</h2>\n')
-    parts.append(f'  <p>{ui("engineering_ai_body", lang)}</p>\n  <details class="ai-prompt-box"><summary>{ui("practice_ai_show", lang)}</summary><pre id="ai-prompt">{esc(prompt)}</pre></details>\n')
-    parts.append(f'  <button id="copy-prompt" data-copied="{strip_html(ui("practice_ai_copied", lang))}">{ui("practice_ai_copy", lang)}</button>\n')
+    parts.append(f'  <p>{ui("engineering_ai_body", lang)}</p>\n')
+    parts.append('  <div id="kaiwa-app" data-topic-set="engineering"><p class="kaiwa-loading">Loading...</p></div>\n')
     return wrap_page('engineering', ''.join(parts), lang, toc)
 
 
