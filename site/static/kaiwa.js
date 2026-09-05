@@ -70,11 +70,17 @@ function candoBadge(history, candoId) {
 
 function renderPicker(root, data) {
   const history = loadHistory()
+  const topicSet = root.dataset.topicSet === 'engineering' ? 'engineering' : 'general'
+  const visibleCandos = data.candos.filter(c => (
+    topicSet === 'engineering'
+      ? c.id.startsWith('cando-eng-')
+      : !c.id.startsWith('cando-eng-')
+  ))
   const savedProvider = localStorage.getItem(KAIWA_PROVIDER_STORAGE) || 'anthropic'
   const savedKey = localStorage.getItem(KAIWA_KEY_STORAGE[savedProvider]) || ''
   const hasRecognition = !!(window.SpeechRecognition || window.webkitSpeechRecognition)
 
-  const candoOptions = data.candos.map(c => `
+  const candoOptions = visibleCandos.map(c => `
     <label class="kaiwa-cando">
       <input type="radio" name="kaiwa-cando" value="${c.id}">
       <span class="kaiwa-cando-text">
@@ -136,8 +142,8 @@ function renderPicker(root, data) {
             <label class="kaiwa-cando">
               <input type="radio" name="kaiwa-cando" value="" checked>
               <span class="kaiwa-cando-text">
-                <strong>Free conversation</strong>
-                <span>No specific goal</span>
+                <strong>${topicSet === 'engineering' ? 'Engineering conversation' : 'Free conversation'}</strong>
+                <span>${topicSet === 'engineering' ? 'No specific task' : 'No specific goal'}</span>
               </span>
             </label>
             ${candoOptions}
@@ -193,7 +199,7 @@ function renderPicker(root, data) {
     primeSpeechSynthesis()
     localStorage.setItem(KAIWA_PROVIDER_STORAGE, providerId)
     localStorage.setItem(KAIWA_KEY_STORAGE[providerId], apiKey)
-    startSession(root, data, { providerId, apiKey, cando, hasRecognition })
+    startSession(root, data, { providerId, apiKey, cando, hasRecognition, topicSet })
   })
 }
 
@@ -280,7 +286,7 @@ function textForSpeech(text) {
 
 // -- System prompt ----------------------------------------------------------
 
-function buildSystemPrompt(data, cando) {
+function buildSystemPrompt(data, cando, topicSet = 'general') {
   const wordList = data.words.map(w => (
     w.kanji === w.reading ? w.kanji : `${w.kanji}(${w.reading})`
   ) + `=${w.english}`).join(', ')
@@ -299,7 +305,9 @@ RULES (follow every one, every turn):
 6. ${cando
     ? `Hold the whole conversation around this one goal: "${cando.english}" (${cando.japanese}).
    Stay on topic; don't wander to unrelated small talk for more than a line.`
-    : 'Have a natural, general conversation. Let the user choose and change the topic.'}
+    : topicSet === 'engineering'
+      ? 'Have a natural conversation between engineering colleagues. Discuss work, systems, incidents, demos, planning, requirements, debugging, reviews, deploys, or rollbacks.'
+      : 'Have a natural, general conversation. Let the user choose and change the topic.'}
 
 FORMAT - reply with exactly two lines, nothing else:
 REPLY: <your one or two Japanese sentences, spoken aloud to the user>
@@ -328,6 +336,8 @@ function startSession(root, data, opts) {
       <header class="kaiwa-session-header">
         <p class="kaiwa-goal">${opts.cando
           ? `<strong>${escapeHtml(opts.cando.english)}</strong><span lang="ja">${escapeHtml(opts.cando.japanese)}</span>`
+          : opts.topicSet === 'engineering'
+          ? '<strong>Engineering conversation</strong><span lang="ja">エンジニアの会話</span>'
           : '<strong>Free conversation</strong><span lang="ja">自由会話</span>'
         }</p>
         <button id="kaiwa-end">End</button>
@@ -446,7 +456,7 @@ function startSession(root, data, opts) {
     trackUserTurn(session, userText)
     session.history.push({ role: 'user', content: userText })
 
-    const system = buildSystemPrompt(data, opts.cando)
+    const system = buildSystemPrompt(data, opts.cando, opts.topicSet)
     const provider = window.KaiwaProviders[opts.providerId]
     const speakAsItStreams = makeReplySpeaker()
 
@@ -569,7 +579,7 @@ function startSession(root, data, opts) {
   // Opening line: the model greets and asks the first question.
   ;(async () => {
     statusEl.textContent = 'Starting...'
-    const system = buildSystemPrompt(data, opts.cando)
+    const system = buildSystemPrompt(data, opts.cando, opts.topicSet)
     const provider = window.KaiwaProviders[opts.providerId]
     const speakAsItStreams = makeReplySpeaker()
     let full = ''
