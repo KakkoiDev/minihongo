@@ -187,6 +187,10 @@ function renderPicker(root, data) {
       statusEl.textContent = 'Enter an API key to start.'
       return
     }
+    // Must happen synchronously inside the user's Start gesture on mobile.
+    // Otherwise the first real utterance arrives only after the API request,
+    // when Chrome may no longer allow the speech engine to start.
+    primeSpeechSynthesis()
     localStorage.setItem(KAIWA_PROVIDER_STORAGE, providerId)
     localStorage.setItem(KAIWA_KEY_STORAGE[providerId], apiKey)
     startSession(root, data, { providerId, apiKey, cando, hasRecognition })
@@ -195,6 +199,29 @@ function renderPicker(root, data) {
 
 function escapeHtml(s) {
   return String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]))
+}
+
+const furiganaPattern = () => /([一-龯々〆ヵヶ]+)[(（]([ぁ-ゖァ-ヺー]+)[)）]/g
+
+function appendJapaneseText(el, text) {
+  let end = 0
+  for (const match of String(text).matchAll(furiganaPattern())) {
+    el.append(document.createTextNode(text.slice(end, match.index)))
+    const ruby = document.createElement('ruby')
+    const rt = document.createElement('rt')
+    ruby.append(document.createTextNode(match[1]))
+    rt.textContent = match[2]
+    ruby.append(rt)
+    el.append(ruby)
+    end = match.index + match[0].length
+  }
+  el.append(document.createTextNode(text.slice(end)))
+}
+
+function textForSpeech(text) {
+  // When the model writes 私(わたし), pronounce only わたし. Reading both the
+  // kanji and its annotation produces the duplicated speech users heard.
+  return String(text).replace(furiganaPattern(), '$2')
 }
 
 // -- System prompt ----------------------------------------------------------
@@ -276,7 +303,8 @@ function startSession(root, data, opts) {
     const p = document.createElement('p')
     p.className = `kaiwa-bubble kaiwa-bubble-${role}`
     p.lang = 'ja'
-    p.textContent = text
+    if (role === 'assistant') appendJapaneseText(p, text)
+    else p.textContent = text
     transcriptEl.appendChild(p)
     transcriptEl.scrollTop = transcriptEl.scrollHeight
   }
@@ -287,7 +315,7 @@ function startSession(root, data, opts) {
   const voiceReady = waitForJapaneseVoice()
 
   const speak = (text) => {
-    const clean = text.trim()
+    const clean = textForSpeech(text).trim()
     if (!('speechSynthesis' in window) || !clean) return
     voiceReady.then((voice) => {
       const utter = new SpeechSynthesisUtterance(clean)
@@ -502,6 +530,15 @@ function parseModelTurn(full) {
     reply: replyMatch[1].trim(),
     correction: correctionMatch ? correctionMatch[1].trim() : null,
   }
+}
+
+function primeSpeechSynthesis() {
+  if (!('speechSynthesis' in window) || !('SpeechSynthesisUtterance' in window)) return
+  speechSynthesis.cancel()
+  const primer = new SpeechSynthesisUtterance('\u200b')
+  primer.lang = 'ja-JP'
+  primer.volume = 0
+  speechSynthesis.speak(primer)
 }
 
 function pickJapaneseVoice() {
