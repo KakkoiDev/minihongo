@@ -664,20 +664,60 @@ def gen_going_further(categories, compounds, expressions, advanced, lang):
 
     immerse_heading = ui('gf_immerse_heading', lang)
     immerse_body = ui('gf_immerse_body', lang)
-    external_links = {
-        'NHK NEWS WEB EASY': 'https://www3.nhk.or.jp/news/easy/',
-        'Tadoku': 'https://tadoku.org/japanese/en/free-books-en/',
-        '多読サイトの無料の本': 'https://tadoku.org/japanese/free-books/',
-    }
-    for label, href in external_links.items():
-        if label in immerse_body:
-            immerse_body = immerse_body.replace(
-                label,
-                f'<a href="{href}" target="_blank" rel="noopener noreferrer">{label}</a>',
-            )
+    immersion_resources = {
+        'en': [
+            ('NHK NEWS WEB EASY', 'Easy news with furigana and audio', 'Free',
+             'https://www3.nhk.or.jp/news/easy/'),
+            ('Tadoku', 'Graded readers with PDFs and audio', 'Free',
+             'https://tadoku.org/japanese/en/free-books-en/'),
+            ('絵本ひろば', 'Original Japanese picture books', 'Free',
+             'https://ehon.alphapolis.co.jp/'),
+            ('TVer', 'TV, drama, and anime; choose the 字幕あり filter', 'Free in Japan',
+             'https://tver.jp/'),
+            ('Netflix', 'Browse shows by Japanese subtitle language', 'Subscription',
+             'https://www.netflix.com/browse/subtitles'),
+        ],
+        'ja': [
+            ('NHK NEWS WEB EASY', 'ふりがなと音声がある、やさしいニュース', '無料',
+             'https://www3.nhk.or.jp/news/easy/'),
+            ('にほんご多読', 'レベル別の読み物・PDF・朗読音声', '無料',
+             'https://tadoku.org/japanese/free-books/'),
+            ('絵本ひろば', '日本語のオリジナル絵本', '無料',
+             'https://ehon.alphapolis.co.jp/'),
+            ('TVer', 'ドラマ・テレビ・アニメ。「字幕あり」で絞り込む', '日本では無料',
+             'https://tver.jp/'),
+            ('Netflix', '字幕言語を日本語にして作品を探す', '有料',
+             'https://www.netflix.com/browse/subtitles'),
+        ],
+        'mh': [
+            ('NHK NEWS WEB EASY', '読【よ】みやすいニュースと音【おと】', 'お金【かね】はいらない',
+             'https://www3.nhk.or.jp/news/easy/'),
+            ('にほんご多読', '少【すこ】しずつ難【むずか】しくなる本【ほん】', 'お金【かね】はいらない',
+             'https://tadoku.org/japanese/free-books/'),
+            ('絵本ひろば', '日本【にほん】の絵【え】の本【ほん】', 'お金【かね】はいらない',
+             'https://ehon.alphapolis.co.jp/'),
+            ('TVer', '日本【にほん】のテレビとアニメ', '日本【にほん】ではお金【かね】はいらない',
+             'https://tver.jp/'),
+            ('Netflix', '日本【にほん】の字【じ】を見【み】ながら見【み】る', 'お金【かね】がいる',
+             'https://www.netflix.com/browse/subtitles'),
+        ],
+    }[lang]
+    resource_cards = []
+    for name, description, price, href in immersion_resources:
+        resource_cards.append(
+            '    <li><a href="' + href + '" target="_blank" rel="noopener noreferrer">'
+            '<span class="immersion-resource__top"><strong>' + to_ruby_html(name) + '</strong>'
+            '<span aria-hidden="true">↗</span></span>'
+            '<span class="immersion-resource__description">' + to_ruby_html(description) + '</span>'
+            '<span class="immersion-resource__tag">' + to_ruby_html(price) + '</span>'
+            '</a></li>\n'
+        )
     toc.append((immerse_slug, immerse_heading))
     parts.append(f'  <h2 id="{immerse_slug}" class="section-heading">{immerse_heading}</h2>\n')
-    parts.append(f'  <p>{immerse_body}</p>\n\n')
+    parts.append(f'  <p>{immerse_body}</p>\n')
+    parts.append('  <ul class="immersion-resources">\n')
+    parts.extend(resource_cards)
+    parts.append('  </ul>\n\n')
 
     engineering_slug = 'engineering-japanese'
     engineering_heading, engineering_body, engineering_link = {
