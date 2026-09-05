@@ -1362,3 +1362,170 @@ footer {
   font-family: var(--jp);
   padding-left: 1.2rem;
 }
+
+
+/* === Kaiwa conversation shell === */
+.kaiwa-session {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.kaiwa-session-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.kaiwa-session-header .kaiwa-goal {
+  display: grid;
+  gap: 0.1rem;
+  flex: 1;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+}
+
+.kaiwa-session-header .kaiwa-goal > span {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.kaiwa-session-header #kaiwa-end {
+  flex: none;
+  padding: 0.45rem 0.75rem;
+  color: var(--text-muted);
+}
+
+.kaiwa-transcript {
+  align-content: start;
+  height: clamp(18rem, 52dvh, 34rem);
+  max-height: none;
+  gap: 0.85rem;
+  padding: 1rem 0.75rem;
+  overscroll-behavior: contain;
+  scroll-behavior: smooth;
+}
+
+.kaiwa-empty {
+  align-self: center;
+  justify-self: center;
+  margin: auto;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.kaiwa-message {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.35rem;
+  width: 100%;
+}
+
+.kaiwa-message-user {
+  justify-content: flex-end;
+}
+
+.kaiwa-message-assistant {
+  justify-content: flex-start;
+}
+
+.kaiwa-bubble {
+  max-width: min(88%, 36rem);
+  padding: 0.7rem 0.95rem;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+
+.kaiwa-bubble-assistant ruby {
+  ruby-align: center;
+}
+
+.kaiwa-bubble-assistant rt {
+  font-size: 0.56em;
+  line-height: 1;
+  color: var(--text-muted);
+}
+
+.kaiwa-replay {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+.kaiwa-replay:hover,
+.kaiwa-replay:focus-visible {
+  border-color: var(--border);
+  background: var(--bg-raised);
+}
+
+.kaiwa-composer {
+  position: sticky;
+  bottom: 0;
+  z-index: 2;
+  display: grid;
+  gap: 0.4rem;
+  padding: 0.75rem 0 0.25rem;
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+}
+
+.kaiwa-composer .kaiwa-live,
+.kaiwa-composer .kaiwa-status {
+  margin: 0;
+}
+
+.kaiwa-composer .kaiwa-live:empty {
+  display: none;
+}
+
+.kaiwa-composer .kaiwa-controls {
+  flex-wrap: nowrap;
+}
+
+.kaiwa-composer #kaiwa-mic {
+  min-width: 7rem;
+  min-height: 3rem;
+}
+
+.kaiwa-composer #kaiwa-text-input,
+.kaiwa-composer #kaiwa-text-form button {
+  min-height: 3rem;
+}
+
+@media (max-width: 600px) {
+  .kaiwa-session {
+    gap: 0.5rem;
+  }
+
+  .kaiwa-transcript {
+    height: calc(100dvh - 21rem);
+    min-height: 18rem;
+    padding-inline: 0.6rem;
+    border-inline: 0;
+    border-radius: 0;
+  }
+
+  .kaiwa-bubble {
+    max-width: 90%;
+    font-size: 1rem;
+  }
+
+  .kaiwa-composer {
+    margin-inline: -0.5rem;
+    padding: 0.65rem 0.5rem max(0.35rem, env(safe-area-inset-bottom));
+  }
+
+  .kaiwa-composer #kaiwa-mic {
+    width: 100%;
+  }
+}
