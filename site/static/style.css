@@ -1548,3 +1548,81 @@ footer {
   flex: none;
   font-size: 1.25rem;
 }
+
+/* === Going Further: immersion resources === */
+.immersion-resources {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  gap: 0.75rem;
+  margin: 1.25rem 0 calc(var(--s) * 2);
+  padding: 0;
+  list-style: none;
+}
+
+.immersion-resources li {
+  min-width: 0;
+}
+
+.immersion-resources a {
+  display: flex;
+  min-height: 9rem;
+  height: 100%;
+  flex-direction: column;
+  gap: 0.45rem;
+  padding: 1rem;
+  color: var(--text);
+  text-decoration: none;
+  background: var(--bg-raised);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: border-color 0.15s, translate 0.15s;
+}
+
+.immersion-resources a:hover {
+  border-color: var(--accent);
+  translate: 0 -2px;
+}
+
+.immersion-resources a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.immersion-resource__top {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  color: var(--link);
+}
+
+.immersion-resource__top > span {
+  flex: 0 0 auto;
+}
+
+.immersion-resource__description {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.immersion-resource__tag {
+  align-self: flex-start;
+  margin-block-start: auto;
+  padding: 0.15rem 0.5rem;
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  font-weight: 600;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+}
+
+@media (max-width: 34rem) {
+  .immersion-resources {
+    grid-template-columns: 1fr;
+  }
+
+  .immersion-resources a {
+    min-height: 0;
+  }
+}
