@@ -281,30 +281,54 @@ function startSession(root, data, opts) {
     transcriptEl.scrollTop = transcriptEl.scrollHeight
   }
 
-  const voice = pickJapaneseVoice()
+  // Chrome can expose an empty voice list on the first call while its speech
+  // service is still loading. Wait briefly for voiceschanged so the opening
+  // reply is not silently lost.
+  const voiceReady = waitForJapaneseVoice()
 
   const speak = (text) => {
-    if (!('speechSynthesis' in window) || !text) return
-    const utter = new SpeechSynthesisUtterance(text)
-    utter.lang = 'ja-JP'
-    if (voice) utter.voice = voice
-    speechSynthesis.speak(utter)
+    const clean = text.trim()
+    if (!('speechSynthesis' in window) || !clean) return
+    voiceReady.then((voice) => {
+      const utter = new SpeechSynthesisUtterance(clean)
+      utter.lang = 'ja-JP'
+      if (voice) utter.voice = voice
+      speechSynthesis.resume()
+      speechSynthesis.speak(utter)
+    })
   }
 
-  // Speak sentence-by-sentence as the stream arrives, so speech starts before
-  // the whole reply is in. Latency is the product.
-  const makeSentenceSpeaker = () => {
-    let spoken = ''
-    return (fullTextSoFar) => {
-      const unspoken = fullTextSoFar.slice(spoken.length)
-      const parts = unspoken.split(/(?<=[。！？])/)
-      // Keep the last (possibly incomplete) fragment for the next call.
-      const complete = parts.slice(0, -1).join('')
-      if (complete) {
-        speak(complete)
-        spoken += complete
+  // The provider streams the two-line protocol (REPLY + CORRECTION), but TTS
+  // must speak only the reply body. Wait until the REPLY marker is complete,
+  // stop before CORRECTION, and speak complete sentences as they arrive.
+  const makeReplySpeaker = () => {
+    let spokenLength = 0
+
+    const read = (fullTextSoFar, flush = false) => {
+      const match = fullTextSoFar.match(/(?:^|\n)REPLY:\s*/)
+      if (!match) return
+
+      let reply = fullTextSoFar.slice(match.index + match[0].length)
+      const correctionAt = reply.search(/\nCORRECTION:/)
+      if (correctionAt >= 0) reply = reply.slice(0, correctionAt)
+
+      const unspoken = reply.slice(spokenLength)
+      if (!unspoken) return
+
+      let complete = ''
+      if (flush) {
+        complete = unspoken
+      } else {
+        const endings = [...unspoken.matchAll(/[。！？]/g)]
+        if (endings.length) complete = unspoken.slice(0, endings.at(-1).index + 1)
       }
+
+      if (complete.trim()) speak(complete)
+      spokenLength += complete.length
     }
+
+    read.flush = (fullText) => read(fullText, true)
+    return read
   }
 
   async function sendTurn(userText) {
@@ -318,7 +342,7 @@ function startSession(root, data, opts) {
 
     const system = buildSystemPrompt(data, opts.cando)
     const provider = window.KaiwaProviders[opts.providerId]
-    const speakAsItStreams = makeSentenceSpeaker()
+    const speakAsItStreams = makeReplySpeaker()
 
     let full = ''
     try {
@@ -341,7 +365,7 @@ function startSession(root, data, opts) {
       textInput.disabled = false
       return
     }
-    speakAsItStreams(full) // flush any trailing fragment
+    speakAsItStreams.flush(full)
     const { reply, correction } = parseModelTurn(full)
     appendBubble('assistant', reply)
     session.history.push({ role: 'assistant', content: full })
@@ -441,7 +465,7 @@ function startSession(root, data, opts) {
     statusEl.textContent = 'Starting...'
     const system = buildSystemPrompt(data, opts.cando)
     const provider = window.KaiwaProviders[opts.providerId]
-    const speakAsItStreams = makeSentenceSpeaker()
+    const speakAsItStreams = makeReplySpeaker()
     let full = ''
     try {
       full = await provider.send({
@@ -458,7 +482,7 @@ function startSession(root, data, opts) {
       statusEl.textContent = 'The AI returned an empty response. Please start again.'
       return
     }
-    speakAsItStreams(full)
+    speakAsItStreams.flush(full)
     const { reply, correction } = parseModelTurn(full)
     appendBubble('assistant', reply)
     session.history.push({ role: 'assistant', content: full })
@@ -483,6 +507,24 @@ function parseModelTurn(full) {
 function pickJapaneseVoice() {
   const voices = speechSynthesis.getVoices?.() || []
   return voices.find(v => v.lang === 'ja-JP') || voices.find(v => v.lang?.startsWith('ja')) || null
+}
+
+function waitForJapaneseVoice(timeoutMs = 1000) {
+  if (!('speechSynthesis' in window)) return Promise.resolve(null)
+  const ready = pickJapaneseVoice()
+  if (ready || speechSynthesis.getVoices().length) return Promise.resolve(ready)
+
+  return new Promise((resolve) => {
+    let settled = false
+    const finish = () => {
+      if (settled) return
+      settled = true
+      speechSynthesis.removeEventListener?.('voiceschanged', finish)
+      resolve(pickJapaneseVoice())
+    }
+    speechSynthesis.addEventListener?.('voiceschanged', finish, { once: true })
+    setTimeout(finish, timeoutMs)
+  })
 }
 
 // -- Out-of-set word tracking ------------------------------------------------
