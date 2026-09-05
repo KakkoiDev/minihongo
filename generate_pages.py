@@ -668,6 +668,16 @@ def gen_going_further(categories, compounds, expressions, advanced, lang):
     parts.append(f'  <h2 id="{immerse_slug}" class="section-heading">{immerse_heading}</h2>\n')
     parts.append(f'  <p>{immerse_body}</p>\n\n')
 
+    engineering_slug = 'engineering-japanese'
+    engineering_heading = ui('gf_engineering_heading', lang)
+    toc.append((engineering_slug, engineering_heading))
+    parts.append(f'  <h2 id="{engineering_slug}" class="section-heading">{engineering_heading}</h2>\n')
+    parts.append(f'  <p>{ui("gf_engineering_body", lang)}</p>\n')
+    parts.append(
+        f'  <p class="gf-engineering-link"><a href="engineering.html">'
+        f'{ui("gf_engineering_link", lang)} <span aria-hidden="true">→</span></a></p>\n\n'
+    )
+
     return wrap_page('going-further', ''.join(parts), lang, toc, pre_toc=intro_html)
 
 
