@@ -669,13 +669,35 @@ def gen_going_further(categories, compounds, expressions, advanced, lang):
     parts.append(f'  <p>{immerse_body}</p>\n\n')
 
     engineering_slug = 'engineering-japanese'
-    engineering_heading = ui('gf_engineering_heading', lang)
+    engineering_heading, engineering_body, engineering_link = {
+        'en': (
+            'Engineering Japanese',
+            'For software work, continue to the separate engineering guide with '
+            'workplace vocabulary, dialogs, goals, and AI conversation practice.',
+            'Open the Engineering Japanese guide',
+        ),
+        'ja': (
+            'エンジニアの日本語',
+            'ソフトウェア開発で使う語彙・対話・目標・AI会話練習は、'
+            '別のエンジニア向けページにまとめています。',
+            'エンジニアの日本語ページを開く',
+        ),
+        'mh': (
+            '作【つく】る人【ひと】の言【こと】葉【ば】',
+            '作【つく】る人【ひと】と話【はな】す言【こと】葉【ば】は、'
+            'この外【そと】にある。',
+            '作【つく】る人【ひと】の所【ところ】を開【ひら】く',
+        ),
+    }[lang]
+    engineering_heading = to_ruby_html(engineering_heading)
+    engineering_body = to_ruby_html(engineering_body)
+    engineering_link = to_ruby_html(engineering_link)
     toc.append((engineering_slug, engineering_heading))
     parts.append(f'  <h2 id="{engineering_slug}" class="section-heading">{engineering_heading}</h2>\n')
-    parts.append(f'  <p>{ui("gf_engineering_body", lang)}</p>\n')
+    parts.append(f'  <p>{engineering_body}</p>\n')
     parts.append(
         f'  <p class="gf-engineering-link"><a href="engineering.html">'
-        f'{ui("gf_engineering_link", lang)} <span aria-hidden="true">→</span></a></p>\n\n'
+        f'{engineering_link} <span aria-hidden="true">→</span></a></p>\n\n'
     )
 
     return wrap_page('going-further', ''.join(parts), lang, toc, pre_toc=intro_html)
@@ -1240,7 +1262,12 @@ def gen_engineering(categories, expressions, dialog_groups, dialogs, candos, wor
 
     toc.append(('engineering-ai', ui('engineering_ai_heading', lang), []))
     parts.append(f'  <h2 id="engineering-ai" class="section-heading">{ui("engineering_ai_heading", lang)}</h2>\n')
-    parts.append(f'  <p>{ui("engineering_ai_body", lang)}</p>\n')
+    engineering_chat_body = {
+        'en': 'Choose an engineering goal and practice directly with an AI colleague.',
+        'ja': 'エンジニア向けの目標を選び、AIの同僚と開発場面を直接練習できます。',
+        'mh': '作【つく】る人【ひと】の目【め】を選【えら】び、AIの人【ひと】と話【はな】す。',
+    }[lang]
+    parts.append(f'  <p>{to_ruby_html(engineering_chat_body)}</p>\n')
     parts.append('  <div id="kaiwa-app" data-topic-set="engineering"><p class="kaiwa-loading">Loading...</p></div>\n')
     return wrap_page('engineering', ''.join(parts), lang, toc)
 
