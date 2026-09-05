@@ -664,6 +664,17 @@ def gen_going_further(categories, compounds, expressions, advanced, lang):
 
     immerse_heading = ui('gf_immerse_heading', lang)
     immerse_body = ui('gf_immerse_body', lang)
+    external_links = {
+        'NHK NEWS WEB EASY': 'https://www3.nhk.or.jp/news/easy/',
+        'Tadoku': 'https://tadoku.org/japanese/en/free-books-en/',
+        '多読サイトの無料の本': 'https://tadoku.org/japanese/free-books/',
+    }
+    for label, href in external_links.items():
+        if label in immerse_body:
+            immerse_body = immerse_body.replace(
+                label,
+                f'<a href="{href}" target="_blank" rel="noopener noreferrer">{label}</a>',
+            )
     toc.append((immerse_slug, immerse_heading))
     parts.append(f'  <h2 id="{immerse_slug}" class="section-heading">{immerse_heading}</h2>\n')
     parts.append(f'  <p>{immerse_body}</p>\n\n')
