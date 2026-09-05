@@ -202,20 +202,74 @@ function escapeHtml(s) {
 }
 
 const furiganaPattern = () => /([一-龯々〆ヵヶ]+)[(（]([ぁ-ゖァ-ヺー]+)[)）]/g
+const hasKanji = text => /[一-龯々〆ヵヶ]/.test(text)
 
-function appendJapaneseText(el, text) {
-  let end = 0
-  for (const match of String(text).matchAll(furiganaPattern())) {
-    el.append(document.createTextNode(text.slice(end, match.index)))
-    const ruby = document.createElement('ruby')
-    const rt = document.createElement('rt')
-    ruby.append(document.createTextNode(match[1]))
-    rt.textContent = match[2]
-    ruby.append(rt)
-    el.append(ruby)
-    end = match.index + match[0].length
+function buildFuriganaEntries(words) {
+  const entries = new Map()
+  for (const word of words) {
+    const surface = word.kanji || ''
+    const reading = word.reading || ''
+    if (!surface || !reading || surface === reading || !hasKanji(surface)) continue
+    entries.set(surface, reading)
+
+    // Include the kanji stem of words with okurigana: 話す/はなす becomes
+    // 話/はな, so inflected forms such as 話します still receive furigana.
+    let shared = 0
+    while (
+      shared < surface.length
+      && shared < reading.length
+      && surface.at(-1 - shared) === reading.at(-1 - shared)
+      && /[ぁ-ゖァ-ヺー]/.test(surface.at(-1 - shared))
+    ) shared++
+    if (shared) {
+      const stem = surface.slice(0, -shared)
+      const stemReading = reading.slice(0, -shared)
+      if (stem && stemReading && hasKanji(stem)) entries.set(stem, stemReading)
+    }
   }
-  el.append(document.createTextNode(text.slice(end)))
+  return [...entries].map(([surface, reading]) => ({ surface, reading }))
+    .sort((a, b) => b.surface.length - a.surface.length)
+}
+
+function appendRuby(el, surface, reading) {
+  const ruby = document.createElement('ruby')
+  const rt = document.createElement('rt')
+  ruby.append(document.createTextNode(surface))
+  rt.textContent = reading
+  ruby.append(rt)
+  el.append(ruby)
+}
+
+function appendJapaneseText(el, text, entries) {
+  const source = String(text)
+  let plain = ''
+  const flushPlain = () => {
+    if (!plain) return
+    el.append(document.createTextNode(plain))
+    plain = ''
+  }
+
+  for (let i = 0; i < source.length;) {
+    const explicit = source.slice(i).match(/^([一-龯々〆ヵヶ]+)[(（]([ぁ-ゖァ-ヺー]+)[)）]/)
+    if (explicit) {
+      flushPlain()
+      appendRuby(el, explicit[1], explicit[2])
+      i += explicit[0].length
+      continue
+    }
+
+    const entry = entries.find(item => source.startsWith(item.surface, i))
+    if (entry) {
+      flushPlain()
+      appendRuby(el, entry.surface, entry.reading)
+      i += entry.surface.length
+      continue
+    }
+
+    plain += source[i]
+    i++
+  }
+  flushPlain()
 }
 
 function textForSpeech(text) {
@@ -271,26 +325,33 @@ function startSession(root, data, opts) {
 
   root.innerHTML = `
     <div class="kaiwa-session">
-      <p class="kaiwa-goal">${opts.cando
-        ? `<strong>${escapeHtml(opts.cando.english)}</strong> - <span lang="ja">${escapeHtml(opts.cando.japanese)}</span>`
-        : '<strong>Free conversation</strong> - <span lang="ja">自由会話</span>'
-      }</p>
-      <div class="kaiwa-transcript" id="kaiwa-transcript" aria-live="polite"></div>
-      <p class="kaiwa-live" id="kaiwa-live"></p>
-      <div class="kaiwa-controls">
-        <button id="kaiwa-mic" class="kaiwa-primary" ${opts.hasRecognition ? '' : 'hidden'}>Speak</button>
-        <form id="kaiwa-text-form" ${opts.hasRecognition ? 'hidden' : ''}>
-          <input type="text" id="kaiwa-text-input" lang="ja" placeholder="Type your reply in Japanese">
-          <button type="submit">Send</button>
-        </form>
-        <button id="kaiwa-retry" hidden>Retry</button>
-        <button id="kaiwa-end">End session</button>
+      <header class="kaiwa-session-header">
+        <p class="kaiwa-goal">${opts.cando
+          ? `<strong>${escapeHtml(opts.cando.english)}</strong><span lang="ja">${escapeHtml(opts.cando.japanese)}</span>`
+          : '<strong>Free conversation</strong><span lang="ja">自由会話</span>'
+        }</p>
+        <button id="kaiwa-end">End</button>
+      </header>
+      <div class="kaiwa-transcript" id="kaiwa-transcript" role="log" aria-label="Conversation" aria-live="polite">
+        <p class="kaiwa-empty" id="kaiwa-empty">Preparing your conversation…</p>
       </div>
-      <p class="kaiwa-status" id="kaiwa-session-status"></p>
+      <div class="kaiwa-composer">
+        <p class="kaiwa-live" id="kaiwa-live" aria-live="polite"></p>
+        <div class="kaiwa-controls">
+          <button id="kaiwa-mic" class="kaiwa-primary" ${opts.hasRecognition ? '' : 'hidden'}>Speak</button>
+          <form id="kaiwa-text-form" ${opts.hasRecognition ? 'hidden' : ''}>
+            <input type="text" id="kaiwa-text-input" lang="ja" placeholder="Type your reply in Japanese">
+            <button type="submit">Send</button>
+          </form>
+          <button id="kaiwa-retry" hidden>Try again</button>
+        </div>
+        <p class="kaiwa-status" id="kaiwa-session-status" role="status"></p>
+      </div>
     </div>
   `
 
   const transcriptEl = root.querySelector('#kaiwa-transcript')
+  const furiganaEntries = buildFuriganaEntries(data.words)
   const liveEl = root.querySelector('#kaiwa-live')
   const micBtn = root.querySelector('#kaiwa-mic')
   const retryBtn = root.querySelector('#kaiwa-retry')
@@ -300,12 +361,29 @@ function startSession(root, data, opts) {
   const textInput = root.querySelector('#kaiwa-text-input')
 
   const appendBubble = (role, text) => {
+    root.querySelector('#kaiwa-empty')?.remove()
+
+    const message = document.createElement('div')
+    message.className = `kaiwa-message kaiwa-message-${role}`
+
     const p = document.createElement('p')
     p.className = `kaiwa-bubble kaiwa-bubble-${role}`
     p.lang = 'ja'
-    if (role === 'assistant') appendJapaneseText(p, text)
+    if (role === 'assistant') appendJapaneseText(p, text, furiganaEntries)
     else p.textContent = text
-    transcriptEl.appendChild(p)
+    message.append(p)
+
+    if (role === 'assistant') {
+      const replay = document.createElement('button')
+      replay.type = 'button'
+      replay.className = 'kaiwa-replay'
+      replay.setAttribute('aria-label', 'Listen again')
+      replay.textContent = '🔊'
+      replay.addEventListener('click', () => speak(text))
+      message.append(replay)
+    }
+
+    transcriptEl.append(message)
     transcriptEl.scrollTop = transcriptEl.scrollHeight
   }
 
