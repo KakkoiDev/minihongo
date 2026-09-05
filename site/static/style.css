@@ -1524,3 +1524,27 @@ footer {
     width: 100%;
   }
 }
+
+
+.gf-engineering-link a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-raised);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.gf-engineering-link a:hover {
+  border-color: var(--link);
+  background: var(--bg);
+}
+
+.gf-engineering-link a span {
+  flex: none;
+  font-size: 1.25rem;
+}
