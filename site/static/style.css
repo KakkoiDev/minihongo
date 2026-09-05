@@ -1449,23 +1449,8 @@ footer {
 }
 
 .kaiwa-replay {
-  display: grid;
-  place-items: center;
   flex: none;
-  width: 2.5rem;
-  height: 2.5rem;
-  padding: 0;
-  border: 1px solid transparent;
-  border-radius: 50%;
-  background: transparent;
-  color: var(--text-muted);
-  cursor: pointer;
-}
-
-.kaiwa-replay:hover,
-.kaiwa-replay:focus-visible {
-  border-color: var(--border);
-  background: var(--bg-raised);
+  align-self: flex-end;
 }
 
 .kaiwa-composer {
@@ -1525,7 +1510,17 @@ footer {
     padding: 0.65rem 0.5rem max(0.35rem, env(safe-area-inset-bottom));
   }
 
+  .kaiwa-composer .kaiwa-controls {
+    flex-wrap: wrap;
+  }
+
   .kaiwa-composer #kaiwa-mic {
+    width: 100%;
+  }
+
+  .kaiwa-composer #kaiwa-retry {
+    order: 2;
+    flex-basis: 100%;
     width: 100%;
   }
 }
