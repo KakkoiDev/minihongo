@@ -696,7 +696,7 @@ def gen_going_further(categories, compounds, expressions, advanced, lang):
     parts.append(f'  <h2 id="{engineering_slug}" class="section-heading">{engineering_heading}</h2>\n')
     parts.append(f'  <p>{engineering_body}</p>\n')
     parts.append(
-        f'  <p class="gf-engineering-link"><a href="engineering.html">'
+        f'  <p class="gf-engineering-link"><a href="lessons/engineering.html">'
         f'{engineering_link} <span aria-hidden="true">→</span></a></p>\n\n'
     )
 
