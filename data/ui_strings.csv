@@ -93,10 +93,7 @@ engineering_loan_heading,Loanwords engineers say,現場で使う外来語,その
 engineering_dialog_heading,Team dialogs,チームの対話,作【つく】る人【ひと】の話【はなし】
 engineering_cando_heading,Engineering can-dos,エンジニア向けCan-do,できる事【こと】
 engineering_ai_heading,Practice with an AI colleague,AIの同僚と練習,考【かんが】える物【もの】と話【はな】す
-engineering_ai_body,"Choose an engineering goal and practice the situation directly with an AI colleague.",エンジニア向けの目標を選び、AIの同僚と開発場面を直接練習できます。,作【つく】る人【ひと】の目標【もくひょう】を選【えら】んで、考【かんが】える物【もの】と直接【ちょくせつ】話【はな】す。
+engineering_ai_body,"Copy the prompt and practice a real engineering situation.",プロンプトをコピーして、実際の開発場面を練習してください。,下【した】の言【こと】葉【ば】をもらって、本当【ほんとう】にある話【はなし】をしてみる。
 th_real_japanese,Real Japanese,日本語,日本【にほん】の言【こと】葉【ば】
 th_it_means,It means,意味,何【なに】の事【こと】
 th_where,Where you meet it,どこで,
-gf_engineering_heading,Engineering Japanese,エンジニアの日本語,作【つく】る人【ひと】の言【こと】葉【ば】
-gf_engineering_body,"For software work, continue to the separate engineering guide with workplace vocabulary, dialogs, goals, and AI conversation practice.",ソフトウェア開発で使う語彙・対話・目標・AI会話練習は、別のエンジニア向けページにまとめています。,物【もの】を作【つく】る仕事【しごと】の言【こと】葉【ば】と話【はなし】と目標【もくひょう】は、別【べつ】の所【ところ】にある。
-gf_engineering_link,Open the Engineering Japanese guide,エンジニアの日本語ページを開く,作【つく】る人【ひと】の所【ところ】を開【ひら】く
