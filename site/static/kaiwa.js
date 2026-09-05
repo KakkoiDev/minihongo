@@ -376,9 +376,9 @@ function startSession(root, data, opts) {
     if (role === 'assistant') {
       const replay = document.createElement('button')
       replay.type = 'button'
-      replay.className = 'kaiwa-replay'
+      replay.className = 'kaiwa-replay play-btn'
       replay.setAttribute('aria-label', 'Listen again')
-      replay.textContent = '🔊'
+      replay.textContent = 'Listen again'
       replay.addEventListener('click', () => speak(text))
       message.append(replay)
     }
