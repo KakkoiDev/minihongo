@@ -203,6 +203,58 @@ const initKaiwa = () => {
     })
 }
 
+// Going Further: filter the large reference tables without leaving the page.
+const bindGoingFurtherFilter = () => {
+  const input = document.getElementById('gf-filter')
+  if (!input) return
+
+  const sections = [...document.querySelectorAll('.gf-search-section')]
+  const status = document.querySelector('.gf-filter__status')
+  const normalize = (value) => value.normalize('NFKC').toLocaleLowerCase().trim()
+
+  const update = () => {
+    const query = normalize(input.value)
+    let matchingRows = 0
+
+    for (const section of sections) {
+      let visibleGroups = 0
+      for (const group of section.querySelectorAll('.gf-search-group')) {
+        const heading = normalize(group.querySelector('h3')?.textContent || '')
+        const headingMatches = query && heading.includes(query)
+        let groupMatches = 0
+
+        for (const row of group.querySelectorAll('tbody tr')) {
+          const matches = !query || headingMatches || normalize(row.textContent).includes(query)
+          row.hidden = !matches
+          if (matches) groupMatches += 1
+        }
+
+        group.hidden = !!query && groupMatches === 0
+        if (!group.hidden) visibleGroups += 1
+        if (query) matchingRows += groupMatches
+      }
+      section.hidden = !!query && visibleGroups === 0
+    }
+
+    if (!status) return
+    status.textContent = !query
+      ? ''
+      : matchingRows
+        ? `${matchingRows} ${input.dataset.countLabel}`
+        : input.dataset.emptyLabel
+    status.classList.toggle('is-empty', !!query && matchingRows === 0)
+  }
+
+  input.oninput = update
+  input.onkeydown = (event) => {
+    if (event.key === 'Escape' && input.value) {
+      input.value = ''
+      update()
+    }
+  }
+  update()
+}
+
 // Bind lesson-nav and TOC links inside #content (re-run after each swap)
 const bindContentLinks = () => {
   for (const a of document.querySelectorAll('.lesson-nav a')) {
@@ -217,6 +269,7 @@ const bindContentLinks = () => {
   bindPlayButtons()
   applyListenFirst()
   restoreCandos()
+  bindGoingFurtherFilter()
   initKaiwa()
 }
 
