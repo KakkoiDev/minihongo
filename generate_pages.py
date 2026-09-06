@@ -575,9 +575,15 @@ def _render_advanced_table(parts, rows, lang, mh_for_target):
         pb = play_btn('a', r.get('audio_file', ''))
         word = to_ruby_html(r['japanese'])
         expr = mh_for_target.get(strip_furigana(r['japanese']))
-        mh_cell = ''
         if expr:
             mh_cell = f'{play_btn("e", expr.get("audio_file", ""))}{to_ruby_html(expr["minihongo"])}'
+        else:
+            whole_word_hint = {
+                'en': 'Learn as a whole word',
+                'ja': 'この語のまま覚える',
+                'mh': 'この言【こと】葉【ば】のまま覚【おぼ】える',
+            }[lang]
+            mh_cell = f'<span class="advanced-whole-word">{to_ruby_html(whole_word_hint)}</span>'
         if lang == 'ja':
             parts.append(f'      <tr><td lang="ja">{pb}{word}</td><td lang="ja">{mh_cell}</td></tr>\n')
         else:
@@ -625,9 +631,29 @@ def gen_going_further(categories, compounds, expressions, advanced, lang):
         'mh': ('言【こと】葉【ば】を探【さが】す', '言【こと】葉【ば】を入【い】れる…',
                'の言【こと】葉【ば】', '同【おな】じ言【こと】葉【ば】がない'),
     }[lang]
+    learning_steps = {
+        'en': (
+            'Use this as a reference, not a list to memorize.',
+            'Search for a word you just encountered.',
+            'Listen, compare the Minihongo paraphrase, then return to real Japanese.',
+        ),
+        'ja': (
+            'これは暗記リストではなく、調べるためのページです。',
+            '実際に出会った言葉を検索する。',
+            '音声を聞き、ミニ本語での言い換えを比べて、実際の日本語に戻る。',
+        ),
+        'mh': (
+            '全部【ぜんぶ】を覚【おぼ】える所【ところ】ではない。',
+            '外【そと】で会【あ】った言【こと】葉【ば】を探【さが】す。',
+            '音【おと】を聞【き】いて、知【し】る言【こと】葉【ば】と同【おな】じ所【ところ】を見【み】る。',
+        ),
+    }[lang]
 
     toc = []
     parts = [
+        '  <ol class="gf-learning-path">\n',
+        *[f'    <li>{to_ruby_html(step)}</li>\n' for step in learning_steps],
+        '  </ol>\n',
         '  <div class="gf-filter">\n',
         f'    <label for="gf-filter">{to_ruby_html(filter_label)}</label>\n',
         f'    <input id="gf-filter" type="search" placeholder="{to_ruby_html(filter_placeholder)}" '
