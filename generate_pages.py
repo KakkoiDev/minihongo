@@ -694,58 +694,72 @@ def gen_going_further(categories, compounds, expressions, advanced, lang):
     immerse_body = ui('gf_immerse_body', lang)
     immersion_resources = {
         'en': [
-            ('NHK NEWS WEB EASY', 'Easy news with furigana and audio', 'Free',
-             'https://www3.nhk.or.jp/news/easy/'),
-            ('Tadoku', 'Graded readers with PDFs and audio', 'Free',
-             'https://tadoku.org/japanese/en/free-books-en/'),
-            ('絵本ひろば', 'Original Japanese picture books', 'Free',
-             'https://ehon.alphapolis.co.jp/'),
-            ('TVer', 'TV, drama, and anime; choose the 字幕あり filter', 'Free in Japan',
-             'https://tver.jp/'),
-            ('Netflix', 'Browse shows by Japanese subtitle language', 'Subscription',
-             'https://www.netflix.com/browse/subtitles'),
+            ('read', 'NHK NEWS WEB EASY', 'Easy news with furigana and audio',
+             'Free', 'Beginner–intermediate', 'https://www3.nhk.or.jp/news/easy/'),
+            ('read', 'Tadoku', 'Graded readers with PDFs and audio',
+             'Free', 'Beginner', 'https://tadoku.org/japanese/en/free-books-en/'),
+            ('read', '絵本ひろば', 'Original Japanese picture books',
+             'Free', 'Beginner', 'https://ehon.alphapolis.co.jp/'),
+            ('watch', 'TVer', 'TV, drama, and anime; choose the 字幕あり filter',
+             'Free in Japan', 'Intermediate+', 'https://tver.jp/'),
+            ('watch', 'Netflix', 'Browse shows by Japanese subtitle language',
+             'Subscription', 'Intermediate+', 'https://www.netflix.com/browse/subtitles'),
         ],
         'ja': [
-            ('NHK NEWS WEB EASY', 'ふりがなと音声がある、やさしいニュース', '無料',
-             'https://www3.nhk.or.jp/news/easy/'),
-            ('にほんご多読', 'レベル別の読み物・PDF・朗読音声', '無料',
-             'https://tadoku.org/japanese/free-books/'),
-            ('絵本ひろば', '日本語のオリジナル絵本', '無料',
-             'https://ehon.alphapolis.co.jp/'),
-            ('TVer', 'ドラマ・テレビ・アニメ。「字幕あり」で絞り込む', '日本では無料',
-             'https://tver.jp/'),
-            ('Netflix', '字幕言語を日本語にして作品を探す', '有料',
-             'https://www.netflix.com/browse/subtitles'),
+            ('read', 'NHK NEWS WEB EASY', 'ふりがなと音声がある、やさしいニュース',
+             '無料', '初級〜中級', 'https://www3.nhk.or.jp/news/easy/'),
+            ('read', 'にほんご多読', 'レベル別の読み物・PDF・朗読音声',
+             '無料', '初心者', 'https://tadoku.org/japanese/free-books/'),
+            ('read', '絵本ひろば', '日本語のオリジナル絵本',
+             '無料', '初心者', 'https://ehon.alphapolis.co.jp/'),
+            ('watch', 'TVer', 'ドラマ・テレビ・アニメ。「字幕あり」で絞り込む',
+             '日本では無料', '中級以上', 'https://tver.jp/'),
+            ('watch', 'Netflix', '字幕言語を日本語にして作品を探す',
+             '有料', '中級以上', 'https://www.netflix.com/browse/subtitles'),
         ],
         'mh': [
-            ('NHK NEWS WEB EASY', '読【よ】みやすいニュースと音【おと】', 'お金【かね】はいらない',
-             'https://www3.nhk.or.jp/news/easy/'),
-            ('にほんご多読', '少【すこ】しずつ難【むずか】しくなる本【ほん】', 'お金【かね】はいらない',
-             'https://tadoku.org/japanese/free-books/'),
-            ('絵本ひろば', '日本【にほん】の絵【え】の本【ほん】', 'お金【かね】はいらない',
-             'https://ehon.alphapolis.co.jp/'),
-            ('TVer', '日本【にほん】のテレビとアニメ', '日本【にほん】ではお金【かね】はいらない',
-             'https://tver.jp/'),
-            ('Netflix', '日本【にほん】の字【じ】を見【み】ながら見【み】る', 'お金【かね】がいる',
-             'https://www.netflix.com/browse/subtitles'),
+            ('read', 'NHK NEWS WEB EASY', '読【よ】みやすいニュースと音【おと】',
+             'お金【かね】はいらない', 'はじめ〜中【なか】', 'https://www3.nhk.or.jp/news/easy/'),
+            ('read', 'にほんご多読', '少【すこ】しずつ難【むずか】しくなる本【ほん】',
+             'お金【かね】はいらない', 'はじめ', 'https://tadoku.org/japanese/free-books/'),
+            ('read', '絵本ひろば', '日本【にほん】の絵【え】の本【ほん】',
+             'お金【かね】はいらない', 'はじめ', 'https://ehon.alphapolis.co.jp/'),
+            ('watch', 'TVer', '日本【にほん】のテレビとアニメ',
+             '日本【にほん】ではお金【かね】はいらない', '中【なか】から', 'https://tver.jp/'),
+            ('watch', 'Netflix', '日本【にほん】の字【じ】を見【み】ながら見【み】る',
+             'お金【かね】がいる', '中【なか】から', 'https://www.netflix.com/browse/subtitles'),
         ],
     }[lang]
-    resource_cards = []
-    for name, description, price, href in immersion_resources:
-        resource_cards.append(
-            '    <li><a href="' + href + '" target="_blank" rel="noopener noreferrer">'
-            '<span class="immersion-resource__top"><strong>' + to_ruby_html(name) + '</strong>'
-            '<span aria-hidden="true">↗</span></span>'
-            '<span class="immersion-resource__description">' + to_ruby_html(description) + '</span>'
-            '<span class="immersion-resource__tag">' + to_ruby_html(price) + '</span>'
-            '</a></li>\n'
-        )
+    resource_group_labels = {
+        'en': {'read': 'Read', 'watch': 'Watch'},
+        'ja': {'read': '読む', 'watch': '見る'},
+        'mh': {'read': '読【よ】む', 'watch': '見【み】る'},
+    }[lang]
+
     toc.append((immerse_slug, immerse_heading))
     parts.append(f'  <h2 id="{immerse_slug}" class="section-heading">{immerse_heading}</h2>\n')
     parts.append(f'  <p>{immerse_body}</p>\n')
-    parts.append('  <ul class="immersion-resources">\n')
-    parts.extend(resource_cards)
-    parts.append('  </ul>\n\n')
+    for group_id in ('read', 'watch'):
+        parts.append(
+            f'  <h3 class="immersion-resources__heading">'
+            f'{to_ruby_html(resource_group_labels[group_id])}</h3>\n'
+        )
+        parts.append('  <ul class="immersion-resources">\n')
+        for category, name, description, price, level, href in immersion_resources:
+            if category != group_id:
+                continue
+            parts.append(
+                '    <li><a href="' + href + '" target="_blank" rel="noopener noreferrer">'
+                '<span class="immersion-resource__top"><strong>' + to_ruby_html(name) + '</strong>'
+                '<span aria-hidden="true">↗</span></span>'
+                '<span class="immersion-resource__description">' + to_ruby_html(description) + '</span>'
+                '<span class="immersion-resource__tags">'
+                '<span class="immersion-resource__tag">' + to_ruby_html(level) + '</span>'
+                '<span class="immersion-resource__tag">' + to_ruby_html(price) + '</span>'
+                '</span></a></li>\n'
+            )
+        parts.append('  </ul>\n')
+    parts.append('\n')
 
     engineering_slug = 'engineering-japanese'
     engineering_heading, engineering_body, engineering_link = {
