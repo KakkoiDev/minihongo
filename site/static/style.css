@@ -1550,6 +1550,27 @@ footer {
 }
 
 /* === Going Further: searchable reference and immersion resources === */
+.gf-learning-path {
+  display: grid;
+  gap: 0.5rem;
+  margin: 0 0 1.25rem;
+  padding: 1rem 1rem 1rem 2.5rem;
+  color: var(--text-muted);
+  background: var(--bg-raised);
+  border-inline-start: 3px solid var(--accent);
+  border-radius: var(--radius);
+}
+
+.gf-learning-path li {
+  padding-inline-start: 0.25rem;
+}
+
+.advanced-whole-word {
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  font-style: italic;
+}
+
 .gf-filter {
   position: sticky;
   top: 0.5rem;
