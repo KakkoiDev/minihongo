@@ -728,8 +728,10 @@ def gen_going_further(categories, compounds, expressions, advanced, lang):
              'Free', 'Beginner', 'https://ehon.alphapolis.co.jp/'),
             ('watch', 'TVer', 'TV, drama, and anime; choose the 字幕あり filter',
              'Free in Japan', 'Intermediate+', 'https://tver.jp/'),
-            ('watch', 'Netflix', 'Browse shows by Japanese subtitle language',
-             'Subscription', 'Intermediate+', 'https://www.netflix.com/browse/subtitles'),
+            ('watch', 'ABEMA', 'Anime, news, and original shows; subtitles vary by title',
+             'Free + paid', 'Intermediate+', 'https://abema.tv/'),
+            ('watch', 'FOD', 'Fuji TV drama, variety, and anime; some titles have subtitles',
+             'Free + paid', 'Intermediate+', 'https://fod.fujitv.co.jp/'),
         ],
         'ja': [
             ('read', 'NHK NEWS WEB EASY', 'ふりがなと音声がある、やさしいニュース',
@@ -740,8 +742,10 @@ def gen_going_further(categories, compounds, expressions, advanced, lang):
              '無料', '初心者', 'https://ehon.alphapolis.co.jp/'),
             ('watch', 'TVer', 'ドラマ・テレビ・アニメ。「字幕あり」で絞り込む',
              '日本では無料', '中級以上', 'https://tver.jp/'),
-            ('watch', 'Netflix', '字幕言語を日本語にして作品を探す',
-             '有料', '中級以上', 'https://www.netflix.com/browse/subtitles'),
+            ('watch', 'ABEMA', 'アニメ・ニュース・オリジナル番組。字幕は作品による',
+             '無料＋有料', '中級以上', 'https://abema.tv/'),
+            ('watch', 'FOD', 'フジテレビのドラマ・バラエティ・アニメ。一部は字幕あり',
+             '無料＋有料', '中級以上', 'https://fod.fujitv.co.jp/'),
         ],
         'mh': [
             ('read', 'NHK NEWS WEB EASY', '読【よ】みやすいニュースと音【おと】',
@@ -752,8 +756,10 @@ def gen_going_further(categories, compounds, expressions, advanced, lang):
              'お金【かね】はいらない', 'はじめ', 'https://ehon.alphapolis.co.jp/'),
             ('watch', 'TVer', '日本【にほん】のテレビとアニメ',
              '日本【にほん】ではお金【かね】はいらない', '中【なか】から', 'https://tver.jp/'),
-            ('watch', 'Netflix', '日本【にほん】の字【じ】を見【み】ながら見【み】る',
-             'お金【かね】がいる', '中【なか】から', 'https://www.netflix.com/browse/subtitles'),
+            ('watch', 'ABEMA', 'アニメとニュースを見る。字【じ】があるかは話【はなし】による',
+             'お金【かね】がいらない物【もの】もある', '中【なか】から', 'https://abema.tv/'),
+            ('watch', 'FOD', 'テレビの話【はなし】とアニメを見る。字【じ】がある物【もの】もある',
+             'お金【かね】がいらない物【もの】もある', '中【なか】から', 'https://fod.fujitv.co.jp/'),
         ],
     }[lang]
     resource_group_labels = {
