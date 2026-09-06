@@ -183,8 +183,16 @@ def wrap_page(page_id, content, lang, toc=None, pre_toc=''):
         lines.append('  </nav>\n\n')
         toc_html = ''.join(lines)
 
-    # Nav links from sorted page list
-    page_ids = [p['id'] for p in PAGE_DATA]
+    # Hidden pages stay out of the public lesson sequence. A hidden page can
+    # still link back to the last visible lesson before it.
+    visible_page_ids = [p['id'] for p in PAGE_DATA if p.get('nav_group') != 'hidden']
+    if page.get('nav_group') == 'hidden':
+        page_ids = [
+            p['id'] for p in PAGE_DATA
+            if p.get('nav_group') != 'hidden' and int(p['sort_order']) < int(page['sort_order'])
+        ] + [page_id]
+    else:
+        page_ids = visible_page_ids
     idx = page_ids.index(page_id)
 
     if idx > 0:
@@ -609,8 +617,25 @@ def gen_going_further(categories, compounds, expressions, advanced, lang):
 
     immerse_slug = 'live-in-the-language'
 
+    filter_label, filter_placeholder, filter_count, filter_empty = {
+        'en': ('Find a word or topic', 'Try “animal”, “science”, or 日本…',
+               'matching words', 'No matching words'),
+        'ja': ('言葉・トピックを探す', '「動物」「科学」「日本」など…',
+               '件の言葉', '一致する言葉がありません'),
+        'mh': ('言【こと】葉【ば】を探【さが】す', '言【こと】葉【ば】を入【い】れる…',
+               'の言【こと】葉【ば】', '同【おな】じ言【こと】葉【ば】がない'),
+    }[lang]
+
     toc = []
-    parts = []
+    parts = [
+        '  <div class="gf-filter">\n',
+        f'    <label for="gf-filter">{to_ruby_html(filter_label)}</label>\n',
+        f'    <input id="gf-filter" type="search" placeholder="{to_ruby_html(filter_placeholder)}" '
+        f'autocomplete="off" data-count-label="{strip_html(to_ruby_html(filter_count))}" '
+        f'data-empty-label="{strip_html(to_ruby_html(filter_empty))}">\n',
+        '    <p class="gf-filter__status" role="status" aria-live="polite"></p>\n',
+        '  </div>\n\n',
+    ]
     for h2 in h2_cats:
         slug = slugify(h2['name_english'])
         translated = t(h2, 'name', lang)
@@ -624,6 +649,7 @@ def gen_going_further(categories, compounds, expressions, advanced, lang):
             toc_children.append((h3_slug, to_ruby_html(esc(h3_label))))
 
         toc.append((slug, to_ruby_html(esc(toc_label)), toc_children))
+        parts.append('  <section class="gf-search-section">\n')
         parts.append(f'  <h2 id="{slug}" class="section-heading">{h}</h2>\n')
 
         desc_key = WB_DESC_KEYS.get(h2['name_english'], '')
@@ -643,6 +669,7 @@ def gen_going_further(categories, compounds, expressions, advanced, lang):
             h3_slug = slugify(h3['name_english'])
             h3_translated = t(h3, 'name', lang)
             h3_heading = bilingual(h3['name_minihongo'], h3_translated)
+            parts.append('  <section class="gf-search-group">\n')
             parts.append(f'  <h3 id="{h3_slug}">{h3_heading}</h3>\n')
 
             cat_compounds = by_sort(compounds_by_cat.get(h3['id'], []))
@@ -660,7 +687,8 @@ def gen_going_further(categories, compounds, expressions, advanced, lang):
             elif cat_advanced:
                 _render_advanced_table(parts, cat_advanced, lang, mh_for_target)
 
-            parts.append('\n')
+            parts.append('  </section>\n\n')
+        parts.append('  </section>\n')
 
     immerse_heading = ui('gf_immerse_heading', lang)
     immerse_body = ui('gf_immerse_body', lang)
