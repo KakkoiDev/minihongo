@@ -201,6 +201,22 @@ def test_browser_speech_path_keeps_permission_stream_for_whole_turn():
     assert begin.index("recordingStream = permission") < begin.index("startRecognizer()")
 
 
+def test_chrome_receives_the_open_microphone_track_directly():
+    start = KAIWA.split("const startRecognizer", 1)[1].split(
+        "const requestMicPermission", 1
+    )[0]
+    assert "recordingStream?.getAudioTracks?.()[0]" in start
+    assert "recognizer.start(audioTrack)" in start
+
+
+def test_older_chrome_falls_back_when_track_argument_is_unsupported():
+    start = KAIWA.split("const startRecognizer", 1)[1].split(
+        "const requestMicPermission", 1
+    )[0]
+    assert "trackError?.name !== 'TypeError'" in start
+    assert start.count("recognizer.start()") >= 2
+
+
 def test_denied_permission_button_opens_help_instead_of_reprompting():
     click = KAIWA.split("permissionBtn.addEventListener('click'", 1)[1].split(
         "navigator.permissions?.query", 1
