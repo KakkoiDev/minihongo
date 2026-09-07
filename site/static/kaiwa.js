@@ -350,14 +350,23 @@ function startSession(root, data, opts) {
         <p class="kaiwa-live" id="kaiwa-live" aria-live="polite"></p>
         <div class="kaiwa-controls">
           <button id="kaiwa-mic" class="kaiwa-primary" ${opts.hasRecognition ? '' : 'hidden'}>Speak</button>
-          <form id="kaiwa-text-form" ${opts.hasRecognition ? 'hidden' : ''}>
-            <input type="text" id="kaiwa-text-input" lang="ja" placeholder="Type your reply in Japanese">
+          <form id="kaiwa-text-form">
+            <input type="text" id="kaiwa-text-input" lang="ja" placeholder="Type, or use your keyboard microphone">
             <button type="submit">Send</button>
           </form>
           <button id="kaiwa-permission" type="button" ${opts.hasRecognition ? '' : 'hidden'}>Enable microphone</button>
           <button id="kaiwa-retry" hidden>Try again</button>
         </div>
         <p class="kaiwa-status" id="kaiwa-session-status" role="status"></p>
+        <details class="kaiwa-mic-help" id="kaiwa-mic-help" hidden>
+          <summary>Microphone help</summary>
+          <ol>
+            <li>In Chrome, tap the icon beside the address, then Permissions, then allow Microphone.</li>
+            <li>If it is still blocked, open Android Settings → Apps → Chrome → Permissions → Microphone → Allow.</li>
+            <li>If Chrome can open the microphone but speech recognition fails, update or enable Google Speech Services.</li>
+          </ol>
+          <p>You can always use the microphone on your Japanese keyboard in the text box.</p>
+        </details>
       </div>
     </div>
   `
@@ -370,6 +379,7 @@ function startSession(root, data, opts) {
   const retryBtn = root.querySelector('#kaiwa-retry')
   const endBtn = root.querySelector('#kaiwa-end')
   const statusEl = root.querySelector('#kaiwa-session-status')
+  const micHelp = root.querySelector('#kaiwa-mic-help')
   const textForm = root.querySelector('#kaiwa-text-form')
   const textInput = root.querySelector('#kaiwa-text-input')
 
@@ -531,6 +541,8 @@ function startSession(root, data, opts) {
     } catch {
       finishListening()
       permissionBtn.hidden = false
+      micHelp.hidden = false
+      micHelp.open = true
       retryBtn.hidden = false
       statusEl.textContent = 'Could not start listening. Tap Enable microphone and allow access when your browser asks.'
     }
@@ -555,10 +567,16 @@ function startSession(root, data, opts) {
       return true
     } catch (error) {
       permissionBtn.hidden = false
+      micHelp.hidden = false
+      micHelp.open = true
       retryBtn.hidden = false
-      statusEl.textContent = error?.name === 'NotAllowedError'
-        ? 'Microphone is blocked. Tap Enable microphone. If no permission message appears, open this site’s settings from the address bar and allow Microphone.'
-        : 'Could not open the microphone. Check that no other app is using it, then try again.'
+      const micErrors = {
+        NotAllowedError: 'Microphone permission is blocked in Chrome or Android settings.',
+        NotFoundError: 'This phone did not report an available microphone.',
+        NotReadableError: 'The microphone is busy or blocked by Android.',
+        SecurityError: 'Chrome blocked microphone access for this page.',
+      }
+      statusEl.textContent = `${micErrors[error?.name] || 'Could not open the microphone.'} Open Microphone help below.`
       return false
     } finally {
       requestingMicPermission = false
@@ -620,12 +638,16 @@ function startSession(root, data, opts) {
       retryBtn.hidden = false
       if (event.error === 'not-allowed') {
         permissionBtn.hidden = false
-        statusEl.textContent = 'Microphone is blocked. Tap Enable microphone. If no permission message appears, open this site’s settings from the address bar and allow Microphone.'
+        micHelp.hidden = false
+        micHelp.open = true
+        statusEl.textContent = 'Chrome refused speech recognition. Open Microphone help below.'
       } else if (event.error === 'network' || event.error === 'service-not-allowed') {
         // Preserve the microphone control: a temporary mobile network/service
         // failure must not permanently remove audio input from the session.
         textForm.hidden = false
-        statusEl.textContent = 'Speech recognition could not connect. Try Speak again, or use your keyboard microphone.'
+        micHelp.hidden = false
+        micHelp.open = true
+        statusEl.textContent = `Chrome speech service failed (${event.error}). Try again, or use your keyboard microphone.`
       } else {
         statusEl.textContent = 'Could not hear you. Try again.'
       }
