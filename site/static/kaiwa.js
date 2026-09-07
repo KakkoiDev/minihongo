@@ -10,6 +10,7 @@ const KAIWA_KEY_STORAGE = {
 }
 const KAIWA_PROVIDER_STORAGE = 'kaiwa_provider'
 const KAIWA_HISTORY_STORAGE = 'kaiwa_history'
+const KAIWA_SPEECH_KEY_STORAGE = 'kaiwa_key_groq_speech'
 
 let kaiwaData = null // { words, grammar, candos } - fetched once, reused across sessions
 let kaiwaExpressions = null // lazy-loaded only for the end-of-session summary
@@ -78,9 +79,11 @@ function renderPicker(root, data) {
   ))
   const savedProvider = localStorage.getItem(KAIWA_PROVIDER_STORAGE) || 'anthropic'
   const savedKey = localStorage.getItem(KAIWA_KEY_STORAGE[savedProvider]) || ''
+  const savedSpeechKey = localStorage.getItem(KAIWA_SPEECH_KEY_STORAGE) || ''
   // Use capability detection, not a browser-name block. Mobile browsers can
   // change their speech support independently of their brand/version.
   const hasRecognition = !!(window.SpeechRecognition || window.webkitSpeechRecognition)
+  const hasRecording = !!navigator.mediaDevices?.getUserMedia && 'MediaRecorder' in window
 
   const candoOptions = visibleCandos.map(c => `
     <label class="kaiwa-cando">
@@ -107,17 +110,17 @@ function renderPicker(root, data) {
 
   root.innerHTML = `
     <div class="kaiwa-setup">
-      ${hasRecognition ? '' : `
+      ${hasRecognition || (hasRecording && savedSpeechKey) ? '' : `
         <p class="kaiwa-warning">
-          Speech recognition is not available in this browser. You can still use your
-          keyboard microphone or type your reply below.
+          Chrome speech recognition is not available on this phone. Add a Groq speech
+          key below to enable recorded voice input on this browser.
         </p>
       `}
       <p class="kaiwa-privacy">
         Your API key is stored only in this browser's local storage and sent only to the
-        provider you pick, with every request. In Chrome, your spoken audio is sent to
-        Google's servers to turn it into text. That's how the browser's speech
-        recognition works; it never reaches the AI provider.
+        provider you pick, with every request. With reliable voice enabled, each short
+        recording is sent directly to Groq for transcription. Without it, Chrome may
+        send speech to Google's recognition service.
       </p>
 
       <details class="kaiwa-details" id="kaiwa-provider-details" ${savedKey ? '' : 'open'}>
@@ -133,6 +136,18 @@ function renderPicker(root, data) {
             <input type="password" id="kaiwa-api-key" autocomplete="off" spellcheck="false">
           </label>
           <p class="kaiwa-key-hint" id="kaiwa-key-hint"></p>
+        </div>
+      </details>
+
+      <details class="kaiwa-details" id="kaiwa-speech-details" ${savedSpeechKey ? '' : 'open'}>
+        <summary>Reliable voice input</summary>
+        <div class="kaiwa-details-body">
+          <p>For voice input that does not depend on Chrome speech recognition, add a Groq key. Audio is recorded only while you hold a speaking turn and sent to Groq Whisper for Japanese transcription.</p>
+          <label class="kaiwa-field">
+            <span>Groq speech API key</span>
+            <input type="password" id="kaiwa-speech-key" autocomplete="off" spellcheck="false" placeholder="gsk_...">
+          </label>
+          <p class="kaiwa-key-hint">Get a key at <a href="https://console.groq.com/keys" target="_blank" rel="noopener">console.groq.com/keys</a></p>
         </div>
       </details>
 
@@ -162,6 +177,8 @@ function renderPicker(root, data) {
   const statusEl = root.querySelector('#kaiwa-setup-status')
   const keyHint = root.querySelector('#kaiwa-key-hint')
   const providerDetails = root.querySelector('#kaiwa-provider-details')
+  const speechKeyInput = root.querySelector('#kaiwa-speech-key')
+  speechKeyInput.value = savedSpeechKey
 
   const currentProvider = () => root.querySelector('input[name="kaiwa-provider"]:checked').value
 
@@ -188,6 +205,7 @@ function renderPicker(root, data) {
   startBtn.addEventListener('click', () => {
     const providerId = currentProvider()
     const apiKey = keyInput.value.trim()
+    const speechApiKey = speechKeyInput.value.trim()
     const selectedGoal = root.querySelector('input[name="kaiwa-cando"]:checked')?.value || ''
     const cando = selectedGoal ? data.candos.find(c => c.id === selectedGoal) : null
     if (!apiKey) {
@@ -200,7 +218,9 @@ function renderPicker(root, data) {
     primeSpeechSynthesis()
     localStorage.setItem(KAIWA_PROVIDER_STORAGE, providerId)
     localStorage.setItem(KAIWA_KEY_STORAGE[providerId], apiKey)
-    startSession(root, data, { providerId, apiKey, cando, hasRecognition, topicSet })
+    if (speechApiKey) localStorage.setItem(KAIWA_SPEECH_KEY_STORAGE, speechApiKey)
+    else localStorage.removeItem(KAIWA_SPEECH_KEY_STORAGE)
+    startSession(root, data, { providerId, apiKey, speechApiKey, cando, hasRecognition, hasRecording, topicSet })
   })
 }
 
@@ -349,12 +369,12 @@ function startSession(root, data, opts) {
       <div class="kaiwa-composer">
         <p class="kaiwa-live" id="kaiwa-live" aria-live="polite"></p>
         <div class="kaiwa-controls">
-          <button id="kaiwa-mic" class="kaiwa-primary" ${opts.hasRecognition ? '' : 'hidden'}>Speak</button>
+          <button id="kaiwa-mic" class="kaiwa-primary" ${opts.hasRecognition || (opts.hasRecording && opts.speechApiKey) ? '' : 'hidden'}>Speak</button>
           <form id="kaiwa-text-form">
             <input type="text" id="kaiwa-text-input" lang="ja" placeholder="Type, or use your keyboard microphone">
             <button type="submit">Send</button>
           </form>
-          <button id="kaiwa-permission" type="button" ${opts.hasRecognition ? '' : 'hidden'}>Enable microphone</button>
+          <button id="kaiwa-permission" type="button" ${opts.hasRecognition || (opts.hasRecording && opts.speechApiKey) ? '' : 'hidden'}>Enable microphone</button>
           <button id="kaiwa-retry" hidden>Try again</button>
         </div>
         <p class="kaiwa-status" id="kaiwa-session-status" role="status"></p>
@@ -516,6 +536,9 @@ function startSession(root, data, opts) {
   let restartTimer = null
   let micPermissionReady = false
   let requestingMicPermission = false
+  let mediaRecorder = null
+  let recordingStream = null
+  let recordingTimer = null
   const LISTEN_WINDOW_MS = 30000
 
   const resetListeningUi = () => {
@@ -527,8 +550,76 @@ function startSession(root, data, opts) {
     wantsListening = false
     listening = false
     clearTimeout(restartTimer)
+    clearTimeout(recordingTimer)
     restartTimer = null
+    recordingTimer = null
     resetListeningUi()
+  }
+
+  const transcribeRecording = async (blob) => {
+    statusEl.textContent = 'Transcribing your Japanese…'
+    const form = new FormData()
+    form.append('file', blob, blob.type.includes('ogg') ? 'speech.ogg' : 'speech.webm')
+    form.append('model', 'whisper-large-v3-turbo')
+    form.append('language', 'ja')
+    form.append('response_format', 'json')
+
+    const response = await fetch('https://api.groq.com/openai/v1/audio/transcriptions', {
+      method: 'POST',
+      headers: { authorization: `Bearer ${opts.speechApiKey}` },
+      body: form,
+    })
+    if (!response.ok) {
+      let detail = ''
+      try { detail = (await response.json())?.error?.message || '' } catch {}
+      throw new Error(`Voice transcription failed (${response.status}). ${detail}`.trim())
+    }
+    const result = await response.json()
+    return String(result.text || '').trim()
+  }
+
+  const beginApiRecording = async () => {
+    try {
+      recordingStream = await navigator.mediaDevices.getUserMedia({ audio: true })
+      const chunks = []
+      mediaRecorder = new MediaRecorder(recordingStream)
+      mediaRecorder.addEventListener('dataavailable', event => {
+        if (event.data.size) chunks.push(event.data)
+      })
+      mediaRecorder.addEventListener('stop', async () => {
+        const type = mediaRecorder.mimeType || 'audio/webm'
+        recordingStream?.getTracks().forEach(track => track.stop())
+        recordingStream = null
+        finishListening()
+        try {
+          const text = await transcribeRecording(new Blob(chunks, { type }))
+          if (!text) throw new Error('No speech was found in the recording.')
+          liveEl.textContent = text
+          await sendTurn(text)
+        } catch (error) {
+          retryBtn.hidden = false
+          micHelp.hidden = false
+          statusEl.textContent = error.message || 'Voice transcription failed. Try again.'
+        }
+      }, { once: true })
+      window.speechSynthesis?.cancel?.()
+      wantsListening = true
+      retryBtn.hidden = true
+      statusEl.textContent = 'Recording… Tap Stop when you finish speaking.'
+      micBtn.textContent = 'Stop'
+      mediaRecorder.start()
+      recordingTimer = setTimeout(() => {
+        if (mediaRecorder?.state === 'recording') mediaRecorder.stop()
+      }, LISTEN_WINDOW_MS)
+    } catch (error) {
+      recordingStream?.getTracks().forEach(track => track.stop())
+      recordingStream = null
+      finishListening()
+      permissionBtn.hidden = false
+      micHelp.hidden = false
+      micHelp.open = true
+      statusEl.textContent = `Could not record audio (${error?.name || 'unknown error'}). Open Microphone help below.`
+    }
   }
 
   const startRecognizer = () => {
@@ -587,6 +678,10 @@ function startSession(root, data, opts) {
 
   const beginListening = async () => {
     if (!await requestMicPermission()) return
+    if (opts.speechApiKey && 'MediaRecorder' in window) {
+      await beginApiRecording()
+      return
+    }
     // Do not let the assistant's voice compete with the user's microphone.
     window.speechSynthesis?.cancel?.()
     hadInterim = false
@@ -672,6 +767,10 @@ function startSession(root, data, opts) {
 
   micBtn?.addEventListener('click', () => {
     if (wantsListening) {
+      if (mediaRecorder?.state === 'recording') {
+        mediaRecorder.stop()
+        return
+      }
       finishListening()
       recognizer?.stop()
       return
