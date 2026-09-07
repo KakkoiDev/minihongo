@@ -37,7 +37,7 @@ def test_permission_help_button_is_shown_when_microphone_is_not_granted():
     assert "opts.hasRecognition || (opts.hasRecording && opts.speechApiKey)" in KAIWA
     assert "permissionBtn.hidden = false" in KAIWA
     assert "navigator.permissions?.query({ name: 'microphone' })" in KAIWA
-    assert "permissionBtn.addEventListener('click', () => beginListening())" in KAIWA
+    assert "permissionBtn.addEventListener('click', () =>" in KAIWA
 
 
 def test_permission_query_does_not_skip_real_microphone_check():
@@ -169,3 +169,27 @@ def test_transcription_failures_keep_retry_and_help_available():
     )[0]
     assert "retryBtn.hidden = false" in stop_handler
     assert "micHelp.hidden = false" in stop_handler
+
+
+def test_denied_permission_button_opens_help_instead_of_reprompting():
+    click = KAIWA.split("permissionBtn.addEventListener('click'", 1)[1].split(
+        "navigator.permissions?.query", 1
+    )[0]
+    assert "micPermissionState === 'denied'" in click
+    assert "micHelp.open = true" in click
+    assert "micHelp.scrollIntoView" in click
+    assert click.index("return") < click.index("beginListening()")
+
+
+def test_denied_permission_has_clear_recovery_label():
+    assert "Microphone blocked — how to allow" in KAIWA
+    assert "Chrome will not ask again after Block was selected" in KAIWA
+
+
+def test_permission_state_changes_update_recovery_button():
+    permission_ui = KAIWA.split("const updatePermissionUi = () =>", 1)[1].split(
+        "permission.addEventListener", 1
+    )[0]
+    assert "micPermissionState = permission.state" in permission_ui
+    assert "permission.state === 'denied'" in permission_ui
+    assert "permissionBtn.hidden = permission.state === 'granted'" in permission_ui
