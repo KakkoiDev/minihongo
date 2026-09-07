@@ -502,6 +502,8 @@ function startSession(root, data, opts) {
   let wantsListening = false
   let listenDeadline = 0
   let restartTimer = null
+  let micPermissionReady = false
+  let requestingMicPermission = false
   const LISTEN_WINDOW_MS = 30000
 
   const resetListeningUi = () => {
@@ -531,7 +533,37 @@ function startSession(root, data, opts) {
     }
   }
 
-  const beginListening = () => {
+  const requestMicPermission = async () => {
+    if (micPermissionReady || !navigator.mediaDevices?.getUserMedia) return true
+    if (requestingMicPermission) return false
+
+    requestingMicPermission = true
+    micBtn.disabled = true
+    micBtn.textContent = 'Allow microphone…'
+    statusEl.textContent = 'Waiting for microphone permission…'
+    try {
+      // SpeechRecognition does not reliably trigger Chromium's permission UI
+      // on mobile. getUserMedia does, and the stream is released immediately;
+      // recognition owns the microphone after permission is granted.
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true })
+      stream.getTracks().forEach(track => track.stop())
+      micPermissionReady = true
+      return true
+    } catch (error) {
+      retryBtn.hidden = false
+      statusEl.textContent = error?.name === 'NotAllowedError'
+        ? 'Microphone access was not allowed. Enable it for this site in browser settings, then try again.'
+        : 'Could not open the microphone. Check that no other app is using it, then try again.'
+      return false
+    } finally {
+      requestingMicPermission = false
+      micBtn.disabled = false
+      micBtn.textContent = 'Speak'
+    }
+  }
+
+  const beginListening = async () => {
+    if (!await requestMicPermission()) return
     // Do not let the assistant's voice compete with the user's microphone.
     window.speechSynthesis?.cancel?.()
     hadInterim = false
