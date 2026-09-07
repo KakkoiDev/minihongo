@@ -44,7 +44,16 @@ window.initKaiwaPage = async function initKaiwaPage() {
     return
   }
 
-  renderPicker(root, data)
+  const isBrave = await isBraveBrowser()
+  renderPicker(root, data, { isBrave })
+}
+
+async function isBraveBrowser() {
+  try {
+    return !!navigator.brave && await navigator.brave.isBrave()
+  } catch {
+    return false
+  }
 }
 
 // -- Screen 1: settings + can-do picker ------------------------------------
@@ -68,7 +77,7 @@ function candoBadge(history, candoId) {
   return `${sessions.length} session${sessions.length > 1 ? 's' : ''}, longest: ${last.longestSentence.length} chars`
 }
 
-function renderPicker(root, data) {
+function renderPicker(root, data, browser = {}) {
   const history = loadHistory()
   const topicSet = root.dataset.topicSet === 'engineering' ? 'engineering' : 'general'
   const visibleCandos = data.candos.filter(c => (
@@ -78,7 +87,11 @@ function renderPicker(root, data) {
   ))
   const savedProvider = localStorage.getItem(KAIWA_PROVIDER_STORAGE) || 'anthropic'
   const savedKey = localStorage.getItem(KAIWA_KEY_STORAGE[savedProvider]) || ''
-  const hasRecognition = !!(window.SpeechRecognition || window.webkitSpeechRecognition)
+  // Brave exposes Chromium's constructor even though it cannot use Google's
+  // transcription service. Treating constructor presence as support gives the
+  // user a Speak button that always ends in a network/no-speech error.
+  const hasRecognition = !browser.isBrave
+    && !!(window.SpeechRecognition || window.webkitSpeechRecognition)
 
   const candoOptions = visibleCandos.map(c => `
     <label class="kaiwa-cando">
@@ -107,9 +120,9 @@ function renderPicker(root, data) {
     <div class="kaiwa-setup">
       ${hasRecognition ? '' : `
         <p class="kaiwa-warning">
-          Your browser does not support speech recognition (this needs Chrome or a
-          Chromium-based browser). You can still practice by typing your replies instead
-          of speaking them.
+          ${browser.isBrave
+            ? 'Brave cannot provide speech recognition to websites. Open this page in Google Chrome to use Speak, or use your keyboard microphone below.'
+            : 'Speech recognition is not available in this browser. Open this page in Google Chrome to use Speak, or use your keyboard microphone below.'}
         </p>
       `}
       <p class="kaiwa-privacy">
@@ -531,6 +544,8 @@ function startSession(root, data, opts) {
   }
 
   const beginListening = () => {
+    // Do not let the assistant's voice compete with the user's microphone.
+    window.speechSynthesis?.cancel?.()
     hadInterim = false
     wantsListening = true
     listenDeadline = Date.now() + LISTEN_WINDOW_MS
@@ -578,9 +593,20 @@ function startSession(root, data, opts) {
       finishListening()
       if (hadInterim) session.abandonCount++
       retryBtn.hidden = false
-      statusEl.textContent = event.error === 'not-allowed'
-        ? 'Microphone access is blocked. Allow it in your browser settings and try again.'
-        : 'Could not hear you. Try again.'
+      if (event.error === 'not-allowed') {
+        statusEl.textContent = 'Microphone access is blocked. Allow it in your browser settings and try again.'
+      } else if (event.error === 'network' || event.error === 'service-not-allowed') {
+        // Some Chromium browsers expose webkitSpeechRecognition without an
+        // actual recognition service. Keep the conversation usable instead of
+        // repeatedly offering a broken retry button.
+        micBtn.hidden = true
+        retryBtn.hidden = true
+        textForm.hidden = false
+        textInput.focus()
+        statusEl.textContent = 'This browser cannot transcribe speech. Use Google Chrome, or tap your keyboard microphone.'
+      } else {
+        statusEl.textContent = 'Could not hear you. Try again.'
+      }
     }
 
     r.onend = () => {
