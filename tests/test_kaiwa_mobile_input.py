@@ -29,7 +29,7 @@ def test_mobile_speak_explicitly_requests_microphone_permission():
     assert "navigator.mediaDevices?.getUserMedia" in KAIWA
     assert "getUserMedia({ audio: true })" in KAIWA
     assert "stream.getTracks().forEach(track => track.stop())" in KAIWA
-    assert "await requestMicPermission(useApiRecording)" in KAIWA
+    assert "await requestMicPermission(true)" in KAIWA
 
 
 def test_permission_help_button_is_shown_when_microphone_is_not_granted():
@@ -132,10 +132,10 @@ def test_recording_is_sent_to_groq_whisper_as_japanese():
 
 
 def test_audio_stream_is_stopped_after_recording():
-    recording_stop = KAIWA.split("mediaRecorder.addEventListener('stop'", 1)[1].split(
-        "}, { once: true })", 1
+    finish = KAIWA.split("const finishListening", 1)[1].split(
+        "const transcribeRecording", 1
     )[0]
-    assert "recordingStream?.getTracks().forEach(track => track.stop())" in recording_stop
+    assert "recordingStream?.getTracks().forEach(track => track.stop())" in finish
 
 
 def test_recording_has_a_maximum_duration():
@@ -189,7 +189,16 @@ def test_recording_stream_stays_open_until_media_recorder_stops():
     stop_handler = KAIWA.split("mediaRecorder.addEventListener('stop'", 1)[1].split(
         "}, { once: true })", 1
     )[0]
-    assert "recordingStream?.getTracks().forEach(track => track.stop())" in stop_handler
+    assert "finishListening()" in stop_handler
+
+
+def test_browser_speech_path_keeps_permission_stream_for_whole_turn():
+    begin = KAIWA.split("const beginListening", 1)[1].split(
+        "const setupRecognition", 1
+    )[0]
+    assert "await requestMicPermission(true)" in begin
+    assert "recordingStream = permission" in begin
+    assert begin.index("recordingStream = permission") < begin.index("startRecognizer()")
 
 
 def test_denied_permission_button_opens_help_instead_of_reprompting():
