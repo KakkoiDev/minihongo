@@ -217,6 +217,16 @@ def test_older_chrome_falls_back_when_track_argument_is_unsupported():
     assert start.count("recognizer.start()") >= 2
 
 
+def test_mobile_chrome_recognition_stays_continuous_until_explicit_stop():
+    setup = KAIWA.split("const setupRecognition", 1)[1].split(
+        "r.onresult", 1
+    )[0]
+    assert "r.continuous = true" in setup
+    result = KAIWA.split("r.onresult", 1)[1].split("r.onerror", 1)[0]
+    assert "if (finalText)" in result
+    assert "r.stop()" in result
+
+
 def test_denied_permission_button_opens_help_instead_of_reprompting():
     click = KAIWA.split("permissionBtn.addEventListener('click'", 1)[1].split(
         "navigator.permissions?.query", 1
