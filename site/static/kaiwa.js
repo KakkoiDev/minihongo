@@ -554,6 +554,10 @@ function startSession(root, data, opts) {
     clearTimeout(recordingTimer)
     restartTimer = null
     recordingTimer = null
+    // Hold the device microphone for the complete speaking turn, including
+    // Chrome's SpeechRecognition path, and release it only when that turn ends.
+    recordingStream?.getTracks().forEach(track => track.stop())
+    recordingStream = null
     resetListeningUi()
   }
 
@@ -592,8 +596,6 @@ function startSession(root, data, opts) {
       })
       mediaRecorder.addEventListener('stop', async () => {
         const type = mediaRecorder.mimeType || 'audio/webm'
-        recordingStream?.getTracks().forEach(track => track.stop())
-        recordingStream = null
         finishListening()
         try {
           const text = await transcribeRecording(new Blob(chunks, { type }))
@@ -687,12 +689,16 @@ function startSession(root, data, opts) {
 
   const beginListening = async () => {
     const useApiRecording = !!opts.speechApiKey && 'MediaRecorder' in window
-    const permission = await requestMicPermission(useApiRecording)
+    // Keep this stream open even when browser speech recognition is used.
+    // Closing it before SpeechRecognition.start() caused Android's green mic
+    // indicator and capture session to disappear after about one second.
+    const permission = await requestMicPermission(true)
     if (!permission) return
     if (useApiRecording) {
       await beginApiRecording(permission)
       return
     }
+    recordingStream = permission
     // Do not let the assistant's voice compete with the user's microphone.
     window.speechSynthesis?.cancel?.()
     hadInterim = false
