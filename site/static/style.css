@@ -1469,6 +1469,24 @@ footer {
   margin: 0;
 }
 
+.kaiwa-mic-help {
+  padding: 0.65rem 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-raised);
+  font-size: 0.9rem;
+}
+
+.kaiwa-mic-help summary {
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.kaiwa-mic-help ol,
+.kaiwa-mic-help p {
+  margin-bottom: 0;
+}
+
 .kaiwa-composer .kaiwa-live:empty {
   display: none;
 }
@@ -1515,6 +1533,11 @@ footer {
   }
 
   .kaiwa-composer #kaiwa-mic {
+    width: 100%;
+  }
+
+  .kaiwa-composer #kaiwa-text-form {
+    flex-basis: 100%;
     width: 100%;
   }
 
