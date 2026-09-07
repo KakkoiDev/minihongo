@@ -354,7 +354,7 @@ function startSession(root, data, opts) {
             <input type="text" id="kaiwa-text-input" lang="ja" placeholder="Type your reply in Japanese">
             <button type="submit">Send</button>
           </form>
-          <button id="kaiwa-permission" type="button" hidden>Allow microphone</button>
+          <button id="kaiwa-permission" type="button" ${opts.hasRecognition ? '' : 'hidden'}>Enable microphone</button>
           <button id="kaiwa-retry" hidden>Try again</button>
         </div>
         <p class="kaiwa-status" id="kaiwa-session-status" role="status"></p>
@@ -530,8 +530,9 @@ function startSession(root, data, opts) {
       micBtn.textContent = 'Stop'
     } catch {
       finishListening()
+      permissionBtn.hidden = false
       retryBtn.hidden = false
-      statusEl.textContent = 'Could not start listening. Try again.'
+      statusEl.textContent = 'Could not start listening. Tap Enable microphone and allow access when your browser asks.'
     }
   }
 
@@ -541,7 +542,7 @@ function startSession(root, data, opts) {
 
     requestingMicPermission = true
     micBtn.disabled = true
-    micBtn.textContent = 'Allow microphone…'
+    micBtn.textContent = 'Enable microphone…'
     statusEl.textContent = 'Waiting for microphone permission…'
     try {
       // SpeechRecognition does not reliably trigger Chromium's permission UI
@@ -556,7 +557,7 @@ function startSession(root, data, opts) {
       permissionBtn.hidden = false
       retryBtn.hidden = false
       statusEl.textContent = error?.name === 'NotAllowedError'
-        ? 'Microphone is blocked. Tap Allow microphone. If no permission message appears, open this site’s settings from the address bar and allow Microphone.'
+        ? 'Microphone is blocked. Tap Enable microphone. If no permission message appears, open this site’s settings from the address bar and allow Microphone.'
         : 'Could not open the microphone. Check that no other app is using it, then try again.'
       return false
     } finally {
@@ -619,7 +620,7 @@ function startSession(root, data, opts) {
       retryBtn.hidden = false
       if (event.error === 'not-allowed') {
         permissionBtn.hidden = false
-        statusEl.textContent = 'Microphone is blocked. Tap Allow microphone. If no permission message appears, open this site’s settings from the address bar and allow Microphone.'
+        statusEl.textContent = 'Microphone is blocked. Tap Enable microphone. If no permission message appears, open this site’s settings from the address bar and allow Microphone.'
       } else if (event.error === 'network' || event.error === 'service-not-allowed') {
         // Preserve the microphone control: a temporary mobile network/service
         // failure must not permanently remove audio input from the session.
@@ -662,7 +663,10 @@ function startSession(root, data, opts) {
   // exposes its current microphone permission state.
   navigator.permissions?.query({ name: 'microphone' }).then((permission) => {
     const updatePermissionUi = () => {
-      micPermissionReady = permission.state === 'granted'
+      // A "granted" query result is not proof that the microphone can open.
+      // Only a successful getUserMedia call marks it ready. This avoids
+      // bypassing the real device check on mobile Chromium.
+      if (permission.state !== 'granted') micPermissionReady = false
       permissionBtn.hidden = permission.state === 'granted'
     }
     updatePermissionUi()
