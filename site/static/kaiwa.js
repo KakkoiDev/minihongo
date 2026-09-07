@@ -12,6 +12,7 @@ const KAIWA_PROVIDER_STORAGE = 'kaiwa_provider'
 const KAIWA_HISTORY_STORAGE = 'kaiwa_history'
 const KAIWA_SPEECH_KEY_STORAGE = 'kaiwa_key_groq_speech'
 const KAIWA_SPEECH_MODE_STORAGE = 'kaiwa_speech_mode'
+const KAIWA_STYLE_STORAGE = 'kaiwa_conversation_style'
 
 let kaiwaData = null // { words, grammar, candos } - fetched once, reused across sessions
 let kaiwaExpressions = null // lazy-loaded only for the end-of-session summary
@@ -105,6 +106,7 @@ function renderPicker(root, data) {
   const savedKey = localStorage.getItem(KAIWA_KEY_STORAGE[savedProvider]) || ''
   const savedSpeechKey = localStorage.getItem(KAIWA_SPEECH_KEY_STORAGE) || ''
   const savedSpeechMode = localStorage.getItem(KAIWA_SPEECH_MODE_STORAGE) || 'browser'
+  const savedStyle = localStorage.getItem(KAIWA_STYLE_STORAGE) || 'conversation'
   // Use capability detection, not a browser-name block. Mobile browsers can
   // change their speech support independently of their brand/version.
   const hasRecognition = !!(window.SpeechRecognition || window.webkitSpeechRecognition)
@@ -175,16 +177,16 @@ function renderPicker(root, data) {
       </details>
 
       <details class="kaiwa-details" id="kaiwa-style-details">
-        <summary id="kaiwa-style-summary">Style: Conversation</summary>
+        <summary id="kaiwa-style-summary">Style: ${savedStyle === 'tutor' ? 'Tutor' : 'Conversation'}</summary>
         <div class="kaiwa-details-body">
           <fieldset class="kaiwa-field kaiwa-style-field">
             <legend class="visually-hidden">Conversation style</legend>
             <label class="kaiwa-provider-opt">
-              <input type="radio" name="kaiwa-style" value="conversation" checked>
+              <input type="radio" name="kaiwa-style" value="conversation" ${savedStyle === 'conversation' ? 'checked' : ''}>
               <span>Conversation</span>
             </label>
             <label class="kaiwa-provider-opt">
-              <input type="radio" name="kaiwa-style" value="tutor">
+              <input type="radio" name="kaiwa-style" value="tutor" ${savedStyle === 'tutor' ? 'checked' : ''}>
               <span>Tutor <small>practise your frequent mistakes</small></span>
             </label>
           </fieldset>
@@ -192,7 +194,7 @@ function renderPicker(root, data) {
       </details>
 
       <details class="kaiwa-details" id="kaiwa-goal-details">
-        <summary>Pick a goal <span class="kaiwa-optional">optional</span></summary>
+        <summary id="kaiwa-goal-summary">Topic: ${topicSet === 'engineering' ? 'Engineering' : 'Free conversation'}</summary>
         <div class="kaiwa-details-body">
           <div class="kaiwa-cando-list">
             <label class="kaiwa-cando">
@@ -223,6 +225,7 @@ function renderPicker(root, data) {
   const speechStatus = root.querySelector('#kaiwa-speech-status')
   const speechSummary = root.querySelector('#kaiwa-speech-summary')
   const styleSummary = root.querySelector('#kaiwa-style-summary')
+  const goalSummary = root.querySelector('#kaiwa-goal-summary')
   speechKeyInput.value = savedSpeechKey
 
   root.querySelectorAll('input[name="kaiwa-speech-mode"]').forEach(radio => {
@@ -239,6 +242,16 @@ function renderPicker(root, data) {
   const currentProvider = () => root.querySelector('input[name="kaiwa-provider"]:checked').value
   const currentSpeechMode = () => root.querySelector('input[name="kaiwa-speech-mode"]:checked')?.value || 'browser'
   const currentTutorMode = () => root.querySelector('input[name="kaiwa-style"]:checked')?.value === 'tutor'
+
+  const updateGoalSummary = () => {
+    const selectedGoal = root.querySelector('input[name="kaiwa-cando"]:checked')?.value || ''
+    const cando = selectedGoal ? data.candos.find(c => c.id === selectedGoal) : null
+    goalSummary.textContent = cando
+      ? `Topic: ${cando.english}`
+      : currentTutorMode()
+        ? 'Topic: Automatic'
+        : `Topic: ${topicSet === 'engineering' ? 'Engineering' : 'Free conversation'}`
+  }
 
   const refreshKeyField = () => {
     const providerId = currentProvider()
@@ -264,17 +277,23 @@ function renderPicker(root, data) {
   }
 
   root.querySelectorAll('input[name="kaiwa-provider"]').forEach(r => r.addEventListener('change', refreshKeyField))
-  root.querySelectorAll('input[name="kaiwa-cando"]').forEach(r => r.addEventListener('change', validate))
+  root.querySelectorAll('input[name="kaiwa-cando"]').forEach(r => r.addEventListener('change', () => {
+    updateGoalSummary()
+    validate()
+  }))
   root.querySelectorAll('input[name="kaiwa-style"]').forEach(radio => {
     radio.addEventListener('change', () => {
       if (!radio.checked) return
       styleSummary.textContent = `Style: ${radio.value === 'tutor' ? 'Tutor' : 'Conversation'}`
+      localStorage.setItem(KAIWA_STYLE_STORAGE, radio.value)
+      updateGoalSummary()
     })
   })
   keyInput.addEventListener('input', validate)
   speechKeyInput.addEventListener('input', validate)
 
   refreshKeyField()
+  updateGoalSummary()
 
   startBtn.addEventListener('click', () => {
     const providerId = currentProvider()
@@ -302,6 +321,7 @@ function renderPicker(root, data) {
     if (speechApiKey) localStorage.setItem(KAIWA_SPEECH_KEY_STORAGE, speechApiKey)
     else localStorage.removeItem(KAIWA_SPEECH_KEY_STORAGE)
     localStorage.setItem(KAIWA_SPEECH_MODE_STORAGE, speechMode)
+    localStorage.setItem(KAIWA_STYLE_STORAGE, tutorMode ? 'tutor' : 'conversation')
     startSession(root, data, {
       providerId,
       apiKey,
