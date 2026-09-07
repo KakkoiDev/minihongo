@@ -1329,7 +1329,7 @@ footer {
   color: var(--text);
 }
 
-#kaiwa-retry, #kaiwa-end, #kaiwa-text-form button {
+#kaiwa-retry, #kaiwa-permission, #kaiwa-end, #kaiwa-text-form button {
   font: inherit;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
@@ -1339,7 +1339,7 @@ footer {
   color: var(--text);
 }
 
-#kaiwa-retry:hover, #kaiwa-end:hover, #kaiwa-text-form button:hover {
+#kaiwa-retry:hover, #kaiwa-permission:hover, #kaiwa-end:hover, #kaiwa-text-form button:hover {
   background: var(--bg-raised);
 }
 
@@ -1522,6 +1522,13 @@ footer {
     order: 2;
     flex-basis: 100%;
     width: 100%;
+  }
+
+  .kaiwa-composer #kaiwa-permission {
+    order: 2;
+    flex-basis: 100%;
+    width: 100%;
+    min-height: 3rem;
   }
 }
 
