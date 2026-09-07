@@ -154,7 +154,27 @@ def test_groq_speech_key_is_device_local_and_independent_from_chat_provider():
     assert "KAIWA_SPEECH_KEY_STORAGE = 'kaiwa_key_groq_speech'" in KAIWA
     assert 'id="kaiwa-speech-key"' in KAIWA
     assert "localStorage.setItem(KAIWA_SPEECH_KEY_STORAGE, speechApiKey)" in KAIWA
-    assert "providerId, apiKey, speechApiKey" in KAIWA
+    assert "speechApiKey: speechMode === 'groq' ? speechApiKey : ''" in KAIWA
+
+
+def test_browser_voice_is_the_default_without_an_extra_api_key():
+    assert "KAIWA_SPEECH_MODE_STORAGE = 'kaiwa_speech_mode'" in KAIWA
+    assert "localStorage.getItem(KAIWA_SPEECH_MODE_STORAGE) || 'browser'" in KAIWA
+    assert "Browser voice <small>no extra API key — default</small>" in KAIWA
+
+
+def test_groq_voice_requires_an_explicit_selection():
+    assert 'name="kaiwa-speech-mode" value="groq"' in KAIWA
+    assert "speechMode === 'groq' ? speechApiKey : ''" in KAIWA
+    assert "localStorage.setItem(KAIWA_SPEECH_MODE_STORAGE, speechMode)" in KAIWA
+
+
+def test_groq_key_field_is_hidden_for_default_browser_voice():
+    assert 'id="kaiwa-speech-key-field" ${savedSpeechMode === \'groq\' ? \'\' : \'hidden\'}' in KAIWA
+    assert "speechKeyField.hidden = !usesGroq" in KAIWA
+    assert "speechKeyHint.hidden = !usesGroq" in KAIWA
+    css = (Path(__file__).parent.parent / "site/static/style.css").read_text()
+    assert ".kaiwa-setup [hidden]" in css
 
 
 def test_media_recorder_allows_voice_when_web_speech_is_missing():
