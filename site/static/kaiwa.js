@@ -112,17 +112,8 @@ function renderPicker(root, data) {
 
   root.innerHTML = `
     <div class="kaiwa-setup">
-      ${hasRecognition || (hasRecording && savedSpeechKey) ? '' : `
-        <p class="kaiwa-warning">
-          Chrome speech recognition is not available on this phone. Add a Groq speech
-          key below to enable recorded voice input on this browser.
-        </p>
-      `}
       <p class="kaiwa-privacy">
-        Your API key is stored only in this browser's local storage and sent only to the
-        provider you pick, with every request. With reliable voice enabled, each short
-        recording is sent directly to Groq for transcription. Without it, Chrome may
-        send speech to Google's recognition service.
+        Keys stay in this browser. Voice is sent only to the voice service you choose.
       </p>
 
       <details class="kaiwa-details" id="kaiwa-provider-details" ${savedKey ? '' : 'open'}>
@@ -142,17 +133,17 @@ function renderPicker(root, data) {
       </details>
 
       <details class="kaiwa-details" id="kaiwa-speech-details">
-        <summary>Voice input</summary>
+        <summary>Voice recognition</summary>
         <div class="kaiwa-details-body">
           <fieldset class="kaiwa-field">
-            <legend>Voice method</legend>
+            <legend>Voice service</legend>
             <label class="kaiwa-provider-opt">
               <input type="radio" name="kaiwa-speech-mode" value="browser" ${savedSpeechMode === 'browser' ? 'checked' : ''}>
-              <span>Browser voice <small>no extra API key — default</small></span>
+              <span>Google voice <small>Chrome · no extra API key · default</small></span>
             </label>
             <label class="kaiwa-provider-opt">
               <input type="radio" name="kaiwa-speech-mode" value="groq" ${savedSpeechMode === 'groq' ? 'checked' : ''}>
-              <span>Reliable recorded voice <small>Groq Whisper</small></span>
+              <span>Groq Whisper <small>Groq API key required</small></span>
             </label>
           </fieldset>
           <label class="kaiwa-field" id="kaiwa-speech-key-field" ${savedSpeechMode === 'groq' ? '' : 'hidden'}>
@@ -160,6 +151,7 @@ function renderPicker(root, data) {
             <input type="password" id="kaiwa-speech-key" autocomplete="off" spellcheck="false" placeholder="gsk_...">
           </label>
           <p class="kaiwa-key-hint" id="kaiwa-speech-key-hint" ${savedSpeechMode === 'groq' ? '' : 'hidden'}>Get a key at <a href="https://console.groq.com/keys" target="_blank" rel="noopener">console.groq.com/keys</a></p>
+          <p class="kaiwa-status" id="kaiwa-speech-status"></p>
         </div>
       </details>
 
@@ -192,6 +184,7 @@ function renderPicker(root, data) {
   const speechKeyInput = root.querySelector('#kaiwa-speech-key')
   const speechKeyField = root.querySelector('#kaiwa-speech-key-field')
   const speechKeyHint = root.querySelector('#kaiwa-speech-key-hint')
+  const speechStatus = root.querySelector('#kaiwa-speech-status')
   speechKeyInput.value = savedSpeechKey
 
   root.querySelectorAll('input[name="kaiwa-speech-mode"]').forEach(radio => {
@@ -200,10 +193,12 @@ function renderPicker(root, data) {
       if (!radio.checked) return
       speechKeyField.hidden = !usesGroq
       speechKeyHint.hidden = !usesGroq
+      validate()
     })
   })
 
   const currentProvider = () => root.querySelector('input[name="kaiwa-provider"]:checked').value
+  const currentSpeechMode = () => root.querySelector('input[name="kaiwa-speech-mode"]:checked')?.value || 'browser'
 
   const refreshKeyField = () => {
     const providerId = currentProvider()
@@ -216,12 +211,22 @@ function renderPicker(root, data) {
   }
 
   const validate = () => {
-    startBtn.disabled = !keyInput.value.trim()
+    const speechMode = currentSpeechMode()
+    const missingChatKey = !keyInput.value.trim()
+    const missingGroqKey = speechMode === 'groq' && !speechKeyInput.value.trim()
+    const unavailableGoogle = speechMode === 'browser' && !hasRecognition
+    startBtn.disabled = missingChatKey || missingGroqKey || unavailableGoogle
+    speechStatus.textContent = missingGroqKey
+      ? 'Add a Groq API key, or choose Google voice.'
+      : unavailableGoogle
+        ? 'Google voice is not available in this browser. Choose Groq Whisper.'
+        : ''
   }
 
   root.querySelectorAll('input[name="kaiwa-provider"]').forEach(r => r.addEventListener('change', refreshKeyField))
   root.querySelectorAll('input[name="kaiwa-cando"]').forEach(r => r.addEventListener('change', validate))
   keyInput.addEventListener('input', validate)
+  speechKeyInput.addEventListener('input', validate)
 
   refreshKeyField()
 
@@ -229,11 +234,16 @@ function renderPicker(root, data) {
     const providerId = currentProvider()
     const apiKey = keyInput.value.trim()
     const speechApiKey = speechKeyInput.value.trim()
-    const speechMode = root.querySelector('input[name="kaiwa-speech-mode"]:checked')?.value || 'browser'
+    const speechMode = currentSpeechMode()
     const selectedGoal = root.querySelector('input[name="kaiwa-cando"]:checked')?.value || ''
     const cando = selectedGoal ? data.candos.find(c => c.id === selectedGoal) : null
     if (!apiKey) {
       statusEl.textContent = 'Enter an API key to start.'
+      return
+    }
+    if (speechMode === 'groq' && !speechApiKey) {
+      speechStatus.textContent = 'Add a Groq API key, or choose Google voice.'
+      root.querySelector('#kaiwa-speech-details').open = true
       return
     }
     // Must happen synchronously inside the user's Start gesture on mobile.
