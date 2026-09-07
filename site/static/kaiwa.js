@@ -112,10 +112,6 @@ function renderPicker(root, data) {
 
   root.innerHTML = `
     <div class="kaiwa-setup">
-      <p class="kaiwa-privacy">
-        Keys stay in this browser. Voice is sent only to the voice service you choose.
-      </p>
-
       <details class="kaiwa-details" id="kaiwa-provider-details" ${savedKey ? '' : 'open'}>
         <summary>AI provider and API key</summary>
         <div class="kaiwa-details-body">
@@ -133,17 +129,17 @@ function renderPicker(root, data) {
       </details>
 
       <details class="kaiwa-details" id="kaiwa-speech-details">
-        <summary>Voice recognition</summary>
+        <summary id="kaiwa-speech-summary">Voice: ${savedSpeechMode === 'groq' ? 'Groq' : 'Google'}</summary>
         <div class="kaiwa-details-body">
           <fieldset class="kaiwa-field">
-            <legend>Voice service</legend>
+            <legend class="visually-hidden">Voice service</legend>
             <label class="kaiwa-provider-opt">
               <input type="radio" name="kaiwa-speech-mode" value="browser" ${savedSpeechMode === 'browser' ? 'checked' : ''}>
-              <span>Google voice <small>Chrome · no extra API key · default</small></span>
+              <span>Google <small>No extra key</small></span>
             </label>
             <label class="kaiwa-provider-opt">
               <input type="radio" name="kaiwa-speech-mode" value="groq" ${savedSpeechMode === 'groq' ? 'checked' : ''}>
-              <span>Groq Whisper <small>Groq API key required</small></span>
+              <span>Groq <small>API key required</small></span>
             </label>
           </fieldset>
           <label class="kaiwa-field" id="kaiwa-speech-key-field" ${savedSpeechMode === 'groq' ? '' : 'hidden'}>
@@ -185,6 +181,7 @@ function renderPicker(root, data) {
   const speechKeyField = root.querySelector('#kaiwa-speech-key-field')
   const speechKeyHint = root.querySelector('#kaiwa-speech-key-hint')
   const speechStatus = root.querySelector('#kaiwa-speech-status')
+  const speechSummary = root.querySelector('#kaiwa-speech-summary')
   speechKeyInput.value = savedSpeechKey
 
   root.querySelectorAll('input[name="kaiwa-speech-mode"]').forEach(radio => {
@@ -193,6 +190,7 @@ function renderPicker(root, data) {
       if (!radio.checked) return
       speechKeyField.hidden = !usesGroq
       speechKeyHint.hidden = !usesGroq
+      speechSummary.textContent = `Voice: ${usesGroq ? 'Groq' : 'Google'}`
       validate()
     })
   })
