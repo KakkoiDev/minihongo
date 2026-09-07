@@ -215,6 +215,25 @@ def test_tutor_mode_is_available_in_shared_kaiwa_component():
     assert 'id="kaiwa-app" data-topic-set="engineering"' in engineering
 
 
+def test_conversation_style_uses_a_collapsed_details_block():
+    assert '<details class="kaiwa-details" id="kaiwa-style-details">' in KAIWA
+    assert '<summary id="kaiwa-style-summary">Style: Conversation</summary>' in KAIWA
+    assert "styleSummary.textContent = `Style: ${radio.value === 'tutor' ? 'Tutor' : 'Conversation'}`" in KAIWA
+
+
+def test_tutor_selection_is_read_inside_start_handler():
+    start_handler = KAIWA.split("startBtn.addEventListener('click'", 1)[1].split(
+        "function escapeHtml", 1
+    )[0]
+    assert "const tutorMode = currentTutorMode()" in start_handler
+    assert "tutorMode," in start_handler
+
+
+def test_setup_has_exactly_one_start_button():
+    setup_template = KAIWA.split("root.innerHTML = `", 1)[1].split("`", 1)[0]
+    assert setup_template.count('id="kaiwa-start"') == 1
+
+
 def test_tutor_mode_stores_original_and_corrected_sentences():
     assert "session.mistakes.push({ original: userText, corrected: correction })" in KAIWA
     assert "mistakes: session.mistakes" in KAIWA
