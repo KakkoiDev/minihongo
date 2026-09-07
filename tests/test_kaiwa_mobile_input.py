@@ -29,7 +29,7 @@ def test_mobile_speak_explicitly_requests_microphone_permission():
     assert "navigator.mediaDevices?.getUserMedia" in KAIWA
     assert "getUserMedia({ audio: true })" in KAIWA
     assert "stream.getTracks().forEach(track => track.stop())" in KAIWA
-    assert "await requestMicPermission()" in KAIWA
+    assert "await requestMicPermission(useApiRecording)" in KAIWA
 
 
 def test_permission_help_button_is_shown_when_microphone_is_not_granted():
@@ -119,9 +119,9 @@ def test_text_input_is_never_hidden_when_speech_recognition_exists():
 def test_reliable_voice_uses_media_recorder_instead_of_browser_recognition():
     assert "new MediaRecorder(recordingStream)" in KAIWA
     assert "mediaRecorder.start()" in KAIWA
-    assert "if (opts.speechApiKey && 'MediaRecorder' in window)" in KAIWA
-    reliable_branch = KAIWA.split("if (opts.speechApiKey && 'MediaRecorder' in window)", 1)[1]
-    assert "await beginApiRecording()" in reliable_branch
+    assert "useApiRecording = !!opts.speechApiKey && 'MediaRecorder' in window" in KAIWA
+    reliable_branch = KAIWA.split("if (useApiRecording)", 1)[1]
+    assert "await beginApiRecording(permission)" in reliable_branch
 
 
 def test_recording_is_sent_to_groq_whisper_as_japanese():
@@ -169,6 +169,27 @@ def test_transcription_failures_keep_retry_and_help_available():
     )[0]
     assert "retryBtn.hidden = false" in stop_handler
     assert "micHelp.hidden = false" in stop_handler
+
+
+def test_recording_reuses_permission_stream_without_green_mic_flash():
+    assert "const requestMicPermission = async (keepStream = false)" in KAIWA
+    assert "return keepStream ? stream : true" in KAIWA
+    recorder_start = KAIWA.split("const beginApiRecording", 1)[1].split(
+        "const startRecognizer", 1
+    )[0]
+    assert "recordingStream = openStream" in recorder_start
+    assert "getUserMedia({ audio: true })" not in recorder_start
+
+
+def test_recording_stream_stays_open_until_media_recorder_stops():
+    permission_success = KAIWA.split("const requestMicPermission", 1)[1].split(
+        "} catch (error)", 1
+    )[0]
+    assert "if (!keepStream) stream.getTracks().forEach(track => track.stop())" in permission_success
+    stop_handler = KAIWA.split("mediaRecorder.addEventListener('stop'", 1)[1].split(
+        "}, { once: true })", 1
+    )[0]
+    assert "recordingStream?.getTracks().forEach(track => track.stop())" in stop_handler
 
 
 def test_denied_permission_button_opens_help_instead_of_reprompting():
