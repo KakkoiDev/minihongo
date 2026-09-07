@@ -579,9 +579,12 @@ function startSession(root, data, opts) {
     return String(result.text || '').trim()
   }
 
-  const beginApiRecording = async () => {
+  const beginApiRecording = async (openStream) => {
     try {
-      recordingStream = await navigator.mediaDevices.getUserMedia({ audio: true })
+      // Reuse the stream opened by the user's button press. Opening it once
+      // for permission and immediately closing it made Android's green mic
+      // indicator flash, and a second open could then fail on some phones.
+      recordingStream = openStream
       const chunks = []
       mediaRecorder = new MediaRecorder(recordingStream)
       mediaRecorder.addEventListener('dataavailable', event => {
@@ -640,8 +643,9 @@ function startSession(root, data, opts) {
     }
   }
 
-  const requestMicPermission = async () => {
-    if (micPermissionReady || !navigator.mediaDevices?.getUserMedia) return true
+  const requestMicPermission = async (keepStream = false) => {
+    if (micPermissionReady && !keepStream) return true
+    if (!navigator.mediaDevices?.getUserMedia) return true
     if (requestingMicPermission) return false
 
     requestingMicPermission = true
@@ -653,10 +657,10 @@ function startSession(root, data, opts) {
       // on mobile. getUserMedia does, and the stream is released immediately;
       // recognition owns the microphone after permission is granted.
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true })
-      stream.getTracks().forEach(track => track.stop())
+      if (!keepStream) stream.getTracks().forEach(track => track.stop())
       micPermissionReady = true
       permissionBtn.hidden = true
-      return true
+      return keepStream ? stream : true
     } catch (error) {
       permissionBtn.hidden = false
       micHelp.hidden = false
@@ -682,9 +686,11 @@ function startSession(root, data, opts) {
   }
 
   const beginListening = async () => {
-    if (!await requestMicPermission()) return
-    if (opts.speechApiKey && 'MediaRecorder' in window) {
-      await beginApiRecording()
+    const useApiRecording = !!opts.speechApiKey && 'MediaRecorder' in window
+    const permission = await requestMicPermission(useApiRecording)
+    if (!permission) return
+    if (useApiRecording) {
+      await beginApiRecording(permission)
       return
     }
     // Do not let the assistant's voice compete with the user's microphone.
