@@ -44,3 +44,72 @@ def test_permission_query_does_not_skip_real_microphone_check():
     permission_ui = KAIWA.split("const updatePermissionUi = () =>", 1)[1].split("}", 1)[0]
     assert "micPermissionReady = permission.state === 'granted'" not in permission_ui
     assert "if (permission.state !== 'granted') micPermissionReady = false" in permission_ui
+
+
+def test_microphone_failures_show_device_help_and_keyboard_fallback():
+    assert 'id="kaiwa-mic-help"' in KAIWA
+    assert "Android Settings → Apps → Chrome → Permissions" in KAIWA
+    assert "Google Speech Services" in KAIWA
+    assert 'id="kaiwa-text-form">' in KAIWA
+    assert "Type, or use your keyboard microphone" in KAIWA
+
+
+def test_permission_control_is_available_before_permissions_api_resolves():
+    button = KAIWA.split('id="kaiwa-permission"', 1)[1].split("</button>", 1)[0]
+    assert "opts.hasRecognition" in button
+    assert "Enable microphone" in button
+
+
+def test_successful_device_check_releases_stream_and_hides_permission_control():
+    success = KAIWA.split("getUserMedia({ audio: true })", 1)[1].split("} catch", 1)[0]
+    assert "stream.getTracks().forEach(track => track.stop())" in success
+    assert "micPermissionReady = true" in success
+    assert "permissionBtn.hidden = true" in success
+
+
+def test_failed_device_check_keeps_recovery_controls_visible():
+    failure = KAIWA.split("} catch (error) {", 1)[1].split("} finally", 1)[0]
+    assert "permissionBtn.hidden = false" in failure
+    assert "micHelp.hidden = false" in failure
+    assert "micHelp.open = true" in failure
+    assert "retryBtn.hidden = false" in failure
+
+
+def test_device_errors_have_actionable_diagnostics():
+    for error_name in (
+        "NotAllowedError",
+        "NotFoundError",
+        "NotReadableError",
+        "SecurityError",
+    ):
+        assert error_name in KAIWA
+
+
+def test_recognition_permission_failure_opens_help():
+    branch = KAIWA.split("event.error === 'not-allowed'", 1)[1].split(
+        "} else if", 1
+    )[0]
+    assert "permissionBtn.hidden = false" in branch
+    assert "micHelp.hidden = false" in branch
+    assert "micHelp.open = true" in branch
+
+
+def test_speech_service_failure_preserves_both_input_methods():
+    branch = KAIWA.split("event.error === 'network'", 1)[1].split(
+        "} else {", 1
+    )[0]
+    assert "micBtn.hidden = true" not in branch
+    assert "textForm.hidden = false" in branch
+    assert "micHelp.hidden = false" in branch
+    assert "keyboard microphone" in branch
+
+
+def test_permissions_api_is_optional_and_cannot_break_session_setup():
+    assert "navigator.permissions?.query" in KAIWA
+    assert ").catch(() => {})" in KAIWA
+
+
+def test_text_input_is_never_hidden_when_speech_recognition_exists():
+    form = KAIWA.split('<form id="kaiwa-text-form"', 1)[1].split(">", 1)[0]
+    assert "opts.hasRecognition" not in form
+    assert "hidden" not in form
