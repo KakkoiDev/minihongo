@@ -196,7 +196,7 @@ function renderPicker(root, data) {
       <details class="kaiwa-details" id="kaiwa-goal-details">
         <summary id="kaiwa-goal-summary">Topic: ${topicSet === 'engineering' ? 'Engineering' : 'Free conversation'}</summary>
         <div class="kaiwa-details-body">
-          <div class="kaiwa-cando-list">
+          <fieldset class="kaiwa-cando-list" id="kaiwa-goal-fieldset">
             <label class="kaiwa-cando">
               <input type="radio" name="kaiwa-cando" value="" checked>
               <span class="kaiwa-cando-text">
@@ -205,7 +205,7 @@ function renderPicker(root, data) {
               </span>
             </label>
             ${candoOptions}
-          </div>
+          </fieldset>
         </div>
       </details>
 
@@ -226,6 +226,8 @@ function renderPicker(root, data) {
   const speechSummary = root.querySelector('#kaiwa-speech-summary')
   const styleSummary = root.querySelector('#kaiwa-style-summary')
   const goalSummary = root.querySelector('#kaiwa-goal-summary')
+  const goalDetails = root.querySelector('#kaiwa-goal-details')
+  const goalFieldset = root.querySelector('#kaiwa-goal-fieldset')
   speechKeyInput.value = savedSpeechKey
 
   root.querySelectorAll('input[name="kaiwa-speech-mode"]').forEach(radio => {
@@ -252,6 +254,22 @@ function renderPicker(root, data) {
         ? 'Topic: Automatic'
         : `Topic: ${topicSet === 'engineering' ? 'Engineering' : 'Free conversation'}`
   }
+
+  const updateGoalAvailability = () => {
+    const automatic = currentTutorMode()
+    if (automatic) {
+      root.querySelector('input[name="kaiwa-cando"][value=""]').checked = true
+      goalDetails.open = false
+    }
+    goalFieldset.disabled = automatic
+    goalDetails.classList.toggle('is-disabled', automatic)
+    goalDetails.setAttribute('aria-disabled', String(automatic))
+    updateGoalSummary()
+  }
+
+  goalDetails.querySelector('summary').addEventListener('click', event => {
+    if (currentTutorMode()) event.preventDefault()
+  })
 
   const refreshKeyField = () => {
     const providerId = currentProvider()
@@ -286,14 +304,14 @@ function renderPicker(root, data) {
       if (!radio.checked) return
       styleSummary.textContent = `Style: ${radio.value === 'tutor' ? 'Tutor' : 'Conversation'}`
       localStorage.setItem(KAIWA_STYLE_STORAGE, radio.value)
-      updateGoalSummary()
+      updateGoalAvailability()
     })
   })
   keyInput.addEventListener('input', validate)
   speechKeyInput.addEventListener('input', validate)
 
   refreshKeyField()
-  updateGoalSummary()
+  updateGoalAvailability()
 
   startBtn.addEventListener('click', () => {
     const providerId = currentProvider()
