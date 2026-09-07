@@ -535,6 +535,7 @@ function startSession(root, data, opts) {
   let listenDeadline = 0
   let restartTimer = null
   let micPermissionReady = false
+  let micPermissionState = 'prompt'
   let requestingMicPermission = false
   let mediaRecorder = null
   let recordingStream = null
@@ -661,6 +662,10 @@ function startSession(root, data, opts) {
       micHelp.hidden = false
       micHelp.open = true
       retryBtn.hidden = false
+      if (error?.name === 'NotAllowedError') {
+        micPermissionState = 'denied'
+        permissionBtn.textContent = 'Microphone blocked — how to allow'
+      }
       const micErrors = {
         NotAllowedError: 'Microphone permission is blocked in Chrome or Android settings.',
         NotFoundError: 'This phone did not report an available microphone.',
@@ -732,7 +737,9 @@ function startSession(root, data, opts) {
       if (hadInterim) session.abandonCount++
       retryBtn.hidden = false
       if (event.error === 'not-allowed') {
+        micPermissionState = 'denied'
         permissionBtn.hidden = false
+        permissionBtn.textContent = 'Microphone blocked — how to allow'
         micHelp.hidden = false
         micHelp.open = true
         statusEl.textContent = 'Chrome refused speech recognition. Open Microphone help below.'
@@ -778,7 +785,16 @@ function startSession(root, data, opts) {
     beginListening()
   })
 
-  permissionBtn.addEventListener('click', () => beginListening())
+  permissionBtn.addEventListener('click', () => {
+    if (micPermissionState === 'denied') {
+      micHelp.hidden = false
+      micHelp.open = true
+      statusEl.textContent = 'Chrome will not ask again after Block was selected. Follow Microphone help below, then return and tap Speak.'
+      micHelp.scrollIntoView({ behavior: 'smooth', block: 'nearest' })
+      return
+    }
+    beginListening()
+  })
 
   // Show permission help before the first failed recording when the browser
   // exposes its current microphone permission state.
@@ -788,7 +804,14 @@ function startSession(root, data, opts) {
       // Only a successful getUserMedia call marks it ready. This avoids
       // bypassing the real device check on mobile Chromium.
       if (permission.state !== 'granted') micPermissionReady = false
+      micPermissionState = permission.state
       permissionBtn.hidden = permission.state === 'granted'
+      permissionBtn.textContent = permission.state === 'denied'
+        ? 'Microphone blocked — how to allow'
+        : 'Enable microphone'
+      if (permission.state === 'denied') {
+        micHelp.hidden = false
+      }
     }
     updatePermissionUi()
     permission.addEventListener?.('change', updatePermissionUi)
