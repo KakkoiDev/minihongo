@@ -217,7 +217,7 @@ def test_tutor_mode_is_available_in_shared_kaiwa_component():
 
 def test_conversation_style_uses_a_collapsed_details_block():
     assert '<details class="kaiwa-details" id="kaiwa-style-details">' in KAIWA
-    assert '<summary id="kaiwa-style-summary">Style: Conversation</summary>' in KAIWA
+    assert '<summary id="kaiwa-style-summary">Style: ${savedStyle' in KAIWA
     assert "styleSummary.textContent = `Style: ${radio.value === 'tutor' ? 'Tutor' : 'Conversation'}`" in KAIWA
 
 
@@ -232,6 +232,38 @@ def test_tutor_selection_is_read_inside_start_handler():
 def test_setup_has_exactly_one_start_button():
     setup_template = KAIWA.split("root.innerHTML = `", 1)[1].split("`", 1)[0]
     assert setup_template.count('id="kaiwa-start"') == 1
+
+
+def test_conversation_style_selection_is_saved_and_restored():
+    assert "KAIWA_STYLE_STORAGE = 'kaiwa_conversation_style'" in KAIWA
+    assert "localStorage.getItem(KAIWA_STYLE_STORAGE) || 'conversation'" in KAIWA
+    assert "savedStyle === 'conversation' ? 'checked' : ''" in KAIWA
+    assert "savedStyle === 'tutor' ? 'checked' : ''" in KAIWA
+    assert "localStorage.setItem(KAIWA_STYLE_STORAGE, radio.value)" in KAIWA
+    assert "localStorage.setItem(KAIWA_STYLE_STORAGE, tutorMode ? 'tutor' : 'conversation')" in KAIWA
+
+
+def test_saved_tutor_style_is_visible_in_details_summary():
+    assert "Style: ${savedStyle === 'tutor' ? 'Tutor' : 'Conversation'}" in KAIWA
+
+
+def test_tutor_goal_is_optional_and_automatic_by_default():
+    assert 'id="kaiwa-goal-summary"' in KAIWA
+    assert "currentTutorMode()" in KAIWA
+    assert "'Topic: Automatic'" in KAIWA
+    start_handler = KAIWA.split("startBtn.addEventListener('click'", 1)[1].split(
+        "function escapeHtml", 1
+    )[0]
+    assert "const selectedGoal" in start_handler
+    assert "const cando = selectedGoal ?" in start_handler
+
+
+def test_selected_goal_is_shown_for_both_conversation_styles():
+    update = KAIWA.split("const updateGoalSummary", 1)[1].split(
+        "const refreshKeyField", 1
+    )[0]
+    assert "Topic: ${cando.english}" in update
+    assert "updateGoalSummary()" in KAIWA
 
 
 def test_tutor_mode_stores_original_and_corrected_sentences():
