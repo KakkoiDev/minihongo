@@ -554,10 +554,6 @@ function startSession(root, data, opts) {
     clearTimeout(recordingTimer)
     restartTimer = null
     recordingTimer = null
-    // Hold the device microphone for the complete speaking turn, including
-    // Chrome's SpeechRecognition path, and release it only when that turn ends.
-    recordingStream?.getTracks().forEach(track => track.stop())
-    recordingStream = null
     resetListeningUi()
   }
 
@@ -596,6 +592,8 @@ function startSession(root, data, opts) {
       })
       mediaRecorder.addEventListener('stop', async () => {
         const type = mediaRecorder.mimeType || 'audio/webm'
+        recordingStream?.getTracks().forEach(track => track.stop())
+        recordingStream = null
         finishListening()
         try {
           const text = await transcribeRecording(new Blob(chunks, { type }))
@@ -632,20 +630,10 @@ function startSession(root, data, opts) {
     if (!wantsListening) return
     recognizer = setupRecognition()
     try {
-      const audioTrack = recordingStream?.getAudioTracks?.()[0]
-      try {
-        // Chrome 135+ can recognize the exact MediaStreamTrack that we opened
-        // from the user's Speak gesture. This avoids a second hidden capture
-        // session that can immediately stop on some Android devices.
-        if (audioTrack) recognizer.start(audioTrack)
-        else recognizer.start()
-      } catch (trackError) {
-        // Older Web Speech implementations reject the optional track argument.
-        // The held getUserMedia stream still keeps permission/device capture
-        // alive while their default-microphone path starts.
-        if (!audioTrack || trackError?.name !== 'TypeError') throw trackError
-        recognizer.start()
-      }
+      // Let Chrome own its microphone session. Holding a parallel
+      // getUserMedia stream or passing its track to start() makes recognition
+      // terminate immediately on some Android Chrome versions.
+      recognizer.start()
       listening = true
       micBtn.textContent = 'Stop'
     } catch {
@@ -702,16 +690,14 @@ function startSession(root, data, opts) {
 
   const beginListening = async () => {
     const useApiRecording = !!opts.speechApiKey && 'MediaRecorder' in window
-    // Keep this stream open even when browser speech recognition is used.
-    // Closing it before SpeechRecognition.start() caused Android's green mic
-    // indicator and capture session to disappear after about one second.
-    const permission = await requestMicPermission(true)
+    // MediaRecorder reuses the open stream. Chrome SpeechRecognition must own
+    // the microphone itself, so its permission-check stream is released first.
+    const permission = await requestMicPermission(useApiRecording)
     if (!permission) return
     if (useApiRecording) {
       await beginApiRecording(permission)
       return
     }
-    recordingStream = permission
     // Do not let the assistant's voice compete with the user's microphone.
     window.speechSynthesis?.cancel?.()
     hadInterim = false
@@ -727,11 +713,7 @@ function startSession(root, data, opts) {
     const Recognition = window.SpeechRecognition || window.webkitSpeechRecognition
     const r = new Recognition()
     r.lang = 'ja-JP'
-    // Mobile Chrome can close a non-continuous session almost immediately,
-    // which also removes Android's green microphone indicator. Keep the
-    // recognition session active for the user's speaking turn; we explicitly
-    // stop it after a final result or when the user taps Stop.
-    r.continuous = true
+    r.continuous = false
     r.interimResults = true
 
     r.onresult = (e) => {
