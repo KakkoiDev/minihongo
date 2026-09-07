@@ -1142,6 +1142,10 @@ footer {
   padding: 1rem;
 }
 
+.kaiwa-setup [hidden] {
+  display: none !important;
+}
+
 .kaiwa-details-body .kaiwa-field {
   margin: 0 0 1rem;
 }
@@ -1175,6 +1179,12 @@ footer {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+}
+
+.kaiwa-provider-opt small {
+  display: block;
+  color: var(--text-muted);
+  font-size: 0.8rem;
 }
 
 #kaiwa-api-key {
