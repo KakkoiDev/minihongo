@@ -632,7 +632,20 @@ function startSession(root, data, opts) {
     if (!wantsListening) return
     recognizer = setupRecognition()
     try {
-      recognizer.start()
+      const audioTrack = recordingStream?.getAudioTracks?.()[0]
+      try {
+        // Chrome 135+ can recognize the exact MediaStreamTrack that we opened
+        // from the user's Speak gesture. This avoids a second hidden capture
+        // session that can immediately stop on some Android devices.
+        if (audioTrack) recognizer.start(audioTrack)
+        else recognizer.start()
+      } catch (trackError) {
+        // Older Web Speech implementations reject the optional track argument.
+        // The held getUserMedia stream still keeps permission/device capture
+        // alive while their default-microphone path starts.
+        if (!audioTrack || trackError?.name !== 'TypeError') throw trackError
+        recognizer.start()
+      }
       listening = true
       micBtn.textContent = 'Stop'
     } catch {
