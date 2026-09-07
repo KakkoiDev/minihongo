@@ -23,3 +23,10 @@ def test_mobile_microphone_remains_the_primary_full_width_control():
     mobile = css.split("@media (max-width: 600px)", 1)[1]
     mic_rule = mobile.split(".kaiwa-composer #kaiwa-mic", 1)[1].split("}", 1)[0]
     assert "width: 100%" in mic_rule
+
+
+def test_mobile_speak_explicitly_requests_microphone_permission():
+    assert "navigator.mediaDevices?.getUserMedia" in KAIWA
+    assert "getUserMedia({ audio: true })" in KAIWA
+    assert "stream.getTracks().forEach(track => track.stop())" in KAIWA
+    assert "await requestMicPermission()" in KAIWA
