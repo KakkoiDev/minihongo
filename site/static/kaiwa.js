@@ -354,6 +354,7 @@ function startSession(root, data, opts) {
             <input type="text" id="kaiwa-text-input" lang="ja" placeholder="Type your reply in Japanese">
             <button type="submit">Send</button>
           </form>
+          <button id="kaiwa-permission" type="button" hidden>Allow microphone</button>
           <button id="kaiwa-retry" hidden>Try again</button>
         </div>
         <p class="kaiwa-status" id="kaiwa-session-status" role="status"></p>
@@ -365,6 +366,7 @@ function startSession(root, data, opts) {
   const furiganaEntries = buildFuriganaEntries(data.words)
   const liveEl = root.querySelector('#kaiwa-live')
   const micBtn = root.querySelector('#kaiwa-mic')
+  const permissionBtn = root.querySelector('#kaiwa-permission')
   const retryBtn = root.querySelector('#kaiwa-retry')
   const endBtn = root.querySelector('#kaiwa-end')
   const statusEl = root.querySelector('#kaiwa-session-status')
@@ -548,11 +550,13 @@ function startSession(root, data, opts) {
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true })
       stream.getTracks().forEach(track => track.stop())
       micPermissionReady = true
+      permissionBtn.hidden = true
       return true
     } catch (error) {
+      permissionBtn.hidden = false
       retryBtn.hidden = false
       statusEl.textContent = error?.name === 'NotAllowedError'
-        ? 'Microphone access was not allowed. Enable it for this site in browser settings, then try again.'
+        ? 'Microphone is blocked. Tap Allow microphone. If no permission message appears, open this site’s settings from the address bar and allow Microphone.'
         : 'Could not open the microphone. Check that no other app is using it, then try again.'
       return false
     } finally {
@@ -614,7 +618,8 @@ function startSession(root, data, opts) {
       if (hadInterim) session.abandonCount++
       retryBtn.hidden = false
       if (event.error === 'not-allowed') {
-        statusEl.textContent = 'Microphone access is blocked. Allow it in your browser settings and try again.'
+        permissionBtn.hidden = false
+        statusEl.textContent = 'Microphone is blocked. Tap Allow microphone. If no permission message appears, open this site’s settings from the address bar and allow Microphone.'
       } else if (event.error === 'network' || event.error === 'service-not-allowed') {
         // Preserve the microphone control: a temporary mobile network/service
         // failure must not permanently remove audio input from the session.
@@ -650,6 +655,19 @@ function startSession(root, data, opts) {
     }
     beginListening()
   })
+
+  permissionBtn.addEventListener('click', () => beginListening())
+
+  // Show permission help before the first failed recording when the browser
+  // exposes its current microphone permission state.
+  navigator.permissions?.query({ name: 'microphone' }).then((permission) => {
+    const updatePermissionUi = () => {
+      micPermissionReady = permission.state === 'granted'
+      permissionBtn.hidden = permission.state === 'granted'
+    }
+    updatePermissionUi()
+    permission.addEventListener?.('change', updatePermissionUi)
+  }).catch(() => {})
 
   retryBtn.addEventListener('click', () => {
     finishListening()
