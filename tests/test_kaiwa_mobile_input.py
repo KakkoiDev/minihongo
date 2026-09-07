@@ -160,7 +160,7 @@ def test_groq_speech_key_is_device_local_and_independent_from_chat_provider():
 def test_browser_voice_is_the_default_without_an_extra_api_key():
     assert "KAIWA_SPEECH_MODE_STORAGE = 'kaiwa_speech_mode'" in KAIWA
     assert "localStorage.getItem(KAIWA_SPEECH_MODE_STORAGE) || 'browser'" in KAIWA
-    assert "Browser voice <small>no extra API key — default</small>" in KAIWA
+    assert "Google voice <small>Chrome · no extra API key · default</small>" in KAIWA
 
 
 def test_groq_voice_requires_an_explicit_selection():
@@ -175,6 +175,31 @@ def test_groq_key_field_is_hidden_for_default_browser_voice():
     assert "speechKeyHint.hidden = !usesGroq" in KAIWA
     css = (Path(__file__).parent.parent / "site/static/style.css").read_text()
     assert ".kaiwa-setup [hidden]" in css
+
+
+def test_voice_services_are_named_clearly():
+    assert "<legend>Voice service</legend>" in KAIWA
+    assert "Google voice" in KAIWA
+    assert "Groq Whisper" in KAIWA
+    assert "Reliable recorded voice" not in KAIWA
+
+
+def test_groq_selection_requires_its_key_before_start():
+    validation = KAIWA.split("const validate = () =>", 1)[1].split(
+        "root.querySelectorAll('input[name=\"kaiwa-provider\"]')", 1
+    )[0]
+    assert "speechMode === 'groq' && !speechKeyInput.value.trim()" in validation
+    assert "startBtn.disabled = missingChatKey || missingGroqKey || unavailableGoogle" in validation
+    assert "Add a Groq API key, or choose Google voice." in validation
+
+
+def test_unavailable_google_voice_points_to_groq_without_scary_warning():
+    assert "Google voice is not available in this browser. Choose Groq Whisper." in KAIWA
+    assert "Chrome speech recognition is not available on this phone" not in KAIWA
+
+
+def test_privacy_copy_is_short_and_service_specific():
+    assert "Keys stay in this browser. Voice is sent only to the voice service you choose." in KAIWA
 
 
 def test_media_recorder_allows_voice_when_web_speech_is_missing():
