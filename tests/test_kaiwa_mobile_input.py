@@ -160,7 +160,8 @@ def test_groq_speech_key_is_device_local_and_independent_from_chat_provider():
 def test_browser_voice_is_the_default_without_an_extra_api_key():
     assert "KAIWA_SPEECH_MODE_STORAGE = 'kaiwa_speech_mode'" in KAIWA
     assert "localStorage.getItem(KAIWA_SPEECH_MODE_STORAGE) || 'browser'" in KAIWA
-    assert "Google voice <small>Chrome · no extra API key · default</small>" in KAIWA
+    assert "Voice: ${savedSpeechMode === 'groq' ? 'Groq' : 'Google'}" in KAIWA
+    assert "<span>Google <small>No extra key</small></span>" in KAIWA
 
 
 def test_groq_voice_requires_an_explicit_selection():
@@ -178,9 +179,9 @@ def test_groq_key_field_is_hidden_for_default_browser_voice():
 
 
 def test_voice_services_are_named_clearly():
-    assert "<legend>Voice service</legend>" in KAIWA
-    assert "Google voice" in KAIWA
-    assert "Groq Whisper" in KAIWA
+    assert '<legend class="visually-hidden">Voice service</legend>' in KAIWA
+    assert "<span>Google" in KAIWA
+    assert "<span>Groq" in KAIWA
     assert "Reliable recorded voice" not in KAIWA
 
 
@@ -199,7 +200,12 @@ def test_unavailable_google_voice_points_to_groq_without_scary_warning():
 
 
 def test_privacy_copy_is_short_and_service_specific():
-    assert "Keys stay in this browser. Voice is sent only to the voice service you choose." in KAIWA
+    assert "Keys stay in this browser. Voice is sent only to the voice service you choose." not in KAIWA
+
+
+def test_voice_summary_updates_without_exposing_technical_details():
+    assert "speechSummary.textContent = `Voice: ${usesGroq ? 'Groq' : 'Google'}`" in KAIWA
+    assert "Chrome · no extra API key · default" not in KAIWA
 
 
 def test_media_recorder_allows_voice_when_web_speech_is_missing():
