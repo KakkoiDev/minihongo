@@ -58,9 +58,32 @@ function loadHistory() {
 
 function saveSessionSummary(candoId, summary) {
   const all = loadHistory()
-  all[candoId] = all[candoId] || []
-  all[candoId].push(summary)
+  const key = candoId || 'free'
+  all[key] = all[key] || []
+  all[key].push(summary)
   localStorage.setItem(KAIWA_HISTORY_STORAGE, JSON.stringify(all))
+}
+
+function frequentMistakes(history, limit = 5, topicSet = null) {
+  const counts = new Map()
+  for (const [historyKey, sessions] of Object.entries(history)) {
+    if (!Array.isArray(sessions)) continue
+    for (const session of sessions) {
+      const sessionTopic = session.topicSet
+        || (historyKey.startsWith('cando-eng-') ? 'engineering' : 'general')
+      if (topicSet && sessionTopic !== topicSet) continue
+      for (const mistake of session.mistakes || []) {
+        if (!mistake?.corrected) continue
+        const key = `${mistake.original || ''}\n${mistake.corrected}`
+        const previous = counts.get(key) || { ...mistake, count: 0 }
+        previous.count++
+        counts.set(key, previous)
+      }
+    }
+  }
+  return [...counts.values()]
+    .sort((a, b) => b.count - a.count)
+    .slice(0, limit)
 }
 
 function candoBadge(history, candoId) {
@@ -151,6 +174,18 @@ function renderPicker(root, data) {
         </div>
       </details>
 
+      <fieldset class="kaiwa-field kaiwa-style-field">
+        <legend>Conversation style</legend>
+        <label class="kaiwa-provider-opt">
+          <input type="radio" name="kaiwa-style" value="conversation" checked>
+          <span>Conversation</span>
+        </label>
+        <label class="kaiwa-provider-opt">
+          <input type="radio" name="kaiwa-style" value="tutor">
+          <span>Tutor <small>practise your frequent mistakes</small></span>
+        </label>
+      </fieldset>
+
       <details class="kaiwa-details" id="kaiwa-goal-details">
         <summary>Pick a goal <span class="kaiwa-optional">optional</span></summary>
         <div class="kaiwa-details-body">
@@ -210,6 +245,7 @@ function renderPicker(root, data) {
 
   const validate = () => {
     const speechMode = currentSpeechMode()
+    const tutorMode = root.querySelector('input[name="kaiwa-style"]:checked')?.value === 'tutor'
     const missingChatKey = !keyInput.value.trim()
     const missingGroqKey = speechMode === 'groq' && !speechKeyInput.value.trim()
     const unavailableGoogle = speechMode === 'browser' && !hasRecognition
@@ -261,6 +297,8 @@ function renderPicker(root, data) {
       hasRecognition,
       hasRecording,
       topicSet,
+      tutorMode,
+      tutorFocus: tutorMode ? frequentMistakes(history, 5, topicSet) : [],
     })
   })
 }
@@ -348,10 +386,16 @@ function textForSpeech(text) {
 
 // -- System prompt ----------------------------------------------------------
 
-function buildSystemPrompt(data, cando, topicSet = 'general') {
+function buildSystemPrompt(data, cando, topicSet = 'general', tutorFocus = []) {
   const wordList = data.words.map(w => (
     w.kanji === w.reading ? w.kanji : `${w.kanji}(${w.reading})`
   ) + `=${w.english}`).join(', ')
+
+  const tutorInstruction = tutorFocus === null
+    ? 'Do not deliberately drill past mistakes; keep the conversation natural.'
+    : tutorFocus.length
+      ? `Act as a subtle tutor. Repeatedly create natural opportunities for the learner to retry these frequent past mistakes, prioritizing the highest count:\n${tutorFocus.map(m => `- ${m.original || '(unknown)'} -> ${m.corrected} (${m.count} time(s))`).join('\n')}`
+      : 'Act as a subtle tutor. There is no saved mistake history yet, so notice recurring errors during this session and create natural opportunities to retry them.'
 
   return `You are a Japanese conversation partner for a spoken-practice exercise called Minihongo.
 
@@ -370,6 +414,7 @@ RULES (follow every one, every turn):
     : topicSet === 'engineering'
       ? 'Have a natural conversation between engineering colleagues. Discuss work, systems, incidents, demos, planning, requirements, debugging, reviews, deploys, or rollbacks.'
       : 'Have a natural, general conversation. Let the user choose and change the topic.'}
+7. ${tutorInstruction}
 
 FORMAT - reply with exactly two lines, nothing else:
 REPLY: <your one or two Japanese sentences, spoken aloud to the user>
@@ -387,6 +432,7 @@ function startSession(root, data, opts) {
     history: [], // {role: 'user'|'assistant', content}
     transcript: [], // {role, text, correction?}
     corrections: [],
+    mistakes: [],
     outOfSet: [], // {word}
     longestSentence: '',
     abandonCount: 0,
@@ -530,7 +576,7 @@ function startSession(root, data, opts) {
     trackUserTurn(session, userText)
     session.history.push({ role: 'user', content: userText })
 
-    const system = buildSystemPrompt(data, opts.cando, opts.topicSet)
+    const system = buildSystemPrompt(data, opts.cando, opts.topicSet, opts.tutorMode ? opts.tutorFocus : null)
     const provider = window.KaiwaProviders[opts.providerId]
     const speakAsItStreams = makeReplySpeaker()
 
@@ -560,7 +606,10 @@ function startSession(root, data, opts) {
     appendBubble('assistant', reply)
     session.history.push({ role: 'assistant', content: full })
     session.transcript.push({ role: 'assistant', text: reply, correction })
-    if (correction && correction !== 'NONE') session.corrections.push(correction)
+    if (correction && correction !== 'NONE') {
+      session.corrections.push(correction)
+      session.mistakes.push({ original: userText, corrected: correction })
+    }
 
     statusEl.textContent = ''
     micBtn.disabled = false
@@ -889,7 +938,7 @@ function startSession(root, data, opts) {
   // Opening line: the model greets and asks the first question.
   ;(async () => {
     statusEl.textContent = 'Starting...'
-    const system = buildSystemPrompt(data, opts.cando, opts.topicSet)
+    const system = buildSystemPrompt(data, opts.cando, opts.topicSet, opts.tutorMode ? opts.tutorFocus : null)
     const provider = window.KaiwaProviders[opts.providerId]
     const speakAsItStreams = makeReplySpeaker()
     let full = ''
@@ -1037,8 +1086,10 @@ async function finishSession(root, session) {
     abandonCount: session.abandonCount,
     englishSwitchCount: session.englishSwitchCount,
     correctionsCount: session.corrections.length,
+    mistakes: session.mistakes,
+    topicSet: session.topicSet,
   }
-  if (session.cando) saveSessionSummary(session.cando.id, summary)
+  saveSessionSummary(session.cando?.id, summary)
 
   const sentenceRows = session.transcript
     .filter(t => t.role === 'user')
