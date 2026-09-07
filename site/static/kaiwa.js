@@ -498,6 +498,47 @@ function startSession(root, data, opts) {
   let recognizer = null
   let listening = false
   let hadInterim = false
+  let wantsListening = false
+  let listenDeadline = 0
+  let restartTimer = null
+  const LISTEN_WINDOW_MS = 30000
+
+  const resetListeningUi = () => {
+    micBtn.textContent = 'Speak'
+    liveEl.textContent = ''
+  }
+
+  const finishListening = () => {
+    wantsListening = false
+    listening = false
+    clearTimeout(restartTimer)
+    restartTimer = null
+    resetListeningUi()
+  }
+
+  const startRecognizer = () => {
+    if (!wantsListening) return
+    recognizer = setupRecognition()
+    try {
+      recognizer.start()
+      listening = true
+      micBtn.textContent = 'Stop'
+    } catch {
+      finishListening()
+      retryBtn.hidden = false
+      statusEl.textContent = 'Could not start listening. Try again.'
+    }
+  }
+
+  const beginListening = () => {
+    hadInterim = false
+    wantsListening = true
+    listenDeadline = Date.now() + LISTEN_WINDOW_MS
+    liveEl.textContent = ''
+    retryBtn.hidden = true
+    statusEl.textContent = 'Listening…'
+    startRecognizer()
+  }
 
   const setupRecognition = () => {
     const Recognition = window.SpeechRecognition || window.webkitSpeechRecognition
@@ -507,6 +548,7 @@ function startSession(root, data, opts) {
     r.interimResults = true
 
     r.onresult = (e) => {
+      if (r !== recognizer) return
       let finalText = ''
       let interimText = ''
       for (let i = e.resultIndex; i < e.results.length; i++) {
@@ -517,53 +559,61 @@ function startSession(root, data, opts) {
       hadInterim = hadInterim || !!interimText || !!finalText
       liveEl.textContent = finalText || interimText
       if (finalText) {
-        listening = false
+        finishListening()
         r.stop()
-        liveEl.textContent = ''
         retryBtn.hidden = true
         sendTurn(finalText.trim())
-      } else {
-        retryBtn.hidden = false
       }
     }
 
-    r.onerror = () => {
+    r.onerror = (event) => {
+      if (r !== recognizer) return
       listening = false
-      micBtn.textContent = 'Speak'
+      // Chrome commonly ends a recognition attempt after about six seconds of
+      // silence. Keep the same user-initiated listening turn alive instead of
+      // treating that browser timeout as a failed conversation turn.
+      if (event.error === 'no-speech' && wantsListening && Date.now() < listenDeadline) return
+      if (event.error === 'aborted' && !wantsListening) return
+
+      finishListening()
       if (hadInterim) session.abandonCount++
-      statusEl.textContent = 'Could not hear you. Try again.'
+      retryBtn.hidden = false
+      statusEl.textContent = event.error === 'not-allowed'
+        ? 'Microphone access is blocked. Allow it in your browser settings and try again.'
+        : 'Could not hear you. Try again.'
     }
 
     r.onend = () => {
+      if (r !== recognizer) return
       listening = false
-      micBtn.textContent = 'Speak'
+      if (!wantsListening) return
+      if (Date.now() >= listenDeadline) {
+        finishListening()
+        retryBtn.hidden = false
+        statusEl.textContent = 'No speech heard. Tap Try again when you are ready.'
+        return
+      }
+      clearTimeout(restartTimer)
+      restartTimer = setTimeout(startRecognizer, 150)
     }
 
     return r
   }
 
   micBtn?.addEventListener('click', () => {
-    if (listening) {
+    if (wantsListening) {
+      finishListening()
       recognizer?.stop()
-      listening = false
-      micBtn.textContent = 'Speak'
       return
     }
-    hadInterim = false
-    recognizer = setupRecognition()
-    recognizer.start()
-    listening = true
-    micBtn.textContent = 'Stop'
-    statusEl.textContent = ''
+    beginListening()
   })
 
   retryBtn.addEventListener('click', () => {
+    finishListening()
     recognizer?.abort()
-    listening = false
-    liveEl.textContent = ''
-    retryBtn.hidden = true
-    micBtn.textContent = 'Speak'
     session.abandonCount++
+    beginListening()
   })
 
   textForm?.addEventListener('submit', (e) => {
