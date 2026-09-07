@@ -34,7 +34,7 @@ def test_mobile_speak_explicitly_requests_microphone_permission():
 
 def test_permission_help_button_is_shown_when_microphone_is_not_granted():
     assert 'id="kaiwa-permission"' in KAIWA
-    assert "${opts.hasRecognition ? '' : 'hidden'}>Enable microphone" in KAIWA
+    assert "opts.hasRecognition || (opts.hasRecording && opts.speechApiKey)" in KAIWA
     assert "permissionBtn.hidden = false" in KAIWA
     assert "navigator.permissions?.query({ name: 'microphone' })" in KAIWA
     assert "permissionBtn.addEventListener('click', () => beginListening())" in KAIWA
@@ -61,7 +61,8 @@ def test_permission_control_is_available_before_permissions_api_resolves():
 
 
 def test_successful_device_check_releases_stream_and_hides_permission_control():
-    success = KAIWA.split("getUserMedia({ audio: true })", 1)[1].split("} catch", 1)[0]
+    permission_request = KAIWA.split("const requestMicPermission", 1)[1]
+    success = permission_request.split("getUserMedia({ audio: true })", 1)[1].split("} catch", 1)[0]
     assert "stream.getTracks().forEach(track => track.stop())" in success
     assert "micPermissionReady = true" in success
     assert "permissionBtn.hidden = true" in success
@@ -113,3 +114,58 @@ def test_text_input_is_never_hidden_when_speech_recognition_exists():
     form = KAIWA.split('<form id="kaiwa-text-form"', 1)[1].split(">", 1)[0]
     assert "opts.hasRecognition" not in form
     assert "hidden" not in form
+
+
+def test_reliable_voice_uses_media_recorder_instead_of_browser_recognition():
+    assert "new MediaRecorder(recordingStream)" in KAIWA
+    assert "mediaRecorder.start()" in KAIWA
+    assert "if (opts.speechApiKey && 'MediaRecorder' in window)" in KAIWA
+    reliable_branch = KAIWA.split("if (opts.speechApiKey && 'MediaRecorder' in window)", 1)[1]
+    assert "await beginApiRecording()" in reliable_branch
+
+
+def test_recording_is_sent_to_groq_whisper_as_japanese():
+    assert "https://api.groq.com/openai/v1/audio/transcriptions" in KAIWA
+    assert "whisper-large-v3-turbo" in KAIWA
+    assert "form.append('language', 'ja')" in KAIWA
+    assert "form.append('file', blob" in KAIWA
+
+
+def test_audio_stream_is_stopped_after_recording():
+    recording_stop = KAIWA.split("mediaRecorder.addEventListener('stop'", 1)[1].split(
+        "}, { once: true })", 1
+    )[0]
+    assert "recordingStream?.getTracks().forEach(track => track.stop())" in recording_stop
+
+
+def test_recording_has_a_maximum_duration():
+    assert "if (mediaRecorder?.state === 'recording') mediaRecorder.stop()" in KAIWA
+    assert "}, LISTEN_WINDOW_MS)" in KAIWA
+
+
+def test_stop_button_stops_media_recorder_before_browser_recognizer():
+    click = KAIWA.split("micBtn?.addEventListener('click'", 1)[1].split(
+        "permissionBtn.addEventListener", 1
+    )[0]
+    assert click.index("mediaRecorder.stop()") < click.index("recognizer?.stop()")
+
+
+def test_groq_speech_key_is_device_local_and_independent_from_chat_provider():
+    assert "KAIWA_SPEECH_KEY_STORAGE = 'kaiwa_key_groq_speech'" in KAIWA
+    assert 'id="kaiwa-speech-key"' in KAIWA
+    assert "localStorage.setItem(KAIWA_SPEECH_KEY_STORAGE, speechApiKey)" in KAIWA
+    assert "providerId, apiKey, speechApiKey" in KAIWA
+
+
+def test_media_recorder_allows_voice_when_web_speech_is_missing():
+    assert "hasRecording = !!navigator.mediaDevices?.getUserMedia && 'MediaRecorder' in window" in KAIWA
+    mic_button = KAIWA.split('id="kaiwa-mic"', 1)[1].split("</button>", 1)[0]
+    assert "opts.hasRecording && opts.speechApiKey" in mic_button
+
+
+def test_transcription_failures_keep_retry_and_help_available():
+    stop_handler = KAIWA.split("mediaRecorder.addEventListener('stop'", 1)[1].split(
+        "}, { once: true })", 1
+    )[0]
+    assert "retryBtn.hidden = false" in stop_handler
+    assert "micHelp.hidden = false" in stop_handler
