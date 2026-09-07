@@ -727,7 +727,11 @@ function startSession(root, data, opts) {
     const Recognition = window.SpeechRecognition || window.webkitSpeechRecognition
     const r = new Recognition()
     r.lang = 'ja-JP'
-    r.continuous = false
+    // Mobile Chrome can close a non-continuous session almost immediately,
+    // which also removes Android's green microphone indicator. Keep the
+    // recognition session active for the user's speaking turn; we explicitly
+    // stop it after a final result or when the user taps Stop.
+    r.continuous = true
     r.interimResults = true
 
     r.onresult = (e) => {
