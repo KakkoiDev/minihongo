@@ -11,6 +11,7 @@ const KAIWA_KEY_STORAGE = {
 const KAIWA_PROVIDER_STORAGE = 'kaiwa_provider'
 const KAIWA_HISTORY_STORAGE = 'kaiwa_history'
 const KAIWA_SPEECH_KEY_STORAGE = 'kaiwa_key_groq_speech'
+const KAIWA_SPEECH_MODE_STORAGE = 'kaiwa_speech_mode'
 
 let kaiwaData = null // { words, grammar, candos } - fetched once, reused across sessions
 let kaiwaExpressions = null // lazy-loaded only for the end-of-session summary
@@ -80,6 +81,7 @@ function renderPicker(root, data) {
   const savedProvider = localStorage.getItem(KAIWA_PROVIDER_STORAGE) || 'anthropic'
   const savedKey = localStorage.getItem(KAIWA_KEY_STORAGE[savedProvider]) || ''
   const savedSpeechKey = localStorage.getItem(KAIWA_SPEECH_KEY_STORAGE) || ''
+  const savedSpeechMode = localStorage.getItem(KAIWA_SPEECH_MODE_STORAGE) || 'browser'
   // Use capability detection, not a browser-name block. Mobile browsers can
   // change their speech support independently of their brand/version.
   const hasRecognition = !!(window.SpeechRecognition || window.webkitSpeechRecognition)
@@ -139,15 +141,25 @@ function renderPicker(root, data) {
         </div>
       </details>
 
-      <details class="kaiwa-details" id="kaiwa-speech-details" ${savedSpeechKey ? '' : 'open'}>
-        <summary>Reliable voice input</summary>
+      <details class="kaiwa-details" id="kaiwa-speech-details">
+        <summary>Voice input</summary>
         <div class="kaiwa-details-body">
-          <p>For voice input that does not depend on Chrome speech recognition, add a Groq key. Audio is recorded only while you hold a speaking turn and sent to Groq Whisper for Japanese transcription.</p>
-          <label class="kaiwa-field">
+          <fieldset class="kaiwa-field">
+            <legend>Voice method</legend>
+            <label class="kaiwa-provider-opt">
+              <input type="radio" name="kaiwa-speech-mode" value="browser" ${savedSpeechMode === 'browser' ? 'checked' : ''}>
+              <span>Browser voice <small>no extra API key — default</small></span>
+            </label>
+            <label class="kaiwa-provider-opt">
+              <input type="radio" name="kaiwa-speech-mode" value="groq" ${savedSpeechMode === 'groq' ? 'checked' : ''}>
+              <span>Reliable recorded voice <small>Groq Whisper</small></span>
+            </label>
+          </fieldset>
+          <label class="kaiwa-field" id="kaiwa-speech-key-field" ${savedSpeechMode === 'groq' ? '' : 'hidden'}>
             <span>Groq speech API key</span>
             <input type="password" id="kaiwa-speech-key" autocomplete="off" spellcheck="false" placeholder="gsk_...">
           </label>
-          <p class="kaiwa-key-hint">Get a key at <a href="https://console.groq.com/keys" target="_blank" rel="noopener">console.groq.com/keys</a></p>
+          <p class="kaiwa-key-hint" id="kaiwa-speech-key-hint" ${savedSpeechMode === 'groq' ? '' : 'hidden'}>Get a key at <a href="https://console.groq.com/keys" target="_blank" rel="noopener">console.groq.com/keys</a></p>
         </div>
       </details>
 
@@ -178,7 +190,18 @@ function renderPicker(root, data) {
   const keyHint = root.querySelector('#kaiwa-key-hint')
   const providerDetails = root.querySelector('#kaiwa-provider-details')
   const speechKeyInput = root.querySelector('#kaiwa-speech-key')
+  const speechKeyField = root.querySelector('#kaiwa-speech-key-field')
+  const speechKeyHint = root.querySelector('#kaiwa-speech-key-hint')
   speechKeyInput.value = savedSpeechKey
+
+  root.querySelectorAll('input[name="kaiwa-speech-mode"]').forEach(radio => {
+    radio.addEventListener('change', () => {
+      const usesGroq = radio.value === 'groq' && radio.checked
+      if (!radio.checked) return
+      speechKeyField.hidden = !usesGroq
+      speechKeyHint.hidden = !usesGroq
+    })
+  })
 
   const currentProvider = () => root.querySelector('input[name="kaiwa-provider"]:checked').value
 
@@ -206,6 +229,7 @@ function renderPicker(root, data) {
     const providerId = currentProvider()
     const apiKey = keyInput.value.trim()
     const speechApiKey = speechKeyInput.value.trim()
+    const speechMode = root.querySelector('input[name="kaiwa-speech-mode"]:checked')?.value || 'browser'
     const selectedGoal = root.querySelector('input[name="kaiwa-cando"]:checked')?.value || ''
     const cando = selectedGoal ? data.candos.find(c => c.id === selectedGoal) : null
     if (!apiKey) {
@@ -220,7 +244,16 @@ function renderPicker(root, data) {
     localStorage.setItem(KAIWA_KEY_STORAGE[providerId], apiKey)
     if (speechApiKey) localStorage.setItem(KAIWA_SPEECH_KEY_STORAGE, speechApiKey)
     else localStorage.removeItem(KAIWA_SPEECH_KEY_STORAGE)
-    startSession(root, data, { providerId, apiKey, speechApiKey, cando, hasRecognition, hasRecording, topicSet })
+    localStorage.setItem(KAIWA_SPEECH_MODE_STORAGE, speechMode)
+    startSession(root, data, {
+      providerId,
+      apiKey,
+      speechApiKey: speechMode === 'groq' ? speechApiKey : '',
+      cando,
+      hasRecognition,
+      hasRecording,
+      topicSet,
+    })
   })
 }
 
