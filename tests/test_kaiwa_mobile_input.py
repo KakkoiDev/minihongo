@@ -266,6 +266,31 @@ def test_selected_goal_is_shown_for_both_conversation_styles():
     assert "updateGoalSummary()" in KAIWA
 
 
+def test_tutor_mode_disables_and_greys_out_topic_picker():
+    assert 'id="kaiwa-goal-fieldset"' in KAIWA
+    availability = KAIWA.split("const updateGoalAvailability", 1)[1].split(
+        "goalDetails.querySelector", 1
+    )[0]
+    assert "goalFieldset.disabled = automatic" in availability
+    assert "goalDetails.classList.toggle('is-disabled', automatic)" in availability
+    assert "goalDetails.setAttribute('aria-disabled', String(automatic))" in availability
+    css = (Path(__file__).parent.parent / "site/static/style.css").read_text()
+    assert ".kaiwa-details.is-disabled" in css
+    assert "cursor: not-allowed" in css
+
+
+def test_tutor_mode_resets_topic_to_automatic_and_closes_details():
+    availability = KAIWA.split("const updateGoalAvailability", 1)[1].split(
+        "goalDetails.querySelector", 1
+    )[0]
+    assert "input[name=\"kaiwa-cando\"][value=\"\"]" in availability
+    assert "goalDetails.open = false" in availability
+    click_guard = KAIWA.split("goalDetails.querySelector('summary')", 1)[1].split(
+        "const refreshKeyField", 1
+    )[0]
+    assert "if (currentTutorMode()) event.preventDefault()" in click_guard
+
+
 def test_tutor_mode_stores_original_and_corrected_sentences():
     assert "session.mistakes.push({ original: userText, corrected: correction })" in KAIWA
     assert "mistakes: session.mistakes" in KAIWA
