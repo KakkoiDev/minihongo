@@ -30,3 +30,10 @@ def test_mobile_speak_explicitly_requests_microphone_permission():
     assert "getUserMedia({ audio: true })" in KAIWA
     assert "stream.getTracks().forEach(track => track.stop())" in KAIWA
     assert "await requestMicPermission()" in KAIWA
+
+
+def test_permission_help_button_is_shown_when_microphone_is_not_granted():
+    assert 'id="kaiwa-permission"' in KAIWA
+    assert "permissionBtn.hidden = false" in KAIWA
+    assert "navigator.permissions?.query({ name: 'microphone' })" in KAIWA
+    assert "permissionBtn.addEventListener('click', () => beginListening())" in KAIWA
