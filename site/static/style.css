@@ -1138,6 +1138,20 @@ footer {
   border-bottom: 1px solid var(--border);
 }
 
+.kaiwa-details.is-disabled {
+  opacity: 0.55;
+}
+
+.kaiwa-details.is-disabled > summary {
+  cursor: not-allowed;
+}
+
+.kaiwa-cando-list {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
 .kaiwa-details-body {
   padding: 1rem;
 }
