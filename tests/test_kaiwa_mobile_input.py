@@ -208,6 +208,37 @@ def test_voice_summary_updates_without_exposing_technical_details():
     assert "Chrome · no extra API key · default" not in KAIWA
 
 
+def test_tutor_mode_is_available_in_shared_kaiwa_component():
+    assert 'name="kaiwa-style" value="tutor"' in KAIWA
+    assert "practise your frequent mistakes" in KAIWA
+    engineering = (Path(__file__).parent.parent / "site/pages/lessons/engineering.html").read_text()
+    assert 'id="kaiwa-app" data-topic-set="engineering"' in engineering
+
+
+def test_tutor_mode_stores_original_and_corrected_sentences():
+    assert "session.mistakes.push({ original: userText, corrected: correction })" in KAIWA
+    assert "mistakes: session.mistakes" in KAIWA
+    assert "saveSessionSummary(session.cando?.id, summary)" in KAIWA
+
+
+def test_tutor_focus_uses_most_frequent_five_mistakes():
+    assert "function frequentMistakes(history, limit = 5, topicSet = null)" in KAIWA
+    assert ".sort((a, b) => b.count - a.count)" in KAIWA
+    assert ".slice(0, limit)" in KAIWA
+    assert "frequentMistakes(history, 5, topicSet)" in KAIWA
+
+
+def test_engineering_tutor_uses_engineering_history_only():
+    assert "historyKey.startsWith('cando-eng-') ? 'engineering' : 'general'" in KAIWA
+    assert "if (topicSet && sessionTopic !== topicSet) continue" in KAIWA
+    assert "topicSet: session.topicSet" in KAIWA
+
+
+def test_tutor_without_history_still_works():
+    assert "There is no saved mistake history yet" in KAIWA
+    assert "opts.tutorMode ? opts.tutorFocus : null" in KAIWA
+
+
 def test_media_recorder_allows_voice_when_web_speech_is_missing():
     assert "hasRecording = !!navigator.mediaDevices?.getUserMedia && 'MediaRecorder' in window" in KAIWA
     mic_button = KAIWA.split('id="kaiwa-mic"', 1)[1].split("</button>", 1)[0]
