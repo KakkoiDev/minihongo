@@ -29,7 +29,7 @@ def test_mobile_speak_explicitly_requests_microphone_permission():
     assert "navigator.mediaDevices?.getUserMedia" in KAIWA
     assert "getUserMedia({ audio: true })" in KAIWA
     assert "stream.getTracks().forEach(track => track.stop())" in KAIWA
-    assert "await requestMicPermission(true)" in KAIWA
+    assert "await requestMicPermission(useApiRecording)" in KAIWA
 
 
 def test_permission_help_button_is_shown_when_microphone_is_not_granted():
@@ -132,10 +132,10 @@ def test_recording_is_sent_to_groq_whisper_as_japanese():
 
 
 def test_audio_stream_is_stopped_after_recording():
-    finish = KAIWA.split("const finishListening", 1)[1].split(
-        "const transcribeRecording", 1
+    recording_stop = KAIWA.split("mediaRecorder.addEventListener('stop'", 1)[1].split(
+        "}, { once: true })", 1
     )[0]
-    assert "recordingStream?.getTracks().forEach(track => track.stop())" in finish
+    assert "recordingStream?.getTracks().forEach(track => track.stop())" in recording_stop
 
 
 def test_recording_has_a_maximum_duration():
@@ -192,36 +192,27 @@ def test_recording_stream_stays_open_until_media_recorder_stops():
     assert "finishListening()" in stop_handler
 
 
-def test_browser_speech_path_keeps_permission_stream_for_whole_turn():
+def test_browser_speech_path_releases_permission_stream_before_recognition():
     begin = KAIWA.split("const beginListening", 1)[1].split(
         "const setupRecognition", 1
     )[0]
-    assert "await requestMicPermission(true)" in begin
-    assert "recordingStream = permission" in begin
-    assert begin.index("recordingStream = permission") < begin.index("startRecognizer()")
+    assert "await requestMicPermission(useApiRecording)" in begin
+    assert "recordingStream = permission" not in begin
 
 
-def test_chrome_receives_the_open_microphone_track_directly():
+def test_chrome_owns_its_speech_recognition_microphone_session():
     start = KAIWA.split("const startRecognizer", 1)[1].split(
         "const requestMicPermission", 1
     )[0]
-    assert "recordingStream?.getAudioTracks?.()[0]" in start
-    assert "recognizer.start(audioTrack)" in start
+    assert "recognizer.start()" in start
+    assert "recognizer.start(audioTrack)" not in start
 
 
-def test_older_chrome_falls_back_when_track_argument_is_unsupported():
-    start = KAIWA.split("const startRecognizer", 1)[1].split(
-        "const requestMicPermission", 1
-    )[0]
-    assert "trackError?.name !== 'TypeError'" in start
-    assert start.count("recognizer.start()") >= 2
-
-
-def test_mobile_chrome_recognition_stays_continuous_until_explicit_stop():
+def test_mobile_chrome_uses_single_utterance_mode():
     setup = KAIWA.split("const setupRecognition", 1)[1].split(
         "r.onresult", 1
     )[0]
-    assert "r.continuous = true" in setup
+    assert "r.continuous = false" in setup
     result = KAIWA.split("r.onresult", 1)[1].split("r.onerror", 1)[0]
     assert "if (finalText)" in result
     assert "r.stop()" in result
