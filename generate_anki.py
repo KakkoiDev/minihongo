@@ -36,8 +36,7 @@ import sys
 from pathlib import Path
 
 import genanki
-import jp_core
-from jp_core import furigana, ids, theme
+from jp_core import anki, ids, theme, web
 
 from mh_common import DATA, load_csv, strip_furigana
 
@@ -102,7 +101,7 @@ DECKS = {
 # covers 々, which this copy omitted — so 徐々【じょじょ】 previously kept its
 # literal brackets instead of taking ruby. No Anki-consumed CSV contains that
 # case today, so no published card changes; see jp_core's golden-file tests.
-to_ruby_html = furigana.to_ruby
+to_ruby_html = web.ruby_html
 
 
 # ── Card models ─────────────────────────────────────────────────────
@@ -305,7 +304,7 @@ def audio_ref(subdir, filename, require=False):
         if require:
             raise FileNotFoundError('listening card with no audio filename')
         return '', None
-    value, path = jp_core.sound_ref(AUDIO / subdir / filename, require=require)
+    value, path = anki.sound_ref(AUDIO / subdir / filename, require=require)
     return value, str(path) if path else None
 
 
@@ -572,7 +571,7 @@ def main():
 
     if force_style:
         # Offset model IDs by CSS hash so Anki creates new models with updated styles
-        css_hash = jp_core.force_style(0, SHARED_CSS)
+        css_hash = anki.force_style(0, SHARED_CSS)
         for cfg in DECKS.values():
             cfg['vocab_model_id'] += css_hash
             cfg['grammar_model_id'] += css_hash
