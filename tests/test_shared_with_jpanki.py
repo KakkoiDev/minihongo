@@ -1,16 +1,16 @@
-"""Guard against mh_common drifting from jpanki.
+"""Guard against mh_common drifting from jp_core.
 
-`mh_common.strip_furigana` is deliberately *not* delegated to jpanki, even though
-jpanki has the same function. `make build` runs `python3 generate_pages.py`,
+`mh_common.strip_furigana` is deliberately *not* delegated to jp_core, even though
+jp_core has the same function. `make build` runs `python3 generate_pages.py`,
 which imports mh_common, and the site build's stdlib-only guarantee is what
-keeps it deployable from a bare Python. Importing jpanki there would quietly end
+keeps it deployable from a bare Python. Importing jp_core there would quietly end
 that.
 
 So the duplication stays, and this test makes it safe: the two implementations
 must agree on every bracketed value in the corpus. If they ever diverge, this
 fails rather than the difference surfacing as a rendering bug months later.
 
-Only the artifact generators (Anki, audio, PDF) depend on jpanki. Those already
+Only the artifact generators (Anki, audio, PDF) depend on jp_core. Those already
 needed genanki and edge-tts, so they never had the guarantee to lose.
 """
 import subprocess
@@ -22,7 +22,7 @@ import pytest
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 import mh_common
-from jpanki import furigana
+from jp_core import furigana
 
 ROOT = Path(__file__).parent.parent
 
@@ -49,7 +49,7 @@ def test_corpus_is_not_empty():
 
 
 @pytest.mark.parametrize("text", CORPUS, ids=[t[:30] for t in CORPUS])
-def test_strip_furigana_agrees_with_jpanki(text):
+def test_strip_furigana_agrees_with_jp_core(text):
     assert mh_common.strip_furigana(text) == furigana.strip(text)
 
 

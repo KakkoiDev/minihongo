@@ -36,8 +36,8 @@ import sys
 from pathlib import Path
 
 import genanki
-import jpanki
-from jpanki import furigana, ids, theme
+import jp_core
+from jp_core import furigana, ids, theme
 
 from mh_common import DATA, load_csv, strip_furigana
 
@@ -98,10 +98,10 @@ DECKS = {
 # ── Furigana helpers ────────────────────────────────────────────────
 
 
-# jpanki owns the 漢字【かな】 notation now. Its character class additionally
+# jp_core owns the 漢字【かな】 notation now. Its character class additionally
 # covers 々, which this copy omitted — so 徐々【じょじょ】 previously kept its
 # literal brackets instead of taking ruby. No Anki-consumed CSV contains that
-# case today, so no published card changes; see jpanki's golden-file tests.
+# case today, so no published card changes; see jp_core's golden-file tests.
 to_ruby_html = furigana.to_ruby
 
 
@@ -110,7 +110,7 @@ to_ruby_html = furigana.to_ruby
 def build_css():
     """The shared design system, plus minihongo's own components.
 
-    The layers come from jpanki; the grammar-explanation and pattern-name
+    The layers come from jp_core; the grammar-explanation and pattern-name
     styling below is specific to this project's Grammar cards and stays here.
     """
     return theme.compose(
@@ -297,7 +297,7 @@ def deck_id(lang, kind, index):
 def audio_ref(subdir, filename, require=False):
     """Return [sound:file] ref and absolute path, or empty if missing.
 
-    Delegates to jpanki.sound_ref, which carries the same silent-degrade
+    Delegates to jp_core.sound_ref, which carries the same silent-degrade
     behaviour plus the option to refuse — used by the Listening deck, whose
     cards have nothing on the front but audio.
     """
@@ -305,7 +305,7 @@ def audio_ref(subdir, filename, require=False):
         if require:
             raise FileNotFoundError('listening card with no audio filename')
         return '', None
-    value, path = jpanki.sound_ref(AUDIO / subdir / filename, require=require)
+    value, path = jp_core.sound_ref(AUDIO / subdir / filename, require=require)
     return value, str(path) if path else None
 
 
@@ -572,7 +572,7 @@ def main():
 
     if force_style:
         # Offset model IDs by CSS hash so Anki creates new models with updated styles
-        css_hash = jpanki.force_style(0, SHARED_CSS)
+        css_hash = jp_core.force_style(0, SHARED_CSS)
         for cfg in DECKS.values():
             cfg['vocab_model_id'] += css_hash
             cfg['grammar_model_id'] += css_hash

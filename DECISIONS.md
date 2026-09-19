@@ -2,13 +2,13 @@
 
 Intent and rationale for content/system changes. Newest first. Each entry: what changed, why, what was rejected.
 
-## 2026-07-25: Artifact generators build on jpanki; the site build stays stdlib-only
+## 2026-07-25: Artifact generators build on jp_core; the site build stays stdlib-only
 
 The Anki, audio and PDF generators shared their mechanics with nihongo-it-anki
 by coincidence rather than by code: the same `漢字【かな】` notation, the same
 Edge TTS voices, the same card CSS down to the `#BC002D` divider and the
 replay-button SVG mask, and the same trick of offsetting a model ID by a hash of
-its CSS. Two implementations, drifting. They now come from `jpanki`.
+its CSS. Two implementations, drifting. They now come from `jp_core`.
 
 Two defects fell out of the extraction:
 
@@ -24,12 +24,12 @@ Two defects fell out of the extraction:
 
 A `pyproject.toml` arrives, scoped to the artifact generators. **The site build's
 stdlib-only guarantee is unchanged and now enforced**: `make build` runs
-`python3 generate_pages.py`, so `mh_common.py` must not import jpanki, and it
+`python3 generate_pages.py`, so `mh_common.py` must not import jp_core, and it
 does not — its `strip_furigana` stays a separate stdlib implementation.
-`tests/test_shared_with_jpanki.py` asserts the two agree across the whole corpus
+`tests/test_shared_with_jp_core.py` asserts the two agree across the whole corpus
 and that `generate_pages.py` still imports under a bare interpreter.
 
-- **Rejected**: delegating `mh_common.strip_furigana` to jpanki. It reads as the
+- **Rejected**: delegating `mh_common.strip_furigana` to jp_core. It reads as the
   obvious de-duplication, but mh_common is on the site build's import path, so it
   would have made the site depend on genanki's dependency tree to render HTML.
   A tested duplicate is the cheaper trade.
@@ -38,9 +38,9 @@ and that `generate_pages.py` still imports under a bare interpreter.
   a note Anki has never seen and silently resets that card's review history.
   Fixing it is right, but it costs a **one-time** reset for existing users, so it
   needs a decision and a migration map rather than a quiet commit. Deck IDs were
-  safe to fix immediately; GUIDs are not. See jpanki's `note_guid`.
+  safe to fix immediately; GUIDs are not. See jp_core's `note_guid`.
 - **Deferred**: porting `generate_audio.py`'s ten `gen_*` orchestrators onto
-  `jpanki.tts`. jpanki's primitives were extracted *from* this file, so they are
+  `jp_core.tts`. jp_core's primitives were extracted *from* this file, so they are
   already equivalent; rewriting 797 lines of working orchestration would risk
   regressions that only a full 2270-clip regeneration could detect.
 
