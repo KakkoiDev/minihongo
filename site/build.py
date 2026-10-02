@@ -533,6 +533,12 @@ def _build_to(OUT, base_url):
     for f in ROOT.glob("*.json"):
         shutil.copy2(f, OUT / f.name)
 
+    # The Echo starter is also downloadable from the published Minihongo site.
+    echo_import = ROOT.parent / "imports" / "jp-echo.json"
+    if echo_import.exists():
+        (OUT / "imports").mkdir(exist_ok=True)
+        shutil.copy2(echo_import, OUT / "imports" / "jp-echo.json")
+
     # Read CSS for inlining (eliminates render-blocking stylesheet request)
     css_path = STATIC / 'style.css'
     inline_css = css_path.read_text() if css_path.exists() else ''
