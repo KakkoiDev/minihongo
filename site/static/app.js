@@ -463,7 +463,9 @@ const refreshShareUrl = async () => {
 }
 
 if (shareDialog) {
-  shareNative.hidden = !navigator.share
+  // The OS share sheet is a phone feature; desktop browsers support it unevenly
+  // (some expose navigator.share but show nothing), so offer it on touch only.
+  shareNative.hidden = !(navigator.share && matchMedia('(pointer: coarse)').matches)
   shareLang.addEventListener('change', refreshShareUrl)
   shareInstall.addEventListener('change', refreshShareUrl)
   shareKey?.addEventListener('change', refreshShareUrl)
@@ -502,7 +504,10 @@ if (shareDialog) {
       // The link only - the unlock code must travel separately
       await navigator.share({ title: 'Minihongo', url: shareUrl.value })
       shareDialog.close()
-    } catch { /* cancelled */ }
+    } catch (err) {
+      // Cancelling the sheet is fine; any other failure falls back to copying
+      if (err?.name !== 'AbortError') shareCopy.click()
+    }
   })
 }
 
