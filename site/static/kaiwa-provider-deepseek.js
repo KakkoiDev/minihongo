@@ -8,7 +8,7 @@ const kaiwaText = (key, vars, fallback) => window.kaiwaT?.(key, vars) ?? fallbac
 
 window.KaiwaProviders.deepseek = {
   id: 'deepseek',
-  label: 'DeepSeek (V4 Flash)',
+  label: 'DeepSeek',
   keyHint: 'sk-...',
   keyHelpUrl: 'https://platform.deepseek.com/api_keys',
 
@@ -20,6 +20,8 @@ window.KaiwaProviders.deepseek = {
         authorization: `Bearer ${apiKey}`,
       },
       body: JSON.stringify({
+        // DeepSeek routes this name to its current Flash model (V4.1 Flash as
+        // of 2026-09), so it does not pin a specific release.
         model: 'deepseek-v4-flash',
         messages: [
           { role: 'system', content: system },

@@ -12,7 +12,7 @@ const kaiwaText = (key, vars, fallback) => window.kaiwaT?.(key, vars) ?? fallbac
 
 window.KaiwaProviders.openai = {
   id: 'openai',
-  label: 'OpenAI (GPT-5.6 Luna)',
+  label: 'OpenAI (GPT)',
   keyHint: 'sk-...',
   keyHelpUrl: 'https://platform.openai.com/api-keys',
 
@@ -24,6 +24,9 @@ window.KaiwaProviders.openai = {
         authorization: `Bearer ${apiKey}`,
       },
       body: JSON.stringify({
+        // OpenAI has no alias that tracks its small model (the bare "gpt-5.6"
+        // alias routes to Sol). Bump here after checking the new model still
+        // accepts reasoning.effort "none".
         model: 'gpt-5.6-luna',
         instructions: system,
         input: history.map(m => (

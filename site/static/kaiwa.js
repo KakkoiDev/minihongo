@@ -185,11 +185,11 @@ function renderPicker(root, data) {
   `
   }).join('')
 
-  const providerLabels = {
-    anthropic: 'Anthropic (Claude Haiku 4.5)',
-    openai: 'OpenAI (GPT-5.6 Luna)',
-    deepseek: 'DeepSeek (V4 Flash)',
-  }
+  // Provider names only: model versions change too often to show in the UI.
+  // Each provider file owns its label and model id.
+  const providerLabels = Object.fromEntries(
+    ['anthropic', 'openai', 'deepseek'].map(id => [id, window.KaiwaProviders[id]?.label || id]),
+  )
   const providerRadios = Object.keys(providerLabels).map(id => `
     <label class="kaiwa-provider-opt">
       <input type="radio" name="kaiwa-provider" value="${id}" ${id === savedProvider ? 'checked' : ''}>

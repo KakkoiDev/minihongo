@@ -8,7 +8,7 @@ const kaiwaText = (key, vars, fallback) => window.kaiwaT?.(key, vars) ?? fallbac
 
 window.KaiwaProviders.anthropic = {
   id: 'anthropic',
-  label: 'Anthropic (Claude Haiku 4.5)',
+  label: 'Anthropic (Claude)',
   keyHint: 'sk-ant-...',
   keyHelpUrl: 'https://console.anthropic.com/settings/keys',
 
@@ -22,8 +22,13 @@ window.KaiwaProviders.anthropic = {
         'anthropic-dangerous-direct-browser-access': 'true',
       },
       body: JSON.stringify({
-        model: 'claude-haiku-4-5-20251001',
+        // Current Haiku. Anthropic has no "latest Haiku" alias, so this is the
+        // one place to bump when a new Haiku ships. Short spoken replies: no
+        // hidden thinking, low effort, for the lowest latency.
+        model: 'claude-haiku-5-5',
         max_tokens: 300,
+        thinking: { type: 'disabled' },
+        output_config: { effort: 'low' },
         system,
         stream: true,
         messages: history.map(m => ({ role: m.role, content: m.content })),
