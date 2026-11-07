@@ -2303,7 +2303,8 @@ html:lang(ko) {
 /* === Arrival dialog: unlock a shared key === */
 .install-dialog > section { display: grid; gap: 0.75rem; }
 .install-dialog > section[hidden] { display: none; }
-.install-dialog > section + section:not([hidden]) { border-block-start: 1px solid var(--border); padding-block-start: 1rem; }
+/* Divider only between two visible sections (key unlock above install) */
+.install-dialog > section:not([hidden]) + section:not([hidden]) { border-block-start: 1px solid var(--border); padding-block-start: 1rem; }
 .install-section > p:last-child:has(#install-yes[hidden]) { display: none; }
 .install-section > p { margin: 0; }
 
