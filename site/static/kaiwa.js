@@ -435,6 +435,23 @@ function renderPicker(root, data) {
   refreshKeyField()
   updateGoalAvailability()
 
+  // Linked from a real-life goal on the Practice page (?goal=cando-…):
+  // preselect it. Tutor mode picks its own topic, so a chosen goal switches
+  // the style back to conversation.
+  const linkedGoal = new URLSearchParams(location.search).get('goal')
+  const goalRadio = linkedGoal
+    && [...root.querySelectorAll('input[name="kaiwa-cando"]')].find(r => r.value === linkedGoal)
+  if (goalRadio) {
+    if (currentTutorMode()) {
+      const conversation = root.querySelector('input[name="kaiwa-style"][value="conversation"]')
+      conversation.checked = true
+      conversation.dispatchEvent(new Event('change'))
+    }
+    goalRadio.checked = true
+    updateGoalSummary()
+    validate()
+  }
+
   startBtn.addEventListener('click', () => {
     const providerId = currentProvider()
     const apiKey = keyInput.value.trim()

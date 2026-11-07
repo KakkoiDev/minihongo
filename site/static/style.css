@@ -184,19 +184,80 @@ nav.top a:focus-visible,
 }
 
 /* === Practice page === */
-.cando-list {
+.cando-progress {
   display: grid;
-  gap: 0.6rem;
+  gap: 0.4rem;
   margin-block: 1rem;
+}
+.cando-progress__label { margin: 0; font-weight: 600; }
+.cando-progress__bar {
+  block-size: 0.5rem;
+  border-radius: 999px;
+  background: var(--border);
+  overflow: hidden;
+
+  & span { display: block; block-size: 100%; inline-size: 0; background: var(--accent); transition: width 0.25s; }
+}
+
+.cando-group {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  margin: 1.5rem 0 0.6rem;
+}
+
+.cando-list {
+  list-style: none;
+  margin: 0 0 1rem;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
 }
 
 .cando {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg);
+  transition: background 0.15s, border-color 0.15s;
+}
+.cando.is-done {
+  background: color-mix(in srgb, var(--accent) 6%, var(--bg));
+  border-color: color-mix(in srgb, var(--accent) 35%, var(--border));
+}
+
+.cando-main {
   display: flex;
   align-items: flex-start;
-  gap: 0.6rem;
+  gap: 0.75rem;
+  padding: 0.8rem 1rem 0.4rem;
   cursor: pointer;
   line-height: 1.5;
 }
+
+.cando-text {
+  display: grid;
+  gap: 0.15rem;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.cando-title { font-weight: 600; }
+.cando-sub {
+  font-family: var(--jp);
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.cando-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1rem;
+  padding: 0 1rem 0.75rem calc(1rem + 1.35rem + 0.75rem);
+  font-size: 0.85rem;
+}
+.cando-action { text-decoration: none; }
+.cando-action:hover { text-decoration: underline; }
 
 .cando-check {
   appearance: none;
@@ -239,47 +300,12 @@ nav.top a:focus-visible,
   outline-offset: 2px;
 }
 
-.cando-trans {
-  color: var(--text-muted);
-  font-size: 0.9em;
-}
-
-.cando-link {
-  font-size: 0.85em;
-  white-space: nowrap;
-}
 
 .cando-hint {
   color: var(--text-muted);
   font-size: 0.9rem;
 }
 
-.quiz-section { margin-block: 1.5rem; }
-
-.quiz-opts {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-block: 0.5rem;
-}
-
-.quiz-opt {
-  font: inherit;
-  font-family: var(--jp);
-  padding: 0.4rem 0.9rem;
-  border: 2px solid var(--border);
-  border-radius: var(--radius);
-  background: none;
-  color: var(--text);
-  cursor: pointer;
-}
-
-.quiz-opt:hover { background: var(--bg-raised); }
-.quiz-item.answered .quiz-opt { cursor: default; }
-.quiz-opt.right { border-color: #2E7D32; }
-.quiz-opt.wrong { border-color: var(--accent); }
-
-.quiz-answer { color: var(--text-muted); }
 
 .ai-prompt-box pre {
   white-space: pre-wrap;
@@ -2485,13 +2511,17 @@ span.practice-badge { margin-inline-start: 0.35rem; }
   .practice-jp { font-size: 1.4rem; }
 }
 
-/* Can-do rows on phones: Japanese on its own line, translation and dialog
-   link underneath, so nothing overflows sideways */
+.practice-sentence-trans { color: var(--text-muted); }
+.practice-jp--sentence { font-size: 1.35rem; }
+.practice-blank {
+  display: inline-block;
+  min-inline-size: 3em;
+  border-block-end: 2px solid var(--accent);
+  color: transparent;
+  line-height: 1.2;
+}
+
 @media (max-width: 600px) {
-  .cando {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    column-gap: 0.6rem;
-  }
-  .cando > :not(.cando-check) { grid-column: 2; min-width: 0; overflow-wrap: anywhere; }
+  .cando-main { padding: 0.7rem 0.8rem 0.35rem; }
+  .cando-actions { padding: 0 0.8rem 0.65rem calc(0.8rem + 1.35rem + 0.75rem); }
 }

@@ -352,6 +352,23 @@ def build_practice_data(data):
         c = cats.get(cat_id, {})
         return int(c.get('sort_order') or 0)
     words = sorted(data.get('words', []), key=lambda w: (cat_order(w['category_id']), int(w.get('sort_order') or 0)))
+    def cloze(w):
+        # Fill-in-the-blank on the word's authored example sentence. Only when
+        # the sentence holds the word in exactly its listed form (225 of 231);
+        # conjugated or re-read uses keep the plain reverse question.
+        word, example = w['minihongo'], w.get('example_minihongo', '')
+        if not word or word not in example:
+            return None
+        return {
+            'jp': example.replace(word, '＿＿＿', 1),
+            'full': example,
+            'audio': f"w/{w['audio_example']}" if w.get('audio_example') else '',
+            'meaning': {
+                'en': w.get('example_english', ''),
+                'ko': w.get('example_korean', '') or w.get('example_english', ''),
+            },
+        }
+
     word_items = [{
         'id': w['id'],
         'kind': 'word',
@@ -364,6 +381,7 @@ def build_practice_data(data):
             'ja': w.get('japanese', ''),
             'mh': w.get('definition_minihongo', ''),
         },
+        'cloze': cloze(w),
     } for w in words]
 
     examples = {}

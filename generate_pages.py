@@ -1154,68 +1154,41 @@ def gen_reading(categories, haiku, dialog_groups, dialogs, stories, lang):
 
 # -- Practice -----------------------------------------------------------------
 
-def _plain_mh(text):
-    return re.sub(r'【[^】]+】', '', text)
+def _cando_card(c, dg_by_id, lang):
+    """One real-life goal: the goal in the reader's language, the Minihongo
+    sentence under it (or alone on mh), and two ways to work towards it."""
+    mh_html = to_ruby_html(c['minihongo'])
+    if lang == 'mh':
+        title, sub = f'<span lang="ja">{mh_html}</span>', ''
+    elif lang == 'ja':
+        title = f'<span lang="ja">{esc(c["japanese"])}</span>'
+        sub = f'<span class="cando-sub" lang="ja">{mh_html}</span>'
+    else:
+        title = esc(tr(c, 'english', lang))
+        sub = f'<span class="cando-sub" lang="ja">{mh_html}</span>'
 
-
-def _cloze(text_mh, blankable, used):
-    """Blank the longest base word present in the text (bracket-notation match).
-    Returns (question, answer_word) or (None, None)."""
-    for w in blankable:
-        if w['id'] not in used and w['minihongo'] in text_mh:
-            return text_mh.replace(w['minihongo'], '＿＿＿', 1), w
-    return None, None
-
-
-def _quiz_options(answer, pool, qid):
-    """Answer + 3 distractors from the pool, deterministically ordered."""
-    idx = next((i for i, w in enumerate(pool) if w['id'] == answer['id']), 0)
-    rotated = [pool[(idx + 1 + i) % len(pool)] for i in range(len(pool))]
-    distractors = [w for w in rotated if w['id'] != answer['id']][:3]
-    options = [(answer, True)] + [(w, False) for w in distractors]
-    options.sort(key=lambda o: hashlib.md5(f'{qid}:{o[0]["id"]}'.encode()).hexdigest())
-    return options
-
-
-def _quiz_item_html(question_mh, options, full_mh, translation):
-    opts = ''.join(
-        f'      <button class="quiz-opt" data-correct="{1 if correct else 0}" lang="ja">'
-        f'{to_ruby_html(w["minihongo"])}</button>\n'
-        for w, correct in options
-    )
-    answer = f'    <p class="quiz-answer" hidden><span lang="ja">{to_ruby_html(full_mh)}</span>'
-    if translation:
-        answer += f'<br><span class="quiz-answer-trans">{esc(translation)}</span>'
-    answer += '</p>\n'
+    # Kaiwa opens with this goal selected; engineering goals live on the
+    # engineering page's own Kaiwa
+    if c['id'].startswith('cando-eng-'):
+        practise_href = f'lessons/engineering.html?goal={c["id"]}#engineering-ai'
+    else:
+        practise_href = f'kaiwa/index.html?goal={c["id"]}'
+    actions = [f'<a class="cando-action" href="{practise_href}">{ui("practice_cando_practise", lang)}</a>']
+    dg = dg_by_id.get(c['dialog_group_id'])
+    if dg:
+        actions.insert(0, f'<a class="cando-action" href="lessons/texts-dialogs.html#{slugify(dg["title_english"])}">'
+                          f'{ui("practice_see_dialog", lang)}</a>')
     return (
-        f'  <div class="quiz-item">\n'
-        f'    <p lang="ja">{to_ruby_html(question_mh)}</p>\n'
-        f'    <div class="quiz-opts">\n{opts}    </div>\n'
-        f'{answer}'
-        f'  </div>\n'
+        f'    <li class="cando">\n'
+        f'      <label class="cando-main"><input type="checkbox" class="cando-check" data-id="{c["id"]}">'
+        f'<span class="cando-text"><span class="cando-title">{title}</span>{sub}</span></label>\n'
+        f'      <div class="cando-actions">{" ".join(actions)}</div>\n'
+        f'    </li>\n'
     )
 
 
 def gen_practice(candos, dialog_groups, dialogs, words, grammar, grammar_examples, lang):
     dg_by_id = {d['id']: d for d in dialog_groups}
-    lines_by_grp = defaultdict(list)
-    for d in dialogs:
-        lines_by_grp[d['dialog_group_id']].append(d)
-
-    words_by_cat = defaultdict(list)
-    for w in words:
-        words_by_cat[w['category_id']].append(w)
-    for k in words_by_cat:
-        words_by_cat[k] = by_sort(words_by_cat[k])
-
-    # Longest words first so the cloze blanks the most specific match
-    blankable = sorted(
-        [w for w in words if '【' in w['minihongo']],
-        key=lambda w: len(_plain_mh(w['minihongo'])),
-        reverse=True,
-    )
-
-    trans_col = {'en': 'english', 'ko': 'english', 'ja': 'japanese', 'mh': ''}[lang]
 
     toc = []
     parts = []
@@ -1226,85 +1199,30 @@ def gen_practice(candos, dialog_groups, dialogs, words, grammar, grammar_example
     parts.append(f'  <h2 id="daily" class="section-heading">{ui("practice_daily_heading", lang)}</h2>\n')
     parts.append(f'  <div id="practice-app" data-lang="{lang}"><p class="practice-loading">{ui("kaiwa_loading", lang)}</p></div>\n\n')
 
-    # Can-do checklist
+    # Real-life goals: tick what you have done outside the site. Progress is
+    # filled in by app.js from localStorage (the template keeps {done}/{total}).
+    ordered = by_sort(candos)
+    groups = [
+        ('practice_cando_everyday', [c for c in ordered if not c['id'].startswith('cando-eng-')]),
+        ('practice_cando_work', [c for c in ordered if c['id'].startswith('cando-eng-')]),
+    ]
     toc.append(('can-do', ui('practice_cando_heading', lang), []))
     parts.append(f'  <h2 id="can-do" class="section-heading">{ui("practice_cando_heading", lang)}</h2>\n')
     parts.append(f'  <p class="cando-hint">{ui("practice_cando_hint", lang)}</p>\n')
-    parts.append('  <div class="cando-list">\n')
-    for c in by_sort(candos):
-        trans = ''
-        if trans_col:
-            trans = f' <span class="cando-trans">{esc(tr(c, trans_col, lang))}</span>'
-        link = ''
-        dg = dg_by_id.get(c['dialog_group_id'])
-        if dg:
-            dg_slug = slugify(dg['title_english'])
-            link = (f' <a class="cando-link" href="lessons/texts-dialogs.html#{dg_slug}">'
-                    f'{ui("practice_see_dialog", lang)}</a>')
-        parts.append(
-            f'    <label class="cando"><input type="checkbox" class="cando-check" '
-            f'data-id="{c["id"]}"> <span lang="ja">{to_ruby_html(c["minihongo"])}</span>'
-            f'{trans}{link}</label>\n'
-        )
-    parts.append('  </div>\n\n')
-
-    # Quiz: cloze items from each can-do's dialog
-    toc.append(('quiz', ui('practice_quiz_heading', lang), []))
-    parts.append(f'  <h2 id="quiz" class="section-heading">{ui("practice_quiz_heading", lang)}</h2>\n')
-    # The fixed question list stays available, folded away under the daily session
-    parts.append(f'  <details class="practice-browse"><summary>{ui("practice_browse", lang)}</summary>\n')
-    for c in by_sort(candos):
-        dg = dg_by_id.get(c['dialog_group_id'])
-        if not dg:
+    progress_tpl = strip_html(ui('practice_cando_progress', lang))
+    parts.append(
+        f'  <div class="cando-progress" data-template="{esc(progress_tpl)}">'
+        f'<p class="cando-progress__label" aria-live="polite"></p>'
+        f'<div class="cando-progress__bar"><span></span></div></div>\n'
+    )
+    for key, group in groups:
+        if not group:
             continue
-        items = []
-        used = set()
-        for ln in sorted(lines_by_grp.get(dg['id'], []),
-                         key=lambda d: int(d['line_number'])):
-            question, answer = _cloze(ln['minihongo'], blankable, used)
-            if not answer:
-                continue
-            used.add(answer['id'])
-            pool = words_by_cat.get(answer['category_id'], [])
-            if len(pool) < 4:
-                pool = blankable
-            options = _quiz_options(answer, pool, f'{c["id"]}-{ln["id"]}')
-            translation = tr(ln, trans_col, lang) if trans_col else ''
-            items.append(_quiz_item_html(question, options, ln['minihongo'], translation))
-            if len(items) == 3:
-                break
-        if not items:
-            continue
-        title = to_ruby_html(bilingual(dg['title_minihongo'], t(dg, 'title', lang)))
-        parts.append(f'  <section class="quiz-section" data-cando="{c["id"]}" data-total="{len(items)}">\n')
-        parts.append(f'    <h3>{title}</h3>\n')
-        parts.extend(items)
-        parts.append('  </section>\n')
-
-    # Grammar quiz: one cloze per core grammar point
-    ex_by_gram = defaultdict(list)
-    for ex in grammar_examples:
-        ex_by_gram[ex['grammar_id']].append(ex)
-    g_items = []
-    for g in by_sort([g for g in grammar if g.get('core') == 'yes']):
-        for ex in by_sort(ex_by_gram.get(g['id'], [])):
-            question, answer = _cloze(ex['minihongo'], blankable, set())
-            if not answer:
-                continue
-            pool = words_by_cat.get(answer['category_id'], [])
-            if len(pool) < 4:
-                pool = blankable
-            options = _quiz_options(answer, pool, f'gram-{ex["id"]}')
-            translation = tr(ex, trans_col, lang) if trans_col else ''
-            g_items.append(_quiz_item_html(question, options, ex['minihongo'], translation))
-            break
-    if g_items:
-        parts.append(f'  <section class="quiz-section" data-cando="grammar" data-total="{len(g_items)}">\n')
-        parts.append(f'    <h3>{ui("practice_quiz_grammar", lang)}</h3>\n')
-        parts.extend(g_items)
-        parts.append('  </section>\n')
-
-    parts.append('  </details>\n\n')
+        parts.append(f'  <h3 class="cando-group">{ui(key, lang)}</h3>\n')
+        parts.append('  <ul class="cando-list">\n')
+        parts.extend(_cando_card(c, dg_by_id, lang) for c in group)
+        parts.append('  </ul>\n')
+    parts.append('\n')
 
     # AI conversation partner: copyable prompt, word list interpolated from words.csv
     toc.append(('ai-partner', ui('practice_ai_heading', lang), []))

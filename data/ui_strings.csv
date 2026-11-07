@@ -77,8 +77,6 @@ practice_intro,"Real life is the test. Check off only what you have actually don
 practice_cando_heading,Can you do it in real life?,실생활에서 할 수 있나요?,実生活でできますか,外【そと】でできますか
 practice_cando_hint,Your checks are saved in this browser only. No account.,체크한 내용은 이 브라우저에만 저장돼요. 계정은 필요 없어요.,チェックはこのブラウザにだけ保存されます。,これはあなたの考【かんが】える物【もの】の中【なか】だけにある。
 practice_see_dialog,See the dialog →,대화 보기 →,対話を見る →,話【はなし】を見【み】る →
-practice_quiz_heading,Quiz yourself,퀴즈로 확인하기,クイズ,少【すこ】し考【かんが】える
-practice_quiz_grammar,Grammar,문법,文法,言【こと】葉【ば】の使【つか】い方【かた】
 practice_ai_heading,Practice conversation with an AI,AI와 회화 연습,AIと会話練習,考【かんが】える物【もの】と話【はな】す
 practice_ai_body,"Copy this prompt into ChatGPT, Claude, or Gemini, then start with こんにちは. The AI speaks only minihongo and corrects you gently.","이 프롬프트를 ChatGPT, Claude, Gemini에 붙여 넣고 こんにちは로 시작해 보세요. AI는 미니혼고로만 말하고 부드럽게 고쳐 줘요.",このプロンプトをChatGPT・Claude・Geminiなどに貼り付けて、「こんにちは」から始めましょう。AIはミニ本語だけで話します。,この言葉【ことば】を考【かんが】える物【もの】にあげて、「こんにちは」と言【い】ってください。
 practice_kaiwa_link,"Want to speak instead of type? Try <a href=""kaiwa/"">Conversation</a>: spoken practice with an AI partner, right in your browser, using your own AI provider key.","타이핑 대신 말로 연습하고 싶나요? <a href=""kaiwa/"">회화 모드</a>를 써 보세요. 브라우저에서 바로 쓰는 음성 회화 연습 페이지예요. 본인의 AI 제공업체 키가 필요해요.","話して練習したい方は、<a href=""kaiwa/"">会話モード</a>をお試しください。ブラウザだけで動く音声会話の練習ページです（自分のAIキーが必要です）。","口【くち】で話【はな】す<a href=""kaiwa/"">所【ところ】</a>もあります。"
@@ -145,4 +143,7 @@ key_unlock_done,Key unlocked and saved in this browser.,키를 열어 이 브라
 key_unlock_open_kaiwa,Start a conversation,회화 시작하기,会話を始める,話【はな】し始【はじ】める
 share_key_groq,Also include my Groq speech key (for voice input),Groq 음성 키도 포함하기 (음성 입력용),Groq音声キーも含める（音声入力用）,音【おと】を言【こと】葉【ば】にする物【もの】も与【あた】える
 practice_daily_heading,Daily practice,오늘의 연습,毎日の練習,毎【まい】日【にち】する事【こと】
-practice_browse,Browse all quiz questions,모든 퀴즈 문제 보기,すべての問題を見る,全部【ぜんぶ】を見【み】る
+practice_cando_progress,{done} of {total} done,{total}개 중 {done}개 완료,{total}個中{done}個できた,{total}の中【なか】で{done}をした
+practice_cando_everyday,Everyday life,일상생활,日常生活,毎【まい】日【にち】の事【こと】
+practice_cando_work,At work (software),직장에서 (소프트웨어),仕事で（ソフトウェア）,作【つく】る人【ひと】の事【こと】
+practice_cando_practise,Practise it with AI →,AI와 연습하기 →,AIと練習する →,AIと話【はな】す →

@@ -48,6 +48,7 @@ const STRINGS = {
     q_reading: 'What does this mean?',
     q_listening: 'Listen. What does it mean?',
     q_writing: 'Which is the Japanese?',
+    q_sentence: 'Which word fills the blank?',
     play: 'Play',
     correct: 'Correct',
     wrong: 'Not quite',
@@ -79,6 +80,7 @@ const STRINGS = {
     q_reading: '무슨 뜻일까요?',
     q_listening: '들어 보세요. 무슨 뜻일까요?',
     q_writing: '일본어로는 어느 것일까요?',
+    q_sentence: '빈칸에 들어갈 말은?',
     play: '재생',
     correct: '정답',
     wrong: '아쉬워요',
@@ -242,11 +244,20 @@ function planSession(items, state, size, now = new Date()) {
 
 // The skill comes from the shared rotation. Listening needs audio and a
 // connection (audio is not cached offline); otherwise it falls back to reading.
+// The writing skill alternates between two forms: pick the Japanese for a
+// meaning, or fill the word into its example sentence (en/ko only: those
+// editions show the sentence's translation, which pins down the one word
+// that fits; a Japanese translation would give the answer away).
 function questionMode(item, rec, first) {
-  if (first) return 'reading'
-  let mode = reviewMode(ensureReviewTrack(rec || { id: item.id }))
-  if (mode === 'listening' && (!item.audio || !navigator.onLine)) mode = 'reading'
-  return mode
+  if (first) return { skill: 'reading', form: 'reading' }
+  const tracked = ensureReviewTrack(rec || { id: item.id })
+  let skill = reviewMode(tracked)
+  if (skill === 'listening' && (!item.audio || !navigator.onLine)) skill = 'reading'
+  const sentenceOk = item.cloze && (lang === 'en' || lang === 'ko')
+  const form = skill === 'writing' && sentenceOk && tracked.reviewTrack.attempts.writing % 2 === 1
+    ? 'sentence'
+    : skill
+  return { skill, form }
 }
 
 const shuffle = list => {
@@ -382,22 +393,26 @@ function runSession(root, data, state, items, steps) {
   const showQuestion = (step) => {
     const { item } = step
     const rec = state.items[item.id]
-    const mode = questionMode(item, rec, step.first)
+    const { skill: mode, form } = questionMode(item, rec, step.first)
     const others = distractors(item, items, mode)
     const options = shuffle([item, ...others])
     const optionHtml = i => (mode === 'writing'
       ? `<span lang="ja">${ruby(i.jp)}</span>`
       : `<span>${ruby(meaningOf(i))}</span>`)
-    const prompt = mode === 'listening'
-      ? `<p class="practice-listen">${playButton(item, true)}</p>`
-      : mode === 'writing'
-        ? `<p class="practice-meaning practice-meaning--prompt">${ruby(meaningOf(item))}</p>`
-        : `<p class="practice-jp" lang="ja">${ruby(item.jp)}</p>`
+    const blank = '<span class="practice-blank" aria-label="blank">＿＿＿</span>'
+    const prompt = form === 'sentence'
+      ? `<p class="practice-sentence-trans">${ruby(item.cloze.meaning[lang] || item.cloze.meaning.en)}</p>
+         <p class="practice-jp practice-jp--sentence" lang="ja">${ruby(item.cloze.jp).replace('＿＿＿', blank)}</p>`
+      : mode === 'listening'
+        ? `<p class="practice-listen">${playButton(item, true)}</p>`
+        : mode === 'writing'
+          ? `<p class="practice-meaning practice-meaning--prompt">${ruby(meaningOf(item))}</p>`
+          : `<p class="practice-jp" lang="ja">${ruby(item.jp)}</p>`
 
     root.innerHTML = `
       <div class="practice-card">
         ${header()}
-        <p class="practice-question">${tr(`q_${mode}`)}${item.kind === 'grammar' ? ` <span class="practice-badge">${tr('grammar_point')}</span>` : ''}</p>
+        <p class="practice-question">${tr(`q_${form}`)}${item.kind === 'grammar' ? ` <span class="practice-badge">${tr('grammar_point')}</span>` : ''}</p>
         ${prompt}
         <div class="practice-options" role="group">
           ${options.map((o, n) => `<button type="button" class="practice-option" data-id="${escapeHtml(o.id)}"><kbd>${n + 1}</kbd>${optionHtml(o)}</button>`).join('')}
@@ -427,7 +442,9 @@ function runSession(root, data, state, items, steps) {
         const asked = { ...tracked, reviewTrack: { ...tracked.reviewTrack, next: mode } }
         let next = reviewSentence(asked, rating, now)
         next = recordReviewMode(next, rating, now)
-        next.reviews = [...(rec?.reviews || []), { at: now.toISOString(), rating, mode }].slice(-REVIEW_LOG_LIMIT)
+        const entry = { at: now.toISOString(), rating, mode }
+        if (form !== mode) entry.form = form
+        next.reviews = [...(rec?.reviews || []), entry].slice(-REVIEW_LOG_LIMIT)
         state.items[item.id] = next
         saveState(state)
         graded++
@@ -435,10 +452,14 @@ function runSession(root, data, state, items, steps) {
         else steps.push({ type: 'question', item, retry: true })
       }
       const feedback = root.querySelector('.practice-feedback')
+      // A sentence question answers with the whole sentence and its audio
+      const shown = form === 'sentence'
+        ? { jp: item.cloze.full, audio: item.cloze.audio, meaning: item.cloze.meaning[lang] || item.cloze.meaning.en }
+        : { jp: item.jp, audio: item.audio, meaning: meaningOf(item) }
       feedback.innerHTML = `
         <p class="practice-verdict ${ok ? 'is-right' : 'is-wrong'}">${tr(ok ? 'correct' : 'wrong')}</p>
-        <p class="practice-jp practice-jp--answer" lang="ja">${ruby(item.jp)} ${playButton(item)}</p>
-        <p class="practice-meaning">${ruby(meaningOf(item))}</p>
+        <p class="practice-jp practice-jp--answer" lang="ja">${ruby(shown.jp)} ${playButton(shown)}</p>
+        <p class="practice-meaning">${ruby(shown.meaning)}</p>
         <div class="practice-actions"><button type="button" class="btn btn-primary" id="practice-next">${tr(index + 1 >= steps.length ? 'finish' : 'next')}</button></div>`
       bindPlay(feedback)
       if (mode !== 'listening') play(feedback)
@@ -452,6 +473,8 @@ function runSession(root, data, state, items, steps) {
 
   const finish = () => {
     const s = summary(items, state)
+    // Anonymous aggregate signal, as the old quiz sent: a session was finished
+    window.goatcounter?.count({ path: 'practice-session-done', title: 'practice', event: true })
     root.innerHTML = `
       <div class="practice-card practice-done">
         <h3>${tr('done_heading')}</h3>

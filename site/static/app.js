@@ -183,11 +183,24 @@ const applyCoreOnly = () => {
   render()
 }
 
-// Practice page: restore can-do checkbox state from localStorage
+// Practice page: real-life goals. Ticks live in localStorage; the progress
+// line and the done style follow them.
+const renderCandoProgress = () => {
+  const boxes = [...document.querySelectorAll('#content .cando-check')]
+  for (const cb of boxes) cb.closest('.cando')?.classList.toggle('is-done', cb.checked)
+  const progress = document.querySelector('#content .cando-progress')
+  if (!progress || !boxes.length) return
+  const done = boxes.filter(cb => cb.checked).length
+  progress.querySelector('.cando-progress__label').textContent = progress.dataset.template
+    .replace('{done}', done).replace('{total}', boxes.length)
+  progress.querySelector('.cando-progress__bar span').style.width = `${(100 * done) / boxes.length}%`
+}
+
 const restoreCandos = () => {
   for (const cb of document.querySelectorAll('#content .cando-check')) {
     cb.checked = localStorage.getItem(`cando:${cb.dataset.id}`) === '1'
   }
+  renderCandoProgress()
 }
 
 // Practice page: same reason as Kaiwa below - load the module once, then
@@ -544,6 +557,7 @@ document.addEventListener('change', (e) => {
   if (!cb) return
   const id = cb.dataset.id
   localStorage.setItem(`cando:${id}`, cb.checked ? '1' : '0')
+  renderCandoProgress()
   if (!cb.checked) return
   // Aggregate milestone signal, once per item ever, anonymous
   if (!localStorage.getItem(`cando-sent:${id}`)) {
@@ -559,22 +573,6 @@ document.addEventListener('change', (e) => {
 })
 
 document.addEventListener('click', (e) => {
-  const opt = e.target.closest?.('.quiz-opt')
-  if (opt) {
-    const item = opt.closest('.quiz-item')
-    if (item.classList.contains('answered')) return
-    item.classList.add('answered')
-    opt.classList.add(opt.dataset.correct === '1' ? 'right' : 'wrong')
-    item.querySelector('.quiz-opt[data-correct="1"]').classList.add('right')
-    const answer = item.querySelector('.quiz-answer')
-    if (answer) answer.hidden = false
-    const section = item.closest('.quiz-section')
-    if (section && section.querySelectorAll('.quiz-item.answered').length
-        === Number(section.dataset.total)) {
-      window.goatcounter?.count({ path: `quiz-${section.dataset.cando}-done`, title: 'quiz', event: true })
-    }
-    return
-  }
   const copy = e.target.closest?.('#copy-prompt')
   if (copy) {
     const text = document.getElementById('ai-prompt')?.textContent || ''
