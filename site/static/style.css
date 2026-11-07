@@ -2525,3 +2525,8 @@ span.practice-badge { margin-inline-start: 0.35rem; }
   .cando-main { padding: 0.7rem 0.8rem 0.35rem; }
   .cando-actions { padding: 0 0.8rem 0.65rem calc(0.8rem + 1.35rem + 0.75rem); }
 }
+
+/* `hidden` must win inside dialogs: several parts (key options, the Groq
+   checkbox row, install steps) set their own display, which would otherwise
+   override the attribute and show them while they should be hidden. */
+.app-dialog [hidden] { display: none !important; }
