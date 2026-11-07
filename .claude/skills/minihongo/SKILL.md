@@ -112,7 +112,7 @@ Haiku categories (under cat-78): Nature, Daily Life, Heart, Seasons, Between Peo
 - Site uses htmz for partial page loads
 - Service worker for offline support
 - GitHub Pages deployment via `.github/workflows/deploy.yml`
-- Three versions: EN (`/`), JA (`/ja/`), MH (`/mh/`)
+- Four versions: EN (`/`), KO (`/ko/`), JA (`/ja/`), MH (`/mh/`)
 - `data/` CSVs are the source of truth, HTML pages render from them
 - Outputs: website (docs/), Anki decks (.apkg), PDF books (.pdf), audio (.mp3)
 

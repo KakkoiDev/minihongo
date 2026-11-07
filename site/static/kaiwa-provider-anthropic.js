@@ -3,6 +3,9 @@
 
 window.KaiwaProviders = window.KaiwaProviders || {}
 
+// UI text via kaiwa-i18n.js; the English fallback keeps this file usable alone.
+const kaiwaText = (key, vars, fallback) => window.kaiwaT?.(key, vars) ?? fallback
+
 window.KaiwaProviders.anthropic = {
   id: 'anthropic',
   label: 'Anthropic (Claude Haiku 4.5)',
@@ -44,7 +47,7 @@ window.KaiwaProviders.anthropic = {
     }, onDelta)
 
     if (!text.trim()) {
-      throw new Error('Anthropic returned an empty response. Please try again.')
+      throw new Error(kaiwaText('err_empty', { provider: 'Anthropic' }, 'Anthropic returned an empty response. Please try again.'))
     }
     return text
   },
@@ -58,9 +61,10 @@ async function describeError(res) {
   } catch {
     detail = await res.text().catch(() => '')
   }
-  if (res.status === 401) return 'Anthropic rejected the API key (401). Check the key in settings.'
-  if (res.status === 429) return 'Anthropic rate limit hit (429). Wait a moment and try again.'
-  return `Anthropic API error ${res.status}: ${detail.slice(0, 300)}`
+  if (res.status === 401) return kaiwaText('err_key_rejected', { provider: 'Anthropic' }, 'Anthropic rejected the API key (401). Check the key in settings.')
+  if (res.status === 429) return kaiwaText('err_rate_limit', { provider: 'Anthropic' }, 'Anthropic rate limit hit (429). Wait a moment and try again.')
+  const vars = { provider: 'Anthropic', status: res.status, detail: detail.slice(0, 300) }
+  return kaiwaText('err_api', vars, `Anthropic API error ${vars.status}: ${vars.detail}`)
 }
 
 // Shared SSE line reader: `extract(evt)` returns a text delta or null per event.

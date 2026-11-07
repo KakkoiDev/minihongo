@@ -10,7 +10,7 @@ import sys
 from collections import defaultdict
 from pathlib import Path
 
-from mh_common import LANGS, LANG_COL, load_csv, strip_furigana
+from mh_common import ARTIFACT_LANGS as LANGS, LANG_COL, load_csv, strip_furigana
 
 TYPST_DIR = Path('typst')
 LOGO = Path('site/static/logo.svg')

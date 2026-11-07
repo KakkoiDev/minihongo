@@ -7,7 +7,7 @@ if (!document.querySelector('base') || !document.getElementById('content')) {
 
 const base = document.querySelector('base').href
 const basePath = new URL(base).pathname
-const rootPath = basePath.replace(/^(\/(?:ja|mh)\/)/, '/')
+const rootPath = basePath.replace(/^(\/(?:ko|ja|mh)\/)/, '/')
 
 // -- SPA navigation -----------------------------------------------------
 
@@ -160,6 +160,26 @@ const applyListenFirst = () => {
   }
 }
 
+// Grammar page: "core points only" filter, remembered across visits
+const applyCoreOnly = () => {
+  const btn = document.getElementById('btn-core-only')
+  if (!btn) return
+  let on = false
+  try { on = localStorage.getItem('grammar_core_only') === '1' } catch {}
+  const content = document.getElementById('content')
+  const render = () => {
+    content.classList.toggle('core-only', on)
+    btn.classList.toggle('active', on)
+    btn.setAttribute('aria-pressed', String(on))
+  }
+  btn.onclick = () => {
+    on = !on
+    try { localStorage.setItem('grammar_core_only', on ? '1' : '0') } catch {}
+    render()
+  }
+  render()
+}
+
 // Practice page: restore can-do checkbox state from localStorage
 const restoreCandos = () => {
   for (const cb of document.querySelectorAll('#content .cando-check')) {
@@ -183,11 +203,13 @@ const initKaiwa = () => {
   // The Kaiwa UI depends on all provider adapters. Load them before kaiwa.js;
   // otherwise its initial render throws before the Start handler is bound.
   if (!kaiwaLoadPromise) {
-    kaiwaLoadPromise = Promise.all([
+    // Strings first: providers and kaiwa.js read window.kaiwaT at render time
+    kaiwaLoadPromise = import(`${rootPath}static/kaiwa-i18n.js?v={{CACHE_HASH}}`).then(() => Promise.all([
       import(`${rootPath}static/kaiwa-provider-anthropic.js?v={{CACHE_HASH}}`),
       import(`${rootPath}static/kaiwa-provider-openai.js?v={{CACHE_HASH}}`),
       import(`${rootPath}static/kaiwa-provider-deepseek.js?v={{CACHE_HASH}}`),
-    ])
+      import(`${rootPath}static/key-share.js?v={{CACHE_HASH}}`),
+    ]))
       .then(() => import(`${rootPath}static/kaiwa.js?v={{CACHE_HASH}}`))
       .catch(err => {
         console.error('Could not load Kaiwa scripts', err)
@@ -257,6 +279,8 @@ const bindGoingFurtherFilter = () => {
 
 // Bind lesson-nav and TOC links inside #content (re-run after each swap)
 const bindContentLinks = () => {
+  if (matchMedia('(min-width: 601px)').matches)
+    document.querySelectorAll('#content .toc-box').forEach(d => { d.open = true })
   for (const a of document.querySelectorAll('.lesson-nav a')) {
     bindLink(a)
   }
@@ -268,6 +292,7 @@ const bindContentLinks = () => {
   }
   bindPlayButtons()
   applyListenFirst()
+  applyCoreOnly()
   restoreCandos()
   bindGoingFurtherFilter()
   initKaiwa()
@@ -275,10 +300,8 @@ const bindContentLinks = () => {
 
 // Top nav links
 for (const a of navLinks) {
-  // cross-locale: links to a page that only exists at the English root
-  // (e.g. Kaiwa), regardless of which locale is currently active. Left as
-  // a plain link - the SPA router derives paths relative to the current
-  // locale's base, which would mangle a link that deliberately escapes it.
+  // cross-locale: a link that deliberately leaves the current edition's base.
+  // Left as a plain link - the SPA router derives paths relative to the base.
   if (a.classList.contains('lang-link') || a.classList.contains('cross-locale')) continue
   bindLink(a)
 }
@@ -299,36 +322,186 @@ const btnTheme = document.getElementById('btn-theme')
 const btnFurigana = document.getElementById('btn-furigana')
 const btnSpeed = document.getElementById('btn-speed')
 
+// Reflect a toggle's state both visually (.active) and for assistive tech
+const setPressed = (btn, on) => {
+  btn.classList.toggle('active', on)
+  btn.setAttribute(btn.getAttribute('role') === 'switch' ? 'aria-checked' : 'aria-pressed', String(on))
+}
+
 btnTheme.addEventListener('click', () => {
   const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark'
   document.documentElement.dataset.theme = next
   localStorage.setItem('theme', next)
-  btnTheme.classList.toggle('active', next === 'dark')
+  setPressed(btnTheme, next === 'dark')
   document.querySelector('meta[name="theme-color"]').content = next === 'dark' ? '#1A1A1A' : '#FFFFFF'
 })
 
 btnFurigana.addEventListener('click', () => {
   const on = document.documentElement.classList.toggle('no-furigana')
   localStorage.setItem('furigana', on ? '0' : '1')
-  btnFurigana.classList.toggle('active', !on)
+  setPressed(btnFurigana, !on)
 })
 
 btnSpeed.addEventListener('click', () => {
   slowAudio = !slowAudio
   localStorage.setItem('slow_audio', slowAudio ? '1' : '0')
-  btnSpeed.classList.toggle('active', slowAudio)
+  setPressed(btnSpeed, slowAudio)
   if (currentAudio) currentAudio.playbackRate = slowAudio ? 0.75 : 1
 })
 
 // Initial active state
-btnTheme.classList.toggle('active', document.documentElement.dataset.theme === 'dark')
-btnFurigana.classList.toggle('active', !document.documentElement.classList.contains('no-furigana'))
-btnSpeed.classList.toggle('active', slowAudio)
+setPressed(btnTheme, document.documentElement.dataset.theme === 'dark')
+setPressed(btnFurigana, !document.documentElement.classList.contains('no-furigana'))
+setPressed(btnSpeed, slowAudio)
+
+// Keep the current lesson tab visible in the horizontally scrolling mobile nav
+document.querySelector('.nav-tabs a.active')?.scrollIntoView({ block: 'nearest', inline: 'center' })
+
+// -- Dialogs (settings, share/invite, install) ---------------------------
+
+const openDialog = (d) => { if (d && !d.open) d.showModal() }
+for (const d of document.querySelectorAll('.app-dialog')) {
+  d.addEventListener('click', (e) => {
+    // Close on the close button, or on a click on the backdrop itself
+    if (e.target.closest('[data-close]') || e.target === d) d.close()
+  })
+}
+
+const settingsDialog = document.getElementById('settings-dialog')
+// In-content buttons (e.g. on the homepage) open a dialog by id. Delegated so
+// it survives SPA swaps; the share/install buttons reuse their header logic.
+document.addEventListener('click', (e) => {
+  const opener = e.target.closest?.('[data-open]')
+  if (!opener) return
+  const id = opener.dataset.open
+  if (id === 'share-dialog') document.getElementById('btn-share')?.click()
+  else if (id === 'install-dialog') openInstallDialog()
+  else openDialog(document.getElementById(id))
+})
+document.getElementById('btn-settings')?.addEventListener('click', () => openDialog(settingsDialog))
+
+// Invite links: /<edition>/<page>?lang=<edition>[&install=1]. The ?lang
+// parameter makes the link's language win over the visitor's saved one
+// (see the routing script in page-layout.html).
+const shareDialog = document.getElementById('share-dialog')
+const shareLang = document.getElementById('share-lang')
+const shareInstall = document.getElementById('share-install')
+const shareUrl = document.getElementById('share-url')
+const shareCopy = document.getElementById('share-copy')
+const shareNative = document.getElementById('share-native')
+const SHARE_COPY_LABEL = shareCopy?.innerHTML
+
+// Optional: an encrypted Kaiwa AI key in the link's #fragment (key-share.js).
+// The link points at the Kaiwa page; the unlock code is shown here only, for
+// the sender to pass on separately. One code per dialog session.
+const shareKeySection = document.getElementById('share-key-section')
+const shareKey = document.getElementById('share-key')
+const shareKeyOptions = document.getElementById('share-key-options')
+const shareKeyDays = document.getElementById('share-key-days')
+const shareKeyCode = document.getElementById('share-key-code')
+const shareKeyCopyCode = document.getElementById('share-key-copy-code')
+const SHARE_CODE_COPY_LABEL = shareKeyCopyCode?.innerHTML
+let sealed = null // { token, code, days }
+let keyShareLoad = null
+
+const loadKeyShare = () => {
+  keyShareLoad ??= import(`${rootPath}static/key-share.js?v={{CACHE_HASH}}`)
+    .then(() => window.MinihongoKeyShare)
+    .catch(() => { keyShareLoad = null; return null })
+  return keyShareLoad
+}
+
+const savedKaiwaKey = () => {
+  try {
+    const provider = localStorage.getItem('kaiwa_provider') || 'anthropic'
+    const key = localStorage.getItem(`kaiwa_key_${provider}`)
+    if (!key) return null
+    const payload = { provider, key }
+    const speechKey = localStorage.getItem('kaiwa_key_groq_speech')
+    if (speechKey && localStorage.getItem('kaiwa_speech_mode') === 'groq') payload.speechKey = speechKey
+    return payload
+  } catch { return null }
+}
+
+const buildInviteUrl = () => {
+  const lang = shareLang.value
+  const page = location.pathname.replace(/^\/(ko|ja|mh)\//, '/')
+  const url = new URL(lang === 'en' ? page : `/${lang}${page}`, location.origin)
+  url.searchParams.set('lang', lang)
+  if (shareInstall.checked) url.searchParams.set('install', '1')
+  if (shareKey?.checked && sealed) url.hash = `key=${sealed.token}`
+  return url.href
+}
+const refreshShareUrl = async () => {
+  shareCopy.innerHTML = SHARE_COPY_LABEL
+  const wantsKey = shareKey?.checked
+  shareKeyOptions.hidden = !wantsKey
+  const days = Number(shareKeyDays?.value || 0)
+  if (wantsKey && (!sealed || sealed.days !== days)) {
+    const payload = savedKaiwaKey()
+    const ks = await loadKeyShare()
+    if (!payload || !ks) { shareKey.checked = false; shareKeyOptions.hidden = true }
+    else {
+      shareKeyCode.textContent = '…'
+      shareUrl.value = ''
+      const { token, code } = await ks.sealKey(payload, days)
+      sealed = { token, code, days }
+    }
+  }
+  if (sealed) {
+    shareKeyCode.textContent = sealed.code
+    shareKeyCopyCode.innerHTML = SHARE_CODE_COPY_LABEL
+  }
+  shareUrl.value = buildInviteUrl()
+}
+
+if (shareDialog) {
+  shareNative.hidden = !navigator.share
+  shareLang.addEventListener('change', refreshShareUrl)
+  shareInstall.addEventListener('change', refreshShareUrl)
+  shareKey?.addEventListener('change', refreshShareUrl)
+  shareKeyDays?.addEventListener('change', refreshShareUrl)
+  shareDialog.addEventListener('close', () => {
+    // Forget the sealed key: reopening the dialog makes a fresh code
+    sealed = null
+    if (shareKey) shareKey.checked = false
+  })
+  document.getElementById('btn-share').addEventListener('click', async () => {
+    // Offer the key option only when this browser has a Kaiwa key to share
+    shareKeySection.hidden = true
+    if (savedKaiwaKey()) loadKeyShare().then(ks => { shareKeySection.hidden = !ks?.isSupported() })
+    openDialog(shareDialog)
+    await refreshShareUrl()
+    shareUrl.select()
+  })
+  shareUrl.addEventListener('focus', () => shareUrl.select())
+  shareCopy.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(shareUrl.value)
+    } catch {
+      shareUrl.select()
+      document.execCommand?.('copy')
+    }
+    shareCopy.textContent = shareCopy.dataset.copied
+  })
+  shareKeyCopyCode?.addEventListener('click', async () => {
+    if (!sealed) return
+    try { await navigator.clipboard.writeText(sealed.code) } catch {}
+    shareKeyCopyCode.textContent = shareKeyCopyCode.dataset.copied
+  })
+  shareNative.addEventListener('click', async () => {
+    try {
+      // The link only - the unlock code must travel separately
+      await navigator.share({ title: 'Minihongo', url: shareUrl.value })
+      shareDialog.close()
+    } catch { /* cancelled */ }
+  })
+}
 
 // Language switcher
 window.switchLang = (lang) => {
   localStorage.setItem('lang', lang)
-  const pagePath = location.pathname.replace(/^\/(ja|mh)\//, '/')
+  const pagePath = location.pathname.replace(/^\/(ko|ja|mh)\//, '/')
   const dest = lang === 'en' ? pagePath : `/${lang}${pagePath}`
   document.body.classList.add('page-exit')
   setTimeout(() => { location.href = dest }, 150)
@@ -395,7 +568,7 @@ document.addEventListener('click', (e) => {
 
 // -- Service worker -------------------------------------------------
 
-navigator.serviceWorker?.register(`${basePath}sw.js?v={{CACHE_HASH}}`, { updateViaCache: 'none' })
+navigator.serviceWorker?.register(`/sw.js?v={{CACHE_HASH}}`, { scope: "/", updateViaCache: "none" })
 
 // -- Back to top --------------------------------------------------------
 
@@ -544,18 +717,143 @@ if (!navigator.onLine) offlineToast = showToast(TOAST.offline)
 // -- PWA install prompt ---------------------------------------------
 
 let deferredInstall = null
+const installDialog = document.getElementById('install-dialog')
+const installYes = document.getElementById('install-yes')
+const isStandaloneApp = () => matchMedia('(display-mode: standalone)').matches || navigator.standalone === true
+const isIOS = () => /iphone|ipad|ipod/i.test(navigator.userAgent)
+  || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)
+
+// Pick what the install dialog can offer on this browser:
+// 'prompt' = native install prompt available, 'ios' = Share > Add to Home Screen,
+// 'other' = browser-menu instructions, 'done' = already running as the app.
+const installMode = () => isStandaloneApp() ? 'done'
+  : deferredInstall ? 'prompt'
+  : isIOS() ? 'ios' : 'other'
+
+const renderInstallDialog = () => {
+  const mode = installMode()
+  for (const p of installDialog.querySelectorAll('.install-steps')) p.hidden = p.dataset.for !== mode
+  installYes.hidden = mode !== 'prompt'
+}
+
+const installSection = document.getElementById('install-section')
+const keyUnlockSection = document.getElementById('key-unlock')
+
+// One arrival dialog with two optional parts: unlocking a shared Kaiwa key
+// (#key= in the link) and installing the app (?install=1).
+const openInstallDialog = ({ install = true, key = false } = {}) => {
+  if (!installDialog) return
+  renderInstallDialog()
+  installSection.hidden = !install
+  keyUnlockSection.hidden = !key
+  installDialog.setAttribute('aria-labelledby', key ? 'key-unlock-title' : 'install-title')
+  openDialog(installDialog)
+  if (key) document.getElementById('key-unlock-code')?.focus()
+}
+
+installYes?.addEventListener('click', async () => {
+  if (!deferredInstall) return renderInstallDialog()
+  deferredInstall.prompt()
+  const choice = await deferredInstall.userChoice.catch(() => null)
+  deferredInstall = null
+  if (choice?.outcome === 'accepted') installDialog.close()
+  else renderInstallDialog()
+})
+
+document.getElementById('btn-install-open')?.addEventListener('click', () => {
+  settingsDialog?.close()
+  openInstallDialog()
+})
+
+// Install links (?install=1): ask once on arrival, then drop the parameter so
+// a reload or a shared copy of the address bar does not ask again. Chromium
+// fires beforeinstallprompt shortly after load, so give it a moment.
+// Links carrying a shared key (#key=…) open the same dialog with an unlock-code
+// field, whatever page they land on.
+const sharedKeyToken = (location.hash.match(/[#&]key=([A-Za-z0-9._-]+)/) || [])[1] || null
+{
+  const params = new URLSearchParams(location.search)
+  const wantsInstall = params.has('install') && !isStandaloneApp()
+  if (params.has('install')) {
+    params.delete('install')
+    const rest = params.toString()
+    history.replaceState(history.state, '', location.pathname + (rest ? `?${rest}` : '') + location.hash)
+  }
+  if (sharedKeyToken || wantsInstall) {
+    const open = () => openInstallDialog({ install: wantsInstall, key: !!sharedKeyToken })
+    if (sharedKeyToken) loadKeyShare().then(open) // need the decryptor ready
+    else setTimeout(open, deferredInstall ? 0 : 1200)
+  }
+}
+
+// Unlock: decrypt on this device, then store the key where Kaiwa reads it,
+// along with when it expires (Kaiwa deletes it after that).
+{
+  const form = document.getElementById('key-unlock-form')
+  const input = document.getElementById('key-unlock-code')
+  const button = document.getElementById('key-unlock-btn')
+  const status = document.getElementById('key-unlock-status')
+  const done = document.getElementById('key-unlock-done')
+  const msg = (k) => document.getElementById('key-unlock-msgs')?.content
+    .querySelector(`[data-k="${k}"]`)?.innerHTML || k
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault()
+    const ks = await loadKeyShare()
+    if (!ks?.isSupported()) { status.innerHTML = msg('unsupported'); return }
+    button.disabled = true
+    status.innerHTML = msg('working')
+    try {
+      const shared = await ks.openKey(sharedKeyToken, input.value)
+      if (!['anthropic', 'openai', 'deepseek'].includes(shared.provider)) throw new ks.KeyShareError('malformed')
+      localStorage.setItem('kaiwa_provider', shared.provider)
+      localStorage.setItem(`kaiwa_key_${shared.provider}`, shared.key)
+      localStorage.setItem('kaiwa_shared_key', shared.provider)
+      if (shared.exp) localStorage.setItem('kaiwa_shared_exp', String(shared.exp))
+      else localStorage.removeItem('kaiwa_shared_exp')
+      if (shared.speechKey) {
+        localStorage.setItem('kaiwa_key_groq_speech', shared.speechKey)
+        localStorage.setItem('kaiwa_speech_mode', 'groq')
+        localStorage.setItem('kaiwa_shared_speech', '1')
+      }
+      // The encrypted key must not linger in history, bookmarks or a re-shared URL
+      history.replaceState(history.state, '', location.pathname + location.search)
+      form.hidden = true
+      status.textContent = ''
+      done.hidden = false
+      // Already on a Kaiwa screen: re-render it so it picks up the key
+      const kaiwaRoot = document.getElementById('kaiwa-app')
+      if (kaiwaRoot && window.initKaiwaPage) {
+        kaiwaRoot.dataset.bound = ''
+        window.initKaiwaPage()
+      }
+    } catch (err) {
+      status.innerHTML = msg(err?.code || 'malformed')
+      button.disabled = false
+      if (err?.code === 'wrong-code') input.select()
+    }
+  })
+  document.getElementById('key-unlock-kaiwa')?.addEventListener('click', () => installDialog.close())
+}
+
+addEventListener('appinstalled', () => {
+  deferredInstall = null
+  if (installDialog?.open) renderInstallDialog()
+})
+
 addEventListener('beforeinstallprompt', (e) => {
   e.preventDefault()
   deferredInstall = e
+  // The install dialog may already be showing fallback steps - upgrade it
+  if (installDialog?.open) return renderInstallDialog()
   const dismissed = localStorage.getItem('install_dismissed')
   if (dismissed && Date.now() - Number(dismissed) < 7 * 86400000) return
   let installToast = null
   installToast = showToast(TOAST.install, {
     actionLabel: TOAST.installBtn,
     action() {
-      deferredInstall?.prompt()
-      deferredInstall = null
       installToast?.dismiss()
+      openInstallDialog()
     },
     onDismiss() { localStorage.setItem('install_dismissed', Date.now()) }
   })

@@ -12,11 +12,14 @@ Source: `data/pages.csv`
 | `path` | string | required |
 | `name_minihongo` | string | required |
 | `name_english` | string | required |
+| `name_korean` | string |  |
 | `name_japanese` | string |  |
 | `desc_en` | string |  |
+| `desc_ko` | string |  |
 | `desc_ja` | string |  |
 | `desc_mh` | string |  |
 | `gloss_en` | string |  |
+| `gloss_ko` | string |  |
 | `gloss_ja` | string |  |
 | `gloss_mh` | string |  |
 | `nav_group` | string |  |
@@ -33,10 +36,12 @@ Source: `data/categories.csv`
 | `page_id` | string | required |
 | `name_minihongo` | string | required |
 | `name_english` | string | required |
+| `name_korean` | string |  |
 | `name_japanese` | string |  |
 | `sort_order` | integer | required |
 | `note_minihongo` | string |  |
 | `note_english` | string |  |
+| `note_korean` | string |  |
 | `note_japanese` | string |  |
 
 Foreign keys:
@@ -52,11 +57,14 @@ Source: `data/words.csv`
 | `category_id` | string | required |
 | `minihongo` | string | required |
 | `english` | string |  |
+| `korean` | string |  |
 | `japanese` | string |  |
 | `definition_minihongo` | string |  |
 | `english_litteral` | string |  |
+| `korean_litteral` | string |  |
 | `example_minihongo` | string |  |
 | `example_english` | string |  |
+| `example_korean` | string |  |
 | `example_japanese` | string |  |
 | `sort_order` | integer | required |
 | `audio_word` | string |  |
@@ -75,9 +83,11 @@ Source: `data/grammar.csv`
 | `category_id` | string | required |
 | `minihongo` | string | required |
 | `english` | string |  |
+| `korean` | string |  |
 | `japanese` | string |  |
 | `explanation_minihongo` | string |  |
 | `explanation_english` | string | required |
+| `explanation_korean` | string |  |
 | `explanation_japanese` | string |  |
 | `sort_order` | integer | required |
 | `core` | string |  |
@@ -95,8 +105,10 @@ Source: `data/grammar_examples.csv`
 | `grammar_id` | string | required |
 | `minihongo` | string | required |
 | `english` | string |  |
+| `korean` | string |  |
 | `japanese` | string |  |
 | `english_litteral` | string |  |
+| `korean_litteral` | string |  |
 | `sort_order` | integer | required |
 | `audio_file` | string |  |
 
@@ -114,8 +126,10 @@ Source: `data/compounds.csv`
 | `minihongo` | string | required |
 | `reading` | string |  |
 | `english` | string |  |
+| `korean` | string |  |
 | `japanese` | string |  |
 | `english_litteral` | string |  |
+| `korean_litteral` | string |  |
 | `definition_minihongo` | string |  |
 | `sort_order` | integer | required |
 | `audio_file` | string |  |
@@ -134,8 +148,10 @@ Source: `data/expressions.csv`
 | `minihongo` | string | required |
 | `reading` | string |  |
 | `english` | string |  |
+| `korean` | string |  |
 | `japanese` | string |  |
 | `english_litteral` | string |  |
+| `korean_litteral` | string |  |
 | `sort_order` | integer | required |
 | `audio_file` | string |  |
 
@@ -152,6 +168,7 @@ Source: `data/haiku.csv`
 | `category_id` | string | required |
 | `minihongo` | string | required |
 | `english` | string |  |
+| `korean` | string |  |
 | `japanese` | string |  |
 | `sort_order` | integer | required |
 | `audio_file` | string |  |
@@ -169,6 +186,7 @@ Source: `data/dialog_groups.csv`
 | `category_id` | string | required |
 | `title_minihongo` | string | required |
 | `title_english` | string | required |
+| `title_korean` | string |  |
 | `title_japanese` | string |  |
 | `sort_order` | integer | required |
 | `audio_file` | string |  |
@@ -187,9 +205,11 @@ Source: `data/dialogs.csv`
 | `line_number` | integer | required |
 | `speaker_minihongo` | string | required |
 | `speaker_english` | string | required |
+| `speaker_korean` | string |  |
 | `speaker_japanese` | string |  |
 | `minihongo` | string | required |
 | `english` | string |  |
+| `korean` | string |  |
 | `japanese` | string |  |
 
 Foreign keys:
@@ -205,9 +225,11 @@ Source: `data/stories.csv`
 | `category_id` | string | required |
 | `title_minihongo` | string | required |
 | `title_english` | string | required |
+| `title_korean` | string |  |
 | `title_japanese` | string |  |
 | `minihongo` | string | required |
 | `english` | string |  |
+| `korean` | string |  |
 | `japanese` | string |  |
 | `sort_order` | integer | required |
 | `audio_file` | string |  |
@@ -224,6 +246,7 @@ Source: `data/candos.csv`
 | `id` | string | primary key, required |
 | `dialog_group_id` | string |  |
 | `english` | string | required |
+| `korean` | string |  |
 | `japanese` | string | required |
 | `minihongo` | string | required |
 | `sort_order` | integer | required |
@@ -241,8 +264,10 @@ Source: `data/comprehension.csv`
 | `category_id` | string | required |
 | `japanese` | string | required |
 | `english` | string | required |
+| `korean` | string |  |
 | `minihongo` | string | required |
 | `where_english` | string |  |
+| `where_korean` | string |  |
 | `where_japanese` | string |  |
 | `tts_text` | string |  |
 | `sort_order` | integer | required |
@@ -262,6 +287,7 @@ Source: `data/advanced.csv`
 | `japanese` | string | required |
 | `reading` | string |  |
 | `english` | string | required |
+| `korean` | string |  |
 | `sort_order` | integer | required |
 | `audio_file` | string |  |
 

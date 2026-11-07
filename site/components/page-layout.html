@@ -21,31 +21,54 @@
     if (localStorage.getItem('listen_first') === '1')
       document.documentElement.classList.add('listen-first')
 
-    // Redirect to stored language if on the wrong locale path
-    // Skip in standalone PWA - redirects break the standalone window on resume
-    const isStandalone = matchMedia('(display-mode: standalone)').matches
-      || navigator.standalone
-    const savedLang = localStorage.getItem('lang')
-    if (!isStandalone && savedLang && /^(en|ja|mh)$/.test(savedLang)) {
-      const curLang = location.pathname.startsWith('/mh/') ? 'mh'
-        : location.pathname.startsWith('/ja/') ? 'ja' : 'en'
-      if (savedLang !== curLang) {
-        const pg = location.pathname.replace(/^\/(ja|mh)\//, '/')
-        location.replace(savedLang === 'en' ? pg : `/${savedLang}${pg}`)
+    // Language routing. Explicit beats remembered:
+    //  1. ?lang=xx (invite links) - show that edition and remember it
+    //  2. a /ko/, /ja/ or /mh/ path - the visitor chose it; remember it
+    //  3. the unprefixed (English) path - send returning visitors to their saved edition
+    // Skip step 3 in a standalone PWA (redirects break it on resume).
+    {
+      const LANG_RE = /^(en|ko|ja|mh)$/
+      const pathLang = (location.pathname.match(/^\/(ko|ja|mh)\//) || [])[1] || 'en'
+      const pagePath = location.pathname.replace(/^\/(ko|ja|mh)\//, '/')
+      const at = (l) => (l === 'en' ? pagePath : `/${l}${pagePath}`)
+      const params = new URLSearchParams(location.search)
+      const linkLang = params.get('lang')
+      let savedLang = null
+      try { savedLang = localStorage.getItem('lang') } catch {}
+      const remember = (l) => { try { localStorage.setItem('lang', l) } catch {} }
+      if (linkLang && LANG_RE.test(linkLang)) {
+        remember(linkLang)
+        params.delete('lang')
+        const rest = params.toString()
+        const dest = at(linkLang) + (rest ? `?${rest}` : '') + location.hash
+        if (linkLang !== pathLang) location.replace(dest)
+        else history.replaceState(history.state, '', dest)
+      } else if (pathLang !== 'en') {
+        remember(pathLang)
+      } else {
+        const isStandalone = matchMedia('(display-mode: standalone)').matches || navigator.standalone
+        if (!isStandalone && savedLang && LANG_RE.test(savedLang) && savedLang !== 'en')
+          location.replace(at(savedLang) + location.search + location.hash)
       }
     }
   </script>
   <meta name="description" content="{{META_DESCRIPTION}}">
   <link rel="canonical" href="{{CANONICAL_URL}}">
-  <link rel="alternate" hreflang="en" href="{{HREFLANG_EN}}">
-  <link rel="alternate" hreflang="ja" href="{{HREFLANG_JA}}">
-  <link rel="alternate" hreflang="x-default" href="{{HREFLANG_EN}}">
+  {{HREFLANG_LINKS}}
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Minihongo">
+  <meta property="og:title" content="{{SITE_NAME_PLAIN}}">
+  <meta property="og:description" content="{{META_DESCRIPTION}}">
+  <meta property="og:url" content="{{CANONICAL_URL}}">
+  <meta property="og:locale" content="{{OG_LOCALE}}">
+  <meta property="og:image" content="{{SITE_URL}}/static/icon-512.png">
+  <meta name="twitter:card" content="summary">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="/static/style.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=optional" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=optional"></noscript>
-  <link rel="manifest" href="/manifest.json">
+  <link rel="manifest" href="/manifest-{{lang}}.json">
   <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#1A1A1A" media="(prefers-color-scheme: dark)">
   <link rel="icon" href="/static/logo.svg" type="image/svg+xml">
@@ -55,24 +78,22 @@
   <nav class="top">
     <div class="nav-bar">
       <a href="./" class="logo" lang="ja">ミニ本語</a>
-      <button class="nav-toggle" id="btn-speed">{{SLOW_AUDIO_LABEL}}</button>
-      <button class="nav-toggle" id="btn-furigana">{{FURIGANA_LABEL}}</button>
-      <button class="nav-toggle" id="btn-theme">{{DARK_MODE_LABEL}}</button>
+      <button class="nav-toggle" id="btn-furigana" aria-pressed="true">{{FURIGANA_LABEL}}</button>
       {{LANG_SWITCHER}}
+      <button class="icon-btn" id="btn-share" aria-label="{{SHARE_LABEL}}" title="{{SHARE_LABEL}}">
+        <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg>
+      </button>
+      <button class="icon-btn" id="btn-settings" aria-label="{{SETTINGS_LABEL}}" title="{{SETTINGS_LABEL}}" aria-haspopup="dialog">
+        <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"/></svg>
+      </button>
     </div>
+    <div class="nav-tabs-wrap">
     <div class="nav-tabs">
       {% for p in data.pages | where: nav_group="core" | sort: "sort_order" %}
-      {% if p.id == "kaiwa" %}
-      <a href="/{{ p.path }}" class="cross-locale" title="{{ p | get: DESC_COL | strip_furigana }}">
-        <span class="tab-name">{{ p | get: CAT_NAME_COL | ruby }}</span>
-        <span class="tab-gloss">{{ p | get: GLOSS_COL | ruby }}</span>
-      </a>
-      {% else %}
       <a href="{{ p.path }}" title="{{ p | get: DESC_COL | strip_furigana }}">
         <span class="tab-name">{{ p | get: CAT_NAME_COL | ruby }}</span>
         <span class="tab-gloss">{{ p | get: GLOSS_COL | ruby }}</span>
       </a>
-      {% endif %}
       {% endfor %}
     </div>
     <div class="nav-tabs">
@@ -82,6 +103,7 @@
         <span class="tab-gloss">{{ p | get: GLOSS_COL | ruby }}</span>
       </a>
       {% endfor %}
+    </div>
     </div>
   </nav>
 
@@ -137,6 +159,99 @@
         <button type="submit" class="contact-send">{{CONTACT_SEND}}</button>
       </div>
     </form>
+  </dialog>
+
+
+  <dialog class="app-dialog" id="settings-dialog" aria-labelledby="settings-title">
+    <h2 id="settings-title">{{SETTINGS_LABEL}}</h2>
+    <div class="settings-list">
+      <button type="button" class="setting-row" id="btn-speed" role="switch" aria-checked="false">
+        <span>{{SLOW_AUDIO_LABEL}}</span><span class="switch" aria-hidden="true"></span>
+      </button>
+      <button type="button" class="setting-row" id="btn-theme" role="switch" aria-checked="false">
+        <span>{{DARK_MODE_LABEL}}</span><span class="switch" aria-hidden="true"></span>
+      </button>
+      <button type="button" class="setting-row" id="btn-install-open">
+        <span>{{ui.settings_install}}</span><span class="setting-arrow" aria-hidden="true">→</span>
+      </button>
+    </div>
+    <div class="dialog-actions">
+      <button type="button" class="btn" data-close>{{CLOSE_LABEL}}</button>
+    </div>
+  </dialog>
+
+  <dialog class="app-dialog" id="share-dialog" aria-labelledby="share-title">
+    <h2 id="share-title">{{SHARE_HEADING}}</h2>
+    <p class="dialog-sub">{{SHARE_BODY}}</p>
+    <label class="contact-field">
+      <span>{{SHARE_LANG_LABEL}}</span>
+      <select id="share-lang">{{SHARE_LANG_OPTIONS}}</select>
+    </label>
+    <label class="check-row">
+      <input type="checkbox" id="share-install">
+      <span>{{SHARE_INCLUDE_INSTALL}}</span>
+    </label>
+    <div class="share-key" id="share-key-section" hidden>
+      <label class="check-row">
+        <input type="checkbox" id="share-key">
+        <span>{{ui.share_key_label}}</span>
+      </label>
+      <div class="share-key__options" id="share-key-options" hidden>
+        <p class="share-key__note">{{ui.share_key_note}}</p>
+        <label class="contact-field">
+          <span>{{ui.share_key_expiry}}</span>
+          <select id="share-key-days">
+            <option value="7">{{ui.share_key_days_7}}</option>
+            <option value="30" selected>{{ui.share_key_days_30}}</option>
+            <option value="0">{{ui.share_key_days_0}}</option>
+          </select>
+        </label>
+        <div class="share-key__code">
+          <span class="share-key__code-label">{{ui.share_key_code_label}}</span>
+          <output id="share-key-code" lang="en">…</output>
+          <button type="button" class="btn" id="share-key-copy-code" data-copied="{{SHARE_COPIED}}">{{ui.share_key_copy_code}}</button>
+        </div>
+      </div>
+    </div>
+    <input class="share-url" id="share-url" readonly aria-label="URL">
+    <div class="dialog-actions">
+      <button type="button" class="btn" data-close>{{CLOSE_LABEL}}</button>
+      <button type="button" class="btn" id="share-native" hidden>{{SHARE_NATIVE}}</button>
+      <button type="button" class="btn btn-primary" id="share-copy" data-copied="{{SHARE_COPIED}}">{{SHARE_COPY}}</button>
+    </div>
+  </dialog>
+
+  <dialog class="app-dialog install-dialog" id="install-dialog" aria-labelledby="install-title">
+    <section class="key-unlock" id="key-unlock" hidden>
+      <h2 id="key-unlock-title">{{ui.key_unlock_heading}}</h2>
+      <p class="dialog-sub">{{ui.key_unlock_body}}</p>
+      <form class="key-unlock__form" id="key-unlock-form">
+        <input class="share-url key-unlock__code" id="key-unlock-code" lang="en" autocomplete="off"
+          autocapitalize="characters" spellcheck="false" placeholder="XXXX-XXXX-XXXX" aria-labelledby="key-unlock-title" required>
+        <button type="submit" class="btn btn-primary" id="key-unlock-btn">{{ui.key_unlock_btn}}</button>
+      </form>
+      <p class="key-unlock__status" id="key-unlock-status" role="status"></p>
+      <p class="key-unlock__done" id="key-unlock-done" hidden>{{ui.key_unlock_done}} <a href="kaiwa/index.html" id="key-unlock-kaiwa">{{ui.key_unlock_open_kaiwa}} →</a></p>
+      <template id="key-unlock-msgs">
+        <span data-k="working">{{ui.key_unlock_working}}</span>
+        <span data-k="wrong-code">{{ui.key_unlock_wrong}}</span>
+        <span data-k="expired">{{ui.key_unlock_expired}}</span>
+        <span data-k="malformed">{{ui.key_unlock_bad}}</span>
+        <span data-k="unsupported">{{ui.key_unlock_unsupported}}</span>
+      </template>
+    </section>
+    <section class="install-section" id="install-section">
+      <img src="/static/icon-192.png" alt="" width="64" height="64" class="install-icon">
+      <h2 id="install-title">{{INSTALL_HEADING}}</h2>
+      <p class="dialog-sub">{{INSTALL_BODY}}</p>
+      <p class="install-steps" data-for="ios" hidden>{{INSTALL_IOS}}</p>
+      <p class="install-steps" data-for="other" hidden>{{INSTALL_OTHER}}</p>
+      <p class="install-steps" data-for="done" hidden>{{INSTALL_DONE}}</p>
+      <p><button type="button" class="btn btn-primary" id="install-yes">{{INSTALL_YES}}</button></p>
+    </section>
+    <div class="dialog-actions">
+      <button type="button" class="btn" data-close>{{INSTALL_NO}}</button>
+    </div>
   </dialog>
 
   <footer>

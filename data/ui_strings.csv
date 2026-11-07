@@ -1,99 +1,145 @@
-key,en,ja,mh
-show_readings,Furigana,ふりがな,読【よ】み
-toc_title,Contents,目次,中【なか】の事【こと】
-site_name,Minihongo,ミニ本語,ミニ本【ほん】の言【こと】葉【ば】
-home_tagline,"231 base words. 9 grammar lessons. Describe any concept in Japanese, and recognize the real Japanese around you.",231の基本語、9つの文法レッスン。どんな概念も日本語で表現できる。周りの本物の日本語も分かるようになる。,231の言【こと】葉【ば】。何【なん】でも言【い】える。日本【にほん】の言【こと】葉【ば】も分【わ】かる。
-home_1,"231 base words - nouns, verbs, and adjectives",231の基本語（名詞・動詞・形容詞）,231の言【こと】葉【ば】
-home_2,9 grammar lessons for full sentence structure,9つの文法レッスンで完全な文を作れる,9つの言【こと】葉【ば】の使【つか】い方【かた】
-home_3,202 compounds built from the base 231,231から作る202の複合語,231から作【つく】る202の言【こと】葉【ば】
-home_onboarding,"Not for JLPT prep or business Japanese. For you if you want to start reading and speaking fast, with a system that grows with you.",JLPTやビジネス向けではない。早く読み話したい人、成長できるシステムが欲しい人に。,JLPTのためでない。速【はや】く話【はな】したい人【ひと】のために。
-home_prerequisite,"Prerequisite: learn hiragana and katakana first. Minihongo teaches vocabulary, not the kana writing systems.",前提：ひらがなとカタカナを先に覚えてください。ミニ本語は語彙を教えるもので、かな文字は教えません。,
-grammar_toc_core,core,基本,必要【ひつよう】
-home_example_gloss,big + person = adult,大きい＋人＝大人,
-home_nav_prefix,Start: ,,
-site_basename,minihongo,minihongo,minihongo
-th_reading,Reading,読み,読【よ】み
-th_meaning,Meaning,意味,何【なに】の事【こと】
-th_parts,Parts,構成,中【なか】の言【こと】葉【ば】
-th_word,Word,言葉,言【こと】葉【ば】
-th_concept,Concept,概念,考【かんが】え
-th_literally,Literally,直訳,言【こと】葉【ば】のまま
-wb_desc_compounds,Real Japanese words built entirely from kanji in the 231-word vocabulary.,231語の漢字だけで構成された実在の日本語。,231の言【こと】葉【ば】の中【なか】の書【か】いた物【もの】で作【つく】った本当【ほんとう】の言【こと】葉【ば】。
-wb_desc_byov,,,
-wb_desc_common,"Real Japanese words from the top 1000 most common, expressed using only the 231 base words.",よく使う日本語を231の基本語だけで表現する。,よく使【つか】う言【こと】葉【ば】を231の言【こと】葉【ば】だけで言【い】う。
-th_example,Example,例文,使【つか】い方【かた】
-th_english,English,英語,English
-th_minihongo,Minihongo,ミニ本語,ミニ本【ほん】の言【こと】葉【ば】
-th_in_minihongo,You can already say it,ミニ本語で,ミニ本【ほん】の言【こと】葉【ば】で
-wb_reading_warning,"Kanji have multiple readings. The same character can sound different in different words. Learn each compound as a whole word, not by combining individual readings.",漢字には複数の読み方がある。同じ字でも言葉によって読みが変わる。熟語を丸ごと覚えること。,書【か】いた物【もの】には読【よ】み方【かた】がいろいろある。一【ひと】つの書【か】いた物【もの】でも言【こと】葉【ば】によって音【おと】が変【か】わる。一【ひと】つ一【ひと】つの言【こと】葉【ば】を全部【ぜんぶ】で知【し】る。
-home_anki_cta,Practice with flashcards:,フラッシュカードで練習:,Ankiで知【し】る:
-home_anki_link,Anki deck,Ankiデッキ,Ankiをもらう
-home_anki_desc,231 words + grammar + listening with audio.,231語+文法+リスニング、音声付き。,231の言【こと】葉【ば】と使【つか】い方【かた】と聞【き】く事【こと】、音【おと】がある。
-home_pdf_cta,Read the book:,本で読む:,本【ほん】で読【よ】む:
-home_pdf_link,PDF book,PDF本,PDFをもらう
-home_pdf_desc,All 4 lessons in one book.,4つのレッスンを1冊の本に。,全部【ぜんぶ】が一【ひと】つの本【ほん】に。
-wb_desc_loanwords,Not part of the 231 base words. Foreign words used in daily life in Japan. You may already recognize many of them.,231の基本語には含まれない。日本の日常で使われる外来語。多くはすでに知っているかもしれない。,231の言【こと】葉【ば】の中【なか】にない。日本【にほん】の毎【まい】日【にち】で使【つか】う他【ほか】の国【くに】から来【き】た言【こと】葉【ば】。もう知【し】っているものもある。
-grammar_pattern_1,Set the stage,場を作る,所【ところ】を作【つく】る
-grammar_pattern_2,Chain actions,動作をつなぐ,する事【こと】を一【ひと】つにする
-grammar_pattern_3,Apply filters,フィルターをかける,やり方【かた】を変【か】える
-grammar_slot_who,who,誰,誰【だれ】
-grammar_slot_when,when,いつ,いつ
-grammar_slot_where,where,どこ,どこ
-grammar_slot_what,what,何,何【なに】
-grammar_slot_action,action,動作,する事【こと】
-grammar_filter_base,do,読む,読【よ】む
-grammar_filter_done,done,完了,終【お】わった
-grammar_filter_not,not,否定,しない
-grammar_filter_polite,polite,丁寧,ます
-grammar_intro_1_links,"Five slots. Verb always last. <a href=""#word-order"">Word Order</a> <a href=""#topic-marker"">は</a> <a href=""#object-marker"">を</a> <a href=""#direction-time-location"">に</a> <a href=""#location-of-action-means"">で</a>","5つの枠。動詞は常に最後。 <a href=""#word-order"">語順</a> <a href=""#topic-marker"">は</a> <a href=""#object-marker"">を</a> <a href=""#direction-time-location"">に</a> <a href=""#location-of-action-means"">で</a>","五【いつ】つの入【い】れる所【ところ】。する事【こと】がいつも終【お】わり。 <a href=""#word-order"">言【こと】葉【ば】の来【く】る所【ところ】</a> <a href=""#topic-marker"">は</a> <a href=""#object-marker"">を</a> <a href=""#direction-time-location"">に</a> <a href=""#location-of-action-means"">で</a>"
-grammar_intro_2_links,"Stack verbs in order. No ""to"" or ""by."" <a href=""#te-form-action-chaining"">Te-form</a>","動詞を順に並べるだけ。 <a href=""#te-form-action-chaining"">て形</a>","する事【こと】をそのまま言【い】う。 <a href=""#te-form-action-chaining"">ての方【かた】</a>"
-grammar_intro_3_links,"Same verb, different filters. <a href=""#four-forms"">Four Forms</a> <a href=""#polite-form"">ます</a>","同じ動詞、違うフィルター。 <a href=""#four-forms"">四つの活用形</a> <a href=""#polite-form"">ます</a>","同【おな】じする事【こと】、違【ちが】うやり方【かた】。 <a href=""#four-forms"">四【よっ】つの方【かた】</a> <a href=""#polite-form"">ます</a>"
-dark_mode,Dark mode,ダークモード,夜【よる】の色【いろ】
-toast_offline,You are offline. Content is cached.,オフラインです。,外【そと】に出【で】られない。中【なか】の物【もの】は使【つか】える。
-toast_online,Back online.,オンラインに戻りました。,外【そと】に出【で】られる。
-toast_install,Install Minihongo as an app,アプリとしてインストール,ミニ本【ほん】の言【こと】葉【ば】をもらう
-toast_install_btn,Install,インストール,もらう
-toast_updated,App updated.,更新されました。,新【あたら】しくなりました。
-gf_intro_p1,Minihongo lets you go from thought to Japanese sentence without translating through another language. You can already describe any concept.,ミニ本語なら、他の言語を経由せずに考えを日本語の文にできる。どんな概念も表現できる。,ミニ本【ほん】の言【こと】葉【ば】を使【つか】えば、他【ほか】の国【くに】の言【こと】葉【ば】を使【つか】わずに、考【かんが】えから日本【にほん】の言【こと】葉【ば】を作【つく】れる。何【なん】でも言【い】える。
-gf_intro_p2,"The journey doesn't end here. From this base, you can practice, pick up new words as you meet them, and learn new grammar patterns naturally.",ここで終わりではない。この基礎から、練習し、出会う言葉を覚え、新しい文法を自然に身につけていける。,ここで終【お】わりではない。この始【はじ】めの言【こと】葉【ば】から、多【おお】く使【つか】って、会【あ】う言【こと】葉【ば】を知【し】って、新【あたら】しい使【つか】い方【かた】を知【し】れる。
-gf_immerse_heading,Live in the Language,言葉の中で生きる,言【こと】葉【ば】の中【なか】で生【い】きる
-gf_immerse_body,"To keep growing, live in real Japanese. Read NHK NEWS WEB EASY (news with furigana), children's picture books, and the free graded readers at Tadoku. Watch shows and anime with Japanese subtitles. Every real encounter teaches you something no textbook can.",成長し続けるには、本物の日本語の中で生きること。ふりがな付きのNHK NEWS WEB EASY、子供向けの絵本、多読サイトの無料の本を読む。日本語字幕でドラマやアニメを見る。本物との出会いはすべて、教科書では学べないことを教えてくれる。,もっと大【おお】きくなるには、本当【ほんとう】の日本【にほん】の言【こと】葉【ば】の中【なか】で生【い】きること。子供【こども】の本【ほん】を読【よ】む。日本【にほん】の音【おと】を聞【き】く。日本【にほん】の物【もの】を見【み】る。人【ひと】と話【はな】す。毎【まい】日【にち】少【すこ】し。本当【ほんとう】の物【もの】と会【あ】う事【こと】は、本【ほん】で知【し】れない事【こと】を教【おし】えてくれる。
-contact_label,Contact the author,作者に連絡,作【つく】った人【ひと】に言【い】う
-contact_heading,Contact the author,作者に連絡,作【つく】った人【ひと】に言【い】う
-contact_type_label,Type,種類,何【なに】
-contact_feedback,Feedback,意見,思【おも】う事【こと】
-contact_bug,Bug,バグ,変【へん】な事【こと】
-contact_title_label,Title,タイトル,名前【なまえ】
-contact_body_label,Details,詳細,書【か】く事【こと】
-contact_send,Send,送る,出【だ】す
-contact_cancel,Cancel,キャンセル,止【と】める
-contact_send_via_label,Send via,送信方法,どこに
-contact_email,Email,メール,メール
-contact_github,GitHub,GitHub,GitHub
-slow_audio,Slow audio,ゆっくり再生,速【はや】くない音【おと】
-listen_first,Listen first,先に聞く,耳【みみ】から
-show_text,Show text,本文を見る,言葉【ことば】を見【み】る
-practice_intro,"Real life is the test. Check off only what you have actually done in Japan, in Japanese.",実際に日本語でやってみたことだけをチェックしましょう。,外【そと】で本当【ほんとう】にした事【こと】だけを見【み】てください。
-practice_cando_heading,Can you do it in real life?,実生活でできますか,外【そと】でできますか
-practice_cando_hint,Your checks are saved in this browser only. No account.,チェックはこのブラウザにだけ保存されます。,これはあなたの考【かんが】える物【もの】の中【なか】だけにある。
-practice_see_dialog,See the dialog →,対話を見る →,話【はなし】を見【み】る →
-practice_quiz_heading,Quiz yourself,クイズ,少【すこ】し考【かんが】える
-practice_quiz_grammar,Grammar,文法,言【こと】葉【ば】の使【つか】い方【かた】
-practice_ai_heading,Practice conversation with an AI,AIと会話練習,考【かんが】える物【もの】と話【はな】す
-practice_ai_body,"Copy this prompt into ChatGPT, Claude, or Gemini, then start with こんにちは. The AI speaks only minihongo and corrects you gently.",このプロンプトをChatGPT・Claude・Geminiなどに貼り付けて、「こんにちは」から始めましょう。AIはミニ本語だけで話します。,この言葉【ことば】を考【かんが】える物【もの】にあげて、「こんにちは」と言【い】ってください。
-practice_kaiwa_link,"Want to speak instead of type? Try <a href=""/kaiwa/"">Kaiwa mode</a> - a spoken conversation practice page, right in your browser, with your own AI provider key.","話して練習したい方は、<a href=""/kaiwa/"">Kaiwaモード</a>をお試しください。ブラウザだけで動く音声会話練習ページです（英語表示、自分のAIキーが必要です）。","口【くち】で話【はな】す<a href=""/kaiwa/"">Kaiwa</a>もあります。"
-practice_ai_show,Show prompt,プロンプトを表示,言葉【ことば】を見【み】る
-practice_ai_copy,Copy prompt,プロンプトをコピー,言葉【ことば】をもらう
-practice_ai_copied,Copied!,コピーしました,もらいました
-understanding_intro,"Japan will not speak minihongo back to you. The clerk speaks keigo, the signs use kanji you were never taught, the train announces itself in full Japanese. This page is the other half of living here: words you never need to say - only to recognize when Japan says them at you.",日本はミニ本語で話しかけてはくれない。店員は敬語、看板は習っていない漢字、電車は本物の日本語でアナウンスする。ここにあるのは、言う必要のない言葉。向こうから来たときに分かればいい。,日本【にほん】はあなたの言【こと】葉【ば】で話【はな】さない。でも大丈夫【だいじょうぶ】。ここの言【こと】葉【ば】は、言【い】わない言【こと】葉【ば】。聞【き】いて、見【み】て、分【わ】かるだけ。
-understanding_rules,"Recognize only - never say. Your speaking vocabulary stays the 231 words, and every meaning below is explained using only those words.",覚えるのは「分かる」ためだけ。話すのは今までどおり231語。下の意味もすべて231語だけで書いてある。,言【い】うのは、いつもの231の言【こと】葉【ば】だけ。下【した】の「何【なに】の事【こと】」も、全部【ぜんぶ】その言【こと】葉【ば】で書【か】いてある。
-engineering_intro,"Use the core words for flexible explanations and the loanwords your team actually says. The page is deliberately separate from the core course.",基本語で柔軟に説明し、現場で実際に使う外来語はそのまま使います。このページはコア講座とは別です。,知【し】っている言【こと】葉【ば】で話【はな】す。他【ほか】の国【くに】から来【き】た言【こと】葉【ば】は、そのまま言【い】う。この所【ところ】は始【はじ】めに知【し】る物【もの】の外【そと】にある。
-engineering_circ_heading,Circumlocutions,基本語での言い換え,知【し】っている言【こと】葉【ば】で言【い】う
-engineering_loan_heading,Loanwords engineers say,現場で使う外来語,そのまま言【い】う言【こと】葉【ば】
-engineering_dialog_heading,Team dialogs,チームの対話,作【つく】る人【ひと】の話【はなし】
-engineering_cando_heading,Engineering can-dos,エンジニア向けCan-do,できる事【こと】
-engineering_ai_heading,Practice with an AI colleague,AIの同僚と練習,考【かんが】える物【もの】と話【はな】す
-engineering_ai_body,"Copy the prompt and practice a real engineering situation.",プロンプトをコピーして、実際の開発場面を練習してください。,下【した】の言【こと】葉【ば】をもらって、本当【ほんとう】にある話【はなし】をしてみる。
-th_real_japanese,Real Japanese,日本語,日本【にほん】の言【こと】葉【ば】
-th_it_means,It means,意味,何【なに】の事【こと】
-th_where,Where you meet it,どこで,
+key,en,ko,ja,mh
+show_readings,Furigana,후리가나,ふりがな,読【よ】み
+toc_title,Contents,목차,目次,中【なか】の事【こと】
+site_name,Minihongo,미니혼고,ミニ本語,ミニ本【ほん】の言【こと】葉【ば】
+home_tagline,"231 base words. 9 core grammar points. Describe any concept in Japanese, and recognize the real Japanese around you.","기본 단어 231개와 핵심 문법 9가지. 어떤 개념이든 일본어로 표현하고, 주변의 진짜 일본어도 알아볼 수 있어요.",231の基本語と9つの基本文法。どんな概念も日本語で表現でき、周りの本物の日本語も分かるようになる。,231の言【こと】葉【ば】。何【なん】でも言【い】える。日本【にほん】の言【こと】葉【ば】も分【わ】かる。
+home_1,"231 base words - nouns, verbs, and adjectives","기본 단어 231개 - 명사, 동사, 형용사",231の基本語（名詞・動詞・形容詞）,231の言【こと】葉【ば】
+home_2,9 core grammar points for full sentences (43 in total),완전한 문장을 위한 핵심 문법 9가지 (전체 43개),9つの基本文法で完全な文を作れる（全43項目）,9つの言【こと】葉【ば】の使【つか】い方【かた】
+home_3,202 compounds built from the base 231,기본 231개로 만든 합성어 202개,231から作る202の複合語,231から作【つく】る202の言【こと】葉【ば】
+home_onboarding,"Not for JLPT prep or business Japanese. For you if you want to start reading and speaking fast, with a system that grows with you.","JLPT 대비나 비즈니스 일본어용은 아니에요. 빠르게 읽고 말하기 시작하고 싶은 분, 함께 성장하는 시스템을 원하는 분께 맞아요.",JLPTやビジネス向けではない。早く読み話したい人、成長できるシステムが欲しい人に。,JLPTのためでない。速【はや】く話【はな】したい人【ひと】のために。
+home_prerequisite,"Prerequisite: learn hiragana and katakana first. Minihongo teaches vocabulary, not the kana writing systems.","준비물: 히라가나와 가타카나를 먼저 익혀 주세요. 미니혼고는 어휘를 가르치며, 가나 문자는 가르치지 않아요.",前提：ひらがなとカタカナを先に覚えてください。ミニ本語は語彙を教えるもので、かな文字は教えません。,
+grammar_toc_core,core,기본,基本,必要【ひつよう】
+home_example_gloss,big + person = adult,큰 + 사람 = 어른,大きい＋人＝大人,
+home_nav_prefix,Start: ,시작:,,
+site_basename,minihongo,minihongo,minihongo,minihongo
+th_reading,Reading,읽기,読み,読【よ】み
+th_meaning,Meaning,뜻,意味,何【なに】の事【こと】
+th_parts,Parts,구성,構成,中【なか】の言【こと】葉【ば】
+th_word,Word,단어,言葉,言【こと】葉【ば】
+th_concept,Concept,개념,概念,考【かんが】え
+th_literally,Literally,직역,直訳,言【こと】葉【ば】のまま
+wb_desc_compounds,Real Japanese words built entirely from kanji in the 231-word vocabulary.,231개 어휘의 한자만으로 이루어진 실제 일본어 단어예요.,231語の漢字だけで構成された実在の日本語。,231の言【こと】葉【ば】の中【なか】の書【か】いた物【もの】で作【つく】った本当【ほんとう】の言【こと】葉【ば】。
+wb_desc_byov,,,,
+wb_desc_common,"Real Japanese words from the top 1000 most common, expressed using only the 231 base words.",가장 많이 쓰는 일본어 1000개 중 단어들을 기본 단어 231개만으로 표현해요.,よく使う日本語を231の基本語だけで表現する。,よく使【つか】う言【こと】葉【ば】を231の言【こと】葉【ば】だけで言【い】う。
+th_example,Example,예문,例文,使【つか】い方【かた】
+th_english,English,한국어,英語,English
+th_minihongo,Minihongo,미니혼고,ミニ本語,ミニ本【ほん】の言【こと】葉【ば】
+th_in_minihongo,You can already say it,이미 말할 수 있어요,ミニ本語で,ミニ本【ほん】の言【こと】葉【ば】で
+wb_reading_warning,"Kanji have multiple readings. The same character can sound different in different words. Learn each compound as a whole word, not by combining individual readings.","한자는 읽는 법이 여러 가지예요. 같은 글자도 단어에 따라 소리가 달라질 수 있어요. 각 글자의 읽기를 조합하지 말고, 합성어는 한 단어로 통째로 익히세요.",漢字には複数の読み方がある。同じ字でも言葉によって読みが変わる。熟語を丸ごと覚えること。,書【か】いた物【もの】には読【よ】み方【かた】がいろいろある。一【ひと】つの書【か】いた物【もの】でも言【こと】葉【ば】によって音【おと】が変【か】わる。一【ひと】つ一【ひと】つの言【こと】葉【ば】を全部【ぜんぶ】で知【し】る。
+home_anki_cta,Practice with flashcards:,플래시카드로 연습하기:,フラッシュカードで練習:,Ankiで知【し】る:
+home_anki_link,Anki deck,Anki 덱,Ankiデッキ,Ankiをもらう
+home_anki_desc,231 words + grammar + listening with audio.,231개 단어 + 문법 + 음성 듣기.,231語+文法+リスニング、音声付き。,231の言【こと】葉【ば】と使【つか】い方【かた】と聞【き】く事【こと】、音【おと】がある。
+home_pdf_cta,Read the book:,책으로 읽기:,本で読む:,本【ほん】で読【よ】む:
+home_pdf_link,PDF book,PDF 책,PDF本,PDFをもらう
+home_pdf_desc,All 4 lessons in one book.,레슨 4개를 책 한 권에.,4つのレッスンを1冊の本に。,全部【ぜんぶ】が一【ひと】つの本【ほん】に。
+wb_desc_loanwords,Not part of the 231 base words. Foreign words used in daily life in Japan. You may already recognize many of them.,기본 단어 231개에는 포함되지 않아요. 일본 일상에서 쓰는 외래어예요. 이미 아는 단어도 많을 거예요.,231の基本語には含まれない。日本の日常で使われる外来語。多くはすでに知っているかもしれない。,231の言【こと】葉【ば】の中【なか】にない。日本【にほん】の毎【まい】日【にち】で使【つか】う他【ほか】の国【くに】から来【き】た言【こと】葉【ば】。もう知【し】っているものもある。
+grammar_pattern_1,Set the stage,무대 만들기,場を作る,所【ところ】を作【つく】る
+grammar_pattern_2,Chain actions,동작 잇기,動作をつなぐ,する事【こと】を一【ひと】つにする
+grammar_pattern_3,Apply filters,필터 걸기,フィルターをかける,やり方【かた】を変【か】える
+grammar_slot_who,who,누가,誰,誰【だれ】
+grammar_slot_when,when,언제,いつ,いつ
+grammar_slot_where,where,어디서,どこ,どこ
+grammar_slot_what,what,무엇을,何,何【なに】
+grammar_slot_action,action,동작,動作,する事【こと】
+grammar_filter_base,do,하다,読む,読【よ】む
+grammar_filter_done,done,완료,完了,終【お】わった
+grammar_filter_not,not,부정,否定,しない
+grammar_filter_polite,polite,정중,丁寧,ます
+grammar_intro_1_links,"Five slots. Verb always last. <a href=""#word-order"">Word Order</a> <a href=""#topic-marker"">は</a> <a href=""#object-marker"">を</a> <a href=""#direction-time-location"">に</a> <a href=""#location-of-action-means"">で</a>","다섯 개의 칸. 동사는 항상 마지막. <a href=""#word-order"">어순</a> <a href=""#topic-marker"">は</a> <a href=""#object-marker"">を</a> <a href=""#direction-time-location"">に</a> <a href=""#location-of-action-means"">で</a>","5つの枠。動詞は常に最後。 <a href=""#word-order"">語順</a> <a href=""#topic-marker"">は</a> <a href=""#object-marker"">を</a> <a href=""#direction-time-location"">に</a> <a href=""#location-of-action-means"">で</a>","五【いつ】つの入【い】れる所【ところ】。する事【こと】がいつも終【お】わり。 <a href=""#word-order"">言【こと】葉【ば】の来【く】る所【ところ】</a> <a href=""#topic-marker"">は</a> <a href=""#object-marker"">を</a> <a href=""#direction-time-location"">に</a> <a href=""#location-of-action-means"">で</a>"
+grammar_intro_2_links,"Stack verbs in order. No ""to"" or ""by."" <a href=""#te-form-action-chaining"">Te-form</a>","동사를 순서대로 쌓기만 하면 돼요. ""~하러""나 ""~해서"" 같은 말은 필요 없어요. <a href=""#te-form-action-chaining"">て형</a>","動詞を順に並べるだけ。 <a href=""#te-form-action-chaining"">て形</a>","する事【こと】をそのまま言【い】う。 <a href=""#te-form-action-chaining"">ての方【かた】</a>"
+grammar_intro_3_links,"Same verb, different filters. <a href=""#four-forms"">Four Forms</a> <a href=""#polite-form"">ます</a>","같은 동사, 다른 필터. <a href=""#four-forms"">네 가지 활용형</a> <a href=""#polite-form"">ます</a>","同じ動詞、違うフィルター。 <a href=""#four-forms"">四つの活用形</a> <a href=""#polite-form"">ます</a>","同【おな】じする事【こと】、違【ちが】うやり方【かた】。 <a href=""#four-forms"">四【よっ】つの方【かた】</a> <a href=""#polite-form"">ます</a>"
+dark_mode,Dark mode,다크 모드,ダークモード,夜【よる】の色【いろ】
+toast_offline,You are offline. Content is cached.,오프라인 상태예요. 콘텐츠는 저장되어 있어요.,オフラインです。,外【そと】に出【で】られない。中【なか】の物【もの】は使【つか】える。
+toast_online,Back online.,다시 온라인이에요.,オンラインに戻りました。,外【そと】に出【で】られる。
+toast_install,Install Minihongo as an app,미니혼고를 앱으로 설치하기,アプリとしてインストール,ミニ本【ほん】の言【こと】葉【ば】をもらう
+toast_install_btn,Install,설치,インストール,もらう
+toast_updated,App updated.,앱이 업데이트됐어요.,更新されました。,新【あたら】しくなりました。
+gf_intro_p1,Minihongo lets you go from thought to Japanese sentence without translating through another language. You can already describe any concept.,미니혼고로는 다른 언어를 거쳐 번역하지 않고 생각을 바로 일본어 문장으로 만들 수 있어요. 이제 어떤 개념이든 표현할 수 있어요.,ミニ本語なら、他の言語を経由せずに考えを日本語の文にできる。どんな概念も表現できる。,ミニ本【ほん】の言【こと】葉【ば】を使【つか】えば、他【ほか】の国【くに】の言【こと】葉【ば】を使【つか】わずに、考【かんが】えから日本【にほん】の言【こと】葉【ば】を作【つく】れる。何【なん】でも言【い】える。
+gf_intro_p2,"The journey doesn't end here. From this base, you can practice, pick up new words as you meet them, and learn new grammar patterns naturally.","여정은 여기서 끝나지 않아요. 이 기초 위에서 연습하고, 만나는 새 단어를 익히고, 새로운 문법 패턴을 자연스럽게 배워 갈 수 있어요.",ここで終わりではない。この基礎から、練習し、出会う言葉を覚え、新しい文法を自然に身につけていける。,ここで終【お】わりではない。この始【はじ】めの言【こと】葉【ば】から、多【おお】く使【つか】って、会【あ】う言【こと】葉【ば】を知【し】って、新【あたら】しい使【つか】い方【かた】を知【し】れる。
+gf_immerse_heading,Live in the Language,언어 속에서 살기,言葉の中で生きる,言【こと】葉【ば】の中【なか】で生【い】きる
+gf_immerse_body,"To keep growing, live in real Japanese. Read NHK NEWS WEB EASY (news with furigana), children's picture books, and the free graded readers at Tadoku. Watch shows and anime with Japanese subtitles. Every real encounter teaches you something no textbook can.","계속 성장하려면 진짜 일본어 속에서 지내 보세요. NHK NEWS WEB EASY(후리가나가 달린 뉴스), 어린이 그림책, Tadoku의 무료 단계별 읽기 자료를 읽어 보세요. 드라마와 애니메이션은 일본어 자막으로 보세요. 진짜 일본어와의 만남 하나하나가 교과서로는 배울 수 없는 것을 가르쳐 줘요.",成長し続けるには、本物の日本語の中で生きること。ふりがな付きのNHK NEWS WEB EASY、子供向けの絵本、多読サイトの無料の本を読む。日本語字幕でドラマやアニメを見る。本物との出会いはすべて、教科書では学べないことを教えてくれる。,もっと大【おお】きくなるには、本当【ほんとう】の日本【にほん】の言【こと】葉【ば】の中【なか】で生【い】きること。子供【こども】の本【ほん】を読【よ】む。日本【にほん】の音【おと】を聞【き】く。日本【にほん】の物【もの】を見【み】る。人【ひと】と話【はな】す。毎【まい】日【にち】少【すこ】し。本当【ほんとう】の物【もの】と会【あ】う事【こと】は、本【ほん】で知【し】れない事【こと】を教【おし】えてくれる。
+contact_label,Contact the author,작성자에게 연락하기,作者に連絡,作【つく】った人【ひと】に言【い】う
+contact_heading,Contact the author,작성자에게 연락하기,作者に連絡,作【つく】った人【ひと】に言【い】う
+contact_type_label,Type,유형,種類,何【なに】
+contact_feedback,Feedback,의견,意見,思【おも】う事【こと】
+contact_bug,Bug,버그,バグ,変【へん】な事【こと】
+contact_title_label,Title,제목,タイトル,名前【なまえ】
+contact_body_label,Details,내용,詳細,書【か】く事【こと】
+contact_send,Send,보내기,送る,出【だ】す
+contact_cancel,Cancel,취소,キャンセル,止【と】める
+contact_send_via_label,Send via,보내는 방법,送信方法,どこに
+contact_email,Email,이메일,メール,メール
+contact_github,GitHub,GitHub,GitHub,GitHub
+slow_audio,Slow audio,느린 음성,ゆっくり再生,速【はや】くない音【おと】
+listen_first,Listen first,먼저 듣기,先に聞く,耳【みみ】から
+show_text,Show text,본문 보기,本文を見る,言葉【ことば】を見【み】る
+practice_intro,"Real life is the test. Check off only what you have actually done in Japan, in Japanese.",실생활이 진짜 시험이에요. 일본에서 실제로 일본어로 해 본 것만 체크하세요.,実際に日本語でやってみたことだけをチェックしましょう。,外【そと】で本当【ほんとう】にした事【こと】だけを見【み】てください。
+practice_cando_heading,Can you do it in real life?,실생활에서 할 수 있나요?,実生活でできますか,外【そと】でできますか
+practice_cando_hint,Your checks are saved in this browser only. No account.,체크한 내용은 이 브라우저에만 저장돼요. 계정은 필요 없어요.,チェックはこのブラウザにだけ保存されます。,これはあなたの考【かんが】える物【もの】の中【なか】だけにある。
+practice_see_dialog,See the dialog →,대화 보기 →,対話を見る →,話【はなし】を見【み】る →
+practice_quiz_heading,Quiz yourself,퀴즈로 확인하기,クイズ,少【すこ】し考【かんが】える
+practice_quiz_grammar,Grammar,문법,文法,言【こと】葉【ば】の使【つか】い方【かた】
+practice_ai_heading,Practice conversation with an AI,AI와 회화 연습,AIと会話練習,考【かんが】える物【もの】と話【はな】す
+practice_ai_body,"Copy this prompt into ChatGPT, Claude, or Gemini, then start with こんにちは. The AI speaks only minihongo and corrects you gently.","이 프롬프트를 ChatGPT, Claude, Gemini에 붙여 넣고 こんにちは로 시작해 보세요. AI는 미니혼고로만 말하고 부드럽게 고쳐 줘요.",このプロンプトをChatGPT・Claude・Geminiなどに貼り付けて、「こんにちは」から始めましょう。AIはミニ本語だけで話します。,この言葉【ことば】を考【かんが】える物【もの】にあげて、「こんにちは」と言【い】ってください。
+practice_kaiwa_link,"Want to speak instead of type? Try <a href=""kaiwa/"">Kaiwa mode</a> - a spoken conversation practice page, right in your browser, with your own AI provider key.","타이핑 대신 말로 연습하고 싶나요? <a href=""kaiwa/"">회화 모드</a>를 써 보세요. 브라우저에서 바로 쓰는 음성 회화 연습 페이지예요. 본인의 AI 제공업체 키가 필요해요.","話して練習したい方は、<a href=""kaiwa/"">会話モード</a>をお試しください。ブラウザだけで動く音声会話の練習ページです（自分のAIキーが必要です）。","口【くち】で話【はな】す<a href=""kaiwa/"">Kaiwa</a>もあります。"
+practice_ai_show,Show prompt,프롬프트 보기,プロンプトを表示,言葉【ことば】を見【み】る
+practice_ai_copy,Copy prompt,프롬프트 복사,プロンプトをコピー,言葉【ことば】をもらう
+practice_ai_copied,Copied!,복사했어요!,コピーしました,もらいました
+understanding_intro,"Japan will not speak minihongo back to you. The clerk speaks keigo, the signs use kanji you were never taught, the train announces itself in full Japanese. This page is the other half of living here: words you never need to say - only to recognize when Japan says them at you.","일본은 미니혼고로 대답해 주지 않아요. 점원은 경어를 쓰고, 간판에는 배운 적 없는 한자가 있고, 전철 안내 방송은 완전한 일본어로 나와요. 이 페이지는 일본 생활의 나머지 절반이에요. 직접 말할 필요는 없고, 일본이 나에게 말할 때 알아듣기만 하면 되는 말들이에요.",日本はミニ本語で話しかけてはくれない。店員は敬語、看板は習っていない漢字、電車は本物の日本語でアナウンスする。ここにあるのは、言う必要のない言葉。向こうから来たときに分かればいい。,日本【にほん】はあなたの言【こと】葉【ば】で話【はな】さない。でも大丈夫【だいじょうぶ】。ここの言【こと】葉【ば】は、言【い】わない言【こと】葉【ば】。聞【き】いて、見【み】て、分【わ】かるだけ。
+understanding_rules,"Recognize only - never say. Your speaking vocabulary stays the 231 words, and every meaning below is explained using only those words.","알아듣기만 하고, 말하지는 않아요. 말하는 어휘는 그대로 231개 단어이고, 아래의 모든 뜻도 그 단어들만으로 설명되어 있어요.",覚えるのは「分かる」ためだけ。話すのは今までどおり231語。下の意味もすべて231語だけで書いてある。,言【い】うのは、いつもの231の言【こと】葉【ば】だけ。下【した】の「何【なに】の事【こと】」も、全部【ぜんぶ】その言【こと】葉【ば】で書【か】いてある。
+engineering_intro,Use the core words for flexible explanations and the loanwords your team actually says. The page is deliberately separate from the core course.,"유연한 설명에는 기본 단어를, 팀에서 실제로 쓰는 외래어는 그대로 쓰세요. 이 페이지는 일부러 기본 과정과 분리해 두었어요.",基本語で柔軟に説明し、現場で実際に使う外来語はそのまま使います。このページはコア講座とは別です。,知【し】っている言【こと】葉【ば】で話【はな】す。他【ほか】の国【くに】から来【き】た言【こと】葉【ば】は、そのまま言【い】う。この所【ところ】は始【はじ】めに知【し】る物【もの】の外【そと】にある。
+engineering_circ_heading,Circumlocutions,기본 단어로 바꿔 말하기,基本語での言い換え,知【し】っている言【こと】葉【ば】で言【い】う
+engineering_loan_heading,Loanwords engineers say,엔지니어가 쓰는 외래어,現場で使う外来語,そのまま言【い】う言【こと】葉【ば】
+engineering_dialog_heading,Team dialogs,팀 대화,チームの対話,作【つく】る人【ひと】の話【はなし】
+engineering_cando_heading,Engineering can-dos,엔지니어링 Can-do,エンジニア向けCan-do,できる事【こと】
+engineering_ai_heading,Practice with an AI colleague,AI 동료와 연습하기,AIの同僚と練習,考【かんが】える物【もの】と話【はな】す
+engineering_ai_body,Copy the prompt and practice a real engineering situation.,프롬프트를 복사해서 실제 개발 상황을 연습해 보세요.,プロンプトをコピーして、実際の開発場面を練習してください。,下【した】の言【こと】葉【ば】をもらって、本当【ほんとう】にある話【はなし】をしてみる。
+th_real_japanese,Real Japanese,실제 일본어,日本語,日本【にほん】の言【こと】葉【ば】
+th_it_means,It means,뜻,意味,何【なに】の事【こと】
+th_where,Where you meet it,어디서 보나요,どこで,
+share_label,Invite,초대,招待,人【ひと】に教【おし】える
+share_heading,Invite someone,친구 초대하기,招待する,他【ほか】の人【ひと】にここを教【おし】える
+share_body,Send this link. It opens Minihongo in the language you pick.,이 링크를 보내면 고른 언어로 미니혼고가 열려요.,このリンクを送ると、選んだ言語でミニ本語が開きます。,この道【みち】を与【あた】えると、選【えら】んだ言【こと】葉【ば】で開【あ】く。
+share_lang_label,Language for the invite,초대할 언어,招待する言語,どの言【こと】葉【ば】
+share_include_install,Also offer to install the app,앱 설치도 권하기,アプリのインストールも案内する,ミニ本【ほん】の言【こと】葉【ば】をもらう事【こと】も言【い】う
+share_copy,Copy link,링크 복사,リンクをコピー,道【みち】をもらう
+share_copied,Link copied,링크를 복사했어요,コピーしました,もらいました
+share_native,Share…,공유…,共有…,他【ほか】の物【もの】で与【あた】える
+install_heading,Install Minihongo?,미니혼고를 설치할까요?,ミニ本語をインストールしますか？,ミニ本【ほん】の言【こと】葉【ば】をもらいますか？
+install_body,Add it to your home screen. It opens like an app and works offline.,홈 화면에 추가하면 앱처럼 열리고 오프라인에서도 쓸 수 있어요.,ホーム画面に追加すると、アプリのように開き、オフラインでも使えます。,いつでも、どこでも使【つか】える。
+install_yes,Install,설치,インストール,もらう
+install_no,Not now,나중에,今はしない,今【いま】はしない
+install_ios,"On iPhone or iPad, tap the Share button, then “Add to Home Screen”.",iPhone·iPad에서는 공유 버튼을 누른 뒤 ‘홈 화면에 추가’를 선택하세요.,iPhone・iPadでは、共有ボタンをタップして「ホーム画面に追加」を選んでください。,
+install_other,Open your browser menu and choose “Install app” or “Add to Home screen”.,브라우저 메뉴에서 ‘앱 설치’ 또는 ‘홈 화면에 추가’를 선택하세요.,ブラウザのメニューから「アプリをインストール」または「ホーム画面に追加」を選んでください。,
+install_done,Minihongo is already installed on this device.,이 기기에 이미 설치되어 있어요.,この端末にはインストール済みです。,もうある。
+settings_label,Settings,설정,設定,変【か】える所【ところ】
+settings_install,Install app,앱 설치,アプリをインストール,ミニ本【ほん】の言【こと】葉【ば】をもらう
+language_label,Language,언어,言語,言【こと】葉【ば】
+close_label,Close,닫기,閉じる,閉【し】める
+grammar_path_heading,Start here: the 9 core points,여기서 시작: 핵심 9가지,まずはこの9つ,はじめにこの九【きゅう】つ
+grammar_path_body,Learn these first. They build most everyday sentences. The rest of the page is reference: come back when you meet a pattern.,"먼저 이것부터 익히세요. 일상 문장 대부분을 만들 수 있어요. 나머지는 참고용이니, 그 문형을 만났을 때 다시 찾아보세요.",まずこれを覚えましょう。日常の文のほとんどが作れます。残りは参考なので、その形に出会ったときに戻ってきてください。,はじめにこれを知【し】る。他【ほか】は、会【あ】った時【とき】に見【み】る。
+grammar_core_only,Show core points only,핵심만 보기,基本だけ表示,必要【ひつよう】な物【もの】だけ見【み】る
+home_start_heading,Where to start,어디서 시작할까요,どこから始める？,どこから始【はじ】める
+home_cta,Start learning,학습 시작하기,学習を始める,知【し】る事【こと】を始【はじ】める
+home_invite_cta,Invite a friend,친구 초대하기,友達を招待する,好【す】きな人【ひと】にも教【おし】える
+kaiwa_heading,Kaiwa (会話): spoken practice,회화(会話): 말하기 연습,会話（Kaiwa）：話す練習,人【ひと】と話【はな】す
+kaiwa_intro,Practice a short spoken conversation in Japanese with an AI partner. You need your own AI API key: the guide below walks you through getting one in a few minutes.,"AI 상대와 일본어로 짧은 말하기 회화를 연습해요. 본인의 AI API 키가 필요한데, 아래 안내를 따라 하면 몇 분 만에 받을 수 있어요.",AIを相手に、日本語の短い会話を声で練習します。自分のAIのAPIキーが必要です。下の案内に沿えば数分で用意できます。,AIと日本【にほん】の言【こと】葉【ば】で話【はな】す。231の言【こと】葉【ば】だけを使【つか】う。
+kaiwa_loading,Loading…,불러오는 중…,読み込み中…,少【すこ】し待【ま】ってください…
+share_key_label,Include my AI key for Kaiwa (encrypted),회화용 내 AI 키도 보내기 (암호화),会話練習用の自分のAIキーも送る（暗号化）,AIと話【はな】すための私【わたし】の物【もの】も与【あた】える
+share_key_note,"Anyone with both the link and the unlock code can use this key and spend your credit. Share a separate key with a spending limit, and delete it in your provider’s console to stop access.","링크와 잠금 해제 코드를 둘 다 가진 사람은 이 키로 내 크레딧을 쓸 수 있어요. 사용 한도를 정한 별도의 키를 공유하고, 접근을 막으려면 제공업체 콘솔에서 키를 삭제하세요.",リンクと解除コードの両方を持つ人は、このキーで自分のクレジットを使えます。利用上限を設定した別のキーを共有し、止めたいときはプロバイダーの管理画面でキーを削除してください。,道【みち】と開【あ】ける言【こと】葉【ば】を持【も】つ人【ひと】は、あなたのお金【かね】を使【つか】える。
+share_key_expiry,Stops working after,사용 기한,有効期限,いつまで使【つか】える
+share_key_days_7,7 days,7일,7日,七【なな】日【にち】
+share_key_days_30,30 days,30일,30日,三【さん】十【じゅう】日【にち】
+share_key_days_0,No limit,제한 없음,無期限,いつまでも
+share_key_code_label,"Unlock code: send it separately, not with the link",잠금 해제 코드: 링크와 따로 보내세요,解除コード：リンクとは別に送ってください,開【あ】ける言【こと】葉【ば】：道【みち】と同【おな】じ時【とき】に与【あた】えない
+share_key_copy_code,Copy code,코드 복사,コードをコピー,言【こと】葉【ば】をもらう
+key_unlock_heading,Someone shared an AI key with you,누군가 AI 키를 공유했어요,AIキーが共有されました,AIと話【はな】すための物【もの】をもらいました
+key_unlock_body,"It lets you use Kaiwa, the spoken-practice page, without your own AI account. Enter the unlock code they sent you separately. The key is decrypted on this device and saved only in this browser.",내 AI 계정 없이도 말하기 연습 페이지인 회화를 쓸 수 있어요. 따로 받은 잠금 해제 코드를 입력하세요. 키는 이 기기에서 해독되고 이 브라우저에만 저장돼요.,自分のAIアカウントがなくても、会話練習ページを使えます。別に受け取った解除コードを入力してください。キーはこの端末で復号され、このブラウザにだけ保存されます。,これでAIと話【はな】せる。他【ほか】の時【とき】にもらった開【あ】ける言【こと】葉【ば】を書【か】いてください。
+key_unlock_btn,Unlock,잠금 해제,解除する,開【あ】ける
+key_unlock_working,Unlocking…,잠금 해제 중…,解除中…,開【あ】けている…
+key_unlock_wrong,That code does not unlock this key. Check it and try again.,이 코드로는 키를 열 수 없어요. 확인하고 다시 시도하세요.,このコードではキーを解除できません。確認してもう一度お試しください。,この言【こと】葉【ば】では開【あ】かない。また書【か】いてください。
+key_unlock_expired,This shared key has expired. Ask for a new invite link.,공유된 키의 기한이 지났어요. 새 초대 링크를 요청하세요.,共有されたキーの有効期限が切れています。新しい招待リンクを依頼してください。,もう使【つか】えない。新【あたら】しい道【みち】をもらってください。
+key_unlock_bad,This link is incomplete or damaged. Ask for a new invite link.,링크가 불완전하거나 손상됐어요. 새 초대 링크를 요청하세요.,リンクが不完全か壊れています。新しい招待リンクを依頼してください。,この道【みち】は悪【わる】い。新【あたら】しい道【みち】をもらってください。
+key_unlock_unsupported,This browser cannot unlock shared keys. Open the link in an up-to-date browser.,이 브라우저에서는 공유 키를 열 수 없어요. 최신 브라우저에서 링크를 열어 주세요.,このブラウザでは共有キーを解除できません。最新のブラウザでリンクを開いてください。,
+key_unlock_done,Key unlocked and saved in this browser.,키를 열어 이 브라우저에 저장했어요.,キーを解除し、このブラウザに保存しました。,開【あ】けました。
+key_unlock_open_kaiwa,Start a conversation,회화 시작하기,会話を始める,話【はな】し始【はじ】める

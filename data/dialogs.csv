@@ -1,237 +1,237 @@
-id,dialog_group_id,line_number,speaker_minihongo,speaker_english,speaker_japanese,minihongo,english,japanese
-dlg-1,dgrp-1,1,A,A,A,すみません。この食【た】べ物【もの】は何【なに】ですか。,Excuse me. What is this food?,すみません。この食べ物は何ですか。
-dlg-2,dgrp-1,2,B,B,B,これは良【よ】い食【た】べ物【もの】です。水【みず】と草【くさ】で作【つく】りました。,This is good food. We made it with water and greens.,これはおいしい食べ物です。水と野菜で作りました。
-dlg-3,dgrp-1,3,A,A,A,これをください。他【ほか】の物【もの】もありますか。,Please give me this. Do you have other things too?,これをください。他の物もありますか。
-dlg-4,dgrp-1,4,B,B,B,はい。そこに新【あたら】しい物【もの】があります。,Yes. There are new things over there.,はい。あちらに新しい品物があります。
-dlg-5,dgrp-1,5,A,A,A,それも見【み】てもいいですか。,May I look at that too?,それも見てもいいですか。
-dlg-6,dgrp-1,6,B,B,B,はい。手【て】で持【も】ってください。,Yes. Please hold it in your hands.,はい。手に取ってご覧ください。
-dlg-7,dgrp-1,7,A,A,A,これを買【か】います。ありがとう。,I'll buy this. Thank you.,これを買います。ありがとうございます。
-dlg-8,dgrp-1,8,B,B,B,ありがとう。また来【き】てください。,Thank you. Please come again.,ありがとうございます。またお越しください。
-dlg-9,dgrp-2,1,A,A,A,あ！どこに行【い】きますか？,Oh! Where are you going?,あ！どこに行くんですか。
-dlg-10,dgrp-2,2,B,B,B,今【いま】は海【うみ】に行【い】きます。あなたは？,I'm heading to the sea now. And you?,今から海に行くところです。あなたは？
-dlg-11,dgrp-2,3,A,A,A,私【わたし】は家【いえ】に行【い】く。体【からだ】が少【すこ】し悪【わる】いです。,I'm going home. My body feels a little bad.,私は家に帰ります。体の調子が少し悪いんです。
-dlg-12,dgrp-2,4,B,B,B,体【からだ】が悪【わる】いですか？水【みず】を飲【の】んで、寝【ね】てください。,Your body feels bad? Please drink water and sleep.,体調が悪いんですか？水を飲んで、休んでください。
-dlg-13,dgrp-2,5,A,A,A,ありがとう。海【うみ】の風【かぜ】はとても良【よ】いね。,"Thank you. The sea air is really good, isn't it.",ありがとうございます。海の空気はとても気持ちいいですよね。
-dlg-14,dgrp-2,6,B,B,B,そうですね。でも今【いま】は風【かぜ】が強【つよ】いです。,It is. But right now the wind is strong.,そうですね。でも今日は風が強いです。
-dlg-15,dgrp-2,7,A,A,A,体【からだ】を守【まも】ってください。また会【あ】いましょう！,Please take care of yourself. Let's meet again!,お気をつけて。また会いましょう！
-dlg-16,dgrp-2,8,B,B,B,はい、また会【あ】いましょう！,"Yes, let's meet again!",はい、また会いましょう！
-dlg-17,dgrp-3,1,母【はは】,Mother,母,座【すわ】ってください。食【た】べ物【もの】ができた。,Everyone please sit down. The food is ready.,座ってください。ご飯ができましたよ。
-dlg-18,dgrp-3,2,子供【こども】,Child,子供,今【いま】は何【なに】を食【た】べる？,What are we eating now?,今日は何を食べるの？
-dlg-19,dgrp-3,3,母【はは】,Mother,母,草【くさ】と水【みず】で作【つく】った。体【からだ】に良【よ】い。,I made it with greens and water. It's good for your body.,野菜と水で作りました。体にいいですよ。
-dlg-20,dgrp-3,4,父【ちち】,Father,父,とても良【よ】い物【もの】だね。今【いま】まで体【からだ】がとても重【おも】かった。,It looks very good. My body has felt very heavy until now.,とてもおいしそうですね。最近ずっと体が重かったんです。
-dlg-21,dgrp-3,5,子供【こども】,Child,子供,父【ちち】、今【いま】の日【にち】は楽【たの】しかったか。,"Father, was this day enjoyable?",お父さん、今日は楽しかった？
-dlg-22,dgrp-3,6,父【ちち】,Father,父,まあまあだった。でも家【いえ】に来【く】ることがもっと好【す】きだ。,More or less. But coming home is what I like most.,まあまあだったよ。でも家に帰るのが一番好きだ。
-dlg-23,dgrp-3,7,母【はは】,Mother,母,この物【もの】を全部【ぜんぶ】食【た】べてください。,Please eat all of this.,これを全部食べてくださいね。
-dlg-24,dgrp-3,8,子供【こども】,Child,子供,はい！とても良【よ】い。ありがとう、母【はは】。,"Yes! It's very good. Thank you, Mother.",うん！とてもおいしい。ありがとう、お母さん。
-dlg-25,dgrp-4,1,A,A,A,すみません。大【おお】きい大【おお】きい家【いえ】はどこですか。,Excuse me. Where is the big building?,すみません。大きい建物はどこですか。
-dlg-26,dgrp-4,2,B,B,B,ここから近【ちか】くないです。,It's not close from here.,ここからは近くないですよ。
-dlg-27,dgrp-4,3,A,A,A,どう行【い】ったらいいですか。,How should I get there?,どう行ったらいいですか。
-dlg-28,dgrp-4,4,B,B,B,この道【みち】を行【い】ってください。大【おお】きい木【き】の前【まえ】で右【みぎ】に入【はい】ってください。,"Please go along this road. At the big tree, turn right.",この道をまっすぐ行ってください。大きな木のところで右に曲がってください。
-dlg-29,dgrp-4,5,A,A,A,木【き】の前【まえ】で右【みぎ】だね。その後【あと】は？,Right at the tree. And after that?,木のところで右ですね。その後は？
-dlg-30,dgrp-4,6,B,B,B,大【おお】きい家【いえ】を見【み】ることができます。それです。,You can see the building. That's it.,建物が見えます。それです。
-dlg-31,dgrp-4,7,A,A,A,歩【ある】いて行【い】けますか。,Can I go on foot?,歩いて行けますか。
-dlg-32,dgrp-4,8,B,B,B,はい、歩【ある】いて行【い】けます。近【ちか】くないです。でも良【よ】い道【みち】です。,"Yes, you can go on foot. It's not close, but it's a good road.",はい、歩いて行けます。近くはないですが、いい道ですよ。
-dlg-33,dgrp-4,9,A,A,A,ありがとう！,Thank you!,ありがとうございます！
-dlg-34,dgrp-5,1,母【はは】,Mother,母,もう立【た】ってください！日【にち】が出【で】ている。,Please get up already! The sun is out.,もう起きなさい！日が出ていますよ。
-dlg-35,dgrp-5,2,子供【こども】,Child,子供,まだ目【め】が重【おも】い。もう少【すこ】し寝【ね】たい。,My eyes are still heavy. I want to sleep a little more.,まだ眠いよ。もう少し寝たい。
-dlg-36,dgrp-5,3,母【はは】,Mother,母,いけない。速【はや】く服【ふく】を着【き】てください。,No. Hurry and get dressed.,だめです。早く服を着なさい。
-dlg-37,dgrp-5,4,子供【こども】,Child,子供,はい。でも今【いま】は空【そら】が明【あか】るくない。雨【あめ】が来【く】るか。,Okay. But the sky isn't bright right now. Will rain come?,はい。でも今日は空が暗いね。雨が降るかな。
-dlg-38,dgrp-5,5,母【はは】,Mother,母,そうだね。外【そと】は少【すこ】し寒【さむ】いから、良【よ】い服【ふく】を着【き】てください。,"It does look that way. Outside is a bit cold, so please wear good clothes.",そうね。外は少し寒いから、暖かい服を着てね。
-dlg-39,dgrp-5,6,子供【こども】,Child,子供,今【いま】は何【なに】を食【た】べる？,What are we eating now?,今朝は何を食べるの？
-dlg-40,dgrp-5,7,母【はは】,Mother,母,水【みず】と食【た】べ物【もの】がある。全部【ぜんぶ】食【た】べてください。,There's water and food. Please eat all of it.,お水とご飯があるよ。全部食べてね。
-dlg-41,dgrp-5,8,子供【こども】,Child,子供,はい、母【はは】。今【いま】の日【にち】も楽【たの】しいと思【おも】う！,"Yes, Mother. I think this day will be fun too!",はい、お母さん。今日も楽しい日になると思う！
-dlg-42,dgrp-6,1,A,A,A,石【いし】は動【うご】かない。草【くさ】は動【うご】く。何【なに】が生【い】き物【もの】を生【い】きている物【もの】にする？,A stone doesn't move. Grass moves. What makes something alive?,石は動かない。草は動く。何が生き物を生かしているんだろう？
-dlg-43,dgrp-6,2,B,B,B,動【うご】くだけじゃない。水【みず】も動【うご】く。火【ひ】も動【うご】く。でもそれは生【い】きていない。,Not just moving. Water moves too. Fire moves too. But those aren't alive.,動くだけではない。水も動く。火も動く。でもそれは生きていない。
-dlg-44,dgrp-6,3,A,A,A,じゃあ何【なに】だ？生【い】き物【もの】には何【なに】があって石【いし】にはない？,Then what is it? What do living things have that stones don't?,では何だろう？生き物には何があって石にはないのか？
-dlg-45,dgrp-6,4,B,B,B,生【い】きる風【かぜ】だ。全部【ぜんぶ】を作【つく】った人【ひと】が生【い】き物【もの】に生【い】きる風【かぜ】を与【あた】えた。,The breath of life. The one who made everything gave the breath of life to living things.,命の息だ。すべてを造った方が生き物に命の息を与えた。
-dlg-46,dgrp-6,5,A,A,A,生【い】きる風【かぜ】？私【わたし】たちが飲【の】む風【かぜ】と同【おな】じ？,The breath of life? Is it the same as the air we breathe?,命の息？私たちが吸う空気と同じ？
-dlg-47,dgrp-6,6,B,B,B,でも違【ちが】う風【かぜ】だ。それがないと体【からだ】は土【つち】と水【みず】だけだ。,But it is a different breath. Without it the body is only earth and water.,しかし特別な息だ。それがなければ体はただの土と水にすぎない。
-dlg-48,dgrp-6,7,A,A,A,全部【ぜんぶ】の生【い】き物【もの】に生【い】きる風【かぜ】がある。でも人【ひと】は他【ほか】の生【い】き物【もの】と違【ちが】う？,All living things have the breath of life. But are humans different from other living things?,すべての生き物に命の息がある。しかし人間は他の生き物と違うのか？
-dlg-49,dgrp-6,8,B,B,B,そう。全部【ぜんぶ】を作【つく】った人【ひと】は人【ひと】をその人【ひと】に近【ちか】く作【つく】った。だから人【ひと】は全部【ぜんぶ】の生【い】き物【もの】の中【なか】で一【いち】番【ばん】大【おお】きい。,Yes. The one who made everything made humans close to himself. That is why humans are the greatest of all living things.,そう。すべてを造った方は人間を御自身に近く造った。だから人間はすべての生き物の中でもっとも尊い。
-dlg-50,dgrp-7,1,A,A,A,夜【よる】の空【そら】の光【ひかり】は何【なん】だと思【おも】う？,What do you think the lights in the night sky are?,夜空の光は何だと思う？
-dlg-51,dgrp-7,2,B,B,B,あの光【ひかり】は全部【ぜんぶ】の始【はじ】まりの時【とき】に空【そら】に与【あた】えられた。,Those lights were placed in the sky at the very beginning.,あの光はすべての始まりの時に空に置かれたものだ。
-dlg-52,dgrp-7,3,A,A,A,始【はじ】まりの時【とき】に？人【ひと】より前【まえ】に？,At the beginning? Before people?,始まりの時に？人よりも前に？
-dlg-53,dgrp-7,4,B,B,B,そう。全部【ぜんぶ】を作【つく】った人【ひと】が空【そら】と土【つち】を作【つく】った後【あと】に空【そら】に光【ひかり】を与【あた】えた。,Yes. The one who made everything placed lights in the sky after making the heavens and the earth.,そう。すべてを造った方が天と地を造った後に空に光を置いた。
-dlg-54,dgrp-7,5,A,A,A,じゃああの光【ひかり】は光【ひかり】だけじゃない？,So those lights are not just lights?,ではあの光はただの光ではないのか？
-dlg-55,dgrp-7,6,B,B,B,見【み】守【まも】る物【もの】だ。空【そら】に与【あた】えられた使【つか】いだ。上【うえ】から私【わたし】たちを見【み】守【まも】っている。,They are watchers. Messengers given to the sky. They watch over us from above.,見守る者だ。天に遣わされた使いだ。上から私たちを見守っている。
-dlg-56,dgrp-7,7,A,A,A,上【うえ】からの使【つか】い？始【はじ】まりの時【とき】からそこにいる？,Messengers from above? Have they been there since the beginning?,天からの使い？始まりの時からそこにいるのか？
-dlg-57,dgrp-7,8,B,B,B,そう。土【つち】と海【うみ】が作【つく】られた時【とき】から変【か】わっていない。,Yes. They have not changed since the earth and sea were made.,そう。大地と海が造られた時から変わっていない。
-dlg-58,dgrp-7,9,A,A,A,だから毎【まい】夜【よる】変【か】わらない光【ひかり】がある。いつも上【うえ】から見【み】守【まも】っている。,That is why the same lights appear every night. Always watching from above.,だから毎晩変わらない光がある。いつも上から見守っている。
-dlg-59,dgrp-8,1,子供【こども】,Child,子供,父【ちち】さん、なぜ人【ひと】は戦【たたか】うの？戦【たたか】うと悲【かな】しいことが起【お】こるのに。,"Father, why do people fight? Fighting causes sad things to happen.",お父さん、なぜ人は戦うの？戦うと悲しいことが起こるのに。
-dlg-60,dgrp-8,2,父【ちち】,Father,父,そうだね。人【ひと】は怖【こわ】い時【とき】に好【す】きな物【もの】を守【まも】りたくなる。,"That's right. When people are afraid, they want to protect what they love.",そうだね。人は怖い時に大切なものを守りたくなる。
-dlg-61,dgrp-8,3,子供【こども】,Child,子供,でも戦【たたか】って守【まも】れるの？戦【たたか】うともっと悲【かな】しいことが起【お】こる。,But can you protect by fighting? Fighting creates more sadness.,でも戦って守れるの？戦うともっと悲しいことが起こる。
-dlg-62,dgrp-8,4,父【ちち】,Father,父,本当【ほんとう】にそうだ。全部【ぜんぶ】の中【なか】で一【ひと】つだけ強【つよ】い守【まも】り方【かた】は好【す】きでいることだ。私【わたし】を好【す】きなように他【ほか】の人【ひと】も好【す】きでいること。,That is truly so. The strongest way to protect is to love. Love others the way you love yourself.,本当にそうだ。最も強い守り方は愛することだ。自分を愛するように他の人も愛すること。
-dlg-63,dgrp-8,5,子供【こども】,Child,子供,でも悪【わる】い事【こと】をする人【ひと】は？戦【たたか】いに来【く】る人【ひと】は？,But what about people who do bad things? People who come to fight?,でも悪いことをする人は？攻めてくる人は？
-dlg-64,dgrp-8,6,父【ちち】,Father,父,その人【ひと】たちもだ。私【わたし】に悪【わる】い事【こと】をする人【ひと】も好【す】きでいる。それが人【ひと】にできる全部【ぜんぶ】の中【なか】で一【ひと】つだけ強【つよ】い事【こと】だ。,Even them. Love even those who do bad things to you. That is the strongest thing a person can do.,その人たちもだ。自分に敵対する人をも愛する。それが人にできる最も強いことだ。
-dlg-65,dgrp-8,7,子供【こども】,Child,子供,私【わたし】に悪【わる】い事【こと】をする人【ひと】を好【す】きでいるの？それはとてもできにくいと思【おも】う。,Love people who do bad things to me? I think that is very hard.,自分に敵対する人を愛するの？それはとても難しいと思う。
-dlg-66,dgrp-8,8,父【ちち】,Father,父,できにくい。でも全部【ぜんぶ】を作【つく】った人【ひと】がそう言【い】った。私【わたし】を好【す】きなように他【ほか】の人【ひと】を好【す】きでいなさい。悪【わる】い事【こと】をする人【ひと】も。,It is hard. But the one who made everything said so. Love others as you love yourself. Even those who act against you.,難しい。でもすべてを造った方がそう言われた。自分を愛するように隣人を愛しなさい。敵をも。
-dlg-67,dgrp-9,1,A,A,A,動物【どうぶつ】も食【た】べて、飲【の】んで、子供【こども】を守【まも】る。人【ひと】と本当【ほんとう】に違【ちが】う？,"Animals eat, drink, protect their young too. Are humans truly different?",動物も食べて、飲んで、子供を守る。人間と本当に違うのか？
-dlg-68,dgrp-9,2,B,B,B,人【ひと】は書【か】く。会【あ】ったことのない人【ひと】に言葉【ことば】を与【あた】える。死【し】んだ後【あと】も。,Humans write. They give words to people they've never met. Even after death.,人は書く。会ったことのない人に言葉を届ける。死んだ後も。
-dlg-69,dgrp-9,3,A,A,A,それは大【おお】きい。動物【どうぶつ】は今【いま】に生【い】きる。人【ひと】は前【まえ】と後【あと】に生【い】きる。,That's significant. Animals live in the now. Humans live in the before and after.,それは大きな違いだ。動物は今を生きる。人は過去と未来を生きる。
-dlg-70,dgrp-9,4,B,B,B,人【ひと】は動【うご】く物【もの】も作【つく】る。手【て】でできないことを動【うご】く物【もの】でできるようにする。,Humans also make machines - things that allow them to do what hands alone cannot.,人は機械も作る。手ではできないことを機械で可能にする。
-dlg-71,dgrp-9,5,A,A,A,でも石【いし】を使【つか】う動物【どうぶつ】もいる。人【ひと】だけが物【もの】を使【つか】うのではない。,But there are animals that use stones too. Humans are not the only ones who use things.,でも石を使う動物もいる。人だけが道具を使うわけではない。
-dlg-72,dgrp-9,6,B,B,B,物【もの】を使【つか】うことと、物【もの】について考【かんが】えることは違【ちが】う。人【ひと】は見【み】えない事【こと】を考【かんが】える。,Using a thing and thinking about a thing are different. Humans think about things they cannot see.,道具を使うことと、道具について考えることは違う。人は目に見えないことを考える。
-dlg-73,dgrp-9,7,A,A,A,見【み】えない事【こと】？　どんな事【こと】？,Invisible things? What kind of things?,見えないこと？　どんなこと？
-dlg-74,dgrp-9,8,B,B,B,「なぜ生【い】きるのか」。動物【どうぶつ】はこれを聞【き】かない。人【ひと】だけが聞【き】く。それが良【よ】いことか悪【わる】いことかは、まだ知【し】らない。,"""Why do we live?"" Animals don't ask this. Only humans ask it. Whether that's good or bad - we still don't know.",「なぜ生きるのか」。動物はこの問いを持たない。人だけが問う。それが良いことか悪いことかは、まだ分からない。
-dlg-75,dgrp-10,1,A,A,A,この所【ところ】に来【き】て、多【おお】い年【とし】が終【お】わった。あの木【き】は前【まえ】に小【ちい】さかった。,Many years have ended since we came to this place. That tree was small before.,この場所に来てから、何年も過ぎた。あの木は昔は小さかった。
-dlg-76,dgrp-10,2,B,B,B,木【き】は変【か】わった。でも山【やま】は変【か】わっていない。時【とき】は物【もの】によって違【ちが】う。,The tree has changed. But the mountain hasn't changed. Time differs depending on the thing.,木は変わった。でも山は変わっていない。時の流れはものによって違う。
-dlg-77,dgrp-10,3,A,A,A,私【わたし】たちも変【か】わった。体【からだ】が変【か】わった。でも……心【こころ】の中【なか】はどうだろう。,We have changed too. Our bodies have changed. But... what about inside our hearts?,私たちも変わった。体が変わった。でも……心の中はどうだろう。
-dlg-78,dgrp-10,4,B,B,B,子供【こども】の時【とき】に感【かん】じた事【こと】は、まだ心【こころ】の中【なか】にある。変【か】わっていない。,What we felt as children is still inside our hearts. Unchanged.,子供の頃に感じたことは、まだ心の中にある。変わっていない。
-dlg-79,dgrp-10,5,A,A,A,時【とき】は前【まえ】に動【うご】くだけ？　前【まえ】に行【い】くことはできない？,Does time only move forward? Can we not go back?,時間は前に進むだけ？　過去に戻ることはできない？
-dlg-80,dgrp-10,6,B,B,B,体【からだ】は前【まえ】に行【い】けない。でも心【こころ】は行【い】ける。本【ほん】の中【なか】で、目【め】を閉【し】めた中【なか】で。,"The body cannot go back. But the heart can - inside books, inside closed eyes.",体は戻れない。でも心は戻れる。本の中で、目を閉じた時に。
-dlg-81,dgrp-10,7,A,A,A,それなら時【とき】は二【ふた】つある。体【からだ】の時【とき】と、心【こころ】の時【とき】と。,"Then there are two times: the time of the body, and the time of the heart.",それなら時間は二つある。体の時間と、心の時間と。
-dlg-82,dgrp-10,8,B,B,B,そして私【わたし】たちが死【し】んだ後【あと】も、あなたと私【わたし】が感【かん】じた事【こと】は他【ほか】の人【ひと】の心【こころ】の中【なか】で生【い】きるかもしれない。,"And even after we die, what you and I felt may go on living inside the hearts of other people.",そして私たちが死んだ後も、あなたと私が感じたことは他の人の心の中で生き続けるかもしれない。
-dlg-83,dgrp-11,1,A,A,A,教【おし】える人【ひと】、本【ほん】を読【よ】んだら、その事【こと】を知【し】っていると言【い】えるか。,"Teacher, if I have read a book, can I say I know that thing?",先生、本を読んだら、そのことを知っていると言えますか。
-dlg-84,dgrp-11,2,B,B,B,本【ほん】の言葉【ことば】は知【し】ることができる。でも、本当【ほんとう】に知【し】ることは違【ちが】う。,You can know the words of a book. But truly knowing is different.,本の言葉は知ることができます。でも、本当に知るということは違います。
-dlg-85,dgrp-11,3,A,A,A,どう違【ちが】うか。,How is it different?,どう違いますか。
-dlg-86,dgrp-11,4,B,B,B,手【て】で作【つく】ったり、体【からだ】で感【かん】じたりしたとき、本当【ほんとう】に知【し】る事【こと】が始【はじ】まる。,"When you have made something with your hands, felt something in your body - that is when truly knowing begins.",手で作ったり、体で感じたりした時、本当に知ることが始まります。
-dlg-87,dgrp-11,5,A,A,A,では、私【わたし】はまだ知【し】らないのか。,Then I do not know yet?,では、私はまだ知らないのですか。
-dlg-88,dgrp-11,6,B,B,B,知【し】りたいと思【おも】っているなら、もう始【はじ】まっている。それで良【よ】いと思【おも】う。,"If you want to know, it has already begun. I think that is enough.",知りたいと思っているなら、もう始まっています。それで十分だと思います。
-dlg-89,dgrp-11,7,A,A,A,知【し】ることは終【お】わるか。,Does knowing ever end?,知ることに終わりはありますか。
-dlg-90,dgrp-11,8,B,B,B,良【よ】い教【おし】える人【ひと】も、まだ知【し】らない事【こと】がとても多【おお】いと感【かん】じている。,Even a good teacher feels there are still very many things they do not know.,良い先生でも、まだ知らないことがとても多いと感じています。
-dlg-91,dgrp-12,1,A,A,A,この海【うみ】はとても大【おお】きいね。外【そと】に何【なに】があるか。,This sea is very large. What is on the other side?,この海はとても大きいですね。向こうに何がありますか。
-dlg-92,dgrp-12,2,B,B,B,他【ほか】の国【くに】がある。でも目【め】では見【み】えない。,There are other countries. But you cannot see them with your eyes.,他の国があります。でも目では見えません。
-dlg-93,dgrp-12,3,A,A,A,その国【くに】の人【ひと】たちも、この水【みず】を見【み】ていると思【おも】うか。,Do you think the people of those countries are also looking at this water?,その国の人たちも、この海を見ていると思いますか。
-dlg-94,dgrp-12,4,B,B,B,はい、全部【ぜんぶ】一【ひと】つの水【みず】だ。海【うみ】は一【ひと】つだと思【おも】う。,"Yes, it is all one water. I think the sea is one.",はい、すべて一つの海です。海はつながっていると思います。
-dlg-95,dgrp-12,5,A,A,A,水【みず】の中【なか】に何【なに】がいるか。,What lives inside the water?,海の中に何がいますか。
-dlg-96,dgrp-12,6,B,B,B,動物【どうぶつ】が多【おお】くいる。私【わたし】たちが知【し】らない動物【どうぶつ】も、まだいると思【おも】う。,Many animals. I think there are still animals we do not know.,たくさんの生き物がいます。私たちがまだ知らない生き物もいると思います。
-dlg-97,dgrp-12,7,A,A,A,海【うみ】は怖【こわ】いか。,Is the sea frightening?,海は怖いですか。
-dlg-98,dgrp-12,8,B,B,B,怖【こわ】い。でも海【うみ】の音【おと】を聞【き】くと、心【こころ】が良【よ】くなる。,"It is frightening. But when I hear the sound of the sea, my heart becomes well.",怖いです。でも波の音を聞くと、心が穏やかになります。
-dlg-99,dgrp-12,9,A,A,A,私【わたし】もそう感【かん】じる。大【おお】きい物【もの】の前【まえ】に立【た】つと、心【こころ】が小【ちい】さくなる。,"I feel that too. Standing before something vast, my heart becomes small.",私もそう感じます。大きなものの前に立つと、自分が小さく感じられます。
-dlg-100,dgrp-13,1,A,A,A,この国【くに】はとても変【か】わったね。前【まえ】は違【ちが】った。,"This country has changed a great deal. Before, it was different.",この国はとても変わりましたね。昔とは違います。
-dlg-101,dgrp-13,2,B,B,B,はい。新【あたら】しい大【おお】きい家【いえ】が多【おお】くなった。前【まえ】からある家【いえ】は少【すく】なくなった。,Yes. There are many more new buildings. The houses that were here before have grown few.,はい。新しい建物が増えました。昔からある家は少なくなりました。
-dlg-102,dgrp-13,3,A,A,A,前【まえ】からある道【みち】も変【か】わった。前【まえ】は木【き】が多【おお】かった。,"The old roads have also changed. Before, there were many trees.",昔からある道も変わりました。以前は木が多かったです。
-dlg-103,dgrp-13,4,B,B,B,新【あたら】しいものは良【よ】いか、悪【わる】いか。,"Are new things good, or bad?",新しいものは良いですか、悪いですか。
-dlg-104,dgrp-13,5,A,A,A,新【あたら】しい動【うご】く物【もの】で、人【ひと】がする事【こと】が速【はや】くなった。でも前【まえ】にしていた事【こと】を知【し】っている人【ひと】が少【すく】なくなっている。,"With new machines, the things people do have become faster. But people who know the earlier ways of doing things are growing fewer.",新しい機械のおかげで、物事が速くなりました。でも昔のやり方を知っている人が少なくなっています。
-dlg-105,dgrp-13,6,B,B,B,言葉【ことば】も変【か】わる。前【まえ】の人【ひと】たちの言葉【ことば】は今【いま】もあるか。,Even words change. Do the words of the people before us still exist?,言葉も変わります。昔の人たちの言葉は今も残っていますか。
-dlg-106,dgrp-13,7,A,A,A,本【ほん】の中【なか】にある。でも使【つか】う人【ひと】は少【すこ】しだけだ。,They exist inside books. But only a few people use them.,本の中にあります。でも使う人はごくわずかです。
-dlg-107,dgrp-13,8,B,B,B,変【か】わらない事【こと】はあるか。,Is there anything that does not change?,変わらないものはありますか。
-dlg-108,dgrp-13,9,A,A,A,山【やま】と海【うみ】はまだ変【か】わらない。太陽【たいよう】も毎【まい】日【にち】出【で】る。,The mountains and sea have not changed. The sun still rises every day.,山と海はまだ変わりません。太陽も毎日昇ります。
-dlg-109,dgrp-14,1,A,A,A,あの人【ひと】が作【つく】った音【おと】を聞【き】くと、悲【かな】しくなる。なぜか。,"When I hear the sounds that person made, I become sad. Why is that?",あの人が作った音楽を聞くと、悲しくなります。なぜでしょうか。
-dlg-110,dgrp-14,2,B,B,B,私【わたし】もそう感【かん】じる。その音【おと】は何【なに】かを感【かん】じさせる。,I feel the same. Those sounds cause something to be felt.,私もそう感じます。その音は何かを呼び起こします。
-dlg-111,dgrp-14,3,A,A,A,言葉【ことば】は使【つか】っていない。でも心【こころ】に入【はい】る。,No words are used. Yet it enters the heart.,言葉は使っていません。でも心に届きます。
-dlg-112,dgrp-14,4,B,B,B,言葉【ことば】より前【まえ】に、体【からだ】が感【かん】じると思【おも】う。雨【あめ】の音【おと】や風【かぜ】の音【おと】も、心【こころ】を動【うご】かす。,"I think the body feels it before words do. The sound of rain, the sound of wind - these too move the heart.",言葉より先に、体が感じるのだと思います。雨の音や風の音も、心を動かします。
-dlg-113,dgrp-14,5,A,A,A,では、人【ひと】が作【つく】る音【おと】と山【やま】や海【うみ】の音【おと】は違【ちが】うか。,"Then, are sounds made by people different from the sounds of mountains and sea?",では、人が作る音と自然の音は違いますか。
-dlg-114,dgrp-14,6,B,B,B,違【ちが】うと思【おも】う。人【ひと】が作【つく】る音【おと】の中【なか】には、その人【ひと】の心【こころ】がある。,"I think they are different. Inside the sounds a person makes, there is that person's heart.",違うと思います。人が作る音の中には、その人の心が込められています。
-dlg-115,dgrp-14,7,A,A,A,悲【かな】しい音【おと】を聞【き】いて、なぜ楽【たの】しいと感【かん】じるか。変【へん】だね。,"Hearing a sad sound, why do I feel something like joy? It is strange.",悲しい音楽を聞いて、なぜ心地よいと感じるのでしょう。不思議ですね。
-dlg-116,dgrp-14,8,B,B,B,悲【かな】しさを感【かん】じていい、と思【おも】えるからかもしれない。一【ひと】りじゃないと感【かん】じる。,Perhaps because it lets you feel that sadness is allowed. You feel you are not alone.,悲しさを感じてもいいのだ、と思えるからかもしれません。一人じゃないと感じられるのです。
-dlg-117,dgrp-14,9,A,A,A,その音【おと】を作【つく】った人【ひと】も、その悲【かな】しさを知【し】っていたのだね。,The person who made those sounds also knew that sadness.,その音楽を作った人も、同じ悲しみを知っていたのですね。
-dlg-200,dgrp-15,1,私【わたし】,Patient,患者,すみません。体【からだ】が悪【わる】いです。,Excuse me. I feel unwell.,すみません。体の調子が悪いです。
-dlg-201,dgrp-15,2,体【からだ】を助【たす】ける人【ひと】,Doctor,医者,どこが悪【わる】いですか。,Where does it feel bad?,どこが悪いですか。
-dlg-202,dgrp-15,3,私【わたし】,Patient,患者,頭【あたま】が悪【わる】い感【かん】じです。体【からだ】も暑【あつ】いです。,My head hurts. My body is also hot.,頭が痛いです。体も熱いです。
-dlg-203,dgrp-15,4,体【からだ】を助【たす】ける人【ひと】,Doctor,医者,いつから悪【わる】いですか。,Since when have you felt bad?,いつからですか。
-dlg-204,dgrp-15,5,私【わたし】,Patient,患者,前【まえ】の日【にち】からです。夜【よる】も寝【ね】られませんでした。,Since yesterday. I couldn't sleep last night either.,昨日からです。夜も眠れませんでした。
-dlg-205,dgrp-15,6,体【からだ】を助【たす】ける人【ひと】,Doctor,医者,口【くち】を開【あ】けてください。体【からだ】を見【み】ます。,Please open your mouth. I will examine you.,口を開けてください。体を診ます。
-dlg-206,dgrp-15,7,体【からだ】を助【たす】ける人【ひと】,Doctor,医者,体【からだ】を良【よ】くする物【もの】を飲【の】んでください。よく寝【ね】てください。,Please take medicine. Please sleep well.,薬を飲んでください。よく寝てください。
-dlg-207,dgrp-15,8,体【からだ】を助【たす】ける人【ひと】,Doctor,医者,三【みっ】つの日【にち】の後【あと】に良【よ】くならないなら、また来【き】てください。,"If you don't feel better in three days, please come back.",三日後に良くならなかったら、また来てください。
-dlg-208,dgrp-15,9,私【わたし】,Patient,患者,分【わ】かりました。ありがとう。,I understand. Thank you very much.,分かりました。ありがとうございます。
-dlg-209,dgrp-16,1,私【わたし】,Customer,客,すみません。体【からだ】を良【よ】くする物【もの】が欲【ほ】しいです。,Excuse me. I would like some medicine.,すみません。薬が欲しいのですが。
-dlg-210,dgrp-16,2,買【か】う所【ところ】の人【ひと】,Staff,店員,どこが悪【わる】いですか。,What's wrong?,どこが悪いですか。
-dlg-211,dgrp-16,3,私【わたし】,Customer,客,腹【はら】が悪【わる】い感【かん】じです。食【た】べた後【あと】に悪【わる】くなります。,My stomach hurts. It gets bad after eating.,お腹が痛いです。食べた後に痛くなります。
-dlg-212,dgrp-16,4,買【か】う所【ところ】の人【ひと】,Staff,店員,食【た】べ物【もの】で体【からだ】が悪【わる】くなる事【こと】はありますか。,Does any food make you feel bad?,食べ物でアレルギーが出ることはありますか。
-dlg-213,dgrp-16,5,私【わたし】,Customer,客,いいえ、ないです。,"No, I don't.",いいえ、ありません。
-dlg-214,dgrp-16,6,買【か】う所【ところ】の人【ひと】,Staff,店員,これが良【よ】いと思【おも】います。毎【まい】日【にち】、食【た】べた後【あと】に一【ひと】つ飲【の】んでください。,I think this is good. Please take one after each meal.,これが良いと思います。毎日、食後に一つ飲んでください。
-dlg-215,dgrp-16,7,私【わたし】,Customer,客,分【わ】かりました。いくらですか。,I understand. How much is it?,分かりました。いくらですか。
-dlg-216,dgrp-16,8,買【か】う所【ところ】の人【ひと】,Staff,店員,五【ご】百【ひゃく】です。良【よ】くならないなら、体【からだ】を助【たす】ける人【ひと】に会【あ】ってください。,"It's five hundred. If it doesn't get better, please see a doctor.",五百円です。良くならなければ、医者に行ってください。
-dlg-217,dgrp-17,1,A,A,A,すみません！助【たす】けてください！,Excuse me! Please help!,すみません！助けてください！
-dlg-218,dgrp-17,2,B,B,B,どうしましたか。,What happened?,どうしましたか。
-dlg-219,dgrp-17,3,A,A,A,あの人【ひと】が下【した】に行【い】きました。足【あし】が悪【わる】いと思【おも】います。動【うご】けません。,That person fell down. I think their leg is hurt. They can't move.,あの人が倒れました。足を怪我したと思います。動けません。
-dlg-220,dgrp-17,4,B,B,B,どこですか。,Where are they?,どこですか。
-dlg-221,dgrp-17,5,A,A,A,あの大【おお】きい家【いえ】の前【まえ】です。道【みち】の上【うえ】にいます。,In front of that big building. They are on the road.,あの大きい建物の前です。道の上にいます。
-dlg-222,dgrp-17,6,B,B,B,分【わ】かりました。助【たす】ける人【ひと】に言【い】います。待【ま】ってください。,I understand. I will call for help. Please wait.,分かりました。救急を呼びます。待ってください。
-dlg-223,dgrp-17,7,A,A,A,ありがとう。あの人【ひと】の近【ちか】くにいてください。,Thank you. Please stay near that person.,ありがとうございます。あの人のそばにいてください。
-dlg-224,dgrp-17,8,B,B,B,はい。水【みず】をあげましょう。体【からだ】を動【うご】かさないでください。,Yes. Let's give them water. Please don't move their body.,はい。水をあげましょう。体を動かさないでください。
-dlg-225,dgrp-18,1,A,A,A,すみません。ここから海【うみ】の人【ひと】が来【く】る物【もの】を待【ま】つ所【ところ】まで行【い】きたいです。,Excuse me. I want to go from here to the sea station.,すみません。ここから海の駅まで行きたいです。
-dlg-226,dgrp-18,2,所【ところ】の人【ひと】,Staff,駅員,二【に】百【ひゃく】円【えん】です。,Two hundred yen.,二百円です。
-dlg-227,dgrp-18,3,A,A,A,一【ひと】つください。何【なに】つ目【め】の所【ところ】から出【で】ますか。,One please. What platform does it leave from?,一枚ください。何番線から出ますか。
-dlg-228,dgrp-18,4,所【ところ】の人【ひと】,Staff,駅員,三【みっ】つ目【め】です。上【うえ】に行【い】ってください。,Number three. Please go up.,三番線です。上に行ってください。
-dlg-229,dgrp-18,5,A,A,A,いつ来【き】ますか。,When does it come?,いつ来ますか。
-dlg-230,dgrp-18,6,所【ところ】の人【ひと】,Staff,駅員,十【じゅう】五【ご】の後【あと】です。,In fifteen minutes.,十五分後です。
-dlg-231,dgrp-18,7,A,A,A,海【うみ】の所【ところ】までどのくらいですか。,How long to the sea station?,海の駅までどのくらいですか。
-dlg-232,dgrp-18,8,所【ところ】の人【ひと】,Staff,駅員,二【に】十【じゅう】ぐらいです。三【みっ】つ目【め】の所【ところ】で出【で】てください。,About twenty minutes. Get off at the third stop.,二十分くらいです。三つ目の駅で降りてください。
-dlg-233,dgrp-19,1,買【か】う所【ところ】の人【ひと】,Staff,店員,何【なん】人【にん】ですか。,How many people?,何名様ですか。
-dlg-234,dgrp-19,2,A,A,A,二【ふた】りの人【ひと】です。,Two people.,二人です。
-dlg-235,dgrp-19,3,買【か】う所【ところ】の人【ひと】,Staff,店員,どうぞ、こちらに座【すわ】ってください。,"Please, sit here.",どうぞ、こちらにお座りください。
-dlg-236,dgrp-19,4,A,A,A,すみません。この食【た】べ物【もの】の中【なか】に何【なに】がありますか。,Excuse me. What is in this dish?,すみません。この料理の中に何が入っていますか。
-dlg-237,dgrp-19,5,買【か】う所【ところ】の人【ひと】,Staff,店員,草【くさ】と肉【にく】です。体【からだ】が悪【わる】くなる食【た】べ物【もの】はありますか。,Vegetables and meat. Do you have any food allergies?,野菜とお肉です。アレルギーはありますか。
-dlg-238,dgrp-19,6,A,A,A,はい。卵【たまご】で体【からだ】が悪【わる】くなります。,Yes. Eggs make me feel bad.,はい。卵でアレルギーが出ます。
-dlg-239,dgrp-19,7,買【か】う所【ところ】の人【ひと】,Staff,店員,分【わ】かりました。この食【た】べ物【もの】には卵【たまご】は入【はい】っていません。,I understand. This dish has no eggs.,分かりました。この料理には卵は入っていません。
-dlg-240,dgrp-19,8,A,A,A,では、これをください。,Then I'll have this.,では、これをください。
-dlg-241,dgrp-19,9,A,A,A,すみません。お金【かね】を全部【ぜんぶ】ください。,Excuse me. The bill please.,すみません。お会計をお願いします。
-dlg-242,dgrp-20,1,買【か】う所【ところ】の人【ひと】,Staff,店員,来【き】てくれてありがとう。,Welcome.,いらっしゃいませ。
-dlg-243,dgrp-20,2,A,A,A,すみません。この食【た】べ物【もの】を暑【あつ】くしてください。,Excuse me. Please heat this food.,すみません。これを温めてください。
-dlg-244,dgrp-20,3,買【か】う所【ところ】の人【ひと】,Staff,店員,はい。少【すこ】し待【ま】ってください。入【い】れる物【もの】は必要【ひつよう】ですか。,Yes. Please wait. Do you need a bag?,はい。少々お待ちください。袋は必要ですか。
-dlg-245,dgrp-20,4,A,A,A,はい、ください。,Yes please.,はい、お願いします。
-dlg-246,dgrp-20,5,買【か】う所【ところ】の人【ひと】,Staff,店員,他【ほか】に欲【ほ】しい物【もの】はありますか。,Anything else?,他に欲しい物はありますか。
-dlg-247,dgrp-20,6,A,A,A,この飲【の】み物【もの】もください。,This drink too please.,この飲み物もください。
-dlg-248,dgrp-20,7,買【か】う所【ところ】の人【ひと】,Staff,店員,全部【ぜんぶ】で三【さん】百【びゃく】五【ご】十【じゅう】です。,The total is three hundred fifty.,全部で三百五十円です。
-dlg-249,dgrp-20,8,A,A,A,お金【かね】の小【ちい】さい物【もの】で良【よ】いですか。,Is card okay?,カードで大丈夫ですか。
-dlg-250,dgrp-20,9,買【か】う所【ところ】の人【ひと】,Staff,店員,はい。ありがとう。,Yes. Thank you.,はい。ありがとうございます。
-dlg-251,dgrp-21,1,A,A,A,もしもし。体【からだ】を助【たす】ける所【ところ】ですか。,Hello. Is this the clinic?,もしもし。病院ですか。
-dlg-252,dgrp-21,2,体【からだ】を助【たす】ける所【ところ】の人【ひと】,Receptionist,受付,はい。何【なに】のためですか。,Yes. What is it for?,はい。どうされましたか。
-dlg-253,dgrp-21,3,A,A,A,体【からだ】を助【たす】ける人【ひと】に会【あ】いたいです。いつが良【よ】いですか。,I would like to see a doctor. When is good?,医者に会いたいです。いつが良いですか。
-dlg-254,dgrp-21,4,体【からだ】を助【たす】ける所【ところ】の人【ひと】,Receptionist,受付,後【あと】の日【にち】の十【じゅう】の時【とき】はどうですか。,How about tomorrow at ten?,明日の十時はどうですか。
-dlg-255,dgrp-21,5,A,A,A,良【よ】いです。私【わたし】の名前【なまえ】はたなかです。,That's good. My name is Tanaka.,大丈夫です。私の名前は田中です。
-dlg-256,dgrp-21,6,体【からだ】を助【たす】ける所【ところ】の人【ひと】,Receptionist,受付,たなかさんですね。後【あと】の日【にち】の十【じゅう】の時【とき】です。待【ま】っています。,Tanaka-san. Tomorrow at ten. We'll be expecting you.,田中さんですね。明日の十時です。お待ちしています。
-dlg-257,dgrp-22,1,A,A,A,すみません。ここに来【き】た事【こと】を書【か】きたいです。,Excuse me. I want to register my address.,すみません。住所の届け出をしたいです。
-dlg-258,dgrp-22,2,所【ところ】の人【ひと】,Staff,職員,分【わ】かりました。あなたが誰【だれ】かを見【み】せる物【もの】が必要【ひつよう】です。,I see. You need identification.,分かりました。身分証が必要です。
-dlg-259,dgrp-22,3,所【ところ】の人【ひと】,Staff,職員,他【ほか】の国【くに】の人【ひと】なら、国【くに】に行【い】く本【ほん】も必要【ひつよう】です。,"If you are from another country, you also need your passport.",外国の方なら、パスポートも必要です。
-dlg-260,dgrp-22,4,A,A,A,はい。これです。どうぞ。,Yes. Here it is.,はい。これです。どうぞ。
-dlg-261,dgrp-22,5,所【ところ】の人【ひと】,Staff,職員,ありがとう。この書【か】く物【もの】に名前【なまえ】と家【いえ】の所【ところ】を書【か】いてください。,Thank you. Please write your name and address on this form.,ありがとうございます。この用紙に名前と住所を書いてください。
-dlg-262,dgrp-22,6,A,A,A,書【か】き方【かた】が分【わ】かりません。教【おし】えてもらえますか。,I don't know how to fill this in. Can you help me?,書き方が分かりません。教えてもらえますか。
-dlg-263,dgrp-22,7,所【ところ】の人【ひと】,Staff,職員,はい。ここに名前【なまえ】。ここに家【いえ】の所【ところ】を書【か】いてください。,"Yes. Write your name here, and your address here.",はい。ここに名前、ここに住所を書いてください。
-dlg-264,dgrp-22,8,A,A,A,ありがとう。どこに出【だ】しますか。,Thank you. Where do I submit it?,ありがとうございます。どこに出しますか。
-dlg-265,dgrp-22,9,所【ところ】の人【ひと】,Staff,職員,二【ふた】つ目【め】の所【ところ】に持【も】って行【い】ってください。,Please take it to counter number two.,二番の窓口に持って行ってください。
-dlg-266,dgrp-23,1,A,A,A,こんにちは。ここに新【あたら】しく来【き】ました。私【わたし】はたなかです。,Hello. I just moved here. I'm Tanaka.,こんにちは。ここに引っ越してきました。田中です。
-dlg-267,dgrp-23,2,B,B,B,こんにちは。私【わたし】はやまもとです。家【いえ】が近【ちか】い人【ひと】です。,Hello. I'm Yamamoto. I'm your neighbor.,こんにちは。山本です。お隣の者です。
-dlg-268,dgrp-23,3,A,A,A,よろしくください。私【わたし】は他【ほか】の国【くに】から来【き】ました。,Nice to meet you. I came from another country.,よろしくお願いします。外国から来ました。
-dlg-269,dgrp-23,4,B,B,B,そうですか。この国【くに】の言葉【ことば】がとても良【よ】いですね。,Is that so? Your Japanese is very good.,そうですか。日本語がとてもお上手ですね。
-dlg-270,dgrp-23,5,A,A,A,ありがとう。まだ少【すこ】しだけです。,Thank you. I only know a little.,ありがとうございます。まだ少しだけです。
-dlg-271,dgrp-23,6,B,B,B,何【なに】か分【わ】からない事【こと】があったら、言【い】ってください。,"If there's anything you don't understand, please tell me.",何か分からないことがあったら、言ってください。
-dlg-272,dgrp-23,7,A,A,A,ありがとう。とても助【たす】かります。,Thank you. That helps a lot.,ありがとうございます。とても助かります。
-dlg-273,dgrp-24,1,A,A,A,すみません。今【いま】の言葉【ことば】が分【わ】かりませんでした。,Excuse me. I didn't understand what you just said.,すみません。今の言葉が分かりませんでした。
-dlg-274,dgrp-24,2,B,B,B,すみません。もう一【ひと】つ言【い】いましょうか。,Sorry. Shall I say it again?,すみません。もう一度言いましょうか。
-dlg-275,dgrp-24,3,A,A,A,はい。速【はや】く言【い】わないでください。,Yes. Please do not speak fast.,はい。もう少しゆっくり言ってください。
-dlg-276,dgrp-24,4,B,B,B,この道【みち】を行【い】って、大【おお】きい木【き】の前【まえ】で右【みぎ】です。,"Go along this road, and turn right at the big tree.",この道を行って、大きい木の前で右です。
-dlg-277,dgrp-24,5,A,A,A,道【みち】を行【い】って……右【みぎ】。すみません、書【か】いてもらえますか。,"Go along the road... right. Sorry, could you write it down?",道を行って……右。すみません、書いてもらえますか。
-dlg-278,dgrp-24,6,B,B,B,はい。ここに書【か】きます。これで分【わ】かりますか。,Yes. I'll write it here. Can you understand this?,はい。ここに書きます。これで分かりますか。
-dlg-279,dgrp-24,7,A,A,A,はい！書【か】いた物【もの】は分【わ】かります。ありがとう。,Yes! I can understand the writing. Thank you.,はい！書いてあれば分かります。ありがとうございます。
-dlg-280,dgrp-25,1,A,A,A,すみません。この物【もの】は今【いま】の日【にち】に外【そと】に出【だ】してもいいですか。,Excuse me. Can I put this out today?,すみません。このゴミは今日出してもいいですか。
-dlg-281,dgrp-25,2,B,B,B,いいえ。今【いま】の日【にち】は違【ちが】います。,No. Today is not the right day.,いいえ。今日は違います。
-dlg-282,dgrp-25,3,A,A,A,そうですか。いつが良【よ】いですか。,I see. When is good?,そうですか。いつが良いですか。
-dlg-283,dgrp-25,4,B,B,B,この物【もの】は月【つき】の日【にち】とお金【かね】の日【にち】に出【だ】します。,This goes out on Monday and Friday.,これは月曜日と金曜日に出します。
-dlg-284,dgrp-25,5,A,A,A,書【か】く物【もの】はいつですか。,When is paper?,紙はいつですか。
-dlg-285,dgrp-25,6,B,B,B,書【か】く物【もの】は水【みず】の日【にち】です。日【にち】の中【なか】の前【まえ】に出【だ】してください。,Paper is on Wednesday. Please put it out in the morning.,紙は水曜日です。朝に出してください。
-dlg-286,dgrp-25,7,A,A,A,分【わ】かりました。ありがとう。,I understand. Thank you.,分かりました。ありがとうございます。
-dlg-287,dgrp-25,8,B,B,B,分【わ】からない事【こと】があったら、聞【き】いてください。,"If you don't understand something, please ask.",分からないことがあったら、聞いてください。
-dlg-288,dgrp-26,1,A,A,A,今【いま】の日【にち】は空【そら】がとてもきれいですね。,The sky is very beautiful today.,今日は空がとてもきれいですね。
-dlg-289,dgrp-26,2,B,B,B,そうですね。太陽【たいよう】が出【で】ていて、風【かぜ】も良【よ】いです。,"Yes. The sun is out, and the wind is nice.",そうですね。太陽が出ていて、風も気持ちいいです。
-dlg-290,dgrp-26,3,A,A,A,でも後【あと】から雨【あめ】が来【く】ると聞【き】きました。,But I heard it will rain later.,でも後から雨が降ると聞きました。
-dlg-291,dgrp-26,4,B,B,B,本当【ほんとう】ですか。雨【あめ】の物【もの】を持【も】った方【ほう】がいいですね。,Really? We should bring an umbrella.,本当ですか。傘を持った方がいいですね。
-dlg-292,dgrp-26,5,A,A,A,今【いま】の日【にち】は何【なに】をしますか。,What are you doing today?,今日は何をしますか。
-dlg-293,dgrp-26,6,B,B,B,雨【あめ】の前【まえ】に外【そと】を歩【ある】きたいです。,I want to walk outside before the rain.,雨の前に外を歩きたいです。
-dlg-294,dgrp-26,7,A,A,A,良【よ】いですね。良【よ】い日【にち】にしましょう。,That's nice. Let's make it a good day.,いいですね。良い一日にしましょう。
-dlg-301,dgrp-27,1,A,A,A,前【まえ】の日【にち】は何【なに】をしましたか。,What did you do yesterday?,昨日は何をしましたか。
-dlg-302,dgrp-27,2,B,B,B,バグを探【さが】して、テストを作【つく】りました。,I found the bug and wrote tests.,バグを調べて、テストを作りました。
-dlg-303,dgrp-27,3,A,A,A,今【いま】の日【にち】は何【なに】をしますか。,What will you do today?,今日は何をしますか。
-dlg-304,dgrp-27,4,B,B,B,コードを書【か】いて、レビューをお願【ねが】いします。,I will write code and ask for review.,コードを書いて、レビューをお願いします。
-dlg-305,dgrp-28,1,A,A,A,サーバーが止【と】まっています。,The server is down.,サーバーが停止しています。
-dlg-306,dgrp-28,2,B,B,B,いつからですか。,Since when?,いつからですか。
-dlg-307,dgrp-28,3,A,A,A,十【じゅう】分【ぷん】前【まえ】からです。,For ten minutes.,10分前からです。
-dlg-308,dgrp-28,4,B,B,B,今【いま】、前【まえ】の物【もの】にします。,I am rolling back now.,今、ロールバックします。
-dlg-309,dgrp-29,1,A,A,A,この物【もの】はどう動【うご】きますか。,How does this system work?,これはどう動きますか。
-dlg-310,dgrp-29,2,B,B,B,始【はじ】めにデータがサーバーに入【はい】ります。,First data enters the server.,最初にデータがサーバーに入ります。
-dlg-311,dgrp-29,3,B,B,B,それからデータベースに書【か】きます。,Then it writes to the database.,それからデータベースに書き込みます。
-dlg-312,dgrp-29,4,A,A,A,なぜ二【ふた】つの所【ところ】を使【つか】いますか。,Why do we use two places?,なぜ二つの場所を使いますか。
-dlg-313,dgrp-30,1,A,A,A,今【いま】からデモを始【はじ】めます。,I will start the demo now.,これからデモを始めます。
-dlg-314,dgrp-30,2,A,A,A,これを使【つか】うと、何【なに】が起【お】こるか見【み】てください。,Watch what happens when I use this.,これを使うと何が起きるか見てください。
-dlg-315,dgrp-30,3,B,B,B,新【あたら】しい物【もの】がすぐ見【み】えます。,The new item appears immediately.,新しいものがすぐに表示されます。
-dlg-316,dgrp-30,4,A,A,A,前【まえ】より速【はや】くなりました。,It is faster than before.,以前より速くなりました。
-dlg-317,dgrp-31,1,A,A,A,どのタスクを始【はじ】めにしますか。,Which task should we do first?,どのタスクを優先しますか。
-dlg-318,dgrp-31,2,B,B,B,このバグを始【はじ】めにする必要【ひつよう】があります。,We need to do this bug first.,このバグを先に直す必要があります。
-dlg-319,dgrp-31,3,A,A,A,いつまでにできますか。,When can it be done?,いつまでにできますか。
-dlg-320,dgrp-31,4,B,B,B,たぶん明【あす】までにできます。,Probably by tomorrow.,たぶん明日までにできます。
-dlg-321,dgrp-32,1,A,A,A,このタスクは何【なに】のためですか。,What is this task for?,このタスクは何のためですか。
-dlg-322,dgrp-32,2,B,B,B,使【つか】う人【ひと】が速【はや】く探【さが】すためです。,So users can search faster.,利用者が速く検索できるようにするためです。
-dlg-323,dgrp-32,3,A,A,A,どの時【とき】に必要【ひつよう】ですか。,In which case is it needed?,どの場合に必要ですか。
-dlg-324,dgrp-32,4,B,B,B,物【もの】が多【おお】い時【とき】に必要【ひつよう】です。,It is needed when there are many items.,項目が多い時に必要です。
+id,dialog_group_id,line_number,speaker_minihongo,speaker_english,speaker_korean,speaker_japanese,minihongo,english,korean,japanese
+dlg-1,dgrp-1,1,A,A,A,A,すみません。この食【た】べ物【もの】は何【なに】ですか。,Excuse me. What is this food?,실례합니다. 이 음식은 뭐예요?,すみません。この食べ物は何ですか。
+dlg-2,dgrp-1,2,B,B,B,B,これは良【よ】い食【た】べ物【もの】です。水【みず】と草【くさ】で作【つく】りました。,This is good food. We made it with water and greens.,이건 맛있는 음식이에요. 물과 채소로 만들었어요.,これはおいしい食べ物です。水と野菜で作りました。
+dlg-3,dgrp-1,3,A,A,A,A,これをください。他【ほか】の物【もの】もありますか。,Please give me this. Do you have other things too?,이걸 주세요. 다른 물건도 있어요?,これをください。他の物もありますか。
+dlg-4,dgrp-1,4,B,B,B,B,はい。そこに新【あたら】しい物【もの】があります。,Yes. There are new things over there.,네. 저쪽에 새 상품이 있어요.,はい。あちらに新しい品物があります。
+dlg-5,dgrp-1,5,A,A,A,A,それも見【み】てもいいですか。,May I look at that too?,그것도 봐도 될까요?,それも見てもいいですか。
+dlg-6,dgrp-1,6,B,B,B,B,はい。手【て】で持【も】ってください。,Yes. Please hold it in your hands.,네. 손에 들고 보세요.,はい。手に取ってご覧ください。
+dlg-7,dgrp-1,7,A,A,A,A,これを買【か】います。ありがとう。,I'll buy this. Thank you.,이걸 살게요. 감사합니다.,これを買います。ありがとうございます。
+dlg-8,dgrp-1,8,B,B,B,B,ありがとう。また来【き】てください。,Thank you. Please come again.,감사합니다. 또 오세요.,ありがとうございます。またお越しください。
+dlg-9,dgrp-2,1,A,A,A,A,あ！どこに行【い】きますか？,Oh! Where are you going?,아! 어디 가세요?,あ！どこに行くんですか。
+dlg-10,dgrp-2,2,B,B,B,B,今【いま】は海【うみ】に行【い】きます。あなたは？,I'm heading to the sea now. And you?,지금 바다에 가는 길이에요. 당신은요?,今から海に行くところです。あなたは？
+dlg-11,dgrp-2,3,A,A,A,A,私【わたし】は家【いえ】に行【い】く。体【からだ】が少【すこ】し悪【わる】いです。,I'm going home. My body feels a little bad.,저는 집에 가요. 몸 상태가 좀 안 좋아서요.,私は家に帰ります。体の調子が少し悪いんです。
+dlg-12,dgrp-2,4,B,B,B,B,体【からだ】が悪【わる】いですか？水【みず】を飲【の】んで、寝【ね】てください。,Your body feels bad? Please drink water and sleep.,몸이 안 좋으세요? 물 마시고 쉬세요.,体調が悪いんですか？水を飲んで、休んでください。
+dlg-13,dgrp-2,5,A,A,A,A,ありがとう。海【うみ】の風【かぜ】はとても良【よ】いね。,"Thank you. The sea air is really good, isn't it.",고마워요. 바다 공기는 정말 기분 좋죠.,ありがとうございます。海の空気はとても気持ちいいですよね。
+dlg-14,dgrp-2,6,B,B,B,B,そうですね。でも今【いま】は風【かぜ】が強【つよ】いです。,It is. But right now the wind is strong.,그렇죠. 그런데 오늘은 바람이 세요.,そうですね。でも今日は風が強いです。
+dlg-15,dgrp-2,7,A,A,A,A,体【からだ】を守【まも】ってください。また会【あ】いましょう！,Please take care of yourself. Let's meet again!,조심히 가세요. 또 만나요!,お気をつけて。また会いましょう！
+dlg-16,dgrp-2,8,B,B,B,B,はい、また会【あ】いましょう！,"Yes, let's meet again!","네, 또 만나요!",はい、また会いましょう！
+dlg-17,dgrp-3,1,母【はは】,Mother,어머니,母,座【すわ】ってください。食【た】べ物【もの】ができた。,Everyone please sit down. The food is ready.,앉으세요. 밥 다 됐어요.,座ってください。ご飯ができましたよ。
+dlg-18,dgrp-3,2,子供【こども】,Child,아이,子供,今【いま】は何【なに】を食【た】べる？,What are we eating now?,오늘은 뭐 먹어?,今日は何を食べるの？
+dlg-19,dgrp-3,3,母【はは】,Mother,어머니,母,草【くさ】と水【みず】で作【つく】った。体【からだ】に良【よ】い。,I made it with greens and water. It's good for your body.,채소랑 물로 만들었어요. 몸에 좋아요.,野菜と水で作りました。体にいいですよ。
+dlg-20,dgrp-3,4,父【ちち】,Father,아버지,父,とても良【よ】い物【もの】だね。今【いま】まで体【からだ】がとても重【おも】かった。,It looks very good. My body has felt very heavy until now.,아주 맛있어 보이네요. 요즘 계속 몸이 무거웠거든요.,とてもおいしそうですね。最近ずっと体が重かったんです。
+dlg-21,dgrp-3,5,子供【こども】,Child,아이,子供,父【ちち】、今【いま】の日【にち】は楽【たの】しかったか。,"Father, was this day enjoyable?","아빠, 오늘 재미있었어?",お父さん、今日は楽しかった？
+dlg-22,dgrp-3,6,父【ちち】,Father,아버지,父,まあまあだった。でも家【いえ】に来【く】ることがもっと好【す】きだ。,More or less. But coming home is what I like most.,그럭저럭이었어. 그래도 집에 오는 게 제일 좋아.,まあまあだったよ。でも家に帰るのが一番好きだ。
+dlg-23,dgrp-3,7,母【はは】,Mother,어머니,母,この物【もの】を全部【ぜんぶ】食【た】べてください。,Please eat all of this.,이거 다 먹어요.,これを全部食べてくださいね。
+dlg-24,dgrp-3,8,子供【こども】,Child,아이,子供,はい！とても良【よ】い。ありがとう、母【はは】。,"Yes! It's very good. Thank you, Mother.","응! 정말 맛있어. 고마워, 엄마.",うん！とてもおいしい。ありがとう、お母さん。
+dlg-25,dgrp-4,1,A,A,A,A,すみません。大【おお】きい大【おお】きい家【いえ】はどこですか。,Excuse me. Where is the big building?,실례합니다. 큰 건물은 어디에 있어요?,すみません。大きい建物はどこですか。
+dlg-26,dgrp-4,2,B,B,B,B,ここから近【ちか】くないです。,It's not close from here.,여기서는 가깝지 않아요.,ここからは近くないですよ。
+dlg-27,dgrp-4,3,A,A,A,A,どう行【い】ったらいいですか。,How should I get there?,어떻게 가면 돼요?,どう行ったらいいですか。
+dlg-28,dgrp-4,4,B,B,B,B,この道【みち】を行【い】ってください。大【おお】きい木【き】の前【まえ】で右【みぎ】に入【はい】ってください。,"Please go along this road. At the big tree, turn right.",이 길을 똑바로 가세요. 큰 나무가 있는 곳에서 오른쪽으로 도세요.,この道をまっすぐ行ってください。大きな木のところで右に曲がってください。
+dlg-29,dgrp-4,5,A,A,A,A,木【き】の前【まえ】で右【みぎ】だね。その後【あと】は？,Right at the tree. And after that?,나무 있는 곳에서 오른쪽이요. 그다음에는요?,木のところで右ですね。その後は？
+dlg-30,dgrp-4,6,B,B,B,B,大【おお】きい家【いえ】を見【み】ることができます。それです。,You can see the building. That's it.,건물이 보일 거예요. 그거예요.,建物が見えます。それです。
+dlg-31,dgrp-4,7,A,A,A,A,歩【ある】いて行【い】けますか。,Can I go on foot?,걸어서 갈 수 있어요?,歩いて行けますか。
+dlg-32,dgrp-4,8,B,B,B,B,はい、歩【ある】いて行【い】けます。近【ちか】くないです。でも良【よ】い道【みち】です。,"Yes, you can go on foot. It's not close, but it's a good road.","네, 걸어서 갈 수 있어요. 가깝지는 않지만 좋은 길이에요.",はい、歩いて行けます。近くはないですが、いい道ですよ。
+dlg-33,dgrp-4,9,A,A,A,A,ありがとう！,Thank you!,감사합니다!,ありがとうございます！
+dlg-34,dgrp-5,1,母【はは】,Mother,어머니,母,もう立【た】ってください！日【にち】が出【で】ている。,Please get up already! The sun is out.,이제 일어나! 해가 떴어요.,もう起きなさい！日が出ていますよ。
+dlg-35,dgrp-5,2,子供【こども】,Child,아이,子供,まだ目【め】が重【おも】い。もう少【すこ】し寝【ね】たい。,My eyes are still heavy. I want to sleep a little more.,아직 졸려. 좀 더 자고 싶어.,まだ眠いよ。もう少し寝たい。
+dlg-36,dgrp-5,3,母【はは】,Mother,어머니,母,いけない。速【はや】く服【ふく】を着【き】てください。,No. Hurry and get dressed.,안 돼요. 빨리 옷 입어.,だめです。早く服を着なさい。
+dlg-37,dgrp-5,4,子供【こども】,Child,아이,子供,はい。でも今【いま】は空【そら】が明【あか】るくない。雨【あめ】が来【く】るか。,Okay. But the sky isn't bright right now. Will rain come?,네. 그런데 오늘은 하늘이 어둡네. 비가 오려나.,はい。でも今日は空が暗いね。雨が降るかな。
+dlg-38,dgrp-5,5,母【はは】,Mother,어머니,母,そうだね。外【そと】は少【すこ】し寒【さむ】いから、良【よ】い服【ふく】を着【き】てください。,"It does look that way. Outside is a bit cold, so please wear good clothes.",그러네. 밖이 좀 추우니까 따뜻한 옷 입어.,そうね。外は少し寒いから、暖かい服を着てね。
+dlg-39,dgrp-5,6,子供【こども】,Child,아이,子供,今【いま】は何【なに】を食【た】べる？,What are we eating now?,오늘 아침은 뭐 먹어?,今朝は何を食べるの？
+dlg-40,dgrp-5,7,母【はは】,Mother,어머니,母,水【みず】と食【た】べ物【もの】がある。全部【ぜんぶ】食【た】べてください。,There's water and food. Please eat all of it.,물이랑 밥 있어. 다 먹어.,お水とご飯があるよ。全部食べてね。
+dlg-41,dgrp-5,8,子供【こども】,Child,아이,子供,はい、母【はは】。今【いま】の日【にち】も楽【たの】しいと思【おも】う！,"Yes, Mother. I think this day will be fun too!","네, 엄마. 오늘도 즐거운 날이 될 것 같아!",はい、お母さん。今日も楽しい日になると思う！
+dlg-42,dgrp-6,1,A,A,A,A,石【いし】は動【うご】かない。草【くさ】は動【うご】く。何【なに】が生【い】き物【もの】を生【い】きている物【もの】にする？,A stone doesn't move. Grass moves. What makes something alive?,돌은 움직이지 않아. 풀은 움직이지. 무엇이 생물을 살아 있게 하는 걸까?,石は動かない。草は動く。何が生き物を生かしているんだろう？
+dlg-43,dgrp-6,2,B,B,B,B,動【うご】くだけじゃない。水【みず】も動【うご】く。火【ひ】も動【うご】く。でもそれは生【い】きていない。,Not just moving. Water moves too. Fire moves too. But those aren't alive.,움직이는 것만은 아니야. 물도 움직여. 불도 움직여. 하지만 그건 살아 있지 않아.,動くだけではない。水も動く。火も動く。でもそれは生きていない。
+dlg-44,dgrp-6,3,A,A,A,A,じゃあ何【なに】だ？生【い】き物【もの】には何【なに】があって石【いし】にはない？,Then what is it? What do living things have that stones don't?,그럼 뭘까? 생물에게는 있고 돌에게는 없는 게 뭘까?,では何だろう？生き物には何があって石にはないのか？
+dlg-45,dgrp-6,4,B,B,B,B,生【い】きる風【かぜ】だ。全部【ぜんぶ】を作【つく】った人【ひと】が生【い】き物【もの】に生【い】きる風【かぜ】を与【あた】えた。,The breath of life. The one who made everything gave the breath of life to living things.,생명의 숨이야. 모든 것을 지으신 분이 생물에게 생명의 숨을 주셨어.,命の息だ。すべてを造った方が生き物に命の息を与えた。
+dlg-46,dgrp-6,5,A,A,A,A,生【い】きる風【かぜ】？私【わたし】たちが飲【の】む風【かぜ】と同【おな】じ？,The breath of life? Is it the same as the air we breathe?,생명의 숨? 우리가 들이마시는 공기와 같은 거야?,命の息？私たちが吸う空気と同じ？
+dlg-47,dgrp-6,6,B,B,B,B,でも違【ちが】う風【かぜ】だ。それがないと体【からだ】は土【つち】と水【みず】だけだ。,But it is a different breath. Without it the body is only earth and water.,하지만 특별한 숨이야. 그것이 없으면 몸은 그저 흙과 물에 지나지 않아.,しかし特別な息だ。それがなければ体はただの土と水にすぎない。
+dlg-48,dgrp-6,7,A,A,A,A,全部【ぜんぶ】の生【い】き物【もの】に生【い】きる風【かぜ】がある。でも人【ひと】は他【ほか】の生【い】き物【もの】と違【ちが】う？,All living things have the breath of life. But are humans different from other living things?,모든 생물에게 생명의 숨이 있어. 그런데 인간은 다른 생물과 다를까?,すべての生き物に命の息がある。しかし人間は他の生き物と違うのか？
+dlg-49,dgrp-6,8,B,B,B,B,そう。全部【ぜんぶ】を作【つく】った人【ひと】は人【ひと】をその人【ひと】に近【ちか】く作【つく】った。だから人【ひと】は全部【ぜんぶ】の生【い】き物【もの】の中【なか】で一【いち】番【ばん】大【おお】きい。,Yes. The one who made everything made humans close to himself. That is why humans are the greatest of all living things.,그래. 모든 것을 지으신 분은 인간을 자신과 가깝게 지으셨어. 그래서 인간은 모든 생물 가운데서도 가장 귀해.,そう。すべてを造った方は人間を御自身に近く造った。だから人間はすべての生き物の中でもっとも尊い。
+dlg-50,dgrp-7,1,A,A,A,A,夜【よる】の空【そら】の光【ひかり】は何【なん】だと思【おも】う？,What do you think the lights in the night sky are?,밤하늘의 빛은 뭐라고 생각해?,夜空の光は何だと思う？
+dlg-51,dgrp-7,2,B,B,B,B,あの光【ひかり】は全部【ぜんぶ】の始【はじ】まりの時【とき】に空【そら】に与【あた】えられた。,Those lights were placed in the sky at the very beginning.,저 빛은 모든 것의 시작 때에 하늘에 놓인 거야.,あの光はすべての始まりの時に空に置かれたものだ。
+dlg-52,dgrp-7,3,A,A,A,A,始【はじ】まりの時【とき】に？人【ひと】より前【まえ】に？,At the beginning? Before people?,시작 때에? 사람보다도 먼저?,始まりの時に？人よりも前に？
+dlg-53,dgrp-7,4,B,B,B,B,そう。全部【ぜんぶ】を作【つく】った人【ひと】が空【そら】と土【つち】を作【つく】った後【あと】に空【そら】に光【ひかり】を与【あた】えた。,Yes. The one who made everything placed lights in the sky after making the heavens and the earth.,그래. 모든 것을 지으신 분이 하늘과 땅을 지으신 뒤에 하늘에 빛을 두셨어.,そう。すべてを造った方が天と地を造った後に空に光を置いた。
+dlg-54,dgrp-7,5,A,A,A,A,じゃああの光【ひかり】は光【ひかり】だけじゃない？,So those lights are not just lights?,그럼 저 빛은 그냥 빛이 아니란 거야?,ではあの光はただの光ではないのか？
+dlg-55,dgrp-7,6,B,B,B,B,見【み】守【まも】る物【もの】だ。空【そら】に与【あた】えられた使【つか】いだ。上【うえ】から私【わたし】たちを見【み】守【まも】っている。,They are watchers. Messengers given to the sky. They watch over us from above.,지켜보는 자야. 하늘에 보내진 사자야. 위에서 우리를 지켜보고 있어.,見守る者だ。天に遣わされた使いだ。上から私たちを見守っている。
+dlg-56,dgrp-7,7,A,A,A,A,上【うえ】からの使【つか】い？始【はじ】まりの時【とき】からそこにいる？,Messengers from above? Have they been there since the beginning?,하늘에서 온 사자? 시작 때부터 거기 있었던 거야?,天からの使い？始まりの時からそこにいるのか？
+dlg-57,dgrp-7,8,B,B,B,B,そう。土【つち】と海【うみ】が作【つく】られた時【とき】から変【か】わっていない。,Yes. They have not changed since the earth and sea were made.,그래. 땅과 바다가 만들어졌을 때부터 변하지 않았어.,そう。大地と海が造られた時から変わっていない。
+dlg-58,dgrp-7,9,A,A,A,A,だから毎【まい】夜【よる】変【か】わらない光【ひかり】がある。いつも上【うえ】から見【み】守【まも】っている。,That is why the same lights appear every night. Always watching from above.,그래서 매일 밤 변함없는 빛이 있구나. 늘 위에서 지켜보고 있어.,だから毎晩変わらない光がある。いつも上から見守っている。
+dlg-59,dgrp-8,1,子供【こども】,Child,아이,子供,父【ちち】さん、なぜ人【ひと】は戦【たたか】うの？戦【たたか】うと悲【かな】しいことが起【お】こるのに。,"Father, why do people fight? Fighting causes sad things to happen.","아빠, 사람들은 왜 싸워? 싸우면 슬픈 일이 생기는데.",お父さん、なぜ人は戦うの？戦うと悲しいことが起こるのに。
+dlg-60,dgrp-8,2,父【ちち】,Father,아버지,父,そうだね。人【ひと】は怖【こわ】い時【とき】に好【す】きな物【もの】を守【まも】りたくなる。,"That's right. When people are afraid, they want to protect what they love.",그렇지. 사람은 무서울 때 소중한 것을 지키고 싶어져.,そうだね。人は怖い時に大切なものを守りたくなる。
+dlg-61,dgrp-8,3,子供【こども】,Child,아이,子供,でも戦【たたか】って守【まも】れるの？戦【たたか】うともっと悲【かな】しいことが起【お】こる。,But can you protect by fighting? Fighting creates more sadness.,그런데 싸워서 지킬 수 있어? 싸우면 더 슬픈 일이 생기잖아.,でも戦って守れるの？戦うともっと悲しいことが起こる。
+dlg-62,dgrp-8,4,父【ちち】,Father,아버지,父,本当【ほんとう】にそうだ。全部【ぜんぶ】の中【なか】で一【ひと】つだけ強【つよ】い守【まも】り方【かた】は好【す】きでいることだ。私【わたし】を好【す】きなように他【ほか】の人【ひと】も好【す】きでいること。,That is truly so. The strongest way to protect is to love. Love others the way you love yourself.,정말 그래. 가장 강하게 지키는 방법은 사랑하는 거야. 자기를 사랑하듯이 다른 사람도 사랑하는 것.,本当にそうだ。最も強い守り方は愛することだ。自分を愛するように他の人も愛すること。
+dlg-63,dgrp-8,5,子供【こども】,Child,아이,子供,でも悪【わる】い事【こと】をする人【ひと】は？戦【たたか】いに来【く】る人【ひと】は？,But what about people who do bad things? People who come to fight?,그럼 나쁜 짓을 하는 사람은? 쳐들어오는 사람은?,でも悪いことをする人は？攻めてくる人は？
+dlg-64,dgrp-8,6,父【ちち】,Father,아버지,父,その人【ひと】たちもだ。私【わたし】に悪【わる】い事【こと】をする人【ひと】も好【す】きでいる。それが人【ひと】にできる全部【ぜんぶ】の中【なか】で一【ひと】つだけ強【つよ】い事【こと】だ。,Even them. Love even those who do bad things to you. That is the strongest thing a person can do.,그 사람들도야. 나에게 맞서는 사람까지도 사랑하는 거야. 그게 사람이 할 수 있는 가장 강한 일이야.,その人たちもだ。自分に敵対する人をも愛する。それが人にできる最も強いことだ。
+dlg-65,dgrp-8,7,子供【こども】,Child,아이,子供,私【わたし】に悪【わる】い事【こと】をする人【ひと】を好【す】きでいるの？それはとてもできにくいと思【おも】う。,Love people who do bad things to me? I think that is very hard.,나한테 맞서는 사람을 사랑하라고? 그건 정말 어려울 것 같아.,自分に敵対する人を愛するの？それはとても難しいと思う。
+dlg-66,dgrp-8,8,父【ちち】,Father,아버지,父,できにくい。でも全部【ぜんぶ】を作【つく】った人【ひと】がそう言【い】った。私【わたし】を好【す】きなように他【ほか】の人【ひと】を好【す】きでいなさい。悪【わる】い事【こと】をする人【ひと】も。,It is hard. But the one who made everything said so. Love others as you love yourself. Even those who act against you.,어렵지. 하지만 모든 것을 지으신 분이 그렇게 말씀하셨어. 네 이웃을 네 몸과 같이 사랑하라. 원수까지도.,難しい。でもすべてを造った方がそう言われた。自分を愛するように隣人を愛しなさい。敵をも。
+dlg-67,dgrp-9,1,A,A,A,A,動物【どうぶつ】も食【た】べて、飲【の】んで、子供【こども】を守【まも】る。人【ひと】と本当【ほんとう】に違【ちが】う？,"Animals eat, drink, protect their young too. Are humans truly different?","동물도 먹고, 마시고, 새끼를 지켜. 인간과 정말 다를까?",動物も食べて、飲んで、子供を守る。人間と本当に違うのか？
+dlg-68,dgrp-9,2,B,B,B,B,人【ひと】は書【か】く。会【あ】ったことのない人【ひと】に言葉【ことば】を与【あた】える。死【し】んだ後【あと】も。,Humans write. They give words to people they've never met. Even after death.,사람은 글을 써. 만난 적 없는 사람에게 말을 전해. 죽은 뒤에도.,人は書く。会ったことのない人に言葉を届ける。死んだ後も。
+dlg-69,dgrp-9,3,A,A,A,A,それは大【おお】きい。動物【どうぶつ】は今【いま】に生【い】きる。人【ひと】は前【まえ】と後【あと】に生【い】きる。,That's significant. Animals live in the now. Humans live in the before and after.,그건 큰 차이야. 동물은 지금을 살아. 사람은 과거와 미래를 살지.,それは大きな違いだ。動物は今を生きる。人は過去と未来を生きる。
+dlg-70,dgrp-9,4,B,B,B,B,人【ひと】は動【うご】く物【もの】も作【つく】る。手【て】でできないことを動【うご】く物【もの】でできるようにする。,Humans also make machines - things that allow them to do what hands alone cannot.,사람은 기계도 만들어. 손으로는 할 수 없는 일을 기계로 가능하게 해.,人は機械も作る。手ではできないことを機械で可能にする。
+dlg-71,dgrp-9,5,A,A,A,A,でも石【いし】を使【つか】う動物【どうぶつ】もいる。人【ひと】だけが物【もの】を使【つか】うのではない。,But there are animals that use stones too. Humans are not the only ones who use things.,하지만 돌을 쓰는 동물도 있어. 사람만 도구를 쓰는 건 아니야.,でも石を使う動物もいる。人だけが道具を使うわけではない。
+dlg-72,dgrp-9,6,B,B,B,B,物【もの】を使【つか】うことと、物【もの】について考【かんが】えることは違【ちが】う。人【ひと】は見【み】えない事【こと】を考【かんが】える。,Using a thing and thinking about a thing are different. Humans think about things they cannot see.,도구를 쓰는 것과 도구에 대해 생각하는 건 달라. 사람은 눈에 보이지 않는 것을 생각해.,道具を使うことと、道具について考えることは違う。人は目に見えないことを考える。
+dlg-73,dgrp-9,7,A,A,A,A,見【み】えない事【こと】？　どんな事【こと】？,Invisible things? What kind of things?,보이지 않는 것? 어떤 거?,見えないこと？　どんなこと？
+dlg-74,dgrp-9,8,B,B,B,B,「なぜ生【い】きるのか」。動物【どうぶつ】はこれを聞【き】かない。人【ひと】だけが聞【き】く。それが良【よ】いことか悪【わる】いことかは、まだ知【し】らない。,"""Why do we live?"" Animals don't ask this. Only humans ask it. Whether that's good or bad - we still don't know.",“왜 사는가.” 동물은 이런 물음을 갖지 않아. 사람만이 물어. 그게 좋은 일인지 나쁜 일인지는 아직 몰라.,「なぜ生きるのか」。動物はこの問いを持たない。人だけが問う。それが良いことか悪いことかは、まだ分からない。
+dlg-75,dgrp-10,1,A,A,A,A,この所【ところ】に来【き】て、多【おお】い年【とし】が終【お】わった。あの木【き】は前【まえ】に小【ちい】さかった。,Many years have ended since we came to this place. That tree was small before.,이곳에 온 뒤로 몇 년이나 지났어. 저 나무는 예전엔 작았지.,この場所に来てから、何年も過ぎた。あの木は昔は小さかった。
+dlg-76,dgrp-10,2,B,B,B,B,木【き】は変【か】わった。でも山【やま】は変【か】わっていない。時【とき】は物【もの】によって違【ちが】う。,The tree has changed. But the mountain hasn't changed. Time differs depending on the thing.,나무는 변했어. 하지만 산은 변하지 않았어. 시간의 흐름은 대상에 따라 달라.,木は変わった。でも山は変わっていない。時の流れはものによって違う。
+dlg-77,dgrp-10,3,A,A,A,A,私【わたし】たちも変【か】わった。体【からだ】が変【か】わった。でも……心【こころ】の中【なか】はどうだろう。,We have changed too. Our bodies have changed. But... what about inside our hearts?,우리도 변했어. 몸이 변했지. 하지만…… 마음속은 어떨까.,私たちも変わった。体が変わった。でも……心の中はどうだろう。
+dlg-78,dgrp-10,4,B,B,B,B,子供【こども】の時【とき】に感【かん】じた事【こと】は、まだ心【こころ】の中【なか】にある。変【か】わっていない。,What we felt as children is still inside our hearts. Unchanged.,어릴 때 느낀 것은 아직 마음속에 있어. 변하지 않았어.,子供の頃に感じたことは、まだ心の中にある。変わっていない。
+dlg-79,dgrp-10,5,A,A,A,A,時【とき】は前【まえ】に動【うご】くだけ？　前【まえ】に行【い】くことはできない？,Does time only move forward? Can we not go back?,시간은 앞으로 나아가기만 해? 과거로 돌아갈 수는 없어?,時間は前に進むだけ？　過去に戻ることはできない？
+dlg-80,dgrp-10,6,B,B,B,B,体【からだ】は前【まえ】に行【い】けない。でも心【こころ】は行【い】ける。本【ほん】の中【なか】で、目【め】を閉【し】めた中【なか】で。,"The body cannot go back. But the heart can - inside books, inside closed eyes.","몸은 돌아갈 수 없어. 하지만 마음은 돌아갈 수 있어. 책 속에서, 눈을 감았을 때.",体は戻れない。でも心は戻れる。本の中で、目を閉じた時に。
+dlg-81,dgrp-10,7,A,A,A,A,それなら時【とき】は二【ふた】つある。体【からだ】の時【とき】と、心【こころ】の時【とき】と。,"Then there are two times: the time of the body, and the time of the heart.",그렇다면 시간은 두 가지가 있네. 몸의 시간과 마음의 시간.,それなら時間は二つある。体の時間と、心の時間と。
+dlg-82,dgrp-10,8,B,B,B,B,そして私【わたし】たちが死【し】んだ後【あと】も、あなたと私【わたし】が感【かん】じた事【こと】は他【ほか】の人【ひと】の心【こころ】の中【なか】で生【い】きるかもしれない。,"And even after we die, what you and I felt may go on living inside the hearts of other people.","그리고 우리가 죽은 뒤에도, 너와 내가 느낀 것은 다른 사람의 마음속에서 계속 살아갈지도 몰라.",そして私たちが死んだ後も、あなたと私が感じたことは他の人の心の中で生き続けるかもしれない。
+dlg-83,dgrp-11,1,A,A,A,A,教【おし】える人【ひと】、本【ほん】を読【よ】んだら、その事【こと】を知【し】っていると言【い】えるか。,"Teacher, if I have read a book, can I say I know that thing?","선생님, 책을 읽으면 그것을 안다고 말할 수 있나요?",先生、本を読んだら、そのことを知っていると言えますか。
+dlg-84,dgrp-11,2,B,B,B,B,本【ほん】の言葉【ことば】は知【し】ることができる。でも、本当【ほんとう】に知【し】ることは違【ちが】う。,You can know the words of a book. But truly knowing is different.,책의 말은 알 수 있어요. 하지만 정말로 안다는 것은 달라요.,本の言葉は知ることができます。でも、本当に知るということは違います。
+dlg-85,dgrp-11,3,A,A,A,A,どう違【ちが】うか。,How is it different?,어떻게 다른가요?,どう違いますか。
+dlg-86,dgrp-11,4,B,B,B,B,手【て】で作【つく】ったり、体【からだ】で感【かん】じたりしたとき、本当【ほんとう】に知【し】る事【こと】が始【はじ】まる。,"When you have made something with your hands, felt something in your body - that is when truly knowing begins.","손으로 만들어 보거나 몸으로 느껴 보았을 때, 정말로 아는 것이 시작돼요.",手で作ったり、体で感じたりした時、本当に知ることが始まります。
+dlg-87,dgrp-11,5,A,A,A,A,では、私【わたし】はまだ知【し】らないのか。,Then I do not know yet?,그럼 저는 아직 모르는 건가요?,では、私はまだ知らないのですか。
+dlg-88,dgrp-11,6,B,B,B,B,知【し】りたいと思【おも】っているなら、もう始【はじ】まっている。それで良【よ】いと思【おも】う。,"If you want to know, it has already begun. I think that is enough.",알고 싶다고 생각한다면 이미 시작된 거예요. 그걸로 충분하다고 생각해요.,知りたいと思っているなら、もう始まっています。それで十分だと思います。
+dlg-89,dgrp-11,7,A,A,A,A,知【し】ることは終【お】わるか。,Does knowing ever end?,아는 것에 끝이 있나요?,知ることに終わりはありますか。
+dlg-90,dgrp-11,8,B,B,B,B,良【よ】い教【おし】える人【ひと】も、まだ知【し】らない事【こと】がとても多【おお】いと感【かん】じている。,Even a good teacher feels there are still very many things they do not know.,좋은 선생님이라도 아직 모르는 것이 아주 많다고 느낀답니다.,良い先生でも、まだ知らないことがとても多いと感じています。
+dlg-91,dgrp-12,1,A,A,A,A,この海【うみ】はとても大【おお】きいね。外【そと】に何【なに】があるか。,This sea is very large. What is on the other side?,이 바다는 정말 크네요. 저 너머에는 뭐가 있어요?,この海はとても大きいですね。向こうに何がありますか。
+dlg-92,dgrp-12,2,B,B,B,B,他【ほか】の国【くに】がある。でも目【め】では見【み】えない。,There are other countries. But you cannot see them with your eyes.,다른 나라가 있어요. 하지만 눈으로는 보이지 않아요.,他の国があります。でも目では見えません。
+dlg-93,dgrp-12,3,A,A,A,A,その国【くに】の人【ひと】たちも、この水【みず】を見【み】ていると思【おも】うか。,Do you think the people of those countries are also looking at this water?,그 나라 사람들도 이 바다를 보고 있다고 생각해요?,その国の人たちも、この海を見ていると思いますか。
+dlg-94,dgrp-12,4,B,B,B,B,はい、全部【ぜんぶ】一【ひと】つの水【みず】だ。海【うみ】は一【ひと】つだと思【おも】う。,"Yes, it is all one water. I think the sea is one.","네, 모두 하나의 바다예요. 바다는 이어져 있다고 생각해요.",はい、すべて一つの海です。海はつながっていると思います。
+dlg-95,dgrp-12,5,A,A,A,A,水【みず】の中【なか】に何【なに】がいるか。,What lives inside the water?,바닷속에는 뭐가 살아요?,海の中に何がいますか。
+dlg-96,dgrp-12,6,B,B,B,B,動物【どうぶつ】が多【おお】くいる。私【わたし】たちが知【し】らない動物【どうぶつ】も、まだいると思【おも】う。,Many animals. I think there are still animals we do not know.,많은 생물이 있어요. 우리가 아직 모르는 생물도 있을 거라고 생각해요.,たくさんの生き物がいます。私たちがまだ知らない生き物もいると思います。
+dlg-97,dgrp-12,7,A,A,A,A,海【うみ】は怖【こわ】いか。,Is the sea frightening?,바다는 무서워요?,海は怖いですか。
+dlg-98,dgrp-12,8,B,B,B,B,怖【こわ】い。でも海【うみ】の音【おと】を聞【き】くと、心【こころ】が良【よ】くなる。,"It is frightening. But when I hear the sound of the sea, my heart becomes well.",무서워요. 하지만 파도 소리를 들으면 마음이 편안해져요.,怖いです。でも波の音を聞くと、心が穏やかになります。
+dlg-99,dgrp-12,9,A,A,A,A,私【わたし】もそう感【かん】じる。大【おお】きい物【もの】の前【まえ】に立【た】つと、心【こころ】が小【ちい】さくなる。,"I feel that too. Standing before something vast, my heart becomes small.",저도 그렇게 느껴요. 큰 것 앞에 서면 제가 작게 느껴져요.,私もそう感じます。大きなものの前に立つと、自分が小さく感じられます。
+dlg-100,dgrp-13,1,A,A,A,A,この国【くに】はとても変【か】わったね。前【まえ】は違【ちが】った。,"This country has changed a great deal. Before, it was different.",이 나라는 많이 변했네요. 옛날과는 달라요.,この国はとても変わりましたね。昔とは違います。
+dlg-101,dgrp-13,2,B,B,B,B,はい。新【あたら】しい大【おお】きい家【いえ】が多【おお】くなった。前【まえ】からある家【いえ】は少【すく】なくなった。,Yes. There are many more new buildings. The houses that were here before have grown few.,네. 새 건물이 늘었어요. 옛날부터 있던 집은 적어졌어요.,はい。新しい建物が増えました。昔からある家は少なくなりました。
+dlg-102,dgrp-13,3,A,A,A,A,前【まえ】からある道【みち】も変【か】わった。前【まえ】は木【き】が多【おお】かった。,"The old roads have also changed. Before, there were many trees.",옛날부터 있던 길도 변했어요. 예전에는 나무가 많았어요.,昔からある道も変わりました。以前は木が多かったです。
+dlg-103,dgrp-13,4,B,B,B,B,新【あたら】しいものは良【よ】いか、悪【わる】いか。,"Are new things good, or bad?","새로운 것은 좋은가요, 나쁜가요?",新しいものは良いですか、悪いですか。
+dlg-104,dgrp-13,5,A,A,A,A,新【あたら】しい動【うご】く物【もの】で、人【ひと】がする事【こと】が速【はや】くなった。でも前【まえ】にしていた事【こと】を知【し】っている人【ひと】が少【すく】なくなっている。,"With new machines, the things people do have become faster. But people who know the earlier ways of doing things are growing fewer.",새 기계 덕분에 일이 빨라졌어요. 하지만 옛날 방식을 아는 사람이 줄어들고 있어요.,新しい機械のおかげで、物事が速くなりました。でも昔のやり方を知っている人が少なくなっています。
+dlg-105,dgrp-13,6,B,B,B,B,言葉【ことば】も変【か】わる。前【まえ】の人【ひと】たちの言葉【ことば】は今【いま】もあるか。,Even words change. Do the words of the people before us still exist?,말도 변하지요. 옛날 사람들의 말은 지금도 남아 있나요?,言葉も変わります。昔の人たちの言葉は今も残っていますか。
+dlg-106,dgrp-13,7,A,A,A,A,本【ほん】の中【なか】にある。でも使【つか】う人【ひと】は少【すこ】しだけだ。,They exist inside books. But only a few people use them.,책 속에 있어요. 하지만 쓰는 사람은 아주 적어요.,本の中にあります。でも使う人はごくわずかです。
+dlg-107,dgrp-13,8,B,B,B,B,変【か】わらない事【こと】はあるか。,Is there anything that does not change?,변하지 않는 것도 있나요?,変わらないものはありますか。
+dlg-108,dgrp-13,9,A,A,A,A,山【やま】と海【うみ】はまだ変【か】わらない。太陽【たいよう】も毎【まい】日【にち】出【で】る。,The mountains and sea have not changed. The sun still rises every day.,산과 바다는 아직 변하지 않았어요. 해도 매일 떠오르고요.,山と海はまだ変わりません。太陽も毎日昇ります。
+dlg-109,dgrp-14,1,A,A,A,A,あの人【ひと】が作【つく】った音【おと】を聞【き】くと、悲【かな】しくなる。なぜか。,"When I hear the sounds that person made, I become sad. Why is that?",그 사람이 만든 음악을 들으면 슬퍼져요. 왜일까요?,あの人が作った音楽を聞くと、悲しくなります。なぜでしょうか。
+dlg-110,dgrp-14,2,B,B,B,B,私【わたし】もそう感【かん】じる。その音【おと】は何【なに】かを感【かん】じさせる。,I feel the same. Those sounds cause something to be felt.,저도 그렇게 느껴요. 그 소리는 무언가를 불러일으켜요.,私もそう感じます。その音は何かを呼び起こします。
+dlg-111,dgrp-14,3,A,A,A,A,言葉【ことば】は使【つか】っていない。でも心【こころ】に入【はい】る。,No words are used. Yet it enters the heart.,말은 쓰지 않았어요. 그런데도 마음에 닿아요.,言葉は使っていません。でも心に届きます。
+dlg-112,dgrp-14,4,B,B,B,B,言葉【ことば】より前【まえ】に、体【からだ】が感【かん】じると思【おも】う。雨【あめ】の音【おと】や風【かぜ】の音【おと】も、心【こころ】を動【うご】かす。,"I think the body feels it before words do. The sound of rain, the sound of wind - these too move the heart.",말보다 먼저 몸이 느끼는 거라고 생각해요. 빗소리나 바람 소리도 마음을 움직이잖아요.,言葉より先に、体が感じるのだと思います。雨の音や風の音も、心を動かします。
+dlg-113,dgrp-14,5,A,A,A,A,では、人【ひと】が作【つく】る音【おと】と山【やま】や海【うみ】の音【おと】は違【ちが】うか。,"Then, are sounds made by people different from the sounds of mountains and sea?",그럼 사람이 만드는 소리와 자연의 소리는 다른가요?,では、人が作る音と自然の音は違いますか。
+dlg-114,dgrp-14,6,B,B,B,B,違【ちが】うと思【おも】う。人【ひと】が作【つく】る音【おと】の中【なか】には、その人【ひと】の心【こころ】がある。,"I think they are different. Inside the sounds a person makes, there is that person's heart.",다르다고 생각해요. 사람이 만드는 소리 속에는 그 사람의 마음이 담겨 있어요.,違うと思います。人が作る音の中には、その人の心が込められています。
+dlg-115,dgrp-14,7,A,A,A,A,悲【かな】しい音【おと】を聞【き】いて、なぜ楽【たの】しいと感【かん】じるか。変【へん】だね。,"Hearing a sad sound, why do I feel something like joy? It is strange.",슬픈 음악을 듣고 왜 편안하다고 느끼는 걸까요. 신기하네요.,悲しい音楽を聞いて、なぜ心地よいと感じるのでしょう。不思議ですね。
+dlg-116,dgrp-14,8,B,B,B,B,悲【かな】しさを感【かん】じていい、と思【おも】えるからかもしれない。一【ひと】りじゃないと感【かん】じる。,Perhaps because it lets you feel that sadness is allowed. You feel you are not alone.,슬픔을 느껴도 괜찮다고 생각할 수 있어서인지도 몰라요. 혼자가 아니라고 느낄 수 있거든요.,悲しさを感じてもいいのだ、と思えるからかもしれません。一人じゃないと感じられるのです。
+dlg-117,dgrp-14,9,A,A,A,A,その音【おと】を作【つく】った人【ひと】も、その悲【かな】しさを知【し】っていたのだね。,The person who made those sounds also knew that sadness.,그 음악을 만든 사람도 같은 슬픔을 알고 있었던 거네요.,その音楽を作った人も、同じ悲しみを知っていたのですね。
+dlg-200,dgrp-15,1,私【わたし】,Patient,환자,患者,すみません。体【からだ】が悪【わる】いです。,Excuse me. I feel unwell.,실례합니다. 몸이 안 좋아요.,すみません。体の調子が悪いです。
+dlg-201,dgrp-15,2,体【からだ】を助【たす】ける人【ひと】,Doctor,의사,医者,どこが悪【わる】いですか。,Where does it feel bad?,어디가 안 좋으세요?,どこが悪いですか。
+dlg-202,dgrp-15,3,私【わたし】,Patient,환자,患者,頭【あたま】が悪【わる】い感【かん】じです。体【からだ】も暑【あつ】いです。,My head hurts. My body is also hot.,머리가 아파요. 몸도 뜨거워요.,頭が痛いです。体も熱いです。
+dlg-203,dgrp-15,4,体【からだ】を助【たす】ける人【ひと】,Doctor,의사,医者,いつから悪【わる】いですか。,Since when have you felt bad?,언제부터 그랬어요?,いつからですか。
+dlg-204,dgrp-15,5,私【わたし】,Patient,환자,患者,前【まえ】の日【にち】からです。夜【よる】も寝【ね】られませんでした。,Since yesterday. I couldn't sleep last night either.,어제부터요. 밤에도 잠을 못 잤어요.,昨日からです。夜も眠れませんでした。
+dlg-205,dgrp-15,6,体【からだ】を助【たす】ける人【ひと】,Doctor,의사,医者,口【くち】を開【あ】けてください。体【からだ】を見【み】ます。,Please open your mouth. I will examine you.,입을 벌려 보세요. 진찰하겠습니다.,口を開けてください。体を診ます。
+dlg-206,dgrp-15,7,体【からだ】を助【たす】ける人【ひと】,Doctor,의사,医者,体【からだ】を良【よ】くする物【もの】を飲【の】んでください。よく寝【ね】てください。,Please take medicine. Please sleep well.,약을 드세요. 푹 주무세요.,薬を飲んでください。よく寝てください。
+dlg-207,dgrp-15,8,体【からだ】を助【たす】ける人【ひと】,Doctor,의사,医者,三【みっ】つの日【にち】の後【あと】に良【よ】くならないなら、また来【き】てください。,"If you don't feel better in three days, please come back.",사흘 뒤에도 낫지 않으면 다시 오세요.,三日後に良くならなかったら、また来てください。
+dlg-208,dgrp-15,9,私【わたし】,Patient,환자,患者,分【わ】かりました。ありがとう。,I understand. Thank you very much.,알겠습니다. 감사합니다.,分かりました。ありがとうございます。
+dlg-209,dgrp-16,1,私【わたし】,Customer,손님,客,すみません。体【からだ】を良【よ】くする物【もの】が欲【ほ】しいです。,Excuse me. I would like some medicine.,실례합니다. 약을 사고 싶은데요.,すみません。薬が欲しいのですが。
+dlg-210,dgrp-16,2,買【か】う所【ところ】の人【ひと】,Staff,직원,店員,どこが悪【わる】いですか。,What's wrong?,어디가 안 좋으세요?,どこが悪いですか。
+dlg-211,dgrp-16,3,私【わたし】,Customer,손님,客,腹【はら】が悪【わる】い感【かん】じです。食【た】べた後【あと】に悪【わる】くなります。,My stomach hurts. It gets bad after eating.,배가 아파요. 먹고 나면 아파져요.,お腹が痛いです。食べた後に痛くなります。
+dlg-212,dgrp-16,4,買【か】う所【ところ】の人【ひと】,Staff,직원,店員,食【た】べ物【もの】で体【からだ】が悪【わる】くなる事【こと】はありますか。,Does any food make you feel bad?,음식 알레르기가 있으세요?,食べ物でアレルギーが出ることはありますか。
+dlg-213,dgrp-16,5,私【わたし】,Customer,손님,客,いいえ、ないです。,"No, I don't.","아니요, 없어요.",いいえ、ありません。
+dlg-214,dgrp-16,6,買【か】う所【ところ】の人【ひと】,Staff,직원,店員,これが良【よ】いと思【おも】います。毎【まい】日【にち】、食【た】べた後【あと】に一【ひと】つ飲【の】んでください。,I think this is good. Please take one after each meal.,이게 좋을 것 같아요. 매일 식후에 한 알씩 드세요.,これが良いと思います。毎日、食後に一つ飲んでください。
+dlg-215,dgrp-16,7,私【わたし】,Customer,손님,客,分【わ】かりました。いくらですか。,I understand. How much is it?,알겠습니다. 얼마예요?,分かりました。いくらですか。
+dlg-216,dgrp-16,8,買【か】う所【ところ】の人【ひと】,Staff,직원,店員,五【ご】百【ひゃく】です。良【よ】くならないなら、体【からだ】を助【たす】ける人【ひと】に会【あ】ってください。,"It's five hundred. If it doesn't get better, please see a doctor.",500엔입니다. 낫지 않으면 병원에 가 보세요.,五百円です。良くならなければ、医者に行ってください。
+dlg-217,dgrp-17,1,A,A,A,A,すみません！助【たす】けてください！,Excuse me! Please help!,저기요! 도와주세요!,すみません！助けてください！
+dlg-218,dgrp-17,2,B,B,B,B,どうしましたか。,What happened?,무슨 일이에요?,どうしましたか。
+dlg-219,dgrp-17,3,A,A,A,A,あの人【ひと】が下【した】に行【い】きました。足【あし】が悪【わる】いと思【おも】います。動【うご】けません。,That person fell down. I think their leg is hurt. They can't move.,저 사람이 쓰러졌어요. 다리를 다친 것 같아요. 움직이지 못해요.,あの人が倒れました。足を怪我したと思います。動けません。
+dlg-220,dgrp-17,4,B,B,B,B,どこですか。,Where are they?,어디예요?,どこですか。
+dlg-221,dgrp-17,5,A,A,A,A,あの大【おお】きい家【いえ】の前【まえ】です。道【みち】の上【うえ】にいます。,In front of that big building. They are on the road.,저 큰 건물 앞이에요. 길 위에 있어요.,あの大きい建物の前です。道の上にいます。
+dlg-222,dgrp-17,6,B,B,B,B,分【わ】かりました。助【たす】ける人【ひと】に言【い】います。待【ま】ってください。,I understand. I will call for help. Please wait.,알겠어요. 구급차를 부를게요. 기다리세요.,分かりました。救急を呼びます。待ってください。
+dlg-223,dgrp-17,7,A,A,A,A,ありがとう。あの人【ひと】の近【ちか】くにいてください。,Thank you. Please stay near that person.,감사합니다. 저 사람 곁에 있어 주세요.,ありがとうございます。あの人のそばにいてください。
+dlg-224,dgrp-17,8,B,B,B,B,はい。水【みず】をあげましょう。体【からだ】を動【うご】かさないでください。,Yes. Let's give them water. Please don't move their body.,네. 물을 줍시다. 몸을 움직이지 마세요.,はい。水をあげましょう。体を動かさないでください。
+dlg-225,dgrp-18,1,A,A,A,A,すみません。ここから海【うみ】の人【ひと】が来【く】る物【もの】を待【ま】つ所【ところ】まで行【い】きたいです。,Excuse me. I want to go from here to the sea station.,실례합니다. 여기서 바다역까지 가고 싶어요.,すみません。ここから海の駅まで行きたいです。
+dlg-226,dgrp-18,2,所【ところ】の人【ひと】,Staff,직원,駅員,二【に】百【ひゃく】円【えん】です。,Two hundred yen.,200엔입니다.,二百円です。
+dlg-227,dgrp-18,3,A,A,A,A,一【ひと】つください。何【なに】つ目【め】の所【ところ】から出【で】ますか。,One please. What platform does it leave from?,한 장 주세요. 몇 번 승강장에서 출발해요?,一枚ください。何番線から出ますか。
+dlg-228,dgrp-18,4,所【ところ】の人【ひと】,Staff,직원,駅員,三【みっ】つ目【め】です。上【うえ】に行【い】ってください。,Number three. Please go up.,3번 승강장입니다. 위로 올라가세요.,三番線です。上に行ってください。
+dlg-229,dgrp-18,5,A,A,A,A,いつ来【き】ますか。,When does it come?,언제 와요?,いつ来ますか。
+dlg-230,dgrp-18,6,所【ところ】の人【ひと】,Staff,직원,駅員,十【じゅう】五【ご】の後【あと】です。,In fifteen minutes.,15분 뒤입니다.,十五分後です。
+dlg-231,dgrp-18,7,A,A,A,A,海【うみ】の所【ところ】までどのくらいですか。,How long to the sea station?,바다역까지 얼마나 걸려요?,海の駅までどのくらいですか。
+dlg-232,dgrp-18,8,所【ところ】の人【ひと】,Staff,직원,駅員,二【に】十【じゅう】ぐらいです。三【みっ】つ目【め】の所【ところ】で出【で】てください。,About twenty minutes. Get off at the third stop.,20분쯤입니다. 세 번째 역에서 내리세요.,二十分くらいです。三つ目の駅で降りてください。
+dlg-233,dgrp-19,1,買【か】う所【ところ】の人【ひと】,Staff,직원,店員,何【なん】人【にん】ですか。,How many people?,몇 분이세요?,何名様ですか。
+dlg-234,dgrp-19,2,A,A,A,A,二【ふた】りの人【ひと】です。,Two people.,두 명이에요.,二人です。
+dlg-235,dgrp-19,3,買【か】う所【ところ】の人【ひと】,Staff,직원,店員,どうぞ、こちらに座【すわ】ってください。,"Please, sit here.",이쪽으로 앉으세요.,どうぞ、こちらにお座りください。
+dlg-236,dgrp-19,4,A,A,A,A,すみません。この食【た】べ物【もの】の中【なか】に何【なに】がありますか。,Excuse me. What is in this dish?,실례합니다. 이 요리에는 뭐가 들어 있어요?,すみません。この料理の中に何が入っていますか。
+dlg-237,dgrp-19,5,買【か】う所【ところ】の人【ひと】,Staff,직원,店員,草【くさ】と肉【にく】です。体【からだ】が悪【わる】くなる食【た】べ物【もの】はありますか。,Vegetables and meat. Do you have any food allergies?,채소와 고기입니다. 알레르기 있으세요?,野菜とお肉です。アレルギーはありますか。
+dlg-238,dgrp-19,6,A,A,A,A,はい。卵【たまご】で体【からだ】が悪【わる】くなります。,Yes. Eggs make me feel bad.,네. 달걀 알레르기가 있어요.,はい。卵でアレルギーが出ます。
+dlg-239,dgrp-19,7,買【か】う所【ところ】の人【ひと】,Staff,직원,店員,分【わ】かりました。この食【た】べ物【もの】には卵【たまご】は入【はい】っていません。,I understand. This dish has no eggs.,알겠습니다. 이 요리에는 달걀이 들어 있지 않습니다.,分かりました。この料理には卵は入っていません。
+dlg-240,dgrp-19,8,A,A,A,A,では、これをください。,Then I'll have this.,그럼 이걸로 주세요.,では、これをください。
+dlg-241,dgrp-19,9,A,A,A,A,すみません。お金【かね】を全部【ぜんぶ】ください。,Excuse me. The bill please.,저기요. 계산해 주세요.,すみません。お会計をお願いします。
+dlg-242,dgrp-20,1,買【か】う所【ところ】の人【ひと】,Staff,직원,店員,来【き】てくれてありがとう。,Welcome.,어서 오세요.,いらっしゃいませ。
+dlg-243,dgrp-20,2,A,A,A,A,すみません。この食【た】べ物【もの】を暑【あつ】くしてください。,Excuse me. Please heat this food.,실례합니다. 이거 데워 주세요.,すみません。これを温めてください。
+dlg-244,dgrp-20,3,買【か】う所【ところ】の人【ひと】,Staff,직원,店員,はい。少【すこ】し待【ま】ってください。入【い】れる物【もの】は必要【ひつよう】ですか。,Yes. Please wait. Do you need a bag?,네. 잠시만 기다려 주세요. 봉투 필요하세요?,はい。少々お待ちください。袋は必要ですか。
+dlg-245,dgrp-20,4,A,A,A,A,はい、ください。,Yes please.,"네, 주세요.",はい、お願いします。
+dlg-246,dgrp-20,5,買【か】う所【ところ】の人【ひと】,Staff,직원,店員,他【ほか】に欲【ほ】しい物【もの】はありますか。,Anything else?,다른 필요한 건 있으세요?,他に欲しい物はありますか。
+dlg-247,dgrp-20,6,A,A,A,A,この飲【の】み物【もの】もください。,This drink too please.,이 음료도 주세요.,この飲み物もください。
+dlg-248,dgrp-20,7,買【か】う所【ところ】の人【ひと】,Staff,직원,店員,全部【ぜんぶ】で三【さん】百【びゃく】五【ご】十【じゅう】です。,The total is three hundred fifty.,전부 350엔입니다.,全部で三百五十円です。
+dlg-249,dgrp-20,8,A,A,A,A,お金【かね】の小【ちい】さい物【もの】で良【よ】いですか。,Is card okay?,카드 돼요?,カードで大丈夫ですか。
+dlg-250,dgrp-20,9,買【か】う所【ところ】の人【ひと】,Staff,직원,店員,はい。ありがとう。,Yes. Thank you.,네. 감사합니다.,はい。ありがとうございます。
+dlg-251,dgrp-21,1,A,A,A,A,もしもし。体【からだ】を助【たす】ける所【ところ】ですか。,Hello. Is this the clinic?,여보세요. 병원이죠?,もしもし。病院ですか。
+dlg-252,dgrp-21,2,体【からだ】を助【たす】ける所【ところ】の人【ひと】,Receptionist,접수원,受付,はい。何【なに】のためですか。,Yes. What is it for?,네. 무슨 일이세요?,はい。どうされましたか。
+dlg-253,dgrp-21,3,A,A,A,A,体【からだ】を助【たす】ける人【ひと】に会【あ】いたいです。いつが良【よ】いですか。,I would like to see a doctor. When is good?,진료를 받고 싶어요. 언제가 좋을까요?,医者に会いたいです。いつが良いですか。
+dlg-254,dgrp-21,4,体【からだ】を助【たす】ける所【ところ】の人【ひと】,Receptionist,접수원,受付,後【あと】の日【にち】の十【じゅう】の時【とき】はどうですか。,How about tomorrow at ten?,내일 10시는 어떠세요?,明日の十時はどうですか。
+dlg-255,dgrp-21,5,A,A,A,A,良【よ】いです。私【わたし】の名前【なまえ】はたなかです。,That's good. My name is Tanaka.,괜찮아요. 제 이름은 다나카예요.,大丈夫です。私の名前は田中です。
+dlg-256,dgrp-21,6,体【からだ】を助【たす】ける所【ところ】の人【ひと】,Receptionist,접수원,受付,たなかさんですね。後【あと】の日【にち】の十【じゅう】の時【とき】です。待【ま】っています。,Tanaka-san. Tomorrow at ten. We'll be expecting you.,다나카 님이시죠. 내일 10시입니다. 기다리겠습니다.,田中さんですね。明日の十時です。お待ちしています。
+dlg-257,dgrp-22,1,A,A,A,A,すみません。ここに来【き】た事【こと】を書【か】きたいです。,Excuse me. I want to register my address.,실례합니다. 주소 신고를 하고 싶어요.,すみません。住所の届け出をしたいです。
+dlg-258,dgrp-22,2,所【ところ】の人【ひと】,Staff,직원,職員,分【わ】かりました。あなたが誰【だれ】かを見【み】せる物【もの】が必要【ひつよう】です。,I see. You need identification.,알겠습니다. 신분증이 필요해요.,分かりました。身分証が必要です。
+dlg-259,dgrp-22,3,所【ところ】の人【ひと】,Staff,직원,職員,他【ほか】の国【くに】の人【ひと】なら、国【くに】に行【い】く本【ほん】も必要【ひつよう】です。,"If you are from another country, you also need your passport.",외국 분이시면 여권도 필요해요.,外国の方なら、パスポートも必要です。
+dlg-260,dgrp-22,4,A,A,A,A,はい。これです。どうぞ。,Yes. Here it is.,네. 여기 있어요.,はい。これです。どうぞ。
+dlg-261,dgrp-22,5,所【ところ】の人【ひと】,Staff,직원,職員,ありがとう。この書【か】く物【もの】に名前【なまえ】と家【いえ】の所【ところ】を書【か】いてください。,Thank you. Please write your name and address on this form.,감사합니다. 이 용지에 이름과 주소를 써 주세요.,ありがとうございます。この用紙に名前と住所を書いてください。
+dlg-262,dgrp-22,6,A,A,A,A,書【か】き方【かた】が分【わ】かりません。教【おし】えてもらえますか。,I don't know how to fill this in. Can you help me?,쓰는 법을 모르겠어요. 가르쳐 주실 수 있어요?,書き方が分かりません。教えてもらえますか。
+dlg-263,dgrp-22,7,所【ところ】の人【ひと】,Staff,직원,職員,はい。ここに名前【なまえ】。ここに家【いえ】の所【ところ】を書【か】いてください。,"Yes. Write your name here, and your address here.","네. 여기에 이름, 여기에 주소를 써 주세요.",はい。ここに名前、ここに住所を書いてください。
+dlg-264,dgrp-22,8,A,A,A,A,ありがとう。どこに出【だ】しますか。,Thank you. Where do I submit it?,감사합니다. 어디에 내면 돼요?,ありがとうございます。どこに出しますか。
+dlg-265,dgrp-22,9,所【ところ】の人【ひと】,Staff,직원,職員,二【ふた】つ目【め】の所【ところ】に持【も】って行【い】ってください。,Please take it to counter number two.,2번 창구로 가져가 주세요.,二番の窓口に持って行ってください。
+dlg-266,dgrp-23,1,A,A,A,A,こんにちは。ここに新【あたら】しく来【き】ました。私【わたし】はたなかです。,Hello. I just moved here. I'm Tanaka.,안녕하세요. 이곳으로 이사 왔어요. 다나카입니다.,こんにちは。ここに引っ越してきました。田中です。
+dlg-267,dgrp-23,2,B,B,B,B,こんにちは。私【わたし】はやまもとです。家【いえ】が近【ちか】い人【ひと】です。,Hello. I'm Yamamoto. I'm your neighbor.,안녕하세요. 야마모토예요. 옆집 사람이에요.,こんにちは。山本です。お隣の者です。
+dlg-268,dgrp-23,3,A,A,A,A,よろしくください。私【わたし】は他【ほか】の国【くに】から来【き】ました。,Nice to meet you. I came from another country.,잘 부탁드립니다. 외국에서 왔어요.,よろしくお願いします。外国から来ました。
+dlg-269,dgrp-23,4,B,B,B,B,そうですか。この国【くに】の言葉【ことば】がとても良【よ】いですね。,Is that so? Your Japanese is very good.,그래요? 일본어를 정말 잘하시네요.,そうですか。日本語がとてもお上手ですね。
+dlg-270,dgrp-23,5,A,A,A,A,ありがとう。まだ少【すこ】しだけです。,Thank you. I only know a little.,감사합니다. 아직 조금밖에 못해요.,ありがとうございます。まだ少しだけです。
+dlg-271,dgrp-23,6,B,B,B,B,何【なに】か分【わ】からない事【こと】があったら、言【い】ってください。,"If there's anything you don't understand, please tell me.",모르는 게 있으면 말씀하세요.,何か分からないことがあったら、言ってください。
+dlg-272,dgrp-23,7,A,A,A,A,ありがとう。とても助【たす】かります。,Thank you. That helps a lot.,감사합니다. 정말 큰 도움이 돼요.,ありがとうございます。とても助かります。
+dlg-273,dgrp-24,1,A,A,A,A,すみません。今【いま】の言葉【ことば】が分【わ】かりませんでした。,Excuse me. I didn't understand what you just said.,실례합니다. 방금 하신 말을 못 알아들었어요.,すみません。今の言葉が分かりませんでした。
+dlg-274,dgrp-24,2,B,B,B,B,すみません。もう一【ひと】つ言【い】いましょうか。,Sorry. Shall I say it again?,죄송해요. 한 번 더 말할까요?,すみません。もう一度言いましょうか。
+dlg-275,dgrp-24,3,A,A,A,A,はい。速【はや】く言【い】わないでください。,Yes. Please do not speak fast.,네. 조금 더 천천히 말해 주세요.,はい。もう少しゆっくり言ってください。
+dlg-276,dgrp-24,4,B,B,B,B,この道【みち】を行【い】って、大【おお】きい木【き】の前【まえ】で右【みぎ】です。,"Go along this road, and turn right at the big tree.",이 길을 가다가 큰 나무 앞에서 오른쪽이에요.,この道を行って、大きい木の前で右です。
+dlg-277,dgrp-24,5,A,A,A,A,道【みち】を行【い】って……右【みぎ】。すみません、書【か】いてもらえますか。,"Go along the road... right. Sorry, could you write it down?","길을 가다가…… 오른쪽. 죄송한데, 써 주실 수 있어요?",道を行って……右。すみません、書いてもらえますか。
+dlg-278,dgrp-24,6,B,B,B,B,はい。ここに書【か】きます。これで分【わ】かりますか。,Yes. I'll write it here. Can you understand this?,네. 여기에 쓸게요. 이러면 알겠어요?,はい。ここに書きます。これで分かりますか。
+dlg-279,dgrp-24,7,A,A,A,A,はい！書【か】いた物【もの】は分【わ】かります。ありがとう。,Yes! I can understand the writing. Thank you.,네! 써 있으면 알 수 있어요. 감사합니다.,はい！書いてあれば分かります。ありがとうございます。
+dlg-280,dgrp-25,1,A,A,A,A,すみません。この物【もの】は今【いま】の日【にち】に外【そと】に出【だ】してもいいですか。,Excuse me. Can I put this out today?,실례합니다. 이 쓰레기는 오늘 내놓아도 돼요?,すみません。このゴミは今日出してもいいですか。
+dlg-281,dgrp-25,2,B,B,B,B,いいえ。今【いま】の日【にち】は違【ちが】います。,No. Today is not the right day.,아니요. 오늘은 아니에요.,いいえ。今日は違います。
+dlg-282,dgrp-25,3,A,A,A,A,そうですか。いつが良【よ】いですか。,I see. When is good?,그래요? 언제가 좋아요?,そうですか。いつが良いですか。
+dlg-283,dgrp-25,4,B,B,B,B,この物【もの】は月【つき】の日【にち】とお金【かね】の日【にち】に出【だ】します。,This goes out on Monday and Friday.,이건 월요일하고 금요일에 내놓아요.,これは月曜日と金曜日に出します。
+dlg-284,dgrp-25,5,A,A,A,A,書【か】く物【もの】はいつですか。,When is paper?,종이는 언제예요?,紙はいつですか。
+dlg-285,dgrp-25,6,B,B,B,B,書【か】く物【もの】は水【みず】の日【にち】です。日【にち】の中【なか】の前【まえ】に出【だ】してください。,Paper is on Wednesday. Please put it out in the morning.,종이는 수요일이에요. 아침에 내놓으세요.,紙は水曜日です。朝に出してください。
+dlg-286,dgrp-25,7,A,A,A,A,分【わ】かりました。ありがとう。,I understand. Thank you.,알겠습니다. 감사합니다.,分かりました。ありがとうございます。
+dlg-287,dgrp-25,8,B,B,B,B,分【わ】からない事【こと】があったら、聞【き】いてください。,"If you don't understand something, please ask.",모르는 게 있으면 물어보세요.,分からないことがあったら、聞いてください。
+dlg-288,dgrp-26,1,A,A,A,A,今【いま】の日【にち】は空【そら】がとてもきれいですね。,The sky is very beautiful today.,오늘은 하늘이 정말 예쁘네요.,今日は空がとてもきれいですね。
+dlg-289,dgrp-26,2,B,B,B,B,そうですね。太陽【たいよう】が出【で】ていて、風【かぜ】も良【よ】いです。,"Yes. The sun is out, and the wind is nice.",그렇네요. 해가 나 있고 바람도 기분 좋아요.,そうですね。太陽が出ていて、風も気持ちいいです。
+dlg-290,dgrp-26,3,A,A,A,A,でも後【あと】から雨【あめ】が来【く】ると聞【き】きました。,But I heard it will rain later.,그런데 나중에 비가 온다고 들었어요.,でも後から雨が降ると聞きました。
+dlg-291,dgrp-26,4,B,B,B,B,本当【ほんとう】ですか。雨【あめ】の物【もの】を持【も】った方【ほう】がいいですね。,Really? We should bring an umbrella.,정말요? 우산을 가져가는 게 좋겠네요.,本当ですか。傘を持った方がいいですね。
+dlg-292,dgrp-26,5,A,A,A,A,今【いま】の日【にち】は何【なに】をしますか。,What are you doing today?,오늘은 뭐 하세요?,今日は何をしますか。
+dlg-293,dgrp-26,6,B,B,B,B,雨【あめ】の前【まえ】に外【そと】を歩【ある】きたいです。,I want to walk outside before the rain.,비 오기 전에 밖을 걷고 싶어요.,雨の前に外を歩きたいです。
+dlg-294,dgrp-26,7,A,A,A,A,良【よ】いですね。良【よ】い日【にち】にしましょう。,That's nice. Let's make it a good day.,좋네요. 좋은 하루 보내요.,いいですね。良い一日にしましょう。
+dlg-301,dgrp-27,1,A,A,A,A,前【まえ】の日【にち】は何【なに】をしましたか。,What did you do yesterday?,어제는 뭘 했어요?,昨日は何をしましたか。
+dlg-302,dgrp-27,2,B,B,B,B,バグを探【さが】して、テストを作【つく】りました。,I found the bug and wrote tests.,버그를 조사하고 테스트를 만들었어요.,バグを調べて、テストを作りました。
+dlg-303,dgrp-27,3,A,A,A,A,今【いま】の日【にち】は何【なに】をしますか。,What will you do today?,오늘은 뭘 할 거예요?,今日は何をしますか。
+dlg-304,dgrp-27,4,B,B,B,B,コードを書【か】いて、レビューをお願【ねが】いします。,I will write code and ask for review.,코드를 쓰고 리뷰를 부탁할게요.,コードを書いて、レビューをお願いします。
+dlg-305,dgrp-28,1,A,A,A,A,サーバーが止【と】まっています。,The server is down.,서버가 멈췄어요.,サーバーが停止しています。
+dlg-306,dgrp-28,2,B,B,B,B,いつからですか。,Since when?,언제부터요?,いつからですか。
+dlg-307,dgrp-28,3,A,A,A,A,十【じゅう】分【ぷん】前【まえ】からです。,For ten minutes.,10분 전부터요.,10分前からです。
+dlg-308,dgrp-28,4,B,B,B,B,今【いま】、前【まえ】の物【もの】にします。,I am rolling back now.,지금 롤백할게요.,今、ロールバックします。
+dlg-309,dgrp-29,1,A,A,A,A,この物【もの】はどう動【うご】きますか。,How does this system work?,이건 어떻게 작동해요?,これはどう動きますか。
+dlg-310,dgrp-29,2,B,B,B,B,始【はじ】めにデータがサーバーに入【はい】ります。,First data enters the server.,먼저 데이터가 서버에 들어가요.,最初にデータがサーバーに入ります。
+dlg-311,dgrp-29,3,B,B,B,B,それからデータベースに書【か】きます。,Then it writes to the database.,그다음 데이터베이스에 기록해요.,それからデータベースに書き込みます。
+dlg-312,dgrp-29,4,A,A,A,A,なぜ二【ふた】つの所【ところ】を使【つか】いますか。,Why do we use two places?,왜 두 곳을 써요?,なぜ二つの場所を使いますか。
+dlg-313,dgrp-30,1,A,A,A,A,今【いま】からデモを始【はじ】めます。,I will start the demo now.,지금부터 데모를 시작하겠습니다.,これからデモを始めます。
+dlg-314,dgrp-30,2,A,A,A,A,これを使【つか】うと、何【なに】が起【お】こるか見【み】てください。,Watch what happens when I use this.,이걸 쓰면 무슨 일이 일어나는지 봐 주세요.,これを使うと何が起きるか見てください。
+dlg-315,dgrp-30,3,B,B,B,B,新【あたら】しい物【もの】がすぐ見【み】えます。,The new item appears immediately.,새 항목이 바로 표시되네요.,新しいものがすぐに表示されます。
+dlg-316,dgrp-30,4,A,A,A,A,前【まえ】より速【はや】くなりました。,It is faster than before.,전보다 빨라졌어요.,以前より速くなりました。
+dlg-317,dgrp-31,1,A,A,A,A,どのタスクを始【はじ】めにしますか。,Which task should we do first?,어떤 작업을 먼저 할까요?,どのタスクを優先しますか。
+dlg-318,dgrp-31,2,B,B,B,B,このバグを始【はじ】めにする必要【ひつよう】があります。,We need to do this bug first.,이 버그를 먼저 고쳐야 해요.,このバグを先に直す必要があります。
+dlg-319,dgrp-31,3,A,A,A,A,いつまでにできますか。,When can it be done?,언제까지 할 수 있어요?,いつまでにできますか。
+dlg-320,dgrp-31,4,B,B,B,B,たぶん明【あす】までにできます。,Probably by tomorrow.,아마 내일까지는 될 거예요.,たぶん明日までにできます。
+dlg-321,dgrp-32,1,A,A,A,A,このタスクは何【なに】のためですか。,What is this task for?,이 작업은 무엇을 위한 거예요?,このタスクは何のためですか。
+dlg-322,dgrp-32,2,B,B,B,B,使【つか】う人【ひと】が速【はや】く探【さが】すためです。,So users can search faster.,사용자가 빠르게 검색할 수 있게 하기 위해서예요.,利用者が速く検索できるようにするためです。
+dlg-323,dgrp-32,3,A,A,A,A,どの時【とき】に必要【ひつよう】ですか。,In which case is it needed?,어떤 경우에 필요해요?,どの場合に必要ですか。
+dlg-324,dgrp-32,4,B,B,B,B,物【もの】が多【おお】い時【とき】に必要【ひつよう】です。,It is needed when there are many items.,항목이 많을 때 필요해요.,項目が多い時に必要です。

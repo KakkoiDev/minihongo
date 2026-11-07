@@ -35,11 +35,19 @@
             }
           },
           {
+            "name": "name_korean",
+            "type": "string"
+          },
+          {
             "name": "name_japanese",
             "type": "string"
           },
           {
             "name": "desc_en",
+            "type": "string"
+          },
+          {
+            "name": "desc_ko",
             "type": "string"
           },
           {
@@ -52,6 +60,10 @@
           },
           {
             "name": "gloss_en",
+            "type": "string"
+          },
+          {
+            "name": "gloss_ko",
             "type": "string"
           },
           {
@@ -122,6 +134,10 @@
             }
           },
           {
+            "name": "name_korean",
+            "type": "string"
+          },
+          {
             "name": "name_japanese",
             "type": "string"
           },
@@ -138,6 +154,10 @@
           },
           {
             "name": "note_english",
+            "type": "string"
+          },
+          {
+            "name": "note_korean",
             "type": "string"
           },
           {
@@ -192,6 +212,10 @@
             "type": "string"
           },
           {
+            "name": "korean",
+            "type": "string"
+          },
+          {
             "name": "japanese",
             "type": "string"
           },
@@ -204,11 +228,19 @@
             "type": "string"
           },
           {
+            "name": "korean_litteral",
+            "type": "string"
+          },
+          {
             "name": "example_minihongo",
             "type": "string"
           },
           {
             "name": "example_english",
+            "type": "string"
+          },
+          {
+            "name": "example_korean",
             "type": "string"
           },
           {
@@ -278,6 +310,10 @@
             "type": "string"
           },
           {
+            "name": "korean",
+            "type": "string"
+          },
+          {
             "name": "japanese",
             "type": "string"
           },
@@ -291,6 +327,10 @@
             "constraints": {
               "required": true
             }
+          },
+          {
+            "name": "explanation_korean",
+            "type": "string"
           },
           {
             "name": "explanation_japanese",
@@ -355,11 +395,19 @@
             "type": "string"
           },
           {
+            "name": "korean",
+            "type": "string"
+          },
+          {
             "name": "japanese",
             "type": "string"
           },
           {
             "name": "english_litteral",
+            "type": "string"
+          },
+          {
+            "name": "korean_litteral",
             "type": "string"
           },
           {
@@ -425,11 +473,19 @@
             "type": "string"
           },
           {
+            "name": "korean",
+            "type": "string"
+          },
+          {
             "name": "japanese",
             "type": "string"
           },
           {
             "name": "english_litteral",
+            "type": "string"
+          },
+          {
+            "name": "korean_litteral",
             "type": "string"
           },
           {
@@ -499,11 +555,19 @@
             "type": "string"
           },
           {
+            "name": "korean",
+            "type": "string"
+          },
+          {
             "name": "japanese",
             "type": "string"
           },
           {
             "name": "english_litteral",
+            "type": "string"
+          },
+          {
+            "name": "korean_litteral",
             "type": "string"
           },
           {
@@ -562,6 +626,10 @@
           },
           {
             "name": "english",
+            "type": "string"
+          },
+          {
+            "name": "korean",
             "type": "string"
           },
           {
@@ -628,6 +696,10 @@
             "constraints": {
               "required": true
             }
+          },
+          {
+            "name": "title_korean",
+            "type": "string"
           },
           {
             "name": "title_japanese",
@@ -702,6 +774,10 @@
             }
           },
           {
+            "name": "speaker_korean",
+            "type": "string"
+          },
+          {
             "name": "speaker_japanese",
             "type": "string"
           },
@@ -714,6 +790,10 @@
           },
           {
             "name": "english",
+            "type": "string"
+          },
+          {
+            "name": "korean",
             "type": "string"
           },
           {
@@ -771,6 +851,10 @@
             }
           },
           {
+            "name": "title_korean",
+            "type": "string"
+          },
+          {
             "name": "title_japanese",
             "type": "string"
           },
@@ -783,6 +867,10 @@
           },
           {
             "name": "english",
+            "type": "string"
+          },
+          {
+            "name": "korean",
             "type": "string"
           },
           {
@@ -839,6 +927,10 @@
             "constraints": {
               "required": true
             }
+          },
+          {
+            "name": "korean",
+            "type": "string"
           },
           {
             "name": "japanese",
@@ -912,6 +1004,10 @@
             }
           },
           {
+            "name": "korean",
+            "type": "string"
+          },
+          {
             "name": "minihongo",
             "type": "string",
             "constraints": {
@@ -920,6 +1016,10 @@
           },
           {
             "name": "where_english",
+            "type": "string"
+          },
+          {
+            "name": "where_korean",
             "type": "string"
           },
           {
@@ -994,6 +1094,10 @@
             "constraints": {
               "required": true
             }
+          },
+          {
+            "name": "korean",
+            "type": "string"
           },
           {
             "name": "sort_order",

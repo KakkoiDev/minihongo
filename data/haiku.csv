@@ -1,41 +1,41 @@
-id,category_id,minihongo,english,japanese,sort_order,audio_file
-haiku-1,cat-65,山【やま】の上【うえ】 / 風【かぜ】が来【き】ている / 空【そら】青【あお】い,"Upon the mountain, wind arrives. The sky, so blue",,1,h_1.mp3
-haiku-2,cat-65,雨【あめ】の音【おと】 / 外【そと】に聞【き】こえる / 夜【よる】の道【みち】,"Sound of falling rain, heard from beyond the walls, a road at night",,2,h_2.mp3
-haiku-3,cat-65,海【うみ】の水【みず】 / 大【おお】きく動【うご】く / 白【しろ】い石【いし】,"Water of the sea, moving in great swells, white stones on the shore",,3,h_3.mp3
-haiku-4,cat-65,白【しろ】い月【つき】 / 水【みず】の上【うえ】出【で】る / 夜【よる】の海【うみ】,"A white moon rises above the water, the nighttime sea",,4,h_4.mp3
-haiku-5,cat-66,水【みず】を飲【の】む / 太陽【たいよう】が出【で】て / 外【そと】を見【み】る,"Drinking water, the sun has risen, I gaze outside",,5,h_5.mp3
-haiku-6,cat-66,食【た】べ物【もの】を / 子供【こども】と食【た】べる / 家【いえ】の中【なか】,"A meal together, eating with the children, inside our home",,6,h_6.mp3
-haiku-7,cat-66,道【みち】を行【い】く / 大【おお】きい木【き】見【み】る / 風【かぜ】の音【おと】,"Walking the path, I see the great trees, the sound of wind",,7,h_7.mp3
-haiku-8,cat-66,夜【よる】が来【く】る / 月【つき】を見【み】ている / 目【め】を閉【し】める,"Night arrives, watching the moon a while, I close my eyes",,8,h_8.mp3
-haiku-9,cat-67,人【ひと】を待【ま】つ / 心【こころ】の中【なか】に / いつもいる,"Waiting for someone, always present within my heart",,9,h_9.mp3
-haiku-10,cat-67,楽【たの】しくて / 子供【こども】が笑【わら】う / 音【おと】を聞【き】く,"Joyfully, children laughing, I listen to the sound",,10,h_10.mp3
-haiku-11,cat-67,泣【な】く子供【こども】 / 母【はは】が手【て】を持【も】つ / 光【ひかり】見【み】る,"A child in tears, mother takes their hand, they see the light",,11,h_11.mp3
-haiku-12,cat-67,人【ひと】に会【あ】う / 言葉【ことば】を少【すこ】し / 笑【わら】う人【ひと】,"Meeting someone, just a few small words, a person smiling",,12,h_12.mp3
-haiku-13,cat-68,草【くさ】開【ひら】く / 山【やま】の風【かぜ】来【く】る / 草【くさ】動【うご】く,"Blossoms split open, wind comes pouring down the mountain, the grasses stir",,13,h_13.mp3
-haiku-14,cat-68,空【そら】暑【あつ】い / 水【みず】を飲【の】む人【ひと】 / 日【にち】終【お】わる,"The sky burns heavy, a person drinking water, the day is done",,14,h_14.mp3
-haiku-15,cat-68,木【き】が変【か】わる / 赤【あか】くなる山【やま】 / 風【かぜ】寒【さむ】い,"The trees are changing, the mountains going crimson, the wind turns cold",,15,h_15.mp3
-haiku-16,cat-68,寒【さむ】い夜【よる】 / 火【ひ】に近【ちか】い人【ひと】 / 音【おと】もない,"A cold night settles, a person drawn close to the fire, not a sound",,16,h_16.mp3
-haiku-17,cat-69,誰【だれ】か来【く】る / 知【し】らない名前【なまえ】 / 笑【わら】う人【ひと】,"Someone comes, a name unknown, he smiles",,17,h_17.mp3
-haiku-18,cat-69,また会【あ】おう / と言【い】った後【あと】に / 道【みち】長【なが】い,"Let us meet again - the words still drift in the air, the road stretches on",,18,h_18.mp3
-haiku-19,cat-69,あなた待【ま】つ / 来【こ】ないと知【し】って / まだここに,"Waiting for you still, knowing well you will not come, here I remain",,19,h_19.mp3
-haiku-20,cat-69,手【て】与【あた】える / もらう人【ひと】の目【め】 / 光【ひかり】見【み】た,"A hand reaches out, in the eyes of the one who receives, light was seen",,20,h_20.mp3
-haiku-21,cat-70,始【はじ】まりの / 少【すこ】しの体【からだ】 / 泣【な】いている,"Of the beginning, a body so impossibly small, crying into the world",,21,h_21.mp3
-haiku-22,cat-70,生【い】きること / 食【た】べて動【うご】いて / 来【く】る日【にち】へ,"What it means to live: eat, move through the world, toward the coming day",,22,h_22.mp3
-haiku-23,cat-70,人【ひと】は死【し】ぬ / 土【つち】の中【なか】入【い】る / 草【くさ】生【い】きる,"All people must die, entering into the dark earth, the grasses live on",,23,h_23.mp3
-haiku-24,cat-70,終【お】わる夜【よる】 / 光【ひかり】始【はじ】まる / 空【そら】はある,"The night comes to end, light begins its work again, the sky is still there",,24,h_24.mp3
-haiku-25,cat-71,月【つき】の夜【よる】 / 火【ひ】が一【ひと】つある / 誰【だれ】かいる,"A night with the moon, one small fire burning somewhere, someone is there",,25,h_25.mp3
-haiku-26,cat-71,光【ひかり】来【く】る / 怖【こわ】いの終【お】わる / 目【め】を開【ひら】く,"The light comes at last, all of the fear finds its end, I open my eyes",,26,h_26.mp3
-haiku-27,cat-71,火【ひ】を止【と】めて / 光【ひかり】なくなる / 体【からだ】だけ,"The fire is stopped, light drains away from the room, only the body",,27,h_27.mp3
-haiku-28,cat-71,夜【よる】の空【そら】 / 月【つき】白【しろ】く出【で】る / 道【みち】白【しろ】い,"The night sky opens, the moon rises pale and cold, the road turns silver",,28,h_28.mp3
-haiku-29,cat-72,言葉【ことば】ない / 心【こころ】が動【うご】く / 人【ひと】と人【ひと】,"Without any words, something moves inside the heart, two people, one moment",,29,h_29.mp3
-haiku-30,cat-72,書【か】く言葉【ことば】 / 誰【だれ】も読【よ】まない / まだそこに,"Words written in ink, that no one will ever read, they are still there",,30,h_30.mp3
-haiku-31,cat-72,聞【き】く言葉【ことば】 / 知【し】らない言葉【ことば】 / 道【みち】開【ひら】く,"Words you hear spoken, words you have never known before, a road opens",,31,h_31.mp3
-haiku-32,cat-72,言【い】わないで / 手【て】を持【も】っている / それでいい,"Without saying a word, holding your hand in the quiet, this is enough",,32,h_32.mp3
-haiku-33,cat-65,雲【くも】が来【く】る / 鳥【とり】が飛【と】んでる / 雨【あめ】の前【まえ】,"Clouds are rolling in, birds still flying overhead, before the rain falls",,33,h_33.mp3
-haiku-34,cat-65,魚【さかな】行【い】く / 水【みず】で光【ひか】って / 海【うみ】の音【おと】,"Fish swimming along, shining there in the water, sound of the sea",,34,h_34.mp3
-haiku-35,cat-66,犬【いぬ】歩【ある】く / 同【おな】じ道【みち】行【い】く / 風【かぜ】違【ちが】う,"The dog is walking, going down the same old road, the wind is different",,35,h_35.mp3
-haiku-36,cat-66,腹【はら】が言【い】う / 魚【さかな】食【た】べたい / 海【うみ】遠【とお】い,"My belly speaks up: I want to eat some fish, the sea is far away",,36,h_36.mp3
-haiku-37,cat-67,分【わ】かりたい / 心【こころ】で分【わ】かる / たぶんそう,"I want to understand, to know it with the heart, maybe that is it",,37,h_37.mp3
-haiku-38,cat-67,話【はな】したい / 言葉【ことば】ない時【とき】 / 目【め】が話【はな】す,"Wanting to speak, when there are no words, the eyes do the talking",,38,h_38.mp3
-haiku-39,cat-69,いいえ言【い】う / 心【こころ】悲【かな】しい / それでいい,"I say no to you, the heart is full of sadness, and that is enough",,39,h_39.mp3
-haiku-40,cat-70,白【しろ】い髪【かみ】 / 百【ひゃく】年【ねん】生【い】きて / 骨【ほね】強【つよ】い,"Hair white as snow, having lived a hundred years, the bones still hold strong",,40,h_40.mp3
+id,category_id,minihongo,english,korean,japanese,sort_order,audio_file
+haiku-1,cat-65,山【やま】の上【うえ】 / 風【かぜ】が来【き】ている / 空【そら】青【あお】い,"Upon the mountain, wind arrives. The sky, so blue",산 위로 / 바람이 불어오고 / 하늘 파랗다,,1,h_1.mp3
+haiku-2,cat-65,雨【あめ】の音【おと】 / 外【そと】に聞【き】こえる / 夜【よる】の道【みち】,"Sound of falling rain, heard from beyond the walls, a road at night",빗소리 / 바깥에서 들려오는 / 밤의 길,,2,h_2.mp3
+haiku-3,cat-65,海【うみ】の水【みず】 / 大【おお】きく動【うご】く / 白【しろ】い石【いし】,"Water of the sea, moving in great swells, white stones on the shore",바닷물 / 크게 일렁이고 / 하얀 돌,,3,h_3.mp3
+haiku-4,cat-65,白【しろ】い月【つき】 / 水【みず】の上【うえ】出【で】る / 夜【よる】の海【うみ】,"A white moon rises above the water, the nighttime sea",하얀 달 / 물 위로 떠오른다 / 밤바다,,4,h_4.mp3
+haiku-5,cat-66,水【みず】を飲【の】む / 太陽【たいよう】が出【で】て / 外【そと】を見【み】る,"Drinking water, the sun has risen, I gaze outside",물을 마신다 / 해가 떠올라 / 밖을 바라본다,,5,h_5.mp3
+haiku-6,cat-66,食【た】べ物【もの】を / 子供【こども】と食【た】べる / 家【いえ】の中【なか】,"A meal together, eating with the children, inside our home",밥을 / 아이들과 함께 먹는 / 집 안,,6,h_6.mp3
+haiku-7,cat-66,道【みち】を行【い】く / 大【おお】きい木【き】見【み】る / 風【かぜ】の音【おと】,"Walking the path, I see the great trees, the sound of wind",길을 걷다 / 큰 나무를 바라본다 / 바람 소리,,7,h_7.mp3
+haiku-8,cat-66,夜【よる】が来【く】る / 月【つき】を見【み】ている / 目【め】を閉【し】める,"Night arrives, watching the moon a while, I close my eyes",밤이 온다 / 달을 바라보다가 / 눈을 감는다,,8,h_8.mp3
+haiku-9,cat-67,人【ひと】を待【ま】つ / 心【こころ】の中【なか】に / いつもいる,"Waiting for someone, always present within my heart",누군가를 기다린다 / 마음속에 / 언제나 있는,,9,h_9.mp3
+haiku-10,cat-67,楽【たの】しくて / 子供【こども】が笑【わら】う / 音【おと】を聞【き】く,"Joyfully, children laughing, I listen to the sound",즐거워서 / 아이들이 웃는 / 소리를 듣는다,,10,h_10.mp3
+haiku-11,cat-67,泣【な】く子供【こども】 / 母【はは】が手【て】を持【も】つ / 光【ひかり】見【み】る,"A child in tears, mother takes their hand, they see the light",우는 아이 / 엄마가 손을 잡자 / 빛을 본다,,11,h_11.mp3
+haiku-12,cat-67,人【ひと】に会【あ】う / 言葉【ことば】を少【すこ】し / 笑【わら】う人【ひと】,"Meeting someone, just a few small words, a person smiling",사람을 만나 / 몇 마디 말을 나누니 / 웃는 얼굴,,12,h_12.mp3
+haiku-13,cat-68,草【くさ】開【ひら】く / 山【やま】の風【かぜ】来【く】る / 草【くさ】動【うご】く,"Blossoms split open, wind comes pouring down the mountain, the grasses stir",풀꽃 피고 / 산바람 불어오니 / 풀이 흔들린다,,13,h_13.mp3
+haiku-14,cat-68,空【そら】暑【あつ】い / 水【みず】を飲【の】む人【ひと】 / 日【にち】終【お】わる,"The sky burns heavy, a person drinking water, the day is done",하늘 뜨겁다 / 물을 마시는 사람 / 하루가 저문다,,14,h_14.mp3
+haiku-15,cat-68,木【き】が変【か】わる / 赤【あか】くなる山【やま】 / 風【かぜ】寒【さむ】い,"The trees are changing, the mountains going crimson, the wind turns cold",나무가 변한다 / 붉게 물드는 산 / 바람 차갑다,,15,h_15.mp3
+haiku-16,cat-68,寒【さむ】い夜【よる】 / 火【ひ】に近【ちか】い人【ひと】 / 音【おと】もない,"A cold night settles, a person drawn close to the fire, not a sound",추운 밤 / 불가에 다가앉은 사람 / 소리도 없다,,16,h_16.mp3
+haiku-17,cat-69,誰【だれ】か来【く】る / 知【し】らない名前【なまえ】 / 笑【わら】う人【ひと】,"Someone comes, a name unknown, he smiles",누군가 온다 / 모르는 이름 / 웃는 사람,,17,h_17.mp3
+haiku-18,cat-69,また会【あ】おう / と言【い】った後【あと】に / 道【みち】長【なが】い,"Let us meet again - the words still drift in the air, the road stretches on",또 만나자 / 그렇게 말한 뒤에 / 길은 길다,,18,h_18.mp3
+haiku-19,cat-69,あなた待【ま】つ / 来【こ】ないと知【し】って / まだここに,"Waiting for you still, knowing well you will not come, here I remain",너를 기다린다 / 오지 않을 줄 알면서 / 아직 여기에,,19,h_19.mp3
+haiku-20,cat-69,手【て】与【あた】える / もらう人【ひと】の目【め】 / 光【ひかり】見【み】た,"A hand reaches out, in the eyes of the one who receives, light was seen",손을 내민다 / 받는 이의 눈 속에 / 빛을 보았다,,20,h_20.mp3
+haiku-21,cat-70,始【はじ】まりの / 少【すこ】しの体【からだ】 / 泣【な】いている,"Of the beginning, a body so impossibly small, crying into the world",시작의 / 작디작은 몸 하나 / 울고 있다,,21,h_21.mp3
+haiku-22,cat-70,生【い】きること / 食【た】べて動【うご】いて / 来【く】る日【にち】へ,"What it means to live: eat, move through the world, toward the coming day",산다는 것 / 먹고 움직이며 / 오는 날로,,22,h_22.mp3
+haiku-23,cat-70,人【ひと】は死【し】ぬ / 土【つち】の中【なか】入【い】る / 草【くさ】生【い】きる,"All people must die, entering into the dark earth, the grasses live on",사람은 죽어 / 흙 속으로 들어가고 / 풀은 산다,,23,h_23.mp3
+haiku-24,cat-70,終【お】わる夜【よる】 / 光【ひかり】始【はじ】まる / 空【そら】はある,"The night comes to end, light begins its work again, the sky is still there",끝나는 밤 / 빛이 시작되고 / 하늘은 있다,,24,h_24.mp3
+haiku-25,cat-71,月【つき】の夜【よる】 / 火【ひ】が一【ひと】つある / 誰【だれ】かいる,"A night with the moon, one small fire burning somewhere, someone is there",달밤에 / 불 하나 켜져 있다 / 누군가 있다,,25,h_25.mp3
+haiku-26,cat-71,光【ひかり】来【く】る / 怖【こわ】いの終【お】わる / 目【め】を開【ひら】く,"The light comes at last, all of the fear finds its end, I open my eyes",빛이 온다 / 두려움이 끝나고 / 눈을 뜬다,,26,h_26.mp3
+haiku-27,cat-71,火【ひ】を止【と】めて / 光【ひかり】なくなる / 体【からだ】だけ,"The fire is stopped, light drains away from the room, only the body",불을 끄니 / 빛이 사라지고 / 몸만 남았다,,27,h_27.mp3
+haiku-28,cat-71,夜【よる】の空【そら】 / 月【つき】白【しろ】く出【で】る / 道【みち】白【しろ】い,"The night sky opens, the moon rises pale and cold, the road turns silver",밤하늘 / 달이 하얗게 뜨고 / 길이 하얗다,,28,h_28.mp3
+haiku-29,cat-72,言葉【ことば】ない / 心【こころ】が動【うご】く / 人【ひと】と人【ひと】,"Without any words, something moves inside the heart, two people, one moment",말이 없어도 / 마음이 움직인다 / 사람과 사람,,29,h_29.mp3
+haiku-30,cat-72,書【か】く言葉【ことば】 / 誰【だれ】も読【よ】まない / まだそこに,"Words written in ink, that no one will ever read, they are still there",써 놓은 말 / 아무도 읽지 않아도 / 아직 거기에,,30,h_30.mp3
+haiku-31,cat-72,聞【き】く言葉【ことば】 / 知【し】らない言葉【ことば】 / 道【みち】開【ひら】く,"Words you hear spoken, words you have never known before, a road opens",들려오는 말 / 모르는 말 / 길이 열린다,,31,h_31.mp3
+haiku-32,cat-72,言【い】わないで / 手【て】を持【も】っている / それでいい,"Without saying a word, holding your hand in the quiet, this is enough",말하지 않고 / 손을 잡고 있다 / 그걸로 됐다,,32,h_32.mp3
+haiku-33,cat-65,雲【くも】が来【く】る / 鳥【とり】が飛【と】んでる / 雨【あめ】の前【まえ】,"Clouds are rolling in, birds still flying overhead, before the rain falls",구름이 온다 / 새가 날고 있다 / 비 오기 전,,33,h_33.mp3
+haiku-34,cat-65,魚【さかな】行【い】く / 水【みず】で光【ひか】って / 海【うみ】の音【おと】,"Fish swimming along, shining there in the water, sound of the sea",물고기 간다 / 물속에서 반짝이며 / 바다 소리,,34,h_34.mp3
+haiku-35,cat-66,犬【いぬ】歩【ある】く / 同【おな】じ道【みち】行【い】く / 風【かぜ】違【ちが】う,"The dog is walking, going down the same old road, the wind is different",개가 걷는다 / 늘 같은 길을 가도 / 바람이 다르다,,35,h_35.mp3
+haiku-36,cat-66,腹【はら】が言【い】う / 魚【さかな】食【た】べたい / 海【うみ】遠【とお】い,"My belly speaks up: I want to eat some fish, the sea is far away",배가 말한다 / 생선이 먹고 싶다고 / 바다는 멀다,,36,h_36.mp3
+haiku-37,cat-67,分【わ】かりたい / 心【こころ】で分【わ】かる / たぶんそう,"I want to understand, to know it with the heart, maybe that is it",알고 싶다 / 마음으로 안다 / 아마 그렇겠지,,37,h_37.mp3
+haiku-38,cat-67,話【はな】したい / 言葉【ことば】ない時【とき】 / 目【め】が話【はな】す,"Wanting to speak, when there are no words, the eyes do the talking",말하고 싶다 / 말이 없을 때 / 눈이 말한다,,38,h_38.mp3
+haiku-39,cat-69,いいえ言【い】う / 心【こころ】悲【かな】しい / それでいい,"I say no to you, the heart is full of sadness, and that is enough",아니라고 말한다 / 마음은 슬프다 / 그걸로 됐다,,39,h_39.mp3
+haiku-40,cat-70,白【しろ】い髪【かみ】 / 百【ひゃく】年【ねん】生【い】きて / 骨【ほね】強【つよ】い,"Hair white as snow, having lived a hundred years, the bones still hold strong",하얀 머리 / 백 년을 살아도 / 뼈는 튼튼하다,,40,h_40.mp3

@@ -33,21 +33,23 @@ STATIC = ROOT / "static"
 OUT = ROOT.parent / "docs"
 DATA = ROOT.parent / "data"
 
-LANGS = ['en', 'ja', 'mh']
-LANG_COL = {'en': 'english', 'ja': 'japanese', 'mh': 'minihongo'}
-HTML_LANGS = {'en': 'en', 'ja': 'ja', 'mh': 'ja'}
-LANG_LABELS = {'en': 'English', 'ja': '日本語', 'mh': 'ミニ本語'}
-BASE_URLS = {'en': '/', 'ja': '/ja/', 'mh': '/mh/'}
+LANGS = ['en', 'ko', 'ja', 'mh']
+LANG_COL = {'en': 'english', 'ko': 'korean', 'ja': 'japanese', 'mh': 'minihongo'}
+HTML_LANGS = {'en': 'en', 'ko': 'ko', 'ja': 'ja', 'mh': 'ja'}
+LANG_LABELS = {'en': 'English', 'ko': '한국어', 'ja': '日本語', 'mh': 'ミニ本語'}
+BASE_URLS = {'en': '/', 'ko': '/ko/', 'ja': '/ja/', 'mh': '/mh/'}
+# Open Graph locale per edition (link previews in chat apps)
+OG_LOCALES = {'en': 'en_US', 'ko': 'ko_KR', 'ja': 'ja_JP', 'mh': 'ja_JP'}
 
 SITE_URL = os.environ.get("SITE_URL", "https://minihongo.com")
 STATIC_DESCS = {'_404': 'Page not found.'}
 
-MEANING_COL_MAP = {'en': 'english', 'ja': 'japanese', 'mh': 'definition_minihongo'}
-CAT_NAME_COL_MAP = {'en': 'name_english', 'ja': 'name_japanese', 'mh': 'name_minihongo'}
-EXPLANATION_COL_MAP = {'en': 'explanation_english', 'ja': 'explanation_japanese', 'mh': 'explanation_minihongo'}
-TRANSLATION_COL_MAP = {'en': 'english', 'ja': 'japanese', 'mh': ''}
-SPEAKER_COL_MAP = {'en': 'speaker_english', 'ja': 'speaker_japanese', 'mh': ''}
-TITLE_COL_MAP = {'en': 'title_english', 'ja': 'title_japanese', 'mh': 'title_minihongo'}
+MEANING_COL_MAP = {'en': 'english', 'ko': 'korean', 'ja': 'japanese', 'mh': 'definition_minihongo'}
+CAT_NAME_COL_MAP = {'en': 'name_english', 'ko': 'name_korean', 'ja': 'name_japanese', 'mh': 'name_minihongo'}
+EXPLANATION_COL_MAP = {'en': 'explanation_english', 'ko': 'explanation_korean', 'ja': 'explanation_japanese', 'mh': 'explanation_minihongo'}
+TRANSLATION_COL_MAP = {'en': 'english', 'ko': 'korean', 'ja': 'japanese', 'mh': ''}
+SPEAKER_COL_MAP = {'en': 'speaker_english', 'ko': 'speaker_korean', 'ja': 'speaker_japanese', 'mh': ''}
+TITLE_COL_MAP = {'en': 'title_english', 'ko': 'title_korean', 'ja': 'title_japanese', 'mh': 'title_minihongo'}
 
 
 # ── Data loading ───────────────────────────────────────────────────
@@ -98,7 +100,7 @@ def build_meta_desc(data, ui_strings, page_file, lang, page_id_map):
     if page_id and page_id in STATIC_DESCS:
         return STATIC_DESCS[page_id]
     if page_id:
-        col = {'en': 'desc_en', 'ja': 'desc_ja', 'mh': 'desc_mh'}[lang]
+        col = f'desc_{lang}'
         for p in data.get('pages', []):
             if p['id'] == page_id:
                 val = p.get(col, '').strip()
@@ -108,6 +110,25 @@ def build_meta_desc(data, ui_strings, page_file, lang, page_id_map):
     # Homepage fallback
     desc = ui_str(ui_strings, 'home_tagline', lang)
     return re.sub(r'<[^>]+>', '', desc)
+
+
+def hreflang_links(page_file):
+    """<link rel=alternate> for every edition (mh is Japanese text, so not listed)."""
+    path = page_file.replace("index.html", "")
+    links = [
+        f'<link rel="alternate" hreflang="{HTML_LANGS[l]}" href="{SITE_URL}{BASE_URLS[l]}{path}">'
+        for l in LANGS if l != 'mh'
+    ]
+    links.append(f'<link rel="alternate" hreflang="x-default" href="{SITE_URL}/{path}">')
+    return '\n  '.join(links)
+
+
+def share_lang_options(lang):
+    """<option>s for the share dialog's language picker, current edition selected."""
+    return ''.join(
+        f'<option value="{l}"{" selected" if l == lang else ""}>{LANG_LABELS[l]}</option>'
+        for l in LANGS
+    )
 
 
 def lang_switcher_html(lang):
@@ -194,8 +215,29 @@ def build_page_context(data, ui_strings, lang, page_file, base_url, page_id_map)
         'COPYRIGHT_YEAR': str(datetime.now().year),
         # Canonical + hreflang
         'CANONICAL_URL': f'{SITE_URL}/{BASE_URLS[lang].lstrip("/")}{page_file.replace("index.html", "")}',
-        'HREFLANG_EN': f'{SITE_URL}/{page_file.replace("index.html", "")}',
-        'HREFLANG_JA': f'{SITE_URL}/ja/{page_file.replace("index.html", "")}',
+        'HREFLANG_LINKS': hreflang_links(page_file),
+        'OG_LOCALE': OG_LOCALES[lang],
+        'SITE_URL': SITE_URL,
+        # Share / invite / install
+        'SHARE_LABEL': ui_plain('share_label'),
+        'SHARE_HEADING': ui_str(ui_strings, 'share_heading', lang),
+        'SHARE_BODY': ui_str(ui_strings, 'share_body', lang),
+        'SHARE_COPY': ui_str(ui_strings, 'share_copy', lang),
+        'SHARE_COPIED': ui_plain('share_copied'),
+        'SHARE_NATIVE': ui_str(ui_strings, 'share_native', lang),
+        'SHARE_INCLUDE_INSTALL': ui_str(ui_strings, 'share_include_install', lang),
+        'SHARE_LANG_LABEL': ui_str(ui_strings, 'share_lang_label', lang),
+        'SHARE_LANG_OPTIONS': share_lang_options(lang),
+        'INSTALL_HEADING': ui_str(ui_strings, 'install_heading', lang),
+        'INSTALL_BODY': ui_str(ui_strings, 'install_body', lang),
+        'INSTALL_YES': ui_str(ui_strings, 'install_yes', lang),
+        'INSTALL_NO': ui_str(ui_strings, 'install_no', lang),
+        'INSTALL_IOS': ui_str(ui_strings, 'install_ios', lang),
+        'INSTALL_OTHER': ui_str(ui_strings, 'install_other', lang),
+        'INSTALL_DONE': ui_str(ui_strings, 'install_done', lang),
+        'SETTINGS_LABEL': ui_plain('settings_label'),
+        'LANGUAGE_LABEL': ui_str(ui_strings, 'language_label', lang),
+        'CLOSE_LABEL': ui_plain('close_label'),
         # Toast strings
         'TOAST_OFFLINE': ui_str(ui_strings, 'toast_offline', lang),
         'TOAST_ONLINE': ui_str(ui_strings, 'toast_online', lang),
@@ -269,6 +311,7 @@ def build_kaiwa_candos(data):
         candos.append({
             'id': c['id'],
             'english': c.get('english', ''),
+            'korean': c.get('korean', ''),
             'japanese': c.get('japanese', ''),
             'kanji': strip_fg(c.get('minihongo', '')),
             'dialog_group_id': c.get('dialog_group_id', ''),
@@ -291,6 +334,7 @@ def build_kaiwa_expressions(data):
             'reading': e.get('reading', ''),
             'paraphrase': strip_fg(e.get('minihongo', '')),
             'english': e.get('english', ''),
+            'korean': e.get('korean', ''),
         })
     return rows
 
@@ -533,6 +577,9 @@ def _build_to(OUT, base_url):
     for f in ROOT.glob("*.json"):
         shutil.copy2(f, OUT / f.name)
 
+    # One manifest per edition so an app installed from /ko/ opens in Korean.
+    write_manifests(OUT)
+
     # The Echo starter is also downloadable from the published Minihongo site.
     echo_import = ROOT.parent / "imports" / "jp-echo.json"
     if echo_import.exists():
@@ -626,7 +673,8 @@ def _build_to(OUT, base_url):
     precache = [
         "'./'", "'static/style.css'", "'static/app.js'",
         "'static/kaiwa.js'", "'static/kaiwa-provider-anthropic.js'",
-        "'static/kaiwa-provider-openai.js'", "'static/kaiwa-data.json'",
+        "'static/kaiwa-provider-openai.js'", "'static/kaiwa-provider-deepseek.js'",
+        "'static/kaiwa-i18n.js'", "'static/key-share.js'", "'static/kaiwa-data.json'",
     ]
     for f in sorted(OUT.rglob("*.html")):
         rel_path = str(f.relative_to(OUT))
@@ -674,9 +722,29 @@ def _build_to(OUT, base_url):
     print(f"-> {OUT}/")
 
 
+MANIFEST_DESCS = {
+    'en': '231 words. Say anything in Japanese.',
+    'ko': '단어 231개로 일본어로 뭐든 말하기.',
+    'ja': '231語で、何でも言える日本語。',
+    'mh': '231の言葉で、何でも言える。',
+}
+
+
+def write_manifests(out):
+    base = json.loads((ROOT / 'manifest.json').read_text())
+    for lang in LANGS:
+        m = dict(base)
+        m['id'] = '/'
+        m['lang'] = HTML_LANGS[lang]
+        m['start_url'] = BASE_URLS[lang]
+        m['scope'] = '/'
+        m['description'] = MANIFEST_DESCS[lang]
+        (out / f'manifest-{lang}.json').write_text(json.dumps(m, ensure_ascii=False, indent=2))
+
+
 def _detect_lang(rel_path):
     s = str(rel_path)
-    for prefix in ['ja/', 'mh/']:
+    for prefix in ['ko/', 'ja/', 'mh/']:
         if s.startswith(prefix):
             return prefix.rstrip('/')
     return 'en'

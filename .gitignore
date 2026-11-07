@@ -6,6 +6,7 @@ __pycache__/
 site/pages/index.html
 site/pages/lessons/
 site/pages/ja/
+site/pages/ko/
 site/pages/mh/
 
 # Generated Anki decks (generate_anki.py)

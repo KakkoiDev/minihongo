@@ -7,6 +7,9 @@
 
 window.KaiwaProviders = window.KaiwaProviders || {}
 
+// UI text via kaiwa-i18n.js; the English fallback keeps this file usable alone.
+const kaiwaText = (key, vars, fallback) => window.kaiwaT?.(key, vars) ?? fallback
+
 window.KaiwaProviders.openai = {
   id: 'openai',
   label: 'OpenAI (GPT-5.6 Luna)',
@@ -53,16 +56,18 @@ window.KaiwaProviders.openai = {
         return { final: evt.text }
       }
       if (evt.type === 'response.refusal.done') {
-        throw new Error(`OpenAI refused the request: ${evt.refusal || 'no reason provided'}`)
+        const reason = evt.refusal || kaiwaText('no_reason', null, 'no reason provided')
+        throw new Error(kaiwaText('err_refused', { reason }, `OpenAI refused the request: ${reason}`))
       }
       return null
     }, onDelta, (evt) => {
       if (evt.type === 'response.failed') {
-        throw new Error(`OpenAI response failed: ${evt.response?.error?.message || 'unknown error'}`)
+        const reason = evt.response?.error?.message || kaiwaText('unknown_error', null, 'unknown error')
+        throw new Error(kaiwaText('err_failed', { reason }, `OpenAI response failed: ${reason}`))
       }
       if (evt.type === 'response.incomplete') {
-        const reason = evt.response?.incomplete_details?.reason || 'unknown reason'
-        throw new Error(`OpenAI response was incomplete: ${reason}`)
+        const reason = evt.response?.incomplete_details?.reason || kaiwaText('unknown_reason', null, 'unknown reason')
+        throw new Error(kaiwaText('err_incomplete', { reason }, `OpenAI response was incomplete: ${reason}`))
       }
       if (evt.type !== 'response.completed') return null
       return evt.response?.output
@@ -73,7 +78,7 @@ window.KaiwaProviders.openai = {
     })
 
     if (!text.trim()) {
-      throw new Error('OpenAI returned an empty response. Please try again.')
+      throw new Error(kaiwaText('err_empty', { provider: 'OpenAI' }, 'OpenAI returned an empty response. Please try again.'))
     }
     return text
   },
@@ -87,9 +92,10 @@ async function describeError(res) {
   } catch {
     detail = await res.text().catch(() => '')
   }
-  if (res.status === 401) return 'OpenAI rejected the API key (401). Check the key in settings.'
-  if (res.status === 429) return 'OpenAI rate limit hit (429). Wait a moment and try again.'
-  return `OpenAI API error ${res.status}: ${detail.slice(0, 300)}`
+  if (res.status === 401) return kaiwaText('err_key_rejected', { provider: 'OpenAI' }, 'OpenAI rejected the API key (401). Check the key in settings.')
+  if (res.status === 429) return kaiwaText('err_rate_limit', { provider: 'OpenAI' }, 'OpenAI rate limit hit (429). Wait a moment and try again.')
+  const vars = { provider: 'OpenAI', status: res.status, detail: detail.slice(0, 300) }
+  return kaiwaText('err_api', vars, `OpenAI API error ${vars.status}: ${vars.detail}`)
 }
 
 // Shared shape with the Anthropic provider's SSE reader, duplicated rather

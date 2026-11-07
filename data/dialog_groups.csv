@@ -1,33 +1,33 @@
-id,category_id,title_minihongo,title_english,title_japanese,sort_order,audio_file
-dgrp-1,cat-73,買【か】う所【ところ】で,At a Shop,店で,1,d_1.mp3
-dgrp-2,cat-73,道【みち】で人【ひと】と会【あ】う,Meeting a Friend on the Street,道で友人に会う,2,d_2.mp3
-dgrp-3,cat-73,家【いえ】の夜【よる】の食【た】べ物【もの】,Family Dinner,家族の夕食,3,d_3.mp3
-dgrp-4,cat-73,道【みち】を聞【き】く,Asking for Directions,道を尋ねる,4,d_4.mp3
-dgrp-5,cat-73,日【にち】の始【はじ】まり,Morning Routine,朝の日課,5,d_5.mp3
-dgrp-6,cat-74,生【い】きるとは何【なに】か,What Is Life?,生きるとは何か,6,d_6.mp3
-dgrp-7,cat-74,夜【よる】の光【ひかり】,The Lights of Night,夜の光,7,d_7.mp3
-dgrp-8,cat-74,なぜ人【ひと】は戦【たたか】うの？,Why Do People Fight?,なぜ人は戦うのか,8,d_8.mp3
-dgrp-9,cat-74,人【ひと】だけが持【も】つ物【もの】,What Only Humans Have,人だけが持つもの,9,d_9.mp3
-dgrp-10,cat-74,時【とき】について,On Time,時について,10,d_10.mp3
-dgrp-11,cat-74,知【し】ること,Learning,知ること,11,d_11.mp3
-dgrp-12,cat-74,海【うみ】の外【そと】,The Sea,海の向こう,12,d_12.mp3
-dgrp-13,cat-74,新【あたら】しいものと前【まえ】のもの,Old and New,新しいものと古いもの,13,d_13.mp3
-dgrp-14,cat-74,音【おと】と心【こころ】,Music and Feelings,音楽と心,14,d_14.mp3
-dgrp-15,cat-90,体【からだ】が悪【わる】い時【とき】,At the Doctor,医者で,15,d_15.mp3
-dgrp-16,cat-90,体【からだ】を良【よ】くする物【もの】を買【か】う,At the Pharmacy,薬を買う,16,d_16.mp3
-dgrp-17,cat-90,助【たす】けてください,Emergency - Asking for Help,助けてください,17,d_17.mp3
-dgrp-18,cat-91,人【ひと】が来【く】る物【もの】を待【ま】つ所【ところ】で,At the Train Station,駅で,18,d_18.mp3
-dgrp-19,cat-91,食【た】べる所【ところ】で,At a Restaurant,食べる所で,19,d_19.mp3
-dgrp-20,cat-91,買【か】う所【ところ】で,At the Convenience Store,コンビニで,20,d_20.mp3
-dgrp-21,cat-91,音【おと】で言【い】う物【もの】で人【ひと】に言【い】う,Making a Phone Appointment,電話で予約する,21,d_21.mp3
-dgrp-22,cat-91,来【き】た事【こと】を書【か】く所【ところ】をする所【ところ】で,At City Hall,届け出をする所で,22,d_22.mp3
-dgrp-23,cat-92,私【わたし】の事【こと】を言【い】う,Introducing Yourself,自己紹介,23,d_23.mp3
-dgrp-24,cat-92,もう一【ひと】つ言【い】ってください,Asking Someone to Repeat,もう一度お願いします,24,d_24.mp3
-dgrp-25,cat-92,家【いえ】が近【ちか】い人【ひと】,The Neighbor,隣の人,25,d_25.mp3
-dgrp-26,cat-92,空【そら】の事【こと】の話【はなし】,Weather Small Talk,天気の話,26,d_26.mp3
-dgrp-27,cat-124,毎【まい】日【にち】の話【はなし】,Daily Standup,デイリースタンドアップ,1,d_27.mp3
-dgrp-28,cat-124,止【と】まった時【とき】,Incident Report,障害報告,2,d_28.mp3
-dgrp-29,cat-124,どう動【うご】くか,System Explanation,システム説明,3,d_29.mp3
-dgrp-30,cat-124,見【み】せる時【とき】,Technical Demo,技術デモ,4,d_30.mp3
-dgrp-31,cat-124,する事【こと】を考【かんが】える,Task Planning,タスク計画,5,d_31.mp3
-dgrp-32,cat-124,何【なに】が必要【ひつよう】か,Requirement Clarification,要件確認,6,d_32.mp3
+id,category_id,title_minihongo,title_english,title_korean,title_japanese,sort_order,audio_file
+dgrp-1,cat-73,買【か】う所【ところ】で,At a Shop,가게에서,店で,1,d_1.mp3
+dgrp-2,cat-73,道【みち】で人【ひと】と会【あ】う,Meeting a Friend on the Street,길에서 친구를 만나다,道で友人に会う,2,d_2.mp3
+dgrp-3,cat-73,家【いえ】の夜【よる】の食【た】べ物【もの】,Family Dinner,가족 저녁 식사,家族の夕食,3,d_3.mp3
+dgrp-4,cat-73,道【みち】を聞【き】く,Asking for Directions,길 묻기,道を尋ねる,4,d_4.mp3
+dgrp-5,cat-73,日【にち】の始【はじ】まり,Morning Routine,아침 일과,朝の日課,5,d_5.mp3
+dgrp-6,cat-74,生【い】きるとは何【なに】か,What Is Life?,산다는 것은 무엇인가,生きるとは何か,6,d_6.mp3
+dgrp-7,cat-74,夜【よる】の光【ひかり】,The Lights of Night,밤의 빛,夜の光,7,d_7.mp3
+dgrp-8,cat-74,なぜ人【ひと】は戦【たたか】うの？,Why Do People Fight?,사람은 왜 싸울까?,なぜ人は戦うのか,8,d_8.mp3
+dgrp-9,cat-74,人【ひと】だけが持【も】つ物【もの】,What Only Humans Have,사람만이 가진 것,人だけが持つもの,9,d_9.mp3
+dgrp-10,cat-74,時【とき】について,On Time,시간에 대하여,時について,10,d_10.mp3
+dgrp-11,cat-74,知【し】ること,Learning,안다는 것,知ること,11,d_11.mp3
+dgrp-12,cat-74,海【うみ】の外【そと】,The Sea,바다 너머,海の向こう,12,d_12.mp3
+dgrp-13,cat-74,新【あたら】しいものと前【まえ】のもの,Old and New,새것과 옛것,新しいものと古いもの,13,d_13.mp3
+dgrp-14,cat-74,音【おと】と心【こころ】,Music and Feelings,음악과 마음,音楽と心,14,d_14.mp3
+dgrp-15,cat-90,体【からだ】が悪【わる】い時【とき】,At the Doctor,병원에서,医者で,15,d_15.mp3
+dgrp-16,cat-90,体【からだ】を良【よ】くする物【もの】を買【か】う,At the Pharmacy,약국에서,薬を買う,16,d_16.mp3
+dgrp-17,cat-90,助【たす】けてください,Emergency - Asking for Help,긴급 상황 - 도움 요청하기,助けてください,17,d_17.mp3
+dgrp-18,cat-91,人【ひと】が来【く】る物【もの】を待【ま】つ所【ところ】で,At the Train Station,기차역에서,駅で,18,d_18.mp3
+dgrp-19,cat-91,食【た】べる所【ところ】で,At a Restaurant,식당에서,食べる所で,19,d_19.mp3
+dgrp-20,cat-91,買【か】う所【ところ】で,At the Convenience Store,편의점에서,コンビニで,20,d_20.mp3
+dgrp-21,cat-91,音【おと】で言【い】う物【もの】で人【ひと】に言【い】う,Making a Phone Appointment,전화로 예약하기,電話で予約する,21,d_21.mp3
+dgrp-22,cat-91,来【き】た事【こと】を書【か】く所【ところ】をする所【ところ】で,At City Hall,시청에서,届け出をする所で,22,d_22.mp3
+dgrp-23,cat-92,私【わたし】の事【こと】を言【い】う,Introducing Yourself,자기소개,自己紹介,23,d_23.mp3
+dgrp-24,cat-92,もう一【ひと】つ言【い】ってください,Asking Someone to Repeat,다시 말해 달라고 부탁하기,もう一度お願いします,24,d_24.mp3
+dgrp-25,cat-92,家【いえ】が近【ちか】い人【ひと】,The Neighbor,이웃,隣の人,25,d_25.mp3
+dgrp-26,cat-92,空【そら】の事【こと】の話【はなし】,Weather Small Talk,날씨 이야기,天気の話,26,d_26.mp3
+dgrp-27,cat-124,毎【まい】日【にち】の話【はなし】,Daily Standup,데일리 스탠드업,デイリースタンドアップ,1,d_27.mp3
+dgrp-28,cat-124,止【と】まった時【とき】,Incident Report,장애 보고,障害報告,2,d_28.mp3
+dgrp-29,cat-124,どう動【うご】くか,System Explanation,시스템 설명,システム説明,3,d_29.mp3
+dgrp-30,cat-124,見【み】せる時【とき】,Technical Demo,기술 데모,技術デモ,4,d_30.mp3
+dgrp-31,cat-124,する事【こと】を考【かんが】える,Task Planning,작업 계획,タスク計画,5,d_31.mp3
+dgrp-32,cat-124,何【なに】が必要【ひつよう】か,Requirement Clarification,요구 사항 확인,要件確認,6,d_32.mp3

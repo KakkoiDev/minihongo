@@ -1,140 +1,140 @@
-id,grammar_id,minihongo,english,japanese,english_litteral,sort_order,audio_file
-gex-1,gram-1,私【わたし】は 本【ほん】を 読【よ】む。,I read a book. (I + book + read),私は本を読む。,,1,ge_1.mp3
-gex-2,gram-2,「何【なに】を 飲【の】む？」「水【みず】。」,What will you drink? - Water.,「何を飲む？」「水。」,,2,ge_2.mp3
-gex-3,gram-3,動物【どうぶつ】がいる。,An animal is here.,動物がいる。,,3,ge_3.mp3
-gex-4,gram-3,本【ほん】がある。,A book is here.,本がある。,,4,ge_4.mp3
-gex-5,gram-3,私【わたし】は 本【ほん】がある。,"I have a book. (as for me, a book exists)",私は本がある。,,5,ge_5.mp3
-gex-6,gram-4,この 本【ほん】は 良【よ】い。,This book is good.,この本は良い。/ 私は目が良い。,,6,ge_6.mp3
-gex-7,gram-4,私【わたし】は 目【め】が 良【よ】い。,"As for me, my eyes are good. (は = topic, が = subject within)",,,7,ge_7.mp3
-gex-8,gram-5,誰【だれ】が 来【く】る？,Who is coming?,誰が来る？,,8,ge_8.mp3
-gex-9,gram-6,水【みず】を 飲【の】む。,I drink water.,水を飲む。,,9,ge_9.mp3
-gex-10,gram-7,山【やま】に 行【い】く。,I go to the mountain.,山に行く。/ 夜に寝る。/ 家に動物がいる。,,10,ge_10.mp3
-gex-11,gram-7,夜【よる】に 寝【ね】る。,I sleep at night.,,,11,ge_11.mp3
-gex-12,gram-7,家【いえ】に 動物【どうぶつ】がいる。,An animal is in the house.,,,12,ge_12.mp3
-gex-13,gram-8,家【いえ】で 読【よ】む。,I read at home.,家で読む。/ 手で書く。,,13,ge_13.mp3
-gex-14,gram-8,手【て】で 書【か】く。,I write by hand.,,,14,ge_14.mp3
-gex-15,gram-9,私【わたし】の 本【ほん】。,My book.,私の本。,,15,ge_15.mp3
-gex-16,gram-9,山【やま】の 上【うえ】。,Top of the mountain.,山の上。,,16,ge_16.mp3
-gex-17,gram-10,水【みず】と 本【ほん】を 買【か】った。,I bought water and a book.,水と本を買った。/ 「行く」と言った。,,17,ge_17.mp3
-gex-18,gram-10,「行【い】く」と 言【い】った。,"He said ""I'll go.""",,,18,ge_18.mp3
-gex-19,gram-11,父【ちち】は 本【ほん】を 読【よ】む。母【はは】も 読【よ】む。,Father reads books. Mother also reads.,父は本を読む。母も読む。,,19,ge_19.mp3
-gex-20,gram-12,家【いえ】から 山【やま】まで 行【い】く。,I go from home to the mountain.,家から山まで行く。/ 夜まで待つ。,,20,ge_20.mp3
-gex-21,gram-12,夜【よる】まで 待【ま】つ。,I wait until night.,,,21,ge_21.mp3
-gex-22,gram-13,山【やま】より 大【おお】きい。,Bigger than a mountain.,山より大きい。/ 水より食べ物が好きだ。,,22,ge_22.mp3
-gex-23,gram-13,水【みず】より 食【た】べ物【もの】が 好【す】きだ。,I like food more than water.,,,23,ge_23.mp3
-gex-24,gram-14,食【た】べる → 食【た】べた → 食【た】べない → 食【た】べなかった,eat / ate / don't eat / didn't eat,食べる → 食べた → 食べない → 食べなかった,,24,ge_24.mp3
-gex-25,gram-14,行【い】く → 行【い】った → 行【い】かない → 行【い】かなかった,go / went / don't go / didn't go,行く → 行った → 行かない → 行かなかった,,25,ge_25.mp3
-gex-26,gram-14,する → した → しない → しなかった,do / did / don't do / didn't do,する → した → しない → しなかった,,26,ge_26.mp3
-gex-27,gram-14,来【く】る → 来【き】た → 来【こ】ない → 来【こ】なかった,come / came / don't come / didn't come,来る → 来た → 来ない → 来なかった,,27,ge_27.mp3
-gex-78,gram-15,書【か】く → 書【か】いて,Write → writing (te-form).,書く → 書いて,,28,ge_78.mp3
-gex-79,gram-15,飲【の】む → 飲【の】んで,Drink → drinking (te-form).,飲む → 飲んで,,29,ge_79.mp3
-gex-80,gram-15,待【ま】つ → 待【ま】って,Wait → waiting (te-form).,待つ → 待って,,30,ge_80.mp3
-gex-81,gram-15,食【た】べる → 食【た】べて,Eat → eating (te-form).,食べる → 食べて,,31,ge_81.mp3
-gex-28,gram-15,書【か】いて 読【よ】んで 寝【ね】た。,"Wrote, read, slept. (one tense at the end)",書いて読んで寝た。,,32,ge_28.mp3
-gex-29,gram-40,待【ま】ってください。,Please wait.,待ってください。,,33,ge_29.mp3
-gex-30,gram-40,今【いま】 読【よ】んでいる。,I am reading now.,今読んでいる。,,34,ge_30.mp3
-gex-31,gram-40,座【すわ】ってもいい？,May I sit?,座ってもいい？,,35,ge_31.mp3
-gex-32,gram-40,入【はい】ってはいけない。,Must not enter.,入ってはいけない。,,36,ge_32.mp3
-gex-33,gram-16,書【か】く → 書【か】ける,Write → can write.,書く → 書ける,,37,ge_33.mp3
-gex-34,gram-16,見【み】る → 見【み】られる,See → can see.,見る → 見られる,,38,ge_34.mp3
-gex-35,gram-16,する → できる,Do → can do.,する → できる,,39,ge_35.mp3
-gex-36,gram-17,寒【さむ】い。,Cold.,寒い。,,40,ge_36.mp3
-gex-37,gram-17,寒【さむ】くない。,Not cold.,寒くない。,,41,ge_37.mp3
-gex-38,gram-17,寒【さむ】かった。,Was cold.,寒かった。,,42,ge_38.mp3
-gex-39,gram-17,寒【さむ】くて 悲【かな】しい。,Cold and sad.,寒くて悲しい。,,43,ge_39.mp3
-gex-40,gram-18,必要【ひつよう】な 物【もの】。,A necessary thing.,必要な物。,,44,ge_40.mp3
-gex-41,gram-18,必要【ひつよう】じゃない。,Not necessary.,必要じゃない。,,45,ge_41.mp3
-gex-42,gram-18,必要【ひつよう】だった。,Was necessary.,必要だった。,,46,ge_42.mp3
-gex-43,gram-18,必要【ひつよう】で 良【よ】い。,Necessary and good.,必要で良い。,,47,ge_43.mp3
-gex-44,gram-19,暑【あつ】い → 暑【あつ】くなる。,Hot → becomes hot.,暑い → 暑くなる。,,48,ge_44.mp3
-gex-45,gram-19,必要【ひつよう】 → 必要【ひつよう】になる。,Necessary → becomes necessary.,必要 → 必要になる。,,49,ge_45.mp3
-gex-46,gram-20,山【やま】で 動【うご】く 子供【こども】。,A child who moves on the mountain.,山で動く子供。,,50,ge_46.mp3
-gex-47,gram-20,私【わたし】が 買【か】った 物【もの】。,A thing I bought.,私が買った物。,,51,ge_47.mp3
-gex-48,gram-21,食【た】べるのが 好【す】きだ。,I like eating.,食べるのが好きだ。/ 何しているの？,,52,ge_48.mp3
-gex-49,gram-21,何【なに】しているの？,What are you doing?,,,53,ge_49.mp3
-gex-50,gram-22,動【うご】くことは良【よ】い。,Moving is good (the idea of moving).,動くことは良い。,,54,ge_50.mp3
-gex-51,gram-22,行【い】くことができる。,It is possible to go.,行くことができる。,,55,ge_51.mp3
-gex-52,gram-22,必要【ひつよう】なことを言【い】う。,I will say something necessary (abstract).,必要なことを言う。,,56,ge_52.mp3
-gex-53,gram-23,飲【の】むもの。,Something to drink.,飲むもの。,,57,ge_53.mp3
-gex-54,gram-23,読【よ】むもの。,Something to read.,読むもの。,,58,ge_54.mp3
-gex-55,gram-23,必要【ひつよう】なものを持【も】っている。,I have something necessary (physical).,必要なものを持っている。,,59,ge_55.mp3
-gex-56,gram-30,食【た】べ方【かた】を教【おし】えてください。,Please teach me how to eat (this).,食べ方を教えてください。,,60,ge_56.mp3
-gex-57,gram-30,この言【こと】葉【ば】の使【つか】い方【かた】が知【し】りたい。,I want to know how to use this word.,この言葉の使い方が知りたい。,,61,ge_57.mp3
-gex-58,gram-30,聞【き】き方【かた】が必要【ひつよう】だ。,The way you ask is necessary.,聞き方が必要だ。,,62,ge_58.mp3
-gex-59,gram-24,行【い】きたい。,I want to go.,行きたい。/ 新しい家が欲しい。,,63,ge_59.mp3
-gex-60,gram-24,新【あたら】しい 家【いえ】が 欲【ほ】しい。,I want a new house.,,,64,ge_60.mp3
-gex-61,gram-25,雨【あめ】が 来【き】たら、行【い】かない。,"If rain comes, I won't go.",雨が来たら、行かない。/ 時があるなら、来てください。/ 寒ければ、家にいる。,,65,ge_61.mp3
-gex-62,gram-25,時【とき】があるなら、来【き】てください。,"If you have time, please come.",,,66,ge_62.mp3
-gex-63,gram-25,寒【さむ】ければ、家【いえ】にいる。,"If cold, I stay home.",,,67,ge_63.mp3
-gex-64,gram-26,良【よ】いと 思【おも】う。,I think it's good.,良いと思う。/ 「行く」と言った。/ 大きい山という場所,,68,ge_64.mp3
-gex-65,gram-26,「行【い】く」と 言【い】った。,"He said ""I'll go.""",,,69,ge_65.mp3
-gex-66,gram-26,大【おお】きい山【やま】という 所【ところ】,A place called Big Mountain.,,,70,ge_66.mp3
-gex-67,gram-27,知【し】るために 読【よ】む。,I read in order to know.,知るために読む。/ 子供のために。,,71,ge_67.mp3
-gex-68,gram-27,子供【こども】のために。,For the children.,,,72,ge_68.mp3
-gex-69,gram-28,これは 水【みず】か？,Is this water?,これは水か？,,73,ge_69.mp3
-gex-70,gram-28,良【よ】い 日【にち】だね。,"Nice day, right?",良い日だね。/ 行くよ。,,74,ge_70.mp3
-gex-71,gram-28,行【い】くよ。,I'm going!,,,75,ge_71.mp3
-gex-72,gram-29,何【なに】を 食【た】べる？→ 何【なに】も 食【た】べない。,What will you eat? → I eat nothing.,何を食べる？→ 何も食べない。,,76,ge_72.mp3
-gex-73,gram-29,何【なん】でも 作【つく】れる。,I can make anything.,何でも作れる。/ 誰もいない。/ 誰でもできる。,,77,ge_73.mp3
-gex-74,gram-29,誰【だれ】もいない。,Nobody is here.,,,78,ge_74.mp3
-gex-75,gram-29,誰【だれ】でもできる。,Anyone can do it.,,,79,ge_75.mp3
-gex-76,gram-1,私【わたし】は 人【ひと】だ。,I am a person.,私は人だ。,,80,ge_76.mp3
-gex-77,gram-12,寒【さむ】いから、家【いえ】にいる。,"It's cold, so I stay home.",寒いから、家にいる。,,81,ge_77.mp3
-gex-82,gram-31,水【みず】を飲【の】みます。,I drink water. (polite),水を飲みます。,,82,ge_82.mp3
-gex-83,gram-31,山【やま】に行【い】きました。,I went to the mountain. (polite past),山に行きました。,,83,ge_83.mp3
-gex-84,gram-31,魚【さかな】を食【た】べません。,I don't eat fish. (polite negative),魚を食べません。,,84,ge_84.mp3
-gex-85,gram-31,この本【ほん】は良【よ】いです。,This book is good. (polite copula),この本は良いです。,,85,ge_85.mp3
-gex-86,gram-32,食【た】べましょう。,Let's eat.,食べましょう。,,86,ge_86.mp3
-gex-87,gram-32,二【ふた】りで行【い】きましょう。,Let's go together.,一緒に行きましょう。,,87,ge_87.mp3
-gex-88,gram-33,水【みず】を飲【の】まなきゃ。,I must drink water.,水を飲まなきゃ。,,88,ge_88.mp3
-gex-89,gram-33,毎【まい】日【にち】歩【ある】かなくてはいけない。,I must walk every day.,毎日歩かなくてはいけない。,,89,ge_89.mp3
-gex-90,gram-34,水【みず】を飲【の】んだほうがいい。,You should drink water.,水を飲んだほうがいい。,,90,ge_90.mp3
-gex-91,gram-34,行【い】かないほうがいい。,You shouldn't go.,行かないほうがいい。,,91,ge_91.mp3
-gex-92,gram-35,卵【たまご】を三【みっ】つください。,Three eggs please.,卵を三つください。,,92,ge_92.mp3
-gex-93,gram-35,魚【さかな】を二【ふた】つと卵【たまご】を五【いつ】つください。,Two fish and five eggs please.,魚を二つと卵を五つください。,,93,ge_93.mp3
-gex-103,gram-35,卵【たまご】を八【やっ】つ買【か】った。,I bought eight eggs.,卵を八つ買った。,,103,ge_103.mp3
-gex-104,gram-35,卵【たまご】が十【とお】ある。全部【ぜんぶ】食【た】べた。,There are ten eggs. I ate them all. (10 = とお - no つ!),卵が十ある。全部食べた。,,104,ge_104.mp3
-gex-94,gram-36,入【はい】らないでください。,Please don't enter.,入らないでください。,,94,ge_94.mp3
-gex-95,gram-36,手【て】で持【も】たないでください。,Please don't hold it.,手で持たないでください。,,95,ge_95.mp3
-gex-96,gram-37,二【に】十【じゅう】人【にん】の人【ひと】が来【き】た。,20 people came. 二十 = 2x10 = 20. Pattern: digit + 十 + digit.,二十人の人が来た。,,96,ge_96.mp3
-gex-97,gram-37,これは三【さん】百【びゃく】五【ご】十【じゅう】二【に】です。,This is 352. 三百五十二 = 3x100 + 5x10 + 2. Pattern: digit + 百 + digit + 十 + digit.,これは三百五十二です。,,97,ge_97.mp3
-gex-98,gram-38,買【か】う所【ところ】で: これをください。いくらですか。,At a shop: This please. How much is it? (polite),お店で: これをください。いくらですか。,,98,ge_98.mp3
-gex-99,gram-38,好【す】きな人【ひと】に: これ、いくら？,"To a friend: This, how much? (plain)",友達に: これ、いくら？,,99,ge_99.mp3
-gex-100,gram-38,寒【さむ】いです。,It's cold. (polite - です follows い-adjective),寒いです。,,100,ge_100.mp3
-gex-101,gram-39,四【し】月【がつ】に雨【あめ】が来【く】る。四【よ】時【じ】に会【あ】う。,Rain comes in April (しがつ). Meet at 4 o'clock (よじ). 4 has two readings: し and よん. Tip: よん is safer in daily speech.,四月に雨が来る。四時に会う。,,101,ge_101.mp3
-gex-102,gram-39,七【しち】月【がつ】は暑【あつ】い。七【なな】つの山【やま】が見【み】える。,July (しちがつ) is hot. Seven mountains are visible (ななつ). 7 has two readings: しち and なな. Tip: なな is safer.,七月は暑い。七つの山が見える。,,102,ge_102.mp3
-gex-105,gram-39,九【く】月【がつ】から寒【さむ】くなる。九【きゅう】時【じ】に寝【ね】る。,It gets cold from September (くがつ). I sleep at 9 (くじ). 9 has two readings: く and きゅう. Tip: きゅう is safer.,九月から寒くなる。九時に寝る。,,105,ge_105.mp3
-gex-106,gram-39,これは三【さん】百【びゃく】。それは六【ろっ】百【ぴゃく】。あれは八【はっ】百【ぴゃく】。,"This is 300 (さんびゃく). That is 600 (ろっぴゃく). That is 800 (はっぴゃく). 百 changes sound after 3, 6, and 8.",これは三百。それは六百。あれは八百。,,106,ge_106.mp3
-gex-107,gram-21,話【はな】すのが好【す】きだ。,I like talking.,話すのが好きだ。,,107,ge_107.mp3
-gex-108,gram-21,書【か】くのは楽【たの】しい。,Writing is fun.,書くのは楽しい。,,108,ge_108.mp3
-gex-109,gram-21,待【ま】つのが好【す】きじゃない。,I do not like waiting.,待つのが好きじゃない。,,109,ge_109.mp3
-gex-110,gram-21,見【み】るのと、するのは違【ちが】う。,Watching and doing are different.,見るのと、するのは違う。,,110,ge_110.mp3
-gex-111,gram-21,寝【ね】る前【まえ】に読【よ】むのが好【す】きだ。,I like reading before sleeping.,寝る前に読むのが好きだ。,,111,ge_111.mp3
-gex-112,gram-22,生【い】きる事【こと】は変【か】わる事【こと】だ。,To live is to change.,生きることは変わることだ。,,112,ge_112.mp3
-gex-113,gram-22,言【い】う事【こと】とする事【こと】は違【ちが】う。,Saying and doing are different things.,言うことと、することは違う。,,113,ge_113.mp3
-gex-114,gram-22,新【あたら】しい言葉【ことば】を知【し】る事【こと】が好【す】きだ。,I like learning new words.,新しい言葉を知ることが好きだ。,,114,ge_114.mp3
-gex-115,gram-22,人【ひと】を助【たす】ける事【こと】ができる。,I can help people.,人を助けることができる。,,115,ge_115.mp3
-gex-116,gram-22,食【た】べる事【こと】は生【い】きる事【こと】に必要【ひつよう】だ。,Eating is necessary for living.,食べることは生きることに必要だ。,,116,ge_116.mp3
-gex-117,gram-23,飲【の】む物【もの】をください。,Please give me something to drink.,飲み物をください。,,117,ge_117.mp3
-gex-118,gram-23,着【き】る物【もの】を買【か】った。,I bought something to wear.,着る物を買った。,,118,ge_118.mp3
-gex-119,gram-23,食【た】べる物【もの】が家【いえ】にない。,There is no food at home.,食べる物が家にない。,,119,ge_119.mp3
-gex-120,gram-23,切【き】る物【もの】はどこ？,Where is the cutting thing (knife)?,切る物はどこ？,,120,ge_120.mp3
-gex-121,gram-23,空【そら】を行【い】く物【もの】を見【み】た。,I saw a sky-going thing (an airplane).,空を行く物を見た。,,121,ge_121.mp3
-gex-122,gram-30,言【い】い方【かた】が分【わ】からない。,I do not know how to say it.,言い方が分からない。,,122,ge_122.mp3
-gex-123,gram-30,書【か】き方【かた】を教【おし】えてください。,Please teach me how to write it.,書き方を教えてください。,,123,ge_123.mp3
-gex-124,gram-30,母【はは】が作【つく】り方【かた】を教【おし】えてくれた。,Mother taught me how to make it.,母が作り方を教えてくれた。,,124,ge_124.mp3
-gex-125,gram-30,この言葉【ことば】の読【よ】み方【かた】は何【なん】ですか。,How do you read this word?,この言葉の読み方は何ですか。,,125,ge_125.mp3
-gex-126,gram-30,行【い】き方【かた】を聞【き】いた。,I asked how to get there.,行き方を聞いた。,,126,ge_126.mp3
-gex-127,gram-41,子供【こども】に水【みず】をあげる。,I give water to the child.,子供に水をあげる。,,127,ge_127.mp3
-gex-128,gram-41,母【はは】が本【ほん】をくれた。,Mother gave me a book.,母が本をくれた。,,128,ge_128.mp3
-gex-129,gram-41,人【ひと】から食【た】べ物【もの】をもらった。,I received food from someone.,人から食べ物をもらった。,,129,ge_129.mp3
-gex-130,gram-41,道【みち】を教【おし】えてくれてありがとう。,Thank you for showing me the way.,道を教えてくれてありがとう。,,130,ge_130.mp3
-gex-131,gram-42,今【いま】は三【さん】時【じ】です。,It is three o'clock now.,今は三時です。,,131,ge_131.mp3
-gex-132,gram-42,九【く】時【じ】に寝【ね】ます。,I go to sleep at nine.,九時に寝ます。,,132,ge_132.mp3
-gex-133,gram-42,何【なん】時【じ】に会【あ】いますか。,What time shall we meet?,何時に会いますか。,,133,ge_133.mp3
-gex-134,gram-42,十分【じゅっぷん】待【ま】ってください。,Please wait ten minutes.,十分待ってください。,,134,ge_134.mp3
-gex-135,gram-43,体【からだ】が痛【いた】いんです。,"You see, my body hurts.",体が痛いんです。,,135,ge_135.mp3
-gex-136,gram-43,どこに行【い】くんですか。,Where are you going? (tell me),どこに行くんですか。,,136,ge_136.mp3
-gex-137,gram-43,お金【かね】がないんです。,"The thing is, I have no money.",お金がないんです。,,137,ge_137.mp3
-gex-138,gram-37,この服【ふく】は三千【さんぜん】円【えん】です。,"These clothes are 3,000 yen.",この服は三千円です。,,138,ge_138.mp3
-gex-139,gram-37,一万【いちまん】円【えん】を持【も】っています。,"I have 10,000 yen.",一万円を持っています。,,139,ge_139.mp3
+id,grammar_id,minihongo,english,korean,japanese,english_litteral,korean_litteral,sort_order,audio_file
+gex-1,gram-1,私【わたし】は 本【ほん】を 読【よ】む。,I read a book. (I + book + read),나는 책을 읽는다. (나 + 책 + 읽다),私は本を読む。,,,1,ge_1.mp3
+gex-2,gram-2,「何【なに】を 飲【の】む？」「水【みず】。」,What will you drink? - Water.,뭐 마실래? - 물.,「何を飲む？」「水。」,,,2,ge_2.mp3
+gex-3,gram-3,動物【どうぶつ】がいる。,An animal is here.,동물이 있다.,動物がいる。,,,3,ge_3.mp3
+gex-4,gram-3,本【ほん】がある。,A book is here.,책이 있다.,本がある。,,,4,ge_4.mp3
+gex-5,gram-3,私【わたし】は 本【ほん】がある。,"I have a book. (as for me, a book exists)","나는 책이 있다. (나로 말하자면, 책이 존재한다)",私は本がある。,,,5,ge_5.mp3
+gex-6,gram-4,この 本【ほん】は 良【よ】い。,This book is good.,이 책은 좋다.,この本は良い。/ 私は目が良い。,,,6,ge_6.mp3
+gex-7,gram-4,私【わたし】は 目【め】が 良【よ】い。,"As for me, my eyes are good. (は = topic, が = subject within)","나는 눈이 좋다. (は = 주제, が = 그 안의 주어)",,,,7,ge_7.mp3
+gex-8,gram-5,誰【だれ】が 来【く】る？,Who is coming?,누가 와?,誰が来る？,,,8,ge_8.mp3
+gex-9,gram-6,水【みず】を 飲【の】む。,I drink water.,물을 마신다.,水を飲む。,,,9,ge_9.mp3
+gex-10,gram-7,山【やま】に 行【い】く。,I go to the mountain.,산에 간다.,山に行く。/ 夜に寝る。/ 家に動物がいる。,,,10,ge_10.mp3
+gex-11,gram-7,夜【よる】に 寝【ね】る。,I sleep at night.,밤에 잔다.,,,,11,ge_11.mp3
+gex-12,gram-7,家【いえ】に 動物【どうぶつ】がいる。,An animal is in the house.,집에 동물이 있다.,,,,12,ge_12.mp3
+gex-13,gram-8,家【いえ】で 読【よ】む。,I read at home.,집에서 읽는다.,家で読む。/ 手で書く。,,,13,ge_13.mp3
+gex-14,gram-8,手【て】で 書【か】く。,I write by hand.,손으로 쓴다.,,,,14,ge_14.mp3
+gex-15,gram-9,私【わたし】の 本【ほん】。,My book.,나의 책. (내 책),私の本。,,,15,ge_15.mp3
+gex-16,gram-9,山【やま】の 上【うえ】。,Top of the mountain.,산 위.,山の上。,,,16,ge_16.mp3
+gex-17,gram-10,水【みず】と 本【ほん】を 買【か】った。,I bought water and a book.,물과 책을 샀다.,水と本を買った。/ 「行く」と言った。,,,17,ge_17.mp3
+gex-18,gram-10,「行【い】く」と 言【い】った。,"He said ""I'll go.""","""갈게""라고 말했다.",,,,18,ge_18.mp3
+gex-19,gram-11,父【ちち】は 本【ほん】を 読【よ】む。母【はは】も 読【よ】む。,Father reads books. Mother also reads.,아버지는 책을 읽는다. 어머니도 읽는다.,父は本を読む。母も読む。,,,19,ge_19.mp3
+gex-20,gram-12,家【いえ】から 山【やま】まで 行【い】く。,I go from home to the mountain.,집에서 산까지 간다.,家から山まで行く。/ 夜まで待つ。,,,20,ge_20.mp3
+gex-21,gram-12,夜【よる】まで 待【ま】つ。,I wait until night.,밤까지 기다린다.,,,,21,ge_21.mp3
+gex-22,gram-13,山【やま】より 大【おお】きい。,Bigger than a mountain.,산보다 크다.,山より大きい。/ 水より食べ物が好きだ。,,,22,ge_22.mp3
+gex-23,gram-13,水【みず】より 食【た】べ物【もの】が 好【す】きだ。,I like food more than water.,물보다 음식이 좋다.,,,,23,ge_23.mp3
+gex-24,gram-14,食【た】べる → 食【た】べた → 食【た】べない → 食【た】べなかった,eat / ate / don't eat / didn't eat,먹다 / 먹었다 / 안 먹는다 / 안 먹었다,食べる → 食べた → 食べない → 食べなかった,,,24,ge_24.mp3
+gex-25,gram-14,行【い】く → 行【い】った → 行【い】かない → 行【い】かなかった,go / went / don't go / didn't go,가다 / 갔다 / 안 간다 / 안 갔다,行く → 行った → 行かない → 行かなかった,,,25,ge_25.mp3
+gex-26,gram-14,する → した → しない → しなかった,do / did / don't do / didn't do,하다 / 했다 / 안 한다 / 안 했다,する → した → しない → しなかった,,,26,ge_26.mp3
+gex-27,gram-14,来【く】る → 来【き】た → 来【こ】ない → 来【こ】なかった,come / came / don't come / didn't come,오다 / 왔다 / 안 온다 / 안 왔다,来る → 来た → 来ない → 来なかった,,,27,ge_27.mp3
+gex-78,gram-15,書【か】く → 書【か】いて,Write → writing (te-form).,쓰다 → 쓰고 (て형).,書く → 書いて,,,28,ge_78.mp3
+gex-79,gram-15,飲【の】む → 飲【の】んで,Drink → drinking (te-form).,마시다 → 마시고 (て형).,飲む → 飲んで,,,29,ge_79.mp3
+gex-80,gram-15,待【ま】つ → 待【ま】って,Wait → waiting (te-form).,기다리다 → 기다리고 (て형).,待つ → 待って,,,30,ge_80.mp3
+gex-81,gram-15,食【た】べる → 食【た】べて,Eat → eating (te-form).,먹다 → 먹고 (て형).,食べる → 食べて,,,31,ge_81.mp3
+gex-28,gram-15,書【か】いて 読【よ】んで 寝【ね】た。,"Wrote, read, slept. (one tense at the end)","쓰고, 읽고, 잤다. (시제는 끝에 한 번)",書いて読んで寝た。,,,32,ge_28.mp3
+gex-29,gram-40,待【ま】ってください。,Please wait.,기다려 주세요.,待ってください。,,,33,ge_29.mp3
+gex-30,gram-40,今【いま】 読【よ】んでいる。,I am reading now.,지금 읽고 있다.,今読んでいる。,,,34,ge_30.mp3
+gex-31,gram-40,座【すわ】ってもいい？,May I sit?,앉아도 돼?,座ってもいい？,,,35,ge_31.mp3
+gex-32,gram-40,入【はい】ってはいけない。,Must not enter.,들어가면 안 된다.,入ってはいけない。,,,36,ge_32.mp3
+gex-33,gram-16,書【か】く → 書【か】ける,Write → can write.,쓰다 → 쓸 수 있다.,書く → 書ける,,,37,ge_33.mp3
+gex-34,gram-16,見【み】る → 見【み】られる,See → can see.,보다 → 볼 수 있다.,見る → 見られる,,,38,ge_34.mp3
+gex-35,gram-16,する → できる,Do → can do.,하다 → 할 수 있다.,する → できる,,,39,ge_35.mp3
+gex-36,gram-17,寒【さむ】い。,Cold.,춥다.,寒い。,,,40,ge_36.mp3
+gex-37,gram-17,寒【さむ】くない。,Not cold.,춥지 않다.,寒くない。,,,41,ge_37.mp3
+gex-38,gram-17,寒【さむ】かった。,Was cold.,추웠다.,寒かった。,,,42,ge_38.mp3
+gex-39,gram-17,寒【さむ】くて 悲【かな】しい。,Cold and sad.,춥고 슬프다.,寒くて悲しい。,,,43,ge_39.mp3
+gex-40,gram-18,必要【ひつよう】な 物【もの】。,A necessary thing.,필요한 물건.,必要な物。,,,44,ge_40.mp3
+gex-41,gram-18,必要【ひつよう】じゃない。,Not necessary.,필요하지 않다.,必要じゃない。,,,45,ge_41.mp3
+gex-42,gram-18,必要【ひつよう】だった。,Was necessary.,필요했다.,必要だった。,,,46,ge_42.mp3
+gex-43,gram-18,必要【ひつよう】で 良【よ】い。,Necessary and good.,필요하고 좋다.,必要で良い。,,,47,ge_43.mp3
+gex-44,gram-19,暑【あつ】い → 暑【あつ】くなる。,Hot → becomes hot.,덥다 → 더워진다.,暑い → 暑くなる。,,,48,ge_44.mp3
+gex-45,gram-19,必要【ひつよう】 → 必要【ひつよう】になる。,Necessary → becomes necessary.,필요하다 → 필요해진다.,必要 → 必要になる。,,,49,ge_45.mp3
+gex-46,gram-20,山【やま】で 動【うご】く 子供【こども】。,A child who moves on the mountain.,산에서 움직이는 아이.,山で動く子供。,,,50,ge_46.mp3
+gex-47,gram-20,私【わたし】が 買【か】った 物【もの】。,A thing I bought.,내가 산 물건.,私が買った物。,,,51,ge_47.mp3
+gex-48,gram-21,食【た】べるのが 好【す】きだ。,I like eating.,먹는 것을 좋아한다.,食べるのが好きだ。/ 何しているの？,,,52,ge_48.mp3
+gex-49,gram-21,何【なに】しているの？,What are you doing?,뭐 하고 있어?,,,,53,ge_49.mp3
+gex-50,gram-22,動【うご】くことは良【よ】い。,Moving is good (the idea of moving).,움직이는 것은 좋다. (움직인다는 개념),動くことは良い。,,,54,ge_50.mp3
+gex-51,gram-22,行【い】くことができる。,It is possible to go.,갈 수 있다.,行くことができる。,,,55,ge_51.mp3
+gex-52,gram-22,必要【ひつよう】なことを言【い】う。,I will say something necessary (abstract).,필요한 것을 말한다. (추상적),必要なことを言う。,,,56,ge_52.mp3
+gex-53,gram-23,飲【の】むもの。,Something to drink.,마실 것.,飲むもの。,,,57,ge_53.mp3
+gex-54,gram-23,読【よ】むもの。,Something to read.,읽을 것.,読むもの。,,,58,ge_54.mp3
+gex-55,gram-23,必要【ひつよう】なものを持【も】っている。,I have something necessary (physical).,필요한 것을 가지고 있다. (물리적),必要なものを持っている。,,,59,ge_55.mp3
+gex-56,gram-30,食【た】べ方【かた】を教【おし】えてください。,Please teach me how to eat (this).,먹는 법을 가르쳐 주세요.,食べ方を教えてください。,,,60,ge_56.mp3
+gex-57,gram-30,この言【こと】葉【ば】の使【つか】い方【かた】が知【し】りたい。,I want to know how to use this word.,이 말의 사용법을 알고 싶다.,この言葉の使い方が知りたい。,,,61,ge_57.mp3
+gex-58,gram-30,聞【き】き方【かた】が必要【ひつよう】だ。,The way you ask is necessary.,묻는 방식이 중요하다.,聞き方が必要だ。,,,62,ge_58.mp3
+gex-59,gram-24,行【い】きたい。,I want to go.,가고 싶다.,行きたい。/ 新しい家が欲しい。,,,63,ge_59.mp3
+gex-60,gram-24,新【あたら】しい 家【いえ】が 欲【ほ】しい。,I want a new house.,새 집을 갖고 싶다.,,,,64,ge_60.mp3
+gex-61,gram-25,雨【あめ】が 来【き】たら、行【い】かない。,"If rain comes, I won't go.",비가 오면 안 간다.,雨が来たら、行かない。/ 時があるなら、来てください。/ 寒ければ、家にいる。,,,65,ge_61.mp3
+gex-62,gram-25,時【とき】があるなら、来【き】てください。,"If you have time, please come.",시간이 있으면 와 주세요.,,,,66,ge_62.mp3
+gex-63,gram-25,寒【さむ】ければ、家【いえ】にいる。,"If cold, I stay home.",추우면 집에 있는다.,,,,67,ge_63.mp3
+gex-64,gram-26,良【よ】いと 思【おも】う。,I think it's good.,좋다고 생각한다.,良いと思う。/ 「行く」と言った。/ 大きい山という場所,,,68,ge_64.mp3
+gex-65,gram-26,「行【い】く」と 言【い】った。,"He said ""I'll go.""","""갈게""라고 말했다.",,,,69,ge_65.mp3
+gex-66,gram-26,大【おお】きい山【やま】という 所【ところ】,A place called Big Mountain.,큰 산이라는 곳,,,,70,ge_66.mp3
+gex-67,gram-27,知【し】るために 読【よ】む。,I read in order to know.,알기 위해 읽는다.,知るために読む。/ 子供のために。,,,71,ge_67.mp3
+gex-68,gram-27,子供【こども】のために。,For the children.,아이들을 위해.,,,,72,ge_68.mp3
+gex-69,gram-28,これは 水【みず】か？,Is this water?,이건 물이야?,これは水か？,,,73,ge_69.mp3
+gex-70,gram-28,良【よ】い 日【にち】だね。,"Nice day, right?",좋은 날이네.,良い日だね。/ 行くよ。,,,74,ge_70.mp3
+gex-71,gram-28,行【い】くよ。,I'm going!,간다!,,,,75,ge_71.mp3
+gex-72,gram-29,何【なに】を 食【た】べる？→ 何【なに】も 食【た】べない。,What will you eat? → I eat nothing.,뭐 먹을래? → 아무것도 안 먹어.,何を食べる？→ 何も食べない。,,,76,ge_72.mp3
+gex-73,gram-29,何【なん】でも 作【つく】れる。,I can make anything.,뭐든지 만들 수 있다.,何でも作れる。/ 誰もいない。/ 誰でもできる。,,,77,ge_73.mp3
+gex-74,gram-29,誰【だれ】もいない。,Nobody is here.,아무도 없다.,,,,78,ge_74.mp3
+gex-75,gram-29,誰【だれ】でもできる。,Anyone can do it.,누구든지 할 수 있다.,,,,79,ge_75.mp3
+gex-76,gram-1,私【わたし】は 人【ひと】だ。,I am a person.,나는 사람이다.,私は人だ。,,,80,ge_76.mp3
+gex-77,gram-12,寒【さむ】いから、家【いえ】にいる。,"It's cold, so I stay home.",추우니까 집에 있는다.,寒いから、家にいる。,,,81,ge_77.mp3
+gex-82,gram-31,水【みず】を飲【の】みます。,I drink water. (polite),물을 마십니다. (정중),水を飲みます。,,,82,ge_82.mp3
+gex-83,gram-31,山【やま】に行【い】きました。,I went to the mountain. (polite past),산에 갔습니다. (정중 과거),山に行きました。,,,83,ge_83.mp3
+gex-84,gram-31,魚【さかな】を食【た】べません。,I don't eat fish. (polite negative),생선을 먹지 않습니다. (정중 부정),魚を食べません。,,,84,ge_84.mp3
+gex-85,gram-31,この本【ほん】は良【よ】いです。,This book is good. (polite copula),이 책은 좋습니다. (정중 계사),この本は良いです。,,,85,ge_85.mp3
+gex-86,gram-32,食【た】べましょう。,Let's eat.,먹읍시다.,食べましょう。,,,86,ge_86.mp3
+gex-87,gram-32,二【ふた】りで行【い】きましょう。,Let's go together.,둘이서 갑시다.,一緒に行きましょう。,,,87,ge_87.mp3
+gex-88,gram-33,水【みず】を飲【の】まなきゃ。,I must drink water.,물을 마셔야 해.,水を飲まなきゃ。,,,88,ge_88.mp3
+gex-89,gram-33,毎【まい】日【にち】歩【ある】かなくてはいけない。,I must walk every day.,매일 걸어야 한다.,毎日歩かなくてはいけない。,,,89,ge_89.mp3
+gex-90,gram-34,水【みず】を飲【の】んだほうがいい。,You should drink water.,물을 마시는 게 좋아.,水を飲んだほうがいい。,,,90,ge_90.mp3
+gex-91,gram-34,行【い】かないほうがいい。,You shouldn't go.,안 가는 게 좋아.,行かないほうがいい。,,,91,ge_91.mp3
+gex-92,gram-35,卵【たまご】を三【みっ】つください。,Three eggs please.,달걀 세 개 주세요.,卵を三つください。,,,92,ge_92.mp3
+gex-93,gram-35,魚【さかな】を二【ふた】つと卵【たまご】を五【いつ】つください。,Two fish and five eggs please.,생선 두 개하고 달걀 다섯 개 주세요.,魚を二つと卵を五つください。,,,93,ge_93.mp3
+gex-103,gram-35,卵【たまご】を八【やっ】つ買【か】った。,I bought eight eggs.,달걀을 여덟 개 샀다.,卵を八つ買った。,,,103,ge_103.mp3
+gex-104,gram-35,卵【たまご】が十【とお】ある。全部【ぜんぶ】食【た】べた。,There are ten eggs. I ate them all. (10 = とお - no つ!),달걀이 열 개 있다. 전부 먹었다. (10 = とお - つ 없음!),卵が十ある。全部食べた。,,,104,ge_104.mp3
+gex-94,gram-36,入【はい】らないでください。,Please don't enter.,들어가지 마세요.,入らないでください。,,,94,ge_94.mp3
+gex-95,gram-36,手【て】で持【も】たないでください。,Please don't hold it.,손으로 들지 마세요.,手で持たないでください。,,,95,ge_95.mp3
+gex-96,gram-37,二【に】十【じゅう】人【にん】の人【ひと】が来【き】た。,20 people came. 二十 = 2x10 = 20. Pattern: digit + 十 + digit.,20명이 왔다. 二十 = 2x10 = 20. 패턴: 숫자 + 十 + 숫자.,二十人の人が来た。,,,96,ge_96.mp3
+gex-97,gram-37,これは三【さん】百【びゃく】五【ご】十【じゅう】二【に】です。,This is 352. 三百五十二 = 3x100 + 5x10 + 2. Pattern: digit + 百 + digit + 十 + digit.,이건 352예요. 三百五十二 = 3x100 + 5x10 + 2. 패턴: 숫자 + 百 + 숫자 + 十 + 숫자.,これは三百五十二です。,,,97,ge_97.mp3
+gex-98,gram-38,買【か】う所【ところ】で: これをください。いくらですか。,At a shop: This please. How much is it? (polite),가게에서: 이거 주세요. 얼마예요? (정중),お店で: これをください。いくらですか。,,,98,ge_98.mp3
+gex-99,gram-38,好【す】きな人【ひと】に: これ、いくら？,"To a friend: This, how much? (plain)","친구에게: 이거, 얼마야? (반말)",友達に: これ、いくら？,,,99,ge_99.mp3
+gex-100,gram-38,寒【さむ】いです。,It's cold. (polite - です follows い-adjective),추워요. (정중 - です가 い형용사 뒤에 붙음),寒いです。,,,100,ge_100.mp3
+gex-101,gram-39,四【し】月【がつ】に雨【あめ】が来【く】る。四【よ】時【じ】に会【あ】う。,Rain comes in April (しがつ). Meet at 4 o'clock (よじ). 4 has two readings: し and よん. Tip: よん is safer in daily speech.,4월(しがつ)에 비가 온다. 4시(よじ)에 만난다. 4는 읽는 법이 두 가지: し와 よん. 팁: 일상 회화에서는 よん이 더 안전해요.,四月に雨が来る。四時に会う。,,,101,ge_101.mp3
+gex-102,gram-39,七【しち】月【がつ】は暑【あつ】い。七【なな】つの山【やま】が見【み】える。,July (しちがつ) is hot. Seven mountains are visible (ななつ). 7 has two readings: しち and なな. Tip: なな is safer.,7월(しちがつ)은 덥다. 산 일곱 개(ななつ)가 보인다. 7은 읽는 법이 두 가지: しち와 なな. 팁: なな가 더 안전해요.,七月は暑い。七つの山が見える。,,,102,ge_102.mp3
+gex-105,gram-39,九【く】月【がつ】から寒【さむ】くなる。九【きゅう】時【じ】に寝【ね】る。,It gets cold from September (くがつ). I sleep at 9 (くじ). 9 has two readings: く and きゅう. Tip: きゅう is safer.,9월(くがつ)부터 추워진다. 9시(くじ)에 잔다. 9는 읽는 법이 두 가지: く와 きゅう. 팁: きゅう가 더 안전해요.,九月から寒くなる。九時に寝る。,,,105,ge_105.mp3
+gex-106,gram-39,これは三【さん】百【びゃく】。それは六【ろっ】百【ぴゃく】。あれは八【はっ】百【ぴゃく】。,"This is 300 (さんびゃく). That is 600 (ろっぴゃく). That is 800 (はっぴゃく). 百 changes sound after 3, 6, and 8.","이건 300(さんびゃく). 그건 600(ろっぴゃく). 저건 800(はっぴゃく). 百은 3, 6, 8 뒤에서 소리가 바뀌어요.",これは三百。それは六百。あれは八百。,,,106,ge_106.mp3
+gex-107,gram-21,話【はな】すのが好【す】きだ。,I like talking.,이야기하는 것을 좋아한다.,話すのが好きだ。,,,107,ge_107.mp3
+gex-108,gram-21,書【か】くのは楽【たの】しい。,Writing is fun.,쓰는 것은 즐겁다.,書くのは楽しい。,,,108,ge_108.mp3
+gex-109,gram-21,待【ま】つのが好【す】きじゃない。,I do not like waiting.,기다리는 것을 좋아하지 않는다.,待つのが好きじゃない。,,,109,ge_109.mp3
+gex-110,gram-21,見【み】るのと、するのは違【ちが】う。,Watching and doing are different.,보는 것과 하는 것은 다르다.,見るのと、するのは違う。,,,110,ge_110.mp3
+gex-111,gram-21,寝【ね】る前【まえ】に読【よ】むのが好【す】きだ。,I like reading before sleeping.,자기 전에 읽는 것을 좋아한다.,寝る前に読むのが好きだ。,,,111,ge_111.mp3
+gex-112,gram-22,生【い】きる事【こと】は変【か】わる事【こと】だ。,To live is to change.,산다는 것은 변한다는 것이다.,生きることは変わることだ。,,,112,ge_112.mp3
+gex-113,gram-22,言【い】う事【こと】とする事【こと】は違【ちが】う。,Saying and doing are different things.,말하는 것과 하는 것은 다르다.,言うことと、することは違う。,,,113,ge_113.mp3
+gex-114,gram-22,新【あたら】しい言葉【ことば】を知【し】る事【こと】が好【す】きだ。,I like learning new words.,새로운 말을 아는 것을 좋아한다.,新しい言葉を知ることが好きだ。,,,114,ge_114.mp3
+gex-115,gram-22,人【ひと】を助【たす】ける事【こと】ができる。,I can help people.,사람을 도울 수 있다.,人を助けることができる。,,,115,ge_115.mp3
+gex-116,gram-22,食【た】べる事【こと】は生【い】きる事【こと】に必要【ひつよう】だ。,Eating is necessary for living.,먹는 것은 사는 데 필요하다.,食べることは生きることに必要だ。,,,116,ge_116.mp3
+gex-117,gram-23,飲【の】む物【もの】をください。,Please give me something to drink.,마실 것을 주세요.,飲み物をください。,,,117,ge_117.mp3
+gex-118,gram-23,着【き】る物【もの】を買【か】った。,I bought something to wear.,입을 것을 샀다.,着る物を買った。,,,118,ge_118.mp3
+gex-119,gram-23,食【た】べる物【もの】が家【いえ】にない。,There is no food at home.,먹을 것이 집에 없다.,食べる物が家にない。,,,119,ge_119.mp3
+gex-120,gram-23,切【き】る物【もの】はどこ？,Where is the cutting thing (knife)?,자르는 물건(칼)은 어디?,切る物はどこ？,,,120,ge_120.mp3
+gex-121,gram-23,空【そら】を行【い】く物【もの】を見【み】た。,I saw a sky-going thing (an airplane).,하늘을 가는 물건(비행기)을 봤다.,空を行く物を見た。,,,121,ge_121.mp3
+gex-122,gram-30,言【い】い方【かた】が分【わ】からない。,I do not know how to say it.,어떻게 말해야 할지 모르겠다.,言い方が分からない。,,,122,ge_122.mp3
+gex-123,gram-30,書【か】き方【かた】を教【おし】えてください。,Please teach me how to write it.,쓰는 법을 가르쳐 주세요.,書き方を教えてください。,,,123,ge_123.mp3
+gex-124,gram-30,母【はは】が作【つく】り方【かた】を教【おし】えてくれた。,Mother taught me how to make it.,어머니가 만드는 법을 가르쳐 주었다.,母が作り方を教えてくれた。,,,124,ge_124.mp3
+gex-125,gram-30,この言葉【ことば】の読【よ】み方【かた】は何【なん】ですか。,How do you read this word?,이 단어는 어떻게 읽어요?,この言葉の読み方は何ですか。,,,125,ge_125.mp3
+gex-126,gram-30,行【い】き方【かた】を聞【き】いた。,I asked how to get there.,가는 길을 물었다.,行き方を聞いた。,,,126,ge_126.mp3
+gex-127,gram-41,子供【こども】に水【みず】をあげる。,I give water to the child.,아이에게 물을 준다.,子供に水をあげる。,,,127,ge_127.mp3
+gex-128,gram-41,母【はは】が本【ほん】をくれた。,Mother gave me a book.,어머니가 (나에게) 책을 주었다.,母が本をくれた。,,,128,ge_128.mp3
+gex-129,gram-41,人【ひと】から食【た】べ物【もの】をもらった。,I received food from someone.,사람에게서 음식을 받았다.,人から食べ物をもらった。,,,129,ge_129.mp3
+gex-130,gram-41,道【みち】を教【おし】えてくれてありがとう。,Thank you for showing me the way.,길을 알려 줘서 고마워.,道を教えてくれてありがとう。,,,130,ge_130.mp3
+gex-131,gram-42,今【いま】は三【さん】時【じ】です。,It is three o'clock now.,지금은 세 시예요.,今は三時です。,,,131,ge_131.mp3
+gex-132,gram-42,九【く】時【じ】に寝【ね】ます。,I go to sleep at nine.,아홉 시에 잡니다.,九時に寝ます。,,,132,ge_132.mp3
+gex-133,gram-42,何【なん】時【じ】に会【あ】いますか。,What time shall we meet?,몇 시에 만날까요?,何時に会いますか。,,,133,ge_133.mp3
+gex-134,gram-42,十分【じゅっぷん】待【ま】ってください。,Please wait ten minutes.,10분 기다려 주세요.,十分待ってください。,,,134,ge_134.mp3
+gex-135,gram-43,体【からだ】が痛【いた】いんです。,"You see, my body hurts.","(그게,) 몸이 아프거든요.",体が痛いんです。,,,135,ge_135.mp3
+gex-136,gram-43,どこに行【い】くんですか。,Where are you going? (tell me),어디 가는 거예요? (알려 줘요),どこに行くんですか。,,,136,ge_136.mp3
+gex-137,gram-43,お金【かね】がないんです。,"The thing is, I have no money.",실은 돈이 없거든요.,お金がないんです。,,,137,ge_137.mp3
+gex-138,gram-37,この服【ふく】は三千【さんぜん】円【えん】です。,"These clothes are 3,000 yen.","이 옷은 3,000엔이에요.",この服は三千円です。,,,138,ge_138.mp3
+gex-139,gram-37,一万【いちまん】円【えん】を持【も】っています。,"I have 10,000 yen.","10,000엔을 가지고 있어요.",一万円を持っています。,,,139,ge_139.mp3

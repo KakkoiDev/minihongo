@@ -13,6 +13,42 @@ const KAIWA_HISTORY_STORAGE = 'kaiwa_history'
 const KAIWA_SPEECH_KEY_STORAGE = 'kaiwa_key_groq_speech'
 const KAIWA_SPEECH_MODE_STORAGE = 'kaiwa_speech_mode'
 const KAIWA_STYLE_STORAGE = 'kaiwa_conversation_style'
+// Provider id whose saved key arrived through an invite link (key-share.js)
+const KAIWA_SHARED_STORAGE = 'kaiwa_shared_key'
+const KAIWA_SHARED_EXP_STORAGE = 'kaiwa_shared_exp' // ms timestamp, absent = no expiry
+const KAIWA_SHARED_SPEECH_STORAGE = 'kaiwa_shared_speech' // '1' if the Groq key came shared too
+
+// Step-by-step "how do I get a key" guides, shown under the key field for
+// the selected provider. Console layouts change; keep steps short and generic.
+// Step text lives in kaiwa-i18n.js as guide_<provider>_<n>.
+const KAIWA_KEY_GUIDES = {
+  anthropic: { site: 'https://console.anthropic.com/', steps: 4 },
+  openai: { site: 'https://platform.openai.com/', steps: 4 },
+  deepseek: { site: 'https://platform.deepseek.com/', steps: 4 },
+}
+
+const t = (key, vars) => window.kaiwaT(key, vars)
+
+function kaiwaLang() {
+  return document.getElementById('kaiwa-app')?.dataset.lang || 'en'
+}
+
+// The learner-facing label of a can-do / expression row for this edition.
+function learnerText(item) {
+  const lang = kaiwaLang()
+  if (lang === 'ko') return item?.korean || item?.english || ''
+  if (lang === 'ja' || lang === 'mh') return item?.japanese || item?.english || ''
+  return item?.english || ''
+}
+
+// Secondary (Japanese) line under a learner-facing label: the natural
+// Japanese for en/ko, the Minihongo wording for ja/mh. Empty when it would
+// just repeat the main label.
+function learnerSubText(item) {
+  const lang = kaiwaLang()
+  const sub = (lang === 'ja' || lang === 'mh') ? (item?.kanji || '') : (item?.japanese || '')
+  return sub && sub !== learnerText(item) ? sub : ''
+}
 
 let kaiwaData = null // { words, grammar, candos } - fetched once, reused across sessions
 let kaiwaExpressions = null // lazy-loaded only for the end-of-session summary
@@ -38,16 +74,38 @@ window.initKaiwaPage = async function initKaiwaPage() {
   if (!root || root.dataset.bound === '1') return
   root.dataset.bound = '1'
 
-  root.innerHTML = '<p class="kaiwa-loading">Loading...</p>'
+  root.innerHTML = `<p class="kaiwa-loading">${escapeHtml(t('loading'))}</p>`
   let data
   try {
     data = await fetchKaiwaData()
   } catch {
-    root.innerHTML = '<p class="kaiwa-error">Could not load kaiwa data. Check your connection and reload.</p>'
+    root.innerHTML = `<p class="kaiwa-error">${escapeHtml(t('data_load_error'))}</p>`
     return
   }
 
+  const expired = expireSharedKey()
   renderPicker(root, data)
+  if (expired) root.querySelector('#kaiwa-setup-status').textContent = t('shared_key_expired')
+}
+
+// A key unlocked from an invite link carries an expiry (kaiwa_shared_exp).
+// Delete it once that passes. App-enforced only: it stops casual reuse, while
+// revoking the key in the provider's console is what actually cuts access.
+function expireSharedKey() {
+  const provider = localStorage.getItem(KAIWA_SHARED_STORAGE)
+  const exp = Number(localStorage.getItem(KAIWA_SHARED_EXP_STORAGE) || 0)
+  if (!provider || !exp || Date.now() < exp) return false
+  forgetSharedKey(provider)
+  return true
+}
+
+function forgetSharedKey(provider) {
+  if (KAIWA_KEY_STORAGE[provider]) localStorage.removeItem(KAIWA_KEY_STORAGE[provider])
+  if (localStorage.getItem(KAIWA_SHARED_SPEECH_STORAGE)) {
+    localStorage.removeItem(KAIWA_SPEECH_KEY_STORAGE)
+    localStorage.removeItem(KAIWA_SPEECH_MODE_STORAGE)
+  }
+  for (const k of [KAIWA_SHARED_STORAGE, KAIWA_SHARED_EXP_STORAGE, KAIWA_SHARED_SPEECH_STORAGE]) localStorage.removeItem(k)
 }
 
 // -- Screen 1: settings + can-do picker ------------------------------------
@@ -89,9 +147,12 @@ function frequentMistakes(history, limit = 5, topicSet = null) {
 
 function candoBadge(history, candoId) {
   const sessions = history[candoId]
-  if (!sessions || !sessions.length) return 'not attempted'
+  if (!sessions || !sessions.length) return t('badge_not_attempted')
   const last = sessions[sessions.length - 1]
-  return `${sessions.length} session${sessions.length > 1 ? 's' : ''}, longest: ${last.longestSentence.length} chars`
+  return t(sessions.length > 1 ? 'badge_sessions_many' : 'badge_sessions_one', {
+    count: sessions.length,
+    chars: last.longestSentence.length,
+  })
 }
 
 function renderPicker(root, data) {
@@ -112,16 +173,19 @@ function renderPicker(root, data) {
   const hasRecognition = !!(window.SpeechRecognition || window.webkitSpeechRecognition)
   const hasRecording = !!navigator.mediaDevices?.getUserMedia && 'MediaRecorder' in window
 
-  const candoOptions = visibleCandos.map(c => `
+  const candoOptions = visibleCandos.map(c => {
+    const sub = learnerSubText(c)
+    return `
     <label class="kaiwa-cando">
       <input type="radio" name="kaiwa-cando" value="${c.id}">
       <span class="kaiwa-cando-text">
-        <strong>${escapeHtml(c.english)}</strong>
-        <span lang="ja">${escapeHtml(c.japanese)}</span>
+        <strong>${escapeHtml(learnerText(c))}</strong>
+        ${sub ? `<span lang="ja">${escapeHtml(sub)}</span>` : ''}
         <span class="kaiwa-cando-badge">${escapeHtml(candoBadge(history, c.id))}</span>
       </span>
     </label>
-  `).join('')
+  `
+  }).join('')
 
   const providerLabels = {
     anthropic: 'Anthropic (Claude Haiku 4.5)',
@@ -138,70 +202,76 @@ function renderPicker(root, data) {
   root.innerHTML = `
     <div class="kaiwa-setup">
       <details class="kaiwa-details" id="kaiwa-provider-details" ${savedKey ? '' : 'open'}>
-        <summary>AI provider and API key</summary>
+        <summary>${t('provider_summary')}</summary>
         <div class="kaiwa-details-body">
           <fieldset class="kaiwa-field">
-            <legend>AI provider</legend>
+            <legend>${t('provider_legend')}</legend>
             ${providerRadios}
           </fieldset>
 
           <label class="kaiwa-field">
-            <span>API key</span>
+            <span>${t('api_key_label')}</span>
             <input type="password" id="kaiwa-api-key" autocomplete="off" spellcheck="false">
           </label>
           <p class="kaiwa-key-hint" id="kaiwa-key-hint"></p>
+          <details class="kaiwa-key-guide" id="kaiwa-key-guide" ${savedKey ? '' : 'open'}>
+            <summary>${t('key_guide_summary')}</summary>
+            <p>${t('key_guide_intro')}</p>
+            <ol id="kaiwa-key-steps"></ol>
+            <p class="kaiwa-key-privacy">${t('key_guide_privacy')}</p>
+          </details>
         </div>
       </details>
 
       <details class="kaiwa-details" id="kaiwa-speech-details">
-        <summary id="kaiwa-speech-summary">Voice: ${savedSpeechMode === 'groq' ? 'Groq' : 'Google'}</summary>
+        <summary id="kaiwa-speech-summary">${t('voice_summary', { name: savedSpeechMode === 'groq' ? 'Groq' : 'Google' })}</summary>
         <div class="kaiwa-details-body">
           <fieldset class="kaiwa-field">
-            <legend class="visually-hidden">Voice service</legend>
+            <legend class="visually-hidden">${t('voice_legend')}</legend>
             <label class="kaiwa-provider-opt">
               <input type="radio" name="kaiwa-speech-mode" value="browser" ${savedSpeechMode === 'browser' ? 'checked' : ''}>
-              <span>Google <small>No extra key</small></span>
+              <span>Google <small>${t('voice_google_note')}</small></span>
             </label>
             <label class="kaiwa-provider-opt">
               <input type="radio" name="kaiwa-speech-mode" value="groq" ${savedSpeechMode === 'groq' ? 'checked' : ''}>
-              <span>Groq <small>API key required</small></span>
+              <span>Groq <small>${t('voice_groq_note')}</small></span>
             </label>
           </fieldset>
           <label class="kaiwa-field" id="kaiwa-speech-key-field" ${savedSpeechMode === 'groq' ? '' : 'hidden'}>
-            <span>Groq speech API key</span>
+            <span>${t('groq_key_label')}</span>
             <input type="password" id="kaiwa-speech-key" autocomplete="off" spellcheck="false" placeholder="gsk_...">
           </label>
-          <p class="kaiwa-key-hint" id="kaiwa-speech-key-hint" ${savedSpeechMode === 'groq' ? '' : 'hidden'}>Get a key at <a href="https://console.groq.com/keys" target="_blank" rel="noopener">console.groq.com/keys</a></p>
+          <p class="kaiwa-key-hint" id="kaiwa-speech-key-hint" ${savedSpeechMode === 'groq' ? '' : 'hidden'}>${t('groq_key_hint')}</p>
           <p class="kaiwa-status" id="kaiwa-speech-status"></p>
         </div>
       </details>
 
       <details class="kaiwa-details" id="kaiwa-style-details">
-        <summary id="kaiwa-style-summary">Style: ${savedStyle === 'tutor' ? 'Tutor' : 'Conversation'}</summary>
+        <summary id="kaiwa-style-summary">${t('style_summary', { name: t(savedStyle === 'tutor' ? 'style_tutor' : 'style_conversation') })}</summary>
         <div class="kaiwa-details-body">
           <fieldset class="kaiwa-field kaiwa-style-field">
-            <legend class="visually-hidden">Conversation style</legend>
+            <legend class="visually-hidden">${t('style_legend')}</legend>
             <label class="kaiwa-provider-opt">
               <input type="radio" name="kaiwa-style" value="conversation" ${savedStyle === 'conversation' ? 'checked' : ''}>
-              <span>Conversation</span>
+              <span>${t('style_conversation')}</span>
             </label>
             <label class="kaiwa-provider-opt">
               <input type="radio" name="kaiwa-style" value="tutor" ${savedStyle === 'tutor' ? 'checked' : ''}>
-              <span>Tutor <small>practise your frequent mistakes</small></span>
+              <span>${t('style_tutor')} <small>${t('style_tutor_note')}</small></span>
             </label>
           </fieldset>
         </div>
       </details>
 
       <details class="kaiwa-details" id="kaiwa-goal-details">
-        <summary id="kaiwa-goal-summary">Topic: ${topicSet === 'engineering' ? 'Engineering' : 'Free conversation'}</summary>
+        <summary id="kaiwa-goal-summary">${t('topic_summary', { name: t(topicSet === 'engineering' ? 'topic_engineering' : 'topic_free') })}</summary>
         <div class="kaiwa-details-body">
           <fieldset class="kaiwa-cando-list" id="kaiwa-goal-fieldset">
             <label class="kaiwa-cando">
               <input type="radio" name="kaiwa-cando" value="" checked>
               <span class="kaiwa-cando-text">
-                <strong>${topicSet === 'engineering' ? 'Engineering conversation' : 'Free conversation'}</strong>
-                <span>${topicSet === 'engineering' ? 'No specific task' : 'No specific goal'}</span>
+                <strong>${t(topicSet === 'engineering' ? 'goal_engineering_title' : 'goal_free_title')}</strong>
+                <span>${t(topicSet === 'engineering' ? 'goal_engineering_sub' : 'goal_free_sub')}</span>
               </span>
             </label>
             ${candoOptions}
@@ -209,7 +279,7 @@ function renderPicker(root, data) {
         </div>
       </details>
 
-      <button id="kaiwa-start" class="kaiwa-primary" disabled>Start</button>
+      <button id="kaiwa-start" class="kaiwa-primary" disabled>${t('start')}</button>
       <p class="kaiwa-status" id="kaiwa-setup-status"></p>
     </div>
   `
@@ -236,7 +306,7 @@ function renderPicker(root, data) {
       if (!radio.checked) return
       speechKeyField.hidden = !usesGroq
       speechKeyHint.hidden = !usesGroq
-      speechSummary.textContent = `Voice: ${usesGroq ? 'Groq' : 'Google'}`
+      speechSummary.textContent = t('voice_summary', { name: usesGroq ? 'Groq' : 'Google' })
       validate()
     })
   })
@@ -248,11 +318,13 @@ function renderPicker(root, data) {
   const updateGoalSummary = () => {
     const selectedGoal = root.querySelector('input[name="kaiwa-cando"]:checked')?.value || ''
     const cando = selectedGoal ? data.candos.find(c => c.id === selectedGoal) : null
-    goalSummary.textContent = cando
-      ? `Topic: ${cando.english}`
-      : currentTutorMode()
-        ? 'Topic: Automatic'
-        : `Topic: ${topicSet === 'engineering' ? 'Engineering' : 'Free conversation'}`
+    goalSummary.textContent = t('topic_summary', {
+      name: cando
+        ? learnerText(cando)
+        : t(currentTutorMode()
+          ? 'topic_automatic'
+          : topicSet === 'engineering' ? 'topic_engineering' : 'topic_free'),
+    })
   }
 
   const updateGoalAvailability = () => {
@@ -277,7 +349,25 @@ function renderPicker(root, data) {
     keyInput.value = localStorage.getItem(KAIWA_KEY_STORAGE[providerId]) || ''
     if (!keyInput.value) providerDetails.open = true
     keyInput.placeholder = provider.keyHint
-    keyHint.innerHTML = `Get a key at <a href="${provider.keyHelpUrl}" target="_blank" rel="noopener">${provider.keyHelpUrl}</a>`
+    keyHint.innerHTML = t('key_have_account', {
+      link: `<a href="${provider.keyHelpUrl}" target="_blank" rel="noopener">${provider.keyHelpUrl.replace(/^https:\/\//, '')}</a>`,
+    })
+    // A key unlocked from an invite link: say so, and make it easy to drop
+    if (keyInput.value && localStorage.getItem(KAIWA_SHARED_STORAGE) === providerId) {
+      const exp = Number(localStorage.getItem(KAIWA_SHARED_EXP_STORAGE) || 0)
+      const badge = exp
+        ? t('shared_key_badge_until', { date: new Date(exp).toLocaleDateString(document.documentElement.lang) })
+        : t('shared_key_badge')
+      keyHint.innerHTML = `${escapeHtml(badge)} <button type="button" class="kaiwa-link-btn" id="kaiwa-shared-remove">${escapeHtml(t('shared_key_remove'))}</button>`
+      keyHint.querySelector('#kaiwa-shared-remove').addEventListener('click', () => {
+        forgetSharedKey(providerId)
+        refreshKeyField()
+      })
+    }
+    const guide = KAIWA_KEY_GUIDES[providerId]
+    root.querySelector('#kaiwa-key-steps').innerHTML = guide
+      ? Array.from({ length: guide.steps }, (_, i) => `<li>${t(`guide_${providerId}_${i + 1}`)}</li>`).join('')
+      : ''
     validate()
   }
 
@@ -288,9 +378,9 @@ function renderPicker(root, data) {
     const unavailableGoogle = speechMode === 'browser' && !hasRecognition
     startBtn.disabled = missingChatKey || missingGroqKey || unavailableGoogle
     speechStatus.textContent = missingGroqKey
-      ? 'Add a Groq API key, or choose Google voice.'
+      ? t('groq_key_missing')
       : unavailableGoogle
-        ? 'Google voice is not available in this browser. Choose Groq Whisper.'
+        ? t('google_unavailable')
         : ''
   }
 
@@ -302,7 +392,7 @@ function renderPicker(root, data) {
   root.querySelectorAll('input[name="kaiwa-style"]').forEach(radio => {
     radio.addEventListener('change', () => {
       if (!radio.checked) return
-      styleSummary.textContent = `Style: ${radio.value === 'tutor' ? 'Tutor' : 'Conversation'}`
+      styleSummary.textContent = t('style_summary', { name: t(radio.value === 'tutor' ? 'style_tutor' : 'style_conversation') })
       localStorage.setItem(KAIWA_STYLE_STORAGE, radio.value)
       updateGoalAvailability()
     })
@@ -322,11 +412,11 @@ function renderPicker(root, data) {
     const selectedGoal = root.querySelector('input[name="kaiwa-cando"]:checked')?.value || ''
     const cando = selectedGoal ? data.candos.find(c => c.id === selectedGoal) : null
     if (!apiKey) {
-      statusEl.textContent = 'Enter an API key to start.'
+      statusEl.textContent = t('enter_api_key')
       return
     }
     if (speechMode === 'groq' && !speechApiKey) {
-      speechStatus.textContent = 'Add a Groq API key, or choose Google voice.'
+      speechStatus.textContent = t('groq_key_missing')
       root.querySelector('#kaiwa-speech-details').open = true
       return
     }
@@ -335,6 +425,18 @@ function renderPicker(root, data) {
     // when Chrome may no longer allow the speech engine to start.
     primeSpeechSynthesis()
     localStorage.setItem(KAIWA_PROVIDER_STORAGE, providerId)
+    // The page may have stayed open past the shared key's expiry
+    if (expireSharedKey()) {
+      statusEl.textContent = t('shared_key_expired')
+      keyInput.value = ''
+      validate()
+      return
+    }
+    if (localStorage.getItem(KAIWA_SHARED_STORAGE) === providerId
+      && localStorage.getItem(KAIWA_KEY_STORAGE[providerId]) !== apiKey) {
+      // Replaced with their own key: it is no longer the shared one
+      for (const k of [KAIWA_SHARED_STORAGE, KAIWA_SHARED_EXP_STORAGE]) localStorage.removeItem(k)
+    }
     localStorage.setItem(KAIWA_KEY_STORAGE[providerId], apiKey)
     if (speechApiKey) localStorage.setItem(KAIWA_SPEECH_KEY_STORAGE, speechApiKey)
     else localStorage.removeItem(KAIWA_SPEECH_KEY_STORAGE)
@@ -453,7 +555,7 @@ function buildSystemPrompt(data, cando, topicSet = 'general', tutorFocus = []) {
 RULES (follow every one, every turn):
 1. Reply using ONLY the following 231 words, plus proper nouns and numbers. Combine them to
    express anything else (e.g. word-for-word "body help place" for "hospital"). Never switch
-   to English.
+   to English or any other language.
 2. Write normal Japanese text - kanji as shown, no bracket/reading annotations.
 3. Keep your reply to one or two short sentences. The user should be talking most of the time.
 4. End nearly every turn with a question, so the user has to respond.
@@ -490,40 +592,47 @@ function startSession(root, data, opts) {
     englishSwitchCount: 0,
   }
 
+  const goalHeader = (title, sub) => (
+    `<strong>${escapeHtml(title)}</strong>${sub && sub !== title ? `<span lang="ja">${escapeHtml(sub)}</span>` : ''}`
+  )
+  const fixedGoalSub = opts.topicSet === 'engineering' ? 'エンジニアの会話' : '自由会話'
+  const showsJapaneseTitle = ['ja', 'mh'].includes(kaiwaLang())
+
   root.innerHTML = `
     <div class="kaiwa-session">
       <header class="kaiwa-session-header">
         <p class="kaiwa-goal">${opts.cando
-          ? `<strong>${escapeHtml(opts.cando.english)}</strong><span lang="ja">${escapeHtml(opts.cando.japanese)}</span>`
-          : opts.topicSet === 'engineering'
-          ? '<strong>Engineering conversation</strong><span lang="ja">エンジニアの会話</span>'
-          : '<strong>Free conversation</strong><span lang="ja">自由会話</span>'
+          ? goalHeader(learnerText(opts.cando), learnerSubText(opts.cando))
+          : goalHeader(
+            t(opts.topicSet === 'engineering' ? 'goal_engineering_title' : 'goal_free_title'),
+            showsJapaneseTitle ? '' : fixedGoalSub,
+          )
         }</p>
-        <button id="kaiwa-end">End</button>
+        <button id="kaiwa-end">${t('end')}</button>
       </header>
-      <div class="kaiwa-transcript" id="kaiwa-transcript" role="log" aria-label="Conversation" aria-live="polite">
-        <p class="kaiwa-empty" id="kaiwa-empty">Preparing your conversation…</p>
+      <div class="kaiwa-transcript" id="kaiwa-transcript" role="log" aria-label="${escapeHtml(t('transcript_label'))}" aria-live="polite">
+        <p class="kaiwa-empty" id="kaiwa-empty">${t('preparing')}</p>
       </div>
       <div class="kaiwa-composer">
         <p class="kaiwa-live" id="kaiwa-live" aria-live="polite"></p>
         <div class="kaiwa-controls">
-          <button id="kaiwa-mic" class="kaiwa-primary" ${opts.hasRecognition || (opts.hasRecording && opts.speechApiKey) ? '' : 'hidden'}>Speak</button>
+          <button id="kaiwa-mic" class="kaiwa-primary" ${opts.hasRecognition || (opts.hasRecording && opts.speechApiKey) ? '' : 'hidden'}>${t('speak')}</button>
           <form id="kaiwa-text-form">
-            <input type="text" id="kaiwa-text-input" lang="ja" placeholder="Type, or use your keyboard microphone">
-            <button type="submit">Send</button>
+            <input type="text" id="kaiwa-text-input" lang="ja" placeholder="${escapeHtml(t('text_placeholder'))}">
+            <button type="submit">${t('send')}</button>
           </form>
-          <button id="kaiwa-permission" type="button" ${opts.hasRecognition || (opts.hasRecording && opts.speechApiKey) ? '' : 'hidden'}>Enable microphone</button>
-          <button id="kaiwa-retry" hidden>Try again</button>
+          <button id="kaiwa-permission" type="button" ${opts.hasRecognition || (opts.hasRecording && opts.speechApiKey) ? '' : 'hidden'}>${t('enable_mic')}</button>
+          <button id="kaiwa-retry" hidden>${t('try_again')}</button>
         </div>
         <p class="kaiwa-status" id="kaiwa-session-status" role="status"></p>
         <details class="kaiwa-mic-help" id="kaiwa-mic-help" hidden>
-          <summary>Microphone help</summary>
+          <summary>${t('mic_help_summary')}</summary>
           <ol>
-            <li>In Chrome, tap the icon beside the address, then Permissions, then allow Microphone.</li>
-            <li>If it is still blocked, open Android Settings → Apps → Chrome → Permissions → Microphone → Allow.</li>
-            <li>If Chrome can open the microphone but speech recognition fails, update or enable Google Speech Services.</li>
+            <li>${t('mic_help_1')}</li>
+            <li>${t('mic_help_2')}</li>
+            <li>${t('mic_help_3')}</li>
           </ol>
-          <p>You can always use the microphone on your Japanese keyboard in the text box.</p>
+          <p>${t('mic_help_keyboard')}</p>
         </details>
       </div>
     </div>
@@ -558,8 +667,8 @@ function startSession(root, data, opts) {
       const replay = document.createElement('button')
       replay.type = 'button'
       replay.className = 'kaiwa-replay play-btn'
-      replay.setAttribute('aria-label', 'Listen again')
-      replay.textContent = 'Listen again'
+      replay.setAttribute('aria-label', t('listen_again'))
+      replay.textContent = t('listen_again')
       replay.addEventListener('click', () => speak(text))
       message.append(replay)
     }
@@ -621,7 +730,7 @@ function startSession(root, data, opts) {
   async function sendTurn(userText) {
     micBtn.disabled = true
     textInput.disabled = true
-    statusEl.textContent = 'Thinking...'
+    statusEl.textContent = t('thinking')
 
     appendBubble('user', userText)
     trackUserTurn(session, userText)
@@ -640,14 +749,14 @@ function startSession(root, data, opts) {
         onDelta: (_delta, soFar) => { speakAsItStreams(soFar); full = soFar },
       })
     } catch (err) {
-      statusEl.textContent = err.message || 'Something went wrong talking to the provider.'
+      statusEl.textContent = err.message || t('provider_error')
       micBtn.disabled = false
       textInput.disabled = false
       return
     }
 
     if (!full.trim()) {
-      statusEl.textContent = 'The AI returned an empty response. Please retry.'
+      statusEl.textContent = t('empty_reply_retry')
       micBtn.disabled = false
       textInput.disabled = false
       return
@@ -684,7 +793,7 @@ function startSession(root, data, opts) {
   const LISTEN_WINDOW_MS = 30000
 
   const resetListeningUi = () => {
-    micBtn.textContent = 'Speak'
+    micBtn.textContent = t('speak')
     liveEl.textContent = ''
   }
 
@@ -699,7 +808,7 @@ function startSession(root, data, opts) {
   }
 
   const transcribeRecording = async (blob) => {
-    statusEl.textContent = 'Transcribing your Japanese…'
+    statusEl.textContent = t('transcribing')
     const form = new FormData()
     form.append('file', blob, blob.type.includes('ogg') ? 'speech.ogg' : 'speech.webm')
     form.append('model', 'whisper-large-v3-turbo')
@@ -714,7 +823,7 @@ function startSession(root, data, opts) {
     if (!response.ok) {
       let detail = ''
       try { detail = (await response.json())?.error?.message || '' } catch {}
-      throw new Error(`Voice transcription failed (${response.status}). ${detail}`.trim())
+      throw new Error(t('transcription_failed_status', { status: response.status, detail }).trim())
     }
     const result = await response.json()
     return String(result.text || '').trim()
@@ -738,20 +847,20 @@ function startSession(root, data, opts) {
         finishListening()
         try {
           const text = await transcribeRecording(new Blob(chunks, { type }))
-          if (!text) throw new Error('No speech was found in the recording.')
+          if (!text) throw new Error(t('no_speech_in_recording'))
           liveEl.textContent = text
           await sendTurn(text)
         } catch (error) {
           retryBtn.hidden = false
           micHelp.hidden = false
-          statusEl.textContent = error.message || 'Voice transcription failed. Try again.'
+          statusEl.textContent = error.message || t('transcription_failed')
         }
       }, { once: true })
       window.speechSynthesis?.cancel?.()
       wantsListening = true
       retryBtn.hidden = true
-      statusEl.textContent = 'Recording… Tap Stop when you finish speaking.'
-      micBtn.textContent = 'Stop'
+      statusEl.textContent = t('recording')
+      micBtn.textContent = t('stop')
       mediaRecorder.start()
       recordingTimer = setTimeout(() => {
         if (mediaRecorder?.state === 'recording') mediaRecorder.stop()
@@ -763,7 +872,7 @@ function startSession(root, data, opts) {
       permissionBtn.hidden = false
       micHelp.hidden = false
       micHelp.open = true
-      statusEl.textContent = `Could not record audio (${error?.name || 'unknown error'}). Open Microphone help below.`
+      statusEl.textContent = t('record_failed', { error: error?.name || t('unknown_error') })
     }
   }
 
@@ -776,14 +885,14 @@ function startSession(root, data, opts) {
       // terminate immediately on some Android Chrome versions.
       recognizer.start()
       listening = true
-      micBtn.textContent = 'Stop'
+      micBtn.textContent = t('stop')
     } catch {
       finishListening()
       permissionBtn.hidden = false
       micHelp.hidden = false
       micHelp.open = true
       retryBtn.hidden = false
-      statusEl.textContent = 'Could not start listening. Tap Enable microphone and allow access when your browser asks.'
+      statusEl.textContent = t('listen_start_failed')
     }
   }
 
@@ -794,8 +903,8 @@ function startSession(root, data, opts) {
 
     requestingMicPermission = true
     micBtn.disabled = true
-    micBtn.textContent = 'Enable microphone…'
-    statusEl.textContent = 'Waiting for microphone permission…'
+    micBtn.textContent = t('enable_mic_pending')
+    statusEl.textContent = t('waiting_permission')
     try {
       // SpeechRecognition does not reliably trigger Chromium's permission UI
       // on mobile. getUserMedia does, and the stream is released immediately;
@@ -812,20 +921,20 @@ function startSession(root, data, opts) {
       retryBtn.hidden = false
       if (error?.name === 'NotAllowedError') {
         micPermissionState = 'denied'
-        permissionBtn.textContent = 'Microphone blocked — how to allow'
+        permissionBtn.textContent = t('mic_blocked_button')
       }
       const micErrors = {
-        NotAllowedError: 'Microphone permission is blocked in Chrome or Android settings.',
-        NotFoundError: 'This phone did not report an available microphone.',
-        NotReadableError: 'The microphone is busy or blocked by Android.',
-        SecurityError: 'Chrome blocked microphone access for this page.',
+        NotAllowedError: 'mic_err_not_allowed',
+        NotFoundError: 'mic_err_not_found',
+        NotReadableError: 'mic_err_not_readable',
+        SecurityError: 'mic_err_security',
       }
-      statusEl.textContent = `${micErrors[error?.name] || 'Could not open the microphone.'} Open Microphone help below.`
+      statusEl.textContent = t('mic_error_with_help', { message: t(micErrors[error?.name] || 'mic_err_generic') })
       return false
     } finally {
       requestingMicPermission = false
       micBtn.disabled = false
-      micBtn.textContent = 'Speak'
+      micBtn.textContent = t('speak')
     }
   }
 
@@ -846,7 +955,7 @@ function startSession(root, data, opts) {
     listenDeadline = Date.now() + LISTEN_WINDOW_MS
     liveEl.textContent = ''
     retryBtn.hidden = true
-    statusEl.textContent = 'Listening…'
+    statusEl.textContent = t('listening')
     startRecognizer()
   }
 
@@ -891,19 +1000,19 @@ function startSession(root, data, opts) {
       if (event.error === 'not-allowed') {
         micPermissionState = 'denied'
         permissionBtn.hidden = false
-        permissionBtn.textContent = 'Microphone blocked — how to allow'
+        permissionBtn.textContent = t('mic_blocked_button')
         micHelp.hidden = false
         micHelp.open = true
-        statusEl.textContent = 'Chrome refused speech recognition. Open Microphone help below.'
+        statusEl.textContent = t('speech_refused')
       } else if (event.error === 'network' || event.error === 'service-not-allowed') {
         // Preserve the microphone control: a temporary mobile network/service
         // failure must not permanently remove audio input from the session.
         textForm.hidden = false
         micHelp.hidden = false
         micHelp.open = true
-        statusEl.textContent = `Chrome speech service failed (${event.error}). Try again, or use your keyboard microphone.`
+        statusEl.textContent = t('speech_service_failed', { error: event.error })
       } else {
-        statusEl.textContent = 'Could not hear you. Try again.'
+        statusEl.textContent = t('could_not_hear')
       }
     }
 
@@ -914,7 +1023,7 @@ function startSession(root, data, opts) {
       if (Date.now() >= listenDeadline) {
         finishListening()
         retryBtn.hidden = false
-        statusEl.textContent = 'No speech heard. Tap Try again when you are ready.'
+        statusEl.textContent = t('no_speech_heard')
         return
       }
       clearTimeout(restartTimer)
@@ -941,7 +1050,7 @@ function startSession(root, data, opts) {
     if (micPermissionState === 'denied') {
       micHelp.hidden = false
       micHelp.open = true
-      statusEl.textContent = 'Chrome will not ask again after Block was selected. Follow Microphone help below, then return and tap Speak.'
+      statusEl.textContent = t('mic_denied_help')
       micHelp.scrollIntoView({ behavior: 'smooth', block: 'nearest' })
       return
     }
@@ -959,8 +1068,8 @@ function startSession(root, data, opts) {
       micPermissionState = permission.state
       permissionBtn.hidden = permission.state === 'granted'
       permissionBtn.textContent = permission.state === 'denied'
-        ? 'Microphone blocked — how to allow'
-        : 'Enable microphone'
+        ? t('mic_blocked_button')
+        : t('enable_mic')
       if (permission.state === 'denied') {
         micHelp.hidden = false
       }
@@ -988,7 +1097,7 @@ function startSession(root, data, opts) {
 
   // Opening line: the model greets and asks the first question.
   ;(async () => {
-    statusEl.textContent = 'Starting...'
+    statusEl.textContent = t('starting')
     const system = buildSystemPrompt(data, opts.cando, opts.topicSet, opts.tutorMode ? opts.tutorFocus : null)
     const provider = window.KaiwaProviders[opts.providerId]
     const speakAsItStreams = makeReplySpeaker()
@@ -1001,11 +1110,11 @@ function startSession(root, data, opts) {
         onDelta: (_d, soFar) => { speakAsItStreams(soFar); full = soFar },
       })
     } catch (err) {
-      statusEl.textContent = err.message || 'Could not reach the provider to start.'
+      statusEl.textContent = err.message || t('provider_start_error')
       return
     }
     if (!full.trim()) {
-      statusEl.textContent = 'The AI returned an empty response. Please start again.'
+      statusEl.textContent = t('empty_reply_start')
       return
     }
     speakAsItStreams.flush(full)
@@ -1077,7 +1186,8 @@ const KAIWA_PARTICLES = ['を', 'は', 'が', 'に', 'で', 'と', 'も', 'の',
 function trackUserTurn(session, text) {
   if (text.length > session.longestSentence.length) session.longestSentence = text
 
-  if (/[a-zA-Z]{3,}/.test(text)) session.englishSwitchCount++
+  // Count turns where the learner fell back to their own language (Latin or Hangul)
+  if (/[a-zA-Z]{3,}|[\uAC00-\uD7A3]{2,}/.test(text)) session.englishSwitchCount++
 
   const coreForms = new Set(session.data.words.flatMap(w => [w.kanji, w.reading]).filter(Boolean))
   const dict = [...coreForms, ...KAIWA_PARTICLES].sort((a, b) => b.length - a.length)
@@ -1148,37 +1258,39 @@ async function finishSession(root, session) {
 
   const correctionRows = session.corrections.length
     ? session.corrections.map(c => `<li lang="ja">${escapeHtml(c)}</li>`).join('')
-    : '<li>No corrections needed.</li>'
+    : `<li>${escapeHtml(t('summary_no_corrections'))}</li>`
 
   const outOfSetRows = resolved.length
     ? resolved.map(o => `
         <li>
           <span lang="ja">${escapeHtml(o.word)}</span>
-          ${o.paraphrase ? ` - try <span lang="ja">${escapeHtml(o.paraphrase)}</span>` : ' - no minihongo paraphrase found'}
-          ${o.real ? ` (real word: <span lang="ja">${escapeHtml(o.real)}</span>, for recognition only)` : ''}
+          ${o.paraphrase
+            ? t('outofset_try', { paraphrase: `<span lang="ja">${escapeHtml(o.paraphrase)}</span>` })
+            : escapeHtml(t('outofset_no_paraphrase'))}
+          ${o.real ? t('outofset_real', { real: `<span lang="ja">${escapeHtml(o.real)}</span>` }) : ''}
         </li>
       `).join('')
-    : '<li>Stayed inside the core set.</li>'
+    : `<li>${escapeHtml(t('outofset_inside'))}</li>`
 
   root.innerHTML = `
     <div class="kaiwa-summary">
-      <h2>Session summary</h2>
+      <h2>${t('summary_title')}</h2>
       <p class="kaiwa-summary-headline">
-        Abandoned or switched to English <strong>${session.abandonCount + session.englishSwitchCount}</strong> time(s).
+        ${t('summary_abandoned', { count: session.abandonCount + session.englishSwitchCount })}
       </p>
-      <p>Longest finished sentence (${session.longestSentence.length} chars):</p>
-      <p lang="ja" class="kaiwa-longest">${escapeHtml(session.longestSentence) || '(none)'}</p>
+      <p>${t('summary_longest', { count: session.longestSentence.length })}</p>
+      <p lang="ja" class="kaiwa-longest">${escapeHtml(session.longestSentence) || escapeHtml(t('summary_none'))}</p>
 
-      <h3>What you said</h3>
-      <ul class="kaiwa-sentence-list">${sentenceRows || '<li>(nothing recorded)</li>'}</ul>
+      <h3>${t('summary_said')}</h3>
+      <ul class="kaiwa-sentence-list">${sentenceRows || `<li>${escapeHtml(t('summary_nothing'))}</li>`}</ul>
 
-      <h3>Corrections</h3>
+      <h3>${t('summary_corrections')}</h3>
       <ul class="kaiwa-correction-list">${correctionRows}</ul>
 
-      <h3>Words outside the 231 - comprehension wide, production narrow</h3>
+      <h3>${t('summary_outofset')}</h3>
       <ul class="kaiwa-outofset-list">${outOfSetRows}</ul>
 
-      <button id="kaiwa-again" class="kaiwa-primary">Practice again</button>
+      <button id="kaiwa-again" class="kaiwa-primary">${t('practice_again')}</button>
     </div>
   `
 

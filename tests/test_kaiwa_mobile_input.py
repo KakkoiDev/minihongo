@@ -3,6 +3,15 @@ from pathlib import Path
 
 
 KAIWA = (Path(__file__).parent.parent / "site/static/kaiwa.js").read_text()
+# UI copy lives in kaiwa-i18n.js; kaiwa.js references it by key through t().
+I18N = (Path(__file__).parent.parent / "site/static/kaiwa-i18n.js").read_text()
+I18N_EN = I18N.split("\n  ko: {", 1)[0]
+
+
+def en(key, text):
+    """The English string for `key` contains `text`."""
+    line = next(l for l in I18N_EN.splitlines() if l.strip().startswith(f"{key}:"))
+    return text in line
 
 
 def test_speech_support_uses_capability_detection_not_browser_brand():
@@ -48,16 +57,20 @@ def test_permission_query_does_not_skip_real_microphone_check():
 
 def test_microphone_failures_show_device_help_and_keyboard_fallback():
     assert 'id="kaiwa-mic-help"' in KAIWA
-    assert "Android Settings → Apps → Chrome → Permissions" in KAIWA
-    assert "Google Speech Services" in KAIWA
+    assert "t('mic_help_2')" in KAIWA
+    assert en("mic_help_2", "Android Settings → Apps → Chrome → Permissions")
+    assert "t('mic_help_3')" in KAIWA
+    assert en("mic_help_3", "Google Speech Services")
     assert 'id="kaiwa-text-form">' in KAIWA
-    assert "Type, or use your keyboard microphone" in KAIWA
+    assert "t('text_placeholder')" in KAIWA
+    assert en("text_placeholder", "Type, or use your keyboard microphone")
 
 
 def test_permission_control_is_available_before_permissions_api_resolves():
     button = KAIWA.split('id="kaiwa-permission"', 1)[1].split("</button>", 1)[0]
     assert "opts.hasRecognition" in button
-    assert "Enable microphone" in button
+    assert "t('enable_mic')" in button
+    assert en("enable_mic", "Enable microphone")
 
 
 def test_successful_device_check_releases_stream_and_hides_permission_control():
@@ -102,7 +115,8 @@ def test_speech_service_failure_preserves_both_input_methods():
     assert "micBtn.hidden = true" not in branch
     assert "textForm.hidden = false" in branch
     assert "micHelp.hidden = false" in branch
-    assert "keyboard microphone" in branch
+    assert "t('speech_service_failed'" in branch
+    assert en("speech_service_failed", "keyboard microphone")
 
 
 def test_permissions_api_is_optional_and_cannot_break_session_setup():
@@ -160,8 +174,10 @@ def test_groq_speech_key_is_device_local_and_independent_from_chat_provider():
 def test_browser_voice_is_the_default_without_an_extra_api_key():
     assert "KAIWA_SPEECH_MODE_STORAGE = 'kaiwa_speech_mode'" in KAIWA
     assert "localStorage.getItem(KAIWA_SPEECH_MODE_STORAGE) || 'browser'" in KAIWA
-    assert "Voice: ${savedSpeechMode === 'groq' ? 'Groq' : 'Google'}" in KAIWA
-    assert "<span>Google <small>No extra key</small></span>" in KAIWA
+    assert "t('voice_summary', { name: savedSpeechMode === 'groq' ? 'Groq' : 'Google' })" in KAIWA
+    assert en("voice_summary", "Voice: {name}")
+    assert "<span>Google <small>${t('voice_google_note')}</small></span>" in KAIWA
+    assert en("voice_google_note", "No extra key")
 
 
 def test_groq_voice_requires_an_explicit_selection():
@@ -179,7 +195,8 @@ def test_groq_key_field_is_hidden_for_default_browser_voice():
 
 
 def test_voice_services_are_named_clearly():
-    assert '<legend class="visually-hidden">Voice service</legend>' in KAIWA
+    assert '<legend class="visually-hidden">${t(\'voice_legend\')}</legend>' in KAIWA
+    assert en("voice_legend", "Voice service")
     assert "<span>Google" in KAIWA
     assert "<span>Groq" in KAIWA
     assert "Reliable recorded voice" not in KAIWA
@@ -191,11 +208,13 @@ def test_groq_selection_requires_its_key_before_start():
     )[0]
     assert "speechMode === 'groq' && !speechKeyInput.value.trim()" in validation
     assert "startBtn.disabled = missingChatKey || missingGroqKey || unavailableGoogle" in validation
-    assert "Add a Groq API key, or choose Google voice." in validation
+    assert "t('groq_key_missing')" in validation
+    assert en("groq_key_missing", "Add a Groq API key, or choose Google voice.")
 
 
 def test_unavailable_google_voice_points_to_groq_without_scary_warning():
-    assert "Google voice is not available in this browser. Choose Groq Whisper." in KAIWA
+    assert "t('google_unavailable')" in KAIWA
+    assert en("google_unavailable", "Google voice is not available in this browser. Choose Groq Whisper.")
     assert "Chrome speech recognition is not available on this phone" not in KAIWA
 
 
@@ -204,21 +223,22 @@ def test_privacy_copy_is_short_and_service_specific():
 
 
 def test_voice_summary_updates_without_exposing_technical_details():
-    assert "speechSummary.textContent = `Voice: ${usesGroq ? 'Groq' : 'Google'}`" in KAIWA
+    assert "speechSummary.textContent = t('voice_summary', { name: usesGroq ? 'Groq' : 'Google' })" in KAIWA
     assert "Chrome · no extra API key · default" not in KAIWA
 
 
 def test_tutor_mode_is_available_in_shared_kaiwa_component():
     assert 'name="kaiwa-style" value="tutor"' in KAIWA
-    assert "practise your frequent mistakes" in KAIWA
+    assert "t('style_tutor_note')" in KAIWA
+    assert en("style_tutor_note", "practise your frequent mistakes")
     engineering = (Path(__file__).parent.parent / "site/pages/lessons/engineering.html").read_text()
     assert 'id="kaiwa-app" data-topic-set="engineering"' in engineering
 
 
 def test_conversation_style_uses_a_collapsed_details_block():
     assert '<details class="kaiwa-details" id="kaiwa-style-details">' in KAIWA
-    assert '<summary id="kaiwa-style-summary">Style: ${savedStyle' in KAIWA
-    assert "styleSummary.textContent = `Style: ${radio.value === 'tutor' ? 'Tutor' : 'Conversation'}`" in KAIWA
+    assert '<summary id="kaiwa-style-summary">${t(\'style_summary\', { name: t(savedStyle' in KAIWA
+    assert "styleSummary.textContent = t('style_summary', { name: t(radio.value === 'tutor' ? 'style_tutor' : 'style_conversation') })" in KAIWA
 
 
 def test_tutor_selection_is_read_inside_start_handler():
@@ -230,7 +250,7 @@ def test_tutor_selection_is_read_inside_start_handler():
 
 
 def test_setup_has_exactly_one_start_button():
-    setup_template = KAIWA.split("root.innerHTML = `", 1)[1].split("`", 1)[0]
+    setup_template = KAIWA.split('root.innerHTML = `\n    <div class="kaiwa-setup">', 1)[1].split("`", 1)[0]
     assert setup_template.count('id="kaiwa-start"') == 1
 
 
@@ -244,13 +264,14 @@ def test_conversation_style_selection_is_saved_and_restored():
 
 
 def test_saved_tutor_style_is_visible_in_details_summary():
-    assert "Style: ${savedStyle === 'tutor' ? 'Tutor' : 'Conversation'}" in KAIWA
+    assert "t(savedStyle === 'tutor' ? 'style_tutor' : 'style_conversation')" in KAIWA
 
 
 def test_tutor_goal_is_optional_and_automatic_by_default():
     assert 'id="kaiwa-goal-summary"' in KAIWA
     assert "currentTutorMode()" in KAIWA
-    assert "'Topic: Automatic'" in KAIWA
+    assert "'topic_automatic'" in KAIWA
+    assert en("topic_automatic", "Automatic")
     start_handler = KAIWA.split("startBtn.addEventListener('click'", 1)[1].split(
         "function escapeHtml", 1
     )[0]
@@ -262,7 +283,7 @@ def test_selected_goal_is_shown_for_both_conversation_styles():
     update = KAIWA.split("const updateGoalSummary", 1)[1].split(
         "const refreshKeyField", 1
     )[0]
-    assert "Topic: ${cando.english}" in update
+    assert "learnerText(cando)" in update
     assert "updateGoalSummary()" in KAIWA
 
 
@@ -387,8 +408,10 @@ def test_denied_permission_button_opens_help_instead_of_reprompting():
 
 
 def test_denied_permission_has_clear_recovery_label():
-    assert "Microphone blocked — how to allow" in KAIWA
-    assert "Chrome will not ask again after Block was selected" in KAIWA
+    assert "t('mic_blocked_button')" in KAIWA
+    assert en("mic_blocked_button", "Microphone blocked — how to allow")
+    assert "t('mic_denied_help')" in KAIWA
+    assert en("mic_denied_help", "Chrome will not ask again after Block was selected")
 
 
 def test_permission_state_changes_update_recovery_button():

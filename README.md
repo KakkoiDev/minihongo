@@ -27,11 +27,47 @@ Live at [minihongo.com](https://minihongo.com)
 
 ## Languages
 
-Three versions of the entire site:
+Four versions of the entire site:
 
-- **English** - Standard explanations
-- **日本語** - Full Japanese translation
-- **ミニ本語** - Everything built from the 231 base words, with furigana
+- **English** (`/`) - Standard explanations
+- **한국어** (`/ko/`) - Korean explanations and translations (`korean`, `*_korean`, `*_ko` CSV columns; falls back to English where a cell is empty)
+- **日本語** (`/ja/`) - Full Japanese translation
+- **ミニ本語** (`/mh/`) - Everything built from the 231 base words, with furigana
+
+Anki decks and PDF books are built for English, Japanese and Minihongo; the Korean site links the English ones.
+
+### Invite and install links
+
+A visitor's chosen language is remembered, and plain English URLs redirect to it.
+To send someone a specific language, add `?lang=`; it wins over their saved
+choice and becomes their new one. Add `install=1` to open the
+"Install this app?" dialog on arrival:
+
+```
+https://minihongo.com/ko/?lang=ko
+https://minihongo.com/ja/lessons/grammar.html?lang=ja&install=1
+```
+
+The invite button in the header builds these links.
+
+### Sharing a Kaiwa AI key
+
+If you have saved an AI key in Kaiwa, the invite dialog can include it,
+encrypted, so a friend can practice without creating their own account. No
+server is involved (see `site/static/key-share.js`):
+
+- Your browser makes a one-time unlock code (`XXXX-XXXX-XXXX`, 60 random
+  bits), stretches it with PBKDF2-SHA256 (600,000 rounds, random salt) into an
+  AES-256-GCM key, and encrypts `{provider, key}` plus an optional expiry.
+- The result goes in the link after `#key=`. Browsers never send the `#` part
+  to any server, analytics or link-preview bot.
+- You send the link and the unlock code separately. On the Kaiwa page, the
+  recipient types the code; their browser decrypts the key and saves it in
+  localStorage, labelled as shared, with a button to remove it.
+
+Anyone holding both the link and the code can use the key, and the expiry is
+enforced by the app only. Share a separate key with a spending limit, and
+delete it in the provider's console to cut off access.
 
 ## Stack
 

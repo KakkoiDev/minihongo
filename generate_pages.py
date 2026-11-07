@@ -7,7 +7,7 @@ import sys
 from pathlib import Path
 from collections import defaultdict
 
-from mh_common import LANGS, LANG_COL, load_csv, strip_furigana
+from mh_common import ARTIFACT_LANGS, LANGS, LANG_COL, LEARNER_LANGS, load_csv, strip_furigana
 
 PAGES_OUT = Path('site/pages')
 
@@ -79,6 +79,21 @@ def t(row, field, lang):
         if val:
             return val
     return ''
+
+
+def tr(row, col, lang):
+    """Learner-language variant of an english-named column, falling back to English.
+
+    tr(r, 'english', 'ko') -> r['korean'] or r['english'];
+    tr(r, 'where_english', 'ko') -> r['where_korean'] or r['where_english'].
+    """
+    if lang == 'ko':
+        val = row.get(col.replace('english', 'korean'), '').strip()
+        if val:
+            return val
+    if lang == 'ja':
+        return row.get(col.replace('english', 'japanese'), '').strip()
+    return row.get(col, '').strip()
 
 
 def eng_fallback(row, lang, key='name_english'):
@@ -162,6 +177,8 @@ def wrap_page(page_id, content, lang, toc=None, pre_toc=''):
         lines = []
         has_details = any(len(e) > 2 and e[2] for e in toc)
         cls = 'toc toc-collapsible' if has_details else 'toc'
+        # Collapsed on phones (it can be 20+ entries), opened on wider screens by app.js
+        lines.append(f'  <details class="toc-box">\n    <summary>{ui("toc_title", lang)}</summary>\n')
         lines.append(f'  <nav class="{cls}">\n')
         lines.append('    <ul>\n')
         for entry in toc:
@@ -180,7 +197,8 @@ def wrap_page(page_id, content, lang, toc=None, pre_toc=''):
             else:
                 lines.append(f'      <li><a href="#{slug}">{label}</a></li>\n')
         lines.append('    </ul>\n')
-        lines.append('  </nav>\n\n')
+        lines.append('  </nav>\n')
+        lines.append('  </details>\n\n')
         toc_html = ''.join(lines)
 
     # Hidden pages stay out of the public lesson sequence. A hidden page can
@@ -244,9 +262,12 @@ def gen_index(lang):
     bullets = [ui(f'home_{i}', lang) for i in range(1, 4)]
     items = '\n'.join(f'    <li>{b}</li>' for b in bullets)
 
+    n_words = len(load_csv("words"))
     if lang == 'en':
         # Count from words.csv so the landing claim can't drift from the data
-        h1 = f'  <h1>Learn Japanese from {len(load_csv("words"))} core words.</h1>\n'
+        h1 = f'  <h1>Learn Japanese from {n_words} core words.</h1>\n'
+    elif lang == 'ko':
+        h1 = f'  <h1>핵심 단어 {n_words}개로 배우는 일본어</h1>\n'
     elif lang == 'mh':
         h1 = '  <h1 lang="ja">ミニ<ruby>本<rt>ほん</rt></ruby><ruby>語<rt>ご</rt></ruby></h1>\n'
     else:
@@ -264,6 +285,8 @@ def gen_index(lang):
     anki_desc = ui('home_anki_desc', lang)
     pdf_link = ui('home_pdf_link', lang)
     basename = strip_html(ui('site_basename', lang))
+    # Decks/books are not built for every edition; Korean readers get English ones.
+    artifact_lang = lang if lang in ARTIFACT_LANGS else 'en'
 
     # Expression examples table with audio
     # Tuple: (concept, minihongo, audio_dir, audio_file, literal)
@@ -273,6 +296,11 @@ def gen_index(lang):
             ('friend',  '好【す】きな人【ひと】',                 'e', 'e_1_suhito.mp3',        'liked person'),
             ('doctor',  '体【からだ】を助【たす】ける人【ひと】', 'e', 'e_5_karadatasuhito.mp3', 'body-helping person'),
             ('freedom', '好【す】きにできる事【こと】',           'e', 'e_165_sukoto.mp3',       'able to do as liked'),
+        ],
+        'ko': [
+            ('친구',   '好【す】きな人【ひと】',                 'e', 'e_1_suhito.mp3',        '좋아하는 사람'),
+            ('의사',   '体【からだ】を助【たす】ける人【ひと】', 'e', 'e_5_karadatasuhito.mp3', '몸을 돕는 사람'),
+            ('자유',   '好【す】きにできる事【こと】',           'e', 'e_165_sukoto.mp3',       '좋을 대로 할 수 있는 것'),
         ],
         'ja': [
             ('友達', '好【す】きな人【ひと】',                 'e', 'e_1_suhito.mp3',        ''),
@@ -302,25 +330,42 @@ def gen_index(lang):
         f'  </table></div>\n'
     )
 
+    # Where to start: kana first (taught elsewhere), then the core lessons in order
+    core_pages = [pg for pg in PAGE_DATA if pg.get('nav_group') == 'core']
+    steps = []
+    if prerequisite:
+        steps.append(f'    <li class="home-steps__pre"><span>{prerequisite}</span></li>\n')
+    for pg in core_pages:
+        name = to_ruby_html(t(pg, 'name', lang))
+        gloss = to_ruby_html(pg.get(f'gloss_{lang}') or ('' if lang == 'ja' else pg.get('gloss_en', '')))
+        href = f'lessons/{PAGE_FILES[pg["id"]]}'
+        steps.append(
+            f'    <li><a href="{href}"><strong>{name}</strong>'
+            + (f'<span>{gloss}</span>' if gloss else '')
+            + '</a></li>\n'
+        )
+
     return (
         f'<page-layout>\n'
         f'  <span slot="title">{site_name_plain}</span>\n'
         f'\n'
         f'{h1}'
-        f'  <p>{tagline}</p>\n'
+        f'  <p class="home-lead">{tagline}</p>\n'
         f'{example_table}'
+        f'  <p class="home-cta"><a class="btn btn-primary" href="{next_href}">{ui("home_cta", lang)} \u2192</a></p>\n'
+        f'  <h2 class="home-steps__heading">{ui("home_start_heading", lang)}</h2>\n'
+        f'  <ol class="home-steps">\n{"".join(steps)}  </ol>\n'
         f'  <div class="onboarding">\n'
         f'    <p>{onboarding}</p>\n'
-        + (f'    <p class="prerequisite">{prerequisite}</p>\n' if prerequisite else '')
-        + f'  </div>\n'
-        f'  <div class="anki-featured">\n'
-        f'    <p><a href="/{basename}-{lang}.apkg">{anki_link}</a> - {anki_desc}</p>\n'
-        f'    <p class="anki-secondary"><a href="/{basename}-{lang}.pdf">{pdf_link}</a></p>\n'
         f'  </div>\n'
-        f'  <nav class="lesson-nav">\n'
-        f'    <span></span>\n'
-        f'    <a href="{next_href}">{next_label} \u2192</a>\n'
-        f'  </nav>\n'
+        f'  <div class="anki-featured">\n'
+        f'    <p><a href="/{basename}-{artifact_lang}.apkg">{anki_link}</a> - {anki_desc}</p>\n'
+        f'    <p class="anki-secondary"><a href="/{basename}-{artifact_lang}.pdf">{pdf_link}</a></p>\n'
+        f'  </div>\n'
+        f'  <div class="home-actions">\n'
+        f'    <button type="button" class="btn" data-open="share-dialog">{ui("home_invite_cta", lang)}</button>\n'
+        f'    <button type="button" class="btn" data-open="install-dialog">{ui("settings_install", lang)}</button>\n'
+        f'  </div>\n'
         f'</page-layout>\n'
     )
 
@@ -428,6 +473,25 @@ def gen_grammar(categories, grammar, grammar_examples, lang):
     intro.append(f'    </div>\n')
 
     intro.append('  </div>\n\n')
+
+    # Learning path: the core points in page order, then a core-only filter
+    core_points = [gp for cat in cats for gp in by_sort(gram_by_cat.get(cat['id'], []))
+                   if gp.get('core', '').strip().lower() == 'yes']
+    if core_points:
+        intro.append('  <section class="grammar-path">\n')
+        intro.append(f'    <h2 class="grammar-path__heading">{ui("grammar_path_heading", lang)}</h2>\n')
+        intro.append(f'    <p>{ui("grammar_path_body", lang)}</p>\n')
+        intro.append('    <ol class="grammar-path__list">\n')
+        for gp in core_points:
+            slug = slugify(gp.get('english') or gp['id'])
+            pattern = re.sub(r'\s*\([A-Za-z &/\-]+\)', '', gp['minihongo']).strip()
+            name = '' if lang == 'mh' else t(gp, '', lang)
+            name_html = f' <span class="grammar-path__name">{esc(name)}</span>' if name and name != pattern else ''
+            intro.append(f'      <li><a href="#{slug}"><span lang="ja">{to_ruby_html(esc(pattern))}</span>{name_html}</a></li>\n')
+        intro.append('    </ol>\n')
+        intro.append(f'    <button type="button" class="nav-toggle listen-toggle" id="btn-core-only" aria-pressed="false">'
+                     f'{ui("grammar_core_only", lang)}</button>\n')
+        intro.append('  </section>\n\n')
     intro_html = ''.join(intro)
 
     for cat in cats:
@@ -445,7 +509,9 @@ def gen_grammar(categories, grammar, grammar_examples, lang):
             toc_children.append((gp_slug, gp_toc_label))
 
         toc.append((slug, to_ruby_html(esc(toc_label)), toc_children))
-        parts.append(f'  <h2 id="{slug}" class="section-heading">{h}</h2>\n')
+        has_core = any(g.get('core', '').strip().lower() == 'yes' for g in gram_by_cat.get(cat['id'], []))
+        h2_cls = 'section-heading' if has_core else 'section-heading no-core'
+        parts.append(f'  <h2 id="{slug}" class="{h2_cls}">{h}</h2>\n')
         parts.append('\n')
 
         for gp in by_sort(gram_by_cat.get(cat['id'], [])):
@@ -455,8 +521,8 @@ def gen_grammar(categories, grammar, grammar_examples, lang):
                 # Strip romaji/english in parentheses: "は (wa)" -> "は"
                 raw_pattern = re.sub(r'\s*\([A-Za-z &/\-]+\)', '', raw_pattern).strip()
             pattern = to_ruby_html(raw_pattern)
-            if lang == 'en' and gp.get('english'):
-                en_name = esc(gp['english'])
+            if lang in LEARNER_LANGS and tr(gp, 'english', lang):
+                en_name = esc(tr(gp, 'english', lang))
                 # Merge with existing romaji parenthetical: "は (wa)" -> "は (wa - Topic Marker)"
                 romaji_match = re.search(r'\(([A-Za-z &/\-]+)\)$', pattern)
                 if romaji_match:
@@ -466,6 +532,8 @@ def gen_grammar(categories, grammar, grammar_examples, lang):
                     pattern = f'{pattern} ({en_name})'
             explanation = to_ruby_html(t(gp, 'explanation', lang))
             is_core = gp.get('core', '').strip().lower() == 'yes'
+            if is_core:
+                pattern += f' <span class="core-badge">{ui("grammar_toc_core", lang)}</span>'
             tag = f'  <grammar-point id="{gp_slug}" class="core">\n' if is_core else f'  <grammar-point id="{gp_slug}">\n'
             parts.append(tag)
             parts.append(f'    <span slot="pattern">{pattern}</span>\n')
@@ -476,9 +544,9 @@ def gen_grammar(categories, grammar, grammar_examples, lang):
                 pb = play_btn('ge', ex.get('audio_file', ''))
                 parts.append('    <div class="sentence">\n')
                 parts.append(f'      <p lang="ja">{pb}{mh}</p>\n')
-                if lang == 'en':
+                if lang in LEARNER_LANGS:
                     translated_ex = to_ruby_html(t(ex, '', lang))
-                    parts.append(f'      <p>{translated_ex}</p>\n')
+                    parts.append(f'      <p class="sentence__trans">{translated_ex}</p>\n')
                 parts.append('    </div>\n')
 
             parts.append('  </grammar-point>\n')
@@ -568,7 +636,7 @@ def _render_advanced_table(parts, rows, lang, mh_for_target):
     if lang == 'ja':
         parts.append(f'    <thead><tr><th lang="ja">{th_word}</th><th lang="ja">{th_in_mh}</th></tr></thead>\n')
     else:
-        th_english = ui('th_english', lang)
+        th_english = ui('th_english' if lang == 'en' else 'th_meaning', lang)
         parts.append(f'    <thead><tr><th lang="ja">{th_word}</th><th>{th_english}</th><th lang="ja">{th_in_mh}</th></tr></thead>\n')
     parts.append('    <tbody>\n')
     for r in rows:
@@ -580,6 +648,7 @@ def _render_advanced_table(parts, rows, lang, mh_for_target):
         else:
             whole_word_hint = {
                 'en': 'Learn as a whole word',
+                'ko': '이 단어 그대로 외우기',
                 'ja': 'この語のまま覚える',
                 'mh': 'この言【こと】葉【ば】のまま覚【おぼ】える',
             }[lang]
@@ -587,7 +656,7 @@ def _render_advanced_table(parts, rows, lang, mh_for_target):
         if lang == 'ja':
             parts.append(f'      <tr><td lang="ja">{pb}{word}</td><td lang="ja">{mh_cell}</td></tr>\n')
         else:
-            parts.append(f'      <tr><td lang="ja">{pb}{word}</td><td>{esc(r["english"])}</td><td lang="ja">{mh_cell}</td></tr>\n')
+            parts.append(f'      <tr><td lang="ja">{pb}{word}</td><td>{esc(tr(r, "english", lang))}</td><td lang="ja">{mh_cell}</td></tr>\n')
     parts.append('    </tbody>\n  </table></div>\n')
 
 
@@ -626,6 +695,8 @@ def gen_going_further(categories, compounds, expressions, advanced, lang):
     filter_label, filter_placeholder, filter_count, filter_empty = {
         'en': ('Find a word or topic', 'Try “animal”, “science”, or 日本…',
                'matching words', 'No matching words'),
+        'ko': ('단어나 주제 찾기', '“동물”, “과학”, 日本 등을 입력…',
+               '개 단어', '일치하는 단어가 없어요'),
         'ja': ('言葉・トピックを探す', '「動物」「科学」「日本」など…',
                '件の言葉', '一致する言葉がありません'),
         'mh': ('言【こと】葉【ば】を探【さが】す', '言【こと】葉【ば】を入【い】れる…',
@@ -636,6 +707,11 @@ def gen_going_further(categories, compounds, expressions, advanced, lang):
             'Use this as a reference, not a list to memorize.',
             'Search for a word you just encountered.',
             'Listen, compare the Minihongo paraphrase, then return to real Japanese.',
+        ),
+        'ko': (
+            '외우는 목록이 아니라 찾아보는 자료예요.',
+            '방금 만난 단어를 검색해 보세요.',
+            '들어 보고, 미니혼고 표현과 비교한 뒤, 실제 일본어로 돌아가세요.',
         ),
         'ja': (
             'これは暗記リストではなく、調べるためのページです。',
@@ -733,6 +809,20 @@ def gen_going_further(categories, compounds, expressions, advanced, lang):
             ('watch', 'FOD', 'Fuji TV drama, variety, and anime; some titles have subtitles',
              'Free + paid', 'Intermediate+', 'https://fod.fujitv.co.jp/'),
         ],
+        'ko': [
+            ('read', 'NHK NEWS WEB EASY', '후리가나와 음성이 있는 쉬운 뉴스',
+             '무료', '초급~중급', 'https://www3.nhk.or.jp/news/easy/'),
+            ('read', 'Tadoku', 'PDF와 음성이 있는 단계별 읽기 자료',
+             '무료', '초급', 'https://tadoku.org/japanese/en/free-books-en/'),
+            ('read', '絵本ひろば', '일본어 오리지널 그림책',
+             '무료', '초급', 'https://ehon.alphapolis.co.jp/'),
+            ('watch', 'TVer', '드라마·예능·애니메이션. 字幕あり(자막 있음) 필터를 선택하세요',
+             '일본 내 무료', '중급 이상', 'https://tver.jp/'),
+            ('watch', 'ABEMA', '애니메이션·뉴스·오리지널 프로그램. 자막은 작품마다 달라요',
+             '무료 + 유료', '중급 이상', 'https://abema.tv/'),
+            ('watch', 'FOD', '후지TV 드라마·예능·애니메이션. 일부 작품에 자막 있음',
+             '무료 + 유료', '중급 이상', 'https://fod.fujitv.co.jp/'),
+        ],
         'ja': [
             ('read', 'NHK NEWS WEB EASY', 'ふりがなと音声がある、やさしいニュース',
              '無料', '初級〜中級', 'https://www3.nhk.or.jp/news/easy/'),
@@ -764,6 +854,7 @@ def gen_going_further(categories, compounds, expressions, advanced, lang):
     }[lang]
     resource_group_labels = {
         'en': {'read': 'Read', 'watch': 'Watch'},
+        'ko': {'read': '읽기', 'watch': '보기'},
         'ja': {'read': '読む', 'watch': '見る'},
         'mh': {'read': '読【よ】む', 'watch': '見【み】る'},
     }[lang]
@@ -800,6 +891,12 @@ def gen_going_further(categories, compounds, expressions, advanced, lang):
             'For software work, continue to the separate engineering guide with '
             'workplace vocabulary, dialogs, goals, and AI conversation practice.',
             'Open the Engineering Japanese guide',
+        ),
+        'ko': (
+            '엔지니어를 위한 일본어',
+            '소프트웨어 개발에 쓰는 어휘·대화·목표·AI 회화 연습은 '
+            '엔지니어용 별도 가이드에 모아 두었어요.',
+            '엔지니어 일본어 가이드 열기',
         ),
         'ja': (
             'エンジニアの日本語',
@@ -875,7 +972,7 @@ def _render_common_table(parts, rows, lang):
             if lang == 'ja' and r.get('reading'):
                 meaning = f'<ruby>{esc(r["japanese"])}<rt>{esc(r["reading"])}</rt></ruby>'
             else:
-                meaning = esc(r['japanese'] if lang == 'ja' else r['english'])
+                meaning = esc(r['japanese'] if lang == 'ja' else tr(r, 'english', lang))
             parts.append(
                 f'    <tr>'
                 f'<td lang="ja">{pb}{mh}</td>'
@@ -921,9 +1018,9 @@ def _render_concept_table(parts, rows, lang):
         pb = play_btn('e', r.get('audio_file', ''))
         parts.append(
             f'      <tr>'
-            f'<td>{esc(r["english"])}</td>'
+            f'<td>{esc(tr(r, "english", lang))}</td>'
             f'<td lang="ja">{pb}{mh}</td>'
-            f'<td>{esc(r["english_litteral"])}</td>'
+            f'<td>{esc(tr(r, "english_litteral", lang))}</td>'
             f'</tr>\n'
         )
     parts.append('    </tbody>\n')
@@ -1118,7 +1215,7 @@ def gen_practice(candos, dialog_groups, dialogs, words, grammar, grammar_example
         reverse=True,
     )
 
-    trans_col = {'en': 'english', 'ja': 'japanese', 'mh': ''}[lang]
+    trans_col = {'en': 'english', 'ko': 'english', 'ja': 'japanese', 'mh': ''}[lang]
 
     toc = []
     parts = []
@@ -1132,7 +1229,7 @@ def gen_practice(candos, dialog_groups, dialogs, words, grammar, grammar_example
     for c in by_sort(candos):
         trans = ''
         if trans_col:
-            trans = f' <span class="cando-trans">{esc(c[trans_col])}</span>'
+            trans = f' <span class="cando-trans">{esc(tr(c, trans_col, lang))}</span>'
         link = ''
         dg = dg_by_id.get(c['dialog_group_id'])
         if dg:
@@ -1165,7 +1262,7 @@ def gen_practice(candos, dialog_groups, dialogs, words, grammar, grammar_example
             if len(pool) < 4:
                 pool = blankable
             options = _quiz_options(answer, pool, f'{c["id"]}-{ln["id"]}')
-            translation = ln.get(trans_col, '') if trans_col else ''
+            translation = tr(ln, trans_col, lang) if trans_col else ''
             items.append(_quiz_item_html(question, options, ln['minihongo'], translation))
             if len(items) == 3:
                 break
@@ -1191,7 +1288,7 @@ def gen_practice(candos, dialog_groups, dialogs, words, grammar, grammar_example
             if len(pool) < 4:
                 pool = blankable
             options = _quiz_options(answer, pool, f'gram-{ex["id"]}')
-            translation = ex.get(trans_col, '') if trans_col else ''
+            translation = tr(ex, trans_col, lang) if trans_col else ''
             g_items.append(_quiz_item_html(question, options, ex['minihongo'], translation))
             break
     if g_items:
@@ -1205,7 +1302,8 @@ def gen_practice(candos, dialog_groups, dialogs, words, grammar, grammar_example
     parts.append(f'  <h2 id="ai-partner" class="section-heading">{ui("practice_ai_heading", lang)}</h2>\n')
     parts.append(f'  <p>{ui("practice_kaiwa_link", lang)}</p>\n')
     parts.append(f'  <p>{ui("practice_ai_body", lang)}</p>\n')
-    word_list = ', '.join(f'{w["minihongo"]} ({w["english"]})' for w in by_sort(words))
+    word_list = ', '.join(f'{w["minihongo"]} ({tr(w, "english", lang) or w["english"]})'
+                          for w in by_sort(words))
     prompts = {
         'en': (
             'You are my Japanese conversation partner for Minihongo practice.\n'
@@ -1223,6 +1321,23 @@ def gen_practice(candos, dialog_groups, dialogs, words, grammar, grammar_example
             '6. Start now: greet me and ask one simple question.\n'
             '\n'
             f'The {len(words)} words: {word_list}'
+        ),
+        'ko': (
+            '당신은 미니혼고 연습을 위한 나의 일본어 회화 파트너입니다.\n'
+            f'미니혼고는 기본 단어 {len(words)}개와 표준 문법'
+            '(조사, 동사 활용, て형, 정중한 ます/です)만 쓰는 일본어입니다.\n'
+            '\n'
+            '규칙:\n'
+            '1. 일본어로만, 아래 단어만 사용해서 답해 주세요. 다른 개념은 단어를 조합해서 '
+            '표현해 주세요(예: 병원 = 体を助ける所).\n'
+            '2. 모든 한자에 읽는 법을 괄호로 붙여 주세요: 人【ひと】.\n'
+            '3. 답은 짧은 한두 문장으로 해 주세요.\n'
+            '4. 내가 목록에 없는 단어를 쓰면, 이 단어들로 어떻게 말하는지 친절하게 '
+            '알려 준 뒤 대화를 이어 가 주세요.\n'
+            '5. ます/です 정중체를 쓰고, 현대 문법만 사용해 주세요.\n'
+            '6. 지금 시작해 주세요: 인사하고 쉬운 질문을 하나 해 주세요.\n'
+            '\n'
+            f'{len(words)}개 단어: {word_list}'
         ),
         'ja': (
             'あなたは私のミニ本語練習のための日本語会話パートナーです。\n'
@@ -1280,7 +1395,7 @@ def gen_understanding(categories, comprehension, lang):
 
     th_jp = ui('th_real_japanese', lang)
     th_gloss = ui('th_it_means', lang)
-    th_en = ui('th_english', lang)
+    th_en = ui('th_english' if lang == 'en' else 'th_meaning', lang)
     th_where = ui('th_where', lang)
 
     toc = []
@@ -1297,7 +1412,7 @@ def gen_understanding(categories, comprehension, lang):
             parts.append(f'  <p class="category-note">{to_ruby_html(esc(note))}</p>\n')
 
         parts.append('  <div class="table-scroll"><table class="compound-table">\n')
-        if lang == 'en':
+        if lang in LEARNER_LANGS:
             parts.append(f'    <thead><tr><th lang="ja">{th_jp}</th><th>{th_en}</th>'
                          f'<th lang="ja">{th_gloss}</th><th>{th_where}</th></tr></thead>\n')
         elif lang == 'ja':
@@ -1314,9 +1429,9 @@ def gen_understanding(categories, comprehension, lang):
             pb = play_btn('u', r.get('audio_file', ''))
             jp = render(r['japanese'])
             gloss = render(r['minihongo'])
-            if lang == 'en':
-                cells = (f'<td lang="ja">{pb}{jp}</td><td>{esc(r["english"])}</td>'
-                         f'<td lang="ja">{gloss}</td><td>{esc(r["where_english"])}</td>')
+            if lang in LEARNER_LANGS:
+                cells = (f'<td lang="ja">{pb}{jp}</td><td>{esc(tr(r, "english", lang))}</td>'
+                         f'<td lang="ja">{gloss}</td><td>{esc(tr(r, "where_english", lang))}</td>')
             elif lang == 'ja':
                 cells = (f'<td lang="ja">{pb}{jp}</td><td lang="ja">{gloss}</td>'
                          f'<td lang="ja">{esc(r["where_japanese"])}</td>')
@@ -1369,7 +1484,7 @@ def gen_engineering(categories, expressions, dialog_groups, dialogs, candos, wor
         title = bilingual(group['title_minihongo'], t(group, 'title', lang))
         parts.append(f'  <section class="dialog"><h3>{title}</h3>\n')
         for line in sorted(lines_by_group[group['id']], key=lambda r: int(r['line_number'])):
-            translated = line.get({'en': 'english', 'ja': 'japanese', 'mh': ''}[lang], '')
+            translated = tr(line, 'english', lang) if lang != 'mh' else ''
             parts.append(f'    <p><strong>{render(t(line, "speaker", lang))}:</strong> <span lang="ja">{to_ruby_html(line["minihongo"])}</span>')
             if translated:
                 parts.append(f' <span class="dialog-trans">{esc(translated)}</span>')
@@ -1380,7 +1495,7 @@ def gen_engineering(categories, expressions, dialog_groups, dialogs, candos, wor
     toc.append(('engineering-candos', ui('engineering_cando_heading', lang), []))
     parts.append(f'  <h2 id="engineering-candos" class="section-heading">{ui("engineering_cando_heading", lang)}</h2>\n  <div class="cando-list">\n')
     for c in by_sort(eng_candos):
-        translated = c.get({'en': 'english', 'ja': 'japanese', 'mh': ''}[lang], '')
+        translated = tr(c, 'english', lang) if lang != 'mh' else ''
         trans = f' <span class="cando-trans">{esc(translated)}</span>' if translated else ''
         parts.append(f'    <label class="cando"><input type="checkbox" class="cando-check" data-id="{c["id"]}"> <span lang="ja">{to_ruby_html(c["minihongo"])}</span>{trans}</label>\n')
     parts.append('  </div>\n')
@@ -1389,11 +1504,12 @@ def gen_engineering(categories, expressions, dialog_groups, dialogs, candos, wor
     parts.append(f'  <h2 id="engineering-ai" class="section-heading">{ui("engineering_ai_heading", lang)}</h2>\n')
     engineering_chat_body = {
         'en': 'Choose an engineering goal and practice directly with an AI colleague.',
+        'ko': '엔지니어용 목표를 골라 AI 동료와 바로 연습해 보세요.',
         'ja': 'エンジニア向けの目標を選び、AIの同僚と開発場面を直接練習できます。',
         'mh': '作【つく】る人【ひと】の目【め】を選【えら】び、AIの人【ひと】と話【はな】す。',
     }[lang]
     parts.append(f'  <p>{to_ruby_html(engineering_chat_body)}</p>\n')
-    parts.append('  <div id="kaiwa-app" data-topic-set="engineering"><p class="kaiwa-loading">Loading...</p></div>\n')
+    parts.append(f'  <div id="kaiwa-app" data-topic-set="engineering" data-lang="{lang}"><p class="kaiwa-loading">{ui("kaiwa_loading", lang)}</p></div>\n')
     return wrap_page('engineering', ''.join(parts), lang, toc)
 
 
@@ -1468,6 +1584,14 @@ def main():
             path = out_dir / PAGE_FILES[page_id]
             path.write_text(html)
             print(f'  {path}')
+
+        # Kaiwa is a hand-written template (site/pages/kaiwa/index.html) that
+        # localizes itself through ui strings; give every edition its own copy.
+        if lang != 'en':
+            kaiwa_out = PAGES_OUT / lang / 'kaiwa' / 'index.html'
+            kaiwa_out.parent.mkdir(parents=True, exist_ok=True)
+            kaiwa_out.write_text((PAGES_OUT / 'kaiwa' / 'index.html').read_text())
+            print(f'  {kaiwa_out}')
 
 
 if __name__ == '__main__':

@@ -1,7 +1,7 @@
 {
   "name": "Minihongo",
   "short_name": "Minihongo",
-  "description": "182 words. Say anything.",
+  "description": "231 words. Say anything in Japanese.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",

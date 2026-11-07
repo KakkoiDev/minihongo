@@ -3,6 +3,9 @@
 
 window.KaiwaProviders = window.KaiwaProviders || {}
 
+// UI text via kaiwa-i18n.js; the English fallback keeps this file usable alone.
+const kaiwaText = (key, vars, fallback) => window.kaiwaT?.(key, vars) ?? fallback
+
 window.KaiwaProviders.deepseek = {
   id: 'deepseek',
   label: 'DeepSeek (V4 Flash)',
@@ -31,7 +34,7 @@ window.KaiwaProviders.deepseek = {
     if (!res.ok) throw new Error(await describeDeepSeekError(res))
 
     const reader = res.body?.getReader()
-    if (!reader) throw new Error('DeepSeek returned no response stream.')
+    if (!reader) throw new Error(kaiwaText('err_no_stream', null, 'DeepSeek returned no response stream.'))
 
     const decoder = new TextDecoder()
     let buffer = ''
@@ -55,12 +58,14 @@ window.KaiwaProviders.deepseek = {
       const finish = choice?.finish_reason
       if (finish && finish !== 'stop') {
         const labels = {
-          length: 'the output limit was reached',
-          content_filter: 'the content filter stopped the response',
-          insufficient_system_resource: 'DeepSeek had insufficient capacity',
-          tool_calls: 'the model returned a tool call instead of text',
+          length: ['stop_length', 'the output limit was reached'],
+          content_filter: ['stop_content_filter', 'the content filter stopped the response'],
+          insufficient_system_resource: ['stop_insufficient_resource', 'DeepSeek had insufficient capacity'],
+          tool_calls: ['stop_tool_calls', 'the model returned a tool call instead of text'],
         }
-        throw new Error(`DeepSeek stopped early: ${labels[finish] || finish}.`)
+        const label = labels[finish]
+        const reason = label ? kaiwaText(label[0], null, label[1]) : finish
+        throw new Error(kaiwaText('err_stopped_early', { reason }, `DeepSeek stopped early: ${reason}.`))
       }
     }
 
@@ -75,7 +80,7 @@ window.KaiwaProviders.deepseek = {
     buffer += decoder.decode()
     if (buffer) consume(buffer)
 
-    if (!text.trim()) throw new Error('DeepSeek returned an empty response. Please try again.')
+    if (!text.trim()) throw new Error(kaiwaText('err_empty', { provider: 'DeepSeek' }, 'DeepSeek returned an empty response. Please try again.'))
     return text
   },
 }
@@ -88,8 +93,9 @@ async function describeDeepSeekError(res) {
   } catch {
     detail = await res.text().catch(() => '')
   }
-  if (res.status === 401) return 'DeepSeek rejected the API key (401). Check the key in settings.'
-  if (res.status === 402) return 'DeepSeek has no balance remaining. Add credits in the DeepSeek platform.'
-  if (res.status === 429) return 'DeepSeek rate limit hit (429). Wait a moment and try again.'
-  return `DeepSeek API error ${res.status}: ${detail.slice(0, 300)}`
+  if (res.status === 401) return kaiwaText('err_key_rejected', { provider: 'DeepSeek' }, 'DeepSeek rejected the API key (401). Check the key in settings.')
+  if (res.status === 402) return kaiwaText('err_no_balance', null, 'DeepSeek has no balance remaining. Add credits in the DeepSeek platform.')
+  if (res.status === 429) return kaiwaText('err_rate_limit', { provider: 'DeepSeek' }, 'DeepSeek rate limit hit (429). Wait a moment and try again.')
+  const vars = { provider: 'DeepSeek', status: res.status, detail: detail.slice(0, 300) }
+  return kaiwaText('err_api', vars, `DeepSeek API error ${vars.status}: ${vars.detail}`)
 }

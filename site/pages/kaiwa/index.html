@@ -1,8 +1,8 @@
 <page-layout>
-  <span slot="title">Kaiwa - spoken practice</span>
+  <span slot="title">{{PAGE_NAME_PLAIN}} - {{SITE_NAME_PLAIN}}</span>
 
-  <h1>Kaiwa (会話): spoken practice</h1>
-  <p>Practice a short conversation in Japanese. Add an AI key to start.</p>
+  <h1>{{ui.kaiwa_heading}}</h1>
+  <p>{{ui.kaiwa_intro}}</p>
 
-  <div id="kaiwa-app"><p class="kaiwa-loading">Loading...</p></div>
+  <div id="kaiwa-app" data-lang="{{lang}}"><p class="kaiwa-loading">{{ui.kaiwa_loading}}</p></div>
 </page-layout>

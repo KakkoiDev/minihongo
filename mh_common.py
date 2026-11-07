@@ -12,8 +12,13 @@ from pathlib import Path
 
 DATA = Path('data')
 
-LANGS = ['en', 'ja', 'mh']
-LANG_COL = {'en': 'english', 'ja': 'japanese', 'mh': 'minihongo'}
+LANGS = ['en', 'ko', 'ja', 'mh']
+LANG_COL = {'en': 'english', 'ko': 'korean', 'ja': 'japanese', 'mh': 'minihongo'}
+# Site editions whose reader is not Japanese: they show a translation next to
+# every Japanese line. 'ko' falls back to English where Korean is missing.
+LEARNER_LANGS = ('en', 'ko')
+# Anki decks and PDF books exist only for these editions.
+ARTIFACT_LANGS = ['en', 'ja', 'mh']
 
 _FURIGANA_RE = re.compile(r'【[^】]+】')
 
