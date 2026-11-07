@@ -450,6 +450,14 @@ function renderPicker(root, data) {
     goalRadio.checked = true
     updateGoalSummary()
     validate()
+    // Drop ?goal= so a reload or a shared address shows the setup again
+    const url = new URL(location.href)
+    url.searchParams.delete('goal')
+    window.history.replaceState(window.history.state, '', url.pathname + url.search + url.hash)
+    // Every key this setup needs is already saved: skip setup and open the
+    // conversation on that goal right away. Deferred until the rest of this
+    // function has bound the Start handler.
+    queueMicrotask(() => { if (!startBtn.disabled) startBtn.click() })
   }
 
   startBtn.addEventListener('click', () => {
@@ -844,6 +852,47 @@ function startSession(root, data, opts) {
   let mediaRecorder = null
   let recordingStream = null
   let recordingTimer = null
+  // End-of-speech detection for recorded (Groq) input, as in Echo: watch the
+  // microphone level and stop once the learner has spoken and then gone quiet.
+  // Learners pause to find words, so the quiet gap is a little longer than
+  // Echo's 900 ms. Browser recognition ends on its own and needs none of this.
+  const SPEECH_LEVEL = 0.025 // RMS of the waveform, Echo's threshold
+  const END_OF_SPEECH_MS = 1200
+  const NOTHING_HEARD_MS = 8000
+  let levelWatch = null // { ctx, source, raf, heard }
+  const stopLevelWatch = () => {
+    if (!levelWatch) return
+    cancelAnimationFrame(levelWatch.raf)
+    try { levelWatch.source.disconnect() } catch {}
+    levelWatch.ctx.close().catch(() => {})
+    levelWatch = null
+  }
+  const watchLevel = (stream, onDone) => {
+    const AudioCtx = window.AudioContext || window.webkitAudioContext
+    if (!AudioCtx) return
+    const ctx = new AudioCtx()
+    const source = ctx.createMediaStreamSource(stream)
+    const analyser = ctx.createAnalyser()
+    analyser.fftSize = 512
+    source.connect(analyser)
+    const data = new Uint8Array(analyser.fftSize)
+    const started = performance.now()
+    let lastSound = started
+    levelWatch = { ctx, source, raf: 0, heard: false }
+    const tick = () => {
+      if (!levelWatch) return
+      analyser.getByteTimeDomainData(data)
+      let sum = 0
+      for (const v of data) { const x = (v - 128) / 128; sum += x * x }
+      const now = performance.now()
+      if (Math.sqrt(sum / data.length) > SPEECH_LEVEL) { levelWatch.heard = true; lastSound = now }
+      const quietAfterSpeech = levelWatch.heard && now - lastSound > END_OF_SPEECH_MS
+      const nothingHeard = !levelWatch.heard && now - started > NOTHING_HEARD_MS
+      if (quietAfterSpeech || nothingHeard) { onDone(); return }
+      levelWatch.raf = requestAnimationFrame(tick)
+    }
+    tick()
+  }
   const LISTEN_WINDOW_MS = 30000
   let browserRecognitionFailed = false // Auto mode: fall back to Groq Whisper
 
@@ -897,9 +946,18 @@ function startSession(root, data, opts) {
       })
       mediaRecorder.addEventListener('stop', async () => {
         const type = mediaRecorder.mimeType || 'audio/webm'
+        // Without a level meter (no Web Audio) we cannot tell; transcribe anyway
+        const heard = levelWatch ? levelWatch.heard : true
+        stopLevelWatch()
         recordingStream?.getTracks().forEach(track => track.stop())
         recordingStream = null
         finishListening()
+        if (!heard) {
+          // Nothing but silence: don't spend a transcription on it
+          retryBtn.hidden = false
+          statusEl.textContent = t('no_speech_heard')
+          return
+        }
         try {
           const text = await transcribeRecording(new Blob(chunks, { type }))
           if (!text) throw new Error(t('no_speech_in_recording'))
@@ -917,10 +975,13 @@ function startSession(root, data, opts) {
       statusEl.textContent = t('recording')
       micBtn.textContent = t('stop')
       mediaRecorder.start()
-      recordingTimer = setTimeout(() => {
+      const stopRecording = () => {
         if (mediaRecorder?.state === 'recording') mediaRecorder.stop()
-      }, LISTEN_WINDOW_MS)
+      }
+      watchLevel(recordingStream, stopRecording)
+      recordingTimer = setTimeout(stopRecording, LISTEN_WINDOW_MS)
     } catch (error) {
+      stopLevelWatch()
       recordingStream?.getTracks().forEach(track => track.stop())
       recordingStream = null
       finishListening()

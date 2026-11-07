@@ -75,8 +75,11 @@ const hrefToPath = (href) => new URL(href, base).pathname.replace(basePath, '') 
 const handleNavClick = async (e, href) => {
   e.preventDefault()
   const path = hrefToPath(href)
-  history.pushState({ path }, '', `${base}${path}`)
-  if (!await navigate(path)) location.reload()
+  // Keep a query (e.g. Kaiwa's ?goal=) and a fragment through SPA navigation
+  const { search, hash } = new URL(href, base)
+  history.pushState({ path }, '', `${base}${path}${search}${hash}`)
+  if (!await navigate(path)) return location.reload()
+  if (hash) document.getElementById(decodeURIComponent(hash.slice(1)))?.scrollIntoView()
 }
 
 const handleNavHover = (href) => {
@@ -311,6 +314,12 @@ const bindContentLinks = () => {
   if (matchMedia('(min-width: 601px)').matches)
     document.querySelectorAll('#content .toc-box').forEach(d => { d.open = true })
   for (const a of document.querySelectorAll('.lesson-nav a')) {
+    bindLink(a)
+  }
+  // Real-life goal actions stay in the page (no reload): Kaiwa can then start
+  // the conversation straight away, still holding the click that got here,
+  // which browsers require before the AI's voice may speak.
+  for (const a of document.querySelectorAll('#content a.cando-action')) {
     bindLink(a)
   }
   for (const a of document.querySelectorAll('#content a[href^="#"]')) {

@@ -154,7 +154,18 @@ def test_audio_stream_is_stopped_after_recording():
 
 def test_recording_has_a_maximum_duration():
     assert "if (mediaRecorder?.state === 'recording') mediaRecorder.stop()" in KAIWA
-    assert "}, LISTEN_WINDOW_MS)" in KAIWA
+    assert "recordingTimer = setTimeout(stopRecording, LISTEN_WINDOW_MS)" in KAIWA
+
+
+def test_recording_stops_by_itself_after_the_learner_goes_quiet():
+    # As in Echo: a level meter on the recording stream ends it after a
+    # quiet gap that follows speech, and silence alone is never transcribed.
+    assert "watchLevel(recordingStream, stopRecording)" in KAIWA
+    assert "const END_OF_SPEECH_MS = 1200" in KAIWA
+    assert "levelWatch.heard && now - lastSound > END_OF_SPEECH_MS" in KAIWA
+    stop = KAIWA.split("mediaRecorder.addEventListener('stop'", 1)[1].split("}, { once: true })", 1)[0]
+    assert "stopLevelWatch()" in stop
+    assert stop.index("if (!heard)") < stop.index("transcribeRecording(")
 
 
 def test_stop_button_stops_media_recorder_before_browser_recognizer():
