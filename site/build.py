@@ -339,6 +339,66 @@ def build_kaiwa_expressions(data):
     return rows
 
 
+def build_practice_data(data):
+    """Items for the daily practice session (static/practice.js).
+
+    The 231 words in course order (Vocabulary page order), with the 9 core
+    grammar points interleaved as one example sentence each. Meanings are kept
+    per edition; ko falls back to English. Grammar cards need a translation, so
+    the ja and mh editions practise words only (the client skips them).
+    """
+    cats = {c['id']: c for c in data.get('categories', [])}
+    def cat_order(cat_id):
+        c = cats.get(cat_id, {})
+        return int(c.get('sort_order') or 0)
+    words = sorted(data.get('words', []), key=lambda w: (cat_order(w['category_id']), int(w.get('sort_order') or 0)))
+    word_items = [{
+        'id': w['id'],
+        'kind': 'word',
+        'jp': w['minihongo'],
+        'audio': f"w/{w['audio_word']}" if w.get('audio_word') else '',
+        'group': w['category_id'],
+        'meaning': {
+            'en': w.get('english', ''),
+            'ko': w.get('korean', '') or w.get('english', ''),
+            'ja': w.get('japanese', ''),
+            'mh': w.get('definition_minihongo', ''),
+        },
+    } for w in words]
+
+    examples = {}
+    for ex in sorted(data.get('grammar_examples', []), key=lambda e: int(e.get('sort_order') or 0)):
+        examples.setdefault(ex['grammar_id'], ex)
+    gram_cats = {c['id']: int(c.get('sort_order') or 0) for c in cats.values() if c.get('page_id') == 'grammar'}
+    core = sorted((g for g in data.get('grammar', []) if g.get('core') == 'yes'),
+                  key=lambda g: (gram_cats.get(g['category_id'], 0), int(g.get('sort_order') or 0)))
+    grammar_items = []
+    for g in core:
+        ex = examples.get(g['id'])
+        if not ex:
+            continue
+        grammar_items.append({
+            'id': g['id'],
+            'kind': 'grammar',
+            'jp': ex['minihongo'],
+            'audio': f"ge/{ex['audio_file']}" if ex.get('audio_file') else '',
+            'group': 'grammar',
+            'point': {'en': g.get('english', ''), 'ko': g.get('korean', '') or g.get('english', '')},
+            'meaning': {'en': ex.get('english', ''), 'ko': ex.get('korean', '') or ex.get('english', '')},
+        })
+
+    # One grammar point after every 25 words, so grammar arrives early
+    items, g = [], iter(grammar_items)
+    for i, w in enumerate(word_items, 1):
+        items.append(w)
+        if i % 25 == 0:
+            nxt = next(g, None)
+            if nxt:
+                items.append(nxt)
+    items.extend(g)
+    return {'items': items}
+
+
 def write_kaiwa_bundles(data, out_static):
     """Write the kaiwa static/*.json bundles. Returns {filename: byte_size}."""
     bundle = {
@@ -598,6 +658,10 @@ def _build_to(OUT, base_url):
     page_id_map = build_page_id_map(data)
     print(f"components: {', '.join(components)}")
 
+    practice = json.dumps(build_practice_data(data), ensure_ascii=False, separators=(',', ':'))
+    (OUT / "static" / "practice-data.json").write_text(practice)
+    print(f"practice: practice-data.json ({len(practice.encode('utf-8')):,} bytes)")
+
     kaiwa_sizes = write_kaiwa_bundles(data, OUT / "static")
     for name, size in kaiwa_sizes.items():
         print(f"kaiwa: {name} ({size:,} bytes)")
@@ -675,6 +739,7 @@ def _build_to(OUT, base_url):
         "'static/kaiwa.js'", "'static/kaiwa-provider-anthropic.js'",
         "'static/kaiwa-provider-openai.js'", "'static/kaiwa-provider-deepseek.js'",
         "'static/kaiwa-i18n.js'", "'static/key-share.js'", "'static/kaiwa-data.json'",
+        "'static/practice.js'", "'static/jp-core-review.js'", "'static/practice-data.json'",
     ]
     for f in sorted(OUT.rglob("*.html")):
         rel_path = str(f.relative_to(OUT))

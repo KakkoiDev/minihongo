@@ -1221,6 +1221,11 @@ def gen_practice(candos, dialog_groups, dialogs, words, grammar, grammar_example
     parts = []
     parts.append(f'  <p>{ui("practice_intro", lang)}</p>\n\n')
 
+    # Daily spaced-repetition session (static/practice.js), first on the page
+    toc.append(('daily', ui('practice_daily_heading', lang), []))
+    parts.append(f'  <h2 id="daily" class="section-heading">{ui("practice_daily_heading", lang)}</h2>\n')
+    parts.append(f'  <div id="practice-app" data-lang="{lang}"><p class="practice-loading">{ui("kaiwa_loading", lang)}</p></div>\n\n')
+
     # Can-do checklist
     toc.append(('can-do', ui('practice_cando_heading', lang), []))
     parts.append(f'  <h2 id="can-do" class="section-heading">{ui("practice_cando_heading", lang)}</h2>\n')
@@ -1246,6 +1251,8 @@ def gen_practice(candos, dialog_groups, dialogs, words, grammar, grammar_example
     # Quiz: cloze items from each can-do's dialog
     toc.append(('quiz', ui('practice_quiz_heading', lang), []))
     parts.append(f'  <h2 id="quiz" class="section-heading">{ui("practice_quiz_heading", lang)}</h2>\n')
+    # The fixed question list stays available, folded away under the daily session
+    parts.append(f'  <details class="practice-browse"><summary>{ui("practice_browse", lang)}</summary>\n')
     for c in by_sort(candos):
         dg = dg_by_id.get(c['dialog_group_id'])
         if not dg:
@@ -1296,6 +1303,8 @@ def gen_practice(candos, dialog_groups, dialogs, words, grammar, grammar_example
         parts.append(f'    <h3>{ui("practice_quiz_grammar", lang)}</h3>\n')
         parts.extend(g_items)
         parts.append('  </section>\n')
+
+    parts.append('  </details>\n\n')
 
     # AI conversation partner: copyable prompt, word list interpolated from words.csv
     toc.append(('ai-partner', ui('practice_ai_heading', lang), []))

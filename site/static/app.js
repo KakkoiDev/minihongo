@@ -128,6 +128,9 @@ const playAudio = (btn) => {
   currentBtn = btn
 }
 
+// Practice builds its buttons on the fly and plays through the same path
+window.minihongoPlay = (btn) => playAudio(btn)
+
 const updatePlayButtons = () => {
   for (const btn of document.querySelectorAll('#content .play-btn')) {
     btn.disabled = !navigator.onLine
@@ -185,6 +188,19 @@ const restoreCandos = () => {
   for (const cb of document.querySelectorAll('#content .cando-check')) {
     cb.checked = localStorage.getItem(`cando:${cb.dataset.id}`) === '1'
   }
+}
+
+// Practice page: same reason as Kaiwa below - load the module once, then
+// re-invoke on every swap (initPracticePage no-ops on an already-bound root).
+let practiceLoadPromise = null
+const initPractice = () => {
+  const root = document.getElementById('practice-app')
+  if (!root) return
+  practiceLoadPromise ??= import(`${rootPath}static/practice.js?v={{CACHE_HASH}}`)
+    .catch(err => { practiceLoadPromise = null; throw err })
+  practiceLoadPromise
+    .then(() => window.initPracticePage())
+    .catch(() => { root.textContent = 'Could not load practice. Check your connection and reload.' })
 }
 
 // Kaiwa page: needs its own script since SPA-swapped content never runs
@@ -296,6 +312,7 @@ const bindContentLinks = () => {
   restoreCandos()
   bindGoingFurtherFilter()
   initKaiwa()
+  initPractice()
 }
 
 // Top nav links

@@ -36,6 +36,18 @@ Four versions of the entire site:
 
 Anki decks and PDF books are built for English, Japanese and Minihongo; the Korean site links the English ones.
 
+### Daily practice
+
+The Practice page opens with a short daily session over the 231 words and the
+9 core grammar points (`site/static/practice.js`): meaning, reverse and
+listening questions, a few new items a day, and progress saved in the browser
+only. Scheduling is JP Core's shared review module, copied unchanged as
+`site/static/jp-core-review.js` from JP Core `browser/review.js` at revision
+`363fb53952082b04d321087d7de48743e324dff6` (merged in KakkoiDev/jp-core#14). Echo uses the
+same file, so both apps store review state the same way. Change scheduling in
+JP Core first, then copy the file here. The session's items come from
+`static/practice-data.json`, built by `site/build.py`.
+
 ### Invite and install links
 
 A visitor's chosen language is remembered, and plain English URLs redirect to it.
