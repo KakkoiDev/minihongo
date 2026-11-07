@@ -101,10 +101,7 @@ function expireSharedKey() {
 
 function forgetSharedKey(provider) {
   if (KAIWA_KEY_STORAGE[provider]) localStorage.removeItem(KAIWA_KEY_STORAGE[provider])
-  if (localStorage.getItem(KAIWA_SHARED_SPEECH_STORAGE)) {
-    localStorage.removeItem(KAIWA_SPEECH_KEY_STORAGE)
-    localStorage.removeItem(KAIWA_SPEECH_MODE_STORAGE)
-  }
+  if (localStorage.getItem(KAIWA_SHARED_SPEECH_STORAGE)) localStorage.removeItem(KAIWA_SPEECH_KEY_STORAGE)
   for (const k of [KAIWA_SHARED_STORAGE, KAIWA_SHARED_EXP_STORAGE, KAIWA_SHARED_SPEECH_STORAGE]) localStorage.removeItem(k)
 }
 
@@ -166,7 +163,8 @@ function renderPicker(root, data) {
   const savedProvider = localStorage.getItem(KAIWA_PROVIDER_STORAGE) || 'anthropic'
   const savedKey = localStorage.getItem(KAIWA_KEY_STORAGE[savedProvider]) || ''
   const savedSpeechKey = localStorage.getItem(KAIWA_SPEECH_KEY_STORAGE) || ''
-  const savedSpeechMode = localStorage.getItem(KAIWA_SPEECH_MODE_STORAGE) || 'browser'
+  // Like Echo: Auto (browser recognition, then Groq Whisper) unless the learner chose one
+  const savedSpeechMode = localStorage.getItem(KAIWA_SPEECH_MODE_STORAGE) || 'auto'
   const savedStyle = localStorage.getItem(KAIWA_STYLE_STORAGE) || 'conversation'
   // Use capability detection, not a browser-name block. Mobile browsers can
   // change their speech support independently of their brand/version.
@@ -224,10 +222,14 @@ function renderPicker(root, data) {
       </details>
 
       <details class="kaiwa-details" id="kaiwa-speech-details">
-        <summary id="kaiwa-speech-summary">${t('voice_summary', { name: savedSpeechMode === 'groq' ? 'Groq' : 'Google' })}</summary>
+        <summary id="kaiwa-speech-summary">${t('voice_summary', { name: voiceName(savedSpeechMode) })}</summary>
         <div class="kaiwa-details-body">
           <fieldset class="kaiwa-field">
             <legend class="visually-hidden">${t('voice_legend')}</legend>
+            <label class="kaiwa-provider-opt">
+              <input type="radio" name="kaiwa-speech-mode" value="auto" ${savedSpeechMode === 'auto' ? 'checked' : ''}>
+              <span>${t('voice_auto')} <small>${t('voice_auto_note')}</small></span>
+            </label>
             <label class="kaiwa-provider-opt">
               <input type="radio" name="kaiwa-speech-mode" value="browser" ${savedSpeechMode === 'browser' ? 'checked' : ''}>
               <span>Google <small>${t('voice_google_note')}</small></span>
@@ -237,11 +239,11 @@ function renderPicker(root, data) {
               <span>Groq <small>${t('voice_groq_note')}</small></span>
             </label>
           </fieldset>
-          <label class="kaiwa-field" id="kaiwa-speech-key-field" ${savedSpeechMode === 'groq' ? '' : 'hidden'}>
+          <label class="kaiwa-field" id="kaiwa-speech-key-field">
             <span>${t('groq_key_label')}</span>
             <input type="password" id="kaiwa-speech-key" autocomplete="off" spellcheck="false" placeholder="gsk_...">
           </label>
-          <p class="kaiwa-key-hint" id="kaiwa-speech-key-hint" ${savedSpeechMode === 'groq' ? '' : 'hidden'}>${t('groq_key_hint')}</p>
+          <p class="kaiwa-key-hint" id="kaiwa-speech-key-hint">${t('groq_key_hint')}</p>
           <p class="kaiwa-status" id="kaiwa-speech-status"></p>
         </div>
       </details>
@@ -302,17 +304,15 @@ function renderPicker(root, data) {
 
   root.querySelectorAll('input[name="kaiwa-speech-mode"]').forEach(radio => {
     radio.addEventListener('change', () => {
-      const usesGroq = radio.value === 'groq' && radio.checked
       if (!radio.checked) return
-      speechKeyField.hidden = !usesGroq
-      speechKeyHint.hidden = !usesGroq
-      speechSummary.textContent = t('voice_summary', { name: usesGroq ? 'Groq' : 'Google' })
+      // The Groq key field stays visible in every mode (Auto uses it as fallback)
+      speechSummary.textContent = t('voice_summary', { name: voiceName(radio.value) })
       validate()
     })
   })
 
   const currentProvider = () => root.querySelector('input[name="kaiwa-provider"]:checked').value
-  const currentSpeechMode = () => root.querySelector('input[name="kaiwa-speech-mode"]:checked')?.value || 'browser'
+  const currentSpeechMode = () => root.querySelector('input[name="kaiwa-speech-mode"]:checked')?.value || 'auto'
   const currentTutorMode = () => root.querySelector('input[name="kaiwa-style"]:checked')?.value === 'tutor'
 
   const updateGoalSummary = () => {
@@ -374,14 +374,20 @@ function renderPicker(root, data) {
   const validate = () => {
     const speechMode = currentSpeechMode()
     const missingChatKey = !keyInput.value.trim()
-    const missingGroqKey = speechMode === 'groq' && !speechKeyInput.value.trim()
+    const hasGroqKey = !!speechKeyInput.value.trim()
+    const missingGroqKey = speechMode === 'groq' && !hasGroqKey
     const unavailableGoogle = speechMode === 'browser' && !hasRecognition
+    // Auto with no browser recognition and no Groq key: typing still works, so
+    // allow Start, but say how to get voice input.
+    const autoWithoutVoice = speechMode === 'auto' && !hasRecognition && !hasGroqKey
     startBtn.disabled = missingChatKey || missingGroqKey || unavailableGoogle
     speechStatus.textContent = missingGroqKey
       ? t('groq_key_missing')
       : unavailableGoogle
         ? t('google_unavailable')
-        : ''
+        : autoWithoutVoice
+          ? t('auto_needs_groq')
+          : ''
   }
 
   root.querySelectorAll('input[name="kaiwa-provider"]').forEach(r => r.addEventListener('change', refreshKeyField))
@@ -445,7 +451,8 @@ function renderPicker(root, data) {
     startSession(root, data, {
       providerId,
       apiKey,
-      speechApiKey: speechMode === 'groq' ? speechApiKey : '',
+      speechApiKey: speechMode === 'browser' ? '' : speechApiKey,
+      speechMode,
       cando,
       hasRecognition,
       hasRecording,
@@ -454,6 +461,10 @@ function renderPicker(root, data) {
       tutorFocus: tutorMode ? frequentMistakes(history, 5, topicSet) : [],
     })
   })
+}
+
+function voiceName(mode) {
+  return mode === 'groq' ? 'Groq' : mode === 'browser' ? 'Google' : t('voice_auto')
 }
 
 function escapeHtml(s) {
@@ -791,6 +802,7 @@ function startSession(root, data, opts) {
   let recordingStream = null
   let recordingTimer = null
   const LISTEN_WINDOW_MS = 30000
+  let browserRecognitionFailed = false // Auto mode: fall back to Groq Whisper
 
   const resetListeningUi = () => {
     micBtn.textContent = t('speak')
@@ -939,7 +951,10 @@ function startSession(root, data, opts) {
   }
 
   const beginListening = async () => {
+    // Groq mode always records for Whisper. Auto records only when the browser
+    // has no recognizer or it has already failed this session.
     const useApiRecording = !!opts.speechApiKey && 'MediaRecorder' in window
+      && (opts.speechMode === 'groq' || !opts.hasRecognition || browserRecognitionFailed)
     // MediaRecorder reuses the open stream. Chrome SpeechRecognition must own
     // the microphone itself, so its permission-check stream is released first.
     const permission = await requestMicPermission(useApiRecording)
@@ -1004,6 +1019,11 @@ function startSession(root, data, opts) {
         micHelp.hidden = false
         micHelp.open = true
         statusEl.textContent = t('speech_refused')
+      } else if ((event.error === 'network' || event.error === 'service-not-allowed')
+        && opts.speechMode === 'auto' && opts.speechApiKey && opts.hasRecording) {
+        // Auto: the browser's speech service is broken here; use Groq from now on
+        browserRecognitionFailed = true
+        statusEl.textContent = t('auto_switched_to_groq')
       } else if (event.error === 'network' || event.error === 'service-not-allowed') {
         // Preserve the microphone control: a temporary mobile network/service
         // failure must not permanently remove audio input from the session.

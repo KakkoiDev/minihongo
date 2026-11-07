@@ -398,10 +398,12 @@ const shareKeySection = document.getElementById('share-key-section')
 const shareKey = document.getElementById('share-key')
 const shareKeyOptions = document.getElementById('share-key-options')
 const shareKeyDays = document.getElementById('share-key-days')
+const shareKeyGroq = document.getElementById('share-key-groq')
+const shareKeyGroqRow = document.getElementById('share-key-groq-row')
 const shareKeyCode = document.getElementById('share-key-code')
 const shareKeyCopyCode = document.getElementById('share-key-copy-code')
 const SHARE_CODE_COPY_LABEL = shareKeyCopyCode?.innerHTML
-let sealed = null // { token, code, days }
+let sealed = null // { token, code, days, groq }
 let keyShareLoad = null
 
 const loadKeyShare = () => {
@@ -411,14 +413,17 @@ const loadKeyShare = () => {
   return keyShareLoad
 }
 
-const savedKaiwaKey = () => {
+const savedGroqKey = () => { try { return localStorage.getItem('kaiwa_key_groq_speech') || '' } catch { return '' } }
+
+// The saved chat key, plus the Groq speech key when the sender opts in
+const savedKaiwaKey = (withGroq = false) => {
   try {
     const provider = localStorage.getItem('kaiwa_provider') || 'anthropic'
     const key = localStorage.getItem(`kaiwa_key_${provider}`)
     if (!key) return null
     const payload = { provider, key }
-    const speechKey = localStorage.getItem('kaiwa_key_groq_speech')
-    if (speechKey && localStorage.getItem('kaiwa_speech_mode') === 'groq') payload.speechKey = speechKey
+    const speechKey = savedGroqKey()
+    if (withGroq && speechKey) payload.speechKey = speechKey
     return payload
   } catch { return null }
 }
@@ -437,15 +442,17 @@ const refreshShareUrl = async () => {
   const wantsKey = shareKey?.checked
   shareKeyOptions.hidden = !wantsKey
   const days = Number(shareKeyDays?.value || 0)
-  if (wantsKey && (!sealed || sealed.days !== days)) {
-    const payload = savedKaiwaKey()
+  const groq = !!(shareKeyGroq?.checked && savedGroqKey())
+  shareKeyGroqRow.hidden = !savedGroqKey()
+  if (wantsKey && (!sealed || sealed.days !== days || sealed.groq !== groq)) {
+    const payload = savedKaiwaKey(groq)
     const ks = await loadKeyShare()
     if (!payload || !ks) { shareKey.checked = false; shareKeyOptions.hidden = true }
     else {
       shareKeyCode.textContent = '…'
       shareUrl.value = ''
       const { token, code } = await ks.sealKey(payload, days)
-      sealed = { token, code, days }
+      sealed = { token, code, days, groq }
     }
   }
   if (sealed) {
@@ -461,6 +468,7 @@ if (shareDialog) {
   shareInstall.addEventListener('change', refreshShareUrl)
   shareKey?.addEventListener('change', refreshShareUrl)
   shareKeyDays?.addEventListener('change', refreshShareUrl)
+  shareKeyGroq?.addEventListener('change', refreshShareUrl)
   shareDialog.addEventListener('close', () => {
     // Forget the sealed key: reopening the dialog makes a fresh code
     sealed = null
@@ -812,8 +820,8 @@ const sharedKeyToken = (location.hash.match(/[#&]key=([A-Za-z0-9._-]+)/) || [])[
       if (shared.exp) localStorage.setItem('kaiwa_shared_exp', String(shared.exp))
       else localStorage.removeItem('kaiwa_shared_exp')
       if (shared.speechKey) {
+        // Kept as the Auto-mode fallback; the receiver's voice choice is untouched
         localStorage.setItem('kaiwa_key_groq_speech', shared.speechKey)
-        localStorage.setItem('kaiwa_speech_mode', 'groq')
         localStorage.setItem('kaiwa_shared_speech', '1')
       }
       // The encrypted key must not linger in history, bookmarks or a re-shared URL

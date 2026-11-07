@@ -8,6 +8,10 @@
 
 window.KAIWA_I18N = {
   en: {
+    auto_switched_to_groq: "Browser speech recognition failed here, so Kaiwa will use Groq Whisper. Tap Speak again.",
+    auto_needs_groq: "This browser has no speech recognition. Add a Groq key to speak, or type your replies.",
+    voice_auto_note: "Browser first, then Groq if it is unavailable or fails",
+    voice_auto: "Auto",
     shared_key_badge_until: "Using a key someone shared with you, until {date}.",
     shared_key_expired: "The shared key expired and was removed from this browser. Add your own key, or ask for a new invite.",
     shared_key_badge: "Using a key someone shared with you.",
@@ -42,7 +46,7 @@ window.KAIWA_I18N = {
     voice_legend: 'Voice service',
     voice_google_note: 'No extra key',
     voice_groq_note: 'API key required',
-    groq_key_label: 'Groq speech API key',
+    groq_key_label: "Groq speech API key (optional in Auto)",
     groq_key_hint: 'Groq has a free tier: sign in at <a href="https://console.groq.com/keys" target="_blank" rel="noopener">console.groq.com/keys</a>, choose <strong>Create API key</strong>, and paste the key (it starts with <code>gsk_</code>). Use it if Google voice does not work in your browser.',
     style_summary: 'Style: {name}',
     style_legend: 'Conversation style',
@@ -58,7 +62,7 @@ window.KAIWA_I18N = {
     goal_engineering_title: 'Engineering conversation',
     goal_engineering_sub: 'No specific task',
     start: 'Start',
-    groq_key_missing: 'Add a Groq API key, or choose Google voice.',
+    groq_key_missing: "Add a Groq API key, or choose Auto or Google voice.",
     google_unavailable: 'Google voice is not available in this browser. Choose Groq Whisper.',
     enter_api_key: 'Enter an API key to start.',
 
@@ -144,6 +148,10 @@ window.KAIWA_I18N = {
   },
 
   ko: {
+    auto_switched_to_groq: "이 환경에서 브라우저 음성 인식이 실패해서 Groq Whisper를 사용할게요. 말하기를 다시 누르세요.",
+    auto_needs_groq: "이 브라우저는 음성 인식을 지원하지 않아요. 말로 하려면 Groq 키를 입력하고, 아니면 입력해서 답하세요.",
+    voice_auto_note: "먼저 브라우저, 안 되면 Groq",
+    voice_auto: "자동",
     shared_key_badge_until: "다른 사람이 공유한 키를 {date}까지 사용 중이에요.",
     shared_key_expired: "공유된 키의 기한이 지나 이 브라우저에서 삭제했어요. 내 키를 입력하거나 새 초대를 요청하세요.",
     shared_key_badge: "다른 사람이 공유한 키를 사용 중이에요.",
@@ -177,7 +185,7 @@ window.KAIWA_I18N = {
     voice_legend: '음성 서비스',
     voice_google_note: '추가 키 필요 없음',
     voice_groq_note: 'API 키 필요',
-    groq_key_label: 'Groq 음성 API 키',
+    groq_key_label: "Groq 음성 API 키 (자동 모드에서는 선택)",
     groq_key_hint: 'Groq는 무료로 쓸 수 있어요. <a href="https://console.groq.com/keys" target="_blank" rel="noopener">console.groq.com/keys</a>에 로그인해서 <strong>Create API key</strong>를 선택하고, 키(<code>gsk_</code>로 시작해요)를 붙여 넣으세요. 브라우저에서 Google 음성이 작동하지 않을 때 사용하세요.',
     style_summary: '스타일: {name}',
     style_legend: '대화 스타일',
@@ -193,7 +201,7 @@ window.KAIWA_I18N = {
     goal_engineering_title: '엔지니어 대화',
     goal_engineering_sub: '정해진 과제 없음',
     start: '시작',
-    groq_key_missing: 'Groq API 키를 입력하거나 Google 음성을 선택하세요.',
+    groq_key_missing: "Groq API 키를 입력하거나 자동 또는 Google 음성을 선택하세요.",
     google_unavailable: '이 브라우저에서는 Google 음성을 사용할 수 없어요. Groq Whisper를 선택하세요.',
     enter_api_key: '시작하려면 API 키를 입력하세요.',
 
@@ -276,6 +284,10 @@ window.KAIWA_I18N = {
   },
 
   ja: {
+    auto_switched_to_groq: "この環境ではブラウザの音声認識が失敗したため、Groq Whisperを使います。もう一度「話す」を押してください。",
+    auto_needs_groq: "このブラウザは音声認識に対応していません。話すにはGroqキーを入力するか、文字で返事してください。",
+    voice_auto_note: "まずブラウザ、使えないときはGroq",
+    voice_auto: "自動",
     shared_key_badge_until: "共有されたキーを使っています（{date}まで）。",
     shared_key_expired: "共有されたキーの有効期限が切れたため、このブラウザから削除しました。自分のキーを入力するか、新しい招待を依頼してください。",
     shared_key_badge: "共有されたキーを使っています。",
@@ -309,7 +321,7 @@ window.KAIWA_I18N = {
     voice_legend: '音声サービス',
     voice_google_note: '追加のキー不要',
     voice_groq_note: 'APIキーが必要',
-    groq_key_label: 'Groq音声APIキー',
+    groq_key_label: "Groq音声APIキー（自動では任意）",
     groq_key_hint: 'Groqには無料枠があります。<a href="https://console.groq.com/keys" target="_blank" rel="noopener">console.groq.com/keys</a> にサインインし、<strong>Create API key</strong> を選んで、キー（<code>gsk_</code> で始まります）を貼り付けてください。ブラウザでGoogle音声が動かないときに使います。',
     style_summary: 'スタイル: {name}',
     style_legend: '会話のスタイル',
@@ -325,7 +337,7 @@ window.KAIWA_I18N = {
     goal_engineering_title: 'エンジニアの会話',
     goal_engineering_sub: '特定のタスクなし',
     start: '始める',
-    groq_key_missing: 'GroqのAPIキーを入力するか、Google音声を選んでください。',
+    groq_key_missing: "GroqのAPIキーを入力するか、自動またはGoogle音声を選んでください。",
     google_unavailable: 'このブラウザではGoogle音声を使えません。Groq Whisperを選んでください。',
     enter_api_key: '始めるにはAPIキーを入力してください。',
 

@@ -143,3 +143,4 @@ key_unlock_bad,This link is incomplete or damaged. Ask for a new invite link.,�
 key_unlock_unsupported,This browser cannot unlock shared keys. Open the link in an up-to-date browser.,이 브라우저에서는 공유 키를 열 수 없어요. 최신 브라우저에서 링크를 열어 주세요.,このブラウザでは共有キーを解除できません。最新のブラウザでリンクを開いてください。,
 key_unlock_done,Key unlocked and saved in this browser.,키를 열어 이 브라우저에 저장했어요.,キーを解除し、このブラウザに保存しました。,開【あ】けました。
 key_unlock_open_kaiwa,Start a conversation,회화 시작하기,会話を始める,話【はな】し始【はじ】める
+share_key_groq,Also include my Groq speech key (for voice input),Groq 음성 키도 포함하기 (음성 입력용),Groq音声キーも含める（音声入力用）,音【おと】を言【こと】葉【ば】にする物【もの】も与【あた】える
