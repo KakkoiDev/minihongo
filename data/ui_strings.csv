@@ -81,7 +81,7 @@ practice_quiz_heading,Quiz yourself,퀴즈로 확인하기,クイズ,少【す�
 practice_quiz_grammar,Grammar,문법,文法,言【こと】葉【ば】の使【つか】い方【かた】
 practice_ai_heading,Practice conversation with an AI,AI와 회화 연습,AIと会話練習,考【かんが】える物【もの】と話【はな】す
 practice_ai_body,"Copy this prompt into ChatGPT, Claude, or Gemini, then start with こんにちは. The AI speaks only minihongo and corrects you gently.","이 프롬프트를 ChatGPT, Claude, Gemini에 붙여 넣고 こんにちは로 시작해 보세요. AI는 미니혼고로만 말하고 부드럽게 고쳐 줘요.",このプロンプトをChatGPT・Claude・Geminiなどに貼り付けて、「こんにちは」から始めましょう。AIはミニ本語だけで話します。,この言葉【ことば】を考【かんが】える物【もの】にあげて、「こんにちは」と言【い】ってください。
-practice_kaiwa_link,"Want to speak instead of type? Try <a href=""kaiwa/"">Kaiwa mode</a> - a spoken conversation practice page, right in your browser, with your own AI provider key.","타이핑 대신 말로 연습하고 싶나요? <a href=""kaiwa/"">회화 모드</a>를 써 보세요. 브라우저에서 바로 쓰는 음성 회화 연습 페이지예요. 본인의 AI 제공업체 키가 필요해요.","話して練習したい方は、<a href=""kaiwa/"">会話モード</a>をお試しください。ブラウザだけで動く音声会話の練習ページです（自分のAIキーが必要です）。","口【くち】で話【はな】す<a href=""kaiwa/"">Kaiwa</a>もあります。"
+practice_kaiwa_link,"Want to speak instead of type? Try <a href=""kaiwa/"">Conversation</a>: spoken practice with an AI partner, right in your browser, using your own AI provider key.","타이핑 대신 말로 연습하고 싶나요? <a href=""kaiwa/"">회화 모드</a>를 써 보세요. 브라우저에서 바로 쓰는 음성 회화 연습 페이지예요. 본인의 AI 제공업체 키가 필요해요.","話して練習したい方は、<a href=""kaiwa/"">会話モード</a>をお試しください。ブラウザだけで動く音声会話の練習ページです（自分のAIキーが必要です）。","口【くち】で話【はな】す<a href=""kaiwa/"">所【ところ】</a>もあります。"
 practice_ai_show,Show prompt,프롬프트 보기,プロンプトを表示,言葉【ことば】を見【み】る
 practice_ai_copy,Copy prompt,프롬프트 복사,プロンプトをコピー,言葉【ことば】をもらう
 practice_ai_copied,Copied!,복사했어요!,コピーしました,もらいました
@@ -122,10 +122,10 @@ grammar_core_only,Show core points only,핵심만 보기,基本だけ表示,必�
 home_start_heading,Where to start,어디서 시작할까요,どこから始める？,どこから始【はじ】める
 home_cta,Start learning,학습 시작하기,学習を始める,知【し】る事【こと】を始【はじ】める
 home_invite_cta,Invite a friend,친구 초대하기,友達を招待する,好【す】きな人【ひと】にも教【おし】える
-kaiwa_heading,Kaiwa (会話): spoken practice,회화(会話): 말하기 연습,会話（Kaiwa）：話す練習,人【ひと】と話【はな】す
+kaiwa_heading,Conversation (会話): spoken practice,회화(会話): 말하기 연습,会話：話す練習,人【ひと】と話【はな】す
 kaiwa_intro,Practice a short spoken conversation in Japanese with an AI partner. You need your own AI API key: the guide below walks you through getting one in a few minutes.,"AI 상대와 일본어로 짧은 말하기 회화를 연습해요. 본인의 AI API 키가 필요한데, 아래 안내를 따라 하면 몇 분 만에 받을 수 있어요.",AIを相手に、日本語の短い会話を声で練習します。自分のAIのAPIキーが必要です。下の案内に沿えば数分で用意できます。,AIと日本【にほん】の言【こと】葉【ば】で話【はな】す。231の言【こと】葉【ば】だけを使【つか】う。
 kaiwa_loading,Loading…,불러오는 중…,読み込み中…,少【すこ】し待【ま】ってください…
-share_key_label,Include my AI key for Kaiwa (encrypted),회화용 내 AI 키도 보내기 (암호화),会話練習用の自分のAIキーも送る（暗号化）,AIと話【はな】すための私【わたし】の物【もの】も与【あた】える
+share_key_label,Include my AI key for Conversation practice (encrypted),회화용 내 AI 키도 보내기 (암호화),会話練習用の自分のAIキーも送る（暗号化）,AIと話【はな】すための私【わたし】の物【もの】も与【あた】える
 share_key_note,"Anyone with both the link and the unlock code can use this key and spend your credit. Share a separate key with a spending limit, and delete it in your provider’s console to stop access.","링크와 잠금 해제 코드를 둘 다 가진 사람은 이 키로 내 크레딧을 쓸 수 있어요. 사용 한도를 정한 별도의 키를 공유하고, 접근을 막으려면 제공업체 콘솔에서 키를 삭제하세요.",リンクと解除コードの両方を持つ人は、このキーで自分のクレジットを使えます。利用上限を設定した別のキーを共有し、止めたいときはプロバイダーの管理画面でキーを削除してください。,道【みち】と開【あ】ける言【こと】葉【ば】を持【も】つ人【ひと】は、あなたのお金【かね】を使【つか】える。
 share_key_expiry,Stops working after,사용 기한,有効期限,いつまで使【つか】える
 share_key_days_7,7 days,7일,7日,七【なな】日【にち】
@@ -134,7 +134,7 @@ share_key_days_0,No limit,제한 없음,無期限,いつまでも
 share_key_code_label,"Unlock code: send it separately, not with the link",잠금 해제 코드: 링크와 따로 보내세요,解除コード：リンクとは別に送ってください,開【あ】ける言【こと】葉【ば】：道【みち】と同【おな】じ時【とき】に与【あた】えない
 share_key_copy_code,Copy code,코드 복사,コードをコピー,言【こと】葉【ば】をもらう
 key_unlock_heading,Someone shared an AI key with you,누군가 AI 키를 공유했어요,AIキーが共有されました,AIと話【はな】すための物【もの】をもらいました
-key_unlock_body,"It lets you use Kaiwa, the spoken-practice page, without your own AI account. Enter the unlock code they sent you separately. The key is decrypted on this device and saved only in this browser.",내 AI 계정 없이도 말하기 연습 페이지인 회화를 쓸 수 있어요. 따로 받은 잠금 해제 코드를 입력하세요. 키는 이 기기에서 해독되고 이 브라우저에만 저장돼요.,自分のAIアカウントがなくても、会話練習ページを使えます。別に受け取った解除コードを入力してください。キーはこの端末で復号され、このブラウザにだけ保存されます。,これでAIと話【はな】せる。他【ほか】の時【とき】にもらった開【あ】ける言【こと】葉【ば】を書【か】いてください。
+key_unlock_body,"It lets you use Conversation, the spoken-practice page, without your own AI account. Enter the unlock code they sent you separately. The key is decrypted on this device and saved only in this browser.",내 AI 계정 없이도 말하기 연습 페이지인 회화를 쓸 수 있어요. 따로 받은 잠금 해제 코드를 입력하세요. 키는 이 기기에서 해독되고 이 브라우저에만 저장돼요.,自分のAIアカウントがなくても、会話練習ページを使えます。別に受け取った解除コードを入力してください。キーはこの端末で復号され、このブラウザにだけ保存されます。,これでAIと話【はな】せる。他【ほか】の時【とき】にもらった開【あ】ける言【こと】葉【ば】を書【か】いてください。
 key_unlock_btn,Unlock,잠금 해제,解除する,開【あ】ける
 key_unlock_working,Unlocking…,잠금 해제 중…,解除中…,開【あ】けている…
 key_unlock_wrong,That code does not unlock this key. Check it and try again.,이 코드로는 키를 열 수 없어요. 확인하고 다시 시도하세요.,このコードではキーを解除できません。確認してもう一度お試しください。,この言【こと】葉【ば】では開【あ】かない。また書【か】いてください。

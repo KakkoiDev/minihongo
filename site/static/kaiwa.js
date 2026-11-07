@@ -305,6 +305,7 @@ function renderPicker(root, data) {
   root.querySelectorAll('input[name="kaiwa-speech-mode"]').forEach(radio => {
     radio.addEventListener('change', () => {
       if (!radio.checked) return
+      localStorage.setItem(KAIWA_SPEECH_MODE_STORAGE, radio.value)
       // The Groq key field stays visible in every mode (Auto uses it as fallback)
       speechSummary.textContent = t('voice_summary', { name: voiceName(radio.value) })
       validate()
@@ -390,7 +391,10 @@ function renderPicker(root, data) {
           : ''
   }
 
-  root.querySelectorAll('input[name="kaiwa-provider"]').forEach(r => r.addEventListener('change', refreshKeyField))
+  root.querySelectorAll('input[name="kaiwa-provider"]').forEach(r => r.addEventListener('change', () => {
+    localStorage.setItem(KAIWA_PROVIDER_STORAGE, currentProvider())
+    refreshKeyField()
+  }))
   root.querySelectorAll('input[name="kaiwa-cando"]').forEach(r => r.addEventListener('change', () => {
     updateGoalSummary()
     validate()
@@ -403,8 +407,30 @@ function renderPicker(root, data) {
       updateGoalAvailability()
     })
   })
-  keyInput.addEventListener('input', validate)
-  speechKeyInput.addEventListener('input', validate)
+  // Save keys as they are typed, so the invite dialog and the next visit see
+  // them without the learner having to press Start first.
+  const saveTypedKey = (storageKey, value) => {
+    if (value) localStorage.setItem(storageKey, value)
+    else localStorage.removeItem(storageKey)
+  }
+  keyInput.addEventListener('input', () => {
+    const providerId = currentProvider()
+    const value = keyInput.value.trim()
+    if (localStorage.getItem(KAIWA_SHARED_STORAGE) === providerId
+      && localStorage.getItem(KAIWA_KEY_STORAGE[providerId]) !== value) {
+      // Edited a shared key: it is now the learner's own
+      for (const k of [KAIWA_SHARED_STORAGE, KAIWA_SHARED_EXP_STORAGE]) localStorage.removeItem(k)
+    }
+    saveTypedKey(KAIWA_KEY_STORAGE[providerId], value)
+    localStorage.setItem(KAIWA_PROVIDER_STORAGE, providerId)
+    validate()
+  })
+  speechKeyInput.addEventListener('input', () => {
+    const value = speechKeyInput.value.trim()
+    if (localStorage.getItem(KAIWA_SPEECH_KEY_STORAGE) !== value) localStorage.removeItem(KAIWA_SHARED_SPEECH_STORAGE)
+    saveTypedKey(KAIWA_SPEECH_KEY_STORAGE, value)
+    validate()
+  })
 
   refreshKeyField()
   updateGoalAvailability()

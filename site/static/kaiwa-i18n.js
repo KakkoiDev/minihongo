@@ -8,7 +8,7 @@
 
 window.KAIWA_I18N = {
   en: {
-    auto_switched_to_groq: "Browser speech recognition failed here, so Kaiwa will use Groq Whisper. Tap Speak again.",
+    auto_switched_to_groq: "Browser speech recognition failed here, so voice input will use Groq Whisper. Tap Speak again.",
     auto_needs_groq: "This browser has no speech recognition. Add a Groq key to speak, or type your replies.",
     voice_auto_note: "Browser first, then Groq if it is unavailable or fails",
     voice_auto: "Auto",
@@ -27,7 +27,7 @@ window.KAIWA_I18N = {
     provider_legend: 'AI provider',
     api_key_label: 'API key',
     key_guide_summary: 'How do I get an API key?',
-    key_guide_intro: 'Kaiwa uses your own AI account, so there is no Minihongo sign-up or subscription. You pay the AI provider directly, usually a few cents per conversation.',
+    key_guide_intro: 'Conversation practice uses your own AI account, so there is no Minihongo sign-up or subscription. You pay the AI provider directly, usually a few cents per conversation.',
     key_guide_privacy: "Your key is saved only in this browser and is sent only to the provider you pick, never to Minihongo. You can delete the key in the provider's console at any time.",
     key_have_account: 'Already have an account? Get a key at {link}',
     guide_anthropic_1: 'Create an account at <a href="https://console.anthropic.com/" target="_blank" rel="noopener">console.anthropic.com</a>.',
