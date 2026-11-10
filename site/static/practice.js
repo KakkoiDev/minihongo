@@ -21,6 +21,7 @@ import {
 
 const STORAGE_KEY = 'practice_v1'
 const SIZE_KEY = 'practice_size'
+const PICTURE_KEY = 'practice_pictures'
 const NEW_PER_DAY = 10
 const SIZES = [5, 10, 20]
 const REVIEW_LOG_LIMIT = 30
@@ -60,6 +61,9 @@ const STRINGS = {
     more: 'Practice more',
     grammar_point: 'Grammar',
     again_label: 'Once more',
+    picture_mode: 'Pictures instead of translations',
+    q_picture: 'Which picture matches?',
+    q_picture_word: 'Which is the Japanese word?',
   },
   ko: {
     loading: '불러오는 중…',
@@ -92,6 +96,9 @@ const STRINGS = {
     more: '더 연습하기',
     grammar_point: '문법',
     again_label: '한 번 더',
+    picture_mode: '번역 대신 그림 사용',
+    q_picture: '맞는 그림은 어느 것일까요?',
+    q_picture_word: '일본어로는 어느 것일까요?',
   },
   ja: {
     loading: '読み込み中…',
@@ -123,6 +130,9 @@ const STRINGS = {
     more: 'もっと練習する',
     grammar_point: '文法',
     again_label: 'もう一度',
+    picture_mode: '翻訳の代わりに絵を使う',
+    q_picture: 'どの絵？',
+    q_picture_word: '日本語ではどれ？',
   },
   mh: {
     known: '知【し】っている',
@@ -149,6 +159,9 @@ const STRINGS = {
     done_body: '{total}の中【なか】で{right}が良【よ】い。',
     more: 'もっとする',
     again_label: 'また',
+    picture_mode: '言【こと】葉【ば】の代【か】わりに絵【え】を使【つか】う',
+    q_picture: 'どの絵【え】？',
+    q_picture_word: 'どの言【こと】葉【ば】？',
   },
 }
 
@@ -310,6 +323,8 @@ function renderHome(root, data, state) {
   let size = SIZES[1]
   try { size = Number(localStorage.getItem(SIZE_KEY)) || size } catch {}
   if (!SIZES.includes(size)) size = SIZES[1]
+  let pictures = true
+  try { pictures = localStorage.getItem(PICTURE_KEY) !== '0' } catch {}
   const canStart = s.due > 0 || s.newAvailable > 0
   const pct = n => (s.total ? (100 * n) / s.total : 0)
 
@@ -327,6 +342,7 @@ function renderHome(root, data, state) {
       </p>
       <p class="practice-today">${s.due ? tr('due', { n: s.due }) : tr('due_none')}${s.newAvailable ? ` · ${tr('new_today', { n: s.newAvailable })}` : ''}</p>
       ${canStart ? `
+        <label class="practice-picture-toggle"><input type="checkbox" id="practice-pictures"${pictures ? ' checked' : ''}> <span>${tr('picture_mode')}</span></label>
         <div class="practice-start">
           <fieldset class="practice-sizes">
             <legend>${tr('size_label')}</legend>
@@ -340,13 +356,15 @@ function renderHome(root, data, state) {
   `
   root.querySelector('#practice-start')?.addEventListener('click', () => {
     const chosen = Number(root.querySelector('input[name="practice-size"]:checked')?.value) || size
+    const usePictures = root.querySelector('#practice-pictures')?.checked !== false
     try { localStorage.setItem(SIZE_KEY, String(chosen)) } catch {}
+    try { localStorage.setItem(PICTURE_KEY, usePictures ? '1' : '0') } catch {}
     const steps = planSession(items, state, chosen)
-    if (steps.length) runSession(root, data, state, items, steps)
+    if (steps.length) runSession(root, data, state, items, steps, usePictures)
   })
 }
 
-function runSession(root, data, state, items, steps) {
+function runSession(root, data, state, items, steps, usePictures) {
   let index = 0
   let right = 0
   let graded = 0
@@ -375,12 +393,14 @@ function runSession(root, data, state, items, steps) {
     const day = today()
     state.newDay = { date: day, count: (state.newDay.date === day ? state.newDay.count : 0) + 1 }
     saveState(state)
+    const visual = usePictures && item.kind === 'word' && item.image
     root.innerHTML = `
       <div class="practice-card">
         ${header()}
         <p class="practice-badge">${tr('new_badge')}${item.kind === 'grammar' ? ` · ${tr('grammar_point')}: ${escapeHtml(item.point?.[lang] || item.point?.en || '')}` : ''}</p>
+        ${visual ? `<img class="practice-image practice-image--prompt" src="${escapeHtml(item.image)}" width="128" height="128" alt="">` : ''}
         <p class="practice-jp" lang="ja">${ruby(item.jp)} ${playButton(item)}</p>
-        <p class="practice-meaning">${ruby(meaningOf(item))}</p>
+        ${visual ? '' : `<p class="practice-meaning">${ruby(meaningOf(item))}</p>`}
         <div class="practice-actions"><button type="button" class="btn btn-primary" id="practice-next">${tr('got_it')}</button></div>
       </div>`
     bindPlay(root)
@@ -394,15 +414,20 @@ function runSession(root, data, state, items, steps) {
     const { item } = step
     const rec = state.items[item.id]
     const { skill: mode, form } = questionMode(item, rec, step.first)
+    const visual = usePictures && item.kind === 'word' && item.image
     const others = distractors(item, items, mode)
     const options = shuffle([item, ...others])
-    const optionHtml = i => (mode === 'writing'
-      ? `<span lang="ja">${ruby(i.jp)}</span>`
-      : `<span>${ruby(meaningOf(i))}</span>`)
+    const optionHtml = i => visual && mode !== 'writing'
+      ? `<img class="practice-image" src="${escapeHtml(i.image)}" width="96" height="96" alt="">`
+      : mode === 'writing'
+        ? `<span lang="ja">${ruby(i.jp)}</span>`
+        : `<span>${ruby(meaningOf(i))}</span>`
     const blank = '<span class="practice-blank" aria-label="blank">＿＿＿</span>'
     const prompt = form === 'sentence'
       ? `<p class="practice-sentence-trans">${ruby(item.cloze.meaning[lang] || item.cloze.meaning.en)}</p>
          <p class="practice-jp practice-jp--sentence" lang="ja">${ruby(item.cloze.jp).replace('＿＿＿', blank)}</p>`
+      : visual && mode === 'writing'
+        ? `<img class="practice-image practice-image--prompt" src="${escapeHtml(item.image)}" width="128" height="128" alt="">`
       : mode === 'listening'
         ? `<p class="practice-listen">${playButton(item, true)}</p>`
         : mode === 'writing'
@@ -412,7 +437,7 @@ function runSession(root, data, state, items, steps) {
     root.innerHTML = `
       <div class="practice-card">
         ${header()}
-        <p class="practice-question">${tr(`q_${form}`)}${item.kind === 'grammar' ? ` <span class="practice-badge">${tr('grammar_point')}</span>` : ''}</p>
+        <p class="practice-question">${tr(visual ? (mode === 'writing' ? 'q_picture_word' : 'q_picture') : `q_${form}`)}${item.kind === 'grammar' ? ` <span class="practice-badge">${tr('grammar_point')}</span>` : ''}</p>
         ${prompt}
         <div class="practice-options" role="group">
           ${options.map((o, n) => `<button type="button" class="practice-option" data-id="${escapeHtml(o.id)}"><kbd>${n + 1}</kbd>${optionHtml(o)}</button>`).join('')}
@@ -459,7 +484,7 @@ function runSession(root, data, state, items, steps) {
       feedback.innerHTML = `
         <p class="practice-verdict ${ok ? 'is-right' : 'is-wrong'}">${tr(ok ? 'correct' : 'wrong')}</p>
         <p class="practice-jp practice-jp--answer" lang="ja">${ruby(shown.jp)} ${playButton(shown)}</p>
-        <p class="practice-meaning">${ruby(shown.meaning)}</p>
+        ${visual ? '' : `<p class="practice-meaning">${ruby(shown.meaning)}</p>`}
         <div class="practice-actions"><button type="button" class="btn btn-primary" id="practice-next">${tr(index + 1 >= steps.length ? 'finish' : 'next')}</button></div>`
       bindPlay(feedback)
       if (mode !== 'listening') play(feedback)

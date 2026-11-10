@@ -539,6 +539,83 @@ h3.section-heading {
   }
 }
 
+/* === Visual vocabulary === */
+.vocab-display {
+  position: sticky;
+  top: 0.5rem;
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  width: fit-content;
+  max-width: 100%;
+  align-items: center;
+  gap: 0.25rem;
+  margin-block: 0.75rem 1rem;
+  padding: 0.35rem;
+  border: 1px solid var(--border);
+  border-radius: 0.7rem;
+  background: color-mix(in srgb, var(--bg) 94%, transparent);
+  backdrop-filter: blur(8px);
+
+  & > span { padding-inline: 0.45rem; color: var(--text-muted); font-size: 0.85rem; }
+  & button {
+    border: 1px solid transparent;
+    border-radius: 0.45rem;
+    padding: 0.35rem 0.6rem;
+    background: transparent;
+    color: var(--text);
+    cursor: pointer;
+  }
+  & button.active { border-color: var(--accent); background: var(--bg-raised); color: var(--accent); font-weight: 700; }
+  & button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+}
+.vocab-word { display: flex; align-items: center; gap: 0.55rem; }
+.word-image-button {
+  flex: none;
+  display: inline-grid;
+  place-items: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  padding: 0;
+  border: 0;
+  border-radius: 0.55rem;
+  overflow: hidden;
+  background: #f1eadc;
+  cursor: zoom-in;
+
+  & img { display: block; width: 100%; height: 100%; object-fit: contain; }
+  &:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+}
+#content[data-vocab-mode="text"] .word-image-button { display: none; }
+#content[data-vocab-mode="image"] .vocab-meaning { display: none; }
+#content[data-vocab-mode="image"] .compact-table th:nth-child(2) { display: none; }
+.word-image-dialog {
+  width: min(22rem, calc(100% - 2rem));
+  padding: 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  background: var(--bg);
+  color: var(--text);
+  text-align: center;
+
+  &::backdrop { background: rgb(0 0 0 / 0.55); }
+  & img { width: min(16rem, 100%); aspect-ratio: 1; object-fit: contain; border-radius: 0.8rem; background: #f1eadc; }
+  & p { margin: 0.75rem 0 0; font-family: var(--jp); font-size: 1.5rem; }
+}
+.word-image-dialog__close {
+  position: absolute;
+  inset-block-start: 0.5rem;
+  inset-inline-end: 0.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 0;
+  border-radius: 50%;
+  background: var(--bg-raised);
+  color: var(--text);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
 /* === Lesson nav === */
 .lesson-nav {
   display: flex;
@@ -2406,6 +2483,16 @@ html:lang(ko) {
 
 .practice-hint,
 .practice-today { font-size: 0.9rem; color: var(--text-muted); }
+.practice-picture-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  width: fit-content;
+  cursor: pointer;
+  font-weight: 600;
+
+  & input { inline-size: 1.15rem; block-size: 1.15rem; accent-color: var(--accent); }
+}
 
 .practice-step-head {
   display: grid;
@@ -2484,6 +2571,26 @@ span.practice-badge { margin-inline-start: 0.35rem; }
   &[disabled] { cursor: default; opacity: 0.7; }
   &.is-right { border-color: #2E8B57; background: color-mix(in srgb, #2E8B57 12%, var(--bg)); opacity: 1; }
   &.is-wrong { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 10%, var(--bg)); opacity: 1; }
+}
+
+.practice-image {
+  display: block;
+  width: 6rem;
+  height: 6rem;
+  object-fit: contain;
+  border-radius: 0.6rem;
+  background: #f1eadc;
+}
+.practice-image--prompt {
+  width: 8rem;
+  height: 8rem;
+  margin-inline: auto;
+}
+.practice-options:has(.practice-image) {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  & .practice-option { justify-content: center; min-height: 7.5rem; }
+  & kbd { align-self: flex-start; }
 }
 
 .practice-feedback:empty { display: none; }

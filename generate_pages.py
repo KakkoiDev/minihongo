@@ -382,8 +382,25 @@ def gen_vocabulary(categories, words, lang):
     th_meaning = ui('th_meaning', lang)
     th_example = ui('th_example', lang)
 
+    mode_copy = {
+        'en': ('Meaning display', 'Text', 'Pictures', 'Both', 'Open picture', 'Close'),
+        'ko': ('뜻 표시', '글', '그림', '둘 다', '그림 크게 보기', '닫기'),
+        'ja': ('意味の表示', '文字', '絵', '両方', '絵を大きく見る', '閉じる'),
+        'mh': ('見【み】せる物【もの】', '言【こと】葉【ば】', '絵【え】', '両【りょう】方【ほう】', '絵【え】を大【おお】きく見【み】る', '閉【と】じる'),
+    }[lang]
+    label, text_label, image_label, both_label, open_label, close_label = map(to_ruby_html, mode_copy)
     toc = []
-    parts = []
+    parts = [
+        '  <div class="vocab-display" role="group" aria-label="' + strip_html(label) + '">\n',
+        f'    <span>{label}</span>',
+        f'<button type="button" data-vocab-mode="text">{text_label}</button>',
+        f'<button type="button" data-vocab-mode="image">{image_label}</button>',
+        f'<button type="button" data-vocab-mode="both">{both_label}</button>\n',
+        '  </div>\n',
+        '  <dialog class="word-image-dialog" id="word-image-dialog">'
+        f'<button type="button" class="word-image-dialog__close" data-word-image-close aria-label="{strip_html(close_label)}">×</button>'
+        '<img alt=""><p lang="ja"></p></dialog>\n',
+    ]
     for cat in cats:
         cat_words = by_sort(words_by_cat.get(cat['id'], []))
         slug = slugify(cat['name_english'])
@@ -405,7 +422,17 @@ def gen_vocabulary(categories, words, lang):
             example = to_ruby_html(w['example_minihongo'])
             pb_w = play_btn('w', w.get('audio_word', ''))
             pb_e = play_btn('w', w.get('audio_example', ''))
-            parts.append(f'      <tr><td lang="ja">{pb_w}{word}</td><td>{meaning}</td><td lang="ja">{pb_e}{example}</td></tr>\n')
+            image = f'/static/word-images/{w["id"]}.png'
+            image_button = (
+                f'<button type="button" class="word-image-button" data-word-image="{image}" '
+                f'data-word-label="{strip_furigana(w["minihongo"])}" aria-label="{strip_html(open_label)}">'
+                f'<img src="{image}" width="56" height="56" loading="lazy" alt=""></button>'
+            )
+            parts.append(
+                f'      <tr data-word-id="{w["id"]}"><td lang="ja"><span class="vocab-word">'
+                f'{image_button}<span>{pb_w}{word}</span></span></td>'
+                f'<td class="vocab-meaning">{meaning}</td><td lang="ja">{pb_e}{example}</td></tr>\n'
+            )
         parts.append('    </tbody>\n')
         parts.append('  </table></div>\n')
         note = t(cat, 'note', lang)

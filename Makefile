@@ -1,12 +1,12 @@
-.PHONY: build check serve watch _rebuild lint-haiku lint-vocab lint-schema lint-audio-hash freshness audio audio-download audio-release anki anki-restyle anki-download anki-release pdf pdf-download pdf-release pdf-print deploy
+.PHONY: build check serve watch _rebuild lint-haiku lint-vocab lint-images lint-schema lint-audio-hash freshness audio audio-download audio-release anki anki-restyle anki-download anki-release pdf pdf-download pdf-release pdf-print deploy
 
 PORT ?= 3000
 
-build: lint-vocab
+build: lint-vocab lint-images
 	python3 generate_pages.py
 	python3 site/build.py
 
-check: lint-vocab lint-haiku lint-schema lint-audio-hash
+check: lint-vocab lint-images lint-haiku lint-schema lint-audio-hash
 	python3 generate_pages.py
 	python3 site/lint.py
 	python3 validate_no_english_leak.py
@@ -37,6 +37,9 @@ lint-haiku:
 
 lint-vocab:
 	python3 validate_vocab.py
+
+lint-images:
+	python3 validate_word_images.py
 
 lint-schema:
 	uv run validate_schema.py

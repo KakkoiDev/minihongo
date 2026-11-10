@@ -186,6 +186,30 @@ const applyCoreOnly = () => {
   render()
 }
 
+// Vocabulary pictures can replace translations entirely. Keep the choice
+// across editions and visits; Japanese, ruby and audio are always available.
+const applyVocabularyMode = () => {
+  const controls = document.querySelector('.vocab-display')
+  if (!controls) return
+  let mode = 'both'
+  try { mode = localStorage.getItem('vocab_display') || mode } catch {}
+  if (!['text', 'image', 'both'].includes(mode)) mode = 'both'
+  const render = () => {
+    document.getElementById('content').dataset.vocabMode = mode
+    for (const btn of controls.querySelectorAll('[data-vocab-mode]')) {
+      const on = btn.dataset.vocabMode === mode
+      btn.classList.toggle('active', on)
+      btn.setAttribute('aria-pressed', String(on))
+    }
+  }
+  for (const btn of controls.querySelectorAll('[data-vocab-mode]')) btn.onclick = () => {
+    mode = btn.dataset.vocabMode
+    try { localStorage.setItem('vocab_display', mode) } catch {}
+    render()
+  }
+  render()
+}
+
 // Practice page: real-life goals. Ticks live in localStorage; the progress
 // line and the done style follow them.
 const renderCandoProgress = () => {
@@ -331,6 +355,7 @@ const bindContentLinks = () => {
   bindPlayButtons()
   applyListenFirst()
   applyCoreOnly()
+  applyVocabularyMode()
   restoreCandos()
   bindGoingFurtherFilter()
   initKaiwa()
@@ -582,6 +607,20 @@ document.addEventListener('change', (e) => {
 })
 
 document.addEventListener('click', (e) => {
+  const imageButton = e.target.closest?.('.word-image-button')
+  if (imageButton) {
+    const dialog = document.getElementById('word-image-dialog')
+    if (dialog) {
+      dialog.querySelector('img').src = imageButton.dataset.wordImage
+      dialog.querySelector('p').textContent = imageButton.dataset.wordLabel
+      dialog.showModal()
+    }
+    return
+  }
+  if (e.target.closest?.('[data-word-image-close]')) {
+    document.getElementById('word-image-dialog')?.close()
+    return
+  }
   const copy = e.target.closest?.('#copy-prompt')
   if (copy) {
     const text = document.getElementById('ai-prompt')?.textContent || ''
