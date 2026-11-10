@@ -92,6 +92,9 @@ def skeleton_paths(mask):
 
 def path_data(chain, scale=0.5):
     points = [(x * scale, y * scale) for y, x in chain]
+    length = sum(np.linalg.norm(np.array(b) - np.array(a)) for a, b in zip(points, points[1:]))
+    if length < 4:
+        return ''
     points = rdp(points, 0.8)
     if len(points) < 2:
         return ''
@@ -117,15 +120,26 @@ def convert(source, target, render_path):
     ], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     image = Image.open(render_path)
     black, red = masks(image)
-    compact = []
-    red_lines = red.copy()
-    red_labels = label(red)
-    for region in regionprops(red_labels):
-        if 20 <= region.area <= 900 and region.solidity > 0.82 and region.eccentricity < 0.8:
-            red_lines[red_labels == region.label] = False
-            cy, cx = region.centroid
-            radius = math.sqrt(region.area / math.pi) / 2
-            compact.append(f'<circle cx="{cx/2:.1f}" cy="{cy/2:.1f}" r="{radius:.1f}"/>')
+    def split_compact(mask):
+        compact = []
+        lines = mask.copy()
+        labels = label(mask)
+        for region in regionprops(labels):
+            if 20 <= region.area <= 900 and region.solidity > 0.82 and region.eccentricity < 0.8:
+                lines[labels == region.label] = False
+                cy, cx = region.centroid
+                radius = max(3, math.sqrt(region.area / math.pi) / 2)
+                compact.append((cx / 2, cy / 2, radius))
+        return lines, compact
+
+    black_lines, black_compact = split_compact(black)
+    red_lines, red_compact = split_compact(red)
+
+    def circles(parts):
+        result = []
+        for cx, cy, radius in parts:
+            result.append(f'<circle cx="{cx:.1f}" cy="{cy:.1f}" r="{radius:.1f}"/>')
+        return result
 
     def paths_for(mask):
         result = []
@@ -135,15 +149,17 @@ def convert(source, target, render_path):
                 result.append(f'<path d="{data}"/>')
         return result
 
-    paths = paths_for(black)
+    paths = paths_for(black_lines)
     accents = paths_for(red_lines)
+    stroke_width = 6 if source.stem == 'word-120' else 5
     svg = (
         '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">'
-        f'<g fill="none" stroke="{INK}" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">'
+        f'<g fill="none" stroke="{INK}" stroke-width="{stroke_width}" stroke-linecap="round" stroke-linejoin="round">'
         + ''.join(paths) + '</g>'
-        f'<g fill="none" stroke="{RED}" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">'
+        f'<g fill="{INK}" stroke="none">' + ''.join(circles(black_compact)) + '</g>'
+        f'<g fill="none" stroke="{RED}" stroke-width="{stroke_width}" stroke-linecap="round" stroke-linejoin="round">'
         + ''.join(accents) + '</g>'
-        f'<g fill="{RED}">' + ''.join(compact) + '</g></svg>\n'
+        f'<g fill="{RED}" stroke="none">' + ''.join(circles(red_compact)) + '</g></svg>\n'
     )
     target.write_text(svg, encoding='utf-8')
 

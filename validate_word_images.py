@@ -35,8 +35,11 @@ def validate_svg(path):
     text = path.read_text(encoding='utf-8')
     if 'stroke-linecap="round"' not in text or 'stroke-linejoin="round"' not in text:
         errors.append('SVG does not use the shared rounded stroke system')
-    if 'stroke-width="4"' not in text and 'stroke-width="6"' not in text:
-        errors.append('SVG does not use an approved 4px or 6px stroke width')
+    if 'stroke-width="5"' not in text and 'stroke-width="6"' not in text:
+        errors.append('SVG does not use an approved 5px or 6px stroke width')
+    for node in root.iter():
+        if node.tag.rsplit('}', 1)[-1] == 'circle' and float(node.get('r', '0')) < 3:
+            errors.append('SVG contains a dot smaller than the 3px visibility minimum')
     allowed = {'#221c18', '#b5372b', 'none'}
     paints = {node.get(key) for node in root.iter() for key in ('fill', 'stroke') if node.get(key)}
     if not paints <= allowed:
@@ -80,7 +83,7 @@ def validate():
     if pngs:
         errors.append(f'{len(pngs)} legacy PNG file(s) remain beside the SVG set')
     total = sum(path.stat().st_size for path in IMAGES.glob('*.svg'))
-    if total > 450_000:
+    if total > 300_000:
         errors.append(f'vector set is too heavy: {total:,} bytes')
     return errors
 
