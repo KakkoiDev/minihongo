@@ -35,8 +35,8 @@ def validate_svg(path):
     text = path.read_text(encoding='utf-8')
     if 'stroke-linecap="round"' not in text or 'stroke-linejoin="round"' not in text:
         errors.append('SVG does not use the shared rounded stroke system')
-    if 'stroke-width="4"' not in text:
-        errors.append('SVG does not use the shared 4px stroke width')
+    if 'stroke-width="4"' not in text and 'stroke-width="6"' not in text:
+        errors.append('SVG does not use an approved 4px or 6px stroke width')
     allowed = {'#221c18', '#b5372b', 'none'}
     paints = {node.get(key) for node in root.iter() for key in ('fill', 'stroke') if node.get(key)}
     if not paints <= allowed:

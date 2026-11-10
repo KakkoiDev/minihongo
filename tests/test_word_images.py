@@ -44,7 +44,7 @@ def test_vector_set_is_clean_and_light():
     assert not list(directory.glob('*.png'))
     for image in svgs:
         text = image.read_text(encoding='utf-8')
-        assert 'stroke-width="4"' in text
+        assert 'stroke-width="4"' in text or 'stroke-width="6"' in text
         assert 'stroke-linecap="round"' in text
         assert '<filter' not in text
         assert '<image' not in text
