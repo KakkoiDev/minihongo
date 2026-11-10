@@ -37,6 +37,19 @@ def test_every_picture_is_a_small_real_svg():
         assert '<image' not in image.read_text(encoding='utf-8')
 
 
+def test_vector_set_is_clean_and_light():
+    directory = ROOT / 'site' / 'static' / 'word-images'
+    svgs = list(directory.glob('*.svg'))
+    assert sum(image.stat().st_size for image in svgs) <= 450_000
+    assert not list(directory.glob('*.png'))
+    for image in svgs:
+        text = image.read_text(encoding='utf-8')
+        assert 'stroke-width="4"' in text
+        assert 'stroke-linecap="round"' in text
+        assert '<filter' not in text
+        assert '<image' not in text
+
+
 def test_practice_data_builder_exposes_images():
     source = (ROOT / 'site' / 'build.py').read_text(encoding='utf-8')
     assert "'image': f\"/static/word-images/{w['id']}.svg\"" in source

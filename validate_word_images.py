@@ -23,13 +23,26 @@ def validate_svg(path):
         errors.append('root element is not svg')
     if root.get('width') != '128' or root.get('height') != '128':
         errors.append('SVG must be 128x128')
+    if root.get('viewBox') != '0 0 128 128':
+        errors.append('SVG must use a 0 0 128 128 viewBox')
     tags = [node.tag.rsplit('}', 1)[-1] for node in root.iter()]
     if 'image' in tags:
         errors.append('SVG embeds a raster image')
     if not any(tag in {'path', 'circle', 'ellipse', 'line', 'polyline', 'polygon', 'rect'} for tag in tags):
         errors.append('SVG has no vector geometry')
-    if path.stat().st_size > 30_000:
-        errors.append('SVG exceeds 30 KB')
+    if any(tag in {'filter', 'linearGradient', 'radialGradient', 'pattern'} for tag in tags):
+        errors.append('SVG uses a paint effect instead of clean geometry')
+    text = path.read_text(encoding='utf-8')
+    if 'stroke-linecap="round"' not in text or 'stroke-linejoin="round"' not in text:
+        errors.append('SVG does not use the shared rounded stroke system')
+    if 'stroke-width="4"' not in text:
+        errors.append('SVG does not use the shared 4px stroke width')
+    allowed = {'#221c18', '#b5372b', 'none'}
+    paints = {node.get(key) for node in root.iter() for key in ('fill', 'stroke') if node.get(key)}
+    if not paints <= allowed:
+        errors.append(f'SVG uses colors outside the shared palette: {sorted(paints - allowed)}')
+    if path.stat().st_size > 8_000:
+        errors.append('SVG exceeds 8 KB')
     return errors
 
 
@@ -63,6 +76,12 @@ def validate():
     extras = {p.stem for p in IMAGES.glob('*.svg')} - set(words)
     for word_id in sorted(extras):
         errors.append(f'{word_id}: image has no word')
+    pngs = list(IMAGES.glob('*.png'))
+    if pngs:
+        errors.append(f'{len(pngs)} legacy PNG file(s) remain beside the SVG set')
+    total = sum(path.stat().st_size for path in IMAGES.glob('*.svg'))
+    if total > 450_000:
+        errors.append(f'vector set is too heavy: {total:,} bytes')
     return errors
 
 
