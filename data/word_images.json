@@ -3,1386 +3,1386 @@
     "id": "word-1",
     "word": "人【ひと】",
     "english": "person, people",
-    "icon": "icons/word-1.png"
+    "icon": "static/word-images/word-1.svg"
   },
   {
     "id": "word-2",
     "word": "私【わたし】",
     "english": "I, me",
-    "icon": "icons/word-2.png"
+    "icon": "static/word-images/word-2.svg"
   },
   {
     "id": "word-3",
     "word": "あなた",
     "english": "you",
-    "icon": "icons/word-3.png"
+    "icon": "static/word-images/word-3.svg"
   },
   {
     "id": "word-4",
     "word": "誰【だれ】",
     "english": "who",
-    "icon": "icons/word-4.png"
+    "icon": "static/word-images/word-4.svg"
   },
   {
     "id": "word-5",
     "word": "男【おとこ】",
     "english": "man, male",
-    "icon": "icons/word-5.png"
+    "icon": "static/word-images/word-5.svg"
   },
   {
     "id": "word-6",
     "word": "女【おんな】",
     "english": "woman, female",
-    "icon": "icons/word-6.png"
+    "icon": "static/word-images/word-6.svg"
   },
   {
     "id": "word-7",
     "word": "子供【こども】",
     "english": "child",
-    "icon": "icons/word-7.png"
+    "icon": "static/word-images/word-7.svg"
   },
   {
     "id": "word-8",
     "word": "母【はは】",
     "english": "mother",
-    "icon": "icons/word-8.png"
+    "icon": "static/word-images/word-8.svg"
   },
   {
     "id": "word-9",
     "word": "父【ちち】",
     "english": "father",
-    "icon": "icons/word-9.png"
+    "icon": "static/word-images/word-9.svg"
   },
   {
     "id": "word-10",
     "word": "物【もの】",
     "english": "thing (concrete)",
-    "icon": "icons/word-10.png"
+    "icon": "static/word-images/word-10.svg"
   },
   {
     "id": "word-11",
     "word": "事【こと】",
     "english": "thing (abstract), matter",
-    "icon": "icons/word-11.png"
+    "icon": "static/word-images/word-11.svg"
   },
   {
     "id": "word-12",
     "word": "何【なに】",
     "english": "what",
-    "icon": "icons/word-12.png"
+    "icon": "static/word-images/word-12.svg"
   },
   {
     "id": "word-13",
     "word": "石【いし】",
     "english": "stone",
-    "icon": "icons/word-13.png"
+    "icon": "static/word-images/word-13.svg"
   },
   {
     "id": "word-14",
     "word": "木【き】",
     "english": "tree, wood",
-    "icon": "icons/word-14.png"
+    "icon": "static/word-images/word-14.svg"
   },
   {
     "id": "word-15",
     "word": "土【つち】",
     "english": "soil, earth",
-    "icon": "icons/word-15.png"
+    "icon": "static/word-images/word-15.svg"
   },
   {
     "id": "word-16",
     "word": "服【ふく】",
     "english": "clothes",
-    "icon": "icons/word-16.png"
+    "icon": "static/word-images/word-16.svg"
   },
   {
     "id": "word-17",
     "word": "本【ほん】",
     "english": "book",
-    "icon": "icons/word-17.png"
+    "icon": "static/word-images/word-17.svg"
   },
   {
     "id": "word-18",
     "word": "お金【かね】",
     "english": "money",
-    "icon": "icons/word-18.png"
+    "icon": "static/word-images/word-18.svg"
   },
   {
     "id": "word-19",
     "word": "水【みず】",
     "english": "water",
-    "icon": "icons/word-19.png"
+    "icon": "static/word-images/word-19.svg"
   },
   {
     "id": "word-20",
     "word": "火【ひ】",
     "english": "fire",
-    "icon": "icons/word-20.png"
+    "icon": "static/word-images/word-20.svg"
   },
   {
     "id": "word-21",
     "word": "暑【あつ】い",
     "english": "hot (weather)",
-    "icon": "icons/word-21.png"
+    "icon": "static/word-images/word-21.svg"
   },
   {
     "id": "word-22",
     "word": "寒【さむ】い",
     "english": "cold (weather)",
-    "icon": "icons/word-22.png"
+    "icon": "static/word-images/word-22.svg"
   },
   {
     "id": "word-24",
     "word": "風【かぜ】",
     "english": "wind",
-    "icon": "icons/word-24.png"
+    "icon": "static/word-images/word-24.svg"
   },
   {
     "id": "word-25",
     "word": "国【くに】",
     "english": "country",
-    "icon": "icons/word-25.png"
+    "icon": "static/word-images/word-25.svg"
   },
   {
     "id": "word-26",
     "word": "所【ところ】",
     "english": "place",
-    "icon": "icons/word-26.png"
+    "icon": "static/word-images/word-26.svg"
   },
   {
     "id": "word-27",
     "word": "外【そと】",
     "english": "outside",
-    "icon": "icons/word-27.png"
+    "icon": "static/word-images/word-27.svg"
   },
   {
     "id": "word-28",
     "word": "太陽【たいよう】",
     "english": "sun",
-    "icon": "icons/word-28.png"
+    "icon": "static/word-images/word-28.svg"
   },
   {
     "id": "word-29",
     "word": "光【ひかり】",
     "english": "light",
-    "icon": "icons/word-29.png"
+    "icon": "static/word-images/word-29.svg"
   },
   {
     "id": "word-30",
     "word": "月【つき】",
     "english": "moon",
-    "icon": "icons/word-30.png"
+    "icon": "static/word-images/word-30.svg"
   },
   {
     "id": "word-31",
     "word": "空【そら】",
     "english": "sky",
-    "icon": "icons/word-31.png"
+    "icon": "static/word-images/word-31.svg"
   },
   {
     "id": "word-32",
     "word": "山【やま】",
     "english": "mountain",
-    "icon": "icons/word-32.png"
+    "icon": "static/word-images/word-32.svg"
   },
   {
     "id": "word-33",
     "word": "海【うみ】",
     "english": "sea",
-    "icon": "icons/word-33.png"
+    "icon": "static/word-images/word-33.svg"
   },
   {
     "id": "word-34",
     "word": "雨【あめ】",
     "english": "rain",
-    "icon": "icons/word-34.png"
+    "icon": "static/word-images/word-34.svg"
   },
   {
     "id": "word-35",
     "word": "道【みち】",
     "english": "road, way",
-    "icon": "icons/word-35.png"
+    "icon": "static/word-images/word-35.svg"
   },
   {
     "id": "word-36",
     "word": "動物【どうぶつ】",
     "english": "animal",
-    "icon": "icons/word-36.png"
+    "icon": "static/word-images/word-36.svg"
   },
   {
     "id": "word-37",
     "word": "草【くさ】",
     "english": "grass",
-    "icon": "icons/word-37.png"
+    "icon": "static/word-images/word-37.svg"
   },
   {
     "id": "word-38",
     "word": "体【からだ】",
     "english": "body",
-    "icon": "icons/word-38.png"
+    "icon": "static/word-images/word-38.svg"
   },
   {
     "id": "word-39",
     "word": "頭【あたま】",
     "english": "head",
-    "icon": "icons/word-39.png"
+    "icon": "static/word-images/word-39.svg"
   },
   {
     "id": "word-40",
     "word": "手【て】",
     "english": "hand",
-    "icon": "icons/word-40.png"
+    "icon": "static/word-images/word-40.svg"
   },
   {
     "id": "word-41",
     "word": "足【あし】",
     "english": "foot, leg",
-    "icon": "icons/word-41.png"
+    "icon": "static/word-images/word-41.svg"
   },
   {
     "id": "word-42",
     "word": "目【め】",
     "english": "eye",
-    "icon": "icons/word-42.png"
+    "icon": "static/word-images/word-42.svg"
   },
   {
     "id": "word-43",
     "word": "口【くち】",
     "english": "mouth",
-    "icon": "icons/word-43.png"
+    "icon": "static/word-images/word-43.svg"
   },
   {
     "id": "word-44",
     "word": "耳【みみ】",
     "english": "ear",
-    "icon": "icons/word-44.png"
+    "icon": "static/word-images/word-44.svg"
   },
   {
     "id": "word-45",
     "word": "鼻【はな】",
     "english": "nose",
-    "icon": "icons/word-45.png"
+    "icon": "static/word-images/word-45.svg"
   },
   {
     "id": "word-46",
     "word": "心【こころ】",
     "english": "heart, mind",
-    "icon": "icons/word-46.png"
+    "icon": "static/word-images/word-46.svg"
   },
   {
     "id": "word-47",
     "word": "する",
     "english": "do",
-    "icon": "icons/word-47.png"
+    "icon": "static/word-images/word-47.svg"
   },
   {
     "id": "word-48",
     "word": "いる",
     "english": "exist (animate)",
-    "icon": "icons/word-48.png"
+    "icon": "static/word-images/word-48.svg"
   },
   {
     "id": "word-49",
     "word": "ある",
     "english": "exist (inanimate), have",
-    "icon": "icons/word-49.png"
+    "icon": "static/word-images/word-49.svg"
   },
   {
     "id": "word-50",
     "word": "なる",
     "english": "become",
-    "icon": "icons/word-50.png"
+    "icon": "static/word-images/word-50.svg"
   },
   {
     "id": "word-51",
     "word": "起【お】こる",
     "english": "happen",
-    "icon": "icons/word-51.png"
+    "icon": "static/word-images/word-51.svg"
   },
   {
     "id": "word-52",
     "word": "行【い】く",
     "english": "go",
-    "icon": "icons/word-52.png"
+    "icon": "static/word-images/word-52.svg"
   },
   {
     "id": "word-53",
     "word": "来【く】る",
     "english": "come",
-    "icon": "icons/word-53.png"
+    "icon": "static/word-images/word-53.svg"
   },
   {
     "id": "word-54",
     "word": "動【うご】く",
     "english": "move",
-    "icon": "icons/word-54.png"
+    "icon": "static/word-images/word-54.svg"
   },
   {
     "id": "word-55",
     "word": "入【はい】る",
     "english": "enter",
-    "icon": "icons/word-55.png"
+    "icon": "static/word-images/word-55.svg"
   },
   {
     "id": "word-56",
     "word": "出【で】る",
     "english": "exit",
-    "icon": "icons/word-56.png"
+    "icon": "static/word-images/word-56.svg"
   },
   {
     "id": "word-57",
     "word": "止【と】める",
     "english": "stop",
-    "icon": "icons/word-57.png"
+    "icon": "static/word-images/word-57.svg"
   },
   {
     "id": "word-58",
     "word": "作【つく】る",
     "english": "make",
-    "icon": "icons/word-58.png"
+    "icon": "static/word-images/word-58.svg"
   },
   {
     "id": "word-59",
     "word": "使【つか】う",
     "english": "use",
-    "icon": "icons/word-59.png"
+    "icon": "static/word-images/word-59.svg"
   },
   {
     "id": "word-60",
     "word": "切【き】る",
     "english": "cut",
-    "icon": "icons/word-60.png"
+    "icon": "static/word-images/word-60.svg"
   },
   {
     "id": "word-61",
     "word": "食【た】べる",
     "english": "eat",
-    "icon": "icons/word-61.png"
+    "icon": "static/word-images/word-61.svg"
   },
   {
     "id": "word-62",
     "word": "飲【の】む",
     "english": "drink",
-    "icon": "icons/word-62.png"
+    "icon": "static/word-images/word-62.svg"
   },
   {
     "id": "word-63",
     "word": "寝【ね】る",
     "english": "sleep",
-    "icon": "icons/word-63.png"
+    "icon": "static/word-images/word-63.svg"
   },
   {
     "id": "word-64",
     "word": "着【き】る",
     "english": "wear",
-    "icon": "icons/word-64.png"
+    "icon": "static/word-images/word-64.svg"
   },
   {
     "id": "word-65",
     "word": "座【すわ】る",
     "english": "sit",
-    "icon": "icons/word-65.png"
+    "icon": "static/word-images/word-65.svg"
   },
   {
     "id": "word-66",
     "word": "立【た】つ",
     "english": "stand",
-    "icon": "icons/word-66.png"
+    "icon": "static/word-images/word-66.svg"
   },
   {
     "id": "word-67",
     "word": "生【い】きる",
     "english": "live",
-    "icon": "icons/word-67.png"
+    "icon": "static/word-images/word-67.svg"
   },
   {
     "id": "word-68",
     "word": "死【し】ぬ",
     "english": "die",
-    "icon": "icons/word-68.png"
+    "icon": "static/word-images/word-68.svg"
   },
   {
     "id": "word-69",
     "word": "始【はじ】まる",
     "english": "begin",
-    "icon": "icons/word-69.png"
+    "icon": "static/word-images/word-69.svg"
   },
   {
     "id": "word-70",
     "word": "終【お】わる",
     "english": "end",
-    "icon": "icons/word-70.png"
+    "icon": "static/word-images/word-70.svg"
   },
   {
     "id": "word-71",
     "word": "開【あ】く",
     "english": "open",
-    "icon": "icons/word-71.png"
+    "icon": "static/word-images/word-71.svg"
   },
   {
     "id": "word-72",
     "word": "閉【し】める",
     "english": "close",
-    "icon": "icons/word-72.png"
+    "icon": "static/word-images/word-72.svg"
   },
   {
     "id": "word-74",
     "word": "変【か】わる",
     "english": "change (intransitive)",
-    "icon": "icons/word-74.png"
+    "icon": "static/word-images/word-74.svg"
   },
   {
     "id": "word-75",
     "word": "与【あた】える",
     "english": "give",
-    "icon": "icons/word-75.png"
+    "icon": "static/word-images/word-75.svg"
   },
   {
     "id": "word-76",
     "word": "もらう",
     "english": "receive",
-    "icon": "icons/word-76.png"
+    "icon": "static/word-images/word-76.svg"
   },
   {
     "id": "word-77",
     "word": "持【も】つ",
     "english": "have, hold",
-    "icon": "icons/word-77.png"
+    "icon": "static/word-images/word-77.svg"
   },
   {
     "id": "word-78",
     "word": "会【あ】う",
     "english": "meet",
-    "icon": "icons/word-78.png"
+    "icon": "static/word-images/word-78.svg"
   },
   {
     "id": "word-79",
     "word": "待【ま】つ",
     "english": "wait",
-    "icon": "icons/word-79.png"
+    "icon": "static/word-images/word-79.svg"
   },
   {
     "id": "word-80",
     "word": "助【たす】ける",
     "english": "help",
-    "icon": "icons/word-80.png"
+    "icon": "static/word-images/word-80.svg"
   },
   {
     "id": "word-81",
     "word": "守【まも】る",
     "english": "protect",
-    "icon": "icons/word-81.png"
+    "icon": "static/word-images/word-81.svg"
   },
   {
     "id": "word-82",
     "word": "戦【たたか】う",
     "english": "fight",
-    "icon": "icons/word-82.png"
+    "icon": "static/word-images/word-82.svg"
   },
   {
     "id": "word-83",
     "word": "選【えら】ぶ",
     "english": "choose",
-    "icon": "icons/word-83.png"
+    "icon": "static/word-images/word-83.svg"
   },
   {
     "id": "word-84",
     "word": "探【さが】す",
     "english": "search",
-    "icon": "icons/word-84.png"
+    "icon": "static/word-images/word-84.svg"
   },
   {
     "id": "word-85",
     "word": "買【か】う",
     "english": "buy",
-    "icon": "icons/word-85.png"
+    "icon": "static/word-images/word-85.svg"
   },
   {
     "id": "word-86",
     "word": "言【い】う",
     "english": "say",
-    "icon": "icons/word-86.png"
+    "icon": "static/word-images/word-86.svg"
   },
   {
     "id": "word-87",
     "word": "書【か】く",
     "english": "write",
-    "icon": "icons/word-87.png"
+    "icon": "static/word-images/word-87.svg"
   },
   {
     "id": "word-88",
     "word": "読【よ】む",
     "english": "read",
-    "icon": "icons/word-88.png"
+    "icon": "static/word-images/word-88.svg"
   },
   {
     "id": "word-89",
     "word": "教【おし】える",
     "english": "teach",
-    "icon": "icons/word-89.png"
+    "icon": "static/word-images/word-89.svg"
   },
   {
     "id": "word-90",
     "word": "考【かんが】える",
     "english": "think",
-    "icon": "icons/word-90.png"
+    "icon": "static/word-images/word-90.svg"
   },
   {
     "id": "word-91",
     "word": "笑【わら】う",
     "english": "laugh",
-    "icon": "icons/word-91.png"
+    "icon": "static/word-images/word-91.svg"
   },
   {
     "id": "word-92",
     "word": "泣【な】く",
     "english": "cry",
-    "icon": "icons/word-92.png"
+    "icon": "static/word-images/word-92.svg"
   },
   {
     "id": "word-93",
     "word": "良【よ】い",
     "english": "good",
-    "icon": "icons/word-93.png"
+    "icon": "static/word-images/word-93.svg"
   },
   {
     "id": "word-94",
     "word": "悪【わる】い",
     "english": "bad",
-    "icon": "icons/word-94.png"
+    "icon": "static/word-images/word-94.svg"
   },
   {
     "id": "word-95",
     "word": "大【おお】きい",
     "english": "big",
-    "icon": "icons/word-95.png"
+    "icon": "static/word-images/word-95.svg"
   },
   {
     "id": "word-96",
     "word": "長【なが】い",
     "english": "long",
-    "icon": "icons/word-96.png"
+    "icon": "static/word-images/word-96.svg"
   },
   {
     "id": "word-97",
     "word": "高【たか】い",
     "english": "high, tall, expensive",
-    "icon": "icons/word-97.png"
+    "icon": "static/word-images/word-97.svg"
   },
   {
     "id": "word-98",
     "word": "重【おも】い",
     "english": "heavy",
-    "icon": "icons/word-98.png"
+    "icon": "static/word-images/word-98.svg"
   },
   {
     "id": "word-99",
     "word": "変【へん】",
     "english": "strange",
-    "icon": "icons/word-99.png"
+    "icon": "static/word-images/word-99.svg"
   },
   {
     "id": "word-100",
     "word": "きれい",
     "english": "clean, pretty",
-    "icon": "icons/word-100.png"
+    "icon": "static/word-images/word-100.svg"
   },
   {
     "id": "word-101",
     "word": "強【つよ】い",
     "english": "strong",
-    "icon": "icons/word-101.png"
+    "icon": "static/word-images/word-101.svg"
   },
   {
     "id": "word-102",
     "word": "楽【たの】しい",
     "english": "fun",
-    "icon": "icons/word-102.png"
+    "icon": "static/word-images/word-102.svg"
   },
   {
     "id": "word-103",
     "word": "違【ちが】う",
     "english": "different",
-    "icon": "icons/word-103.png"
+    "icon": "static/word-images/word-103.svg"
   },
   {
     "id": "word-104",
     "word": "他【ほか】",
     "english": "other",
-    "icon": "icons/word-104.png"
+    "icon": "static/word-images/word-104.svg"
   },
   {
     "id": "word-105",
     "word": "新【あたら】しい",
     "english": "new",
-    "icon": "icons/word-105.png"
+    "icon": "static/word-images/word-105.svg"
   },
   {
     "id": "word-106",
     "word": "速【はや】い",
     "english": "fast",
-    "icon": "icons/word-106.png"
+    "icon": "static/word-images/word-106.svg"
   },
   {
     "id": "word-107",
     "word": "色【いろ】",
     "english": "color",
-    "icon": "icons/word-107.png"
+    "icon": "static/word-images/word-107.svg"
   },
   {
     "id": "word-108",
     "word": "白【しろ】",
     "english": "white",
-    "icon": "icons/word-108.png"
+    "icon": "static/word-images/word-108.svg"
   },
   {
     "id": "word-109",
     "word": "黒【くろ】",
     "english": "black",
-    "icon": "icons/word-109.png"
+    "icon": "static/word-images/word-109.svg"
   },
   {
     "id": "word-110",
     "word": "赤【あか】",
     "english": "red",
-    "icon": "icons/word-110.png"
+    "icon": "static/word-images/word-110.svg"
   },
   {
     "id": "word-111",
     "word": "青【あお】",
     "english": "blue",
-    "icon": "icons/word-111.png"
+    "icon": "static/word-images/word-111.svg"
   },
   {
     "id": "word-112",
     "word": "黄色【きいろ】",
     "english": "yellow",
-    "icon": "icons/word-112.png"
+    "icon": "static/word-images/word-112.svg"
   },
   {
     "id": "word-113",
     "word": "緑【みどり】",
     "english": "green",
-    "icon": "icons/word-113.png"
+    "icon": "static/word-images/word-113.svg"
   },
   {
     "id": "word-114",
     "word": "明【あか】るい",
     "english": "bright",
-    "icon": "icons/word-114.png"
+    "icon": "static/word-images/word-114.svg"
   },
   {
     "id": "word-115",
     "word": "知【し】る",
     "english": "know",
-    "icon": "icons/word-115.png"
+    "icon": "static/word-images/word-115.svg"
   },
   {
     "id": "word-116",
     "word": "感【かん】じる",
     "english": "feel",
-    "icon": "icons/word-116.png"
+    "icon": "static/word-images/word-116.svg"
   },
   {
     "id": "word-117",
     "word": "見【み】る",
     "english": "see",
-    "icon": "icons/word-117.png"
+    "icon": "static/word-images/word-117.svg"
   },
   {
     "id": "word-118",
     "word": "聞【き】く",
     "english": "hear, listen",
-    "icon": "icons/word-118.png"
+    "icon": "static/word-images/word-118.svg"
   },
   {
     "id": "word-119",
     "word": "思【おも】う",
     "english": "think, feel (opinion)",
-    "icon": "icons/word-119.png"
+    "icon": "static/word-images/word-119.svg"
   },
   {
     "id": "word-120",
     "word": "欲【ほ】しい",
     "english": "want (thing)",
-    "icon": "icons/word-120.png"
+    "icon": "static/word-images/word-120.svg"
   },
   {
     "id": "word-121",
     "word": "必要【ひつよう】",
     "english": "necessary",
-    "icon": "icons/word-121.png"
+    "icon": "static/word-images/word-121.svg"
   },
   {
     "id": "word-122",
     "word": "好【す】き",
     "english": "like",
-    "icon": "icons/word-122.png"
+    "icon": "static/word-images/word-122.svg"
   },
   {
     "id": "word-123",
     "word": "怖【こわ】い",
     "english": "scary",
-    "icon": "icons/word-123.png"
+    "icon": "static/word-images/word-123.svg"
   },
   {
     "id": "word-124",
     "word": "悲【かな】しい",
     "english": "sad",
-    "icon": "icons/word-124.png"
+    "icon": "static/word-images/word-124.svg"
   },
   {
     "id": "word-125",
     "word": "怒【おこ】る",
     "english": "get angry",
-    "icon": "icons/word-125.png"
+    "icon": "static/word-images/word-125.svg"
   },
   {
     "id": "word-126",
     "word": "言葉【ことば】",
     "english": "word",
-    "icon": "icons/word-126.png"
+    "icon": "static/word-images/word-126.svg"
   },
   {
     "id": "word-127",
     "word": "名前【なまえ】",
     "english": "name",
-    "icon": "icons/word-127.png"
+    "icon": "static/word-images/word-127.svg"
   },
   {
     "id": "word-128",
     "word": "音【おと】",
     "english": "sound",
-    "icon": "icons/word-128.png"
+    "icon": "static/word-images/word-128.svg"
   },
   {
     "id": "word-129",
     "word": "時【とき】",
     "english": "time, when",
-    "icon": "icons/word-129.png"
+    "icon": "static/word-images/word-129.svg"
   },
   {
     "id": "word-130",
     "word": "今【いま】",
     "english": "now",
-    "icon": "icons/word-130.png"
+    "icon": "static/word-images/word-130.svg"
   },
   {
     "id": "word-131",
     "word": "前【まえ】",
     "english": "before",
-    "icon": "icons/word-131.png"
+    "icon": "static/word-images/word-131.svg"
   },
   {
     "id": "word-132",
     "word": "後【あと】",
     "english": "after",
-    "icon": "icons/word-132.png"
+    "icon": "static/word-images/word-132.svg"
   },
   {
     "id": "word-133",
     "word": "毎【まい】",
     "english": "every",
-    "icon": "icons/word-133.png"
+    "icon": "static/word-images/word-133.svg"
   },
   {
     "id": "word-134",
     "word": "日【にち】",
     "english": "day",
-    "icon": "icons/word-134.png"
+    "icon": "static/word-images/word-134.svg"
   },
   {
     "id": "word-135",
     "word": "年【とし】",
     "english": "year",
-    "icon": "icons/word-135.png"
+    "icon": "static/word-images/word-135.svg"
   },
   {
     "id": "word-136",
     "word": "夜【よる】",
     "english": "night",
-    "icon": "icons/word-136.png"
+    "icon": "static/word-images/word-136.svg"
   },
   {
     "id": "word-137",
     "word": "家【いえ】",
     "english": "house, home",
-    "icon": "icons/word-137.png"
+    "icon": "static/word-images/word-137.svg"
   },
   {
     "id": "word-138",
     "word": "上【うえ】",
     "english": "above, up",
-    "icon": "icons/word-138.png"
+    "icon": "static/word-images/word-138.svg"
   },
   {
     "id": "word-139",
     "word": "下【した】",
     "english": "below, down",
-    "icon": "icons/word-139.png"
+    "icon": "static/word-images/word-139.svg"
   },
   {
     "id": "word-140",
     "word": "中【なか】",
     "english": "inside, middle",
-    "icon": "icons/word-140.png"
+    "icon": "static/word-images/word-140.svg"
   },
   {
     "id": "word-141",
     "word": "右【みぎ】",
     "english": "right",
-    "icon": "icons/word-141.png"
+    "icon": "static/word-images/word-141.svg"
   },
   {
     "id": "word-142",
     "word": "左【ひだり】",
     "english": "left",
-    "icon": "icons/word-142.png"
+    "icon": "static/word-images/word-142.svg"
   },
   {
     "id": "word-143",
     "word": "近【ちか】い",
     "english": "near",
-    "icon": "icons/word-143.png"
+    "icon": "static/word-images/word-143.svg"
   },
   {
     "id": "word-144",
     "word": "ここ",
     "english": "here",
-    "icon": "icons/word-144.png"
+    "icon": "static/word-images/word-144.svg"
   },
   {
     "id": "word-145",
     "word": "そこ",
     "english": "there",
-    "icon": "icons/word-145.png"
+    "icon": "static/word-images/word-145.svg"
   },
   {
     "id": "word-146",
     "word": "どこ",
     "english": "where",
-    "icon": "icons/word-146.png"
+    "icon": "static/word-images/word-146.svg"
   },
   {
     "id": "word-147",
     "word": "一【いち】",
     "english": "one",
-    "icon": "icons/word-147.png"
+    "icon": "static/word-images/word-147.svg"
   },
   {
     "id": "word-148",
     "word": "二【に】",
     "english": "two",
-    "icon": "icons/word-148.png"
+    "icon": "static/word-images/word-148.svg"
   },
   {
     "id": "word-149",
     "word": "三【さん】",
     "english": "three",
-    "icon": "icons/word-149.png"
+    "icon": "static/word-images/word-149.svg"
   },
   {
     "id": "word-150",
     "word": "五【ご】",
     "english": "five",
-    "icon": "icons/word-150.png"
+    "icon": "static/word-images/word-150.svg"
   },
   {
     "id": "word-151",
     "word": "十【じゅう】",
     "english": "ten",
-    "icon": "icons/word-151.png"
+    "icon": "static/word-images/word-151.svg"
   },
   {
     "id": "word-152",
     "word": "多【おお】い",
     "english": "many",
-    "icon": "icons/word-152.png"
+    "icon": "static/word-images/word-152.svg"
   },
   {
     "id": "word-153",
     "word": "全部【ぜんぶ】",
     "english": "all",
-    "icon": "icons/word-153.png"
+    "icon": "static/word-images/word-153.svg"
   },
   {
     "id": "word-154",
     "word": "ない",
     "english": "not, don't have",
-    "icon": "icons/word-154.png"
+    "icon": "static/word-images/word-154.svg"
   },
   {
     "id": "word-155",
     "word": "できる",
     "english": "can, be able",
-    "icon": "icons/word-155.png"
+    "icon": "static/word-images/word-155.svg"
   },
   {
     "id": "word-156",
     "word": "と",
     "english": "and",
-    "icon": "icons/word-156.png"
+    "icon": "static/word-images/word-156.svg"
   },
   {
     "id": "word-157",
     "word": "または",
     "english": "or",
-    "icon": "icons/word-157.png"
+    "icon": "static/word-images/word-157.svg"
   },
   {
     "id": "word-158",
     "word": "でも",
     "english": "but",
-    "icon": "icons/word-158.png"
+    "icon": "static/word-images/word-158.svg"
   },
   {
     "id": "word-159",
     "word": "から",
     "english": "from, because",
-    "icon": "icons/word-159.png"
+    "icon": "static/word-images/word-159.svg"
   },
   {
     "id": "word-160",
     "word": "まで",
     "english": "until, to",
-    "icon": "icons/word-160.png"
+    "icon": "static/word-images/word-160.svg"
   },
   {
     "id": "word-161",
     "word": "なら",
     "english": "if",
-    "icon": "icons/word-161.png"
+    "icon": "static/word-images/word-161.svg"
   },
   {
     "id": "word-162",
     "word": "だけ",
     "english": "only",
-    "icon": "icons/word-162.png"
+    "icon": "static/word-images/word-162.svg"
   },
   {
     "id": "word-163",
     "word": "も",
     "english": "also",
-    "icon": "icons/word-163.png"
+    "icon": "static/word-images/word-163.svg"
   },
   {
     "id": "word-164",
     "word": "もっと",
     "english": "more",
-    "icon": "icons/word-164.png"
+    "icon": "static/word-images/word-164.svg"
   },
   {
     "id": "word-165",
     "word": "もう",
     "english": "already",
-    "icon": "icons/word-165.png"
+    "icon": "static/word-images/word-165.svg"
   },
   {
     "id": "word-166",
     "word": "まだ",
     "english": "still, yet",
-    "icon": "icons/word-166.png"
+    "icon": "static/word-images/word-166.svg"
   },
   {
     "id": "word-167",
     "word": "とても",
     "english": "very",
-    "icon": "icons/word-167.png"
+    "icon": "static/word-images/word-167.svg"
   },
   {
     "id": "word-168",
     "word": "少【すこ】し",
     "english": "a little",
-    "icon": "icons/word-168.png"
+    "icon": "static/word-images/word-168.svg"
   },
   {
     "id": "word-169",
     "word": "すみません",
     "english": "excuse me",
-    "icon": "icons/word-169.png"
+    "icon": "static/word-images/word-169.svg"
   },
   {
     "id": "word-170",
     "word": "ありがとう",
     "english": "thank you",
-    "icon": "icons/word-170.png"
+    "icon": "static/word-images/word-170.svg"
   },
   {
     "id": "word-171",
     "word": "ください",
     "english": "please (give me)",
-    "icon": "icons/word-171.png"
+    "icon": "static/word-images/word-171.svg"
   },
   {
     "id": "word-172",
     "word": "はい",
     "english": "yes",
-    "icon": "icons/word-172.png"
+    "icon": "static/word-images/word-172.svg"
   },
   {
     "id": "word-174",
     "word": "どう",
     "english": "how",
-    "icon": "icons/word-174.png"
+    "icon": "static/word-images/word-174.svg"
   },
   {
     "id": "word-175",
     "word": "いつ",
     "english": "when",
-    "icon": "icons/word-175.png"
+    "icon": "static/word-images/word-175.svg"
   },
   {
     "id": "word-176",
     "word": "なぜ",
     "english": "why",
-    "icon": "icons/word-176.png"
+    "icon": "static/word-images/word-176.svg"
   },
   {
     "id": "word-177",
     "word": "これ",
     "english": "this",
-    "icon": "icons/word-177.png"
+    "icon": "static/word-images/word-177.svg"
   },
   {
     "id": "word-178",
     "word": "それ",
     "english": "that",
-    "icon": "icons/word-178.png"
+    "icon": "static/word-images/word-178.svg"
   },
   {
     "id": "word-179",
     "word": "この",
     "english": "this (+noun)",
-    "icon": "icons/word-179.png"
+    "icon": "static/word-images/word-179.svg"
   },
   {
     "id": "word-180",
     "word": "その",
     "english": "that (+noun)",
-    "icon": "icons/word-180.png"
+    "icon": "static/word-images/word-180.svg"
   },
   {
     "id": "word-181",
     "word": "本当【ほんとう】",
     "english": "true, real",
-    "icon": "icons/word-181.png"
+    "icon": "static/word-images/word-181.svg"
   },
   {
     "id": "word-182",
     "word": "方【かた】",
     "english": "way, method",
-    "icon": "icons/word-182.png"
+    "icon": "static/word-images/word-182.svg"
   },
   {
     "id": "word-183",
     "word": "小【ちい】さい",
     "english": "small",
-    "icon": "icons/word-183.png"
+    "icon": "static/word-images/word-183.svg"
   },
   {
     "id": "word-184",
     "word": "同【おな】じ",
     "english": "same",
-    "icon": "icons/word-184.png"
+    "icon": "static/word-images/word-184.svg"
   },
   {
     "id": "word-185",
     "word": "たぶん",
     "english": "maybe",
-    "icon": "icons/word-185.png"
+    "icon": "static/word-images/word-185.svg"
   },
   {
     "id": "word-186",
     "word": "遠【とお】い",
     "english": "far",
-    "icon": "icons/word-186.png"
+    "icon": "static/word-images/word-186.svg"
   },
   {
     "id": "word-187",
     "word": "分【わ】かる",
     "english": "understand",
-    "icon": "icons/word-187.png"
+    "icon": "static/word-images/word-187.svg"
   },
   {
     "id": "word-188",
     "word": "話【はな】す",
     "english": "talk",
-    "icon": "icons/word-188.png"
+    "icon": "static/word-images/word-188.svg"
   },
   {
     "id": "word-189",
     "word": "魚【さかな】",
     "english": "fish",
-    "icon": "icons/word-189.png"
+    "icon": "static/word-images/word-189.svg"
   },
   {
     "id": "word-190",
     "word": "肉【にく】",
     "english": "meat",
-    "icon": "icons/word-190.png"
+    "icon": "static/word-images/word-190.svg"
   },
   {
     "id": "word-191",
     "word": "卵【たまご】",
     "english": "egg",
-    "icon": "icons/word-191.png"
+    "icon": "static/word-images/word-191.svg"
   },
   {
     "id": "word-192",
     "word": "歯【は】",
     "english": "tooth",
-    "icon": "icons/word-192.png"
+    "icon": "static/word-images/word-192.svg"
   },
   {
     "id": "word-193",
     "word": "血【ち】",
     "english": "blood",
-    "icon": "icons/word-193.png"
+    "icon": "static/word-images/word-193.svg"
   },
   {
     "id": "word-194",
     "word": "骨【ほね】",
     "english": "bone",
-    "icon": "icons/word-194.png"
+    "icon": "static/word-images/word-194.svg"
   },
   {
     "id": "word-195",
     "word": "腹【はら】",
     "english": "belly, stomach",
-    "icon": "icons/word-195.png"
+    "icon": "static/word-images/word-195.svg"
   },
   {
     "id": "word-196",
     "word": "髪【かみ】",
     "english": "hair",
-    "icon": "icons/word-196.png"
+    "icon": "static/word-images/word-196.svg"
   },
   {
     "id": "word-197",
     "word": "皮【かわ】",
     "english": "skin",
-    "icon": "icons/word-197.png"
+    "icon": "static/word-images/word-197.svg"
   },
   {
     "id": "word-198",
     "word": "歩【ある】く",
     "english": "walk",
-    "icon": "icons/word-198.png"
+    "icon": "static/word-images/word-198.svg"
   },
   {
     "id": "word-199",
     "word": "雲【くも】",
     "english": "cloud",
-    "icon": "icons/word-199.png"
+    "icon": "static/word-images/word-199.svg"
   },
   {
     "id": "word-200",
     "word": "鳥【とり】",
     "english": "bird",
-    "icon": "icons/word-200.png"
+    "icon": "static/word-images/word-200.svg"
   },
   {
     "id": "word-201",
     "word": "犬【いぬ】",
     "english": "dog",
-    "icon": "icons/word-201.png"
+    "icon": "static/word-images/word-201.svg"
   },
   {
     "id": "word-202",
     "word": "飛【と】ぶ",
     "english": "fly",
-    "icon": "icons/word-202.png"
+    "icon": "static/word-images/word-202.svg"
   },
   {
     "id": "word-203",
     "word": "四【よん】",
     "english": "four",
-    "icon": "icons/word-203.png"
+    "icon": "static/word-images/word-203.svg"
   },
   {
     "id": "word-204",
     "word": "六【ろく】",
     "english": "six",
-    "icon": "icons/word-204.png"
+    "icon": "static/word-images/word-204.svg"
   },
   {
     "id": "word-205",
     "word": "七【なな】",
     "english": "seven",
-    "icon": "icons/word-205.png"
+    "icon": "static/word-images/word-205.svg"
   },
   {
     "id": "word-206",
     "word": "八【はち】",
     "english": "eight",
-    "icon": "icons/word-206.png"
+    "icon": "static/word-images/word-206.svg"
   },
   {
     "id": "word-207",
     "word": "九【きゅう】",
     "english": "nine",
-    "icon": "icons/word-207.png"
+    "icon": "static/word-images/word-207.svg"
   },
   {
     "id": "word-208",
     "word": "百【ひゃく】",
     "english": "hundred",
-    "icon": "icons/word-208.png"
+    "icon": "static/word-images/word-208.svg"
   },
   {
     "id": "word-209",
     "word": "いいえ",
     "english": "no",
-    "icon": "icons/word-209.png"
+    "icon": "static/word-images/word-209.svg"
   },
   {
     "id": "word-210",
     "word": "千【せん】",
     "english": "thousand",
-    "icon": "icons/word-210.png"
+    "icon": "static/word-images/word-210.svg"
   },
   {
     "id": "word-211",
     "word": "万【まん】",
     "english": "ten thousand",
-    "icon": "icons/word-211.png"
+    "icon": "static/word-images/word-211.svg"
   },
   {
     "id": "word-212",
     "word": "円【えん】",
     "english": "yen",
-    "icon": "icons/word-212.png"
+    "icon": "static/word-images/word-212.svg"
   },
   {
     "id": "word-213",
     "word": "あげる",
     "english": "give (to someone)",
-    "icon": "icons/word-213.png"
+    "icon": "static/word-images/word-213.svg"
   },
   {
     "id": "word-214",
     "word": "くれる",
     "english": "give (to me)",
-    "icon": "icons/word-214.png"
+    "icon": "static/word-images/word-214.svg"
   },
   {
     "id": "word-215",
     "word": "痛【いた】い",
     "english": "painful, it hurts",
-    "icon": "icons/word-215.png"
+    "icon": "static/word-images/word-215.svg"
   },
   {
     "id": "word-216",
     "word": "うれしい",
     "english": "glad, happy",
-    "icon": "icons/word-216.png"
+    "icon": "static/word-images/word-216.svg"
   },
   {
     "id": "word-217",
     "word": "いくら",
     "english": "how much (money)",
-    "icon": "icons/word-217.png"
+    "icon": "static/word-images/word-217.svg"
   },
   {
     "id": "word-218",
     "word": "おはよう",
     "english": "good morning",
-    "icon": "icons/word-218.png"
+    "icon": "static/word-images/word-218.svg"
   },
   {
     "id": "word-219",
     "word": "こんにちは",
     "english": "hello",
-    "icon": "icons/word-219.png"
+    "icon": "static/word-images/word-219.svg"
   },
   {
     "id": "word-220",
     "word": "こんばんは",
     "english": "good evening",
-    "icon": "icons/word-220.png"
+    "icon": "static/word-images/word-220.svg"
   },
   {
     "id": "word-221",
     "word": "さようなら",
     "english": "goodbye",
-    "icon": "icons/word-221.png"
+    "icon": "static/word-images/word-221.svg"
   },
   {
     "id": "word-222",
     "word": "おやすみ",
     "english": "good night",
-    "icon": "icons/word-222.png"
+    "icon": "static/word-images/word-222.svg"
   },
   {
     "id": "word-223",
     "word": "お願【ねが】いします",
     "english": "please (request)",
-    "icon": "icons/word-223.png"
+    "icon": "static/word-images/word-223.svg"
   },
   {
     "id": "word-224",
     "word": "大丈夫【だいじょうぶ】",
     "english": "okay, all right",
-    "icon": "icons/word-224.png"
+    "icon": "static/word-images/word-224.svg"
   },
   {
     "id": "word-225",
     "word": "いただきます",
     "english": "(before eating)",
-    "icon": "icons/word-225.png"
+    "icon": "static/word-images/word-225.svg"
   },
   {
     "id": "word-226",
     "word": "ごちそうさま",
     "english": "(after eating)",
-    "icon": "icons/word-226.png"
+    "icon": "static/word-images/word-226.svg"
   },
   {
     "id": "word-227",
     "word": "いくつ",
     "english": "how many",
-    "icon": "icons/word-227.png"
+    "icon": "static/word-images/word-227.svg"
   },
   {
     "id": "word-228",
     "word": "また",
     "english": "again",
-    "icon": "icons/word-228.png"
+    "icon": "static/word-images/word-228.svg"
   },
   {
     "id": "word-229",
     "word": "花【はな】",
     "english": "flower",
-    "icon": "icons/word-229.png"
+    "icon": "static/word-images/word-229.svg"
   },
   {
     "id": "word-230",
     "word": "星【ほし】",
     "english": "star",
-    "icon": "icons/word-230.png"
+    "icon": "static/word-images/word-230.svg"
   },
   {
     "id": "word-231",
     "word": "猫【ねこ】",
     "english": "cat",
-    "icon": "icons/word-231.png"
+    "icon": "static/word-images/word-231.svg"
   },
   {
     "id": "word-232",
     "word": "馬【うま】",
     "english": "horse",
-    "icon": "icons/word-232.png"
+    "icon": "static/word-images/word-232.svg"
   },
   {
     "id": "word-233",
     "word": "薬【くすり】",
     "english": "medicine",
-    "icon": "icons/word-233.png"
+    "icon": "static/word-images/word-233.svg"
   },
   {
     "id": "word-234",
     "word": "夢【ゆめ】",
     "english": "dream",
-    "icon": "icons/word-234.png"
+    "icon": "static/word-images/word-234.svg"
   }
 ]

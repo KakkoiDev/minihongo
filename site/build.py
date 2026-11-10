@@ -375,7 +375,7 @@ def build_practice_data(data):
         'jp': w['minihongo'],
         'audio': f"w/{w['audio_word']}" if w.get('audio_word') else '',
         'group': w['category_id'],
-        'image': f"/static/word-images/{w['id']}.png",
+        'image': f"/static/word-images/{w['id']}.svg",
         'meaning': {
             'en': w.get('english', ''),
             'ko': w.get('korean', '') or w.get('english', ''),

@@ -2,7 +2,7 @@ import csv
 import json
 from pathlib import Path
 
-from validate_word_images import png_size, validate
+from validate_word_images import validate, validate_svg
 
 ROOT = Path(__file__).parents[1]
 
@@ -30,16 +30,16 @@ def test_manifest_japanese_is_the_authored_word():
     assert all(entry['word'] == expected[entry['id']] for entry in manifest())
 
 
-def test_every_picture_is_a_small_128px_png():
+def test_every_picture_is_a_small_real_svg():
     for entry in manifest():
-        image = ROOT / 'site' / 'static' / 'word-images' / f"{entry['id']}.png"
-        assert png_size(image) == (128, 128)
-        assert image.stat().st_size <= 100_000
+        image = ROOT / 'site' / 'static' / 'word-images' / f"{entry['id']}.svg"
+        assert validate_svg(image) == []
+        assert '<image' not in image.read_text(encoding='utf-8')
 
 
 def test_practice_data_builder_exposes_images():
     source = (ROOT / 'site' / 'build.py').read_text(encoding='utf-8')
-    assert "'image': f\"/static/word-images/{w['id']}.png\"" in source
+    assert "'image': f\"/static/word-images/{w['id']}.svg\"" in source
 
 
 def test_picture_mode_is_persistent_and_translation_free():

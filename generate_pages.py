@@ -422,7 +422,7 @@ def gen_vocabulary(categories, words, lang):
             example = to_ruby_html(w['example_minihongo'])
             pb_w = play_btn('w', w.get('audio_word', ''))
             pb_e = play_btn('w', w.get('audio_example', ''))
-            image = f'/static/word-images/{w["id"]}.png'
+            image = f'/static/word-images/{w["id"]}.svg'
             image_button = (
                 f'<button type="button" class="word-image-button" data-word-image="{image}" '
                 f'data-word-label="{strip_furigana(w["minihongo"])}" aria-label="{strip_html(open_label)}">'

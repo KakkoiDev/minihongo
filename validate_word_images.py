@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Validate the one-to-one mapping between core words and visual cues."""
+"""Validate the one-to-one mapping between core words and vector cues."""
 import csv
 import json
-import struct
 import sys
+import xml.etree.ElementTree as ET
 from pathlib import Path
 
 ROOT = Path(__file__).parent
@@ -12,12 +12,25 @@ MANIFEST = ROOT / 'data' / 'word_images.json'
 IMAGES = ROOT / 'site' / 'static' / 'word-images'
 
 
-def png_size(path):
-    with path.open('rb') as f:
-        header = f.read(24)
-    if len(header) != 24 or header[:8] != b'\x89PNG\r\n\x1a\n':
-        raise ValueError('not a PNG')
-    return struct.unpack('>II', header[16:24])
+def validate_svg(path):
+    """Return vector-format errors without requiring a browser renderer."""
+    errors = []
+    try:
+        root = ET.parse(path).getroot()
+    except ET.ParseError as exc:
+        return [f'invalid SVG XML: {exc}']
+    if root.tag.rsplit('}', 1)[-1] != 'svg':
+        errors.append('root element is not svg')
+    if root.get('width') != '128' or root.get('height') != '128':
+        errors.append('SVG must be 128x128')
+    tags = [node.tag.rsplit('}', 1)[-1] for node in root.iter()]
+    if 'image' in tags:
+        errors.append('SVG embeds a raster image')
+    if not any(tag in {'path', 'circle', 'ellipse', 'line', 'polyline', 'polygon', 'rect'} for tag in tags):
+        errors.append('SVG has no vector geometry')
+    if path.stat().st_size > 30_000:
+        errors.append('SVG exceeds 30 KB')
+    return errors
 
 
 def validate():
@@ -35,25 +48,19 @@ def validate():
         if word_id not in words:
             errors.append(f'{word_id}: not present in words.csv')
             continue
-        expected = f'icons/{word_id}.png'
+        expected = f'static/word-images/{word_id}.svg'
         if entry.get('icon') != expected:
             errors.append(f'{word_id}: manifest path must be {expected}')
         if entry.get('word') != words[word_id]['minihongo']:
             errors.append(f'{word_id}: Japanese label differs from words.csv')
-        image = IMAGES / f'{word_id}.png'
+        image = IMAGES / f'{word_id}.svg'
         if not image.is_file():
             errors.append(f'{word_id}: image missing')
             continue
-        try:
-            if png_size(image) != (128, 128):
-                errors.append(f'{word_id}: image must be 128x128')
-        except ValueError as exc:
-            errors.append(f'{word_id}: {exc}')
-        if image.stat().st_size > 100_000:
-            errors.append(f'{word_id}: image exceeds 100 KB')
+        errors.extend(f'{word_id}: {error}' for error in validate_svg(image))
     for word_id in sorted(set(words) - seen):
         errors.append(f'{word_id}: no manifest entry')
-    extras = {p.stem for p in IMAGES.glob('*.png')} - set(words)
+    extras = {p.stem for p in IMAGES.glob('*.svg')} - set(words)
     for word_id in sorted(extras):
         errors.append(f'{word_id}: image has no word')
     return errors
@@ -66,4 +73,4 @@ if __name__ == '__main__':
         for failure in failures:
             print(f'  {failure}', file=sys.stderr)
         sys.exit(1)
-    print('Word images valid: 231 mapped 128x128 PNG files')
+    print('Word images valid: 231 mapped, lightweight 128x128 vector files')
