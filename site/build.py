@@ -757,7 +757,7 @@ def _build_to(OUT, base_url):
         "'./'", "'static/style.css'", "'static/app.js'",
         "'static/kaiwa.js'", "'static/kaiwa-provider-anthropic.js'",
         "'static/kaiwa-provider-openai.js'", "'static/kaiwa-provider-deepseek.js'",
-        "'static/kaiwa-i18n.js'", "'static/key-share.js'", "'static/kaiwa-data.json'",
+        "'static/kaiwa-i18n.js'", "'static/key-share.js'", "'static/link-core.js'", "'static/kaiwa-data.json'",
         "'static/practice.js'", "'static/jp-core-review.js'", "'static/practice-data.json'",
     ]
     for f in sorted(OUT.rglob("*.html")):
